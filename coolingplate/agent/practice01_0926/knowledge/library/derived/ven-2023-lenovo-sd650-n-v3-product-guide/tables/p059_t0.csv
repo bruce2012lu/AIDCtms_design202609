@@ -1,0 +1,46 @@
+﻿Table 55. Secure Boot options,,,,,
+"Part
+number","Feature
+code",,Description,"Lenovo
+Top Choice
+Express",Purpose
+CTO only,B0MK,,"Enable TPM
+2.0",-,"Configure the system without Secure Boot enabled. Customers
+can enable Secure Boot later if desired."
+,,,,,
+"Tip: If Secure Boot is not enabled in the factory, it can be enabled later by the customer. However once
+Secure Boot is enabled, it cannot be disabled.",,,,,
+"Intel Transparent Supply Chain
+Add a layer of protection in your data center and have peace of mind that the server hardware you bring into
+it is safe authentic and with documented, testable, and provable origin.
+Lenovo has one of the world’s best supply chains, as ranked by Gartner Group, backed by extensive and
+mature supply chain security programs that exceed industry norms and US Government standards. Now we
+are the frist Tier 1 manufacturer to ofefr Intel® Transparent Supply Chain in partnership with Intel, ofefring
+you an unprecedented degree of supply chain transparency and assurance.
+To enable Intel Transparent Supply Chain for the Intel-based servers in your order, add the following feature
+code in the DCSC confgi urator, under the Security tab.
+Table 56. Intel Transparent Supply Chain ordering information",,,,,
+Feature code,,Description,,,
+BB0P,,Intel Transparent Supply Chain,,,
+"For more information on this ofefring, see the paper Introduction to Intel Transparent Supply Chain on Lenovo
+ThinkSystem Servers, available from https://lenovopress.com/lp1434-introduction-to-intel-transparent-
+supply-chain-on-thinksystem-servers.
+Security standards
+The SD650-N V3 supports the following security standards and capabilities:
+Industry Standard Security Capabilities
+Intel CPU Enablement
+AES-NI (Advanced Encryption Standard New Instructions)
+CBnT (Converged Boot Guard and Trusted Execution Technology)
+CET (Control fol w Enforcement Technology)
+Hardware-based side channel attack resilience enhancements
+MKTME/TME (Multi-Key Total Memory Encryption)
+SGX (Software Guard eXtensions)
+SGX-TEM (Trusted Environment Mode)
+TDX (Trust Domain Extensions)
+TXT (Trusted eXecution Technology)
+VT (Virtualization Technology)
+XD (eXecute Disable)
+Microsoft Windows Security Enablement
+Credential Guard
+Device Guard
+Host Guardian Service",,,,,

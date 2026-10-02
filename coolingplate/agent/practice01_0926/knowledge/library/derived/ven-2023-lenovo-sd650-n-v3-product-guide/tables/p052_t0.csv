@@ -1,0 +1,30 @@
+﻿"With XCC2 Platinum, for CTO orders, you can request that System Guard be enabled in the factory and the
+frist confgi uration snapshot be recorded. To add this to an order, select feature code listed in the following
+table. The selection is made in the Security tab of the DCSC confgi urator.
+Table 52. Enable System Guard in the factory (CTO orders)",,
+Feature code,Description,"Top Choice
+Express"
+BUT2,Install System Guard,-
+"For more information about System Guard, see https://pubs.lenovo.com/xcc2/NN1ia c systemguard
+_ _
+Remote management using the SMM
+The DW612S enclosure includes a System Management Module 2 (SMM), installed in the rear of the
+enclosure. See Enclosure rear view for the location of the SMM. The SMM provides remote management of
+both the enclosure and the individual servers installed in the enclosure. The SMM can be accessed through a
+web browser interface and via Intelligent Platform Management Interface (IPMI) 2.0 commands.
+The SMM provides the following functions:
+Remote connectivity to XCC controllers in each node in the enclosure
+Node-level reporting and control (for example, node virtual reseat/reset)
+Enclosure power management
+Enclosure thermal management
+Enclosure inventory
+The following fgi ure shows the LEDs and connectors of the SMM.
+Figure 19. System management module in the DW612S enclosure
+The SMM has the following ports and LEDs:
+2x Gigabit Ethernet RJ45 ports for remote management access
+USB port and activation button for service
+SMM reset button
+System error LED (yellow)
+Identifci ation (ID) LED (blue)
+Status LED (green)
+System power LED (green)",,

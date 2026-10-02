@@ -1,0 +1,19 @@
+﻿"LXEM is a licensed product. A single-node LXEM license is included with the XClarity Controller Platinum
+upgrade as described in the XCC2 Platinum section. If your server does not have the XCC Platinum upgrade,
+Energy Manager licenses can be ordered as shown in the following table.
+Table 54. Lenovo XClarity Energy Manager",
+Part number,Description
+4L40E51621,Lenovo XClarity Energy Manager Node License (1 license needed per server)
+"For more information about XClarity Energy Manager, see the following resources:
+Lenovo Support page:
+https://datacentersupport.lenovo.com/us/en/solutions/lnvo-lxem
+User Guide for XClarity Energy Manager:
+https://pubs.lenovo.com/lxem/
+Lenovo Capacity Planner
+Lenovo Capacity Planner is a power consumption evaluation tool that enhances data center planning by
+enabling IT administrators and pre-sales professionals to understand various power characteristics of racks,
+servers, and other devices. Capacity Planner can dynamically calculate the power consumption, current,
+British Thermal Unit (BTU), and volt-ampere (VA) rating at the rack level, improving the planning efcfi iency for
+large scale deployments.
+For more information, refer to the Capacity Planner web page:
+http://datacentersupport.lenovo.com/us/en/solutions/lnvo-lcp",

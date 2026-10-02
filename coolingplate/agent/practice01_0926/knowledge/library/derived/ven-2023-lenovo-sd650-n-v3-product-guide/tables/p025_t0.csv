@@ -1,0 +1,30 @@
+﻿"If a one-processor server with Intel On Demand features activated on it has a 2nd processor added as
+a fei ld upgrade, the 2nd processor must also have the same features activated by purchasing the
+appropriate part numbers.
+UEFI operating modes
+The SD650-N V3 ofefrs preset operating modes that afefct energy consumption and performance. These
+modes are a collection of predefni ed low-level UEFI settings that simplify the task of tuning the server to suit
+your business and workload requirements.
+The following table lists the feature codes that allow you to specify the mode you wish to preset in the factory
+for CTO orders.",,
+"UK and EU customers: For compliance with the ERP Lot9 regulation, you should select feature BFYE.
+For some systems, you may not be able to make a selection, in which case, it will be automatically
+derived by the confgi urator.",,
+Table 20. UEFI operating mode presets in DCSC,,
+Feature code,Description,Top Choice Express
+BFYB,"Operating mode selection for: ""Maximum Performance Mode""",-
+BFYC,"Operating mode selection for: ""Minimal Power Mode""",-
+BFYD,"Operating mode selection for: ""Efficiency Favoring Power Savings Mode""",-
+BFYE,"Operating mode selection for: ""Efficiency - Favoring Performance Mode""",-
+"The preset modes for the SD650-N V3 are as follows:
+Maximum Performance Mode (feature BFYB): Achieves maximum performance but with higher
+power consumption and lower energy efcfi iency.
+Minimal Power Mode (feature BFYC): Minimize the absolute power consumption of the system.
+Efcfi iency Favoring Power Savings Mode (feature BFYD): Maximize the performance/watt efcfi iency
+with a bias towards power savings. This is the favored mode for SPECpower benchmark testing, for
+example.
+Efcfi iency Favoring Performance Mode (feature BFYE): Maximize the performance/watt efcfi iency
+with a bias towards performance. This is the favored mode for Energy Star certifci ation, for example.
+For details about these preset modes, and all other performance and power efcfi iency UEFI settings ofefred
+in the SD650-N V3, see the paper ""Tuning UEFI Settings for Performance and Energy Efcfi iency on Intel Xeon
+Scalable Processor-Based ThinkSystem Servers"", available from https://lenovopress.lenovo.com/lp1477.",,

@@ -1,0 +1,43 @@
+﻿"GPU accelerators
+A key feature of the SD650-N V3 is the integration of a 4x SXM4 GPU complex on the left half of the server
+as shown in the Components and connectors section. The server supports four NVIDIA HGX H200 or H100
+GPU modules that are connected together using high-speed fourth-generation NVLink interconnects.
+The GPUs supported are listed in the following table.
+Table 23. GPU ordering information",,,,
+Feature code,Description,,,
+C3V2,ThinkSystem NVIDIA HGX H200 141GB 700W 4-GPU Board,,,
+BUBB,ThinkSystem NVIDIA H100 SXM5 700W 94G HBM2e GPU Board,,,
+BQQV,ThinkSystem NVIDIA H100 SXM5 700W 80G GPU Board,,,
+"The NVIDIA H200 and H100 Tensor Core GPUs deliver unprecedented performance, scalability and security
+to every data center and includes NVIDIA AI Enterprise software suite for streamlined AI development and
+deployment.
+Table 24. GPU specifci ations",,,,
+Specification,,H200,80GB H100,94GB H100
+Form Factor,,SXM,SXM,SXM
+FP64,,34 teraFLOPS,34 teraFLOPS,34 teraFLOPS
+FP64 Tensor Core,,67 teraFLOPS,67 teraFLOPS,67 teraFLOPS
+FP32,,67 teraFLOPS,67 teraFLOPS,67 teraFLOPS
+TF32 Tensor Core,,989 teraFLOPS*,989 teraFLOPS*,989 teraFLOPS*
+BFLOAT16 Tensor,,"1,979 teraFLOPS*","1,979 teraFLOPS*","1,979 teraFLOPS*"
+FP16 Tensor Core,,"1,979 teraFLOPS*","1,979 teraFLOPS*","1,979 teraFLOPS*"
+FP8 Tensor Core,,"3,958 teraFLOPS*","3,958 teraFLOPS*","3,958 teraFLOPS*"
+INT8 Tensor Core,,"3,958 TOPS*","3,958 TOPS*","3,958 TOPS*"
+GPU Memory,,141 GB HBM3e,80 GB HBM3,94GB HBM2e
+GPU Memory Bandwidth,,4.8 TB/s,3.35 TB/s,2.40 TB/s
+"Total Graphics Power (TGP)
+or Continuous Electrical
+Design Point (EDPc)",,700W,700W,700W
+Multi-Instance GPUs,,Up to 7 MIGS @ 10 GB,Up to 7 MIGS @ 10 GB,Up to 7 MIGS @ 10 GB
+Interconnect,,"NVLink: 900 GB/s, PCIe
+Gen5: 128 GB/s","NVLink: 900 GB/s, PCIe
+Gen5: 128 GB/s","NVLink: 900 GB/s, PCIe
+Gen5: 128 GB/s"
+"The NVIDIA H200 and H100 support granular power management by using the Total Graphics Power (TGP)
+setting. This setting determines what the maximum power each GPU can use, and in turn will dictate how
+many nodes can be installed in the enclosure and how hot the inlet water can be to properly cool all nodes.
+Lenovo supports pre-set TGP of 500W, 600W and 700W. With full 350W processor confgi uration and the
+GPUs at 700W up to 40°C system inlet water temperature can be supported based on 4 lpm fol w rate per
+tray. With the GPUs set to 600W, 45°C inlet water is supported. The supported trays per chassis are shown
+in the Power supplies section.
+The desired TGP setting is executed in the factory by specifying the matching feature code in the
+confgi urator. The following table lists the feature codes that can be selected.",,,,

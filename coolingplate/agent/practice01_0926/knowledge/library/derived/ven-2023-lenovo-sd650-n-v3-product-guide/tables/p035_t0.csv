@@ -1,0 +1,52 @@
+﻿Table 32. 15mm 2.5-inch trayless PCIe 5.0 NVMe SSDs,,,,
+Part number,"Feature
+code",Description,"SED
+support","Max
+Qty"
+4XB7A82609,BW8Q,"ThinkSystem 2.5"" 15mm U.3 PM1743 1.92TB Read Intensive NVMe PCIe
+5.0 x4 Trayless SSD",Support,1
+4XB7A82411,BW8R,"ThinkSystem 2.5"" 15mm U.3 PM1743 3.84TB Read Intensive NVMe PCIe
+5.0 x4 Trayless SSD",Support,1
+4XB7A88392,BW8S,"ThinkSystem 2.5"" 15mm U.3 PM1743 7.68TB Read Intensive NVMe PCIe
+5.0 x4 Trayless SSD",Support,1
+4XB7A88393,BW8T,"ThinkSystem 2.5"" 15mm U.3 PM1743 15.36TB Read Intensive NVMe PCIe
+5.0 x4 Trayless SSD",Support,1
+Table 33. 15mm 2.5-inch trayless PCIe 4.0 NVMe SSDs,,,,
+Part number,"Feature
+code",Description,"SED
+support","Max
+Qty"
+15mm 2.5-inch SSDs - U.2 PCIe 4.0 NVMe - Write Intensive/Performance (10+ DWPD),,,,
+4XB7A80500,BNUN,"ThinkSystem 2.5"" 15mm U.2 P5800X 3.2TB Write Intensive NVMe PCIe
+4.0 x4 Trayless SSD",No,1
+15mm 2.5-inch SSDs - U.2 PCIe 4.0 NVMe - Mixed Use/Mainstream (3-5 DWPD),,,,
+4XB7B09660,CBT9,"ThinkSystem 2.5"" 15mm VA 1.6TB Mixed Use NVMe PCIe 4.0 x4 Trayless
+SSD",Support,1
+4XB7B09661,CBTA,"ThinkSystem 2.5"" 15mm VA 3.2TB Mixed Use NVMe PCIe 4.0 x4 Trayless
+SSD",Support,1
+4XB7B09662,CBT2,"ThinkSystem 2.5"" 15mm VA 6.4TB Mixed Use NVMe PCIe 4.0 x4 Trayless
+SSD",Support,1
+4XB7B01887,C7P5,"ThinkSystem 2.5"" 15mm U.2 Solidigm P5620 1.6TB Mixed Use NVMe
+PCIe 4.0 x4 Trayless SSD",Support,1
+4XB7B01888,C7P6,"ThinkSystem 2.5"" 15mm U.2 Solidigm P5620 3.2TB Mixed Use NVMe
+PCIe 4.0 x4 Trayless SSD",Support,1
+4XB7A76781,BKT5,"ThinkSystem 2.5"" 15mm U.2 P5620 1.6TB Mixed Use NVMe PCIe 4.0 x4
+Trayless SSD",Support,1
+4XB7A76782,BKT6,"ThinkSystem 2.5"" 15mm U.2 P5620 3.2TB Mixed Use NVMe PCIe 4.0 x4
+Trayless SSD",Support,1
+4XB7A72437,BVGS,"ThinkSystem 2.5"" 15mm U.2 P5620 6.4TB Mixed Use NVMe PCIe 4.0 x4
+Trayless SSD",Support,1
+15mm 2.5-inch SSDs - U.2 PCIe 4.0 NVMe - Read Intensive/Entry (<3 DWPD),,,,
+4XB7B09657,CBT6,"ThinkSystem 2.5"" 15mm VA 1.92TB Read Intensive NVMe PCIe 4.0 x4
+Trayless SSD",Support,1
+4XB7B09658,CBT7,"ThinkSystem 2.5"" 15mm VA 3.84TB Read Intensive NVMe PCIe 4.0 x4
+Trayless SSD",Support,1
+4XB7B09659,CBT8,"ThinkSystem 2.5"" 15mm VA 7.68TB Read Intensive NVMe PCIe 4.0 x4
+Trayless SSD",Support,1
+4XB7B01876,C7P2,"ThinkSystem 2.5"" 15mm U.2 Solidigm P5520 1.92TB Read Intensive
+NVMe PCIe 4.0 x4 Trayless SSD",Support,1
+4XB7B01877,C7P3,"ThinkSystem 2.5"" 15mm U.2 Solidigm P5520 3.84TB Read Intensive
+NVMe PCIe 4.0 x4 Trayless SSD",Support,1
+4XB7A76780,BKT4,"ThinkSystem 2.5"" 15mm U.2 P5520 1.92TB Read Intensive NVMe PCIe
+4.0 x4 Trayless SSD",Support,1
+,,,,

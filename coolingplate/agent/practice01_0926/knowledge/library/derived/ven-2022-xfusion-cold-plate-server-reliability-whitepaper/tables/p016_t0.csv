@@ -1,0 +1,68 @@
+﻿,Equipment Room,,Cabinet,Node
+"Key
+component",CDU,"Secondary
+loop",Manifold,Cold plate
+"Sub
+component","Pump system, heat
+exchanger, monitoring
+system, refill tank,
+pipe connector","Pipes
+Valves","Tube body
+Quick connectors
+Clamps","Quick
+connectors
+Water blocks"
+"Failure
+mode","Leakage/blockage/corr
+osion/deformation/fract
+ure/overheating/short
+circuit","Leakage/blocka
+ge/corrosion/loo
+seness","Leakage/blockage/corrosion/
+overheating","Leakage/blocka
+ge/looseness/co
+rrosion"
+"Failure
+cause","Poor sealing of joints
+Defects in
+manufacturing
+Low nitrogen pressure
+Sensor failure
+Erosion corrosion
+External shock
+Environmental
+adaptability","Poor sealing
+of joints
+Pipes not
+thoroughly
+cleaned
+during
+construction
+Long-term
+erosion
+corrosion","Quick connector assembly
+defect
+Quick connectors with
+unqualified tolerance of size
+Insufficient compression of
+sealing materials for quick
+connectors
+Long-term poor elasticity of
+sealing materials
+Looseness caused by external
+shocks
+Long-term erosion corrosion
+Environmental adaptability","Residues in cold
+plate after cleaning
+Sealing ring not
+pressed
+Small pagoda
+head
+Insufficient
+pressure at
+welding positions
+Offset seal ring
+Poor consistency
+of shovel teeth
+Environmental
+adaptability"

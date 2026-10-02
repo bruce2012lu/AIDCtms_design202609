@@ -1,0 +1,49 @@
+﻿"Part
+number",,"Feature
+code",,License bundle,,,,,,"Accelerators and SGX Enclave enabled after the
+upgrade is applied (NC = No change)",,,,,,,,,,
+,,,,,,,,,,QAT,,DLB,,DSA,,IAA,,SGX Enclave,,
+4L47A89453,,BX9A,,"Intel On Demand Communications
+& Storage Suite 2 (CSS2)",,,,,,2,,2,,NC,,NC,,No change,,
+4L47A89454,,BX9B,,"Intel On Demand Analytics Suite 1
+(AS1)",,,,,,NC,,NC,,NC,,1,,No change,,
+4L47A89455,,BX9E,,"Intel On Demand SGX 512GB
+Enclave",,,,,,NC,,NC,,NC,,NC,,512 GB,,
+"The following table lists the 5th Gen processors that support Intel on Demand. The table shows the default
+accelerators and default SGX Enclave size, and it shows (with green highlight) what the total new
+accelerators and SGX Enclave would be once the Intel On Demand features have been activated.
+Table 18. Intel On Demand support by processor - 5th Gen processors",,,,,,,,,,,,,,,,,,,,
+"CPU
+model","Default accelerators and SGX
+Enclave",,,,,,Intel On Demand upgrades,,,,,,,,"New accelerator quantities and
+SGX Enclave after applying Intel
+On Demand",,,,,
+,QAT,DLB,DSA,,IAA,"SGX
+Enclv",BX9C,BX9D,BX9A,,BX9B,,BX9E,,"Green = additional
+accelerators/enclave added",,,,,
+,,,,,,,"CSS4
+(4xQAT,
+4xDLB,
+4xDSA)","AS4
+(4xDSA,
+4xIAA)","CSS2
+(2xQAT,
+2xDLB)",,"AS1
+(1xIAA)",,SGX512,,QAT,,DLB,DSA,IAA,"SGX
+Enclv"
+6526Y,0,0,1,,0,128GB,No,No,No,,Support,,Support,,0,,0,1,1,512GB
+6534,0,0,1,,0,128GB,No,No,No,,Support,,Support,,0,,0,1,1,512GB
+6542Y,0,0,1,,0,128GB,No,No,No,,Support,,Support,,0,,0,1,1,512GB
+6544Y,0,0,1,,0,128GB,No,No,No,,Support,,Support,,0,,0,1,1,512GB
+6548Y+,1,1,1,,1,128GB,No,No,Support,,No,,Support,,2,,2,1,1,512GB
+6558Q,0,0,1,,0,128GB,No,No,No,,Support,,Support,,0,,0,1,1,512GB
+8558,0,0,1,,0,512GB,No,Support,No,,No,,No,,0,,0,4,4,512GB
+8562Y+,1,1,1,,1,512GB,No,No,Support,,No,,No,,2,,2,1,1,512GB
+8568Y+,1,1,1,,1,512GB,Support,Support,No,,No,,No,,4,,4,4,4,512GB
+8570,0,0,1,,0,512GB,No,Support,No,,No,,No,,0,,0,4,4,512GB
+8580,0,0,1,,0,512GB,No,Support,No,,No,,No,,0,,0,4,4,512GB
+8592+,1,1,1,,1,512GB,Support,Support,No,,No,,No,,4,,4,4,4,512GB
+8593Q,1,1,1,,1,512GB,No,Support,No,,No,,No,,1,,1,4,4,512GB
+"The following table lists the 4th Gen processors that support Intel on Demand. The table shows the default
+accelerators and default SGX Enclave size, and it shows (with green highlight) what the total new
+accelerators and SGX Enclave would be once the Intel On Demand features have been activated.",,,,,,,,,,,,,,,,,,,,

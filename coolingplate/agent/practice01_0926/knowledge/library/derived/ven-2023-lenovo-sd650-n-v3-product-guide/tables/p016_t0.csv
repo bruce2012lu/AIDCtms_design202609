@@ -1,0 +1,30 @@
+﻿"In-rack CDU assembly
+The RM100 In-Rack Coolant Distribution Unit (CDU) can provide 100kW cooling capacity within the rack
+cabinet. It is designed as a 4U high rack device installed at the bottom of the rack. The CDU is supported in
+the 42U and 48U Heavy Duty Rack Cabinets.
+Rack support with the DW612S enclosure is as follows:
+42U rack cabinet: In-Rack CDU with 5 enclosures; no support for water-cooled power supplies
+48U rack cabinet: In-Rack CDU with 6 enclosures; supports water-cooled power supplies
+For information about the 42U and 48U Heavy Duty Rack Cabinets, see the product guide:
+https://lenovopress.lenovo.com/lp1498-lenovo-heavy-duty-rack-cabinets
+The following fgi ure shows the RM100 CDU.
+Figure 9. RM100 In-Rack Coolant Distribution Unit
+The CDU can be ordered using the CTO process in the confgi urators using machine type 7DBL. The
+following table lists the base CTO model and base feature code.
+Table 8. RM100 ordering information",,,
+CTO model,Base feature,Description,
+7DBLCTOLWW,BRL4,Lenovo Neptune DWC RM100 In-Rack CDU,
+"For details and exact specifci ation of the CDU, see the In-Rack CDU Operation & Maintenance Guide:
+https://pubs.lenovo.com/hdc rackcabinet/rm100 user guide.pdf
+_ _ _",,,
+"Professional Services: The factory integration of the In-Rack CDU requires Lenovo Professional Services
+review and approval for warranty and associated extended services. Before ordering CDU and manifold,
+contact the Lenovo Professional Services team (CDUsupport@lenovo.com ).",,,
+"The following table lists additional feature codes for CTO confgi urations. They will be auto-derived when you
+select the in-Rack CDU for the confgi uration.
+Table 9. Base feature code for CTO models",,,
+Feature code,Description,,Purpose
+BRM4,"Neptune DWC In-Rack CDU Connection
+Assembly for DWC Manifold",,"Assembly to connect in-rack CDUs to Enclosure
+and Power Supply Manifolds"
+,,,

@@ -1,0 +1,95 @@
+[
+  {
+    "file": "tables/p009_t0.csv",
+    "page": 9,
+    "rows": 13,
+    "cols": 14,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p012_t0.csv",
+    "page": 12,
+    "rows": 3,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p016_t0.csv",
+    "page": 16,
+    "rows": 5,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 1 Common key components and their failure modes"
+    ]
+  },
+  {
+    "file": "tables/p018_t0.csv",
+    "page": 18,
+    "rows": 10,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 2 Leakage prevention function test"
+    ]
+  },
+  {
+    "file": "tables/p019_t0.csv",
+    "page": 19,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 3 Blockage prevention function test",
+      "Table 4 Corrosion resistance test"
+    ]
+  },
+  {
+    "file": "tables/p019_t1.csv",
+    "page": 19,
+    "rows": 5,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 3 Blockage prevention function test",
+      "Table 4 Corrosion resistance test"
+    ]
+  },
+  {
+    "file": "tables/p020_t0.csv",
+    "page": 20,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 5 Mechanical stress reliability test"
+    ]
+  },
+  {
+    "file": "tables/p020_t1.csv",
+    "page": 20,
+    "rows": 10,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 5 Mechanical stress reliability test"
+    ]
+  },
+  {
+    "file": "tables/p021_t0.csv",
+    "page": 21,
+    "rows": 19,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p022_t0.csv",
+    "page": 22,
+    "rows": 19,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 6 Environment reliability test"
+    ]
+  },
+  {
+    "file": "tables/p023_t0.csv",
+    "page": 23,
+    "rows": 5,
+    "cols": 5,
+    "captions_on_page": []
+  }
+]

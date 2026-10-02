@@ -1,0 +1,180 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 1212,
+    "h": 628,
+    "captions_on_page": [
+      "Figure 1. The ThinkSystem SD650-N V3 server tray with two processors and four NVIDIA H200 SXM5 GPUs"
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 1187,
+    "h": 478,
+    "captions_on_page": [
+      "Figure 2. Front view of the ThinkSystem SD650-N V3 node",
+      "Figure 3. Inside view of the SD650-N V3 node in the water-cooled tray"
+    ]
+  },
+  {
+    "file": "figures/p006_i1.jpg",
+    "page": 6,
+    "w": 1216,
+    "h": 900,
+    "captions_on_page": [
+      "Figure 2. Front view of the ThinkSystem SD650-N V3 node",
+      "Figure 3. Inside view of the SD650-N V3 node in the water-cooled tray"
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 1198,
+    "h": 514,
+    "captions_on_page": [
+      "Figure 4. Front view of the DW612S enclosure",
+      "Figure 5. Rear view of the DW612S enclosure with 6 air-cooled power supplies"
+    ]
+  },
+  {
+    "file": "figures/p007_i1.jpg",
+    "page": 7,
+    "w": 1158,
+    "h": 795,
+    "captions_on_page": [
+      "Figure 4. Front view of the DW612S enclosure",
+      "Figure 5. Rear view of the DW612S enclosure with 6 air-cooled power supplies"
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 1199,
+    "h": 762,
+    "captions_on_page": [
+      "Figure 6. Rear view of the DW612S enclosure with 3 water-cooled power supplies"
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 1224,
+    "h": 810,
+    "captions_on_page": [
+      "Figure 7. SD650-N V3 system architectural block diagram"
+    ]
+  },
+  {
+    "file": "figures/p014_i0.jpg",
+    "page": 14,
+    "w": 1230,
+    "h": 651,
+    "captions_on_page": [
+      "Figure 8. DW612S enclosure and manifold assembly"
+    ]
+  },
+  {
+    "file": "figures/p016_i0.jpg",
+    "page": 16,
+    "w": 1056,
+    "h": 406,
+    "captions_on_page": [
+      "Figure 9. RM100 In-Rack Coolant Distribution Unit"
+    ]
+  },
+  {
+    "file": "figures/p032_i0.jpg",
+    "page": 32,
+    "w": 1203,
+    "h": 734,
+    "captions_on_page": [
+      "Figure 10. Components and location of the M.2 enablement kit"
+    ]
+  },
+  {
+    "file": "figures/p037_i0.jpg",
+    "page": 37,
+    "w": 1086,
+    "h": 370,
+    "captions_on_page": [
+      "Figure 11. SD650-N V3 networking"
+    ]
+  },
+  {
+    "file": "figures/p039_i0.jpg",
+    "page": 39,
+    "w": 983,
+    "h": 536,
+    "captions_on_page": [
+      "Figure 12. GPU Direct connectivity in the SD650-N V3"
+    ]
+  },
+  {
+    "file": "figures/p042_i1.jpg",
+    "page": 42,
+    "w": 1148,
+    "h": 718,
+    "captions_on_page": [
+      "Figure 13. DW612S enclosure and manifold assembly",
+      "Figure 14. DW612S enclosure with water-cooled power supplies and manifold"
+    ]
+  },
+  {
+    "file": "figures/p045_i0.jpg",
+    "page": 45,
+    "w": 1062,
+    "h": 751,
+    "captions_on_page": [
+      "Figure 15. Power supplies and cages in the DW612S enclosure (shown with 9 air-cooled power supplies)",
+      "Figure 16. Power supplies and cages in the DW612S enclosure (shown with 3 water-cooled power supplies)"
+    ]
+  },
+  {
+    "file": "figures/p045_i1.jpg",
+    "page": 45,
+    "w": 1059,
+    "h": 750,
+    "captions_on_page": [
+      "Figure 15. Power supplies and cages in the DW612S enclosure (shown with 9 air-cooled power supplies)",
+      "Figure 16. Power supplies and cages in the DW612S enclosure (shown with 3 water-cooled power supplies)"
+    ]
+  },
+  {
+    "file": "figures/p048_i0.jpg",
+    "page": 48,
+    "w": 1044,
+    "h": 684,
+    "captions_on_page": [
+      "Figure 17. Console breakout cable"
+    ]
+  },
+  {
+    "file": "figures/p049_i0.jpg",
+    "page": 49,
+    "w": 1036,
+    "h": 666,
+    "captions_on_page": [
+      "Figure 18. SD650-N V3 External Diagnostics Handset"
+    ]
+  },
+  {
+    "file": "figures/p052_i0.jpg",
+    "page": 52,
+    "w": 1095,
+    "h": 567,
+    "captions_on_page": [
+      "Figure 19. System management module in the DW612S enclosure"
+    ]
+  },
+  {
+    "file": "figures/p063_i0.jpg",
+    "page": 63,
+    "w": 919,
+    "h": 942,
+    "captions_on_page": [
+      "Figure 20. Enclosure dimensions"
+    ]
+  }
+]

@@ -1,0 +1,37 @@
+﻿"Internal storage
+The SD650-N V3 node supports one or two SSDs drives internally in the node. These are internal drives that
+are not front accessible and are not hot-swap. See the Components and connectors section for the location
+of the drives.
+The SD650-N V3 supports either:
+2x E3.S 1T drives
+2x 2.5-inch 7mm drives
+1x 2.5-inch 15mm drive
+Confgi uration notes:
+The node only supports NVMe drives; SATA and SAS drives are not supported
+The drives are connected to onboard controllers; RAID functionality is provided by the operating
+system (VROC). Details are in the Intel VROC onboard RAID section.
+NVMe drives are connected to CPU 1 in all confgi urations
+When 2x 7mm or 2x E3.S drives are installed in a node, they are numbered drive 2 (bottom) and 3
+(top). When 1x 15mm drive is installed, it is numbered 2.
+In addition, the SD650-N V3 node a single high-performance M.2 NVMe drive, installed in an adapter
+mounted on top of the front processor. For details, see the M.2 drive section.
+The feature codes to select the appropriate storage cage are listed in the following table:
+Table 26. Drive cage feature codes",,
+Part number,Feature code,Description
+CTO only,BY1F,"ThinkSystem SD650, SD650-I, SD650-N V3 1x2.5"" 15mm NVMe Storage Cage (for
+U.2 drives)"
+CTO only,BY1H,"ThinkSystem SD650, SD650-I, SD650-N V3 1x2.5"" 7mm NVMe Storage Cage (for
+U.2 drives)"
+CTO only,BY1G,"ThinkSystem SD650, SD650-I, SD650-N V3 2x2.5"" 7mm NVMe Storage Cage (for
+U.2 drives)"
+CTO only,BZ4P,"ThinkSystem SD650, SD650-I, SD650-N V3 2x E3.S 1T Storage Cage"
+"The necessary storage cables are auto-derived by the confgi urator.
+To upgrade systems installed in the fei ld with storage options, there are separate kits available that contain
+both the cage and the necessary cables. The option part numbers of the upgrade kits are listed in the
+following table.
+Table 27. Drive cage fei ld upgrades",,
+Part number,Part number,Description
+4XF7A80355,BUB8,"ThinkSystem SD650, SD650-I, SD650-N V3 7mm Storage Option Upgrade Kit"
+4XF7A91150,BZ2Z,"ThinkSystem SD650, SD650-I, SD650-N V3 15mm Storage Option Upgrade Kit"
+4XF7A86674,BZ2Y,"ThinkSystem SD650, SD650-I, SD650-N V3 E3.S 1T Storage Option Upgrade Kit"
+,,

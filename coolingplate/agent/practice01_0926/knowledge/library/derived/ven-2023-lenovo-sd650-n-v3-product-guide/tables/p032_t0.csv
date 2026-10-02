@@ -1,0 +1,25 @@
+﻿"M.2 drive
+The SD650-N V3 supports one M.2 form-factor NVMe drive for use as an operating system boot solution.
+The M.2 drive installs into an M.2 adapter which is mounted on top of the front processor in the node. See
+the internal view of the node in the Components and connectors section for the location of the M.2 drive.",,,
+"PCIe x4 interface: In the SD650-N V3, the M.2 drive is connected to the processor using a PCIe x4
+connection, which enables the M.2 drive to operate at the highest performance.",,,
+"Figure 10. Components and location of the M.2 enablement kit
+The ordering information of the M.2 adapter is listed in the following table. Supported drives are listed in the
+Internal drive options section.
+Table 28. M.2 adapter",,,
+Part number,Feature code,Description,"Maximum
+supported"
+4XF7A86676,BKTF,"ThinkSystem SD650, SD650-I, SD650-N V3 DWC M.2 Enablement
+option upgrade kit",
+,,,
+"Note: In the SD650-N V3, the M.2 adapter only supports NVMe drives. SATA M.2 drives are not
+supported",,,
+"The M.2 enablement kit has the following features:
+Supports one NVMe M.2 drive
+Supports 80mm and 110mm drive form factors (2280 and 22110)
+PCIe 4.0 x4 NVMe interface to the drive
+Connects to CPU 1 via onboard NVMe connector
+Supports monitoring and reporting of events and temperature through I2C
+Firmware update via Lenovo frimware update tools
+Water-cooled via the attached cold plate",,,

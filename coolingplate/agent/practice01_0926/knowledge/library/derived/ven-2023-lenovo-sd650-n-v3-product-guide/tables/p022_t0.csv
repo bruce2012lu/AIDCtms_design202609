@@ -1,0 +1,58 @@
+﻿Table 16. Intel Xeon CPU Max Series features,,,,,,,,,,,,,,,,,,
+"CPU
+model","Cores/
+threads",,"Core speed
+(Base /
+TB max†)",,L3 cache*,"Max
+memory
+speed","UPI 2.0
+links &
+speed",,"PCIe
+lanes",TDP,,Accelerators,,,,,,"SGX
+Enclave
+Size"
+,,,,,,,,,,,,QAT,,DLB,DSA,,IAA,
+Intel Xeon Max Series processors with integrated 64GB HBM,,,,,,,,,,,,,,,,,,
+9462,32 / 64,,2.7 / 3.1 GHz,,75 MB*,4800 MHz,3 / 16 GT/s,,80,350W,,0,,0,4,,0,128GB
+9460,40 / 80,,2.2 / 2.7 GHz,,97.5 MB*,4800 MHz,3 / 16 GT/s,,80,350W,,0,,0,4,,0,128GB
+9468,48 / 96,,2.1 / 2.6 GHz,,105 MB*,4800 MHz,4 / 16 GT/s,,80,350W,,0,,0,4,,0,512GB
+9470,52 / 104,,2.0 / 2.7 GHz,,105 MB*,4800 MHz,4 / 16 GT/s,,80,350W,,0,,0,4,,0,512GB
+9480,56 / 112,,1.9 / 2.6 GHz,,112.5 MB*,4800 MHz,4 / 16 GT/s,,80,350W,,0,,0,4,,0,512GB
+"† The maximum single-core frequency at with the processor is capable of operating
+* L3 cache is 1.875 MB per core or larger. Processors with a larger L3 cache per core are marked with an *
+Intel On Demand feature licensing
+Intel On Demand is a licensing ofefring from Lenovo for certain 4th Gen and 5th Gen Intel Xeon Scalable
+processors that implements software-defni ed silicon (SDSi) features. The licenses allow customers to
+activate the embedded accelerators and to increase the SGX Enclave size in specifci processor models as
+their workload and business needs change.
+The available upgrades are the following:
+Up to 4x QuickAssist Technology (Intel QAT) accelerators
+Up to 4x Intel Dynamic Load Balancer (Intel DLB) accelerators
+Up to 4x Intel Data Streaming Accelerator (Intel DSA) accelerators
+Up to 4x Intel In-Memory Analytics Accelerator (Intel IAA) accelerators
+512GB SGX Enclave, an encrypted memory space for use by Intel Software Guard Extensions (SGX)
+See the Processor features section for a brief description of each accelerator and the SGX Enclave.
+The following table lists the ordering information for the licenses. Accelerator licenses are bundled together
+based on the suitable workloads each would benefti with the additional accelerators.
+Licenses can be activated in the factory (CTO orders) using feature codes, or as fei ld upgrades using the
+option part numbers. With the fei ld upgrades, they allow customers to only activate the accelerators or to
+increase the SGX Enclave size when their applications can best take advantage of them.
+Intel On Demand is licensed on individual processors. For servers with two processors, customers will need
+a license for each processor and the licenses of the two processors must match. If customers add a second
+processor as a fei ld upgrade, then you must ensure that the Intel On Demand licenses match the frist
+processor.
+Each license enables a certain quantity of embedded accelerators - the total number of accelerators
+available after activation is listed in the table. For example, Intel On Demand Communications & Storage
+Suite 4 (4L47A89451), once applied to the server, will result in a total of 4x QAT, 4x DLB and 4x DSA
+accelerators to be enabled the processor. The number of IAA accelerators is unchanged in this example.
+Table 17. Ordering information for Intel on Demand",,,,,,,,,,,,,,,,,,
+"Part
+number",,"Feature
+code",,License bundle,,,,"Accelerators and SGX Enclave enabled after the
+upgrade is applied (NC = No change)",,,,,,,,,,
+,,,,,,,,QAT,DLB,,DSA,,IAA,,,SGX Enclave,,
+4L47A89451,,BX9C,,"Intel On Demand Communications
+& Storage Suite 4 (CSS4)",,,,4,4,,4,,NC,,,No change,,
+4L47A89452,,BX9D,,"Intel On Demand Analytics Suite 4
+(AS4)",,,,NC,NC,,4,,4,,,No change,,
+,,,,,,,,,,,,,,,,,,

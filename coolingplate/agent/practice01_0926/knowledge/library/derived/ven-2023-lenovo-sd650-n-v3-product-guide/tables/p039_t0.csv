@@ -1,0 +1,32 @@
+﻿"OSFP800 ports
+The SD650-N V3 includes an I/O mezzanine board containing four NVIDIA ConnectX-7 VPI network
+controllers. The board is automatically included in the order.
+Table 37. Networking mezzanine board",,,,,,,,
+Part number,,Feature code,,Description,,,,
+CTO only,,BQQU,,ThinkSystem NVIDIA ConnectX-7 4-chip VPI PCIe Gen5 Mezz Controller,,,,
+"The mezzanine board has two connectors where an OSFP board is attached via cables as shown in the
+following fgi ure. The server makes use of OSFP-DD (double-density) connections to double the bandwidth
+from 400 Gb/s to 800 Gb/s per physical port.
+Figure 12. GPU Direct connectivity in the SD650-N V3
+The SD650-N V3 supports OSFP boards with either two double-400 Gb/s interfaces or two 400 Gb/s
+interfaces, resulting in full NDR Infni iBand or NDR200 Infni iBand bandwidth per GPU. The choices areas
+listed in the following table.
+Table 38. OSFP interfaces",,,,,,,,
+"Part
+number","Feature
+code",,Description,,"Max
+Qty","Bandwidth
+per cage","Supported
+transceivers",
+CTO only,BRK8,,"ThinkSystem SD665-N, SD650-N V3 4x NDR InfiniBand
+Interface (contains 2 cages)",,1,"2x400
+Gb/s",BQMJ,
+CTO only,BRK9,,"ThinkSystem SD665-N, SD650-N V3 4x NDR200 InfiniBand
+Interface (contains 2 cages)",,1,400 Gb/s,None,
+"The following table lists the transceiver supported by ThinkSystem SD665-N, SD650-N V3 4x NDR Infni iBand
+Interface (BRK8).
+Table 39. Transceivers for OSFP cages",,,,,,,,
+Part number,,"Feature
+code",,Description,,,,Max Qty
+4TC7A83365,,BQMJ,,ThinkSystem NDRx2 OSFP800 IB Multi Mode Twin-Transceiver Flat Top,,,,2
+,,,,,,,,

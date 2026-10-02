@@ -1,0 +1,37 @@
+﻿"Limitations based on GPU power requirements
+The following table shows the power limits based on the confgi ured Peak EDP (EDPp) setting for a high-end
+dual-socket confgi uration (2x Intel Xeon Platinum 8480+ processors, NVIDIA H100 SXM5 700W 94G HBM2e
+GPU Board, 16x 32GB memory).
+Table 44. Number of trays supported based on GPU EDPp and available power (2x processors)",,,,,,,
+Description,,"Feature
+code",,"CPU max
+TDP","Power
+consumption
+per tray","3x 6900W output (3x
+DWC power supplies
+at 208V supply)","3x 7200W / 9x 2600W
+output (230V supply)"
+Maximum available chassis power:,,,,,,"18,400W DC","20,800W DC"
+"700W GPU Maximum
+Performance Mode",,BS3P,,350W,3845 W,4 trays,4 trays
+,,,,225W,3595 W,5 trays,5 trays
+"600W GPU Performance
+Optimized Mode",,BS3Q,,350W,3462 W,5 trays,5 trays
+"500W GPU Power
+Efficiency Optimized Mode",,BS3R,,350W,3079 W,6 trays,6 trays
+"Power cables
+The power supplies in the DW612S enclosure have C19 connectors and support the following rack power
+cables.
+Table 45. C19 rack power cables",,,,,,,
+Part number,Feature code,,Description,,,,
+4L67A86677,BPJ0,,"0.5m, 16A/100-250V, C19 to C20 Jumper Cord",,,,
+4L67A86678,B4L0,,"1.0m, 16A/100-250V, C19 to C20 Jumper Cord",,,,
+4L67A86679,B4L1,,"1.5m, 16A/100-250V, C19 to C20 Jumper Cord",,,,
+4L67A86680,B4L2,,"2.0m, 16A/100-250V, C19 to C20 Jumper Cord",,,,
+39Y7916,6252,,"2.5m, 16A/100-240V, C19 to IEC 320-C20 Rack Power Cable",,,,
+4L67A86681,B4L3,,"4.3m, 16A/100-250V, C19 to C20 Jumper Cord",,,,
+"For the HVAC power supply, the rack power cable listed in the following table is supported.
+Table 46. DW612S power cords",,,,,,,
+Part number,Feature code,,Description,,,,
+4L67B01016,C63P,,"1M, 15A/200-277V HVAC, RF203 to Anderson 2316G Jumper Cord",,,,
+,,,,,,,

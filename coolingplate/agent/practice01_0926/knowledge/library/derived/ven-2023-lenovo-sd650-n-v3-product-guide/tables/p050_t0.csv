@@ -1,0 +1,37 @@
+﻿Table 48. External Diagnostics Handset ordering information,,
+Part number,Feature code,Description
+4TA7A64874,1410 BEUX,ThinkSystem External Diagnostics Handset
+"System status with XClarity One Mobile
+The XClarity One Mobile app includes a tethering function where you can connect your Android or iOS device
+to the server via USB to see the status of the server.
+Download the XClarity One Mobile app from these sites:
+Google Play Store
+Apple App Store
+The steps to connect the mobile device to the server are as follows:
+1. Enable USB Management on the server, by holding down the ID button for 3 seconds (or pressing the
+dedicated USB management button if one is present)
+2. Connect the mobile device via a USB cable to the server's USB port with the management symbol
+3. In iOS or Android settings, enable Personal Hotspot or USB Tethering
+4. Launch the Lenovo XClarity Mobile app
+Once connected you can see the following information:
+Server status including error logs (read only, no login required)
+Server management functions (XClarity login credentials required)
+Remote management
+The 1Gb onboard port and one of the 25Gb onboard ports (port 1) on the front of the SD650-N V3 ofefr a
+connection to the XCC for remote management. This shared-NIC functionality allows the ports to be used
+both for operating system networking and for remote management.
+Remote server management is provided through industry-standard interfaces:
+Intelligent Platform Management Interface (IPMI) Version 2.0
+Simple Network Management Protocol (SNMP) Version 3 (no SET commands; no SNMP v1)
+Common Information Model (CIM-XML)
+Representational State Transfer (REST) support
+Redfsih support (DMTF compliant)
+Web browser - HTML 5-based browser interface (Java and ActiveX not required) using a responsive
+design (content optimized for device being used - laptop, tablet, phone) with NLS support
+The 1Gb port and 25Gb Port 1 support NC-SI. You can enable NC-SI in the factory using the feature codes
+listed in the following table. If neither feature code is selected, both ports will have NC-SI disabled.
+Table 49. Enabling NC-SI on the embedded network ports",,
+Feature code,Description,
+BEXY,ThinkSystem NC-SI enabled on SFP28 Port (Port 1),
+BEXZ,ThinkSystem NC-SI enabled on RJ45 Port,
+,,

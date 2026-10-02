@@ -1,0 +1,34 @@
+﻿"Physical and electrical specifications
+Six SD650-N V3 server trays are installed in the DW612S enclosure. Each SD650-N V3 tray has the following
+dimensions:
+Width: 438 mm (17.2 inches)
+Height: 41 mm (1.6 inches)
+Depth: 714 mm (28.1 inches) (769 mm, including the water connections at the rear of the server)
+The DW612S enclosure has the following overall physical dimensions, excluding components that extend
+outside the standard chassis, such as EIA fal nges and power supply handles:
+Width: 447 mm (17.6 inches)
+Height: 264 mm (10.4 inches)
+Depth: 933 mm (36.7 inches)
+The following table lists the detailed dimensions. See the fgi ure below for the defni ition of each dimension.
+Table 57. Detailed dimensions",
+Dimension,Description
+483 mm,"X = Width, to the outsides of the front EIA flanges
+a"
+447 mm,"X = Width, to the rack rail mating surfaces
+b"
+447 mm,"X = Width, to the outer most chassis body feature
+c"
+264 mm,"Y = Height, from the bottom of chassis to the top of the chassis
+a"
+916 mm,"Z = Depth, from the rack flange mating surface to the rearmost I/O port surface
+a"
+916 mm,"Z = Depth, from the rack flange mating surface to the rearmost feature of the chassis body
+b"
+972 mm,"Z = Depth, from the rack flange mating surface to the rearmost feature such as power supply handle
+c"
+17 mm,"Z = Depth, from the forwardmost feature on front of EIA flange to the rack flange mating surface
+d"
+17 mm,"Z = Depth, from the front of security bezel (if applicable) or forwardmost feature to the rack flange mating
+e
+surface"
+,

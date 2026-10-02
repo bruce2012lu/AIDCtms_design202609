@@ -1,0 +1,371 @@
+[
+  {
+    "file": "tables/p010_t0.csv",
+    "page": 10,
+    "rows": 20,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 1. Standard specifications - SD650-N V3 tray"
+    ]
+  },
+  {
+    "file": "tables/p011_t0.csv",
+    "page": 11,
+    "rows": 10,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p012_t0.csv",
+    "page": 12,
+    "rows": 16,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 2. Standard specifications: ThinkSystem DW612S enclosure"
+    ]
+  },
+  {
+    "file": "tables/p013_t0.csv",
+    "page": 13,
+    "rows": 11,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 3. Base CTO model"
+    ]
+  },
+  {
+    "file": "tables/p014_t0.csv",
+    "page": 14,
+    "rows": 17,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 4. Base CTO model - Water manifold",
+      "Table 5. Base feature code for water manifolds"
+    ]
+  },
+  {
+    "file": "tables/p015_t0.csv",
+    "page": 15,
+    "rows": 17,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 6. Base feature code for water manifolds with in-rack CDU",
+      "Table 7. Commissioning Kit field upgrade"
+    ]
+  },
+  {
+    "file": "tables/p016_t0.csv",
+    "page": 16,
+    "rows": 9,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 8. RM100 ordering information",
+      "Table 9. Base feature code for CTO models"
+    ]
+  },
+  {
+    "file": "tables/p017_t0.csv",
+    "page": 17,
+    "rows": 6,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p018_t0.csv",
+    "page": 18,
+    "rows": 29,
+    "cols": 9,
+    "captions_on_page": [
+      "Table 10. 5th Gen Intel Xeon Processor support",
+      "Table 11. 4th Gen Intel Xeon Processor support"
+    ]
+  },
+  {
+    "file": "tables/p019_t0.csv",
+    "page": 19,
+    "rows": 25,
+    "cols": 9,
+    "captions_on_page": [
+      "Table 12. HBM mode feature codes",
+      "Table 13. Intel Xeon CPU Max Series processor support"
+    ]
+  },
+  {
+    "file": "tables/p021_t0.csv",
+    "page": 21,
+    "rows": 38,
+    "cols": 14,
+    "captions_on_page": [
+      "Table 14. 5th Gen Intel Xeon Processor features",
+      "Table 15. 4th Gen Intel Xeon Processor features"
+    ]
+  },
+  {
+    "file": "tables/p022_t0.csv",
+    "page": 22,
+    "rows": 15,
+    "cols": 19,
+    "captions_on_page": [
+      "Table 16. Intel Xeon CPU Max Series features",
+      "Table 17. Ordering information for Intel on Demand"
+    ]
+  },
+  {
+    "file": "tables/p023_t0.csv",
+    "page": 23,
+    "rows": 23,
+    "cols": 21,
+    "captions_on_page": [
+      "Table 18. Intel On Demand support by processor - 5th Gen processors"
+    ]
+  },
+  {
+    "file": "tables/p024_t0.csv",
+    "page": 24,
+    "rows": 21,
+    "cols": 16,
+    "captions_on_page": [
+      "Table 19. Intel On Demand support by processor - 4th Gen processors"
+    ]
+  },
+  {
+    "file": "tables/p025_t0.csv",
+    "page": 25,
+    "rows": 9,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 20. UEFI operating mode presets in DCSC"
+    ]
+  },
+  {
+    "file": "tables/p026_t0.csv",
+    "page": 26,
+    "rows": 21,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 21. 5600 MHz memory options",
+      "Table 22. 4800 MHz memory options"
+    ]
+  },
+  {
+    "file": "tables/p029_t0.csv",
+    "page": 29,
+    "rows": 22,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 23. GPU ordering information",
+      "Table 24. GPU specifications"
+    ]
+  },
+  {
+    "file": "tables/p030_t0.csv",
+    "page": 30,
+    "rows": 8,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 25. Feature codes for TGP setting"
+    ]
+  },
+  {
+    "file": "tables/p031_t0.csv",
+    "page": 31,
+    "rows": 12,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 26. Drive cage feature codes",
+      "Table 27. Drive cage field upgrades"
+    ]
+  },
+  {
+    "file": "tables/p032_t0.csv",
+    "page": 32,
+    "rows": 8,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 28. M.2 adapter"
+    ]
+  },
+  {
+    "file": "tables/p033_t0.csv",
+    "page": 33,
+    "rows": 7,
+    "cols": 10,
+    "captions_on_page": [
+      "Table 29. Intel VROC NVMe RAID ordering information and feature support"
+    ]
+  },
+  {
+    "file": "tables/p034_t0.csv",
+    "page": 34,
+    "rows": 20,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 30. E3.S EDSFF trayless PCIe 5.0 NVMe SSDs",
+      "Table 31. 7mm 2.5-inch trayless PCIe 4.0 NVMe SSDs"
+    ]
+  },
+  {
+    "file": "tables/p035_t0.csv",
+    "page": 35,
+    "rows": 27,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 32. 15mm 2.5-inch trayless PCIe 5.0 NVMe SSDs",
+      "Table 33. 15mm 2.5-inch trayless PCIe 4.0 NVMe SSDs"
+    ]
+  },
+  {
+    "file": "tables/p036_t0.csv",
+    "page": 36,
+    "rows": 14,
+    "cols": 8,
+    "captions_on_page": [
+      "Table 34. M.2 PCIe 4.0 NVMe drives",
+      "Table 35. External optical drive"
+    ]
+  },
+  {
+    "file": "tables/p037_t0.csv",
+    "page": 37,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 36. Riser ordering information"
+    ]
+  },
+  {
+    "file": "tables/p039_t0.csv",
+    "page": 39,
+    "rows": 11,
+    "cols": 9,
+    "captions_on_page": [
+      "Table 37. Networking mezzanine board",
+      "Table 38. OSFP interfaces",
+      "Table 39. Transceivers for OSFP cages"
+    ]
+  },
+  {
+    "file": "tables/p040_t0.csv",
+    "page": 40,
+    "rows": 21,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 40. Cables for ThinkSystem SD665-N, SD650-N V3 4x NDR InfiniBand Interface, BRK8",
+      "Table 41. Cables for ThinkSystem SD665-N, SD650-N V3 4x NDR200 InfiniBand Interface, BRK9"
+    ]
+  },
+  {
+    "file": "tables/p046_t0.csv",
+    "page": 46,
+    "rows": 14,
+    "cols": 12,
+    "captions_on_page": [
+      "Table 42. Power supply options",
+      "Table 43. Power availability based on the voltage of the supply"
+    ]
+  },
+  {
+    "file": "tables/p047_t0.csv",
+    "page": 47,
+    "rows": 19,
+    "cols": 8,
+    "captions_on_page": [
+      "Table 44. Number of trays supported based on GPU EDPp and available power (2x processors)",
+      "Table 45. C19 rack power cables",
+      "Table 46. DW612S power cords"
+    ]
+  },
+  {
+    "file": "tables/p049_t0.csv",
+    "page": 49,
+    "rows": 5,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 47. Console breakout cable ordering information"
+    ]
+  },
+  {
+    "file": "tables/p050_t0.csv",
+    "page": 50,
+    "rows": 8,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 48. External Diagnostics Handset ordering information",
+      "Table 49. Enabling NC-SI on the embedded network ports"
+    ]
+  },
+  {
+    "file": "tables/p051_t0.csv",
+    "page": 51,
+    "rows": 8,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 50. IPMI-over-LAN settings",
+      "Table 51. XCC2 Platinum license upgrade"
+    ]
+  },
+  {
+    "file": "tables/p052_t0.csv",
+    "page": 52,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 52. Enable System Guard in the factory (CTO orders)"
+    ]
+  },
+  {
+    "file": "tables/p055_t0.csv",
+    "page": 55,
+    "rows": 8,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 53. Lenovo XClarity Pro ordering information"
+    ]
+  },
+  {
+    "file": "tables/p057_t0.csv",
+    "page": 57,
+    "rows": 4,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 54. Lenovo XClarity Energy Manager"
+    ]
+  },
+  {
+    "file": "tables/p059_t0.csv",
+    "page": 59,
+    "rows": 9,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 55. Secure Boot options",
+      "Table 56. Intel Transparent Supply Chain ordering information"
+    ]
+  },
+  {
+    "file": "tables/p062_t0.csv",
+    "page": 62,
+    "rows": 12,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 57. Detailed dimensions"
+    ]
+  },
+  {
+    "file": "tables/p069_t0.csv",
+    "page": 69,
+    "rows": 3,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 58. Premier Deploy for Infrastructure"
+    ]
+  },
+  {
+    "file": "tables/p072_t0.csv",
+    "page": 72,
+    "rows": 4,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 59. Genie Lift GL-8 ordering information"
+    ]
+  }
+]

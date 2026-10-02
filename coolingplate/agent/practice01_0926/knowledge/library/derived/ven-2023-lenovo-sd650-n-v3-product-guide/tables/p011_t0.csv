@@ -1,0 +1,29 @@
+﻿Components,Specification
+Video,"Embedded video graphics with 16 MB memory with 2D hardware accelerator, integrated into the
+XClarity Controller. Maximum resolution is 1920x1200 32bpp at 60Hz."
+"Security
+features","Power-on password, administrator's password, Trusted Platform Module (TPM), supporting TPM 2.0.
+In China only, optional Nationz TPM 2.0 plug-in module (support is planned)."
+"Systems
+management","Operator panel with status LEDs. Optional External Diagnostics Handset with LCD display. XClarity
+Controller 2 (XCC2) embedded management based on the ASPEED AST2600 baseboard
+management controller (BMC), XClarity Administrator centralized infrastructure delivery, XClarity
+Integrator plugins, and XClarity Energy Manager centralized server power management. Optional
+XCC Platinum to enable remote control functions and other features. Lenovo power/energy meter
+based on TI INA226 for 100Hz power measurements with >97% accuracy.
+System Management Module (SMM2) in the DW612S enclosure provides additional systems
+management functions."
+"Operating
+systems
+supported","Red Hat Enterprise Linux, SUSE Linux Enterprise Server, and Ubuntu are Supported & Certified.
+Rocky Linux and AlmaLinux are Tested. See the Operating system support section for details and
+specific versions."
+"Limited
+warranty",Three-year customer-replaceable unit and onsite limited warranty with 9x5 next business day (NBD).
+"Service and
+support","Optional service upgrades are available through Lenovo Services: 4-hour or 2-hour response time, 6-
+hour fix time, 1-year or 2-year warranty extension, software support for Lenovo hardware and some
+third-party applications."
+Dimensions,"Width: 438 mm (17.2 inches), height: 41 mm (1.6 inches), depth: 714 mm (28.1 inches)"
+Weight,22.7 kg (50.05 lbs)
+,

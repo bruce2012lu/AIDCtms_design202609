@@ -1,0 +1,30 @@
+﻿Components,,Specification,
+Temperature,,"Operating water temperature:
+2°C to 45°C (35.6°F to 113°F) (ASHRAE W45 compliant)
+Operating air temperature:
+10°C - 35°C (50°F - 95°F) (ASHRAE A2 compliant)
+See Operating Environment for more information.",
+Electrical power,,"200 V - 240 V ac input (nominal), 50 or 60 Hz",
+Power cords,,"One C19 AC power cord for each air-cooled power supply
+Three C19 AC power cords for each water-cooled power supply",
+Limited warranty,,Three-year customer-replaceable unit and onsite limited warranty with 9x5/NBD.,
+Dimensions,,"Width: 447 mm (17.6 in.), height: 264 mm (10.4 in.), depth: 933 mm (36.7 in.). See Physical and
+electrical specifications for details.",
+Weight,,"Empty enclosure (with midplane and cables): 24.3 kg (53.5 lb)
+Fully configured enclosure with 9x air-cooled power supplies and 6x SD650-N V3 server
+trays: 182.9 kg (403 lb) (without water manifold)
+Fully configured enclosure with 3x water-cooled power supplies and 6x SD650-N V3 server
+trays: 188.7 kg (416 lb) (without water manifold)",
+"Enclosure models
+There are no standard models of the DW612S enclosure. All enclosures must be confgi ured by using the
+CTO process. The machine type is 7D1L.
+The following table lists the base CTO model and base feature code
+Table 3. Base CTO model",,,
+"Machine
+Type/Model","Base feature
+code",,Description
+7D1LCTO2WW,BMCA,,ThinkSystem DW612S Neptune DWC Enclosure (3-Year Warranty)
+"Manifold assembly
+The manifold provides the water supply and return to the DW612S Enclosure. It can be connected through
+the Eaton Ball Valves (Stainless steel V2A, Type FD83-2046-16-16) to a water loop in the data center that is
+connected to a centralized coolant distribution unit (CDU) or be ordered with an in-rack CDU.",,,

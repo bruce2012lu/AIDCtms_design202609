@@ -1,0 +1,11 @@
+﻿Table 25. Feature codes for TGP setting,,
+TGP Setting,Feature code,Description
+700W,BS3P,"ThinkSystem SD665-N, SD650-N V3 700W GPU Maximum Performance Mode"
+600W,BS3Q,"ThinkSystem SD665-N, SD650-N V3 600W GPU Performance Optimized Mode"
+500W,BS3R,"ThinkSystem SD665-N, SD650-N V3 500W GPU Power Efficiency Optimized Mode"
+,,
+"Tip: Total Graphics Power (TGP) is also called Continuous Electrical Design Point (EDPc). The peak EDP
+(EDPp) of the GPU can be as much as 80% higher than the EDPc. When adjusting the EDPc, the related
+EDPp is also adjusted in the same ratio. On top of changing the EDPc, the GPUs support setting a
+programmable EDP which is limiting the EDP peak to a minimum of 44% above the set EDPc.",,
+,,

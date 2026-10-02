@@ -1,0 +1,50 @@
+﻿"Standard specifications - SD650-N V3 tray
+The following table lists the standard specifci ations of the SD650-N V3 server tray.
+Table 1. Standard specifci ations - SD650-N V3 tray",
+Components,Specification
+Machine type,7D7N - 3-year warranty
+Form factor,1U server node mounted on a 1U water-cooled server tray
+"Enclosure
+support",ThinkSystem DW612S Neptune DWC Enclosure
+Processor,"Two 4th Gen Intel Xeon Scalable processors (formerly codenamed ""Sapphire Rapids"") or two Intel
+Xeon CPU Max Series processors (formerly codenamed ""Sapphire Rapids HBM"") per node. Supports
+processors up to 60 cores, core speeds of up to 3.7 GHz, and TDP ratings of up to 350W. Supports
+PCIe 5.0 for high performance connectivity to GPUs."
+GPUs,NVIDIA HGX H200 or H100 4-GPU board - 4x GPUs interconnected using NVLink 4.0 links
+Chipset,"Intel C741 ""Emmitsburg"" chipset, part of the platform codenamed ""Eagle Stream"""
+Memory,"16 DIMM slots with two processors (8 DIMM slots per processor) per node. Each processor has 8
+memory channels, with 1 DIMM per channel (DPC). Lenovo TruDDR5 RDIMMs, 3DS RDIMMs, and
+9x4 RDIMMs are supported, up to 4800 MHz"
+"Persistent
+memory",Not supported
+"Memory
+maximum",Up to 2TB per node with 16x 128GB 3DS RDIMMs
+"Memory
+protection","ECC, SDDC, Patrol/Demand Scrubbing, Bounded Fault, DRAM Address Command Parity with
+Replay, DRAM Uncorrected ECC Error Retry, On-die ECC, ECC Error Check and Scrub (ECS), Post
+Package Repair"
+Disk drive bays,"Supports one of the following:
+2x E3.S 1T drive bays supporting PCIe 5.0 NVMe drives
+2x 7mm 2.5-inch drive bays supporting PCIe 5.0 NVMe drives
+1x 15mm 2.5-inch drive bay supporting a PCIe 5.0 NVMe drive
+The node also supports one high-speed M.2 NVMe SSD with a PCIe 4.0 x4 connection, installed on
+an M.2 adapter mounted on top of the front processor"
+"Maximum
+internal storage","E3.S: 30.72TB using 2x 15.36TB E3.S NVMe SSDs
+7mm: 7.68TB using 2x 3.84TB 7mm NVMe SSDs
+15mm: 3.84TB using 1x 3.84TB 15mm NVMe SSDs"
+"Storage
+controllers",Onboard NVMe (RAID functions using Intel VROC)
+"Optical drive
+bays",No internal bays; use an external USB drive.
+"Network
+interfaces","Optional 2x OSFP 800G connectors provide 800 Gb/s GPU Direct InfiniBand NDRx2 connectivity to
+four onboard NVIDIA ConnectX-7 controllers; 2x 25 Gb Ethernet SFP28 onboard connectors based
+on Mellanox ConnectX-4 Lx controller (support 10/25Gb); 1x 1 Gb Ethernet RJ45 onboard connector
+based on Intel I210 controller. Onboard 1Gb port and 25Gb port 1 can optionally be shared with the
+XClarity Controller 2 (XCC) management processor for Wake-on-LAN and NC-SI support."
+PCIe slots,None.
+Ports,"External diagnostics port, console connector (for a breakout cable that provides one VGA port, one
+USB 3.1 (5 Gb/s) port and one DB9 serial port for local connectivity). Additional ports provided by the
+enclosure as described in the Enclosure specifications section."
+,

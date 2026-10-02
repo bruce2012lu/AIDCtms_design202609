@@ -1,0 +1,47 @@
+﻿"Internal drive options
+The following tables list the drive options for internal storage of the server.
+Trayless drives:
+E3.S EDSFF trayless PCIe 5.0 NVMe SSDs
+7mm 2.5-inch trayless PCIe 4.0 NVMe SSDs
+15mm 2.5-inch trayless PCIe 5.0 NVMe SSDs
+15mm 2.5-inch trayless PCIe 4.0 NVMe SSDs
+M.2 drives:
+M.2 PCIe 4.0 NVMe drives",,,,
+"M.2 drive support: The use of M.2 drives requires an additional adapter as described in the M.2 drives
+subsection.",,,,
+,,,,
+"SED support: The tables include a column to indicate which drives support SED encryption. The
+encryption functionality can be disabled if needed. Note: Not all SED-enabled drives have ""SED"" in the
+description.",,,,
+Table 30. E3.S EDSFF trayless PCIe 5.0 NVMe SSDs,,,,
+Part number,"Feature
+code",Description,"SED
+support","Max
+Qty"
+E3.S trayless SSDs - PCIe 5.0 NVMe - Read Intensive/Entry (<3 DWPD),,,,
+4XB7A88775,BWS1,"ThinkSystem E3.S PM1743 1.92TB Read Intensive NVMe PCIe 5.0 x4
+Trayless SSD",Support,2
+4XB7A88776,BWS2,"ThinkSystem E3.S PM1743 3.84TB Read Intensive NVMe PCIe 5.0 x4
+Trayless SSD",Support,2
+4XB7A88777,BWS3,"ThinkSystem E3.S PM1743 7.68TB Read Intensive NVMe PCIe 5.0 x4
+Trayless SSD",Support,2
+4XB7A88778,BWS4,"ThinkSystem E3.S PM1743 15.36TB Read Intensive NVMe PCIe 5.0 x4
+Trayless SSD",Support,2
+Table 31. 7mm 2.5-inch trayless PCIe 4.0 NVMe SSDs,,,,
+Part number,"Feature
+code",Description,"SED
+support","Max
+Qty"
+7mm 2.5-inch SSDs - U.3 PCIe 4.0 NVMe - Read Intensive/Entry (<3 DWPD),,,,
+4XB7B09654,CBT3,"ThinkSystem 2.5"" 7mm VA 960GB Read Intensive NVMe PCIe 4.0 x4
+Trayless SSD",Support,2
+4XB7B09655,CBT4,"ThinkSystem 2.5"" 7mm VA 1.92TB Read Intensive NVMe PCIe 4.0 x4
+Trayless SSD",Support,2
+4XB7B09656,CBT5,"ThinkSystem 2.5"" 7mm VA 3.84TB Read Intensive NVMe PCIe 4.0 x4
+Trayless SSD",Support,2
+4XB7A13975,BKSQ,"ThinkSystem 2.5"" 7mm U.3 7450 PRO 960GB Read Intensive NVMe PCIe
+4.0 x4 Trayless SSD",Support,2
+4XB7A13976,BKWR,"ThinkSystem 2.5"" 7mm U.3 7450 PRO 1.92TB Read Intensive NVMe PCIe
+4.0 x4 Trayless SSD",Support,2
+4XB7A13977,BKWS,"ThinkSystem 2.5"" 7mm U.3 7450 PRO 3.84TB Read Intensive NVMe PCIe
+4.0 x4 Trayless SSD",Support,2

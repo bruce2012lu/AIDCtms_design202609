@@ -1,0 +1,52 @@
+﻿"The following table lists the supported power supplies for use in the DW612S enclosure with SD650-N V3
+nodes installed. Mixing of power supply capacities (difefrent part number) is not supported.
+Table 42. Power supply options",,,,,,,,,,,
+"Part
+number",Feature,Description,Connector,,"Quantity
+support","80
+PLUS",110V AC,,220V AC,"277V AC
+HVAC","240V
+DC
+China
+only"
+Air cooled 230V power supplies,,,,,,,,,,,
+4P57A72667,BKTJ,"ThinkSystem
+2600W 230V
+Titanium Hot-
+Swap Gen2
+Power Supply v4",1x C19,,9,Titanium,No,,Yes,No,Yes
+Air cooled HVAC power supplies,,,,,,,,,,,
+4P57A99372,C5PL*,"ThinkSystem
+2600W HVAC
+Titanium Hot-
+Swap Gen2
+Power Supply",1x RF-203-HP,,"6, 9",Titanium,No,,No,Yes,No
+Water cooled 230V power supplies,,,,,,,,,,,
+4P57A72669,BKTK,"ThinkSystem
+DW612S 7200W
+230V Titanium
+Gen2 Power
+Supply",3x C19,,3,Titanium,No,,Yes,No,Yes
+"* Only ofefred in USA; not available in other markets
+The power supply units have the following features:
+80 PLUS Platinum or Titanium certifei d as listed in the table above
+Supports N+1 power redundancy or non-redundant power confgi urations:
+For air-cooled power supplies: 8+1
+For water-cooled power supplies: 8+1
+Power management confgi ured through the SMM
+Integrated 25K RPM fan
+Built-in overload and surge protection
+230V AC power supplies support high-range voltage only; 110V AC not supported
+Power output
+The power rating of each power supply (2600W) is dependent on the voltage of the input supply. A 208V
+supply will be able to generate less power than a 240V supply for example. You will need to take this into
+consideration when determining your power needs. The following table provides the details for each
+supported power supply unit. A yellow cell indicates lower power availability than the rated power.
+Table 43. Power availability based on the voltage of the supply",,,,,,,,,,,
+Description,,,,"2600W 230V Titanium
+Power Supply",,,,"7200W 230V Titanium
+Power Supply",,,
+Power Rating,,,,2600W,,,,7200W,,,
+Output with 200-208Vac supply,,,,2400W,,,,6900W,,,
+Output with 220-240Vac supply,,,,2600W,,,,7200W,,,
+,,,,,,,,,,,

@@ -1,0 +1,17 @@
+﻿Feature code,Description,Purpose
+BRM3,"Neptune DWC In-Rack CDU 2.3m Primary
+Loop Connection Hose","Hose to connect in-rack CDU to the primary
+datacenter waterloop"
+BRL3,Neptune DWC In-Rack CDU Filler Kit,"Hose to connect to the in-rack CDU for easy filling
+with water"
+"Processors
+The SD650-N V3 node supports two processors as follows:
+Two 5th Gen Intel Xeon Scalable processors (formerly codenamed ""Emerald Rapids"")
+Two 4th Gen Intel Xeon Scalable processors (formerly codenamed ""Sapphire Rapids"")
+Two Intel Xeon Max Series processors (formerly codenamed ""Sapphire Rapids HBM"")",,
+Note: A confgi uration of one processor is not supported.,,
+"Topics in this section:
+Processor options
+Processor features
+Intel On Demand feature licensing
+UEFI operating modes",,

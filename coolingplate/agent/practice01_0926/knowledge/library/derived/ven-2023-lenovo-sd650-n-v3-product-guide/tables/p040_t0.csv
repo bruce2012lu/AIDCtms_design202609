@@ -1,0 +1,38 @@
+﻿"For the specifci ations of the OSFP ports including the supported transceivers and cables, see the NVIDIA
+ConnectX-7 product guide:
+https://lenovopress.lenovo.com/lp1692-thinksystem-nvidia-connectx-7-ndr-infni iband-osfp400-adapters
+The following table lists the supported cables for ThinkSystem SD665-N, SD650-N V3 4x NDR Infni iBand
+Interface, BRK8.
+Table 40. Cables for ThinkSystem SD665-N, SD650-N V3 4x NDR Infni iBand Interface, BRK8",,
+Part number,Feature code,Description
+Mellanox NDR Multi Mode Fibre Cables (requires transceiver 4TC7A83365),,
+4X97A81748,BQJN,Lenovo 3M NVIDIA NDR Multi Mode MPO12 APC Optical Cable
+4X97A81749,BQJP,Lenovo 5M NVIDIA NDR Multi Mode MPO12 APC Optical Cable
+4X97A81750,BQJQ,Lenovo 7M NVIDIA NDR Multi Mode MPO12 APC Optical Cable
+4X97A81751,BQJR,Lenovo 10M NVIDIA NDR Multi Mode MPO12 APC Optical Cable
+4X97A81752,BQJS,Lenovo 20M NVIDIA NDR Multi Mode MPO12 APC Optical Cable
+4X97A85349,BSN6,Lenovo 30M NVIDIA NDR Multi Mode MPO12 APC Optical Cable
+Mellanox NDRx2 OSFP800 Finned to NDRx2 OSFP800 Flat Copper Cable,,
+4X97A84581,BRKC,"Lenovo 1M NVIDIA NDRx2 OSFP800 Finned to NDRx2 OSFP800 Flat Top Passive
+Copper Cable"
+4X97A84582,BRKD,"Lenovo 1.5M NVIDIA NDRx2 OSFP800 Finned to NDRx2 OSFP800 Flat Top
+Passive Copper Cable"
+4X97A84583,BRKE,"Lenovo 2M NVIDIA NDRx2 OSFP800 Finned to NDRx2 OSFP800 Flat Top Passive
+Copper Cable"
+4X97A84584,BRKF,"Lenovo 3M NVIDIA NDRx2 OSFP800 Finned to NDRx2 OSFP800 Flat Top Active
+Copper Cable"
+"The following table lists the supported cables for ThinkSystem SD665-N, SD650-N V3 4x NDR200 Infni iBand
+Interface, BRK9.
+Table 41. Cables for ThinkSystem SD665-N, SD650-N V3 4x NDR200 Infni iBand Interface, BRK9",,
+Part number,Feature code,Description
+Mellanox NDRx2 OSFP800 to 2x NDR OSFP400 Splitter Copper Cables,,
+4X97A81827,BQJV,"Lenovo 1M NVIDIA NDRx2 OSFP800 to 2x NDR OSFP400 Passive Copper Splitter
+Cable"
+4X97A81828,BQJW,"Lenovo 1.5M NVIDIA NDRx2 OSFP800 to 2x NDR OSFP400 Passive Copper
+Splitter Cable"
+4X97A81829,BQJX,"Lenovo 2M NVIDIA NDRx2 OSFP800 to 2x NDR OSFP400 Passive Copper Splitter
+Cable"
+"Storage host bus adapters
+The SD650-N V3 does not support storage host bus adapters.
+Flash storage adapters
+The SD650-N V3 does not support Flash storage adapters.",,

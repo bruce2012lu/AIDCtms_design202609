@@ -1,0 +1,39 @@
+﻿"Intel VROC onboard RAID
+Intel VROC (Virtual RAID on CPU) is a feature of the Intel processor that enables Integrated RAID support.
+On the SD650-N V3, Intel VROC provides RAID functions for the onboard NVMe controller (Intel VROC NVMe
+RAID).
+VROC NVMe RAID ofefrs RAID support for any NVMe drives directly connected to the ports on the server's
+system board. On the SD650-N V3, RAID 0 and 1 are implemented.
+The SD650-N V3 supports the VROC NVMe RAID ofefrings listed in the following table.
+Table 29. Intel VROC NVMe RAID ordering information and feature support",,,,,,,,,
+"Part
+number","Feature
+code",Description,"Lenovo
+Top Choice
+Express","Intel
+NVMe
+SSDs","Non-
+Intel
+NVMe
+SSDs","RAID
+0","RAID
+1","RAID
+10","RAID
+5"
+4L47A92670,BZ4W,Intel VROC RAID1 Only,-,Yes,Yes,No,Yes,No,No
+4L47A83669,BR9B,"Intel VROC (VMD NVMe
+RAID) Standard",-,Yes,Yes,Yes,Yes,Yes,No
+"Confgi uration notes:
+If a feature code is ordered in a CTO build, the VROC functionality is enabled in the factory. For fei ld
+upgrades, order a part number and it will be fulfliled as a Feature on Demand (FoD) license which can
+then be activated via the XCC management processor user interface.
+SED functionality is not supported with VROC NVMe RAID",,,,,,,,,
+"Virtualization support: Virtualization support for Intel VROC is as follows:
+VROC (VMD) NVMe RAID: VROC (VMD) NVMe RAID is supported by ESXi, KVM, Xen, and Hyper-
+V. ESXi support is limited to RAID 1 only; other RAID levels are not supported. Windows and Linux
+OSes support VROC RAID NVMe, both for host boot functions and for guest OS function, and
+RAID-0, 1, 5, and 10 are supported. On ESXi, VROC is supported with both boot and data drives.",,,,,,,,,
+"Controllers for internal storage
+The drives of the SD650-N V3 are connected to an integrated NVMe storage controller:
+Onboard PCIe x4 NVMe ports
+RAID functionality is provided by Intel VROC.",,,,,,,,,

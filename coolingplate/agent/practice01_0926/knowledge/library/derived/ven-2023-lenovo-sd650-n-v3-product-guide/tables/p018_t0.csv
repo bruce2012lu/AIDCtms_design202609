@@ -1,0 +1,45 @@
+﻿"Processor options
+All supported processors have the following characteristics:
+8 DDR5 memory channels at 1 DIMM per channel
+Up to 4 UPI links between processors at up to 20 GT/s
+Up to 80 PCIe 5.0 I/O lanes
+The following table lists the 5th Gen processors that are currently supported by the SD650-N V3.",,,,,,,,
+"Employees only:
+The table includes a Mainstream column; Processors marked as Mainstream can be confgi ured in
+DCSC (select Full Mode) or in x-confgi . Confgi uring processors marked as Extended requires
+management approval. See the Mainstream CPU Initiative page on SharePoint for the approval
+process.",,,,,,,,
+Table 10. 5th Gen Intel Xeon Processor support,,,,,,,,
+"Part
+number","Feature
+code",,SKU,,Description,,Mainstream,"Quantity
+supported"
+5th Gen Intel Xeon Scalable processors,,,,,,,,
+CTO only,BYVX,,6526Y,,Intel Xeon Gold 6526Y 16C 195W 2.8GHz Processor,,Mainstream,2
+CTO only,BYW0,,6534,,Intel Xeon Gold 6534 8C 195W 3.9GHz Processor,,Mainstream,2
+CTO only,BYVY,,6542Y,,Intel Xeon Gold 6542Y 24C 250W 2.9GHz Processor,,Mainstream,2
+CTO only,BYW1,,6544Y,,Intel Xeon Gold 6544Y 16C 270W 3.6GHz Processor,,Mainstream,2
+CTO only,BYVZ,,6548Y+,,Intel Xeon Gold 6548Y+ 32C 250W 2.5GHz Processor,,Mainstream,2
+CTO only,BYVV,,6558Q,,Intel Xeon Gold 6558Q 32C 350W 3.2GHz Processor,,Mainstream,2
+CTO only,BYW5,,8558,,Intel Xeon Platinum 8558 48C 330W 2.1GHz Processor,,Extended,2
+CTO only,BYW2,,8562Y+,,Intel Xeon Platinum 8562Y+ 32C 300W 2.8GHz Processor,,Mainstream,2
+CTO only,BYWF,,8568Y+,,Intel Xeon Platinum 8568Y+ 48C 350W 2.3GHz Processor,,Mainstream,2
+CTO only,BYWG,,8570,,Intel Xeon Platinum 8570 56C 350W 2.1GHz Processor,,Extended,2
+CTO only,BYWH,,8580,,Intel Xeon Platinum 8580 60C 350W 2.0GHz Processor,,Extended,2
+CTO only,BYWJ,,8592+,,Intel Xeon Platinum 8592+ 64C 350W 1.9GHz Processor,,Mainstream,2
+CTO only,BYXG,,8593Q,,Intel Xeon Platinum 8593Q 64C 385W 2.2GHz Processor,,Mainstream,2
+"The following table lists the 4th Gen processors that are currently supported by the SD650-N V3.
+Table 11. 4th Gen Intel Xeon Processor support",,,,,,,,
+"Part
+number",,"Feature
+code",,SKU,,Description,Mainstream,"Maximum
+quantity"
+4th Gen Intel Xeon Scalable processors,,,,,,,,
+CTO only,,BPQF,,6426Y,,Intel Xeon Gold 6426Y 16C 185W 2.5GHz Processor,Extended,2
+CTO only,,BPQC,,6434,,Intel Xeon Gold 6434 8C 195W 3.7GHz Processor,Extended,2
+CTO only,,BPQE,,6442Y,,Intel Xeon Gold 6442Y 24C 225W 2.6GHz Processor,Extended,2
+CTO only,,BPQB,,6444Y,,Intel Xeon Gold 6444Y 16C 270W 3.6GHz Processor,Extended,2
+CTO only,,BPQD,,6448Y,,Intel Xeon Gold 6448Y 32C 225W 2.1GHz Processor,Extended,2
+CTO only,,BPQG,,6458Q,,Intel Xeon Gold 6458Q 32C 350W 3.1GHz Processor,Extended,2
+CTO only,,BPPT,,8458P,,Intel Xeon Platinum 8458P 44C 350W 2.7GHz Processor,Extended,2
+CTO only,,BPPQ,,8460Y+,,Intel Xeon Platinum 8460Y+ 40C 300W 2.0GHz Processor,Extended,2

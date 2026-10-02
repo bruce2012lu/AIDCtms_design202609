@@ -1,0 +1,12 @@
+﻿"I/O expansion options
+The SD650-N V3 ofefrs I/O connectivity in the form of high-speed GPU Direct connections to the four NVIDIA
+GPUs in the system. These Infni iBand NDR connections with OSFP cages are in addition to two onboard 25
+GbE ports with SRP28 cages.
+The location of these ports is shown in the following fgi ure.
+Figure 11. SD650-N V3 networking
+The server also supports an optional PCIe 5.0 x16 slot for additional networking capability. The slot is
+implemented using a 1-slot riser. Ordering information is in the following table.
+Table 36. Riser ordering information",,
+Part number,Feature code,Description
+4TA7A86675,BKTE,"ThinkSystem SD650, SD650-I V3 1U PCIe Riser"
+"The slot can alternatively be confgi ured as internal drive bays, as described in the Internal storage section.",,

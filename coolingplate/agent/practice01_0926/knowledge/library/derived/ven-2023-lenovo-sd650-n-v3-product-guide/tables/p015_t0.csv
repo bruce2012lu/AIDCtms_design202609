@@ -1,0 +1,21 @@
+﻿Note: Contact your Lenovo sales representative for in-rack CDU support.,
+Table 6. Base feature code for water manifolds with in-rack CDU,
+Feature code,Description
+Water manifolds for DW612S enclosure with configurable hose connection for use with in-rack CDU,
+BRGP,Neptune DWC Manifold Assembly for 1 Enclosure
+BRGN,Neptune DWC Manifold Assembly for 2 Enclosure
+BY38,Neptune DWC Manifold Assembly for 3 Enclosure
+BY39,Neptune DWC Manifold Assembly for 4 Enclosure
+BRGM,Neptune DWC Manifold Assembly for 5 Enclosure
+BRGL,Neptune DWC Manifold Assembly for 6 Enclosure
+Additional water manifold for water-cooled power supplies for use with in-rack CDU,
+BRGQ,Neptune DWC Manifold Assembly for water-cooled Power Supplies with in-rack CDU
+"For additional information, see the Cooling section.
+To support the onsite setup for the direct water-cooled solution, a Commissioning Kit is available providing a
+fol w meter, bleed hose, pressure gauge and vent valve. Ordering information is listed in the following table.
+Either kit supports the DW612S enclosure.
+Table 7. Commissioning Kit fei ld upgrade",
+Part number,Description
+4XF7B07632,Neptune DWC Manifold Extended Commissioning Kit
+4XF7A84654,Neptune DWC Manifold Commissioning Kit
+,

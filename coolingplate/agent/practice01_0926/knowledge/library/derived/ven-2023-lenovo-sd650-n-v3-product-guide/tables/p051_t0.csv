@@ -1,0 +1,46 @@
+﻿"IPMI via the Ethernet port (IPMI over LAN) is supported, however it is disabled by default. For CTO orders
+you can specify whether you want to the feature enabled or disabled in the factory, using the feature codes
+listed in the following table.
+Table 50. IPMI-over-LAN settings",,,
+Feature code,Description,,"Top Choice
+Express"
+B7XZ,Disable IPMI-over-LAN (default),,-
+B7Y0,Enable IPMI-over-LAN,,-
+"XCC2 Platinum
+The XCC2 service processor in the SD650-N V3 supports an upgrade to the Platinum level of features.
+Compared to the XCC functions of ThinkSystem V2 and earlier systems, Platinum adds the same features as
+Enterprise and Advanced levels in ThinkSystem V2, plus additional features.
+XCC2 Platinum adds the following Enterprise and Advanced functions:
+Remotely viewing video with graphics resolutions up to 1600x1200 at 75 Hz with up to 23 bits per
+pixel, regardless of the system state
+Remotely accessing the server using the keyboard and mouse from a remote client
+International keyboard mapping support
+Syslog alerting
+Redirecting serial console via SSH
+Component replacement log (Maintenance History log)
+Access restriction (IP address blocking)
+Lenovo SED security key management
+Displaying graphics for real-time and historical power usage data and temperature
+Boot video capture and crash video capture
+Virtual console collaboration - Ability for up to 6 remote users to be log into the remote session
+simultaneously
+Remote console Java client
+Mapping the ISO and image flies located on the local client as virtual drives for use by the server
+Mounting the remote ISO and image flies via HTTPS, SFTP, CIFS, and NFS
+Power capping
+System utilization data and graphic view
+Single sign on with Lenovo XClarity Administrator
+Update frimware from a repository
+License for XClarity Energy Manager
+XCC2 Platinum also adds the following features that are new to XCC2:
+System Guard - Monitor hardware inventory for unexpected component changes, and simply log the
+event or prevent booting
+Enterprise Strict Security mode - Enforces CNSA 1.0 level security
+Neighbor Group - Enables administrators to manage and synchronize confgi urations and frimware
+level across multiple servers
+Ordering information is listed in the following table. XCC2 Platinum is a software license upgrade - no
+additional hardware is required.
+Table 51. XCC2 Platinum license upgrade",,,
+Part number,Feature code,Description,
+7S0X000DWW,S91X,Lenovo XClarity XCC2 Platinum Upgrade,
+7S0X000KWW,SBCV,Lenovo XClarity Controller 2 (XCC2) Platinum Upgrade,

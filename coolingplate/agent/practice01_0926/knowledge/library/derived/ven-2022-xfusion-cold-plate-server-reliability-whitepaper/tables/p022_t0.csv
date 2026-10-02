@@ -1,0 +1,71 @@
+﻿Test Item,,"Reference
+Standard",Sub Test Item,Test Result for Reference
+"Connector
+reliability","Work operation &
+capacity expansion
+during maintenance",GB5861,"Leakage caused by
+connector insertion
+and removal","The mechanical strength and leakage
+amount meet the requirements"
+,,GB/T 2423.3,"Long-term damp
+heat","The environment reliability meets the
+requirements"
+,,/,"Pipe erosion
+corrosion test","The environment reliability meets the
+requirements"
+"Hose
+reliability","Work operation &
+capacity expansion
+during maintenance",/,"Pipe erosion
+corrosion test","The environment reliability meets the
+requirements"
+"Reliability
+of cold
+plates","Manufacturing &
+installation service",GB/T 2423.23,Air tightness test,"The environment reliability meets the
+requirements"
+,,/,"Helium leak
+detection test","The environment reliability meets the
+requirements"
+,"Work operation &
+capacity expansion
+during maintenance",GB/T 2423.2,"Storage at high
+temperature","The environment reliability meets the
+requirements"
+,,GB/T 2423.3,"Long-term damp
+heat","The environment reliability meets the
+requirements"
+,,GB/T 2423.22,"High-speed thermal
+cycling","The environment reliability meets the
+requirements"
+"Reliability
+of liquid
+cooled
+nodes",Manufacturing,/,Air tightness test,"The environment reliability meets the
+requirements"
+,,/,"Helium leak
+detection test","The environment reliability meets the
+requirements"
+,"Packaging and
+transportation",GB/T 2423.1,"Storage at low
+temperature","Storage reliability meets the
+requirements"
+,,GB/T 2423.2,"Storage at high
+temperature","Storage reliability meets the
+requirements"
+,,GB/T 2423.3,"Storage in an
+environment with
+constant damp and
+heat","Storage reliability meets the
+requirements"
+,Operation,GB/T 2423.1,"Storage at low
+temperature","Storage reliability meets the
+requirements"
+,,GB/T 2423.2,"Storage at high
+temperature","Storage reliability meets the
+requirements"
+,,GB/T 2423.17,Constant salt spray,"The corrosion resistance meets the
+requirements"
+,,GB/T 2423.22,"High-speed thermal
+cycling","The environment reliability meets the
+requirements"

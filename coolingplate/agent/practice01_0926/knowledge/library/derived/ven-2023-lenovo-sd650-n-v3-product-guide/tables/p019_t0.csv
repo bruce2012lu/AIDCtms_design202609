@@ -1,0 +1,54 @@
+﻿"Part
+number","Feature
+code",SKU,,Description,,Mainstream,,"Maximum
+quantity"
+CTO only,BPQA,8462Y+,,Intel Xeon Platinum 8462Y+ 32C 300W 2.8GHz Processor,,Extended,,2
+CTO only,BPPU,8468,,Intel Xeon Platinum 8468 48C 350W 2.1GHz Processor,,Extended,,2
+CTO only,BPPP,8468V,,Intel Xeon Platinum 8468V 48C 330W 2.4GHz Processor,,Extended,,2
+CTO only,BN0N,8470,,Intel Xeon Platinum 8470 52C 350W 2.0GHz Processor,,Mainstream,,2
+CTO only,BN0P,8470Q,,Intel Xeon Platinum 8470Q 52C 350W 2.1GHz Processor,,Extended,,2
+CTO only,BN0M,8480+,,Intel Xeon Platinum 8480+ 56C 350W 2.0GHz Processor,,Extended,,2
+CTO only†,BXNW,8480CL,,Intel Xeon Platinum 8480CL 56C 350W 2.0GHz Processor,,Extended,,2
+CTO only,BPPS,8490H,,Intel Xeon Platinum 8490H 60C 350W 1.9GHz Processor,,Mainstream,,2
+"Confgi uration notes:
+Intel Xeon CPU Max Series processors
+The SD650-N V3 server also supports Intel Xeon CPU Max Series processors which include 64GB of
+integrated High Bandwidth Memory (HBM2e) for a total of 128GB of memory. Intel Xeon Max processors
+support three difefrent operating memory modes, confgi ured via a setting in UEFI. You can specify, at time of
+order, which HBM mode you wish to enable, using the feature codes in the following table.
+Table 12. HBM mode feature codes",,,,,,,,
+"Feature
+code",Description,,,Purpose,,,,
+BV8P,"Intel Xeon CPU
+Max – HBM Only
+mode",,,"HBM Only mode (for workloads < 64GB per socket (128GB per node); no DDR5
+memory is needed) - the system boots and operates within the HBM memory only (no
+code changes necessary). No additional system memory can be installed.",,,,
+BM2X,"Intel SPR HBM
+CPU SKU- FLAT
+mode",,,"HBM Flat mode - the HBM and DDR5 memory work together as a single flat memory
+region (code changes recommended to maximize performance). Supports 2, 4, 8 or 16
+DIMMs per compute node",,,,
+BM2Y,"Intel SPR HBM
+CPU SKU- CACHE
+mode",,,"HBM Caching mode - the HBM memory is used as a cache, when the memory
+working set can't completely fit in the 128GB per node HBM memory space (no code
+changes necessary). Supports 8 or 16 DIMMs per compute node. Requires a
+DDR5:HBM capacity ratio of between 2:1 and 64:1.",,,,
+,,,,,,,,
+"Tip: With Intel Xeon CPU Max processors, if your application has a small enough memory working set to
+fti entirely in less than 128GB, then it would be possible to not install any DDR5 memory DIMMs in the
+server.",,,,,,,,
+"The following table lists the Intel Xeon CPU Max Series processors supported by the SD650-N V3.
+Table 13. Intel Xeon CPU Max Series processor support",,,,,,,,
+"Part
+number","Feature
+code",SKU,Description,,Mainstream,,"Quantity
+supported",
+Intel Xeon Max Series processors with integrated 64GB HBM,,,,,,,,
+CTO only,BTG9,9462,Intel Xeon CPU Max 9462 32C 350W 2.7GHz Processor,,-,,2,
+CTO only,BTG8,9460,Intel Xeon CPU Max 9460 40C 350W 2.2GHz Processor,,-,,2,
+CTO only,BTG7,9468,Intel Xeon CPU Max 9468 48C 350W 2.1GHz Processor,,-,,2,
+CTO only,BTG6,9470,Intel Xeon CPU Max 9470 52C 350W 2.0GHz Processor,,-,,2,
+CTO only,BTG5,9480,Intel Xeon CPU Max 9480 56C 350W 1.9GHz Processor,,-,,2,
+,,,,,,,,

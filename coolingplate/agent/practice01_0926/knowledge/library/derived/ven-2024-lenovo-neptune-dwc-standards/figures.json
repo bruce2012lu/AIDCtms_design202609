@@ -1,0 +1,76 @@
+[
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 1462,
+    "h": 609,
+    "captions_on_page": [
+      "Figure 1. Example liquid cooling loop that illustrates how the facility water loops and secondary supply loops to the IT equipment are designed"
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 1201,
+    "h": 644,
+    "captions_on_page": [
+      "Figure 2. Design 1: Lenovo Neptune Gold, ASHRAE W40 with 95%+ Heat Capture",
+      "Figure 3. Design 2: Lenovo Neptune Gold, ASHRAE W40 FWS and W17 TCS with 100% Heat Capture using DLC and Passive Rear Door Heat Exchangers (RHDX)"
+    ]
+  },
+  {
+    "file": "figures/p006_i1.jpg",
+    "page": 6,
+    "w": 1214,
+    "h": 649,
+    "captions_on_page": [
+      "Figure 2. Design 1: Lenovo Neptune Gold, ASHRAE W40 with 95%+ Heat Capture",
+      "Figure 3. Design 2: Lenovo Neptune Gold, ASHRAE W40 FWS and W17 TCS with 100% Heat Capture using DLC and Passive Rear Door Heat Exchangers (RHDX)"
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 1216,
+    "h": 665,
+    "captions_on_page": [
+      "Figure 4. Solution 1: Generative AI Solution using SR780a V3 for H200: 100% Heat Extraction"
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 1205,
+    "h": 676,
+    "captions_on_page": [
+      "Figure 5. Solution 2: HPC Solution using SD650-N V3: 95%+ Heat Extraction"
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 1081,
+    "h": 577,
+    "captions_on_page": [
+      "Figure 6. Lenovo Silver Tier Standard (Moderate)"
+    ]
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 1063,
+    "h": 555,
+    "captions_on_page": [
+      "Figure 7. Cold Plate & RDHX Solution"
+    ]
+  },
+  {
+    "file": "figures/p016_i0.jpg",
+    "page": 16,
+    "w": 1520,
+    "h": 714,
+    "captions_on_page": [
+      "Figure 8. De-ionizing the water using de-ionizing cartridges installed in the cooling loop"
+    ]
+  }
+]

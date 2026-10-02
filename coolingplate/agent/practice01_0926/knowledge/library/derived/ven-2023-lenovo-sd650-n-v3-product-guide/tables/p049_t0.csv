@@ -1,0 +1,26 @@
+﻿"Tip: USB 3.0 was renamed to USB 3.1 Gen 1 by the USB Implementers Forum. The terms ""USB 3.0"" and
+""USB 3.1 Gen 1"" are used interchangeably - both ofefr a 5 Gb/s USB connection.",,
+"As well as local console functions, the USB port on the breakout cable also supports the use of the XClarity
+Mobile app as described in the next section.
+Ordering information for the cable is listed in the following table.
+Table 47. Console breakout cable ordering information",,
+Part number,Feature code,Description
+4X97A83213,1410 BMJB,ThinkSystem USB 3.0 Console Breakout Cable for Dense Systems v2
+"External Diagnostics Handset
+The SD650-N V3 has a port to connect an External Diagnostics Handset as shown in the following fgi ure.
+The External Diagnostics Handset allows quick access to system status, frimware, network, and health
+information. The LCD display on the panel and the function buttons give you access to the following
+information:
+Active alerts
+Status Dashboard
+System VPD: machine type & mode, serial number, UUID string
+System frimware levels: UEFI and XCC frimware
+XCC network information: hostname, MAC address, IP address, DNS addresses
+Environmental data: Ambient temperature, CPU temperature, AC input voltage, estimated power
+consumption
+Active XCC sessions
+System reset action
+The handset has a magnet on the back of it to allow you to easily mount it on a convenient place on any rack
+cabinet.
+Figure 18. SD650-N V3 External Diagnostics Handset
+Ordering information for the External Diagnostics Handset with is listed in the following table.",,

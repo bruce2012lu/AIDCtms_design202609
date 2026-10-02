@@ -1,0 +1,42 @@
+﻿"Lenovo XClarity Essentials
+Lenovo ofefrs the following XClarity Essentials software tools that can help you set up, use, and maintain the
+server at no additional cost:
+Lenovo Essentials OneCLI
+OneCLI is a collection of server management tools that uses a command line interface program to
+manage frimware, hardware, and operating systems. It provides functions to collect full system health
+information (including health status), confgi ure system settings, and update system frimware and
+drivers.
+Lenovo Essentials UpdateXpress
+The UpdateXpress tool is a standalone GUI application for frimware and device driver updates that
+enables you to maintain your server frimware and device drivers up-to-date and help you avoid
+unnecessary server outages. The tool acquires and deploys individual updates and UpdateXpress
+System Packs (UXSPs) which are integration-tested bundles.
+Lenovo Essentials Bootable Media Creator
+The Bootable Media Creator (BOMC) tool is used to create bootable media for ofiflne frimware update.
+For more information and downloads, visit the Lenovo XClarity Essentials web page:
+http://support.lenovo.com/us/en/documents/LNVO-center
+Lenovo XClarity Administrator
+Lenovo XClarity Administrator is a centralized resource management solution designed to reduce complexity,
+speed response, and enhance the availability of Lenovo systems and solutions. It provides agent-free
+hardware management for ThinkSystem servers. The administration dashboard is based on HTML 5 and
+allows fast location of resources so tasks can be run quickly.
+Because Lenovo XClarity Administrator does not require any agent software to be installed on the managed
+endpoints, there are no CPU cycles spent on agent execution, and no memory is used, which means that up
+to 1GB of RAM and 1 - 2% CPU usage is saved, compared to a typical managed system where an agent is
+required.
+Lenovo XClarity Administrator is an optional software component for the SD650-N V3. The software can be
+downloaded and used at no charge to discover and monitor the SD650-N V3 and to manage frimware
+upgrades.
+If software support is required for Lenovo XClarity Administrator, or premium features such as confgi uration
+management and operating system deployment are required, Lenovo XClarity Pro software subscription
+should be ordered. Lenovo XClarity Pro is licensed on a per managed system basis, that is, each managed
+Lenovo system requires a license.
+The following table lists the Lenovo XClarity software license options.
+Table 53. Lenovo XClarity Pro ordering information",,
+Part number,Feature code,Description
+00MT201,1339,"Lenovo XClarity Pro, per Managed Endpoint w/1 Yr SW S&S"
+00MT202,1340,"Lenovo XClarity Pro, per Managed Endpoint w/3 Yr SW S&S"
+00MT203,1341,"Lenovo XClarity Pro, per Managed Endpoint w/5 Yr SW S&S"
+7S0X000HWW,SAYV,"Lenovo XClarity Pro, per Managed Endpoint w/6 Yr SW S&S"
+7S0X000JWW,SAYW,"Lenovo XClarity Pro, per Managed Endpoint w/7 Yr SW S&S"
+,,

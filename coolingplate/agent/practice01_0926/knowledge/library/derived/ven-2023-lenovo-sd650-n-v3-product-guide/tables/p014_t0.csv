@@ -1,0 +1,25 @@
+﻿"Figure 8. DW612S enclosure and manifold assembly
+The manifold is ordered using the CTO process in the confgi urators using machine type 5469. The following
+table lists the base CTO model.
+Table 4. Base CTO model - Water manifold",
+"Machine
+Type/Model",Description
+5469HC1,Lenovo Neptune DWC Node Manifold
+"The following table lists the base feature code for CTO confgi urations when connecting to a data center level
+water distribution. Select the correct feature code based on the number of enclosures installed in the rack.
+The feature code for the water-cooled power supplies (PSU) will be auto-derived when you select the PSUs
+in the confgi uration and is only supported with 6 Enclosures.
+Table 5. Base feature code for water manifolds",
+Feature code,Description
+Water manifolds for DW612S enclosure with fixed length hose connection,
+A5MN,Lenovo Neptune DWC Manifold Assembly for 1 Enclosure w/ 1.3m hose
+A5N7,Lenovo Neptune DWC Manifold Assembly for 2 Enclosures w/ 1.3m hose
+A5N8,Lenovo Neptune DWC Manifold Assembly for 3 Enclosures w/ 1.3m hose
+A5N9,Lenovo Neptune DWC Manifold Assembly for 4 Enclosures w/ 1.3m hose
+BEZX,Lenovo Neptune DWC Manifold Assembly for 5 Enclosures w/ 2.3m hose
+BEZW,Lenovo Neptune DWC Manifold Assembly for 6 Enclosures w/ 2.3m hose
+BJAK,Lenovo Neptune DWC Manifold Assembly for 7 Enclosures w/ 2.3m hose
+Additional water manifold for water-cooled power supplies (automatically included in the configurator),
+BN0S,Neptune DWC Manifold Assembly for Water-Cooled Power Supplies for 42U Rack Cabinet
+BV8R,Neptune DWC Manifold Assembly for Water-Cooled Power Supplies for 48U Rack Cabinet
+The following table lists the base feature code for CTO confgi urations when connecting to the in-rack CDU.,

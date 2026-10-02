@@ -1,0 +1,13 @@
+﻿Test Item,Sub Test Item,Test Result for Reference
+"Leakage
+prevention
+function test",Air tightness (by pressure drop),Pressure drop test
+,Air tightness (by helium leak detection),Helium leak detection test
+,Hydrostatic pressure,Pipes have no damage or leak
+,Pulse fatigue,Pipes have no damage or leak
+,Long-term damp heat,Pipes have no damage or leak
+,High temperature creep,Pipes have no damage or leak
+,Life (by insertion and removal),Pipes have no leak
+,Leakage (caused by insertion and removal) test,"The leakage caused by insertion and removal
+meets the requirements"
+,Long-term running,Pipes have no damage or leak

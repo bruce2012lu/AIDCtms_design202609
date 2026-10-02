@@ -1,0 +1,45 @@
+﻿"Memory
+The SD650-N V3 uses Lenovo TruDDR5 memory. When confgi ured with 5th Gen Intel Xeon Scalable
+processors, the memory operates at up to 5600 MHz. When confgi ured with 4th Gen processors, the
+memory operates at up to 4800 MHz. The server supports 16 DIMMs with 2 processors. The processors
+have 8 memory channels and support 1 DIMM per channel. The server supports up to 2TB of memory using
+16x 128GB 3DS RDIMMs and two processors.
+Lenovo TruDDR5 memory uses the highest quality components that are sourced from Tier 1 DRAM suppliers
+and only memory that meets the strict requirements of Lenovo is selected. It is compatibility tested and
+tuned to maximize performance and reliability. From a service and support standpoint, Lenovo TruDDR5
+memory automatically assumes the system warranty, and Lenovo provides service and support worldwide.
+The following table lists the 5600 MHz memory options that are currently supported by the SD650-N V3.
+These DIMMs are only supported with 5th Gen Intel Xeon processors.
+Table 21. 5600 MHz memory options",,,,
+Part number,"Feature
+code",Description,Mainstream,"DRAM
+technology"
+10x4 RDIMMs - 5600 MHz,,,,
+4X77A88052,BWHS,ThinkSystem 64GB TruDDR5 5600MHz (2Rx4) RDIMM,Mainstream,16Gb
+4X77A88058,BWHV,ThinkSystem 96GB TruDDR5 5600MHz (2Rx4) RDIMM,Mainstream,24Gb
+4X77A93887,C4EA,"ThinkSystem 128GB TruDDR5 5600MHz (2Rx4)
+RDIMM",Mainstream,32Gb
+x8 RDIMMs - 5600 MHz,,,,
+4X77A88051,BWJC,ThinkSystem 32GB TruDDR5 5600MHz (2Rx8) RDIMM,Mainstream,16Gb
+4X77A88057,BWJD,ThinkSystem 48GB TruDDR5 5600MHz (2Rx8) RDIMM,Mainstream,24Gb
+3DS RDIMMs - 5600 MHz,,,,
+4X77A88054,BWHU,"ThinkSystem 128GB TruDDR5 5600MHz (4Rx4) 3DS
+RDIMM",Mainstream,16Gb
+"The following table lists the 4800 MHz memory options that are currently supported by the SD650-N V3.
+These DIMMs are only supported with 4th Gen Intel Xeon processors. The 128GB 5600MHz RDIMM is also
+supported with 4th Gen processors.
+Table 22. 4800 MHz memory options",,,,
+Part number,"Feature
+code",Description,Mainstream,"DRAM
+technology"
+10x4 RDIMMs - 4800 MHz,,,,
+4X77A77032,BNF9,"ThinkSystem 64GB TruDDR5 4800MHz (2Rx4) 10x4
+RDIMM",Mainstream,16Gb
+4X77A93887,C4EA,"ThinkSystem 128GB TruDDR5 5600MHz (2Rx4)
+RDIMM",Mainstream,32Gb
+x8 RDIMMs - 4800 MHz,,,,
+4X77A77031,BKTM,ThinkSystem 32GB TruDDR5 4800MHz (2Rx8) RDIMM,Mainstream,16Gb
+3DS RDIMMs - 4800 MHz,,,,
+4X77A77034,BNFC,"ThinkSystem 128GB TruDDR5 4800MHz (4Rx4) 3DS
+RDIMM v2",Mainstream,16Gb
+,,,,

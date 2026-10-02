@@ -1,0 +1,57 @@
+﻿Table 19. Intel On Demand support by processor - 4th Gen processors,,,,,,,,,,,,,,,
+"CPU
+model","Default accelerators and SGX
+Enclave",,,,,Intel On Demand upgrades,,,,,"New accelerator quantities and
+SGX Enclave after applying Intel
+On Demand",,,,
+,QAT,DLB,DSA,IAA,"SGX
+Enclv",BX9C,BX9D,BX9A,BX9B,BX9E,"Green = additional
+accelerators/enclave added",,,,
+,,,,,,"CSS4
+(4xQAT,
+4xDLB,
+4xDSA)","AS4
+(4xDSA,
+4xIAA)","CSS2
+(2xQAT,
+2xDLB)","AS1
+(1xIAA)",SGX512,QAT,DLB,DSA,IAA,"SGX
+Enclv"
+6426Y,0,0,1,0,128GB,No,No,No,Support,Support,0,0,1,1,512GB
+6434,0,0,1,0,128GB,No,No,No,Support,Support,0,0,1,1,512GB
+6442Y,0,0,1,0,128GB,No,No,No,Support,Support,0,0,1,1,512GB
+6444Y,0,0,1,0,128GB,No,No,No,Support,Support,0,0,1,1,512GB
+6448Y,0,0,1,0,128GB,No,No,No,Support,Support,0,0,1,1,512GB
+6458Q,0,0,1,0,128GB,No,No,No,Support,Support,0,0,1,1,512GB
+8458P,1,1,1,1,512GB,No,Support,No,No,No,1,1,4,4,512GB
+8460Y+,1,1,1,1,128GB,Support,Support,No,No,Support,4,4,4,4,512GB
+8462Y+,1,1,1,1,128GB,No,No,Support,No,Support,2,2,1,1,512GB
+8468,0,0,1,0,512GB,No,Support,No,No,No,0,0,4,4,512GB
+8468V,1,1,1,1,128GB,No,Support,No,No,Support,1,1,4,4,512GB
+8470,0,0,1,0,512GB,No,Support,No,No,No,0,0,4,4,512GB
+8470Q,0,0,1,0,512GB,No,Support,No,No,No,0,0,4,4,512GB
+8480+,1,1,1,1,512GB,Support,Support,No,No,No,4,4,4,4,512GB
+8480CL,1,1,1,1,512GB,No,Support,No,No,No,1,1,4,4,512GB
+8490H,4,4,4,4,512GB,Processor 8490H does not support Intel on Demand,,,,,,,,,
+"Confgi uration rules:
+Not all processors support Intel On Demand upgrades - see the table for those that do not support
+Intel On Demand
+Upgrades can be performed in the factory (feature codes) or in the fei ld (part numbers) but not both,
+and only one time
+Upgrades cannot be removed once activated
+SGX Enclave upgrades are independent of the accelerator upgrades; install either or both as desired
+For processors that support more than one upgrade, all upgrades must be performed at the same
+time
+Only one of each type of upgrade can be applied to a processor (eg 2x BX9A is not supported; 4x
+BX9B is not supported)
+The following processors support two accelerator upgrades, Intel On Demand Analytics Suite 4
+(4L47A89452) and Intel On Demand Communications & Storage Suite 4 (4L47A89451); the table(s)
+above shows the accelerators based on both upgrades being applied.
+Intel Xeon Platinum 8460Y+
+Intel Xeon Platinum 8480+
+Intel Xeon Platinum 8568Y+
+Intel Xeon Platinum 8592+
+The number of accelerators listed for each upgrade is the number of accelerators that will be active
+one the upgrade is complete (ie the total number, not the number to be added)
+If a server has two processors, then two feature codes must be selected, one for each processor. The
+upgrades on the two processors must be identical.",,,,,,,,,,,,,,,

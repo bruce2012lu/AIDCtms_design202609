@@ -1,0 +1,66 @@
+﻿Table 14. 5th Gen Intel Xeon Processor features,,,,,,,,,,,,,
+"CPU
+model",Die,"Cores/
+threads","Core speed
+(Base /
+TB max†)",L3 cache*,"Max
+memory
+speed","UPI 2.0
+links &
+speed","PCIe
+lanes",TDP,Accelerators,,,,"SGX
+Enclave
+Size"
+,,,,,,,,,QAT,DLB,DSA,IAA,
+5th Gen Intel Xeon Scalable processors,,,,,,,,,,,,,
+6526Y,MCC,16 / 32,2.8 / 3.9 GHz,37.5 MB*,5200 MHz,3 / 20 GT/s,80,195W,0,0,1,0,128GB
+6534,MCC,8 / 16,3.9 / 4.2 GHz,22.5 MB*,4800 MHz,3 / 20 GT/s,80,195W,0,0,1,0,128GB
+6542Y,MCC,24 / 48,2.9 / 4.1 GHz,60 MB*,5200 MHz,3 / 20 GT/s,80,250W,0,0,1,0,128GB
+6544Y,MCC,16 / 32,3.6 / 4.1 GHz,45 MB*,5200 MHz,3 / 20 GT/s,80,270W,0,0,1,0,128GB
+6548Y+,MCC,32 / 64,2.5 / 4.1 GHz,60 MB,5200 MHz,3 / 20 GT/s,80,250W,1,1,1,1,128GB
+6558Q,MCC,32 / 64,3.2 / 4.1 GHz,60 MB,5200 MHz,3 / 20 GT/s,80,350W,0,0,1,0,128GB
+8558,XCC,48 / 96,2.1 / 4.0 GHz,260 MB*,5200 MHz,4 / 20 GT/s,80,330W,0,0,1,0,512GB
+8562Y+,MCC,32 / 64,2.8 / 4.1 GHz,60 MB,5600 MHz,3 / 20 GT/s,80,300W,1,1,1,1,512GB
+8568Y+,XCC,48 / 96,2.3 / 4.0 GHz,300 MB*,5600 MHz,4 / 20 GT/s,80,350W,1,1,1,1,512GB
+8570,XCC,56 / 112,2.1 / 4.0 GHz,300 MB*,5600 MHz,4 / 20 GT/s,80,350W,0,0,1,0,512GB
+8580,XCC,60 / 120,2.0 / 4.0 GHz,300 MB*,5600 MHz,4 / 20 GT/s,80,350W,0,0,1,0,512GB
+8592+,XCC,64 / 128,1.9 / 3.9 GHz,320 MB*,5600 MHz,4 / 20 GT/s,80,350W,1,1,1,1,512GB
+8593Q,XCC,64 / 128,2.2 / 3.9 GHz,320 MB*,5600 MHz,4 / 20 GT/s,80,385W,1,1,1,1,512GB
+"† The maximum single-core frequency at with the processor is capable of operating
+* L3 cache is 1.875 MB per core or larger. Processors with a larger L3 cache per core are marked with an *
+The following table summarizes the key features of all supported 4th Gen processors in the SD650-N V3.
+Table 15. 4th Gen Intel Xeon Processor features",,,,,,,,,,,,,
+"CPU
+model",Die,"Cores/
+threads","Core speed
+(Base /
+TB max†)",L3 cache*,"Max
+memory
+speed","UPI 2.0
+links &
+speed","PCIe
+lanes",TDP,Accelerators,,,,"SGX
+Enclave
+Size"
+,,,,,,,,,QAT,DLB,DSA,IAA,
+4th Gen Intel Xeon Scalable processors,,,,,,,,,,,,,
+6426Y,MCC,16 / 32,2.5 / 4.1 GHz,37.5 MB*,4800 MHz,3 / 16 GT/s,80,185W,0,0,1,0,128GB
+6434,MCC,8 / 16,3.7 / 4.1 GHz,22.5 MB*,4800 MHz,3 / 16 GT/s,80,195W,0,0,1,0,128GB
+6442Y,MCC,24 / 48,2.6 / 4.0 GHz,60 MB*,4800 MHz,3 / 16 GT/s,80,225W,0,0,1,0,128GB
+6444Y,MCC,16 / 32,3.6 / 4.1 GHz,45 MB*,4800 MHz,3 / 16 GT/s,80,270W,0,0,1,0,128GB
+6448Y,MCC,32 / 64,2.1 / 4.1 GHz,60 MB,4800 MHz,3 / 16 GT/s,80,225W,0,0,1,0,128GB
+6458Q,MCC,32 / 64,3.1 / 4.0 GHz,60 MB,4800 MHz,3 / 16 GT/s,80,350W,0,0,1,0,128GB
+8458P,XCC,44 / 88,2.7 / 3.8 GHz,82.5 MB,4800 MHz,3 / 16 GT/s,80,350W,1,1,1,1,512GB
+8460Y+,XCC,40 / 80,2.0 / 3.7 GHz,105 MB*,4800 MHz,4 / 16 GT/s,80,300W,1,1,1,1,128GB
+8462Y+,XCC,32 / 64,2.8 / 4.1 GHz,60 MB,4800 MHz,3 / 16 GT/s,80,300W,1,1,1,1,128GB
+8468,XCC,48 / 96,2.1 / 3.8 GHz,105 MB*,4800 MHz,4 / 16 GT/s,80,350W,0,0,1,0,512GB
+8468V,XCC,48 / 96,2.4 / 3.8 GHz,97.5 MB*,4800 MHz,3 / 16 GT/s,80,330W,1,1,1,1,128GB
+8470,XCC,52 / 104,2.0 / 3.8 GHz,105 MB*,4800 MHz,4 / 16 GT/s,80,350W,0,0,1,0,512GB
+8470Q,XCC,52 / 104,2.1 / 3.8 GHz,105 MB*,4800 MHz,4 / 16 GT/s,80,350W,0,0,1,0,512GB
+8480+,XCC,56 / 112,2.0 / 3.8 GHz,105 MB,4800 MHz,4 / 16 GT/s,80,350W,1,1,1,1,512GB
+8480CL,XCC,56 / 112,2.0 / 3.8 GHz,105 MB,4800 MHz,4 / 16 GT/s,80,350W,1,1,1,1,512GB
+8490H,XCC,60 / 120,1.9 / 3.5 GHz,112.5 MB,4800 MHz,4 / 16 GT/s,80,350W,4,4,4,4,512GB
+"† The maximum single-core frequency at with the processor is capable of operating
+* L3 cache is 1.875 MB per core or larger. Processors with a larger L3 cache per core are marked with an *
+The following table summarizes the key features of all supported Intel Xeon CPU Max Series processors in
+the SD650-N V3.",,,,,,,,,,,,,

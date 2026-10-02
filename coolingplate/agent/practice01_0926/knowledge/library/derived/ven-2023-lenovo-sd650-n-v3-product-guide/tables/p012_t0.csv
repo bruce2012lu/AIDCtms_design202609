@@ -1,0 +1,47 @@
+﻿"Standard specifications - DW612S enclosure
+The ThinkSystem DW612S enclosure provides shared high-efcfi iency power supplies. The SD650-N V3
+servers connect to the midplane of the DW612S enclosure. This midplane connection is for power and
+control only; the midplane does not provide any I/O connectivity.
+The following table lists the standard specifci ations of the enclosure.
+Table 2. Standard specifci ations: ThinkSystem DW612S enclosure",
+Components,Specification
+Machine type,7D1L - 3-year warranty
+Form factor,6U rack-mounted enclosure.
+"Maximum number
+of SD650-N V3
+nodes supported",Up to 6x nodes per enclosure in 6x SD650-N V3 server trays (1 node per tray).
+Node support,"The DW612S supports all ThinkSystem V3 and V2 water-cooled systems (systems can coexist in
+the same DW612S enclosure). When mixing, install in the following order, from the bottom up:
+SD665-N V3, SD650-N V3, SD665 V3, SD650-I V3, SD650-N V2, SD650 V3, SD650 V2"
+"Enclosures per
+rack",Up to six DW612S enclosures per 42U rack and up to seven DW612S enclosures per 48U rack.
+Midplane,"Passive midplane provides connections to the nodes in the front to the power supplies and fans at
+the rear. Provides signals to control fan speed, power consumption, and node throttling as
+needed."
+"System
+Management
+Module (SMM)","The hot-swappable System Management Module (SMM2) is the management device for the
+enclosure. Provides integrated systems management functions and controls the power and
+cooling features of the enclosure. Provides remote browser and CLI-based user interfaces for
+remote access via the dedicated Gigabit Ethernet port. Remote access is to both the
+management functions of the enclosure as well as the XClarity Controller (XCC) in each node.
+The SMM has two Ethernet ports which enables a single incoming Ethernet connection to be
+daisy chained across 7 enclosures and 84 nodes, thereby significantly reducing the number of
+Ethernet switch ports needed to manage an entire rack of SD650-N V3 nodes and enclosures."
+Ports,"Two RJ45 port on the rear of the enclosure for 10/100/1000 Ethernet connectivity to the SMM for
+power and cooling management."
+I/O architecture,None integrated. Use top-of-rack networking and storage switches.
+Power supplies,"6x or 9x air-cooled hot-swap power supplies, or 2x or 3x water-cooled hot-swap power supplies,
+depending on the power requirements of the installed server node trays. Power supplies installed
+at the rear of the enclosure. Single power domain supplies power to all nodes. Optional
+redundancy (N+1 or N+N) and oversubscription, depending on configuration and node population.
+Each power supply has an integrated fan. 80 PLUS Titanium or Platinum certified depending on
+the power supply. Built-in overload and surge protection."
+Cooling,Direct water cooling supplied by water manifolds connected from the rear of the enclosure.
+System LEDs,"SMM has four LEDs: system error, identification, status, and system power. Each power supply
+has AC, DC, and error LEDs. Nodes have more LEDs."
+"Systems
+management","Browser-based enclosure management through an Ethernet port on the SMM at the rear of the
+enclosure. Integrated Ethernet switch provides direct access to the XClarity Controller (XCC)
+embedded management of the installed nodes. Nodes provide more management features."
+,

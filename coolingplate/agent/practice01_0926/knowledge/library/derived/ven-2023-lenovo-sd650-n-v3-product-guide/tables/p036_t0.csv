@@ -1,0 +1,29 @@
+﻿Part number,"Feature
+code",,Description,,"SED
+support",,"Max
+Qty"
+4XB7A17124,BA7P,,"ThinkSystem 2.5"" 15mm U.2 P5520 3.84TB Read Intensive NVMe PCIe
+4.0 x4 Trayless SSD",,Support,,1
+4XB7A83978,BVGR,,"ThinkSystem 2.5"" 15mm U.2 P5520 7.68TB Read Intensive NVMe PCIe
+4.0 x4 Trayless SSD",,Support,,1
+Table 34. M.2 PCIe 4.0 NVMe drives,,,,,,,
+Part number,"Feature
+code",,Description,,"SED
+support",,"Max
+Qty"
+M.2 SSDs - PCIe 4.0 NVMe - Read Intensive/Entry (<3 DWPD),,,,,,,
+4XB7B09651,CBT0,,ThinkSystem M.2 VA 960GB Read Intensive NVMe PCIe 4.0 x4 NHS SSD,,Support,,1
+4XB7B09652,CBT1,,ThinkSystem M.2 VA 1.92TB Read Intensive NVMe PCIe 4.0 x4 NHS SSD,,Support,,1
+4XB7A13999,BKSR,,"ThinkSystem M.2 7450 PRO 960GB Read Intensive NVMe PCIe 4.0 x4
+NHS SSD",,Support,,1
+4XB7A14000,BKSS,,"ThinkSystem M.2 7450 PRO 1.92TB Read Intensive Entry NVMe PCIe 4.0
+x4 NHS SSD",,Support,,1
+"Optical drives
+The server supports the external USB optical drive listed in the following table.
+Table 35. External optical drive",,,,,,,
+Part number,,Feature code,,Description,,"Lenovo
+Top Choice
+Express",
+7XA7A05926,,AVV8,,ThinkSystem External USB DVD RW Optical Disk Drive,,-,
+"The drive is based on the Lenovo Slim DVD Burner DB65 drive and supports the following formats: DVD-
+RAM, DVD-RW, DVD+RW, DVD+R, DVD-R, DVD-ROM, DVD-R DL, CD-RW, CD-R, CD-ROM.",,,,,,,
