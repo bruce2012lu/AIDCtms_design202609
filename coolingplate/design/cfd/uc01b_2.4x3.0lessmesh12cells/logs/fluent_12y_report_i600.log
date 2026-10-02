@@ -1,0 +1,43 @@
+
+
+> /file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/fluent/uc01b_cht_less_12y_i600.cas.h5"
+The current case has not been saved.
+OK to discard? [cancel] (display "REPORT-BEGIN i600")
+Error: Please answer o[k] or c[ancel].
+Error Object: (display "REPORT-BEGIN i600")
+
+Warning: An error or interrupt occurred while reading the journal file.
+Some commands may not have been completed.
+
+
+> 
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 0 PID 52008 RUNNING AT DESKTOP-JHEHF28
+=   EXIT STATUS: -1 (ffffffff)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 1 PID 1452 RUNNING AT DESKTOP-JHEHF28
+=   EXIT STATUS: -1 (ffffffff)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 2 PID 62540 RUNNING AT DESKTOP-JHEHF28
+=   EXIT STATUS: -1 (ffffffff)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 3 PID 43264 RUNNING AT DESKTOP-JHEHF28
+=   EXIT STATUS: -1 (ffffffff)
+===================================================================================
+
+===============Message from the Cortex Process================================
+
+Fatal error in one of the compute processes.
+
+==============================================================================
+Fatal failure in fluent (disconnected / ended abnormally) - exiting...

@@ -1,0 +1,19 @@
+; Single precision (3d). 4 CPU processes.
+; GPU offload is only the coupled AMG, the fluid flow linear solve.
+; Save case-data every 200 iterations after the in-progress block.
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/logs/fluent_cht_less_12y_sp_gpgpu.log"
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/fluent/uc01b_cht_less_12y_cpu_init.cas.h5"
+/parallel/gpgpu/show
+/solve/iterate 300
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/fluent/uc01b_cht_less_12y_i300"
+/solve/iterate 100
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/fluent/uc01b_cht_less_12y_i400"
+/solve/iterate 200
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/fluent/uc01b_cht_less_12y_i600"
+/solve/iterate 200
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/fluent/uc01b_cht_less_12y_i800"
+/solve/iterate 200
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/fluent/uc01b_cht_less_12y_i1000"
+/file/stop-transcript

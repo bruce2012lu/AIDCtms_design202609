@@ -1,0 +1,36 @@
+(display "VEC4")
+/display/objects/edit
+vx0
+range-option
+auto-range-on
+global-range?
+no
+quit
+annotations-list
+1
+text-0
+quit
+/display/objects/display
+vx0
+/display/views/camera/projection
+orthographic
+/display/views/camera/position
+0.08
+0
+0.003
+/display/views/camera/target
+0
+0
+0.003
+/display/views/camera/up-vector
+0
+0
+1
+/display/views/auto-scale
+/display/views/camera/zoom-camera
+0.72
+/display/views/camera/roll-camera
+-0.13
+/display/save-picture
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/i600/x0_velocity_vector.png
+(display "VEC4-DONE")

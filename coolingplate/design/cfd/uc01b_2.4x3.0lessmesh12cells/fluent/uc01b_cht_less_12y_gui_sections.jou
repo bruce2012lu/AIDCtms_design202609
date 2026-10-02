@@ -1,0 +1,34 @@
+; Open the iter-300 first-order field and leave Fluent's own section contours on screen.
+; Do not exit. The graphics window stays for inspection.
+/file/set-batch-options yes no no
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/logs/fluent_gui_section_i300b.log"
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/fluent/uc01b_cht_less_12y_i300.cas.h5"
+/surface/plane-surface slot-z xy 0.00067
+/surface/plane-surface cut-x0 yz 0
+/surface/plane-surface slot-y zx 0.0012
+/display/set/picture/driver png
+/display/set/picture/x-resolution 1400
+/display/set/picture/y-resolution 900
+/display/objects/create contour wh-T field temperature surfaces-list wall_heat () q
+/display/objects/display wh-T
+/display/views/auto-scale
+/display/save-picture "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/fluent_native/i300_wall_heat_T.png"
+/display/objects/create contour slotz-T field temperature surfaces-list slot-z () q
+/display/objects/display slotz-T
+/display/views/auto-scale
+/display/save-picture "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/fluent_native/i300_z067_T.png"
+/display/objects/create contour slotz-V field velocity-magnitude surfaces-list slot-z () q
+/display/objects/display slotz-V
+/display/views/auto-scale
+/display/save-picture "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/fluent_native/i300_z067_V.png"
+/display/objects/create contour x0-T field temperature surfaces-list cut-x0 () q
+/display/objects/display x0-T
+/display/views/auto-scale
+/display/save-picture "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/fluent_native/i300_x0_T.png"
+/display/objects/create contour yslot-T field temperature surfaces-list slot-y () q
+/display/objects/display yslot-T
+/display/views/auto-scale
+/display/save-picture "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/fluent_native/i300_y12_T.png"
+/display/objects/display x0-T
+/display/views/auto-scale
+(display "GUI-SECTIONS-READY i300 first-order. Window left on X=0 temperature. Not exiting.")

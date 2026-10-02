@@ -1,0 +1,11 @@
+AWP_ROOT261=E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261 
+FLUENT_INC=E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent 
+CPU="E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\ntbin\win64\fluent.exe" 3d -r26.1.0 -t4 -g -i "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0lessmesh12cells\fluent\uc01b_cht_less_12y_cpu_init.jou" 
+GPU="E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\ntbin\win64\fluent.exe" 3d -r26.1.0 -t1 -gpu -i "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0lessmesh12cells\fluent\uc01b_cht_less_12y_gpu_solve.jou" 
+CPU_STARTED
+GPU_WAITER_STARTED
+CPU_INIT_DONE
+GPU_STARTED
+GPU_T4_RESTART
+GPU_T4_STARTED
+SP_GPGPU_START 3d -t4 -gpgpu=1

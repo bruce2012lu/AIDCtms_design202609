@@ -1,0 +1,2224 @@
+Transcript Start Time:  23:50:30, 25 Sep 2026 中国标准时间 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0lessmesh12cells"
+
+Build Time: Feb  2 2026 16:22:05 EST  Build Id: 10262 
+Executable Path: E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/ntbin/win64/fluent.exe
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  28300  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  16620  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  15264  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  39916  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  36632  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+Cortex Process ID: 46100 
+License Server Path: 1055@localhost 
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/mesh/uc01b_cht_less_12y.msh"
+Reading "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/mesh/uc01b_cht_less_12y.msh"...
+
+Buffering for file scan...
+
+28410606 nodes.
+12679440 hexahedral cells, zone  2.
+14441328 hexahedral cells, zone  3.
+  884736 hexahedral cells, zone  4.
+82535208 quadrilateral interior faces, zone  5.
+    3724 quadrilateral velocity-inlet faces, zone  6.
+    3724 quadrilateral velocity-inlet faces, zone  7.
+    3724 quadrilateral velocity-inlet faces, zone  8.
+    3724 quadrilateral velocity-inlet faces, zone  9.
+    3724 quadrilateral velocity-inlet faces, zone 10.
+    3724 quadrilateral velocity-inlet faces, zone 11.
+    3724 quadrilateral velocity-inlet faces, zone 12.
+    3724 quadrilateral velocity-inlet faces, zone 13.
+    3724 quadrilateral velocity-inlet faces, zone 14.
+    3724 quadrilateral velocity-inlet faces, zone 15.
+    3724 quadrilateral velocity-inlet faces, zone 16.
+    3724 quadrilateral velocity-inlet faces, zone 17.
+    5292 quadrilateral interface faces, zone 18.
+    5292 quadrilateral interface faces, zone 19.
+   10196 quadrilateral interface faces, zone 20.
+   10196 quadrilateral interface faces, zone 21.
+     512 quadrilateral interface faces, zone 22.
+     512 quadrilateral interface faces, zone 23.
+    5292 quadrilateral interface faces, zone 24.
+    5292 quadrilateral interface faces, zone 25.
+   10196 quadrilateral interface faces, zone 26.
+   10196 quadrilateral interface faces, zone 27.
+     512 quadrilateral interface faces, zone 28.
+     512 quadrilateral interface faces, zone 29.
+    5292 quadrilateral interface faces, zone 30.
+    5292 quadrilateral interface faces, zone 31.
+   10196 quadrilateral interface faces, zone 32.
+   10196 quadrilateral interface faces, zone 33.
+     512 quadrilateral interface faces, zone 34.
+     512 quadrilateral interface faces, zone 35.
+    5292 quadrilateral interface faces, zone 36.
+    5292 quadrilateral interface faces, zone 37.
+   10196 quadrilateral interface faces, zone 38.
+   10196 quadrilateral interface faces, zone 39.
+     512 quadrilateral interface faces, zone 40.
+     512 quadrilateral interface faces, zone 41.
+    5292 quadrilateral interface faces, zone 42.
+    5292 quadrilateral interface faces, zone 43.
+   10196 quadrilateral interface faces, zone 44.
+   10196 quadrilateral interface faces, zone 45.
+     512 quadrilateral interface faces, zone 46.
+     512 quadrilateral interface faces, zone 47.
+    5292 quadrilateral interface faces, zone 48.
+    5292 quadrilateral interface faces, zone 49.
+   10196 quadrilateral interface faces, zone 50.
+   10196 quadrilateral interface faces, zone 51.
+     512 quadrilateral interface faces, zone 52.
+     512 quadrilateral interface faces, zone 53.
+    5292 quadrilateral interface faces, zone 54.
+    5292 quadrilateral interface faces, zone 55.
+   10196 quadrilateral interface faces, zone 56.
+   10196 quadrilateral interface faces, zone 57.
+     512 quadrilateral interface faces, zone 58.
+     512 quadrilateral interface faces, zone 59.
+    5292 quadrilateral interface faces, zone 60.
+    5292 quadrilateral interface faces, zone 61.
+   10196 quadrilateral interface faces, zone 62.
+   10196 quadrilateral interface faces, zone 63.
+     512 quadrilateral interface faces, zone 64.
+     512 quadrilateral interface faces, zone 65.
+    5292 quadrilateral interface faces, zone 66.
+    5292 quadrilateral interface faces, zone 67.
+   10196 quadrilateral interface faces, zone 68.
+   10196 quadrilateral interface faces, zone 69.
+     512 quadrilateral interface faces, zone 70.
+     512 quadrilateral interface faces, zone 71.
+    5292 quadrilateral interface faces, zone 72.
+    5292 quadrilateral interface faces, zone 73.
+   10196 quadrilateral interface faces, zone 74.
+   10196 quadrilateral interface faces, zone 75.
+     512 quadrilateral interface faces, zone 76.
+     512 quadrilateral interface faces, zone 77.
+    5292 quadrilateral interface faces, zone 78.
+    5292 quadrilateral interface faces, zone 79.
+   10196 quadrilateral interface faces, zone 80.
+   10196 quadrilateral interface faces, zone 81.
+     512 quadrilateral interface faces, zone 82.
+     512 quadrilateral interface faces, zone 83.
+  176496 quadrilateral pressure-outlet faces, zone 84.
+    5292 quadrilateral pressure-outlet faces, zone 85.
+    5292 quadrilateral pressure-outlet faces, zone 86.
+  221184 quadrilateral wall faces, zone 87.
+   14592 quadrilateral wall faces, zone 88.
+  680640 quadrilateral wall faces, zone 89.
+  221184 quadrilateral wall faces, zone 90.
+   10708 quadrilateral wall faces, zone 91.
+   10708 quadrilateral wall faces, zone 92.
+  318000 quadrilateral symmetry faces, zone 93.
+
+Building...
+     mesh
+	auto partitioning mesh by Metis (fast),
+	distributing mesh
+		parts....,
+      interior -> interior (5) and interior:094 (94)
+      interior -> interior (5) and interior:095 (95)
+      return_slot -> return_slot (84) and return_slot:096 (96)
+      wall_y_front -> wall_y_front (91) and wall_y_front:097 (97)
+      wall_y_back -> wall_y_back (92) and wall_y_back:098 (98)
+      sym -> sym (93) and sym:099 (99)
+      sym -> sym (93) and sym:100 (100)
+		faces....,
+Note: Separating interior zone 5 into zones 5 and 94. 
+Note: Separating interior zone 5 into zones 5 and 95. 
+Note: Separating pressure-outlet zone 84 into zones 84 and 96. 
+Note: Separating wall zone 91 into zones 91 and 97. 
+Note: Separating wall zone 92 into zones 92 and 98. 
+Note: Separating symmetry zone 93 into zones 93 and 99. 
+Note: Separating symmetry zone 93 into zones 93 and 100. 
+		nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 957662/9820 = 97.5216
+     materials,
+     interface,
+     domains,
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	sym:100
+	sym:099
+	wall_y_back:098
+	wall_y_front:097
+	return_slot:096
+	interior:095
+	interior:094
+	sym
+	wall_y_back
+	wall_y_front
+	wall_tim_cu
+	wall_cu_fluid
+	wall_orifice
+	wall_heat
+	outlet_y_back
+	outlet_y_front
+	return_slot
+	itm_11b
+	itm_11a
+	icu_11b
+	icu_11a
+	ifl_11b
+	ifl_11a
+	itm_10b
+	itm_10a
+	icu_10b
+	icu_10a
+	ifl_10b
+	ifl_10a
+	itm_09b
+	itm_09a
+	icu_09b
+	icu_09a
+	ifl_09b
+	ifl_09a
+	itm_08b
+	itm_08a
+	icu_08b
+	icu_08a
+	ifl_08b
+	ifl_08a
+	itm_07b
+	itm_07a
+	icu_07b
+	icu_07a
+	ifl_07b
+	ifl_07a
+	itm_06b
+	itm_06a
+	icu_06b
+	icu_06a
+	ifl_06b
+	ifl_06a
+	itm_05b
+	itm_05a
+	icu_05b
+	icu_05a
+	ifl_05b
+	ifl_05a
+	itm_04b
+	itm_04a
+	icu_04b
+	icu_04a
+	ifl_04b
+	ifl_04a
+	itm_03b
+	itm_03a
+	icu_03b
+	icu_03a
+	ifl_03b
+	ifl_03a
+	itm_02b
+	itm_02a
+	icu_02b
+	icu_02a
+	ifl_02b
+	ifl_02a
+	itm_01b
+	itm_01a
+	icu_01b
+	icu_01a
+	ifl_01b
+	ifl_01a
+	inlet_jet_12
+	inlet_jet_11
+	inlet_jet_10
+	inlet_jet_09
+	inlet_jet_08
+	inlet_jet_07
+	inlet_jet_06
+	inlet_jet_05
+	inlet_jet_04
+	inlet_jet_03
+	inlet_jet_02
+	inlet_jet_01
+	interior
+	solid_tim2
+	solid_cu
+	fluid
+Warning: Flow boundary zone (return_slot:096) is adjacent to a solid zone (solid_cu). 
+ This problem MUST be fixed before 
+         solution can proceed!
+
+     parallel,
+Warning: Flow boundary zone (return_slot:096) is adjacent to a solid zone (solid_cu). 
+ This problem MUST be fixed before 
+         solution can proceed!
+
+Warning: Flow boundary zone (return_slot:096) is adjacent to a solid zone (solid_cu). 
+ This problem MUST be fixed before 
+         solution can proceed!
+
+Done.
+
+Preparing mesh for display...
+Done.
+
+
+> /mesh/check
+
+ Domain Extents:
+   x-coordinate: min (m) = -1.500000e-03, max (m) = 1.500000e-03
+   y-coordinate: min (m) = -1.440000e-02, max (m) = 1.440000e-02
+   z-coordinate: min (m) = -2.080000e-03, max (m) = 8.000000e-03
+ Volume statistics:
+   minimum volume (m3): 1.142093e-17
+   maximum volume (m3): 1.121492e-12
+     total volume (m3): 7.011271e-07
+ Face area statistics:
+   minimum face area (m2): 2.846120e-12
+   maximum face area (m2): 1.337415e-08
+ Checking mesh............................
+WARNING: Unassigned interface zone detected for interface ifl_01a
+WARNING: Unassigned interface zone detected for interface ifl_01b
+WARNING: Unassigned interface zone detected for interface icu_01a
+WARNING: Unassigned interface zone detected for interface icu_01b
+WARNING: Unassigned interface zone detected for interface itm_01a
+WARNING: Unassigned interface zone detected for interface itm_01b
+WARNING: Unassigned interface zone detected for interface ifl_02a
+WARNING: Unassigned interface zone detected for interface ifl_02b
+WARNING: Unassigned interface zone detected for interface icu_02a
+WARNING: Unassigned interface zone detected for interface icu_02b
+WARNING: Unassigned interface zone detected for interface itm_02a
+WARNING: Unassigned interface zone detected for interface itm_02b
+WARNING: Unassigned interface zone detected for interface ifl_03a
+WARNING: Unassigned interface zone detected for interface ifl_03b
+WARNING: Unassigned interface zone detected for interface icu_03a
+WARNING: Unassigned interface zone detected for interface icu_03b
+WARNING: Unassigned interface zone detected for interface itm_03a
+WARNING: Unassigned interface zone detected for interface itm_03b
+WARNING: Unassigned interface zone detected for interface ifl_04a
+WARNING: Unassigned interface zone detected for interface ifl_04b
+WARNING: Unassigned interface zone detected for interface icu_04a
+WARNING: Unassigned interface zone detected for interface icu_04b
+WARNING: Unassigned interface zone detected for interface itm_04a
+WARNING: Unassigned interface zone detected for interface itm_04b
+WARNING: Unassigned interface zone detected for interface ifl_05a
+WARNING: Unassigned interface zone detected for interface ifl_05b
+WARNING: Unassigned interface zone detected for interface icu_05a
+WARNING: Unassigned interface zone detected for interface icu_05b
+WARNING: Unassigned interface zone detected for interface itm_05a
+WARNING: Unassigned interface zone detected for interface itm_05b
+WARNING: Unassigned interface zone detected for interface ifl_06a
+WARNING: Unassigned interface zone detected for interface ifl_06b
+WARNING: Unassigned interface zone detected for interface icu_06a
+WARNING: Unassigned interface zone detected for interface icu_06b
+WARNING: Unassigned interface zone detected for interface itm_06a
+WARNING: Unassigned interface zone detected for interface itm_06b
+WARNING: Unassigned interface zone detected for interface ifl_07a
+WARNING: Unassigned interface zone detected for interface ifl_07b
+WARNING: Unassigned interface zone detected for interface icu_07a
+WARNING: Unassigned interface zone detected for interface icu_07b
+WARNING: Unassigned interface zone detected for interface itm_07a
+WARNING: Unassigned interface zone detected for interface itm_07b
+WARNING: Unassigned interface zone detected for interface ifl_08a
+WARNING: Unassigned interface zone detected for interface ifl_08b
+WARNING: Unassigned interface zone detected for interface icu_08a
+WARNING: Unassigned interface zone detected for interface icu_08b
+WARNING: Unassigned interface zone detected for interface itm_08a
+WARNING: Unassigned interface zone detected for interface itm_08b
+WARNING: Unassigned interface zone detected for interface ifl_09a
+WARNING: Unassigned interface zone detected for interface ifl_09b
+WARNING: Unassigned interface zone detected for interface icu_09a
+WARNING: Unassigned interface zone detected for interface icu_09b
+WARNING: Unassigned interface zone detected for interface itm_09a
+WARNING: Unassigned interface zone detected for interface itm_09b
+WARNING: Unassigned interface zone detected for interface ifl_10a
+WARNING: Unassigned interface zone detected for interface ifl_10b
+WARNING: Unassigned interface zone detected for interface icu_10a
+WARNING: Unassigned interface zone detected for interface icu_10b
+WARNING: Unassigned interface zone detected for interface itm_10a
+WARNING: Unassigned interface zone detected for interface itm_10b
+WARNING: Unassigned interface zone detected for interface ifl_11a
+WARNING: Unassigned interface zone detected for interface ifl_11b
+WARNING: Unassigned interface zone detected for interface icu_11a
+WARNING: Unassigned interface zone detected for interface icu_11b
+WARNING: Unassigned interface zone detected for interface itm_11a
+WARNING: Unassigned interface zone detected for interface itm_11b..............
+ Done.
+
+WARNING: Mesh check failed.
+
+To get more detailed information about the mesh check failure
+increase the mesh check verbosity via the text command:
+/mesh/check-verbosity
+
+> /define/boundary-conditions/list-zones
+  id  name                       type                adj-zone-material     wall-material         kind
+----  -------------------------  ------------------  --------------------  --------------------  ----
+   2  fluid                      fluid               air                                         cell
+   3  solid_cu                   solid               aluminum                                    cell
+   4  solid_tim2                 solid               aluminum                                    cell
+   5  interior                   interior                                                        face
+   6  inlet_jet_01               mass-flow-inlet                                                 face
+   7  inlet_jet_02               mass-flow-inlet                                                 face
+   8  inlet_jet_03               mass-flow-inlet                                                 face
+   9  inlet_jet_04               mass-flow-inlet                                                 face
+  10  inlet_jet_05               mass-flow-inlet                                                 face
+  11  inlet_jet_06               mass-flow-inlet                                                 face
+  12  inlet_jet_07               mass-flow-inlet                                                 face
+  13  inlet_jet_08               mass-flow-inlet                                                 face
+  14  inlet_jet_09               mass-flow-inlet                                                 face
+  15  inlet_jet_10               mass-flow-inlet                                                 face
+  16  inlet_jet_11               mass-flow-inlet                                                 face
+  17  inlet_jet_12               mass-flow-inlet                                                 face
+  18  ifl_01a                    interface                                                       face
+  19  ifl_01b                    interface                                                       face
+  20  icu_01a                    interface                                                       face
+  21  icu_01b                    interface                                                       face
+  22  itm_01a                    interface                                                       face
+  23  itm_01b                    interface                                                       face
+  24  ifl_02a                    interface                                                       face
+  25  ifl_02b                    interface                                                       face
+  26  icu_02a                    interface                                                       face
+  27  icu_02b                    interface                                                       face
+  28  itm_02a                    interface                                                       face
+  29  itm_02b                    interface                                                       face
+  30  ifl_03a                    interface                                                       face
+  31  ifl_03b                    interface                                                       face
+  32  icu_03a                    interface                                                       face
+  33  icu_03b                    interface                                                       face
+  34  itm_03a                    interface                                                       face
+  35  itm_03b                    interface                                                       face
+  36  ifl_04a                    interface                                                       face
+  37  ifl_04b                    interface                                                       face
+  38  icu_04a                    interface                                                       face
+  39  icu_04b                    interface                                                       face
+  40  itm_04a                    interface                                                       face
+  41  itm_04b                    interface                                                       face
+  42  ifl_05a                    interface                                                       face
+  43  ifl_05b                    interface                                                       face
+  44  icu_05a                    interface                                                       face
+  45  icu_05b                    interface                                                       face
+  46  itm_05a                    interface                                                       face
+  47  itm_05b                    interface                                                       face
+  48  ifl_06a                    interface                                                       face
+  49  ifl_06b                    interface                                                       face
+  50  icu_06a                    interface                                                       face
+  51  icu_06b                    interface                                                       face
+  52  itm_06a                    interface                                                       face
+  53  itm_06b                    interface                                                       face
+  54  ifl_07a                    interface                                                       face
+  55  ifl_07b                    interface                                                       face
+  56  icu_07a                    interface                                                       face
+  57  icu_07b                    interface                                                       face
+  58  itm_07a                    interface                                                       face
+  59  itm_07b                    interface                                                       face
+  60  ifl_08a                    interface                                                       face
+  61  ifl_08b                    interface                                                       face
+  62  icu_08a                    interface                                                       face
+  63  icu_08b                    interface                                                       face
+  64  itm_08a                    interface                                                       face
+  65  itm_08b                    interface                                                       face
+  66  ifl_09a                    interface                                                       face
+  67  ifl_09b                    interface                                                       face
+  68  icu_09a                    interface                                                       face
+  69  icu_09b                    interface                                                       face
+  70  itm_09a                    interface                                                       face
+  71  itm_09b                    interface                                                       face
+  72  ifl_10a                    interface                                                       face
+  73  ifl_10b                    interface                                                       face
+  74  icu_10a                    interface                                                       face
+  75  icu_10b                    interface                                                       face
+  76  itm_10a                    interface                                                       face
+  77  itm_10b                    interface                                                       face
+  78  ifl_11a                    interface                                                       face
+  79  ifl_11b                    interface                                                       face
+  80  icu_11a                    interface                                                       face
+  81  icu_11b                    interface                                                       face
+  82  itm_11a                    interface                                                       face
+  83  itm_11b                    interface                                                       face
+  84  return_slot                pressure-outlet                                                 face
+  85  outlet_y_front             pressure-outlet                                                 face
+  86  outlet_y_back              pressure-outlet                                                 face
+  87  wall_heat                  wall                aluminum              aluminum              face
+  88  wall_orifice               wall                air                   aluminum              face
+  89  wall_cu_fluid              wall                air                   aluminum              face
+  90  wall_tim_cu                wall                aluminum              aluminum              face
+  91  wall_y_front               wall                aluminum              aluminum              face
+  92  wall_y_back                wall                aluminum              aluminum              face
+  93  sym                        symmetry                                                        face
+  94  interior:094               interior                                                        face
+  95  interior:095               interior                                                        face
+  96  return_slot:096            pressure-outlet                                                 face
+  97  wall_y_front:097           wall                aluminum              aluminum              face
+  98  wall_y_back:098            wall                aluminum              aluminum              face
+  99  sym:099                    symmetry                                                        face
+ 100  sym:100                    symmetry                                                        face
+ 101  wall_tim_cu-shadow         wall                aluminum              aluminum              face
+ 102  wall_cu_fluid-shadow       wall                aluminum              aluminum              face
+
+> /define/boundary-conditions/zone-type interior interior
+
+> /define/boundary-conditions/zone-type inlet_jet_01 mass-flow-inlet
+
+> /define/boundary-conditions/zone-type inlet_jet_02 mass-flow-inlet
+
+> /define/boundary-conditions/zone-type inlet_jet_03 mass-flow-inlet
+
+> /define/boundary-conditions/zone-type inlet_jet_04 mass-flow-inlet
+
+> /define/boundary-conditions/zone-type inlet_jet_05 mass-flow-inlet
+
+> /define/boundary-conditions/zone-type inlet_jet_06 mass-flow-inlet
+
+> /define/boundary-conditions/zone-type inlet_jet_07 mass-flow-inlet
+
+> /define/boundary-conditions/zone-type inlet_jet_08 mass-flow-inlet
+
+> /define/boundary-conditions/zone-type inlet_jet_09 mass-flow-inlet
+
+> /define/boundary-conditions/zone-type inlet_jet_10 mass-flow-inlet
+
+> /define/boundary-conditions/zone-type inlet_jet_11 mass-flow-inlet
+
+> /define/boundary-conditions/zone-type inlet_jet_12 mass-flow-inlet
+
+> /define/boundary-conditions/zone-type return_slot wall
+
+> /define/boundary-conditions/zone-type outlet_y_front pressure-outlet
+
+> /define/boundary-conditions/zone-type outlet_y_back pressure-outlet
+
+> /define/boundary-conditions/zone-type wall_y_front wall
+
+> /define/boundary-conditions/zone-type wall_y_back wall
+
+> /define/boundary-conditions/zone-type SYM symmetry
+
+> /define/boundary-conditions/zone-type ifl_01a interface
+
+> /define/boundary-conditions/zone-type ifl_01b interface
+
+> /define/boundary-conditions/zone-type icu_01a interface
+
+> /define/boundary-conditions/zone-type icu_01b interface
+
+> /define/boundary-conditions/zone-type itm_01a interface
+
+> /define/boundary-conditions/zone-type itm_01b interface
+
+> /define/boundary-conditions/zone-type ifl_02a interface
+
+> /define/boundary-conditions/zone-type ifl_02b interface
+
+> /define/boundary-conditions/zone-type icu_02a interface
+
+> /define/boundary-conditions/zone-type icu_02b interface
+
+> /define/boundary-conditions/zone-type itm_02a interface
+
+> /define/boundary-conditions/zone-type itm_02b interface
+
+> /define/boundary-conditions/zone-type ifl_03a interface
+
+> /define/boundary-conditions/zone-type ifl_03b interface
+
+> /define/boundary-conditions/zone-type icu_03a interface
+
+> /define/boundary-conditions/zone-type icu_03b interface
+
+> /define/boundary-conditions/zone-type itm_03a interface
+
+> /define/boundary-conditions/zone-type itm_03b interface
+
+> /define/boundary-conditions/zone-type ifl_04a interface
+
+> /define/boundary-conditions/zone-type ifl_04b interface
+
+> /define/boundary-conditions/zone-type icu_04a interface
+
+> /define/boundary-conditions/zone-type icu_04b interface
+
+> /define/boundary-conditions/zone-type itm_04a interface
+
+> /define/boundary-conditions/zone-type itm_04b interface
+
+> /define/boundary-conditions/zone-type ifl_05a interface
+
+> /define/boundary-conditions/zone-type ifl_05b interface
+
+> /define/boundary-conditions/zone-type icu_05a interface
+
+> /define/boundary-conditions/zone-type icu_05b interface
+
+> /define/boundary-conditions/zone-type itm_05a interface
+
+> /define/boundary-conditions/zone-type itm_05b interface
+
+> /define/boundary-conditions/zone-type ifl_06a interface
+
+> /define/boundary-conditions/zone-type ifl_06b interface
+
+> /define/boundary-conditions/zone-type icu_06a interface
+
+> /define/boundary-conditions/zone-type icu_06b interface
+
+> /define/boundary-conditions/zone-type itm_06a interface
+
+> /define/boundary-conditions/zone-type itm_06b interface
+
+> /define/boundary-conditions/zone-type ifl_07a interface
+
+> /define/boundary-conditions/zone-type ifl_07b interface
+
+> /define/boundary-conditions/zone-type icu_07a interface
+
+> /define/boundary-conditions/zone-type icu_07b interface
+
+> /define/boundary-conditions/zone-type itm_07a interface
+
+> /define/boundary-conditions/zone-type itm_07b interface
+
+> /define/boundary-conditions/zone-type ifl_08a interface
+
+> /define/boundary-conditions/zone-type ifl_08b interface
+
+> /define/boundary-conditions/zone-type icu_08a interface
+
+> /define/boundary-conditions/zone-type icu_08b interface
+
+> /define/boundary-conditions/zone-type itm_08a interface
+
+> /define/boundary-conditions/zone-type itm_08b interface
+
+> /define/boundary-conditions/zone-type ifl_09a interface
+
+> /define/boundary-conditions/zone-type ifl_09b interface
+
+> /define/boundary-conditions/zone-type icu_09a interface
+
+> /define/boundary-conditions/zone-type icu_09b interface
+
+> /define/boundary-conditions/zone-type itm_09a interface
+
+> /define/boundary-conditions/zone-type itm_09b interface
+
+> /define/boundary-conditions/zone-type ifl_10a interface
+
+> /define/boundary-conditions/zone-type ifl_10b interface
+
+> /define/boundary-conditions/zone-type icu_10a interface
+
+> /define/boundary-conditions/zone-type icu_10b interface
+
+> /define/boundary-conditions/zone-type itm_10a interface
+
+> /define/boundary-conditions/zone-type itm_10b interface
+
+> /define/boundary-conditions/zone-type ifl_11a interface
+
+> /define/boundary-conditions/zone-type ifl_11b interface
+
+> /define/boundary-conditions/zone-type icu_11a interface
+
+> /define/boundary-conditions/zone-type icu_11b interface
+
+> /define/boundary-conditions/zone-type itm_11a interface
+
+> /define/boundary-conditions/zone-type itm_11b interface
+
+> /define/mesh-interfaces/create
+mesh-interface name: ["intf"] ifl-01
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] ifl_01a
+zone(2) [()] ifl_01b
+zone(3) [()] ()
+
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] icu-01
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] icu_01a
+zone(2) [()] icu_01b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] itm-01
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] itm_01a
+zone(2) [()] itm_01b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] ifl-02
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] ifl_02a
+zone(2) [()] ifl_02b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] icu-02
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] icu_02a
+zone(2) [()] icu_02b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] itm-02
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] itm_02a
+zone(2) [()] itm_02b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] ifl-03
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] ifl_03a
+zone(2) [()] ifl_03b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] icu-03
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] icu_03a
+zone(2) [()] icu_03b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] itm-03
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] itm_03a
+zone(2) [()] itm_03b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] ifl-04
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] ifl_04a
+zone(2) [()] ifl_04b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] icu-04
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] icu_04a
+zone(2) [()] icu_04b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] itm-04
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] itm_04a
+zone(2) [()] itm_04b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] ifl-05
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] ifl_05a
+zone(2) [()] ifl_05b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] icu-05
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] icu_05a
+zone(2) [()] icu_05b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] itm-05
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] itm_05a
+zone(2) [()] itm_05b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] ifl-06
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] ifl_06a
+zone(2) [()] ifl_06b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] icu-06
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] icu_06a
+zone(2) [()] icu_06b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] itm-06
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] itm_06a
+zone(2) [()] itm_06b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] ifl-07
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] ifl_07a
+zone(2) [()] ifl_07b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] icu-07
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] icu_07a
+zone(2) [()] icu_07b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] itm-07
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] itm_07a
+zone(2) [()] itm_07b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         itm-07:01:itm_07b::itm_07a         165      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] ifl-08
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] ifl_08a
+zone(2) [()] ifl_08b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         itm-07:01:itm_07b::itm_07a         165      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         ifl-08:01:ifl_08b::ifl_08a         168      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] icu-08
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] icu_08a
+zone(2) [()] icu_08b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         itm-07:01:itm_07b::itm_07a         165      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         ifl-08:01:ifl_08b::ifl_08a         168      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+                                         icu-08:01:icu_08b::icu_08a         171      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] itm-08
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] itm_08a
+zone(2) [()] itm_08b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         itm-07:01:itm_07b::itm_07a         165      2.40000332e-07       100.00% /100.00%
+                                         itm-08:01:itm_08b::itm_08a         174      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         ifl-08:01:ifl_08b::ifl_08a         168      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+                                         icu-08:01:icu_08b::icu_08a         171      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] ifl-09
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] ifl_09a
+zone(2) [()] ifl_09b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         itm-07:01:itm_07b::itm_07a         165      2.40000332e-07       100.00% /100.00%
+                                         itm-08:01:itm_08b::itm_08a         174      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         ifl-08:01:ifl_08b::ifl_08a         168      9.20000275e-06       100.00% /100.00%
+                                         ifl-09:01:ifl_09b::ifl_09a         177      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+                                         icu-08:01:icu_08b::icu_08a         171      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] icu-09
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] icu_09a
+zone(2) [()] icu_09b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         itm-07:01:itm_07b::itm_07a         165      2.40000332e-07       100.00% /100.00%
+                                         itm-08:01:itm_08b::itm_08a         174      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         ifl-08:01:ifl_08b::ifl_08a         168      9.20000275e-06       100.00% /100.00%
+                                         ifl-09:01:ifl_09b::ifl_09a         177      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+                                         icu-08:01:icu_08b::icu_08a         171      1.48002528e-05       100.00% /100.00%
+                                         icu-09:01:icu_09b::icu_09a         180      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] itm-09
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] itm_09a
+zone(2) [()] itm_09b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         itm-07:01:itm_07b::itm_07a         165      2.40000332e-07       100.00% /100.00%
+                                         itm-08:01:itm_08b::itm_08a         174      2.40000332e-07       100.00% /100.00%
+                                         itm-09:01:itm_09b::itm_09a         183      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         ifl-08:01:ifl_08b::ifl_08a         168      9.20000275e-06       100.00% /100.00%
+                                         ifl-09:01:ifl_09b::ifl_09a         177      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+                                         icu-08:01:icu_08b::icu_08a         171      1.48002528e-05       100.00% /100.00%
+                                         icu-09:01:icu_09b::icu_09a         180      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] ifl-10
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] ifl_10a
+zone(2) [()] ifl_10b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         itm-07:01:itm_07b::itm_07a         165      2.40000332e-07       100.00% /100.00%
+                                         itm-08:01:itm_08b::itm_08a         174      2.40000332e-07       100.00% /100.00%
+                                         itm-09:01:itm_09b::itm_09a         183      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         ifl-08:01:ifl_08b::ifl_08a         168      9.20000275e-06       100.00% /100.00%
+                                         ifl-09:01:ifl_09b::ifl_09a         177      9.20000275e-06       100.00% /100.00%
+                                         ifl-10:01:ifl_10b::ifl_10a         186      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+                                         icu-08:01:icu_08b::icu_08a         171      1.48002528e-05       100.00% /100.00%
+                                         icu-09:01:icu_09b::icu_09a         180      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] icu-10
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] icu_10a
+zone(2) [()] icu_10b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         itm-07:01:itm_07b::itm_07a         165      2.40000332e-07       100.00% /100.00%
+                                         itm-08:01:itm_08b::itm_08a         174      2.40000332e-07       100.00% /100.00%
+                                         itm-09:01:itm_09b::itm_09a         183      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         ifl-08:01:ifl_08b::ifl_08a         168      9.20000275e-06       100.00% /100.00%
+                                         ifl-09:01:ifl_09b::ifl_09a         177      9.20000275e-06       100.00% /100.00%
+                                         ifl-10:01:ifl_10b::ifl_10a         186      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+                                         icu-08:01:icu_08b::icu_08a         171      1.48002528e-05       100.00% /100.00%
+                                         icu-09:01:icu_09b::icu_09a         180      1.48002528e-05       100.00% /100.00%
+                                         icu-10:01:icu_10b::icu_10a         189      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] itm-10
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] itm_10a
+zone(2) [()] itm_10b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         itm-07:01:itm_07b::itm_07a         165      2.40000332e-07       100.00% /100.00%
+                                         itm-08:01:itm_08b::itm_08a         174      2.40000332e-07       100.00% /100.00%
+                                         itm-09:01:itm_09b::itm_09a         183      2.40000332e-07       100.00% /100.00%
+                                         itm-10:01:itm_10b::itm_10a         192      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         ifl-08:01:ifl_08b::ifl_08a         168      9.20000275e-06       100.00% /100.00%
+                                         ifl-09:01:ifl_09b::ifl_09a         177      9.20000275e-06       100.00% /100.00%
+                                         ifl-10:01:ifl_10b::ifl_10a         186      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+                                         icu-08:01:icu_08b::icu_08a         171      1.48002528e-05       100.00% /100.00%
+                                         icu-09:01:icu_09b::icu_09a         180      1.48002528e-05       100.00% /100.00%
+                                         icu-10:01:icu_10b::icu_10a         189      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] ifl-11
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] ifl_11a
+zone(2) [()] ifl_11b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         itm-07:01:itm_07b::itm_07a         165      2.40000332e-07       100.00% /100.00%
+                                         itm-08:01:itm_08b::itm_08a         174      2.40000332e-07       100.00% /100.00%
+                                         itm-09:01:itm_09b::itm_09a         183      2.40000332e-07       100.00% /100.00%
+                                         itm-10:01:itm_10b::itm_10a         192      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         ifl-08:01:ifl_08b::ifl_08a         168      9.20000275e-06       100.00% /100.00%
+                                         ifl-09:01:ifl_09b::ifl_09a         177      9.20000275e-06       100.00% /100.00%
+                                         ifl-10:01:ifl_10b::ifl_10a         186      9.20000275e-06       100.00% /100.00%
+                                         ifl-11:01:ifl_11b::ifl_11a         195      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+                                         icu-08:01:icu_08b::icu_08a         171      1.48002528e-05       100.00% /100.00%
+                                         icu-09:01:icu_09b::icu_09a         180      1.48002528e-05       100.00% /100.00%
+                                         icu-10:01:icu_10b::icu_10a         189      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] icu-11
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] icu_11a
+zone(2) [()] icu_11b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         itm-07:01:itm_07b::itm_07a         165      2.40000332e-07       100.00% /100.00%
+                                         itm-08:01:itm_08b::itm_08a         174      2.40000332e-07       100.00% /100.00%
+                                         itm-09:01:itm_09b::itm_09a         183      2.40000332e-07       100.00% /100.00%
+                                         itm-10:01:itm_10b::itm_10a         192      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         ifl-08:01:ifl_08b::ifl_08a         168      9.20000275e-06       100.00% /100.00%
+                                         ifl-09:01:ifl_09b::ifl_09a         177      9.20000275e-06       100.00% /100.00%
+                                         ifl-10:01:ifl_10b::ifl_10a         186      9.20000275e-06       100.00% /100.00%
+                                         ifl-11:01:ifl_11b::ifl_11a         195      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+                                         icu-08:01:icu_08b::icu_08a         171      1.48002528e-05       100.00% /100.00%
+                                         icu-09:01:icu_09b::icu_09a         180      1.48002528e-05       100.00% /100.00%
+                                         icu-10:01:icu_10b::icu_10a         189      1.48002528e-05       100.00% /100.00%
+                                         icu-11:01:icu_11b::icu_11a         198      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/mesh-interfaces/create
+mesh interface name prefix: ["intf"] itm-11
+automatic pairing of all wall and interface zones? [yes] no
+(sym wall_y_back wall_y_front wall_orifice wall_heat outlet_y_back outlet_y_front return_slot itm_11b itm_11a icu_11b icu_11a ifl_11b ifl_11a itm_10b itm_10a icu_10b icu_10a ifl_10b ifl_10a itm_09b itm_09a icu_09b icu_09a ifl_09b ifl_09a itm_08b itm_08a icu_08b icu_08a ifl_08b ifl_08a itm_07b itm_07a icu_07b icu_07a ifl_07b ifl_07a itm_06b itm_06a icu_06b icu_06a ifl_06b ifl_06a itm_05b itm_05a icu_05b icu_05a ifl_05b ifl_05a itm_04b itm_04a icu_04b icu_04a ifl_04b ifl_04a itm_03b itm_03a icu_03b icu_03a ifl_03b ifl_03a itm_02b itm_02a icu_02b icu_02a ifl_02b ifl_02a itm_01b itm_01a icu_01b icu_01a ifl_01b ifl_01a inlet_jet_12 inlet_jet_11 inlet_jet_10 inlet_jet_09 inlet_jet_08 inlet_jet_07 inlet_jet_06 inlet_jet_05 inlet_jet_04 inlet_jet_03 inlet_jet_02 inlet_jet_01 return_slot:096 wall_y_front:097 wall_y_back:098 sym:099 sym:100 fluid solid_cu solid_tim2)
+zone(1) [()] itm_11a
+zone(2) [()] itm_11b
+zone(3) [()] ()
+Pairing interface zones...
+
+Creating one-to-one mesh interfaces...
+Done.
+
+List of Mesh Interfaces by Size
+
+                                 Name                                    ID             Area [m^2]      Area Percentage   
+   ----------------------------------------------------------------  ----------  ------------------  ---------------------
+                                         itm-01:01:itm_01b::itm_01a         111      2.40000332e-07       100.00% /100.00%
+                                         itm-02:01:itm_02b::itm_02a         120      2.40000332e-07       100.00% /100.00%
+                                         itm-03:01:itm_03b::itm_03a         129      2.40000332e-07       100.00% /100.00%
+                                         itm-04:01:itm_04b::itm_04a         138      2.40000332e-07       100.00% /100.00%
+                                         itm-05:01:itm_05b::itm_05a         147      2.40000332e-07       100.00% /100.00%
+                                         itm-06:01:itm_06b::itm_06a         156      2.40000332e-07       100.00% /100.00%
+                                         itm-07:01:itm_07b::itm_07a         165      2.40000332e-07       100.00% /100.00%
+                                         itm-08:01:itm_08b::itm_08a         174      2.40000332e-07       100.00% /100.00%
+                                         itm-09:01:itm_09b::itm_09a         183      2.40000332e-07       100.00% /100.00%
+                                         itm-10:01:itm_10b::itm_10a         192      2.40000332e-07       100.00% /100.00%
+                                         itm-11:01:itm_11b::itm_11a         201      2.40000332e-07       100.00% /100.00%
+                                         ifl-01:01:ifl_01b::ifl_01a         103      9.20000275e-06       100.00% /100.00%
+                                         ifl-02:01:ifl_02b::ifl_02a         114      9.20000275e-06       100.00% /100.00%
+                                         ifl-03:01:ifl_03b::ifl_03a         123      9.20000275e-06       100.00% /100.00%
+                                         ifl-04:01:ifl_04b::ifl_04a         132      9.20000275e-06       100.00% /100.00%
+                                         ifl-05:01:ifl_05b::ifl_05a         141      9.20000275e-06       100.00% /100.00%
+                                         ifl-06:01:ifl_06b::ifl_06a         150      9.20000275e-06       100.00% /100.00%
+                                         ifl-07:01:ifl_07b::ifl_07a         159      9.20000275e-06       100.00% /100.00%
+                                         ifl-08:01:ifl_08b::ifl_08a         168      9.20000275e-06       100.00% /100.00%
+                                         ifl-09:01:ifl_09b::ifl_09a         177      9.20000275e-06       100.00% /100.00%
+                                         ifl-10:01:ifl_10b::ifl_10a         186      9.20000275e-06       100.00% /100.00%
+                                         ifl-11:01:ifl_11b::ifl_11a         195      9.20000275e-06       100.00% /100.00%
+                                         icu-01:01:icu_01b::icu_01a         108      1.48002528e-05       100.00% /100.00%
+                                         icu-02:01:icu_02b::icu_02a         117      1.48002528e-05       100.00% /100.00%
+                                         icu-03:01:icu_03b::icu_03a         126      1.48002528e-05       100.00% /100.00%
+                                         icu-04:01:icu_04b::icu_04a         135      1.48002528e-05       100.00% /100.00%
+                                         icu-05:01:icu_05b::icu_05a         144      1.48002528e-05       100.00% /100.00%
+                                         icu-06:01:icu_06b::icu_06a         153      1.48002528e-05       100.00% /100.00%
+                                         icu-07:01:icu_07b::icu_07a         162      1.48002528e-05       100.00% /100.00%
+                                         icu-08:01:icu_08b::icu_08a         171      1.48002528e-05       100.00% /100.00%
+                                         icu-09:01:icu_09b::icu_09a         180      1.48002528e-05       100.00% /100.00%
+                                         icu-10:01:icu_10b::icu_10a         189      1.48002528e-05       100.00% /100.00%
+                                         icu-11:01:icu_11b::icu_11a         198      1.48002528e-05       100.00% /100.00%
+  
+
+> ()
+()
+
+
+> /define/models/energy yes
+Compute viscous energy work? [no] no
+Include pressure work in energy equation? [no] no
+Include kinetic energy in energy equation? [no] no
+Include diffusion at inlets? [yes] no
+
+> /define/models/viscous/kw-sst yes
+
+> /define/materials/copy fluid water-liquid
+
+Material "water-liquid" copied from database.
+
+
+> /define/materials/copy solid copper
+
+Material "copper" copied from database.
+
+
+> /define/materials/change-create
+
+material-name> water-liquid
+material name [water-liquid] water-liquid
+water-liquid is a fluid
+change Density? [no] yes
+
+Density
+methods: (constant piecewise-linear piecewise-polynomial polynomial real-gas-soave-redlich-kwong real-gas-peng-robinson expression compressible-liquid ideal-gas incompressible-ideal-gas boussinesq)
+new method [constant] constant
+value (in [kg/m^3]) [998.2] 992.2
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (kinetic-theory constant piecewise-linear piecewise-polynomial polynomial)
+new method [constant] constant
+value (in [J/(kg K)]) [4182] 4179
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (kinetic-theory constant piecewise-linear piecewise-polynomial polynomial expression)
+new method [constant] constant
+value (in [W/(m K)]) [0.6] 0.631
+
+change Viscosity? [no] yes
+
+Viscosity
+methods: (kinetic-theory constant expression piecewise-linear piecewise-polynomial polynomial sutherland)
+new method [constant] constant
+value (in [kg/(m s)]) [0.001003] 6.53e-4
+
+change Molecular Weight? [no] no
+change Thermal Expansion Coefficient? [no] no
+change Speed of Sound? [no] no
+
+> /define/materials/change-create
+
+material-name> copper
+material name [copper] copper
+copper is a solid
+change Density? [no] yes
+
+Density
+methods: (constant user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [8978] 8960
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial)
+new method [constant] constant
+value (in [J/(kg K)]) [381] 385
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial cyl-orthotropic orthotropic anisotropic user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [387.6] 390
+
+
+> /define/materials/change-create
+
+material-name> aluminum
+material name [aluminum] tim2
+tim2 is a solid
+change Density? [no] yes
+
+Density
+methods: (constant user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [2719] 2800
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial)
+new method [constant] constant
+value (in [J/(kg K)]) [871] 1000
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial cyl-orthotropic orthotropic anisotropic user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [202.4] 8.818342
+
+
+Change/Create material and Overwrite aluminum? [no] yes
+
+> /define/boundary-conditions/fluid
+(fluid)
+zone id/name [fluid] fluid
+material-name [air]: Change current value? [no] yes
+
+material-name [air]> water-liquid
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Enter yes or no to continue [no] no
+Laminar zone? [no] no
+Porous zone? [no] no
+3D Fan Zone? [no] no
+
+> /define/boundary-conditions/solid
+(solid_cu solid_tim2)
+zone id/name [solid_cu] solid_cu
+material-name [tim2]: Change current value? [no] yes
+
+material-name [tim2]> copper
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Solid Motion? [no] no
+Enter yes or no to continue [no] no
+
+> /define/boundary-conditions/solid
+(solid_cu solid_tim2)
+zone id/name [solid_cu] solid_tim2
+material-name [tim2]: Change current value? [no] yes
+
+material-name [tim2]> tim2
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Solid Motion? [no] no
+Enter yes or no to continue [no] no
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet_01 () mass-flow no 1.225e-4 t no 313.15 q
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet_02 () mass-flow no 1.225e-4 t no 313.15 q
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet_03 () mass-flow no 1.225e-4 t no 313.15 q
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet_04 () mass-flow no 1.225e-4 t no 313.15 q
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet_05 () mass-flow no 1.225e-4 t no 313.15 q
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet_06 () mass-flow no 1.225e-4 t no 313.15 q
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet_07 () mass-flow no 1.225e-4 t no 313.15 q
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet_08 () mass-flow no 1.225e-4 t no 313.15 q
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet_09 () mass-flow no 1.225e-4 t no 313.15 q
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet_10 () mass-flow no 1.225e-4 t no 313.15 q
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet_11 () mass-flow no 1.225e-4 t no 313.15 q
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet_12 () mass-flow no 1.225e-4 t no 313.15 q
+
+> /define/boundary-conditions/set/pressure-outlet outlet_y_front () t no 313.15 q
+
+> /define/boundary-conditions/set/pressure-outlet outlet_y_back () t no 313.15 q
+
+> /define/boundary-conditions/wall
+(itm_11a-non-overlapping itm_11b-non-overlapping icu_11a-non-overlapping icu_11b-non-overlapping ifl_11a-non-overlapping ifl_11b-non-overlapping itm_10a-non-overlapping itm_10b-non-overlapping icu_10a-non-overlapping icu_10b-non-overlapping ifl_10a-non-overlapping ifl_10b-non-overlapping itm_09a-non-overlapping itm_09b-non-overlapping icu_09a-non-overlapping icu_09b-non-overlapping ifl_09a-non-overlapping ifl_09b-non-overlapping itm_08a-non-overlapping itm_08b-non-overlapping icu_08a-non-overlapping icu_08b-non-overlapping ifl_08a-non-overlapping ifl_08b-non-overlapping itm_07a-non-overlapping itm_07b-non-overlapping icu_07a-non-overlapping icu_07b-non-overlapping ifl_07a-non-overlapping ifl_07b-non-overlapping itm_06a-non-overlapping itm_06b-non-overlapping icu_06a-non-overlapping icu_06b-non-overlapping ifl_06a-non-overlapping ifl_06b-non-overlapping itm_05a-non-overlapping itm_05b-non-overlapping icu_05a-non-overlapping icu_05b-non-overlapping ifl_05a-non-overlapping ifl_05b-non-overlapping itm_04a-non-overlapping itm_04b-non-overlapping icu_04a-non-overlapping icu_04b-non-overlapping ifl_04a-non-overlapping ifl_04b-non-overlapping itm_03a-non-overlapping itm_03b-non-overlapping icu_03a-non-overlapping icu_03b-non-overlapping ifl_03a-non-overlapping ifl_03b-non-overlapping itm_02a-non-overlapping itm_02b-non-overlapping icu_02a-non-overlapping icu_02b-non-overlapping ifl_02a-non-overlapping ifl_02b-non-overlapping itm_01a-non-overlapping itm_01b-non-overlapping icu_01a-non-overlapping icu_01b-non-overlapping ifl_01b-non-overlapping ifl_01a-non-overlapping wall_y_back wall_y_front return_slot wall_heat wall_orifice wall_cu_fluid wall_tim_cu wall_y_front:097 wall_y_back:098 wall_tim_cu-shadow wall_cu_fluid-shadow)
+zone id/name [itm_11a-non-overlapping] wall_heat
+Use Profile for Wall Thickness? [no] no
+Wall Thickness (constant or expression) (in [m]) [0] 0
+Use Profile for Heat Generation Rate? [no] no
+Heat Generation Rate (constant or expression) (in [W/m^3]) [0] 0
+material-name [tim2]: Change current value? [no] no
+Thermal BC Type [heat-flux]: Change current value? [no] yes
+
+Thermal BC Type [heat-flux]> heat-flux
+Use Profile for Heat Flux? [no] no
+Heat Flux (constant or expression) (in [W/m^2]) [0] 579282
+Enable shell conduction? [no] no
+Use Profile for Convective Augmentation Factor? [no] no
+Convective Augmentation Factor (constant or expression) [1] 1
+
+> /report/reference-values/temperature 313.15
+
+> /define/operating-conditions/operating-pressure 101325
+
+> /solve/set/p-v-coupling 24
+
+> /solve/set/pseudo-transient yes
+Activate automatic time step size calculation? [yes] yes
+Length scale calculation methods: (0 1 2)
+0 - Aggressive 
+1 - Conservative 
+2 - User-Specified 
+Length Scale Calculation Method [1] 1
+Auto time step scaling factor (constant or expression) [1] 1
+Auto time verbosity [0] 0
+Activate automatic time step size calculation for solid zone? [yes] yes
+Auto time step scale factor for solid zone [1] 1
+
+> /solve/set/discretization-scheme/pressure 10
+
+GPU solver defaults are activated for the following unsupported settings (1)
+======================================
+Area    Settings  From  To            
+--------------------------------------
+solver  pressure        second order  
+
+
+> /solve/set/discretization-scheme/mom 0
+
+> /solve/set/discretization-scheme/k 0
+
+> /solve/set/discretization-scheme/omega 0
+
+> /solve/set/discretization-scheme/temperature 0
+
+> /solve/monitors/residual/print? yes
+
+> /solve/monitors/residual/plot? yes
+
+> /solve/monitors/residual/criterion-type Available options: (absolute none)
+0
+
+> /solve/monitors/residual/check-convergence? no
+Check convergence of x-velocity residuals? [yes] no
+Check convergence of y-velocity residuals? [yes] no
+Check convergence of z-velocity residuals? [yes] no
+Check convergence of energy residuals? [yes] no
+Check convergence of k residuals? [yes] no
+Check convergence of omega residuals? [yes] no
+
+> /solve/initialize/set-defaults/temperature 313.15
+
+> /solve/initialize/hyb-initialization
+
+Warning: Flow boundary zone (return_slot:096) is adjacent to a solid zone (solid_cu). 
+ This problem MUST be fixed before 
+         solution can proceed!
+
+Error at Node 0: Flow boundary zone found adjacent to solid zone.
+       This problem MUST be fixed before solution proceed
+
+Error at Node 3: Flow boundary zone found adjacent to solid zone.
+       This problem MUST be fixed before solution proceed
+
+Error at Node 2: Flow boundary zone found adjacent to solid zone.
+       This problem MUST be fixed before solution proceed
+
+Error at Node 1: Flow boundary zone found adjacent to solid zone.
+       This problem MUST be fixed before solution proceed
+Transcript Stop Time:  00:00:12, 26 Sep 2026 中国标准时间 
+Total Transcript Time: 9 Minute 42 Second.

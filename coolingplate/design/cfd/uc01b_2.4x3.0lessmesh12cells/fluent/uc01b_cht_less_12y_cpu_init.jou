@@ -1,0 +1,504 @@
+; 12-cell less mesh, single precision, GPU. n_bl=7. Y joins are mesh interfaces.
+; Each inlet_jet_XX is one hole, 1.225e-4 kg/s. wall_heat 579282 W/m2.
+; Y ends: fluid pressure-outlet, solid adiabatic. return_slot (Z) is an adiabatic wall.
+; Save iterations 300, 400, 500, 600, 1000.
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/logs/fluent_cht_less_12y_cpu_init.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/mesh/uc01b_cht_less_12y.msh"
+/mesh/check
+/define/boundary-conditions/list-zones
+/define/boundary-conditions/zone-type interior interior
+/define/boundary-conditions/zone-type inlet_jet_01 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_02 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_03 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_04 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_05 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_06 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_07 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_08 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_09 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_10 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_11 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_12 mass-flow-inlet
+/define/boundary-conditions/zone-type return_slot wall
+/define/boundary-conditions/zone-type return_slot:096 wall
+/define/boundary-conditions/zone-type outlet_y_front pressure-outlet
+/define/boundary-conditions/zone-type outlet_y_back pressure-outlet
+/define/boundary-conditions/zone-type wall_y_front wall
+/define/boundary-conditions/zone-type wall_y_back wall
+/define/boundary-conditions/zone-type SYM symmetry
+/define/boundary-conditions/zone-type ifl_01a interface
+/define/boundary-conditions/zone-type ifl_01b interface
+/define/boundary-conditions/zone-type icu_01a interface
+/define/boundary-conditions/zone-type icu_01b interface
+/define/boundary-conditions/zone-type itm_01a interface
+/define/boundary-conditions/zone-type itm_01b interface
+/define/boundary-conditions/zone-type ifl_02a interface
+/define/boundary-conditions/zone-type ifl_02b interface
+/define/boundary-conditions/zone-type icu_02a interface
+/define/boundary-conditions/zone-type icu_02b interface
+/define/boundary-conditions/zone-type itm_02a interface
+/define/boundary-conditions/zone-type itm_02b interface
+/define/boundary-conditions/zone-type ifl_03a interface
+/define/boundary-conditions/zone-type ifl_03b interface
+/define/boundary-conditions/zone-type icu_03a interface
+/define/boundary-conditions/zone-type icu_03b interface
+/define/boundary-conditions/zone-type itm_03a interface
+/define/boundary-conditions/zone-type itm_03b interface
+/define/boundary-conditions/zone-type ifl_04a interface
+/define/boundary-conditions/zone-type ifl_04b interface
+/define/boundary-conditions/zone-type icu_04a interface
+/define/boundary-conditions/zone-type icu_04b interface
+/define/boundary-conditions/zone-type itm_04a interface
+/define/boundary-conditions/zone-type itm_04b interface
+/define/boundary-conditions/zone-type ifl_05a interface
+/define/boundary-conditions/zone-type ifl_05b interface
+/define/boundary-conditions/zone-type icu_05a interface
+/define/boundary-conditions/zone-type icu_05b interface
+/define/boundary-conditions/zone-type itm_05a interface
+/define/boundary-conditions/zone-type itm_05b interface
+/define/boundary-conditions/zone-type ifl_06a interface
+/define/boundary-conditions/zone-type ifl_06b interface
+/define/boundary-conditions/zone-type icu_06a interface
+/define/boundary-conditions/zone-type icu_06b interface
+/define/boundary-conditions/zone-type itm_06a interface
+/define/boundary-conditions/zone-type itm_06b interface
+/define/boundary-conditions/zone-type ifl_07a interface
+/define/boundary-conditions/zone-type ifl_07b interface
+/define/boundary-conditions/zone-type icu_07a interface
+/define/boundary-conditions/zone-type icu_07b interface
+/define/boundary-conditions/zone-type itm_07a interface
+/define/boundary-conditions/zone-type itm_07b interface
+/define/boundary-conditions/zone-type ifl_08a interface
+/define/boundary-conditions/zone-type ifl_08b interface
+/define/boundary-conditions/zone-type icu_08a interface
+/define/boundary-conditions/zone-type icu_08b interface
+/define/boundary-conditions/zone-type itm_08a interface
+/define/boundary-conditions/zone-type itm_08b interface
+/define/boundary-conditions/zone-type ifl_09a interface
+/define/boundary-conditions/zone-type ifl_09b interface
+/define/boundary-conditions/zone-type icu_09a interface
+/define/boundary-conditions/zone-type icu_09b interface
+/define/boundary-conditions/zone-type itm_09a interface
+/define/boundary-conditions/zone-type itm_09b interface
+/define/boundary-conditions/zone-type ifl_10a interface
+/define/boundary-conditions/zone-type ifl_10b interface
+/define/boundary-conditions/zone-type icu_10a interface
+/define/boundary-conditions/zone-type icu_10b interface
+/define/boundary-conditions/zone-type itm_10a interface
+/define/boundary-conditions/zone-type itm_10b interface
+/define/boundary-conditions/zone-type ifl_11a interface
+/define/boundary-conditions/zone-type ifl_11b interface
+/define/boundary-conditions/zone-type icu_11a interface
+/define/boundary-conditions/zone-type icu_11b interface
+/define/boundary-conditions/zone-type itm_11a interface
+/define/boundary-conditions/zone-type itm_11b interface
+/define/mesh-interfaces/create
+ifl-01
+no
+ifl_01a
+ifl_01b
+()
+()
+/define/mesh-interfaces/create
+icu-01
+no
+icu_01a
+icu_01b
+()
+()
+/define/mesh-interfaces/create
+itm-01
+no
+itm_01a
+itm_01b
+()
+()
+/define/mesh-interfaces/create
+ifl-02
+no
+ifl_02a
+ifl_02b
+()
+()
+/define/mesh-interfaces/create
+icu-02
+no
+icu_02a
+icu_02b
+()
+()
+/define/mesh-interfaces/create
+itm-02
+no
+itm_02a
+itm_02b
+()
+()
+/define/mesh-interfaces/create
+ifl-03
+no
+ifl_03a
+ifl_03b
+()
+()
+/define/mesh-interfaces/create
+icu-03
+no
+icu_03a
+icu_03b
+()
+()
+/define/mesh-interfaces/create
+itm-03
+no
+itm_03a
+itm_03b
+()
+()
+/define/mesh-interfaces/create
+ifl-04
+no
+ifl_04a
+ifl_04b
+()
+()
+/define/mesh-interfaces/create
+icu-04
+no
+icu_04a
+icu_04b
+()
+()
+/define/mesh-interfaces/create
+itm-04
+no
+itm_04a
+itm_04b
+()
+()
+/define/mesh-interfaces/create
+ifl-05
+no
+ifl_05a
+ifl_05b
+()
+()
+/define/mesh-interfaces/create
+icu-05
+no
+icu_05a
+icu_05b
+()
+()
+/define/mesh-interfaces/create
+itm-05
+no
+itm_05a
+itm_05b
+()
+()
+/define/mesh-interfaces/create
+ifl-06
+no
+ifl_06a
+ifl_06b
+()
+()
+/define/mesh-interfaces/create
+icu-06
+no
+icu_06a
+icu_06b
+()
+()
+/define/mesh-interfaces/create
+itm-06
+no
+itm_06a
+itm_06b
+()
+()
+/define/mesh-interfaces/create
+ifl-07
+no
+ifl_07a
+ifl_07b
+()
+()
+/define/mesh-interfaces/create
+icu-07
+no
+icu_07a
+icu_07b
+()
+()
+/define/mesh-interfaces/create
+itm-07
+no
+itm_07a
+itm_07b
+()
+()
+/define/mesh-interfaces/create
+ifl-08
+no
+ifl_08a
+ifl_08b
+()
+()
+/define/mesh-interfaces/create
+icu-08
+no
+icu_08a
+icu_08b
+()
+()
+/define/mesh-interfaces/create
+itm-08
+no
+itm_08a
+itm_08b
+()
+()
+/define/mesh-interfaces/create
+ifl-09
+no
+ifl_09a
+ifl_09b
+()
+()
+/define/mesh-interfaces/create
+icu-09
+no
+icu_09a
+icu_09b
+()
+()
+/define/mesh-interfaces/create
+itm-09
+no
+itm_09a
+itm_09b
+()
+()
+/define/mesh-interfaces/create
+ifl-10
+no
+ifl_10a
+ifl_10b
+()
+()
+/define/mesh-interfaces/create
+icu-10
+no
+icu_10a
+icu_10b
+()
+()
+/define/mesh-interfaces/create
+itm-10
+no
+itm_10a
+itm_10b
+()
+()
+/define/mesh-interfaces/create
+ifl-11
+no
+ifl_11a
+ifl_11b
+()
+()
+/define/mesh-interfaces/create
+icu-11
+no
+icu_11a
+icu_11b
+()
+()
+/define/mesh-interfaces/create
+itm-11
+no
+itm_11a
+itm_11b
+()
+()
+/define/models/energy yes
+no
+no
+no
+no
+/define/models/viscous/kw-sst yes
+/define/materials/copy fluid water-liquid
+/define/materials/copy solid copper
+/define/materials/change-create
+water-liquid
+water-liquid
+yes
+constant
+992.2
+yes
+constant
+4179
+yes
+constant
+0.631
+yes
+constant
+6.53e-4
+no
+no
+no
+/define/materials/change-create
+copper
+copper
+yes
+constant
+8960
+yes
+constant
+385
+yes
+constant
+390
+/define/materials/change-create
+aluminum
+tim2
+yes
+constant
+2800
+yes
+constant
+1000
+yes
+constant
+8.818342
+yes
+/define/boundary-conditions/fluid
+fluid
+yes
+water-liquid
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+no
+no
+/define/boundary-conditions/solid
+solid_cu
+yes
+copper
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+/define/boundary-conditions/solid
+solid_tim2
+yes
+tim2
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_01 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_02 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_03 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_04 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_05 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_06 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_07 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_08 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_09 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_10 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_11 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_12 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/pressure-outlet outlet_y_front () t no 313.15 q
+/define/boundary-conditions/set/pressure-outlet outlet_y_back () t no 313.15 q
+/define/boundary-conditions/wall
+wall_heat
+no
+0
+no
+0
+no
+yes
+heat-flux
+no
+579282
+no
+no
+1
+/report/reference-values/temperature 313.15
+/define/operating-conditions/operating-pressure 101325
+/solve/set/p-v-coupling 24
+/solve/set/pseudo-transient yes
+yes
+1
+1
+0
+yes
+1
+/solve/set/discretization-scheme/pressure 10
+/solve/set/discretization-scheme/mom 0
+/solve/set/discretization-scheme/k 0
+/solve/set/discretization-scheme/omega 0
+/solve/set/discretization-scheme/temperature 0
+/solve/monitors/residual/print? yes
+/solve/monitors/residual/plot? yes
+/solve/monitors/residual/criterion-type 0
+/solve/monitors/residual/check-convergence? no
+no
+no
+no
+no
+no
+no
+/solve/initialize/set-defaults/temperature 313.15
+/solve/initialize/initialize-flow
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/fluent/uc01b_cht_less_12y_cpu_init"
+/file/stop-transcript
+/exit
