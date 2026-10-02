@@ -1,0 +1,54 @@
+--- coflow n=7 w=0.8 rib=0.8 land=0.3 chain=11.0
+kinds plus plus plus plus plus plus plus
+V 0.2976 Re 516.8 dPslot 60.9 dPbr 60.9
+Tmin 47.490 Tmean 54.118 Tmax 59.061 dT 11.571 dTst 9.417
+bulk dTconv 14.812 eta 0.9673 h 3976.4 dP 60.9 Nu 7.202
+  chip1 mean 48.973 min 47.490 max 50.389 dT 2.899
+  chip2 mean 53.062 min 51.376 max 54.167 dT 2.791
+  chip3 mean 56.047 min 54.826 max 56.760 dT 1.934
+  chip4 mean 58.390 min 57.274 max 59.061 dT 1.787
+--- cross n=7 w=0.8 rib=0.8 land=0.3 chain=11.0
+kinds minus plus minus plus minus plus minus
+V 0.2976 Re 516.8 dPslot 60.9 dPbr 60.9
+Tmin 51.074 Tmean 53.937 Tmax 55.364 dT 4.290 dTst 2.806
+bulk dTconv 14.812 eta 0.9673 h 3976.4 dP 60.9 Nu 7.202
+  chip1 mean 53.618 min 52.659 max 54.204 dT 1.545
+  chip2 mean 55.121 min 54.535 max 55.364 dT 0.829
+  chip3 mean 54.692 min 53.752 max 55.078 dT 1.326
+  chip4 mean 52.315 min 51.074 max 53.243 dT 2.169
+--- center n=7 w=0.8 rib=0.8 land=0.3 chain=11.0
+kinds minus plus center center center plus minus
+V 0.2976 Re 516.8 dPslot 60.9 dPbr 60.9
+Tmin 52.192 Tmean 54.027 Tmax 54.839 dT 2.647 dTst 1.011
+bulk dTconv 14.812 eta 0.9673 h 3976.4 dP 60.9 Nu 7.202
+  chip1 mean 54.512 min 54.091 max 54.742 dT 0.651
+  chip2 mean 53.528 min 52.192 max 54.132 dT 1.940
+  chip3 mean 53.529 min 52.195 max 54.119 dT 1.924
+  chip4 mean 54.539 min 53.876 max 54.839 dT 0.963
+--- cross n=11 w=0.45 rib=0.5 land=0.525 chain=11.0
+kinds minus plus minus plus minus plus minus plus minus plus minus
+V 0.3367 Re 375.9 dPslot 189.8 dPbr 189.8
+Tmin 48.536 Tmean 51.324 Tmax 52.895 dT 4.359 dTst 2.816
+bulk dTconv 9.170 eta 0.9391 h 4800.8 dP 189.8 Nu 5.590
+  chip1 mean 50.642 min 49.475 max 51.492 dT 2.017
+  chip2 mean 52.593 min 51.884 max 52.895 dT 1.011
+  chip3 mean 52.284 min 51.373 max 52.672 dT 1.299
+  chip4 mean 49.776 min 48.536 max 50.770 dT 2.234
+--- center n=11 w=0.45 rib=0.5 land=0.525 chain=11.0
+kinds minus plus minus plus center center center plus minus plus minus
+V 0.3367 Re 375.9 dPslot 189.8 dPbr 189.8
+Tmin 50.253 Tmean 51.361 Tmax 51.902 dT 1.649 dTst 0.276
+bulk dTconv 9.170 eta 0.9391 h 4800.8 dP 189.8 Nu 5.590
+  chip1 mean 51.223 min 50.434 max 51.644 dT 1.210
+  chip2 mean 51.499 min 50.432 max 51.902 dT 1.470
+  chip3 mean 51.494 min 50.435 max 51.851 dT 1.416
+  chip4 mean 51.227 min 50.253 max 51.685 dT 1.432
+--- center n=11 w=0.4 rib=0.6 land=0.3 chain=11.0
+kinds minus plus minus plus center center center plus minus plus minus
+V 0.3788 Re 383.7 dPslot 265.4 dPbr 265.4
+Tmin 49.910 Tmean 51.157 Tmax 51.694 dT 1.783 dTst 0.310
+bulk dTconv 8.678 eta 0.9451 h 5157.4 dP 265.3 Nu 5.449
+  chip1 mean 50.998 min 50.152 max 51.433 dT 1.281
+  chip2 mean 51.308 min 50.228 max 51.694 dT 1.466
+  chip3 mean 51.305 min 50.232 max 51.651 dT 1.419
+  chip4 mean 51.019 min 49.910 max 51.522 dT 1.612

@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CFD-AI Agent 能力评估与工作计划 v1.0 · 2026-09-20</title>
+<meta name="description" content="面向 ANSYS ICEM/Fluent 的大模型能力边界、
+本机探测、B300 单元胞第一案规格与分阶段闸门计划">
+<style>
+:root{
+  --navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;
+  --muted:#5d6b80;--line:#d7e0ec;--bg:#eef3f8;--soft:#f7fafd;
+  --warn:#a65b00;--red:#b42318;--good:#1f7a4d;--cu:#b97a45;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:14.5px/1.72 "Microsoft YaHei","PingFang SC","Segoe UI",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.page{max-width:1240px;margin:auto;background:#fff;
+  box-shadow:0 8px 34px #102a4c1f}
+
+header{padding:52px 62px 36px;background:linear-gradient(145deg,#0b2748,#123a68);
+  color:#fff}
+header .kicker{font-size:12px;letter-spacing:.16em;color:#93b2d6;
+  text-transform:uppercase}
+header h1{font-size:31px;line-height:1.28;margin:12px 0 12px;font-weight:700}
+header .sub{font-size:15.5px;color:#d7e6f5;max-width:960px;line-height:1.75}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.pill{border:1px solid #ffffff4d;border-radius:14px;padding:4px 11px;
+  font-size:12px;background:#ffffff12}
+.pill.hot{background:#b4231833;border-color:#ff9f9a80;color:#ffd9d6}
+.pill.ok2{background:#008b7a33;border-color:#7fd8cb80;color:#d3f5ef}
+.pill.warn{background:#a65b0033;border-color:#f0c36e80;color:#ffe7b8}
+.docbar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin-top:26px;border-top:1px solid #ffffff2e;padding-top:16px}
+.docbar div{font-size:12px;color:#9db6d4}
+.docbar div b{display:block;font-size:14px;color:#fff;margin-top:3px;
+  font-weight:600}
+
+nav{padding:11px 62px;background:var(--soft);border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:2px 4px}
+nav a{color:#17518f;text-decoration:none;font-size:12.5px;padding:3px 8px;
+  border-radius:5px;white-space:nowrap}
+nav a:hover{background:#e3edf9;color:var(--blue)}
+
+main{padding:26px 62px 60px}
+section{margin-bottom:8px}
+
+h2{font-size:23px;color:var(--navy);border-bottom:2.5px solid var(--navy);
+  padding-bottom:8px;margin:44px 0 16px;font-weight:700}
+h2:first-of-type{margin-top:12px}
+h3{font-size:17.5px;color:#14507f;margin:28px 0 10px;font-weight:600;
+  padding-left:11px;border-left:4px solid var(--teal)}
+h4{font-size:15px;color:#1b3d66;margin:18px 0 7px;font-weight:600}
+p{margin:9px 0}
+
+.lead{border-left:5px solid var(--blue);background:#eff6ff;padding:15px 19px;
+  border-radius:8px;margin:14px 0 18px}
+.note{border:1px solid #e3ca8d;background:#fffcf2;padding:13px 17px;
+  border-radius:8px;margin:14px 0}
+.note.risk{border-color:#eab4b0;background:#fff6f5}
+.note.ok{border-color:#a8dcca;background:#f2fbf7}
+ul.tight,ol.tight{margin:10px 0 14px 1.4em;padding:0}
+ul.tight li,ol.tight li{margin:6px 0}
+code{background:#eef2f7;padding:1px 5px;border-radius:4px;
+  font-family:Consolas,"Courier New",monospace;font-size:12.5px;
+  color:#1f3a5f}
+
+.grid{display:grid;gap:11px;margin:16px 0}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);
+  border-radius:8px;padding:13px 14px;background:var(--soft);
+  font-size:12.5px;color:var(--muted)}
+.card b{display:block;font-size:22px;color:var(--navy);line-height:1.2;
+  margin-bottom:4px}
+.card.blue{border-top-color:var(--blue)}
+.card.warn{border-top-color:var(--warn)}
+.card.red{border-top-color:var(--red)}
+.card.ok{border-top-color:var(--good)}
+
+table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:13px}
+th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;
+  text-align:left;line-height:1.6}
+th{background:var(--navy);color:#fff;font-weight:600;font-size:12.5px}
+tbody tr:nth-child(even) td{background:#fafcfe}
+tr.grp td{background:#e8eef6 !important;font-weight:700;color:var(--navy);
+  font-size:12.5px;letter-spacing:.04em}
+td strong{color:var(--navy)}
+
+.tag{display:inline-block;padding:1px 7px;border-radius:4px;font-size:11px;
+  background:#e6f6f2;color:var(--teal);font-weight:700;white-space:nowrap}
+.tag.tagw{background:#fff3d6;color:var(--warn)}
+.tag.tagr{background:#fde8e6;color:var(--red)}
+.tag.tagb{background:#e7f0fb;color:var(--blue)}
+.good{color:var(--good);font-weight:700}
+.bad{color:var(--red);font-weight:700}
+.warn2{color:var(--warn);font-weight:700}
+
+.formula{background:#f7fafd;border:1px solid var(--line);border-left:4px solid
+  var(--blue);border-radius:7px;padding:12px 16px;margin:13px 0}
+.formula code{background:none;padding:0;font-size:14px;color:#123a68;
+  font-weight:600;display:block;line-height:1.85}
+.formula .fres{display:block;margin-top:7px;color:var(--teal);
+  font-weight:700;font-size:14px}
+.formula .fnote{display:block;margin-top:6px;color:var(--muted);
+  font-size:12.5px;line-height:1.65}
+
+figure{margin:18px 0 22px;border:1px solid var(--line);border-radius:10px;
+  padding:14px 16px 10px;background:#fff}
+figure.svgbox{background:#fcfdff}
+svg.svgfig{display:block;width:100%;height:auto;margin:14px 0 0}
+figure svg.svgfig{margin:0}
+figcaption{margin-top:10px;font-size:12.5px;color:var(--muted);
+  line-height:1.65}
+figcaption strong{color:var(--navy)}
+figcaption .cap{display:block;margin-top:3px}
+
+footer{padding:24px 62px;background:var(--navy);color:#c9d8e8;font-size:12.5px;
+  line-height:1.8}
+footer b{color:#fff}
+
+@media(max-width:1000px){
+  header,nav,main,footer{padding-left:24px;padding-right:24px}
+  .g4,.g3,.g2{grid-template-columns:1fr}
+  .docbar{grid-template-columns:1fr 1fr}
+  table{font-size:12px}
+}
+@media print{
+  body{background:#fff;font-size:10.5pt}
+  .page{box-shadow:none;max-width:none}
+  nav{display:none}
+  header{padding:24px 0}
+  main{padding:0}
+  h2{page-break-after:avoid;margin-top:22px}
+  h3,h4{page-break-after:avoid}
+  table,figure,.card,.note,.lead,.formula{page-break-inside:avoid}
+  tr{page-break-inside:avoid}
+  @page{size:A4;margin:13mm}
+}
+</style>
+</head>
+<body>
+<p style="margin:16px 62px;padding:12px 16px;background:#fff6f5;border:1px solid #eab4b0"><strong>本文已被 216 孔设计点取代。</strong>当前以 v2.0 设计报告和 model.py 为准：每 die 9×12=108，两 die 216。DP-A 名义热流 55.16975308641976 W/cm²，施加边界 57.92824074074075 W/cm²，单孔流量 1.2249382716049385e-4 kg/s。正文中的 128 孔和 2.067e-4 kg/s 是旧口径。</p>
+
+<div class="page">
+<header>
+  <div class="kicker">CFD-AI Agent Capability Assessment · ICEM / Fluent</div>
+  <h1>CFD-AI Agent 能力评估<br>与 ICEM / Fluent 工作计划</h1>
+  <div class="sub">
+    针对 CP-B300-JM-01（NVIDIA B300 微通道 + 冲击换热冷板）。
+    一维已给出 R<sub>θ,c-in</sub>
+    <strong>0.0202–0.0355 °C/W</strong>
+    （目标 0.028），
+    Re<sub>D</sub>≈<strong>806</strong> 落在 Martin 窗外。
+    本文评估大模型与 ICEM/Fluent 的真实交互面，并冻结
+    <strong>单孔单元胞</strong>为第一案——不是 95×75 mm 整板。
+  </div>
+  <div class="meta">
+    <span class="pill">文档 AIDC-B300-CFD-AI-001</span>
+    <span class="pill">版本 v1.0</span>
+    <span class="pill">2026-09-20</span>
+    <span class="pill hot">本机无 ANSYS</span>
+    <span class="pill warn">G0 = NO-GO</span>
+    <span class="pill ok2">1D + CAD 链可用</span>
+    <span class="pill">第一案 UC-01 单元胞</span>
+  </div>
+  <div class="docbar">
+    <div>本机求解器<b>未找到 ICEM / Fluent / WB</b></div>
+    <div>工作站<b>24 核 · 128 GB</b></div>
+    <div>设计点 Re<sub>D</sub>
+        <b>806（Martin 下限 2000）</b></div>
+    <div>一维热阻带<b>0.0202 – 0.0355 °C/W</b></div>
+  </div>
+</header>
+<nav><a href="#exec">0 结论</a><a href="#scope">1 范围</a><a href="#probe">2 环境探测</a><a href="#cap">3 能力矩阵</a><a href="#modes">4 交互模式</a><a href="#arch">5 架构</a><a href="#ground">6 本项目锚点</a><a href="#case0">7 首案规格</a><a href="#plan">8 分阶段计划</a><a href="#risk">9 风险与开放项</a><a href="#gng">10 闸门</a><a href="#next">11 下一步</a><a href="#appx">附录</a></nav>
+<main>
+<p class="lead">求解器未安装 · 脚本可写 · 第一案必须是单元胞。数值与
+<code>NVIDIA_B300_微通道冲击换热冷板设计报告_v2.0_20260914.html</code>
+§9 / §10 同源。</p>
+<section id="exec"><h2 id="exec">0.　结论（先读这一页）</h2><p class="lead">对「大模型能不能交互 ANSYS ICEM / Fluent」的诚实答案是：<strong>能写脚本、能读文件、不能点 GUI、本机现在也跑不了求解器</strong>。本机探测未找到 Fluent / ICEM / Workbench / AWP_ROOT* / 许可证；仓库里也没有现成 journal、replay 或 pyfluent 脚本。Agent 今天就能做的是：用已有 <code>build123d</code> 链生成<strong>单孔单元胞</strong>（D=0.50、H=2.0、S=3.0 mm），并起草 ICEM replay / Fluent journal / pyfluent。装上带许可证的 ANSYS 之后，才能批处理网格与求解。<strong>不要</strong>把 95×75 mm、128 孔共轭全模（报告估计 3 000–8 000 万单元）当作第一案。</p><div class="grid g4"><div class="card red"><b>未找到</b>本机 ANSYS / ICEM / Fluent / WB</div><div class="card warn"><b>0.0202–0.0355</b>§9 一维 R<sub>θ,c-in</sub> °C/W（目标 0.028）</div><div class="card red"><b>806</b>设计点 Re<sub>D</sub>（Martin 下限 2000）</div><div class="card ok"><b>单元胞</b>推荐第一案，禁止整板起步</div></div><p>设计报告 v2.0 已把三维仿真写成<strong>需求规格书</strong>（§10），工具刻意不指定。本文件补的是：在选定 ICEM+Fluent 路线之后，<strong>这个 Agent 能承担哪一段、必须由人承担哪一段、第一案怎么开</strong>。</p><div class="note risk"><strong>与报告 §10.3 的硬约束对齐：</strong>「禁止只算 1 个单元胞外推整板」。单元胞只用来（1）证明网格/模型能复现 Martin（V4，Re≈3000）；（2）给出设计点 Re<sub>D</sub>=806 的局部 h 与孔口 ΔP 包络。整板流量一致性、歧管压降、两 die 温差仍是后续阶段的问题。</div></section><section id="scope"><h2 id="scope">1.　范围、读者与非目标</h2><h3>1.1　本文回答什么</h3><ol class="tight"><li>当前大模型（本 Agent）面对 ICEM / Fluent 的真实能力边界；</li><li>在本仓库、本机、本冷板项目上，哪些事今天就能做；</li><li>装上 ANSYS 之后，自动化能推进到哪一步；</li><li>第一案（simple geometry + CFD）的冻结规格与闸门。</li></ol><h3>1.2　本文不回答什么</h3><ul class="tight"><li>不替代设计报告 v2.0 的 §10 需求规格（Q1–Q8、C01–C12、V1–V5 仍然有效）；</li><li>不承诺本周交出整板共轭云图；</li><li>不评估 Star-CCM+ / FloTHERM / Icepak / OpenFOAM 的选型（工具仍待项目拍板）；</li><li>不提供可绕过许可证或破解求解器的任何路径。</li></ul><h3>1.3　项目上下文（只列与 CFD 决策有关的）</h3><table><thead><tr><th>项</th><th>状态</th><th>对 CFD-AI 的含义</th></tr></thead><tbody><tr><td>一维热力</td><td>已闭合。DP-A R = 0.0202–0.0355 °C/W，目标 0.028</td><td>CFD 的对照带已经有了，不是从零猜 h</td></tr><tr><td>Martin 有效域</td><td>Re<sub>D</sub>=806 &lt; 2000，关联式外推</td><td>第一案必须带 Re≈3000 锚定（报告 V4）</td></tr><tr><td>几何冻结候选</td><td>CP-B300-JM-01，D/H/S = 0.50/2.0/3.0 mm</td><td>单元胞尺寸不得另起一套</td></tr><tr><td>CAD</td><td>build123d 已出整板 STEP（无静压箱/水嘴，报告已声明）</td><td>整板 STEP 不能直接当第一案流体域</td></tr><tr><td>3D CFD</td><td>需求已写，工具待定，尚未开算</td><td>本计划是开工文件，不是仿真报告</td></tr><tr><td>TTV</td><td>未做</td><td>CFD 关闭后仍要试验确认（V5）</td></tr></tbody></table></section><section id="probe"><h2 id="probe">2.　本机与仓库探测（2026-09-20）</h2><p class="lead">阶段 0 的结论先行写出：<strong>求解器侧为红灯，几何与一维侧为绿灯</strong>。下列条目均为本机实测，不是产品宣传页上的「支持 ANSYS」。</p><h3>2.1　硬件</h3><table><thead><tr><th>项</th><th>实测</th></tr></thead><tbody><tr><td>CPU</td><td>Intel Core i9-14900KF　24 核 / 32 线程</td></tr><tr><td>内存</td><td>128 GB</td></tr><tr><td>操作系统</td><td>Windows 10/11 22631</td></tr><tr><td>对单元胞（≤3 M 单元）</td><td><span class="good">够用</span>：稳态层流/SST 可在工作站完成</td></tr><tr><td>对整板共轭（30–80 M）</td><td><span class="bad">不够当过夜生产机</span>：即便装上 Fluent，也需要 HPC 或至少多节点分区；本机最多适合半 die 试探，不适合 C01–C12 矩阵</td></tr></tbody></table><h3>2.2　ANSYS 安装与许可证</h3><table><thead><tr><th>探测项</th><th>结果</th></tr></thead><tbody><tr><td>典型目录 C:\Program Files\ANSYS Inc 等</td><td><span class="bad">不存在</span></td></tr><tr><td>环境变量 AWP_ROOT*</td><td><span class="bad">未设置</span></td></tr><tr><td>PATH 中的 fluent / icemcfd / wb / runwb2</td><td><span class="bad">which/Get-Command 均无</span></td></tr><tr><td>注册表 Uninstall 中 ANSYS/Fluent/ICEM</td><td><span class="bad">无匹配项</span></td></tr><tr><td>license.dat / FlexNet 痕迹（浅扫）</td><td><span class="bad">未发现</span></td></tr><tr><td>结论</td><td><strong class="bad">本机不能 checkout ICEM 或 Fluent</strong>。阶段 3–4 的执行被阻塞，阶段 1 的脚本与几何不受阻。</td></tr></tbody></table><h3>2.3　Python 与仓库资产</h3><table><thead><tr><th>资产</th><th>位置 / 版本</th><th>可用性</th></tr></thead><tbody><tr><td>系统 Python</td><td>C:\veighna_studio\python.exe　3.13.8</td><td>numpy / matplotlib 有；无 CAD、无 ANSYS 绑定</td></tr><tr><td>pyfluent / ansys-fluent-core</td><td>未安装</td><td><span class="tag tagr">缺</span></td></tr><tr><td>ansys-mapdl / pythonnet</td><td>未安装</td><td><span class="tag tagr">缺</span></td></tr><tr><td>gmsh / cadquery / pyvista（系统环境）</td><td>未安装</td><td><span class="tag tagr">缺</span></td></tr><tr><td>build123d + OCP</td><td>仅在 coolingplate\cad\.venv</td><td><span class="tag">有</span> 整板 STEP 已生成</td></tr><tr><td>一维模型</td><td>design/calc/model.py</td><td><span class="tag">有</span> 本文件数值同源</td></tr><tr><td>设计报告 §10</td><td>NVIDIA_B300_…v2.0_20260914.html</td><td><span class="tag">有</span> CFD 需求规格书</td></tr><tr><td>Fluent journal / ICEM replay / Scheme / wbjn</td><td>coolingplate 下 0 个</td><td><span class="tag tagw">待写</span></td></tr><tr><td>整板 STEP</td><td><code>cad\out\CP-B300-JM-01_assembly.step</code><br><code>cad\out\CP-B300-JM-01_JM01-100_base_plate.step</code><br><code>cad\out\CP-B300-JM-01_JM01-200_nozzle_plate.step</code><br><code>cad\out\CP-B300-JM-01_JM01-400_seal_frame.step</code></td><td>有，但不含静压箱/水嘴，且尺度不适合第一案</td></tr></tbody></table><div class="note ok">探测方法：环境变量 <code>AWP_ROOT*</code>、<code>Get-Command</code>/<code>where</code>、常见安装根、Uninstall 注册表、浅层 license.dat 搜索、<code>importlib.util.find_spec</code>。未做全盘 <code>fluent.exe</code> 穷举（耗时长，且典型安装已被覆盖）。若 ANSYS 装在非标准盘符的深层目录，阶段 0 复查时应由人提供路径。</div></section><section id="cap"><h2 id="cap">3.　能力矩阵（非市场话术）</h2><p>三列必须分开看。<strong>今天</strong> = 无 ANSYS 二进制；<strong>若已安装</strong> = 本机或远程有带许可的 ICEM/Fluent；<strong>做不好</strong> = 即使有求解器，Agent 也不应被当成主责。</p><h3>3.1　今天能做（无 ANSYS）</h3><table><thead><tr><th>能力</th><th>成熟度</th><th>本项目上的具体产物</th><th>限度</th></tr></thead><tbody><tr><td>参数化几何（Python/CAD）</td><td><span class="tag">高</span></td><td>已有整板 build123d；可加写单孔单元胞 STEP（S=3.0 mm 周期盒）</td><td>静压箱/水嘴仍按报告刻意不建</td></tr><tr><td>一维热力 / 水力复算</td><td><span class="tag">高</span></td><td>R 区间、Re、V、孔口 ΔP、h 乐观/保守，全部来自 model.py</td><td>歧管 3–5 kPa 仍是估值（AS-7）</td></tr><tr><td>设计/计划类 HTML 报告</td><td><span class="tag">高</span></td><td>本文件与 v2.0 设计报告同一套 CSS/数值源</td><td>不是仿真报告</td></tr><tr><td>Fluent journal / TUI 起草</td><td><span class="tag tagb">中</span></td><td>可写 meshing/solve/report 的文本骨架（附录）</td><td>未在本机验证；版本方言要对照安装年版本</td></tr><tr><td>ICEM replay（.rpl）起草</td><td><span class="tag tagw">中低</span></td><td>简单砖块/O-grid 单元胞可以写草稿</td><td>复杂 topology 的 replay 极脆，几乎一定要人先录一条</td></tr><tr><td>pyfluent 脚本起草</td><td><span class="tag tagb">中</span></td><td>可按官方 API 写 launch / TUI / 后处理草稿</td><td>包未装；API 随 Fluent 版本漂移</td></tr><tr><td>Workbench journal（.wbjn）起草</td><td><span class="tag tagw">中低</span></td><td>可写项目树、参数更新的骨架</td><td>WB 宏对版本和组件布局敏感</td></tr><tr><td>结果文件解析器（预写）</td><td><span class="tag tagb">中</span></td><td>可先写 residual / surface-report / CSV 解析</td><td>没有 .out/.dat 就测不了</td></tr></tbody></table><h3>3.2　若 ANSYS 已安装且许可证可用</h3><table><thead><tr><th>能力</th><th>推荐接口</th><th>Agent 能自动到哪</th><th>仍须人确认</th></tr></thead><tbody><tr><td>ICEM 批处理网格</td><td>icemcfd -batch -script xxx.rpl</td><td>在 replay 已由人录制/审过的前提下重放、改尺寸参数</td><td>阻塞质量、关联面、周期匹配</td></tr><tr><td>Fluent Meshing 水密</td><td>fluent 3d -meshing -tN -i xxx.jou</td><td>水密单元胞/短槽 coupon 的表面网格 + poly-hexcore</td><td>泄漏面、命名选择、y⁺ 是否达标</td></tr><tr><td>Fluent 求解</td><td>fluent 3d -tN -g -i xxx.jou　或 pyfluent</td><td>层流/SST 稳态、残差与监测量、自动存 cas/dat</td><td>发散时的 URF/网格局部修复</td></tr><tr><td>Workbench 项目</td><td>runwb2 -B -F proj.wbpj -R journal.wbjn</td><td>参数化扫 D/H/S 或流量的批处理外壳</td><td>工程树是否指向正确网格/材料</td></tr><tr><td>后处理提取</td><td>TUI report / pyfluent / 写文件</td><td>ΔP、面平均 h、T_wall,max、残差曲线、质量不平衡</td><td>驻点是否对、交叉流是否被周期边界歪曲</td></tr><tr><td>截图 QA</td><td>Fluent 硬拷贝或外部截屏</td><td>残差图、网格切面、壁温图归档</td><td>图是否真的回答了 Q1–Q5</td></tr></tbody></table><h3>3.3　做不好或不应交给 Agent 主责</h3><table><thead><tr><th>事项</th><th>原因</th><th>正确分工</th></tr></thead><tbody><tr><td>在 ICEM GUI 里交互式点选 blocking</td><td>需要空间拓扑直觉；坐标点击无法从聊天稳定复现</td><td>人录一条黄金 replay，Agent 只改参数重放</td></tr><tr><td>复杂歧管 / 128 孔的关联与周期</td><td>一点错面就全盘作废，日志也不友好</td><td>第一案避开；半 die 再上</td></tr><tr><td>许可证 checkout / 浮动许可排队</td><td>Agent 不能创造许可，也不应抢占他人 token</td><td>人提供 ANSLIC_ADMIN / 许可服务器</td></tr><tr><td>千万级网格的质量排雷</td><td>负体积、扭曲、周期缝需要目视 + 经验</td><td>Agent 报指标，人决定加密/重切</td></tr><tr><td>整板 30–80 M 共轭过夜无 HPC</td><td>本机 24 核/128 GB 不是这量级的生产环境</td><td>单元胞闭合后再谈分区与队列</td></tr><tr><td>把 GUI 当 API 来「看图说话」驱鼠</td><td>脆、慢、不可重复，评审无法复现</td><td>只把截图当 QA 附件，不以它为控制面</td></tr><tr><td>替代 TTV / 官方 power map</td><td>报告已写：无实测不能关 V5，无热图只能用假设分布</td><td>CFD 给区间，试验给真值</td></tr></tbody></table><div class="note ok">一句话：<strong>Agent 是脚本与簿记员，不是网格主任工程师，更不是许可证服务器。</strong>把第一案做成可批处理的单元胞，能力才会从「能写」变成「能跑」。</div></section><section id="modes"><h2 id="modes">4.　交互模式与推荐优先级</h2><p>与 ICEM/Fluent「交互」只有下列合法面。优先级按<em>可重复、可评审、对 GUI 依赖低</em>排序。</p><table><thead><tr><th>优先级</th><th>模式</th><th>载体</th><th>何时用</th><th>本机状态</th></tr></thead><tbody><tr><td>P0</td><td>文件 I/O</td><td>STEP / IGES → MSH / CAS / DAT / CSV</td><td>永远是主通道。几何、网格、解、报表都走文件。</td><td><span class="tag">STEP 已有整板</span></td></tr><tr><td>P1</td><td>Fluent journal + TUI</td><td><code>.jou</code> 文本，<code>-i</code> 批跑</td><td>求解与后处理的默认控制面；版本相对稳定。</td><td><span class="tag tagw">可写未跑</span></td></tr><tr><td>P1</td><td>pyfluent</td><td>Python API 包一层 TUI/Scheme</td><td>要和 model.py 同进程对比 1D、做 DOE 时优先。</td><td><span class="tag tagr">包未装</span></td></tr><tr><td>P2</td><td>ICEM replay</td><td><code>.rpl</code> + <code>-batch</code></td><td>结构化六面体/O-grid 单元胞。先人后机。</td><td><span class="tag tagr">无 ICEM</span></td></tr><tr><td>P2</td><td>Fluent Meshing 水密</td><td>meshing-mode journal</td><td>不想维护 ICEM blocking 时的替代，适合 coupon。</td><td><span class="tag tagr">无 Fluent</span></td></tr><tr><td>P3</td><td>Workbench journal</td><td><code>.wbjn</code> / <code>.wbpj</code></td><td>要把网格-求解-参数表绑成工程时再用，不是第一案必需。</td><td><span class="tag tagr">无 WB</span></td></tr><tr><td>P4</td><td>截图 QA</td><td>PNG / 硬拷贝</td><td>给人看，不给程序当闭环。</td><td>可选</td></tr></tbody></table><h3>4.1　明确不采用的模式</h3><ul class="tight"><li>远程桌面驱鼠操作 ICEM（不可重复，无法进 Git）；</li><li>把整板装配 STEP 直接丢进 Fluent Meshing 当第一案（缺流体腔、缺水嘴、特征尺度差 200 倍）；</li><li>未经验证就调用「一键自动 blocking」然后当黄金网格。</li></ul><h3>4.2　推荐控制栈（第一案）</h3><ol class="tight"><li>build123d 生成单元胞 STEP（流体，可选固体）；</li><li>Fluent Meshing 水密 journal <strong>或</strong> 人录 ICEM replay；</li><li>Fluent 3d journal：层流基线 + SST 包络；</li><li>TUI surface report 写出 CSV；</li><li>Python 读 CSV，与 model.py 的乐观/保守带比较。</li></ol></section><section id="arch"><h2 id="arch">5.　目标架构</h2><figure class="svgbox"><svg class="svgfig" viewBox="0 0 1100 420" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="CFD-AI Agent 交互架构">
+  <rect x="8" y="8" width="1084" height="404" rx="8" fill="#f7fafd" stroke="#d7e0ec"/>
+  <text x="28" y="36" font-size="14" font-weight="700" fill="#0b2748"
+        font-family="Microsoft YaHei,sans-serif">图 5-1　CFD-AI Agent 与 ICEM / Fluent 的合法交互面</text>
+  <text x="28" y="56" font-size="11" fill="#5d6b80"
+        font-family="Microsoft YaHei,sans-serif">原则：Agent 读写文件与脚本，不假装能点 ICEM 交互式 blocking。</text>
+
+  <rect x="28" y="78" width="200" height="118" rx="7" fill="#0b2748"/>
+  <text x="128" y="112" text-anchor="middle" fill="#fff" font-size="13" font-weight="700"
+        font-family="Microsoft YaHei,sans-serif">大模型 Agent</text>
+  <text x="128" y="136" text-anchor="middle" fill="#d7e6f5" font-size="11"
+        font-family="Microsoft YaHei,sans-serif">写脚本 · 读日志</text>
+  <text x="128" y="156" text-anchor="middle" fill="#93b2d6" font-size="10.5"
+        font-family="Microsoft YaHei,sans-serif">不持有许可证</text>
+  <text x="128" y="176" text-anchor="middle" fill="#93b2d6" font-size="10.5"
+        font-family="Microsoft YaHei,sans-serif">不替代网格工程师</text>
+
+  <rect x="268" y="78" width="210" height="52" rx="6" fill="#eff6ff" stroke="#1769e0"/>
+  <text x="373" y="100" text-anchor="middle" fill="#14507f" font-size="12" font-weight="700"
+        font-family="Microsoft YaHei,sans-serif">Python / build123d</text>
+  <text x="373" y="118" text-anchor="middle" fill="#5d6b80" font-size="10.5"
+        font-family="Microsoft YaHei,sans-serif">单元胞 STEP · 1D 复算</text>
+
+  <rect x="268" y="144" width="210" height="52" rx="6" fill="#f2fbf7" stroke="#008b7a"/>
+  <text x="373" y="166" text-anchor="middle" fill="#1f7a4d" font-size="12" font-weight="700"
+        font-family="Microsoft YaHei,sans-serif">文本脚本作者</text>
+  <text x="373" y="184" text-anchor="middle" fill="#5d6b80" font-size="10.5"
+        font-family="Microsoft YaHei,sans-serif">journal / TUI / replay / pyfluent</text>
+
+  <path d="M228 120 H268" stroke="#1769e0" stroke-width="2" fill="none"/>
+  <path d="M228 156 H268" stroke="#008b7a" stroke-width="2" fill="none"/>
+
+  <rect x="528" y="70" width="250" height="248" rx="8" fill="#fff" stroke="#d7e0ec"/>
+  <text x="653" y="96" text-anchor="middle" fill="#0b2748" font-size="12.5" font-weight="700"
+        font-family="Microsoft YaHei,sans-serif">交换文件（本机已有 / 待写）</text>
+  <text x="548" y="124" fill="#182536" font-size="11.5" font-family="Consolas,monospace">STEP / IGES</text>
+  <text x="700" y="124" fill="#1f7a4d" font-size="11" font-family="Microsoft YaHei,sans-serif">CAD 已出整板</text>
+  <text x="548" y="148" fill="#182536" font-size="11.5" font-family="Consolas,monospace">.rpl  ICEM replay</text>
+  <text x="700" y="148" fill="#a65b00" font-size="11" font-family="Microsoft YaHei,sans-serif">仓库尚无</text>
+  <text x="548" y="172" fill="#182536" font-size="11.5" font-family="Consolas,monospace">.jou  Fluent journal</text>
+  <text x="700" y="172" fill="#a65b00" font-size="11" font-family="Microsoft YaHei,sans-serif">仓库尚无</text>
+  <text x="548" y="196" fill="#182536" font-size="11.5" font-family="Consolas,monospace">.msh / .cas / .dat</text>
+  <text x="700" y="196" fill="#b42318" font-size="11" font-family="Microsoft YaHei,sans-serif">需求解器</text>
+  <text x="548" y="220" fill="#182536" font-size="11.5" font-family="Consolas,monospace">pyfluent .py</text>
+  <text x="700" y="220" fill="#a65b00" font-size="11" font-family="Microsoft YaHei,sans-serif">可写，未装包</text>
+  <text x="548" y="244" fill="#182536" font-size="11.5" font-family="Consolas,monospace">.wbjn Workbench</text>
+  <text x="700" y="244" fill="#a65b00" font-size="11" font-family="Microsoft YaHei,sans-serif">仓库尚无</text>
+  <text x="548" y="268" fill="#182536" font-size="11.5" font-family="Consolas,monospace">transcript / residual</text>
+  <text x="700" y="268" fill="#5d6b80" font-size="11" font-family="Microsoft YaHei,sans-serif">跑完才有</text>
+  <text x="548" y="292" fill="#182536" font-size="11.5" font-family="Consolas,monospace">PNG 截图 QA</text>
+  <text x="700" y="292" fill="#5d6b80" font-size="11" font-family="Microsoft YaHei,sans-serif">可选</text>
+
+  <rect x="818" y="70" width="254" height="118" rx="8" fill="#fff6f5" stroke="#eab4b0"/>
+  <text x="945" y="98" text-anchor="middle" fill="#b42318" font-size="12.5" font-weight="700"
+        font-family="Microsoft YaHei,sans-serif">ANSYS 运行时（本机）</text>
+  <text x="945" y="122" text-anchor="middle" fill="#b42318" font-size="13" font-weight="700"
+        font-family="Microsoft YaHei,sans-serif">未安装</text>
+  <text x="945" y="146" text-anchor="middle" fill="#5d6b80" font-size="11"
+        font-family="Microsoft YaHei,sans-serif">ICEM / Fluent / WB 均未找到</text>
+  <text x="945" y="168" text-anchor="middle" fill="#5d6b80" font-size="11"
+        font-family="Microsoft YaHei,sans-serif">无 AWP_ROOT* · 无 license.dat</text>
+
+  <rect x="818" y="204" width="254" height="114" rx="8" fill="#f2fbf7" stroke="#a8dcca"/>
+  <text x="945" y="232" text-anchor="middle" fill="#1f7a4d" font-size="12.5" font-weight="700"
+        font-family="Microsoft YaHei,sans-serif">本机已具备</text>
+  <text x="945" y="256" text-anchor="middle" fill="#182536" font-size="11"
+        font-family="Microsoft YaHei,sans-serif">i9-14900KF · 24C/32T · 128 GB</text>
+  <text x="945" y="276" text-anchor="middle" fill="#182536" font-size="11"
+        font-family="Microsoft YaHei,sans-serif">build123d CAD 链 + 整板 STEP</text>
+  <text x="945" y="296" text-anchor="middle" fill="#182536" font-size="11"
+        font-family="Microsoft YaHei,sans-serif">1D 模型与设计报告 v2.0</text>
+
+  <path d="M478 104 H528" stroke="#1769e0" stroke-width="2" fill="none"/>
+  <path d="M478 170 H528" stroke="#008b7a" stroke-width="2" fill="none"/>
+  <path d="M778 194 H818" stroke="#b42318" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+
+  <text x="28" y="390" fill="#5d6b80" font-size="11.5"
+        font-family="Microsoft YaHei,sans-serif">虚线 = 本机断点：脚本可以写，求解器跑不起来。实线 = 今天就能做。</text>
+</svg><figcaption><strong>图 5-1</strong>　Agent 只站在文件和脚本这一侧<span class="cap">本机断点在求解器安装与许可证，不在一维模型或 CAD 链。</span></figcaption></figure><h3>5.1　建议的目录（尚未创建，待阶段 1 开工）</h3><table><thead><tr><th>路径</th><th>内容</th></tr></thead><tbody><tr><td>coolingplate/cfd/geom/</td><td>单元胞 STEP / 命名面清单</td></tr><tr><td>coolingplate/cfd/icem/</td><td>replay、blocking 模板、质量报告</td></tr><tr><td>coolingplate/cfd/fluent/</td><td>journal、pyfluent、材料、监视定义</td></tr><tr><td>coolingplate/cfd/cases/UC-01/</td><td>cas/dat、残差、CSV、截图</td></tr><tr><td>coolingplate/cfd/compare/</td><td>与 model.py 对比表</td></tr></tbody></table><p>目录现在<strong>不预先建空壳</strong>，避免仓库里出现一批无法运行的伪工程。阶段 0 绿灯后再建。</p></section><section id="ground"><h2 id="ground">6.　必须锚在本项目上的数字</h2><p class="lead">下面所有数来自 <code>design/calc/model.py</code> 的 <code>solve('DP-A')</code>，与设计报告 v2.0 §9 一致。CFD 计划若另编一套 D/H/S 或流量，视为失败。</p><h3>6.1　几何与阵列</h3><table><thead><tr><th>量</th><th>符号</th><th>值</th><th>来源</th></tr></thead><tbody><tr><td>板外形</td><td>L×W×T</td><td>95×75×8.5 mm</td><td>GEO</td></tr><tr><td>喷嘴直径</td><td>D</td><td>0.50 mm</td><td>GEO</td></tr><tr><td>喷距</td><td>H</td><td>2.0 mm</td><td>GEO</td></tr><tr><td>孔距</td><td>S</td><td>3.0 mm</td><td>GEO</td></tr><tr><td>无量纲</td><td>H/D，S/D，f</td><td>4.0，6.0，0.0218</td><td>派生</td></tr><tr><td>孔数</td><td>N</td><td>64 / die × 2 die = 128</td><td>GEO</td></tr><tr><td>短槽</td><td>w×h，p，L</td><td>0.40×1.50，0.80，3.0 mm（上限 8）</td><td>GEO</td></tr><tr><td>余铜</td><td>t_base,cu</td><td>2.0 mm</td><td>GEO</td></tr></tbody></table><h3>6.2　DP-A 水力 / 热力（单元胞边界条件直接用）</h3><table><thead><tr><th>量</th><th>整板 / GPU 份额</th><th>折到单孔</th></tr></thead><tbody><tr><td>流量</td><td>2.00 L/min 总；GPU 1.60 L/min（80%）</td><td>0.0125 L/min</td></tr><tr><td>质量流</td><td>总 ṁ=0.03307 kg/s；GPU 0.02646 kg/s</td><td>2.0671e-04 kg/s</td></tr><tr><td>射流速度 / Re</td><td>V=1.061 m/s　Re<sub>D</sub>=806.1</td><td>与整板相同（并联均分假设）</td></tr><tr><td>孔口 ΔP（K=1.8）</td><td>1.01 kPa</td><td>单元胞应回收到同一量级</td></tr><tr><td>短槽 ΔP（cell 拓扑）</td><td>2.04 Pa（几乎可忽略）</td><td>若 CFD 大一个数量级，先查出口定义</td></tr><tr><td>歧管估值</td><td>3–5 kPa（AS-7）</td><td>单元胞<strong>答不了</strong>，勿装成答了</td></tr></tbody></table><h3>6.3　一维对照带（阶段 4 的尺子）</h3><table><thead><tr><th>模型</th><th>含义</th><th>h 或 h_eff</th><th>对流热阻</th><th>R<sub>θ,c-in</sub></th></tr></thead><tbody><tr><td>乐观（Martin 面平均）</td><td>Nu=40.78，外推=True</td><td>51470 W·m⁻²K⁻¹</td><td>0.0128 °C/W</td><td>0.0202 °C/W（TIM2=0.004）</td></tr><tr><td>保守（短槽+驻点核）</td><td>h_ch=6379，h_stag=32181</td><td>27460 W·m⁻²K⁻¹</td><td>0.0241 °C/W</td><td>0.0355 °C/W（TIM2=0.008）</td></tr><tr><td>目标</td><td>DP-A 保证点</td><td>—</td><td>—</td><td>0.028 °C/W　区间跨线</td></tr></tbody></table><div class="formula"><code>R_θ,c-in = R_wall + R_TIM2 + R_conv</code><span class="fres">墙 0.0034 + TIM2 0.004–0.008 + 对流 0.0128–0.0241 = 0.0202–0.0355 °C/W</span><span class="fnote">单元胞 CFD 直接可比的是局部 h 与孔口 ΔP，不是整板 R。</span></div><p>热流密度（均匀假设）：die 56.7 W/cm²，HBM 20.5 W/cm²。单元胞若做共轭，底面热流用 die 值，不要把 1100 W 摊到 3×3 mm。</p><div class="formula"><code>Q_cell = q_die × S² = 56.75 W/cm² × (3.0 mm)²</code><span class="fres">5.107 W / 单元胞</span><span class="fnote">仅 UC-02 共轭加载。UC-01 流体等温壁不需要这条。</span></div><h3>6.4　报告已写死、计划不得改口的约束</h3><ul class="tight"><li>驻点首层 ≤ 3 μm，y⁺ &lt; 1；孔内径向 ≥ 12、轴向 ≥ 8；间隙法向 ≥ 20 层（§10.4）；</li><li>必须共轭才能谈整板 R；单元胞允许先流体-only 做 V4（§10.3 禁止的是「只算单元胞就外推整板 R」，不是禁止单元胞本身）；</li><li>转捩 SST 为整板基线，层流对照必做；Re<sub>D</sub>=806 在过渡区（§10.5）；</li><li>V4：先跑 Re≈3000 证明能复现 Martin（偏差 &lt; 15%），再回到设计点；</li><li>网格无关性：粗/中/细 1 : 1.5 : 2.25，相邻套 R 与 ΔP 差 &lt; 3%。</li></ul></section><section id="case0"><h2 id="case0">7.　推荐第一案规格（冻结草案）</h2><p class="lead">第一案叫 <strong>UC-01 / UC-02</strong>，不是 C01。C01 是报告 §10.7 的整板基线，属于阶段 5 之后。若有人要求「先把整板丢进 ICEM」，按本文件拒收。</p><figure class="svgbox"><svg class="svgfig" viewBox="0 0 1100 380" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="单元胞首案几何">
+  <rect x="8" y="8" width="1084" height="364" rx="8" fill="#fcfdff" stroke="#d7e0ec"/>
+  <text x="28" y="34" font-size="14" font-weight="700" fill="#0b2748"
+        font-family="Microsoft YaHei,sans-serif">图 7-1　推荐首案 UC-01：单孔周期单元胞（不是 95×75 mm 整板）</text>
+
+  <!-- 流体域 -->
+  <rect x="80" y="70" width="420" height="48" rx="2" fill="#e7f0fb" stroke="#1769e0"/>
+  <text x="290" y="100" text-anchor="middle" fill="#14507f" font-size="12"
+        font-family="Microsoft YaHei,sans-serif">短静压箱（盖板侧）　入口质量流 ṁ₁</text>
+
+  <rect x="258" y="118" width="64" height="36" fill="#90cdf4" stroke="#1769e0"/>
+  <text x="290" y="141" text-anchor="middle" fill="#0b2748" font-size="11"
+        font-family="Microsoft YaHei,sans-serif">⌀0.50</text>
+
+  <rect x="80" y="154" width="420" height="70" fill="#bee3f8" stroke="#1769e0"/>
+  <text x="290" y="184" text-anchor="middle" fill="#14507f" font-size="12"
+        font-family="Microsoft YaHei,sans-serif">射流间隙 H = 2.0 mm　　H/D = 4.0</text>
+  <text x="290" y="206" text-anchor="middle" fill="#5d6b80" font-size="11"
+        font-family="Microsoft YaHei,sans-serif">周期边界 @ ±S/2　　S = 3.0 mm　　S/D = 6.0</text>
+
+  <rect x="80" y="224" width="420" height="44" fill="#c6f6d5" stroke="#008b7a"/>
+  <text x="290" y="251" text-anchor="middle" fill="#1f7a4d" font-size="12"
+        font-family="Microsoft YaHei,sans-serif">短槽 0.40×1.50 mm（UC-02 共轭才建；UC-01 可先等温壁）</text>
+
+  <rect x="80" y="268" width="420" height="36" fill="#d9a06b" stroke="#b97a45"/>
+  <text x="290" y="291" text-anchor="middle" fill="#0b2748" font-size="12"
+        font-family="Microsoft YaHei,sans-serif">余铜 t = 2.0 mm　k = 390 W·m⁻¹K⁻¹</text>
+
+  <!-- 尺寸箭头 -->
+  <line x1="80" y1="320" x2="500" y2="320" stroke="#0b2748" stroke-width="1.2"/>
+  <text x="290" y="348" text-anchor="middle" fill="#0b2748" font-size="12"
+        font-family="Microsoft YaHei,sans-serif">单元胞平面 S × S = 3.0 × 3.0 mm</text>
+
+  <!-- 右侧规格 -->
+  <rect x="540" y="70" width="530" height="270" rx="7" fill="#f7fafd" stroke="#d7e0ec"/>
+  <text x="560" y="98" fill="#0b2748" font-size="13" font-weight="700"
+        font-family="Microsoft YaHei,sans-serif">冻结自 model.py GEO / DP-A</text>
+  <text x="560" y="128" fill="#182536" font-size="12.5" font-family="Microsoft YaHei,sans-serif">工质　DI 水 40 °C　ρ=992.2　μ=6.53e-04　k=0.631　Pr=4.32</text>
+  <text x="560" y="154" fill="#182536" font-size="12.5" font-family="Microsoft YaHei,sans-serif">单孔流量　0.0125 L/min　= 整板 GPU 1.6 L/min ÷ 128 孔</text>
+  <text x="560" y="180" fill="#182536" font-size="12.5" font-family="Microsoft YaHei,sans-serif">ṁ₁ = 2.0671e-04 kg/s　　Vⱼ = 1.061 m/s　　Re_D = 806</text>
+  <text x="560" y="206" fill="#182536" font-size="12.5" font-family="Microsoft YaHei,sans-serif">相对喷嘴面积 f = 0.0218　（Martin 有效域 0.004–0.04，落在窗内）</text>
+  <text x="560" y="232" fill="#b42318" font-size="12.5" font-weight="700"
+        font-family="Microsoft YaHei,sans-serif">Re_D 低于 Martin 下限 2000　→ 设计点是外推，不是校验点</text>
+  <text x="560" y="258" fill="#182536" font-size="12.5" font-family="Microsoft YaHei,sans-serif">V4 锚定案　Re≈3000　V=3.95 m/s　等价 GPU 流量 5.95 L/min</text>
+  <text x="560" y="284" fill="#182536" font-size="12.5" font-family="Microsoft YaHei,sans-serif">驻点首层 ≤ 3 μm，y⁺ &lt; 1　网格量级 0.8–2.5 M（本机 24 核可跑）</text>
+  <text x="560" y="310" fill="#14507f" font-size="12.5" font-family="Microsoft YaHei,sans-serif">禁止：用本单元胞结果直接外推整板 R_θ,c-in（设计报告 §10.3）</text>
+</svg><figcaption><strong>图 7-1</strong>　单孔周期单元胞<span class="cap">尺寸全部来自 GEO。右侧红字是本项目必须做 V4 的原因。</span></figcaption></figure><h3>7.1　UC-01　流体-only，等温底壁（先做）</h3><table><thead><tr><th>项</th><th>规定</th></tr></thead><tbody><tr><td>目的</td><td>打通几何→网格→求解→提取；用 Re≈3000 锚定 Martin（V4）；再跑设计点 Re=806 看外推偏差</td></tr><tr><td>计算域</td><td>周期盒 3.0×3.0 mm；孔 ⌀0.50（盖板厚方向至少 8 层）；间隙 2.0 mm；孔上短静压箱 ≥ 4D；底壁可切掉固体</td></tr><tr><td>边界</td><td>顶面/静压箱：质量入口 ṁ₁=2.0671e-04 kg/s，T=40 °C；底壁：等温（建议 50 °C，仅用于定义 h）；四侧：平移周期；孔口出流经短槽方向开压力出口，或底面开环缝出口（须在网格说明里写死一种，禁止两种混用）</td></tr><tr><td>工质</td><td>DI 水 40 °C，先常物性，再温变 μ、k（报告 §10.5）</td></tr><tr><td>模型</td><td>稳态、不可压；<strong>层流必跑</strong>；k-ω SST 低 Re 作包络。单元胞暂不强制 γ-Reθ（省自由度），整板再上</td></tr><tr><td>网格</td><td>首层 ≤ 3 μm；驻点法向 ≥ 15；孔径向 ≥ 12；总量目标 0.8–2.5 M；三套无关性</td></tr><tr><td>出口定义（待人拍板）</td><td><span class="warn2">开放项 O-CFD-01</span>：纯冲击（无槽）环缝出口 vs 带 0.40 mm 短槽侧出口。建议 UC-01a 无槽、UC-01b 带槽流体</td></tr><tr><td>成功判据</td><td>残差连续/动量 &lt; 1e-4，能量 &lt; 1e-6；质量不平衡 &lt; 0.1%；Re=3000 时面平均 Nu 与 Martin 偏差 &lt; 15%；设计点孔口 ΔP 与一维 1.01 kPa 偏差 &lt; 30%（K 本身是假设）</td></tr></tbody></table><h3>7.2　UC-02　共轭 coupon（UC-01 关闭后）</h3><table><thead><tr><th>项</th><th>规定</th></tr></thead><tbody><tr><td>固体</td><td>余铜 2.0 mm + 短槽肋；k=390；TIM2 先不建，改为底面热流</td></tr><tr><td>热源</td><td>q = 56.75 W/cm² 均布在 S×S 接触面；单胞功率 5.107 W</td></tr><tr><td>可比量</td><td>局部 h、ΔT_wall、孔口 ΔP；换算 h_eff 应落在 27460–51470 W·m⁻²K⁻¹ 一带。落在带外先查边界，再谈改设计</td></tr><tr><td>仍不可比</td><td>整板 R_θ,c-in、两 die 温差、128 孔流量偏差、歧管压降</td></tr></tbody></table><h3>7.3　V4 锚定案（与 UC-01 同网格）</h3><p>只把 ṁ 放大到 Re<sub>D</sub>=3000：V=3.95 m/s，ṁ=7.6930e-04 kg/s，单孔 0.0465 L/min，等价整板 GPU 流量 5.95 L/min。这不是运行点，是校验点。Martin 有效域要求 2000≤Re≤1e5、0.004≤f≤0.04、2≤H/D≤12：本几何 f=0.0218、H/D=4.0 已在窗内，只有 Re 越界。</p><h3>7.4　明确不做的第一案</h3><ul class="tight"><li>95×75 mm 整板、128 孔、含 HBM 槽与隔离肋；</li><li>把喷嘴当多孔介质；</li><li>1/4 对称（进出口沿 Y 不对称，报告已禁）；</li><li>PG25、热点 2.5×、堵塞 20%（那是 C08–C10）。</li></ul></section><section id="plan"><h2 id="plan">8.　分阶段工作计划（带闸门）</h2><figure class="svgbox"><svg class="svgfig" viewBox="0 0 1100 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="分阶段闸门"><rect x="8" y="8" width="1084" height="184" rx="8" fill="#f7fafd" stroke="#d7e0ec"/><text x="28" y="34" font-size="14" font-weight="700" fill="#0b2748" font-family="Microsoft YaHei,sans-serif">图 8-1　六阶段闸门：前一阶段不关闭，后一阶段不得开工</text><rect x="40" y="58" width="150" height="86" rx="8" fill="#fff" stroke="#b42318" stroke-width="2"/><circle cx="68" cy="86" r="14" fill="#b42318"/><text x="68" y="91" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Arial,sans-serif">0</text><text x="92" y="84" fill="#0b2748" font-size="13" font-weight="700" font-family="Microsoft YaHei,sans-serif">环境</text><text x="92" y="108" fill="#5d6b80" font-size="11" font-family="Microsoft YaHei,sans-serif">本机红灯</text><path d="M190 101 H210" stroke="#d7e0ec" stroke-width="2"/><rect x="210" y="58" width="150" height="86" rx="8" fill="#fff" stroke="#1769e0" stroke-width="2"/><circle cx="238" cy="86" r="14" fill="#1769e0"/><text x="238" y="91" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Arial,sans-serif">1</text><text x="262" y="84" fill="#0b2748" font-size="13" font-weight="700" font-family="Microsoft YaHei,sans-serif">单元胞几何</text><text x="262" y="108" fill="#5d6b80" font-size="11" font-family="Microsoft YaHei,sans-serif">STEP + 脚本</text><path d="M360 101 H380" stroke="#d7e0ec" stroke-width="2"/><rect x="380" y="58" width="150" height="86" rx="8" fill="#fff" stroke="#1769e0" stroke-width="2"/><circle cx="408" cy="86" r="14" fill="#1769e0"/><text x="408" y="91" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Arial,sans-serif">2</text><text x="432" y="84" fill="#0b2748" font-size="13" font-weight="700" font-family="Microsoft YaHei,sans-serif">网格 QA</text><text x="432" y="108" fill="#5d6b80" font-size="11" font-family="Microsoft YaHei,sans-serif">y⁺ / 正交</text><path d="M530 101 H550" stroke="#d7e0ec" stroke-width="2"/><rect x="550" y="58" width="150" height="86" rx="8" fill="#fff" stroke="#008b7a" stroke-width="2"/><circle cx="578" cy="86" r="14" fill="#008b7a"/><text x="578" y="91" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Arial,sans-serif">3</text><text x="602" y="84" fill="#0b2748" font-size="13" font-weight="700" font-family="Microsoft YaHei,sans-serif">Fluent 求解</text><text x="602" y="108" fill="#5d6b80" font-size="11" font-family="Microsoft YaHei,sans-serif">层流+SST</text><path d="M700 101 H720" stroke="#d7e0ec" stroke-width="2"/><rect x="720" y="58" width="150" height="86" rx="8" fill="#fff" stroke="#008b7a" stroke-width="2"/><circle cx="748" cy="86" r="14" fill="#008b7a"/><text x="748" y="91" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Arial,sans-serif">4</text><text x="772" y="84" fill="#0b2748" font-size="13" font-weight="700" font-family="Microsoft YaHei,sans-serif">对比 1D</text><text x="772" y="108" fill="#5d6b80" font-size="11" font-family="Microsoft YaHei,sans-serif">h / ΔP</text><path d="M870 101 H890" stroke="#d7e0ec" stroke-width="2"/><rect x="890" y="58" width="150" height="86" rx="8" fill="#fff" stroke="#a65b00" stroke-width="2"/><circle cx="918" cy="86" r="14" fill="#a65b00"/><text x="918" y="91" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Arial,sans-serif">5</text><text x="942" y="84" fill="#0b2748" font-size="13" font-weight="700" font-family="Microsoft YaHei,sans-serif">扩阵</text><text x="942" y="108" fill="#5d6b80" font-size="11" font-family="Microsoft YaHei,sans-serif">8×8 后置</text><text x="28" y="174" fill="#5d6b80" font-size="11.5" font-family="Microsoft YaHei,sans-serif">阶段 0 在本机为 NO-GO（无 ANSYS）。阶段 1 的 STEP/脚本仍可先行，但不能假装已经在算 CFD。</text></svg><figcaption><strong>图 8-1</strong>　六阶段<span class="cap">阶段 0 红灯不阻止写脚本，但阻止宣称「已经在做 CFD」。</span></figcaption></figure><h3>阶段 0　环境探测</h3><table><thead><tr><th>动作</th><th>责任</th><th>完成定义</th></tr></thead><tbody><tr><td>确认 ANSYS 版本、组件（ICEM CFD、Fluent、WB）</td><td>人</td><td>写出 AWP_ROOT 与版本号，例如 2024 R2</td></tr><tr><td>确认许可证（HPC 核数、Fluent、Meshing）</td><td>人</td><td>能 checkout 的核数 ≥ 16；记下服务器名</td></tr><tr><td>本机核数/内存（已测）</td><td>Agent 已做</td><td>24C / 128 GB</td></tr><tr><td>安装或接入 pyfluent，版本与 Fluent 对齐</td><td>人 + Agent</td><td><code>import ansys.fluent.core</code> 成功</td></tr><tr><td>决定网格路线：ICEM hex vs Fluent Meshing 水密</td><td>人</td><td>写进 O-CFD-02</td></tr></tbody></table><div class="note risk"><strong>本机当前闸门状态：NO-GO。</strong>未找到安装与许可证。阶段 1 可继续做几何与脚本，阶段 2–4 不得宣称完成。</div><h3>阶段 1　简单几何</h3><table><thead><tr><th>动作</th><th>责任</th><th>完成定义</th></tr></thead><tbody><tr><td>build123d 写单元胞：D=0.50、H=2.0、S=3.0 mm，命名 inlet/outlet/wall/periodic</td><td>Agent</td><td>STEP 可被独立 OCC/CAD 打开；面名称清单入库</td></tr><tr><td>可选：短槽流体（UC-01b）与共轭固体（UC-02）两套文件</td><td>Agent</td><td>与 GEO 槽宽/槽深一致，误差 &lt; 0.01 mm</td></tr><tr><td>起草 Fluent Meshing journal 与/或 ICEM replay 草稿</td><td>Agent</td><td>文本进 Git；不要求本机跑通</td></tr><tr><td>人审出口定义（O-CFD-01）</td><td>人</td><td>书面选定 UC-01a 或 01b</td></tr></tbody></table><h3>阶段 2　网格 QA</h3><table><thead><tr><th>动作</th><th>完成定义</th></tr></thead><tbody><tr><td>首层厚度 ≤ 3 μm，驻点 y⁺ &lt; 1（用初场速度估一次，求解后再核）</td><td>后处理报告里有 y⁺ 云图与最大值</td></tr><tr><td>最小正交质量 &gt; 0.15（报告 §10.2）；无负体积</td><td>ICEM/Fluent 质量表截图 + CSV</td></tr><tr><td>孔径向 ≥ 12、轴向 ≥ 8、间隙法向 ≥ 20</td><td>切面截图可数层</td></tr><tr><td>粗/中/细三套，尺寸比 1 : 1.5 : 2.25</td><td>三套网格量记录在案</td></tr></tbody></table><h3>阶段 3　Fluent 求解（coupon）</h3><table><thead><tr><th>算例</th><th>Re / 流量</th><th>模型</th><th>目的</th></tr></thead><tbody><tr><td>UC-01-L-3000</td><td>Re=3000，ṁ=7.693e-04 kg/s</td><td>层流</td><td>V4 锚定</td></tr><tr><td>UC-01-S-3000</td><td>同上</td><td>SST 低 Re</td><td>模型包络</td></tr><tr><td>UC-01-L-806</td><td>Re=806，ṁ=2.067e-04 kg/s</td><td>层流</td><td>设计点</td></tr><tr><td>UC-01-S-806</td><td>同上</td><td>SST 低 Re</td><td>设计点包络</td></tr><tr><td>UC-02-*</td><td>设计点</td><td>共轭 + 层流/SST</td><td>阶段 3 末可选</td></tr></tbody></table><p>收敛沿用报告 §10.8：连续性/动量 &lt; 1e-4，能量 &lt; 1e-6；h 与 ΔP 连续 500 步漂移 &lt; 0.5%；能量守恒 &lt; 1%。批处理：<code>fluent 3d -t16 -g -i uc01.jou</code> 或等价 pyfluent。</p><h3>阶段 4　提取并与一维比较</h3><table><thead><tr><th>提取量</th><th>和谁比</th><th>通过</th></tr></thead><tbody><tr><td>面平均 Nu（等温壁，Re=3000）</td><td>Martin 同 f、H/D</td><td>&lt; 15%</td></tr><tr><td>面平均 h（Re=806）</td><td>27460–51470 W·m⁻²K⁻¹</td><td>落在带内或给出超带原因</td></tr><tr><td>孔口 ΔP</td><td>1.01 kPa（K=1.8）</td><td>量级一致；可反标定 K</td></tr><tr><td>层流 vs SST 的 h 差</td><td>报告：&gt;20% 则只给区间</td><td>必须上报，不得只交一个数</td></tr><tr><td>网格无关性</td><td>相邻套 h、ΔP</td><td>&lt; 3%</td></tr></tbody></table><h3>阶段 5　放大（仅当阶段 4 关闭）</h3><ol class="tight"><li>8×8 单 die 阵列（64 孔），仍不要两 die + HBM；</li><li>半板（沿 X 中线 1/2，报告允许；禁止 1/4）；</li><li>这时才谈静压箱、隔墙、Q2 流量一致性、Q4 歧管压降；</li><li>C01–C12 工况矩阵仍按设计报告执行，本计划不改优先级。</li></ol><div class="note risk">阶段 5 的网格量会从百万级跳到千万级。本机 24 核可以试 8×8，半板共轭应评估是否需要 HPC。未做评估就开 C01，视为计划失败。</div></section><section id="risk"><h2 id="risk">9.　风险、开放项、工具待定</h2><h3>9.1　本计划自有风险（在设计报告 RK-01/02 之外）</h3><table><thead><tr><th>编号</th><th>风险</th><th>等级</th><th>缓解</th></tr></thead><tbody><tr><td>RK-A1</td><td>本机无 ANSYS，计划停在纸面</td><td><span class="bad">红</span></td><td>阶段 0 由人提供安装路径或远程求解器账号</td></tr><tr><td>RK-A2</td><td>ICEM replay 在未录制的复杂拓扑上不可维护</td><td><span class="warn2">橙</span></td><td>第一案用水密 Meshing；ICEM 只用于单元胞砖块</td></tr><tr><td>RK-A3</td><td>单元胞周期边界歪曲交叉流，h 偏高</td><td><span class="warn2">橙</span></td><td>阶段 5 用 8×8 检查边缘孔；不把 UC h 当整板 h</td></tr><tr><td>RK-A4</td><td>pyfluent API 与 Fluent 版本不匹配</td><td>黄</td><td>journal 作底线；pyfluent 作便利层</td></tr><tr><td>RK-A5</td><td>24 核工作站被整板网格拖死</td><td><span class="warn2">橙</span></td><td>硬闸门：阶段 4 未关不得上全模</td></tr><tr><td>RK-A6</td><td>把 Agent 生成的 journal 当已验证设置</td><td><span class="bad">红</span></td><td>每条 journal 必须在目标版本空跑一次</td></tr></tbody></table><h3>9.2　开放项</h3><table><thead><tr><th>编号</th><th>问题</th><th>谁拍板</th><th>卡住哪一阶段</th></tr></thead><tbody><tr><td>O-CFD-01</td><td>单元胞出口：环缝 vs 短槽侧出口</td><td>热设计负责人</td><td>阶段 1</td></tr><tr><td>O-CFD-02</td><td>网格路线：ICEM hex vs Fluent Meshing 水密</td><td>仿真负责人</td><td>阶段 0/2</td></tr><tr><td>O-CFD-03</td><td>ANSYS 版本与许可核数</td><td>IT / 仿真</td><td>阶段 0</td></tr><tr><td>O-CFD-04</td><td>是否允许远程/HPC 队列</td><td>项目</td><td>阶段 5</td></tr><tr><td>O-CFD-05</td><td>工具最终是否就定 ICEM+Fluent（报告 §10.2 仍写「待定」）</td><td>项目</td><td>阶段 0</td></tr><tr><td>O-CFD-06</td><td>官方 power map（设计报告 IN-T4）</td><td>OEM</td><td>不影响单元胞，挡住整板热点案</td></tr></tbody></table><h3>9.3　工具待定（TBD）</h3><ul class="tight"><li><strong>TBD-1 求解器品牌</strong>：本文件按用户指定的 ICEM/Fluent 做交互评估，不关闭 §10.2 的选型门。若最终改 Icepak/FloTHERM，阶段 1 几何仍可复用，journal 作废。</li><li><strong>TBD-2 网格器</strong>：ICEM 与 Fluent Meshing 二选一，见 O-CFD-02。</li><li><strong>TBD-3 远程执行</strong>：本机无求解器时，是装本地、还是 SSH 到许可服务器，未定。</li><li><strong>TBD-4 开源兜底</strong>：若长期无许可，单元胞可用 gmsh+OpenFOAM 做 V4 练习；不作为交付求解器，除非项目改口。系统 Python 目前也未装 gmsh。</li></ul></section><section id="gng"><h2 id="gng">10.　Go / No-Go 表</h2><table><thead><tr><th>闸门</th><th>Go 条件</th><th>本机 (2026-09-20)</th><th>未满足时允许做什么</th></tr></thead><tbody><tr><td>G0 环境</td><td>找到 Fluent+网格器，许可核数 ≥ 8</td><td><span class="bad">NO-GO</span></td><td>写几何、写脚本、写本计划；禁止说「CFD 已开算」</td></tr><tr><td>G1 几何</td><td>单元胞 STEP 面命名齐全，尺寸=GEO</td><td><span class="warn2">未开工</span></td><td>不得进入网格</td></tr><tr><td>G2 网格</td><td>y⁺&lt;1，正交&gt;0.15，三套网格就位</td><td>未开始</td><td>不得进入设计点结论</td></tr><tr><td>G3 V4</td><td>Re=3000 的 Nu 对 Martin &lt;15%</td><td>未开始</td><td>不得采信设计点 h（外推无锚）</td></tr><tr><td>G4 设计点包络</td><td>层流与 SST 的 h、ΔP 均已报；h 能解释一维带宽或指出模型缺陷</td><td>未开始</td><td>不得改孔径/槽深</td></tr><tr><td>G5 扩阵</td><td>G4 关闭 + 网格量/HPC 评估书面通过</td><td>未开始</td><td>不得开整板 C01–C12</td></tr></tbody></table><p>与设计报告 DR3 / C-07 对齐：单元胞关闭只证明「设置可信」，不证明「产品达标」。整板 R<sub>θ,c-in</sub> 单值仍要 C01 共轭给出。</p></section><section id="next"><h2 id="next">11.　下一步（按依赖排序）</h2><ol class="tight"><li><strong>人：关闭 O-CFD-03 / G0</strong> — 给出 ANSYS 安装路径与许可证，或明确改用远程机。没有这一步，阶段 2 以后都是文本。</li><li><strong>人：关闭 O-CFD-01 / O-CFD-02</strong> — 单元胞出口形式、ICEM hex 还是 Fluent Meshing。</li><li><strong>Agent：阶段 1 几何</strong> — 在 CAD 链上增加单元胞构建器（D=0.50、H=2.0、S=3.0 mm），导出带命名面的 STEP。</li><li><strong>Agent：起草控制脚本</strong> — Fluent journal（求解+报表）必写；ICEM replay 仅在选定 hex 后写；pyfluent 等包装上再写可执行版。</li><li><strong>人+Agent：阶段 2–4</strong> — G0 绿灯后在目标版本空跑 journal，做 V4 再做设计点。</li><li><strong>禁止抢跑</strong> — 不要把 95×75 mm 整板 STEP 或 128 孔共轭当作本周任务。</li></ol><div class="note ok">若 5 个工作日内 G0 仍为红，建议把阶段 1 几何与 journal 草稿先入库，同时把「求解器到位」升级为项目风险，而不是继续扩写计划文档。</div></section><section id="appx"><h2 id="appx">附录　脚本骨架与探测记录</h2><p class="lead">下列文本是<strong>骨架</strong>，不是本机验证过的可执行工程。版本方言（TUI 关键字、Meshing 工作流名称）必须对照实际安装的 Fluent 年版改写。没有求解器之前，这些文件的价值是评审接口，不是结果。</p><h3>A. 本机探测原始记录</h3><table><thead><tr><th>检查</th><th>命令或位置</th><th>结果</th></tr></thead><tbody><tr><td>AWP_ROOT*</td><td>Get-ChildItem Env:AWP_ROOT*</td><td>无</td></tr><tr><td>典型安装根</td><td>C:\Program Files\ANSYS Inc 及 (x86)、D:\、E:\ 同类路径</td><td>均不存在</td></tr><tr><td>可执行文件</td><td>fluent / fluent.exe / icemcfd / wb.exe / runwb2 / ansysedt</td><td>Get-Command 与 where 均无</td></tr><tr><td>注册表 Uninstall</td><td>DisplayName ~ ANSYS|Fluent|ICEM</td><td>无匹配</td></tr><tr><td>license.dat 浅扫</td><td>C:\ D:\ E:\ 深度 4，过滤 ANSYS/Fluent/flexlm</td><td>无</td></tr><tr><td>系统 Python 绑定</td><td>ansys.fluent.core / pyfluent / pythonnet / gmsh / build123d</td><td>全部 missing</td></tr><tr><td>CAD 虚拟环境</td><td>coolingplate\cad\.venv</td><td>build123d FOUND，OCP FOUND，ansys.fluent.core missing</td></tr><tr><td>仓库脚本</td><td>coolingplate 下 *.jou *.rpl *.scm *.wbjn *.cas *.msh</td><td>0 个；仅有整板 STEP</td></tr><tr><td>硬件</td><td>Win32_Processor / ComputerSystem</td><td>Intel Core i9-14900KF，24C/32T，128 GB</td></tr></tbody></table><h3>B. Fluent 批处理调用（安装后）</h3><p>示意命令，路径用实际 <code>AWP_ROOT</code> 替换。核数不得超过许可证。</p><div class="formula"><code>%AWP_ROOT%\fluent\ntbin\win64\fluent.exe 3ddp -t16 -g -i uc01_solve.jou</code><span class="fres">无 GUI 批跑 16 进程双精度</span><span class="fnote">Meshing 模式加 -meshing；Workbench 用 runwb2 -B -R。</span></div><h3>C. Fluent journal 骨架（TUI，须按版本改）</h3><p>只列出必须出现的控制块，不假装这是某一年份的可运行全文。</p><ul class="tight"><li><code>/file/read-case</code> 或从 meshing 写出的 msh；</li><li><code>/define/models/steady</code>，能量开，层流或 visc ke-sst；</li><li><code>/define/materials</code>：水 ρ=992.2，μ=6.530e-04，k=0.631，cp=4179；</li><li>入口 mass-flow-inlet = 2.067083e-04 kg/s，T=313.15 K；</li><li>出口 pressure-outlet 0 Pa（表压）；周期或对称按 UC 定义；</li><li>监视：入口/出口压差、底壁热流或面平均 h；</li><li>迭代与自动写 dat；</li><li><code>/report/surface-integrals</code> 把 ΔP、h、T 追加到 CSV。</li></ul><h3>D. ICEM replay 骨架（仅当 O-CFD-02 选 hex）</h3><ul class="tight"><li>导入单元胞 STEP → 建 part（INLET/OUTLET/WALL/PER_X/PER_Y）；</li><li>单砖块 + 孔处 O-grid；关联边长按 D、H、S 参数化；</li><li>壁面第一层 0.003 mm，增长率 1.2，驻点 ≥15 层；</li><li>写出 Fluent msh；把质量表导出；</li><li><strong>黄金 replay 必须由人在 GUI 录制第一版</strong>，Agent 只改尺寸参数后重放。</li></ul><h3>E. pyfluent 草稿意图（包未装，不作为本机可运行代码）</h3><ul class="tight"><li>launch Fluent 与 journal 同等设置；</li><li>从 CSV 或 TUI 取值后直接 <code>import model</code> 比对 h∈[27460,51470]、ΔP~1.01 kPa；</li><li>失败应降级回纯 journal，而不是卡在 API。</li></ul><h3>F. 与设计报告章节对照</h3><table><thead><tr><th>设计报告</th><th>本文件</th><th>关系</th></tr></thead><tbody><tr><td>§9 一维计算</td><td>§6 锚点</td><td>数字同源 model.py</td></tr><tr><td>§10.1 Q1–Q8</td><td>阶段 5</td><td>单元胞只服务 Q1 的局部 h，不服务 Q2–Q8</td></tr><tr><td>§10.3 禁止单胞外推整板</td><td>§0 / §7</td><td>全文遵守</td></tr><tr><td>§10.4 网格</td><td>阶段 2 / UC 规格</td><td>首层 3 μm、y⁺ 原样继承</td></tr><tr><td>§10.7 C01–C12</td><td>阶段 5 之后</td><td>第一案不占用 C 编号</td></tr><tr><td>§10.9 V4 Martin 锚定</td><td>UC-01-*-3000 / G3</td><td>第一案的科学核心</td></tr><tr><td>RK-01 / RK-02</td><td>G4 / G3</td><td>CFD 收窄区间、外推纠偏</td></tr></tbody></table><h3>G. 复算与再生成</h3><p>修改 <code>model.py</code> 的 <code>GEO</code> 或 <code>DESIGN_POINTS</code> 后：</p><ol class="tight"><li><code>python cp_b300_1d.py</code> 复查一维；</li><li><code>python build_report.py</code> 重生设计报告；</li><li><code>python build_cfd_agent_plan.py</code> 重生本文件。</li><li>三份文档的 Re、R 区间、D/H/S 必须继续一致。</li></ol></section>
+</main>
+<footer>
+  <b>AIDC-B300-CFD-AI-001 · CFD-AI Agent 能力评估与工作计划 v1.0 · 2026-09-20</b><br>
+  型号 CP-B300-JM-01　|　保证点 DP-A 1100 W @ 2.0 L/min　|　
+  第一案单孔 ṁ = 2.0671e-04 kg/s　|　
+  本机 ANSYS：未安装<br>
+  本文件是开工与能力边界文件，<b>不是 CFD 仿真报告，不是许可证申请书</b>。
+  阶段 0 绿灯前不得宣称三维结果。<br>
+  数值可复算：<code>design/calc/model.py</code>；
+  本文件可再生成：<code>design/calc/build_cfd_agent_plan.py</code>。
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,404 @@
+[
+  {
+    "scheme": "coflow",
+    "n": 7,
+    "w_mm": 0.8,
+    "rib_mm": 0.8,
+    "land_mm": 0.3,
+    "chain_mm": 11.0,
+    "kinds": [
+      "plus",
+      "plus",
+      "plus",
+      "plus",
+      "plus",
+      "plus",
+      "plus"
+    ],
+    "V_ch": 0.2976,
+    "V_leg": 0.1488,
+    "Re": 516.82,
+    "dP_slot_Pa": 60.92,
+    "dP_branch_Pa": 60.92,
+    "Tmean": 54.118,
+    "Tmin": 47.49,
+    "Tmax": 59.061,
+    "dT": 11.571,
+    "dT_stacks": 9.417,
+    "stacks": [
+      {
+        "Tmean": 48.973,
+        "Tmin": 47.49,
+        "Tmax": 50.389
+      },
+      {
+        "Tmean": 53.062,
+        "Tmin": 51.376,
+        "Tmax": 54.167
+      },
+      {
+        "Tmean": 56.047,
+        "Tmin": 54.826,
+        "Tmax": 56.76
+      },
+      {
+        "Tmean": 58.39,
+        "Tmin": 57.274,
+        "Tmax": 59.061
+      }
+    ],
+    "Tf_out_max": 47.333,
+    "couple": true,
+    "bulk": {
+      "V": 0.2976,
+      "Re": 516.8193,
+      "Dh_mm": 1.1429,
+      "Nu": 7.2021,
+      "h": 3976.4459,
+      "eta": 0.9673,
+      "dTf": 7.1788,
+      "dTconv": 14.8121,
+      "dTwall": 21.9908,
+      "dP_Pa": 60.9194,
+      "fRe": 16.3767,
+      "Pr": 4.3247
+    }
+  },
+  {
+    "scheme": "cross",
+    "n": 7,
+    "w_mm": 0.8,
+    "rib_mm": 0.8,
+    "land_mm": 0.3,
+    "chain_mm": 11.0,
+    "kinds": [
+      "minus",
+      "plus",
+      "minus",
+      "plus",
+      "minus",
+      "plus",
+      "minus"
+    ],
+    "V_ch": 0.2976,
+    "V_leg": 0.1488,
+    "Re": 516.82,
+    "dP_slot_Pa": 60.92,
+    "dP_branch_Pa": 60.92,
+    "Tmean": 53.937,
+    "Tmin": 51.074,
+    "Tmax": 55.364,
+    "dT": 4.29,
+    "dT_stacks": 2.806,
+    "stacks": [
+      {
+        "Tmean": 53.618,
+        "Tmin": 52.659,
+        "Tmax": 54.204
+      },
+      {
+        "Tmean": 55.121,
+        "Tmin": 54.535,
+        "Tmax": 55.364
+      },
+      {
+        "Tmean": 54.692,
+        "Tmin": 53.752,
+        "Tmax": 55.078
+      },
+      {
+        "Tmean": 52.315,
+        "Tmin": 51.074,
+        "Tmax": 53.243
+      }
+    ],
+    "Tf_out_max": 47.444,
+    "couple": true,
+    "bulk": {
+      "V": 0.2976,
+      "Re": 516.8193,
+      "Dh_mm": 1.1429,
+      "Nu": 7.2021,
+      "h": 3976.4459,
+      "eta": 0.9673,
+      "dTf": 7.1788,
+      "dTconv": 14.8121,
+      "dTwall": 21.9908,
+      "dP_Pa": 60.9194,
+      "fRe": 16.3767,
+      "Pr": 4.3247
+    }
+  },
+  {
+    "scheme": "center",
+    "n": 7,
+    "w_mm": 0.8,
+    "rib_mm": 0.8,
+    "land_mm": 0.3,
+    "chain_mm": 11.0,
+    "kinds": [
+      "minus",
+      "plus",
+      "center",
+      "center",
+      "center",
+      "plus",
+      "minus"
+    ],
+    "V_ch": 0.2976,
+    "V_leg": 0.1488,
+    "Re": 516.82,
+    "dP_slot_Pa": 60.92,
+    "dP_branch_Pa": 60.92,
+    "Tmean": 54.027,
+    "Tmin": 52.192,
+    "Tmax": 54.839,
+    "dT": 2.647,
+    "dT_stacks": 1.011,
+    "stacks": [
+      {
+        "Tmean": 54.512,
+        "Tmin": 54.091,
+        "Tmax": 54.742
+      },
+      {
+        "Tmean": 53.528,
+        "Tmin": 52.192,
+        "Tmax": 54.132
+      },
+      {
+        "Tmean": 53.529,
+        "Tmin": 52.195,
+        "Tmax": 54.119
+      },
+      {
+        "Tmean": 54.539,
+        "Tmin": 53.876,
+        "Tmax": 54.839
+      }
+    ],
+    "Tf_out_max": 47.473,
+    "couple": true,
+    "bulk": {
+      "V": 0.2976,
+      "Re": 516.8193,
+      "Dh_mm": 1.1429,
+      "Nu": 7.2021,
+      "h": 3976.4459,
+      "eta": 0.9673,
+      "dTf": 7.1788,
+      "dTconv": 14.8121,
+      "dTwall": 21.9908,
+      "dP_Pa": 60.9194,
+      "fRe": 16.3767,
+      "Pr": 4.3247
+    }
+  },
+  {
+    "scheme": "cross",
+    "n": 11,
+    "w_mm": 0.45,
+    "rib_mm": 0.5,
+    "land_mm": 0.525,
+    "chain_mm": 11.0,
+    "kinds": [
+      "minus",
+      "plus",
+      "minus",
+      "plus",
+      "minus",
+      "plus",
+      "minus",
+      "plus",
+      "minus",
+      "plus",
+      "minus"
+    ],
+    "V_ch": 0.3367,
+    "V_leg": 0.1684,
+    "Re": 375.87,
+    "dP_slot_Pa": 189.78,
+    "dP_branch_Pa": 189.78,
+    "Tmean": 51.324,
+    "Tmin": 48.536,
+    "Tmax": 52.895,
+    "dT": 4.359,
+    "dT_stacks": 2.816,
+    "stacks": [
+      {
+        "Tmean": 50.642,
+        "Tmin": 49.475,
+        "Tmax": 51.492
+      },
+      {
+        "Tmean": 52.593,
+        "Tmin": 51.884,
+        "Tmax": 52.895
+      },
+      {
+        "Tmean": 52.284,
+        "Tmin": 51.373,
+        "Tmax": 52.672
+      },
+      {
+        "Tmean": 49.776,
+        "Tmin": 48.536,
+        "Tmax": 50.77
+      }
+    ],
+    "Tf_out_max": 47.987,
+    "couple": true,
+    "bulk": {
+      "V": 0.3367,
+      "Re": 375.8686,
+      "Dh_mm": 0.7347,
+      "Nu": 5.5898,
+      "h": 4800.847,
+      "eta": 0.9391,
+      "dTf": 7.1788,
+      "dTconv": 9.17,
+      "dTwall": 16.3488,
+      "dP_Pa": 189.7828,
+      "fRe": 18.6369,
+      "Pr": 4.3247
+    }
+  },
+  {
+    "scheme": "center",
+    "n": 11,
+    "w_mm": 0.45,
+    "rib_mm": 0.5,
+    "land_mm": 0.525,
+    "chain_mm": 11.0,
+    "kinds": [
+      "minus",
+      "plus",
+      "minus",
+      "plus",
+      "center",
+      "center",
+      "center",
+      "plus",
+      "minus",
+      "plus",
+      "minus"
+    ],
+    "V_ch": 0.3367,
+    "V_leg": 0.1684,
+    "Re": 375.87,
+    "dP_slot_Pa": 189.78,
+    "dP_branch_Pa": 189.78,
+    "Tmean": 51.361,
+    "Tmin": 50.253,
+    "Tmax": 51.902,
+    "dT": 1.649,
+    "dT_stacks": 0.276,
+    "stacks": [
+      {
+        "Tmean": 51.223,
+        "Tmin": 50.434,
+        "Tmax": 51.644
+      },
+      {
+        "Tmean": 51.499,
+        "Tmin": 50.432,
+        "Tmax": 51.902
+      },
+      {
+        "Tmean": 51.494,
+        "Tmin": 50.435,
+        "Tmax": 51.851
+      },
+      {
+        "Tmean": 51.227,
+        "Tmin": 50.253,
+        "Tmax": 51.685
+      }
+    ],
+    "Tf_out_max": 47.989,
+    "couple": true,
+    "bulk": {
+      "V": 0.3367,
+      "Re": 375.8686,
+      "Dh_mm": 0.7347,
+      "Nu": 5.5898,
+      "h": 4800.847,
+      "eta": 0.9391,
+      "dTf": 7.1788,
+      "dTconv": 9.17,
+      "dTwall": 16.3488,
+      "dP_Pa": 189.7828,
+      "fRe": 18.6369,
+      "Pr": 4.3247
+    }
+  },
+  {
+    "scheme": "center",
+    "n": 11,
+    "w_mm": 0.4,
+    "rib_mm": 0.6,
+    "land_mm": 0.3,
+    "chain_mm": 11.0,
+    "kinds": [
+      "minus",
+      "plus",
+      "minus",
+      "plus",
+      "center",
+      "center",
+      "center",
+      "plus",
+      "minus",
+      "plus",
+      "minus"
+    ],
+    "V_ch": 0.3788,
+    "V_leg": 0.1894,
+    "Re": 383.7,
+    "dP_slot_Pa": 265.35,
+    "dP_branch_Pa": 265.35,
+    "Tmean": 51.157,
+    "Tmin": 49.91,
+    "Tmax": 51.694,
+    "dT": 1.783,
+    "dT_stacks": 0.31,
+    "stacks": [
+      {
+        "Tmean": 50.998,
+        "Tmin": 50.152,
+        "Tmax": 51.433
+      },
+      {
+        "Tmean": 51.308,
+        "Tmin": 50.228,
+        "Tmax": 51.694
+      },
+      {
+        "Tmean": 51.305,
+        "Tmin": 50.232,
+        "Tmax": 51.651
+      },
+      {
+        "Tmean": 51.019,
+        "Tmin": 49.91,
+        "Tmax": 51.522
+      }
+    ],
+    "Tf_out_max": 48.06,
+    "couple": true,
+    "bulk": {
+      "V": 0.3788,
+      "Re": 383.6992,
+      "Dh_mm": 0.6667,
+      "Nu": 5.449,
+      "h": 5157.4449,
+      "eta": 0.9451,
+      "dTf": 7.1788,
+      "dTconv": 8.678,
+      "dTwall": 15.8567,
+      "dP_Pa": 265.349,
+      "fRe": 19.0715,
+      "Pr": 4.3247
+    }
+  }
+]

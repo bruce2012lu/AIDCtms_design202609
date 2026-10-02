@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NVIDIA B300 微通道+冲击换热冷板设计报告 v1.1 · 2026-09-13</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1180px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:48px 58px 34px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.12em;color:#9db6d4}
+header h1{font-size:30px;line-height:1.25;margin:8px 0 10px}
+.sub{font-size:16px;color:#d7e6f5}
+.meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:4px 10px;font-size:12px}
+nav{padding:16px 58px;background:var(--soft);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav a{color:var(--blue);text-decoration:none;margin-right:12px;display:inline-block;font-size:13px}
+nav a:hover{text-decoration:underline}
+main{padding:30px 58px 58px}
+h2{font-size:22px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:7px;margin:34px 0 14px}
+h3{font-size:17px;color:#174f83;margin:22px 0 8px}
+h4{font-size:15px;color:#1b3d66;margin:16px 0 6px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:14px 17px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:12px;background:var(--soft)}
+.card b{display:block;font-size:22px;color:var(--navy)}
+.card.blue{border-top-color:var(--blue)}
+.card.warn{border-top-color:var(--warn)}
+.card.red{border-top-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13px}
+th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 15px;border-radius:7px;margin:12px 0}
+.risk{border-color:#efb5b2;background:#fff5f4}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.small{color:var(--muted);font-size:12px}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.tagb{background:#e7f0fb;color:var(--blue)}
+ul.tight,ol.tight{margin:8px 0 12px 1.2em;padding:0}
+ul.tight li,ol.tight li{margin:4px 0}
+.barwrap{margin:8px 0 16px}
+.barrow{display:grid;grid-template-columns:150px 1fr 70px;gap:8px;align-items:center;margin:6px 0}
+.bartrack{height:10px;background:#e4ebf3;border-radius:6px;overflow:hidden}
+.barfill{height:100%;background:var(--blue);border-radius:6px}
+.barfill.teal{background:var(--teal)}
+.barfill.warn{background:#d48a12}
+.fig{border:1px solid var(--line);border-radius:9px;padding:10px;background:#fbfcfe;margin:14px 0 4px}
+.fig img{display:block;width:100%;height:auto;border-radius:6px}
+.figcap{margin:0 2px 18px;color:var(--muted);font-size:12px;line-height:1.55}
+.figcap strong{color:var(--navy)}
+.pfig{margin:12px 0 8px;border:1px solid var(--line);border-radius:9px;padding:10px 12px 6px;background:#fbfcfe}
+.pfig img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:4px}
+.pfig .src{display:block;margin-top:2px;font-size:11.5px;color:var(--muted)}
+.papergrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.drawn{border-style:dashed}
+.prin{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:10px 0 16px}
+.prin h4{margin-top:0}
+.svgbox{border:1px dashed var(--line);border-radius:9px;padding:12px 12px 4px;background:#fff;margin:14px 0 4px}
+.svgbox svg{display:block;width:100%;height:auto}
+.svgbox.truth{border-color:#7ab8aa;border-width:1.5px}
+.svglabel{display:inline-block;font-size:11px;font-weight:700;color:var(--teal);border:1px solid #b7e0d4;background:#f3fbf8;border-radius:4px;padding:1px 6px;margin-right:6px}
+.walk{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:12px 0 16px}
+.walk .st{border:1px solid var(--line);border-radius:8px;padding:10px 8px;background:var(--soft);text-align:center}
+.walk .st b{display:block;font-size:20px;color:var(--navy);line-height:1.15}
+.walk .st span{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin:8px 0 14px;font-size:12px;color:var(--muted)}
+.sw{display:inline-block;width:16px;height:10px;border-radius:2px;margin-right:4px;vertical-align:middle;border:1px solid #d7e0ec}
+.tgrad{height:12px;border-radius:6px;background:linear-gradient(90deg,#2b6cb0,#38b2ac,#ecc94b,#dd6b20,#c53030);flex:1;min-width:140px}
+footer{padding:18px 58px;background:var(--navy);color:#d5e1ec;font-size:12px}
+@media(max-width:800px){
+  header,nav,main,footer{padding-left:22px;padding-right:22px}
+  .grid,.grid3,.grid2,.papergrid,.walk{grid-template-columns:1fr}
+  nav a{margin-bottom:6px}
+}
+@media print{
+  body{background:#fff}
+  .page{box-shadow:none}
+  nav{display:none;position:static}
+  table,.card,.note,.lead,.fig,.prin,.svgbox,.walk{break-inside:avoid}
+  @page{size:A4;margin:12mm}
+}
+</style>
+</head>
+<body>
+<p style="margin:16px 62px;padding:12px 16px;background:#fff6f5;border:1px solid #eab4b0"><strong>本文已被 216 孔设计点取代。</strong>当前以 v2.0 设计报告和 model.py 为准：每 die 9×12=108，两 die 216。DP-A 名义热流 55.16975308641976 W/cm²，施加边界 57.92824074074075 W/cm²，单孔流量 1.2249382716049385e-4 kg/s。正文中的 128 孔和 2.067e-4 kg/s 是旧口径。</p>
+
+<div class="page">
+<header>
+  <div class="kicker">COLD PLATE DETAILED DESIGN · B300 BLACKWELL ULTRA</div>
+  <h1>NVIDIA B300 微通道 + 冲击换热<br>冷板详细设计报告</h1>
+  <div class="sub">先冻结芯片方案与热包络，再给出分区杂交冷板几何、热工水力、工艺与验收。型号 CP-B300-JM-01。</div>
+  <div class="meta">
+    <span class="pill">文档 AIDC-B300-CP-HYB-001</span>
+    <span class="pill">版本 v1.1 · 图纸/原理增补</span>
+    <span class="pill">2026-09-13</span>
+    <span class="pill">单相水基 · 铜冷板</span>
+    <span class="pill">DP-A 1100 W / DP-B 1400 W</span>
+    <span class="pill">非订单 ICD · 待送样冻结</span>
+  </div>
+</header>
+<nav>
+  <a href="#exec">结论</a>
+  <a href="#scope">范围与口径</a>
+  <a href="#chip">B300 芯片方案</a>
+  <a href="#thermo">热力学参数</a>
+  <a href="#spec">冷板规格</a>
+  <a href="#scheme">杂交方案</a>
+  <a href="#prin">工作原理</a>
+  <a href="#geo">几何设计</a>
+  <a href="#dwg">图纸与尺寸</a>
+  <a href="#calc">热工水力</a>
+  <a href="#mfg">材料与工艺</a>
+  <a href="#ifc">接口与托盘</a>
+  <a href="#rel">可靠与验收</a>
+  <a href="#open">待冻结项</a>
+  <a href="#refs">来源</a>
+</nav>
+<main>
+
+<section id="exec">
+<h2>0. 结论先行</h2>
+<p class="lead"><strong>一句话：</strong>B300 是双近光罩 + 8 组 12-Hi HBM3e 的非均匀热源。冷板必须按<strong>两处 GPU 驻点射流 + HBM 低速微通道、中间隔离肋</strong>设计，不得一条等宽槽浇整盖。保证点按 Lenovo TGP <strong>1100 W</strong>；包络按 NVIDIA 公开最大 TGP <strong>1400 W</strong>。两档不得混成一个保证数。</p>
+<div class="grid">
+  <div class="card"><b>1100 W</b>DP-A 保证点 · Lenovo TGP</div>
+  <div class="card blue"><b>1400 W</b>DP-B 包络 · NVIDIA 最大 TGP</div>
+  <div class="card warn"><b>&lt;0.028 / 0.025</b>壳–进液热阻目标 °C/W</div>
+  <div class="card red"><b>≤20 kPa</b>冷板压降上限 @ 设计流量</div>
+</div>
+<ol class="tight">
+  <li><strong>芯片：</strong>Blackwell Ultra，TSMC 4NP，2080 亿晶体管，<strong>2 颗近光罩 die</strong>由 NV-HBI 10 TB/s 连成一颗 CUDA GPU；最多 160 SM / 8 GPC；<strong>8×12-Hi HBM3e</strong>，容量 288 GB（可用口径有 279/270 GB），带宽 8 TB/s（Lenovo 写 7.7 TB/s）。<span class="tag">高</span></li>
+  <li><strong>热：</strong>双计算 die = 两个主热点；HBM 热流较低但怕冲蚀。硅面积平均约 70–93 W/cm²，热点估 170–230 W/cm²。结–进液 50 K 上限：1100 W → 0.045、1400 W → 0.036 °C/W；工程目标 <strong>&lt;0.028 / &lt;0.025</strong>。</li>
+  <li><strong>本设计 CP-B300-JM-01：</strong>锻造紫铜底板短微通道 + 可拆/可钎焊喷嘴盖板。GPU 区 2×8×8 微射流（<em>D</em>=0.50 mm，<em>H/D</em>=4，<em>S/D</em>=6）；HBM 区无射流。设计流量 <strong>2.0 L/min</strong>（水、40 °C），包络 2.4 L/min。0 维估算冷板对流热阻约 0.010–0.016 °C/W，加上 TIM2 后仍能打 DP-A；DP-B 余量薄，必须 CFD + TTV 冻结。</li>
+  <li><strong>工艺：</strong>底板铲齿或 CNC，盖板微钻/蚀刻，真空钎焊或扩散焊，密封面精铣。不把整板金属 3D 打印作出货基线。</li>
+  <li><strong>本文件不是</strong>NVIDIA / Lenovo 订单 ICD，也不是 FAT 保证书。几何与流量在拿到封装热图和机柜表之前均为<strong>候选</strong>。</li>
+</ol>
+</section>
+
+<section id="scope">
+<h2>1. 范围、口径与置信度</h2>
+<table>
+  <tr><th>项</th><th>本报告</th></tr>
+  <tr><td>对象</td><td>单颗 NVIDIA B300（Blackwell Ultra）SXM 液冷冷板。不含 Grace、NVSwitch、CX-8 冷板，不含 CDU / 机柜歧管详细设计。</td></tr>
+  <tr><td>系统位置</td><td>GB300 NVL72 Compute Tray 上 4 颗 B300 各一块独立冷板；水力服从机柜 OEM 表。</td></tr>
+  <tr><td>工质</td><td>设计计算用 DI 水，40 °C。PG25 按换热约 −15%、粘度上升校核，不另出一套几何。</td></tr>
+  <tr><td>功率两档</td><td><strong>DP-A 1100 W</strong> = 保证 / 选型（Lenovo SXM DLC TGP）。<strong>DP-B 1400 W</strong> = 包络（NVIDIA 公开 max TGP）。不得相加，也不得把 1400 写成 1100 的保证点。</td></tr>
+  <tr><td>禁止</td><td>用固定 10 K 温升反推正式流量；把 ASHRAE W45 写成机柜进液；把厂商“单 GPU 2400 W”当基线。</td></tr>
+</table>
+<p class="small"><span class="tag">高</span> = NVIDIA / Lenovo / 本仓库 GB300 v2.2 原文。　<span class="tagw">中</span> = 公开白皮书或合理工程估算，须复核。　<span class="tagr">低 / 待冻结</span> = 封装外形、热图、单板 ICD 流量，不得写入合同。</p>
+<table>
+  <tr><th>上游文件</th><th>本报告继承</th></tr>
+  <tr><td>《NVIDIA GB300 NVL72 冷却系统总体设计报告 v2.2》</td><td>整柜 135/155 kW、约 90/10、入口 25–45 °C ↔ 59–177 L/min、压降 16–127 kPa、DI / PG25</td></tr>
+  <tr><td>同目录专利分析报告 v1.4</td><td>方案 A：GPU 射流 + HBM 无射流 + 隔离肋；工艺三分流</td></tr>
+  <tr><td>NVIDIA Blackwell Ultra 开发者博文（2025-08-22）</td><td>双 die、NV-HBI、8×12-Hi HBM3e、最大 TGP 1400 W</td></tr>
+  <tr><td>Lenovo LP2357</td><td>B300 TGP 1100 W；HBM 288 GB / 7.7 TB/s（该页）</td></tr>
+</table>
+</section>
+
+<section id="chip">
+<h2>2. B300 芯片方案与关键结构</h2>
+<p class="lead">冷板要对的不是“一块 1100 W 的铜盖”，而是<strong>两个计算 die + 八个 HBM 堆叠</strong>。热图、压装和射流禁区都由这张图决定。</p>
+
+<h3>2.1 硅与封装（公开已冻结）</h3>
+<table>
+  <tr><th>项目</th><th>公开值</th><th>对冷板的含义</th><th>置信度</th></tr>
+  <tr><td>架构 / 工艺</td><td>Blackwell Ultra；TSMC 4NP</td><td>与 B200 同代硅，功率和 HBM 加码</td><td><span class="tag">高</span></td></tr>
+  <tr><td>晶体管</td><td>2080 亿</td><td>双近光罩才能放下</td><td><span class="tag">高</span></td></tr>
+  <tr><td>计算裸片</td><td><strong>2 颗</strong>，NV-HBI 10 TB/s，对软件仍是一颗 GPU</td><td><strong>两个主热点</strong>，各要一套射流阵列，中间隔缝不要喷空</td><td><span class="tag">高</span></td></tr>
+  <tr><td>SM / GPC / Tensor</td><td>最多 160 SM、8 GPC、640 个第五代 Tensor Core（SKU 可少）</td><td>热图随 SM 开启变化，喷嘴密度应按 power map 单调增加</td><td><span class="tag">高</span></td></tr>
+  <tr><td>HBM</td><td><strong>8 组 12-Hi HBM3e</strong>；16×512-bit 控制器</td><td>八个次热点；堆叠与焊球怕高速射流冲蚀</td><td><span class="tag">高</span></td></tr>
+  <tr><td>容量 / 带宽</td><td>288 GB / 8 TB/s（NVIDIA）；Lenovo 写 7.7 TB/s；数据手册另有 279/270 GB 可用口径</td><td>容量口径差不影响冷板；HBM 必须被冷板盖住</td><td><span class="tag">高</span></td></tr>
+  <tr><td>NVLink</td><td>NVLink 5，1.8 TB/s</td><td>桥与 I/O 在盖板边缘，冷板开孔/压装避开</td><td><span class="tag">高</span></td></tr>
+  <tr><td>形态</td><td>SXM，数据中心液冷；无消费级 PCIe 卡</td><td>必须 D2C 冷板；风冷不在范围</td><td><span class="tag">高</span></td></tr>
+  <tr><td>功率</td><td>NVIDIA：configurable up to <strong>1400 W</strong> TGP；Lenovo SXM DLC：<strong>1100 W</strong> TGP</td><td>见第 3 节两档</td><td><span class="tag">高</span></td></tr>
+</table>
+
+<h3>2.2 热源分区（设计假设，须热图冻结）</h3>
+<p>NVIDIA 未公开 B300 封装外形和 die 坐标。本设计按同代双 die 量级取值，全部标 <span class="tagr">待冻结</span>：</p>
+<table>
+  <tr><th>对象</th><th>几何假设</th><th>功率拆分假设</th><th>说明</th></tr>
+  <tr><td>单计算 die</td><td>约 27×28 mm（≈7.5–8.0 cm²）</td><td>DP-A 各 430 W；DP-B 各 545 W（合计约 78%）</td><td>沿用 B200 级双 die 面积</td></tr>
+  <tr><td>NV-HBI 缝</td><td>两 die 之间约 2–4 mm</td><td>低</td><td>不要对着缝打密集射流</td></tr>
+  <tr><td>单颗 HBM 堆</td><td>约 11×11 mm</td><td>DP-A 约 25 W；DP-B 约 32 W（八颗合计约 18%）</td><td>12-Hi 自身发热，必须盖到</td></tr>
+  <tr><td>I/O / 其它</td><td>盖板边缘</td><td>约 4%</td><td>靠铜扩热，不单独射流</td></tr>
+  <tr><td>冷板作用面积</td><td><strong>95 × 75 mm</strong>（候选）</td><td>—</td><td>含压装边；最终跟 SXM 盖板图</td></tr>
+</table>
+<div class="fig drawn">
+  <img src="assets/b300-dwg-a1-zones.png" alt="B300 dual die and eight HBM stacks with GPU jet zones and HBM microchannel-only zones">
+</div>
+<p class="figcap"><strong>图 2-1 · 自绘示意</strong> 与图纸节 P0 同一套候选坐标：两颗 27×28、每侧 4×11 HBM、上 IN / 下 OUT。位图文字若粘连，以 §图纸锁定表为准。</p>
+<div class="pfig">
+  <img src="assets/src/gb200_fig1_layout_heatflux.jpg" alt="GB200 module layout and heat flux as analog of multi-chip non-uniform map">
+  <p class="figcap"><strong>论文原图 · 多芯片非均匀热图（GB200 模组，作类比）</strong> 2×GPU + CPU 的 footprint 平均只有 35–40 W/cm²，die 平均高得多。B300 单封装没有 Grace，但仍是双 die + HBM，<strong>不能一条等宽槽</strong>。<span class="src">来源：arXiv:2604.10941，Fig. 1。调研材料抽出。</span></p>
+</div>
+</section>
+
+<section id="thermo">
+<h2>3. 热力学参数与热阻预算</h2>
+
+<h3>3.1 设计点与包络</h3>
+<table>
+  <tr><th>参数</th><th>DP-A 保证点</th><th>DP-B 包络</th><th>来源</th></tr>
+  <tr><td>芯片功率 <em>P</em></td><td><strong>1100 W</strong></td><td><strong>1400 W</strong></td><td>Lenovo TGP / NVIDIA max TGP</td></tr>
+  <tr><td>进液 <em>T</em><sub>in</sub></td><td>40 °C（计算）</td><td>25–45 °C（OEM 表）</td><td>GB300 表；W45 不是进液保证</td></tr>
+  <tr><td>结温包络 <em>T</em><sub>j</sub></td><td>83–90 °C</td><td>同左</td><td>厂商常见，<span class="tagw">中</span></td></tr>
+  <tr><td>可用温差 50 K / 38 K</td><td>上限 <em>R</em><sub>θ</sub> 0.045 / 0.035</td><td>0.036 / 0.027</td><td>ΔT/<em>P</em></td></tr>
+  <tr><td>工程目标 <em>R</em><sub>θ,c-in</sub></td><td><strong>&lt; 0.028 °C/W</strong></td><td><strong>&lt; 0.025 °C/W</strong></td><td>含 TIM2 与不均</td></tr>
+  <tr><td>对应壳–进液温升</td><td>&lt; 30.8 K @ 1100 W</td><td>&lt; 35.0 K @ 1400 W</td><td>目标反算</td></tr>
+</table>
+<div class="barwrap">
+  <div class="barrow"><span>50K 上限 1100W</span><div class="bartrack"><div class="barfill" style="width:100%"></div></div><span>0.045</span></div>
+  <div class="barrow"><span>DP-A 目标</span><div class="bartrack"><div class="barfill teal" style="width:62%"></div></div><span>0.028</span></div>
+  <div class="barrow"><span>50K 上限 1400W</span><div class="bartrack"><div class="barfill" style="width:80%"></div></div><span>0.036</span></div>
+  <div class="barrow"><span>DP-B 目标</span><div class="bartrack"><div class="barfill warn" style="width:56%"></div></div><span>0.025</span></div>
+</div>
+<p class="figcap">图 3-1 热阻台阶（横轴按 0.045 = 100%）。越小越好。</p>
+
+<h3>3.2 热流密度（平均 vs 热点）</h3>
+<table>
+  <tr><th>区域</th><th>面积假设</th><th>DP-A <em>q″</em></th><th>DP-B <em>q″</em></th><th>热点估（×2.5）</th></tr>
+  <tr><td>单计算 die 平均</td><td>7.8 cm²</td><td>≈55 W/cm²</td><td>≈70 W/cm²</td><td>140–175</td></tr>
+  <tr><td>两 die 硅面积平均</td><td>15.6 cm²</td><td>≈55（仅 GPU 功率）/ 全封装 70</td><td>≈70 / 90</td><td>双驻点</td></tr>
+  <tr><td>单颗 HBM</td><td>1.2 cm²</td><td>≈21</td><td>≈26</td><td>不必射流</td></tr>
+  <tr><td>盖板 footprint 平均</td><td>71 cm²（95×75）</td><td>15.5</td><td>19.7</td><td>设计用 footprint 会低估 die</td></tr>
+</table>
+<div class="note"><strong>不要用 500–600 W/cm² 当整板平均。</strong>那是按 1.5–2 cm² 活性核反推的热点上限。本设计按 die 平均 + 2.5 倍热点校核射流区。</div>
+
+<h3>3.3 热阻链拆分（设计分配）</h3>
+<table>
+  <tr><th>环节</th><th>DP-A 分配 °C/W</th><th>说明</th></tr>
+  <tr><td>硅扩散 + TIM1 + 盖板（封装侧）</td><td>0.008–0.012</td><td>冷板改不了；MLCP 才能砍 TIM2</td></tr>
+  <tr><td>TIM2</td><td>0.004–0.008</td><td>面积热阻 0.1–0.2 °C·cm²/W / 有效面积</td></tr>
+  <tr><td>铜壁导热</td><td>0.001–0.002</td><td>底板 1.5–2.0 mm C110</td></tr>
+  <tr><td>对流（射流+短通道）</td><td><strong>0.010–0.014</strong></td><td>本设计主攻</td></tr>
+  <tr><td>合计壳–进液</td><td><strong>0.023–0.028</strong></td><td>落在 DP-A 目标内</td></tr>
+</table>
+<p>DP-B 要把对流段压到约 0.008–0.012，或减薄 TIM2 / 上 MLCP。本版仍是独立冷板 + TIM2，<strong>1400 W 不作为出厂保证点</strong>，只做包络仿真。</p>
+<div class="fig drawn">
+  <img src="assets/principle-rth-stack.png" alt="Thermal resistance stack from silicon through TIM1 lid TIM2 copper wall to convection">
+</div>
+<p class="figcap"><strong>图 3-2 · 自绘示意</strong> 结–进液热阻链。本设计只能动 TIM2 以下（铜壁 + 对流）；封装内 TIM1/盖板由 NVIDIA 冻结。TIM2 面积热阻 0.1–0.2 °C·cm²/W 往往占掉一半预算，这是后续 MLCP 的理由，但不是 CP-B300-JM-01 的 12–18 个月出货路线。</p>
+</section>
+
+<section id="spec">
+<h2>4. 冷板规格要求（写入送样大纲）</h2>
+<table>
+  <tr><th>层级</th><th>指标</th><th>要求</th><th>性质</th></tr>
+  <tr><td>热</td><td><em>R</em><sub>θ,c-in</sub></td><td>DP-A &lt;0.028 °C/W @ 2.0 L/min、Tin=40 °C、DI 水、TTV 或等价加热块</td><td>送样目标</td></tr>
+  <tr><td>热</td><td>均温</td><td>两 die 中心温差 ≤5 K；HBM 区最高点低于 GPU 驻点</td><td>送样目标</td></tr>
+  <tr><td>热</td><td>包络</td><td>DP-B 1400 W 仿真 <em>R</em> ≤0.025；不写入首批保证</td><td>仿真包络</td></tr>
+  <tr><td>水力</td><td>设计流量</td><td><strong>2.0 L/min</strong>（水）；PG25 同几何下流量可加到 2.2–2.3</td><td>候选，<span class="tagr">待 ICD</span></td></tr>
+  <tr><td>水力</td><td>包络流量</td><td>2.4 L/min（对应 1400 W 初筛）</td><td>候选</td></tr>
+  <tr><td>水力</td><td>冷板压降</td><td>设计点 <strong>≤18 kPa</strong>；上限 <strong>20 kPa</strong>（不含机柜歧管）</td><td>送样目标</td></tr>
+  <tr><td>水力</td><td>流体温升</td><td>2.0 L/min、1100 W、水 ≈ <strong>7.9 K</strong>（计算值，不是流量反推公式）</td><td>留档</td></tr>
+  <tr><td>接触</td><td>平面度 / <em>Ra</em></td><td>≤0.05 mm；<em>Ra</em> ≤0.8 μm</td><td>机加</td></tr>
+  <tr><td>材料</td><td>本体</td><td>紫铜 C110 / C1020；接触面镀镍可选</td><td>冻结候选</td></tr>
+  <tr><td>工质</td><td>相容</td><td>DI 水与 PG25；禁纳米流体</td><td>与 GB300 一致</td></tr>
+  <tr><td>过滤</td><td>系统侧</td><td>投运 ≤25 μm；按最小孔径 0.50 mm 的 1/10 校核更严过滤</td><td>系统</td></tr>
+  <tr><td>密封</td><td>氦检</td><td>100% 氦检；保压按 OEM</td><td>出厂</td></tr>
+  <tr><td>接口</td><td>快接</td><td>跟 Tray UQD，不自创口径</td><td><span class="tagr">待 ICD</span></td></tr>
+</table>
+<div class="note risk"><strong>流量不是用 10 K 反推出来的正式值。</strong>1.0–1.5 L/min·kW 只是行业初筛。本设计取 2.0 L/min @ 1100 W（约 1.82 L/min·kW），是因为射流要维持孔速，且要给 PG25 和脏污留裕量。机柜侧仍服从 Lenovo Table 27 的 59–177 L/min 整柜表，单板流量由 Tray 分流决定，SAT 必须实测。</div>
+</section>
+
+<section id="scheme">
+<h2>5. 方案选择：微通道 + 冲击换热（分区）</h2>
+<p class="lead">纯铲齿打 DP-A 勉强、打 DP-B 紧；纯射流均温差、HBM 受冲蚀。本方案采用专利报告<strong>方案 A</strong>：GPU 区射流+短微通道，HBM 区只微通道，隔离肋切断串流。</p>
+
+<h3>5.1 为什么是杂交而不是二选一</h3>
+<table>
+  <tr><th></th><th>纯微通道 / 铲齿</th><th>纯射流平板</th><th>本方案（分区杂交）</th></tr>
+  <tr><td>双 die 热点</td><td>沿程出口侧先热</td><td>驻点好，交叉流吹歪下游</td><td>每 die 一套短流程射流，抽吸抑制交叉流</td></tr>
+  <tr><td>HBM</td><td>能盖住，流速易偏高</td><td>高速射流伤堆叠</td><td><strong>无喷嘴</strong>，近壁 ≤0.8 m/s</td></tr>
+  <tr><td>压降</td><td>长槽高</td><td>孔板集中</td><td>短槽 + 中等孔速，目标 ≤20 kPa</td></tr>
+  <tr><td>可制造</td><td>铲齿+钎焊熟</td><td>三层对位</td><td>底板机加 + 盖板钻孔，12–18 个月可交货</td></tr>
+  <tr><td>专利</td><td>直槽空间窄</td><td>阵列已密</td><td>带 HBM 禁射流、流速帽、隔离肋、压降窗</td></tr>
+</table>
+<div class="papergrid">
+  <div class="fig drawn">
+    <img src="assets/principle-hybrid-jet-mc.png" alt="Hybrid jet plus short microchannel unit cell">
+    <p class="figcap"><strong>图 5-1 · 自绘示意</strong> 杂交单元：上歧管 → 喷嘴驻点 → 短通道 → 抽吸。GPU 区重复此单元。</p>
+  </div>
+  <div class="fig drawn">
+    <img src="assets/principle-gpu-hbm-hybrid.png" alt="GPU jet zone and HBM microchannel-only zone">
+    <p class="figcap"><strong>图 5-2 · 自绘示意</strong> 双物理分区，与 B300 双 die + 双侧 HBM 对齐。HBM 无射流。</p>
+  </div>
+</div>
+<div class="papergrid">
+  <div class="pfig">
+    <img src="assets/src/hussain_fig1_jet_regions.jpg" alt="Jet impingement flow regions: free jet, stagnation, wall jet">
+    <p class="figcap"><strong>论文原图 · 射流三区</strong> 自由射流、驻点、壁面射流。本设计 <em>H/D</em>=4 落在驻点核完整、交叉流尚未主导的窗口。<span class="src">来源：Hussain et al., Energies 2021, Fig. 1。</span></p>
+  </div>
+  <div class="pfig">
+    <img src="assets/src/hussain_fig7_HD.jpg" alt="Heat transfer coefficient versus jet-to-plate spacing H/D">
+    <p class="figcap"><strong>论文原图 · <em>H/D</em> 对换热</strong> 过近则势核未展、过远则到达速度掉。本设计取 4，不取 2 或 8。<span class="src">来源：Hussain et al., Energies 2021, Fig. 7。</span></p>
+  </div>
+</div>
+<div class="prin">
+  <h4>物理分工</h4>
+  <p>射流把 GPU 热点边界层压薄（驻点 <em>h</em> 最高）；短微通道把废液在 ≤8 mm 内抽走，避免长槽沿程温升。HBM 用更大水力直径、限制近壁速度。隔离肋同时是流道隔墙和抗弯筋，减轻压装偏载传到 HBM 焊球。</p>
+</div>
+</section>
+
+<section id="prin">
+<h2>工作原理（看图说明）</h2>
+<p class="lead">冷板要解决的不是“把 1100 W 均匀摊在 95×75 mm 上”，而是<strong>两个高热流计算 die + 八个怕冲蚀的 HBM</strong>。工质从板上沿进（设计点 40 °C、2.0 L/min 水），盖板按孔阻分成两路：<strong>80% = 1.60 L/min 向下打在两颗 GPU 铜壁上</strong>，驻点换热后沿 ≤8 mm 短槽抽走；<strong>20% = 0.40 L/min 只在两侧 HBM 平流</strong>，隔离肋不许高速串流。流体混合温升只有约 <strong>7.9 K</strong>（出口约 48 °C），这是 0 维 <em>P</em>/(<em>ṁ c<sub>p</sub></em>)，<strong>不是</strong> 10 K 规格，也<strong>不是</strong>壁面/结温。壁面最热在两个射流驻点，结温还要再高一截。</p>
+
+<div class="walk">
+  <div class="st"><b>①</b><span>进液 · 蓝<br>2.0 L/min · 40 °C</span></div>
+  <div class="st"><b>②</b><span>盖板分流<br>1.60 / 0.40 L/min</span></div>
+  <div class="st"><b>③</b><span>射流下打<br>2×8×8 · 驻点最高 h</span></div>
+  <div class="st"><b>④</b><span>就地抽走<br>L≤8 mm · 抑交叉流</span></div>
+  <div class="st"><b>⑤</b><span>HBM 只平流<br>无喷嘴 · V≤0.8</span></div>
+  <div class="st"><b>⑥</b><span>出液 · 橙<br>流体 ≈48 °C · 非最热</span></div>
+</div>
+<div class="legend">
+  <span><i class="sw" style="background:#2b6cb0"></i>T<sub>f</sub> 进 40 °C</span>
+  <span><i class="sw" style="background:#38b2ac"></i>射流后流体</span>
+  <span><i class="sw" style="background:#ecc94b"></i>短槽 / HBM 流体</span>
+  <span><i class="sw" style="background:#dd6b20"></i>T<sub>f</sub> 出 ~48 °C</span>
+  <span><i class="sw" style="background:#c53030"></i>T<sub>w</sub> 驻点（更热）</span>
+  <span class="tgrad"></span>
+  <span>蓝→橙只给<strong>流体</strong>；铜壁另用红斑</span>
+</div>
+<p class="small">以下各图均为<strong>自绘示意</strong>，不是共轭 CFD，不是 NVIDIA 订单 ICD。外形 95×75 mm、die / HBM 坐标均为候选，<span class="tagr">待订单 ICD</span>。数字与第 6–7 节表格一致。</p>
+
+<h3>1. 先看问题：一条长槽会怎样</h3>
+<p>B300 对软件是一颗 GPU，对冷板是<strong>两块 27×28 mm 的主热源</strong>并排，中间隔着 2–4 mm 的 NV-HBI 缝（本设计取 3 mm）。DP-A 每颗 die 约 430 W，硅面积平均约 55 W/cm²，热点按 2.5 倍估 140–175 W/cm²；八颗 HBM 合计约 18% 功率，单颗约 21 W/cm²。若用一条等宽长槽从板上沿浇到下沿，会出现三件物理上必然的事：</p>
+<ol class="tight">
+  <li><strong>沿程预热：</strong>冷却液先扫过上游 die 边缘，再到达下游驻点时已经热了一截，出口侧先超温。</li>
+  <li><strong>交叉流吹歪：</strong>上游射流的废液变成横风，把下游射流的驻点核吹偏，<em>h</em> 掉、均温变差。</li>
+  <li><strong>HBM 被高速冲：</strong>若整板同一孔速，12-Hi 堆叠与焊球承受不必要的近壁剪切；若整板同一低速，GPU 热点又打不下来。</li>
+</ol>
+<p>所以方案必须是<strong>分区杂交</strong>：GPU 要高 <em>h</em> 的射流 + 短流程抽吸；HBM 要大水力直径、限速、无喷嘴；中间用隔离肋做成真正的水力隔墙，而不是画一条装饰线。</p>
+
+<h3>2. 能量从哪来、热量进哪去</h3>
+<p>设计保证点 DP-A = <strong>1100 W</strong>（Lenovo TGP）。功率拆分是封装假设，不是官方热图：两颗计算 die 合计 <strong>78%</strong>（各 429 W），八颗 HBM <strong>18%</strong>（合计 198 W），I/O 与其它 <strong>4%</strong>（44 W）。429+429+198+44=<strong>1100</strong>。这些热最终几乎全部进冷却液——冷板改不了硅、TIM1、盖板，只能动 <strong>TIM2 以下</strong>的铜壁导热和对流。</p>
+<div class="svgbox drawn truth">
+<svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="1100 W energy split Die-A Die-B HBM other into coolant">
+  <text x="12" y="18" font-size="13" fill="#008b7a" font-family="Microsoft YaHei,Arial">自绘真比例 · 数值基准</text>
+  <rect x="16" y="70" width="88" height="80" rx="6" fill="#0b2748"/>
+  <text x="60" y="104" text-anchor="middle" fill="#fff" font-size="18" font-family="Arial" font-weight="700">1100</text>
+  <text x="60" y="124" text-anchor="middle" fill="#c5d4e4" font-size="12" font-family="Microsoft YaHei,Arial">W · DP-A</text>
+  <path d="M104 86 C150 86 150 48 196 48" fill="none" stroke="#dd6b20" stroke-width="18"/>
+  <path d="M104 102 C150 102 150 88 196 88" fill="none" stroke="#ed8936" stroke-width="18"/>
+  <path d="M104 122 C150 122 150 132 196 132" fill="none" stroke="#38a169" stroke-width="10"/>
+  <path d="M104 138 C150 138 150 168 196 168" fill="none" stroke="#718096" stroke-width="5"/>
+  <rect x="196" y="32" width="150" height="32" rx="4" fill="#dd6b20"/>
+  <text x="271" y="53" text-anchor="middle" fill="#fff" font-size="12" font-family="Microsoft YaHei,Arial">Die-A 429 W · 39%</text>
+  <rect x="196" y="72" width="150" height="32" rx="4" fill="#ed8936"/>
+  <text x="271" y="93" text-anchor="middle" fill="#fff" font-size="12" font-family="Microsoft YaHei,Arial">Die-B 429 W · 39%</text>
+  <rect x="196" y="116" width="150" height="28" rx="4" fill="#38a169"/>
+  <text x="271" y="135" text-anchor="middle" fill="#fff" font-size="12" font-family="Microsoft YaHei,Arial">HBM×8 198 W · 18%</text>
+  <rect x="196" y="154" width="150" height="24" rx="4" fill="#718096"/>
+  <text x="271" y="171" text-anchor="middle" fill="#fff" font-size="11" font-family="Microsoft YaHei,Arial">其它 44 W · 4%</text>
+  <path d="M346 48 C400 48 400 110 454 110" fill="none" stroke="#dd6b20" stroke-width="16"/>
+  <path d="M346 88 C400 88 400 110 454 110" fill="none" stroke="#ed8936" stroke-width="16"/>
+  <path d="M346 130 C400 130 400 110 454 110" fill="none" stroke="#38a169" stroke-width="9"/>
+  <path d="M346 166 C400 166 400 110 454 110" fill="none" stroke="#718096" stroke-width="4"/>
+  <rect x="454" y="78" width="170" height="64" rx="6" fill="#2b6cb0"/>
+  <text x="539" y="106" text-anchor="middle" fill="#fff" font-size="14" font-family="Microsoft YaHei,Arial">全部进入冷却液</text>
+  <text x="539" y="126" text-anchor="middle" fill="#d6eef8" font-size="12" font-family="Arial">1100 W</text>
+  <text x="320" y="208" text-anchor="middle" font-size="11" fill="#607086" font-family="Microsoft YaHei,Arial">429+429+198+44=1100　两 die 合计 78%　功率拆分 ≠ 流量 80/20　待官方热图</text>
+</svg>
+</div>
+<p class="figcap"><span class="svglabel">自绘真比例</span><strong>图 P7 · 能量分流（数值基准）</strong> Die-A 429 W + Die-B 429 W = 858 W（78%）；HBM 八颗合计 198 W（18%，单颗 24.75 W，正文常约写 25 W / 200 W）；其它 44 W（4%）。四项相加 1100 W。这是功率去向，不是流量去向。置信度 <span class="tagw">中低</span>：待官方 power map。旧位图 <code>b300-prin-energy-split.png</code> 不再嵌入（曾把 78% 标两次）。</p>
+<div class="prin">
+  <h4>看图步骤 · 热阻链（冷板只拥有下半段）</h4>
+  <p>热流路径：<strong>硅 → TIM1 → 盖板 → TIM2 → 铜壁扩热 → 对流进液体</strong>。封装内侧（硅 + TIM1 + 盖）大约 0.008–0.012 °C/W，本设计动不了。TIM2 约 0.004–0.008。铜壁导热约 0.001–0.002。对流是主攻段，目标 <strong>0.010–0.014 °C/W</strong>。合起来壳–进液 0.023–0.028，落在 DP-A &lt;0.028 的窗里。DP-B 1400 W 要把对流再压一截，本版只作包络，不作出厂保证。</p>
+</div>
+
+<h3>3. 分流：为什么是 80 / 20，孔阻怎么实现</h3>
+<p>2.0 L/min 不是用 10 K 反推的正式机柜流量。取这个数，是因为 128 个 0.50 mm 孔要维持约 <strong>1.06 m/s</strong> 的孔速（<em>Re<sub>D</sub></em>≈810），同时给 PG25 和脏污留裕量。分配：</p>
+<table>
+  <tr><th>回路</th><th>流量</th><th>实现</th><th>近壁 / 孔速</th></tr>
+  <tr><td>两 GPU 射流区</td><td><strong>1.60 L/min（80%）</strong></td><td>128 孔总面积约 25.1 mm²，孔口本身就是限流元件</td><td>V<sub>jet</sub>≈1.06 m/s</td></tr>
+  <tr><td>HBM 两侧</td><td><strong>0.40 L/min（20%）</strong></td><td>单独进液缝 + 0.60×1.50 mm 宽槽，<strong>无喷嘴</strong></td><td>V≈0.46 m/s，帽 0.80</td></tr>
+</table>
+<p>80/20 跟着热流走：GPU 需要高 <em>h</em>，必须把大部分质量流量送到驻点；HBM 热流低一个量级，多送水只会抬压降、抬冲蚀，帮不上结温。分配靠盖板开孔和隔墙，<strong>不靠外置调节阀</strong>。样件用分区流量计标定，偏差目标 ±10%。重力在这个雷诺数下可以忽略——抽吸靠压差和专用回液孔，不是“热流体向上浮”。</p>
+
+<h3>4. 整板三维流体走向</h3>
+<div class="fig drawn">
+  <img src="assets/b300-prin-3d-flow.png" alt="Thin-plate isometric coolant path two dense jet fields and HBM side streams">
+</div>
+<p class="figcap"><strong>图 P1 · 自绘示意</strong> 板按薄板画（真实 8.5 mm），不要理解成空心箱子。蓝→青→琥珀→橙只给<strong>流体</strong>，铜保持铜色。</p>
+<div class="prin">
+  <h4>看图步骤 · P1（眼随编号，约半分钟）</h4>
+  <p><strong>①</strong> 先看板上沿：蓝箭进入薄进液歧管，还是约 40 °C 的冷液，2.0 L/min。这一步没有换热任务，只是把静压铺开，让两套 8×8 孔和两侧 HBM 缝都吃到压力。</p>
+  <p><strong>②</strong> 再看板心两片密密的下指箭：那是 GPU 的 128 个微射流（每 die 8×8，节距 3.0 mm，阵面 21×21，落在 27×28 里）。80% 的水在这里<strong>向下打到铜壁</strong>。箭密，是因为 0.50 mm 孔按 3 mm 铺，本来就该看起来挤，不是五六个卡通喷头。</p>
+  <p><strong>③</strong> 左右各一列四个灰块是 HBM。琥珀箭只沿这两列走，流量合计 0.40 L/min。海军蓝竖墙是 2 mm 隔离肋：<strong>没有任何箭穿过肋</strong>。肋同时是流道隔墙和抗弯筋，减轻压装偏载传到 HBM 焊球。</p>
+  <p><strong>④⑤</strong> 下沿收集器把两路废液汇合。颜色偏橙，只表示流体比进口热了约 8 K，<strong>不是</strong>芯片 80 °C。然后出板。位图若把 ④⑤ 叠在一起，当作出液一步即可。HBM 必须是 8 颗；若位图多画或少画，以锁定坐标为准。</p>
+</div>
+<div class="note"><strong>本图不是什么：</strong>不是 CFD 流线，不是官方盖板图，不是“热气上升所以从上面抽”的自然对流。抽吸是压差驱动。板厚被稍微夸张以便看见路径，尺寸以 SVG / 第 6 节为准。</div>
+
+<h3>5. 比例基准顶视（毫米真比例 + 流向）</h3>
+<p>位图容易把 die 画太大、HBM 画成一串小点。下面这张 SVG 的外框就是 <strong>95×75 mm</strong>。Die-A (19.0, 23.5)、HBI 3 mm、Die-B (49.0, 23.5)、每侧四颗 11×11（x=5.0 / 79.0，y=12.5 / 25.5 / 38.5 / 51.5）、射流阵 (22,27) 与 (52,27) 各 21×21、肋宽 2 mm，全部按毫米落笔。原点工程上在左下，本图 Y 向下。</p>
+<div class="svgbox drawn truth">
+<svg viewBox="-18 -16 138 110" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="95 by 75 mm plate top view with flow arrows">
+  <defs>
+    <marker id="navyA" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 z" fill="#0b2748"/></marker>
+    <marker id="blueA" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 z" fill="#2b6cb0"/></marker>
+    <marker id="tealA" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 z" fill="#008b7a"/></marker>
+    <marker id="orgA" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 z" fill="#c05621"/></marker>
+    <radialGradient id="hotA" cx="50%" cy="50%" r="65%"><stop offset="0%" stop-color="#e53e3e"/><stop offset="55%" stop-color="#ed8936"/><stop offset="100%" stop-color="#e8b86d"/></radialGradient>
+  </defs>
+  <line x1="0" y1="-9" x2="95" y2="-9" stroke="#0b2748" stroke-width="0.28" marker-start="url(#navyA)" marker-end="url(#navyA)"/>
+  <text x="47.5" y="-11.2" text-anchor="middle" font-size="3.1" fill="#0b2748" font-family="Arial">95</text>
+  <line x1="100" y1="0" x2="100" y2="75" stroke="#0b2748" stroke-width="0.28" marker-start="url(#navyA)" marker-end="url(#navyA)"/>
+  <text x="103.2" y="38.5" font-size="3.1" fill="#0b2748" font-family="Arial">75</text>
+  <rect x="0" y="0" width="95" height="75" fill="#f7fafc" stroke="#0b2748" stroke-width="0.45"/>
+  <rect x="3" y="3" width="89" height="69" fill="none" stroke="#718096" stroke-width="0.18" stroke-dasharray="1.1 0.7"/>
+  <rect x="8" y="2" width="79" height="7" fill="#bee3f8" stroke="#2b6cb0" stroke-width="0.22"/>
+  <rect x="8" y="66" width="79" height="7" fill="#fbd38d" stroke="#c05621" stroke-width="0.22"/>
+  <rect x="16.5" y="12.5" width="2" height="50" fill="#0b2748"/>
+  <rect x="76.5" y="12.5" width="2" height="50" fill="#0b2748"/>
+  <rect x="19" y="21.5" width="57" height="2" fill="#1a365d"/>
+  <rect x="19" y="51.5" width="57" height="2" fill="#1a365d"/>
+  <rect x="5" y="12.5" width="11" height="11" fill="#c6f6d5" stroke="#276749" stroke-width="0.22"/>
+  <rect x="5" y="25.5" width="11" height="11" fill="#c6f6d5" stroke="#276749" stroke-width="0.22"/>
+  <rect x="5" y="38.5" width="11" height="11" fill="#c6f6d5" stroke="#276749" stroke-width="0.22"/>
+  <rect x="5" y="51.5" width="11" height="11" fill="#c6f6d5" stroke="#276749" stroke-width="0.22"/>
+  <rect x="79" y="12.5" width="11" height="11" fill="#c6f6d5" stroke="#276749" stroke-width="0.22"/>
+  <rect x="79" y="25.5" width="11" height="11" fill="#c6f6d5" stroke="#276749" stroke-width="0.22"/>
+  <rect x="79" y="38.5" width="11" height="11" fill="#c6f6d5" stroke="#276749" stroke-width="0.22"/>
+  <rect x="79" y="51.5" width="11" height="11" fill="#c6f6d5" stroke="#276749" stroke-width="0.22"/>
+  <rect x="19" y="23.5" width="27" height="28" fill="url(#hotA)" stroke="#0b2748" stroke-width="0.35"/>
+  <rect x="46" y="23.5" width="3" height="28" fill="#008b7a"/>
+  <rect x="49" y="23.5" width="27" height="28" fill="url(#hotA)" stroke="#0b2748" stroke-width="0.35"/>
+  <g fill="#008b7a" stroke="none"><circle cx="22" cy="48" r="0.36"/><circle cx="22" cy="45" r="0.36"/><circle cx="22" cy="42" r="0.36"/><circle cx="22" cy="39" r="0.36"/><circle cx="22" cy="36" r="0.36"/><circle cx="22" cy="33" r="0.36"/><circle cx="22" cy="30" r="0.36"/><circle cx="22" cy="27" r="0.36"/><circle cx="25" cy="48" r="0.36"/><circle cx="25" cy="45" r="0.36"/><circle cx="25" cy="42" r="0.36"/><circle cx="25" cy="39" r="0.36"/><circle cx="25" cy="36" r="0.36"/><circle cx="25" cy="33" r="0.36"/><circle cx="25" cy="30" r="0.36"/><circle cx="25" cy="27" r="0.36"/><circle cx="28" cy="48" r="0.36"/><circle cx="28" cy="45" r="0.36"/><circle cx="28" cy="42" r="0.36"/><circle cx="28" cy="39" r="0.36"/><circle cx="28" cy="36" r="0.36"/><circle cx="28" cy="33" r="0.36"/><circle cx="28" cy="30" r="0.36"/><circle cx="28" cy="27" r="0.36"/><circle cx="31" cy="48" r="0.36"/><circle cx="31" cy="45" r="0.36"/><circle cx="31" cy="42" r="0.36"/><circle cx="31" cy="39" r="0.36"/><circle cx="31" cy="36" r="0.36"/><circle cx="31" cy="33" r="0.36"/><circle cx="31" cy="30" r="0.36"/><circle cx="31" cy="27" r="0.36"/><circle cx="34" cy="48" r="0.36"/><circle cx="34" cy="45" r="0.36"/><circle cx="34" cy="42" r="0.36"/><circle cx="34" cy="39" r="0.36"/><circle cx="34" cy="36" r="0.36"/><circle cx="34" cy="33" r="0.36"/><circle cx="34" cy="30" r="0.36"/><circle cx="34" cy="27" r="0.36"/><circle cx="37" cy="48" r="0.36"/><circle cx="37" cy="45" r="0.36"/><circle cx="37" cy="42" r="0.36"/><circle cx="37" cy="39" r="0.36"/><circle cx="37" cy="36" r="0.36"/><circle cx="37" cy="33" r="0.36"/><circle cx="37" cy="30" r="0.36"/><circle cx="37" cy="27" r="0.36"/><circle cx="40" cy="48" r="0.36"/><circle cx="40" cy="45" r="0.36"/><circle cx="40" cy="42" r="0.36"/><circle cx="40" cy="39" r="0.36"/><circle cx="40" cy="36" r="0.36"/><circle cx="40" cy="33" r="0.36"/><circle cx="40" cy="30" r="0.36"/><circle cx="40" cy="27" r="0.36"/><circle cx="43" cy="48" r="0.36"/><circle cx="43" cy="45" r="0.36"/><circle cx="43" cy="42" r="0.36"/><circle cx="43" cy="39" r="0.36"/><circle cx="43" cy="36" r="0.36"/><circle cx="43" cy="33" r="0.36"/><circle cx="43" cy="30" r="0.36"/><circle cx="43" cy="27" r="0.36"/><circle cx="52" cy="48" r="0.36"/><circle cx="52" cy="45" r="0.36"/><circle cx="52" cy="42" r="0.36"/><circle cx="52" cy="39" r="0.36"/><circle cx="52" cy="36" r="0.36"/><circle cx="52" cy="33" r="0.36"/><circle cx="52" cy="30" r="0.36"/><circle cx="52" cy="27" r="0.36"/><circle cx="55" cy="48" r="0.36"/><circle cx="55" cy="45" r="0.36"/><circle cx="55" cy="42" r="0.36"/><circle cx="55" cy="39" r="0.36"/><circle cx="55" cy="36" r="0.36"/><circle cx="55" cy="33" r="0.36"/><circle cx="55" cy="30" r="0.36"/><circle cx="55" cy="27" r="0.36"/><circle cx="58" cy="48" r="0.36"/><circle cx="58" cy="45" r="0.36"/><circle cx="58" cy="42" r="0.36"/><circle cx="58" cy="39" r="0.36"/><circle cx="58" cy="36" r="0.36"/><circle cx="58" cy="33" r="0.36"/><circle cx="58" cy="30" r="0.36"/><circle cx="58" cy="27" r="0.36"/><circle cx="61" cy="48" r="0.36"/><circle cx="61" cy="45" r="0.36"/><circle cx="61" cy="42" r="0.36"/><circle cx="61" cy="39" r="0.36"/><circle cx="61" cy="36" r="0.36"/><circle cx="61" cy="33" r="0.36"/><circle cx="61" cy="30" r="0.36"/><circle cx="61" cy="27" r="0.36"/><circle cx="64" cy="48" r="0.36"/><circle cx="64" cy="45" r="0.36"/><circle cx="64" cy="42" r="0.36"/><circle cx="64" cy="39" r="0.36"/><circle cx="64" cy="36" r="0.36"/><circle cx="64" cy="33" r="0.36"/><circle cx="64" cy="30" r="0.36"/><circle cx="64" cy="27" r="0.36"/><circle cx="67" cy="48" r="0.36"/><circle cx="67" cy="45" r="0.36"/><circle cx="67" cy="42" r="0.36"/><circle cx="67" cy="39" r="0.36"/><circle cx="67" cy="36" r="0.36"/><circle cx="67" cy="33" r="0.36"/><circle cx="67" cy="30" r="0.36"/><circle cx="67" cy="27" r="0.36"/><circle cx="70" cy="48" r="0.36"/><circle cx="70" cy="45" r="0.36"/><circle cx="70" cy="42" r="0.36"/><circle cx="70" cy="39" r="0.36"/><circle cx="70" cy="36" r="0.36"/><circle cx="70" cy="33" r="0.36"/><circle cx="70" cy="30" r="0.36"/><circle cx="70" cy="27" r="0.36"/><circle cx="73" cy="48" r="0.36"/><circle cx="73" cy="45" r="0.36"/><circle cx="73" cy="42" r="0.36"/><circle cx="73" cy="39" r="0.36"/><circle cx="73" cy="36" r="0.36"/><circle cx="73" cy="33" r="0.36"/><circle cx="73" cy="30" r="0.36"/><circle cx="73" cy="27" r="0.36"/></g>
+  <line x1="47.5" y1="-2" x2="47.5" y2="5.2" stroke="#2b6cb0" stroke-width="0.7" marker-end="url(#blueA)"/>
+  <line x1="32.5" y1="8.5" x2="32.5" y2="22" stroke="#2b6cb0" stroke-width="0.55" marker-end="url(#blueA)"/>
+  <line x1="62.5" y1="8.5" x2="62.5" y2="22" stroke="#2b6cb0" stroke-width="0.55" marker-end="url(#blueA)"/>
+  <line x1="10.5" y1="14" x2="10.5" y2="60" stroke="#008b7a" stroke-width="0.4" marker-end="url(#tealA)"/>
+  <line x1="84.5" y1="14" x2="84.5" y2="60" stroke="#008b7a" stroke-width="0.4" marker-end="url(#tealA)"/>
+  <line x1="32.5" y1="53" x2="32.5" y2="64.5" stroke="#c05621" stroke-width="0.55" marker-end="url(#orgA)"/>
+  <line x1="62.5" y1="53" x2="62.5" y2="64.5" stroke="#c05621" stroke-width="0.55" marker-end="url(#orgA)"/>
+  <line x1="47.5" y1="69.5" x2="47.5" y2="78" stroke="#c05621" stroke-width="0.7" marker-end="url(#orgA)"/>
+  <text x="50.5" y="-0.4" font-size="2.6" fill="#2b6cb0" font-family="Arial">IN</text>
+  <text x="50.5" y="80.6" font-size="2.6" fill="#c05621" font-family="Arial">OUT</text>
+  <text x="32.5" y="38.2" text-anchor="middle" font-size="2.4" fill="#0b2748" font-family="Arial">Die-A</text>
+  <text x="62.5" y="38.2" text-anchor="middle" font-size="2.4" fill="#0b2748" font-family="Arial">Die-B</text>
+  <text x="47.5" y="36" text-anchor="middle" font-size="1.8" fill="#fff" font-family="Arial">HBI</text>
+  <text x="10.5" y="11.4" text-anchor="middle" font-size="2.1" fill="#276749" font-family="Arial">HBM</text>
+  <text x="84.5" y="11.4" text-anchor="middle" font-size="2.1" fill="#276749" font-family="Arial">HBM</text>
+  <line x1="0" y1="84" x2="20" y2="84" stroke="#0b2748" stroke-width="0.7"/>
+  <line x1="0" y1="82.6" x2="0" y2="85.4" stroke="#0b2748" stroke-width="0.4"/>
+  <line x1="20" y1="82.6" x2="20" y2="85.4" stroke="#0b2748" stroke-width="0.4"/>
+  <text x="10" y="88.4" text-anchor="middle" font-size="2.6" fill="#0b2748" font-family="Arial">20 mm</text>
+  <text x="0" y="92.5" font-size="2.3" fill="#607086" font-family="Microsoft YaHei,Arial">原点左下（工程）· 本图 Y 向下 · 候选外形 待 ICD</text>
+</svg>
+</div>
+<p class="figcap"><span class="svglabel">自绘真比例</span><strong>图 P0 · 比例基准（SVG）</strong> 蓝带=进液歧管（流体 40 °C）；两颗 die 中心偏红=<strong>壁面驻点</strong>，不是流体 48 °C；青绿 8 块=HBM，只走青箭平流；海军蓝竖条=隔离肋；橙带=出液歧管（流体 ~48 °C）。密点是 8×8 射流落点。封装坐标未公开，<span class="tagr">待 ICD</span>。</p>
+<div class="prin">
+  <h4>看图步骤 · P0</h4>
+  <p>先对尺寸：die 27×28 明显大于 11×11 的 HBM；HBI 只有 3 mm 细缝，不要对着缝打密孔。再对流程：蓝箭从上看进 → 两路进入铜区 → 青箭沿 HBM 列向下（图面方向）→ 橙箭从下沿出。最后对温度语义：<strong>红在 die 心是 T<sub>w</sub></strong>；<strong>橙在下沿是 T<sub>f</sub></strong>。两套颜色不能比“谁更红谁更烫”——壁面红斑比出口流体热得多，见 §8 / 图 P6。</p>
+</div>
+
+<h3>6. GPU 单元：自由射流 → 驻点 → 壁面射流 → 短槽抽吸</h3>
+<p>GPU 区重复的是同一个细胞，不是一条贯穿整颗 die 的长槽。文献上的射流三区在这里对应：<strong>自由射流</strong>（孔内到铜壁前，<em>H</em>=2.0 mm，<em>H/D</em>=4）→ <strong>驻点</strong>（边界层最薄，<em>h</em> 最高）→ <strong>壁面射流</strong>（沿铜壁向外走）。若不把废液抽走，壁面射流就变成交叉流，下一排孔的驻点被吹歪。所以驻点之后必须在 <strong>L≤8 mm</strong> 内进入短槽，再从错排抽吸孔<strong>向上</strong>回到出液歧管。厚度与循环以下面 <strong>P2b 真比例图为准</strong>。</p>
+<div class="prin">
+  <h4>看图步骤 · 循环四步（对照 P2b）</h4>
+  <p><strong>①</strong> 蓝箭穿过 0.50 mm 孔往下。128 孔、1.60 L/min 时孔速约 <strong>1.06 m/s</strong>，<em>Re<sub>D</sub></em>≈<strong>810</strong>（层流–过渡）。孔太稀则驻点盖不住 27×28；太密则压降和堵点一起升。0.50 mm 是可微钻、过滤可接受的折中。</p>
+  <p><strong>②</strong> 红点打在铜底上，这就是驻点。驻点 Nu 量级约 0.5 <em>Re</em><sup>0.5</sup> <em>Pr</em><sup>0.4</sup>≈25，<em>h</em><sub>stag</sub>≈Nu·<em>k</em>/<em>D</em>≈<strong>3.2×10<sup>4</sup> W/m²K</strong>。这只代表驻点核，不是整区平均。因为 <em>h</em> 高，<strong>同样热流下这里的壁–流体温差最小，但壁面绝对温度仍远高于流体</strong>——对流温差 <em>q″/h</em> 叠在已经升了几度的当地流体上。</p>
+  <p><strong>③</strong> 青/琥珀短箭左右各走一点：这是壁面射流进短槽。槽 0.40×1.50 mm，每 die 30 条、节距 0.80 mm，单槽流速约 0.74 m/s，<em>Re</em>≈710。颜色变暖只表示这股液体已经吸过热，必须马上离开，不能再去伺候下一排孔。</p>
+  <p><strong>④</strong> 橙箭从相邻孔之间的抽吸缝<strong>向上</strong>走。向上是因为回液孔开在盖板，压差把废液抽走，<strong>与热浮力无关</strong>。位图若把 ③④ 都标成 3，按“先横走、再上抽”读即可。</p>
+</div>
+<div class="note ok"><strong>为什么必须短：</strong>若改成贯穿 28 mm 的长槽，下游孔看到的是上游废液，交叉流把驻点核推离 die 中心，两 die 温差和单 die 内部温差一起坏。短槽把每条流程截在 8 mm 内，等于把“一条河”拆成 128 个小循环。</div>
+
+<div class="svgbox drawn truth">
+<svg viewBox="-8 -4 54 22" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GPU zone section to scale">
+  <defs>
+    <marker id="sB" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="3.2" markerHeight="3.2" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 z" fill="#2b6cb0"/></marker>
+    <marker id="sO" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="3.2" markerHeight="3.2" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 z" fill="#c05621"/></marker>
+    <linearGradient id="flowG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2b6cb0"/><stop offset="55%" stop-color="#38b2ac"/><stop offset="100%" stop-color="#dd6b20"/></linearGradient>
+  </defs>
+  <rect x="0" y="0" width="40" height="2.5" fill="#d69e6a" stroke="#0b2748" stroke-width="0.12"/>
+  <g fill="#f7fafc" stroke="#0b2748" stroke-width="0.08">
+    <ellipse cx="5.5" cy="1.25" rx="0.25" ry="1.15"/><ellipse cx="8.5" cy="1.25" rx="0.25" ry="1.15"/>
+    <ellipse cx="11.5" cy="1.25" rx="0.25" ry="1.15"/><ellipse cx="14.5" cy="1.25" rx="0.25" ry="1.15"/>
+    <ellipse cx="17.5" cy="1.25" rx="0.25" ry="1.15"/><ellipse cx="20.5" cy="1.25" rx="0.25" ry="1.15"/>
+    <ellipse cx="23.5" cy="1.25" rx="0.25" ry="1.15"/><ellipse cx="26.5" cy="1.25" rx="0.25" ry="1.15"/>
+  </g>
+  <rect x="0" y="2.5" width="40" height="2.0" fill="#90cdf4" stroke="#2b6cb0" stroke-width="0.08"/>
+  <rect x="0" y="4.5" width="40" height="3.5" fill="#d69e6a" stroke="#0b2748" stroke-width="0.12"/>
+  <g fill="#38b2ac">
+    <rect x="1.2" y="4.5" width="0.40" height="1.5"/><rect x="2.0" y="4.5" width="0.40" height="1.5"/>
+    <rect x="2.8" y="4.5" width="0.40" height="1.5"/><rect x="3.6" y="4.5" width="0.40" height="1.5"/>
+    <rect x="4.4" y="4.5" width="0.40" height="1.5"/><rect x="5.2" y="4.5" width="0.40" height="1.5"/>
+    <rect x="6.0" y="4.5" width="0.40" height="1.5"/><rect x="6.8" y="4.5" width="0.40" height="1.5"/>
+    <rect x="7.6" y="4.5" width="0.40" height="1.5"/><rect x="8.4" y="4.5" width="0.40" height="1.5"/>
+    <rect x="9.2" y="4.5" width="0.40" height="1.5"/><rect x="10.0" y="4.5" width="0.40" height="1.5"/>
+    <rect x="10.8" y="4.5" width="0.40" height="1.5"/><rect x="11.6" y="4.5" width="0.40" height="1.5"/>
+    <rect x="12.4" y="4.5" width="0.40" height="1.5"/><rect x="13.2" y="4.5" width="0.40" height="1.5"/>
+    <rect x="14.0" y="4.5" width="0.40" height="1.5"/><rect x="14.8" y="4.5" width="0.40" height="1.5"/>
+    <rect x="15.6" y="4.5" width="0.40" height="1.5"/><rect x="16.4" y="4.5" width="0.40" height="1.5"/>
+    <rect x="17.2" y="4.5" width="0.40" height="1.5"/><rect x="18.0" y="4.5" width="0.40" height="1.5"/>
+    <rect x="18.8" y="4.5" width="0.40" height="1.5"/><rect x="19.6" y="4.5" width="0.40" height="1.5"/>
+    <rect x="20.4" y="4.5" width="0.40" height="1.5"/><rect x="21.2" y="4.5" width="0.40" height="1.5"/>
+    <rect x="22.0" y="4.5" width="0.40" height="1.5"/><rect x="22.8" y="4.5" width="0.40" height="1.5"/>
+    <rect x="23.6" y="4.5" width="0.40" height="1.5"/><rect x="24.4" y="4.5" width="0.40" height="1.5"/>
+    <rect x="25.2" y="4.5" width="0.40" height="1.5"/><rect x="26.0" y="4.5" width="0.40" height="1.5"/>
+    <rect x="26.8" y="4.5" width="0.40" height="1.5"/><rect x="27.6" y="4.5" width="0.40" height="1.5"/>
+    <rect x="28.4" y="4.5" width="0.40" height="1.5"/><rect x="29.2" y="4.5" width="0.40" height="1.5"/>
+    <rect x="30.0" y="4.5" width="0.40" height="1.5"/><rect x="30.8" y="4.5" width="0.40" height="1.5"/>
+    <rect x="31.6" y="4.5" width="0.40" height="1.5"/><rect x="32.4" y="4.5" width="0.40" height="1.5"/>
+    <rect x="33.2" y="4.5" width="0.40" height="1.5"/><rect x="34.0" y="4.5" width="0.40" height="1.5"/>
+    <rect x="34.8" y="4.5" width="0.40" height="1.5"/><rect x="35.6" y="4.5" width="0.40" height="1.5"/>
+  </g>
+  <rect x="0" y="8.0" width="40" height="0.10" fill="#f6e05e"/>
+  <rect x="0" y="8.10" width="40" height="1.0" fill="#cbd5e0" stroke="#718096" stroke-width="0.08"/>
+  <rect x="0" y="9.10" width="40" height="0.05" fill="#f6e05e"/>
+  <rect x="6.5" y="9.15" width="27" height="0.80" fill="#4a5568"/>
+  <g stroke="#2b6cb0" stroke-width="0.14" fill="none">
+    <line x1="5.5" y1="0.1" x2="5.5" y2="5.9" marker-end="url(#sB)"/>
+    <line x1="8.5" y1="0.1" x2="8.5" y2="5.9" marker-end="url(#sB)"/>
+    <line x1="11.5" y1="0.1" x2="11.5" y2="5.9" marker-end="url(#sB)"/>
+    <line x1="14.5" y1="0.1" x2="14.5" y2="5.9" marker-end="url(#sB)"/>
+    <line x1="17.5" y1="0.1" x2="17.5" y2="5.9" marker-end="url(#sB)"/>
+    <line x1="20.5" y1="0.1" x2="20.5" y2="5.9" marker-end="url(#sB)"/>
+    <line x1="23.5" y1="0.1" x2="23.5" y2="5.9" marker-end="url(#sB)"/>
+    <line x1="26.5" y1="0.1" x2="26.5" y2="5.9" marker-end="url(#sB)"/>
+  </g>
+  <line x1="6" y1="5.95" x2="14" y2="5.95" stroke="url(#flowG)" stroke-width="0.22" marker-end="url(#sO)"/>
+  <line x1="2.2" y1="5.7" x2="2.2" y2="0.4" stroke="#c05621" stroke-width="0.16" marker-end="url(#sO)"/>
+  <line x1="37.8" y1="5.7" x2="37.8" y2="0.4" stroke="#c05621" stroke-width="0.16" marker-end="url(#sO)"/>
+  <line x1="42.2" y1="0" x2="42.2" y2="8.0" stroke="#0b2748" stroke-width="0.12" marker-start="url(#sB)" marker-end="url(#sB)"/>
+  <text x="43.1" y="4.2" font-size="1.15" fill="#0b2748" font-family="Arial">8.0</text>
+  <text x="40.4" y="1.4" font-size="0.95" fill="#0b2748" font-family="Arial">2.5</text>
+  <text x="40.4" y="3.7" font-size="0.95" fill="#2b6cb0" font-family="Arial">H=2.0</text>
+  <text x="40.4" y="5.4" font-size="0.95" fill="#0b2748" font-family="Arial">1.5</text>
+  <text x="40.4" y="7.3" font-size="0.95" fill="#0b2748" font-family="Arial">2.0</text>
+  <text x="20" y="11.3" text-anchor="middle" font-size="1.05" fill="#607086" font-family="Microsoft YaHei,Arial">上：孔板 2.5 · 间隙 2.0 · 槽 1.5 · 余铜 2.0（腔厚 8.0；外形 8.5 含周边钎缝 0.5）· 下：TIM2 / 盖 / TIM1 / 硅</text>
+</svg>
+</div>
+<p class="figcap"><span class="svglabel">自绘真比例</span><strong>图 P2b · GPU 剖面（本页厚度基准）</strong> 孔板 2.5 + <em>H</em>=2.0 + 槽 1.5 + 余铜 2.0 = 腔 8.0 mm；外形 8.5 含周边钎缝 0.5。水缝不得画得比余铜厚。下沿薄层是 TIM2 / 盖 / TIM1 / 硅。8 个孔对应一排 8×8 阵。循环语义（下打 → 驻点 → 短走 → 上抽）与下文 P2 位图相同，<strong>凡厚度冲突以本图为准</strong>。</p>
+<div class="prin">
+  <h4>看图步骤 · P2b（导热方向）</h4>
+  <p>从下往上看热，从上往下看水。硅发热 → 过 TIM1 进盖板 → 过 TIM2 进冷板余铜（≥1.8 mm，本图 2.0）扩热 → 齿壁和槽底把热带给液体。射流阵必须对准 die 投影，不能悬在空盖上。余铜太薄则扩热不够、也怕铣穿；太厚则导热段变长、板变沉。2.0 mm 同时满足刚度、平面度 0.05 mm 和防穿透。</p>
+</div>
+<div class="fig drawn">
+  <img src="assets/b300-prin-gpu-loop.png" alt="Rendered GPU jet loop schematic, thickness not to scale">
+</div>
+<p class="figcap"><strong>图 P2 · 示意渲染（位图，厚度不权威）</strong> 只用来看循环：① 下打 ② 驻点 ③ 短走 ④ 上抽。位图水缝往往画厚。厚度以 <strong>P2b</strong> 为准：余铜 ≥1.8 / 槽 1.5 / H=2.0 / 孔板 2.5 / 总 8.5 mm。</p>
+<div class="prin">
+  <h4>看图步骤 · P2 位图</h4>
+  <p><strong>①</strong> 蓝箭穿过 0.50 mm 孔往下。128 孔、1.60 L/min 时孔速约 <strong>1.06 m/s</strong>，<em>Re<sub>D</sub></em>≈<strong>810</strong>。<strong>②</strong> 红点=驻点，<em>h</em><sub>stag</sub> 量级 3.2×10<sup>4</sup> W/m²K。<strong>③</strong> 短槽 0.40×1.50，<em>L</em>≤8 mm。<strong>④</strong> 压差上抽，与热浮力无关。不要用这张位图估板厚。</p>
+</div>
+
+<h3>7. HBM：低热流、怕冲蚀，所以不射流</h3>
+<p>单颗 12-Hi HBM3e 约 11×11 mm，DP-A 约 25 W，平均只有约 21 W/cm²，热点也不需要 3×10<sup>4</sup> W/m²K 的驻点 <em>h</em>。需要的是：盖住、均温、近壁速度低、不要周期性冲击。高速射流打在堆叠边缘或盖板空洞上，除了换热过剩，还会带来冲蚀、振动和局部压装风险。这是权项里的必要特征，不是画图省事。</p>
+<div class="fig drawn">
+  <img src="assets/b300-prin-hbm-loop.png" alt="GPU jets versus HBM parallel channels with solid isolation rib">
+</div>
+<p class="figcap"><strong>图 P3 · 自绘示意</strong> 左 GPU 有孔、有下打、有短抽；中 ② 是实心铜肋，箭过不去；右 HBM 盖上无孔，只走 0.60×1.50 mm 平槽，V≤0.8 m/s。左半若画成“爆炸开的盖”，以“有喷嘴”读；厚度以 A3 / 右半为准。</p>
+<div class="prin">
+  <h4>看图步骤 · P3</h4>
+  <p><strong>① 左：</strong>对照 P2，确认 GPU 侧存在向下的孔。这是高 <em>h</em> 侧。</p>
+  <p><strong>② 中：</strong>隔离肋从盖到槽底连成一堵墙。它的水力意义是切断 GPU 短槽里 0.7 m/s 量级的横流，不让它扫到 HBM；结构意义是压装时把力从 GPU 区传到边框，减轻 HBM 焊球偏载。宽 2.0 mm，与加强环对位。</p>
+  <p><strong>③ 右：</strong>没有圆孔。槽更宽（0.60 vs 0.40），16 条槽、0.40 L/min 时 <em>V</em>≈<strong>0.46 m/s</strong>，低于 0.80 m/s 帽。颜色只是轻微青→浅琥珀：HBM 支路吸热少，流体温升也小。不要在这一侧画下指箭。</p>
+</div>
+<div class="note risk"><strong>常见画错：</strong>整板同一套喷嘴“顺便打到 HBM”；或者 GPU 废液从肋缝漏过去当 HBM 的进水。两种都会在红外上留下射流冷斑网格或 HBM 一侧被冲刷的痕迹，验收时视为失败。</div>
+
+<h3>8. 三种温度：流体、壁面、结温</h3>
+<p>必须分开说，不能用一张虹彩图把它们糊在一起。</p>
+<table>
+  <tr><th>符号</th><th>指什么</th><th>设计点量级（水，40 °C 进，DP-A）</th><th>图上怎么认</th></tr>
+  <tr><td><em>T</em><sub>f</sub></td><td>当地 / 混合流体</td><td>进 40 °C → 出 ≈47.9 °C（+7.9 K）</td><td>蓝→橙的<strong>箭头和歧管</strong></td></tr>
+  <tr><td><em>T</em><sub>w</sub> / <em>T</em><sub>c</sub></td><td>铜壁 / 壳温</td><td>驻点最高，比当地流体高一个对流温差；目标壳–进液 &lt;30.8 K @ 1100 W</td><td>die 心<strong>红斑</strong></td></tr>
+  <tr><td><em>T</em><sub>j</sub></td><td>结温</td><td>再叠封装内阻 0.008–0.012 °C/W；包络常按 83–90 °C 看</td><td>P6 虚红点，比壁峰更高</td></tr>
+</table>
+<p>7.9 K 的算法：<em>ṁ</em>=992 kg/m³ × 2.0 L/min = 0.0331 kg/s，<em>ΔT</em><sub>f</sub>=1100 / (0.0331×4179)≈7.9 K。1400 W 同流量则约 10.1 K——那是包络计算值，<strong>仍不能倒过来当流量公式</strong>。出口流体 48 °C 看起来“暖”，比起 70 °C 量级的壳温、更高的结温，它是三条线里最低的那条。</p>
+<div class="svgbox drawn truth">
+<svg viewBox="-22 -12 140 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Temperature schematic 95 by 75 mm eight HBM two die hot spots">
+  <defs>
+    <radialGradient id="p4hot" cx="50%" cy="50%" r="62%"><stop offset="0%" stop-color="#c53030"/><stop offset="45%" stop-color="#dd6b20"/><stop offset="100%" stop-color="#f6e05e"/></radialGradient>
+    <marker id="p4b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 z" fill="#2b6cb0"/></marker>
+    <marker id="p4t" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 z" fill="#276749"/></marker>
+    <marker id="p4o" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 z" fill="#c05621"/></marker>
+  </defs>
+  <text x="0" y="-6" font-size="3.2" fill="#008b7a" font-family="Microsoft YaHei,Arial">P4 · 板框 95×75 mm · 8 颗 HBM</text>
+  <rect x="0" y="0" width="95" height="75" fill="#f7f3ea" stroke="#0b2748" stroke-width="0.45"/>
+  <rect x="8" y="2" width="79" height="7" fill="#90cdf4" stroke="#2b6cb0" stroke-width="0.22"/>
+  <rect x="8" y="66" width="79" height="7" fill="#fbd38d" stroke="#c05621" stroke-width="0.22"/>
+  <rect x="16.5" y="12.5" width="2" height="50" fill="#0b2748"/>
+  <rect x="76.5" y="12.5" width="2" height="50" fill="#0b2748"/>
+  <rect x="5" y="12.5" width="11" height="11" fill="#9ae6b4" stroke="#276749" stroke-width="0.25"/>
+  <rect x="5" y="25.5" width="11" height="11" fill="#9ae6b4" stroke="#276749" stroke-width="0.25"/>
+  <rect x="5" y="38.5" width="11" height="11" fill="#9ae6b4" stroke="#276749" stroke-width="0.25"/>
+  <rect x="5" y="51.5" width="11" height="11" fill="#9ae6b4" stroke="#276749" stroke-width="0.25"/>
+  <rect x="79" y="12.5" width="11" height="11" fill="#9ae6b4" stroke="#276749" stroke-width="0.25"/>
+  <rect x="79" y="25.5" width="11" height="11" fill="#9ae6b4" stroke="#276749" stroke-width="0.25"/>
+  <rect x="79" y="38.5" width="11" height="11" fill="#9ae6b4" stroke="#276749" stroke-width="0.25"/>
+  <rect x="79" y="51.5" width="11" height="11" fill="#9ae6b4" stroke="#276749" stroke-width="0.25"/>
+  <rect x="19" y="23.5" width="27" height="28" fill="url(#p4hot)" stroke="#0b2748" stroke-width="0.35"/>
+  <rect x="46" y="23.5" width="3" height="28" fill="#c6f6d5" stroke="#008b7a" stroke-width="0.2"/>
+  <rect x="49" y="23.5" width="27" height="28" fill="url(#p4hot)" stroke="#0b2748" stroke-width="0.35"/>
+  <line x1="47.5" y1="-1.5" x2="47.5" y2="5.5" stroke="#2b6cb0" stroke-width="0.7" marker-end="url(#p4b)"/>
+  <line x1="32.5" y1="9" x2="32.5" y2="22" stroke="#2b6cb0" stroke-width="0.5" marker-end="url(#p4b)"/>
+  <line x1="62.5" y1="9" x2="62.5" y2="22" stroke="#2b6cb0" stroke-width="0.5" marker-end="url(#p4b)"/>
+  <line x1="10.5" y1="15" x2="10.5" y2="60" stroke="#276749" stroke-width="0.4" marker-end="url(#p4t)"/>
+  <line x1="84.5" y1="15" x2="84.5" y2="60" stroke="#276749" stroke-width="0.4" marker-end="url(#p4t)"/>
+  <line x1="32.5" y1="53" x2="32.5" y2="65" stroke="#c05621" stroke-width="0.5" marker-end="url(#p4o)"/>
+  <line x1="62.5" y1="53" x2="62.5" y2="65" stroke="#c05621" stroke-width="0.5" marker-end="url(#p4o)"/>
+  <line x1="47.5" y1="69.5" x2="47.5" y2="78.5" stroke="#c05621" stroke-width="0.7" marker-end="url(#p4o)"/>
+  <text x="47.5" y="6.6" text-anchor="middle" font-size="2.3" fill="#2b6cb0" font-family="Microsoft YaHei,Arial">流体 40 °C</text>
+  <text x="47.5" y="71.2" text-anchor="middle" font-size="2.3" fill="#c05621" font-family="Microsoft YaHei,Arial">流体 ~48 °C</text>
+  <text x="32.5" y="38.5" text-anchor="middle" font-size="2.4" fill="#fff" font-family="Arial">Tw</text>
+  <text x="62.5" y="38.5" text-anchor="middle" font-size="2.4" fill="#fff" font-family="Arial">Tw</text>
+  <text x="10.5" y="18.8" text-anchor="middle" font-size="2.0" fill="#22543d" font-family="Arial">HBM</text>
+  <text x="84.5" y="18.8" text-anchor="middle" font-size="2.0" fill="#22543d" font-family="Arial">HBM</text>
+  <rect x="98" y="8" width="16" height="8" fill="url(#p4hot)" stroke="#0b2748" stroke-width="0.2"/>
+  <text x="116" y="13.6" font-size="2.4" fill="#0b2748" font-family="Microsoft YaHei,Arial">壁温高</text>
+  <rect x="98" y="20" width="16" height="8" fill="#9ae6b4" stroke="#276749" stroke-width="0.2"/>
+  <text x="116" y="25.6" font-size="2.4" fill="#0b2748" font-family="Microsoft YaHei,Arial">壁温中</text>
+  <rect x="98" y="32" width="16" height="8" fill="#90cdf4" stroke="#2b6cb0" stroke-width="0.2"/>
+  <text x="116" y="37.6" font-size="2.4" fill="#0b2748" font-family="Microsoft YaHei,Arial">流体 40</text>
+  <rect x="98" y="44" width="16" height="8" fill="#fbd38d" stroke="#c05621" stroke-width="0.2"/>
+  <text x="116" y="49.6" font-size="2.4" fill="#0b2748" font-family="Microsoft YaHei,Arial">流体 48</text>
+  <text x="47.5" y="86" text-anchor="middle" font-size="2.3" fill="#607086" font-family="Microsoft YaHei,Arial">非 CFD · 红是壁温不是出口流体 · HBM 左 4 + 右 4 = 8</text>
+</svg>
+</div>
+<p class="figcap"><span class="svglabel">自绘真比例</span><strong>图 P4 · 温度顶视（布置基准）</strong> 板 95×75 mm。Die-A (19.0,23.5) 与 Die-B (49.0,23.5) 各 27×28，心红=壁温高峰。HBM 左 x=5.0、右 x=79.0，y=12.5/25.5/38.5/51.5，各 11×11，共 <strong>8</strong> 颗，壁温中等。上沿流体 40 °C，下沿流体 ~48 °C，颜色浅于 die 心。旧位图不再嵌入（曾画成每侧 5 颗）。</p>
+<div class="prin">
+  <h4>看图步骤 · P4</h4>
+  <p>先看两块红：那是壁温，不是流体。热流从 die 中心扩出来，所以心红边黄。再数绿块：<strong>左 4 + 右 4 = 8</strong>，坐标与 P0 相同。HBM 的 q″ 约 21–26 W/cm²，只有 die 平均的三分之一左右，又没有射流冷斑。然后看上蓝下浅橙：这是<strong>流体</strong>的 8 K，绝不能画成和下沿一样红。最后看海军蓝肋：它隔的是水，也隔开两种壁温场。</p>
+</div>
+<div class="svgbox drawn truth">
+<svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Temperature along flow path Tf Tw Tj">
+  <text x="16" y="20" font-size="13" fill="#008b7a" font-family="Microsoft YaHei,Arial">P6 · 自绘真比例 · Tf &lt; Tw &lt; Tj</text>
+  <rect x="80" y="46.5" width="500" height="31.5" fill="#fed7d7" opacity="0.55"/>
+  <text x="585" y="68" font-size="11" fill="#c53030" font-family="Microsoft YaHei,Arial">结温包络 83–90 °C</text>
+  <line x1="80" y1="294" x2="580" y2="294" stroke="#0b2748" stroke-width="1.2"/>
+  <line x1="80" y1="24" x2="80" y2="294" stroke="#0b2748" stroke-width="1.2"/>
+  <g font-size="11" fill="#0b2748" font-family="Arial" text-anchor="end">
+    <text x="74" y="28">95</text>
+    <text x="74" y="73">85</text>
+    <text x="74" y="140">70</text>
+    <text x="74" y="239">48</text>
+    <text x="74" y="275">40</text>
+    <text x="74" y="298">35</text>
+  </g>
+  <g stroke="#d7e0ec" stroke-width="0.8">
+    <line x1="80" y1="69" x2="580" y2="69"/>
+    <line x1="80" y1="136.5" x2="580" y2="136.5"/>
+    <line x1="80" y1="235.5" x2="580" y2="235.5"/>
+    <line x1="80" y1="271.5" x2="580" y2="271.5"/>
+  </g>
+  <text x="24" y="170" transform="rotate(-90 24 170)" font-size="13" fill="#0b2748" font-family="Microsoft YaHei,Arial">温度 / °C</text>
+  <polyline fill="none" stroke="#2b6cb0" stroke-width="3" points="80,271.5 180,264.75 280,257.1 380,248.1 480,240.9 580,235.95"/>
+  <polyline fill="none" stroke="#dd6b20" stroke-width="2.6" points="80,253.5 180,136.5 280,136.5 380,199.5 480,222 580,231"/>
+  <polyline fill="none" stroke="#c53030" stroke-width="2.2" stroke-dasharray="5 3.5" points="80,235.5 180,69 280,69 380,154.5 480,190.5 580,208.5"/>
+  <g fill="#2b6cb0"><circle cx="80" cy="271.5" r="3.5"/><circle cx="580" cy="235.95" r="3.5"/></g>
+  <text x="88" y="268" font-size="11" fill="#2b6cb0" font-family="Arial">40</text>
+  <text x="548" y="228" font-size="11" fill="#2b6cb0" font-family="Arial">~48</text>
+  <text x="188" y="130" font-size="11" fill="#dd6b20" font-family="Arial">~70</text>
+  <text x="188" y="62" font-size="11" fill="#c53030" font-family="Arial">~85</text>
+  <g font-size="11" fill="#0b2748" font-family="Microsoft YaHei,Arial" text-anchor="middle">
+    <text x="80" y="314">进液</text>
+    <text x="180" y="314">驻点 A</text>
+    <text x="280" y="314">驻点 B</text>
+    <text x="380" y="314">短槽出口</text>
+    <text x="480" y="314">集液</text>
+    <text x="580" y="314">出液</text>
+  </g>
+  <text x="330" y="348" text-anchor="middle" font-size="13" fill="#0b2748" font-family="Microsoft YaHei,Arial">流程（不是板长方向的单次贯穿）</text>
+  <line x1="430" y1="18" x2="458" y2="18" stroke="#2b6cb0" stroke-width="3"/>
+  <text x="464" y="22" font-size="12" fill="#2b6cb0" font-family="Arial">Tf</text>
+  <line x1="500" y1="18" x2="528" y2="18" stroke="#dd6b20" stroke-width="2.6"/>
+  <text x="534" y="22" font-size="12" fill="#dd6b20" font-family="Arial">Tw</text>
+  <line x1="568" y1="18" x2="596" y2="18" stroke="#c53030" stroke-width="2.2" stroke-dasharray="5 3"/>
+  <text x="602" y="22" font-size="12" fill="#c53030" font-family="Arial">Tj</text>
+</svg>
+</div>
+<p class="figcap"><span class="svglabel">自绘真比例</span><strong>图 P6 · 沿程三种温度（数值基准）</strong> 纵轴 35–95 °C。青实线 <em>T</em><sub>f</sub> 从 <strong>40 升到约 48</strong>（+7.9 K，斜率可见）。橙线 <em>T</em><sub>w</sub> 全程在流体之上，两驻点约 70 °C。红虚线 <em>T</em><sub>j</sub> 再高到约 85 °C，粉带为 83–90 °C 结温包络。横轴是工作循环站，不是一块长槽从进口浇到出口。旧位图不再嵌入（Tf 曾画成水平、OUTT 粘连）。</p>
+<div class="prin">
+  <h4>看图步骤 · P6</h4>
+  <p>先认三条线的上下关系：<strong><em>T</em><sub>j</sub> &gt; <em>T</em><sub>w</sub> &gt; <em>T</em><sub>f</sub></strong>，处处成立。再认形状：流体几乎是平缓斜线，因为混合温升只由总功率和总流量决定，跟射流还是平槽无关；壁面和结温在两个 die 上各（或连成）一座峰，因为那里 q″ 高。HBM 矮包对应低 q″。出口流体即使到 48 °C，也比驻点壁温低二十多度——所以<strong>不能把出液歧管涂成“芯片红”</strong>。</p>
+  <p>壳–进液目标 &lt;0.028 °C/W @ 1100 W 对应壳比进液高 &lt;30.8 K，也就是壳 &lt;70.8 °C（进液 40 °C）。这和橙峰画在 70 附近是同一量级。结温再加封装内阻：0.010 °C/W × 1100 W ≈ 11 K，落到 80 °C 出头，仍在常见 83–90 °C 包络里。这些是预算，不是测试报告。</p>
+</div>
+<div class="note risk"><strong>不要做的两件事：</strong>① 用 10 K 去除以 1100 W 反推“官方流量”；② 把 Alliance / 文献里 500–600 W/cm² 的小面积极限当成整封装平均。本设计按 die 平均 + 2.5 倍热点校核射流区。</div>
+
+<h3>9. 单射流单元：整板 GPU 区就是它重复 128 次</h3>
+<div class="svgbox drawn truth">
+<svg viewBox="-3 -3 16 16" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="To-scale jet unit cell S 3 H 2 D 0.5">
+  <defs>
+    <marker id="uB" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 z" fill="#2b6cb0"/></marker>
+    <marker id="uO" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8 z" fill="#c05621"/></marker>
+  </defs>
+  <text x="1.5" y="-1.3" text-anchor="middle" font-size="0.7" fill="#008b7a" font-family="Microsoft YaHei,Arial">P5b · 单元真比例 · S=3.0</text>
+  <rect x="0" y="0" width="3" height="2.5" fill="#d69e6a" stroke="#0b2748" stroke-width="0.06"/>
+  <rect x="1.25" y="0" width="0.50" height="2.5" fill="#90cdf4"/>
+  <rect x="0" y="2.5" width="3" height="2.0" fill="#90cdf4" stroke="#2b6cb0" stroke-width="0.05"/>
+  <rect x="0" y="4.5" width="3" height="3.5" fill="#d69e6a" stroke="#0b2748" stroke-width="0.06"/>
+  <rect x="0" y="4.5" width="0.40" height="1.5" fill="#38b2ac"/>
+  <rect x="2.60" y="4.5" width="0.40" height="1.5" fill="#f6ad55"/>
+  <line x1="1.5" y1="0.15" x2="1.5" y2="5.85" stroke="#2b6cb0" stroke-width="0.08" marker-end="url(#uB)"/>
+  <circle cx="1.5" cy="6.0" r="0.12" fill="#c53030"/>
+  <line x1="1.5" y1="5.95" x2="0.35" y2="5.95" stroke="#dd6b20" stroke-width="0.07"/>
+  <line x1="1.5" y1="5.95" x2="2.65" y2="5.95" stroke="#dd6b20" stroke-width="0.07"/>
+  <line x1="0.20" y1="5.7" x2="0.20" y2="0.25" stroke="#c05621" stroke-width="0.07" marker-end="url(#uO)"/>
+  <line x1="2.80" y1="5.7" x2="2.80" y2="0.25" stroke="#c05621" stroke-width="0.07" marker-end="url(#uO)"/>
+  <line x1="3.25" y1="0" x2="3.25" y2="8.0" stroke="#0b2748" stroke-width="0.05"/>
+  <text x="3.45" y="1.4" font-size="0.45" fill="#0b2748" font-family="Arial">2.5</text>
+  <text x="3.45" y="3.6" font-size="0.45" fill="#2b6cb0" font-family="Arial">H=2.0</text>
+  <text x="3.45" y="5.3" font-size="0.45" fill="#0b2748" font-family="Arial">1.5</text>
+  <text x="3.45" y="7.2" font-size="0.45" fill="#0b2748" font-family="Arial">2.0</text>
+  <line x1="0" y1="8.4" x2="3" y2="8.4" stroke="#0b2748" stroke-width="0.06"/>
+  <text x="1.5" y="9.1" text-anchor="middle" font-size="0.5" fill="#0b2748" font-family="Arial">S=3.0</text>
+  <text x="1.5" y="10.0" text-anchor="middle" font-size="0.45" fill="#607086" font-family="Microsoft YaHei,Arial">D=0.50 · 上抽靠压差 · 水缝=余铜=2.0</text>
+</svg>
+</div>
+<p class="figcap"><span class="svglabel">自绘真比例</span><strong>图 P5b · 单元剖面（厚度基准）</strong> 节距 3.0 mm。孔板 2.5、喷距 <em>H</em>=2.0、半槽 0.40×1.50、余铜 2.0。水缝与余铜一样厚，箱子不能画成大厅。蓝箭下打，红点驻点，侧向分走，橙箭从两侧上抽。</p>
+<div class="fig drawn">
+  <img src="assets/b300-prin-unit-3d.png" alt="Rendered isometric jet cell, plenum height not to scale">
+</div>
+<p class="figcap"><strong>图 P5 · 示意渲染（位图，高度不权威）</strong> 只用来看三维：蓝下打 → 底面亮斑 → 左右分走 → 侧孔上抽。位图把静压箱画高了。真实 <em>H</em>=2.0 mm，以 <strong>P5b</strong> 为准。</p>
+<div class="prin">
+  <h4>看图步骤 · P5</h4>
+  <p>把这一格在 21×21 mm 里按 3 mm 铺 8×8，就是一颗 die；两颗 die 就是 128 格。抽吸孔错开布置，避免两股壁面射流在中线对撞后无处可去。单元里没有“热的向上、冷的向下”——方向由孔板压差规定。孔口损失大约 1 kPa（<em>K</em>≈1.8），短槽本身只有约 0.4 kPa，所以压降不在齿上，而在孔口、歧管和以后的 UQD。</p>
+</div>
+
+<h3>10. 压降：孔口小、槽短，预算在板内</h3>
+<p>设计点板内合计约 <strong>8–12 kPa</strong>，送样目标 ≤18 kPa，上限 <strong>20 kPa</strong>（不含机柜歧管）。分段量级：喷嘴孔口 ~1 kPa，GPU 短槽 + 抽吸 1–2 kPa，盖板静压箱 / 隔墙 3–5 kPa（须 CFD），HBM 槽 ~1 kPa。一对 Tray UQD 另计 4–8 kPa，要不要算进 20 kPa 窗，必须在 ICD 里写清楚。脏污和公差吃掉 18 到 20 之间的余量。过滤按最小孔径 0.50 mm 的 1/10 思考，系统侧投运 ≤25 μm。</p>
+
+<h3>11. 和托盘 / 机柜怎么接</h3>
+<p>GB300 计算托盘上是 <strong>4 块独立的 B300 冷板并联</strong>，不是一块通铺铜，更不能四板串联（串联会让第四颗吃三颗的预热）。单板 2.0 L/min 是本设计候选，真实分流由 Tray 孔板决定，SAT 实测。Grace 用自己的冷板，本文件不画它的流道。整柜 25–45 °C ↔ 59–177 L/min 是机柜表，不能把某一档写成这块铜的保证流量。漏液分层：冷板本体氦检；托盘和机柜漏液链不在本供货。</p>
+<div class="note ok"><strong>读完图应能复述的一句话：</strong>冷的从上看进，八成打在两颗 die 上并就地抽走，两成慢过 HBM，肋不许串；流体只热约 8 K，真正要盯的是两个驻点的壁温和结温。</div>
+</section>
+
+<section id="geo">
+<h2>6. 几何设计（候选，开模前冻结）</h2>
+<p class="lead">型号 <strong>CP-B300-JM-01</strong>。外形 95×75×8.5 mm（含盖板，不含快接）。尺寸全部为候选，公差在图纸冻结后写入。看流向先回<a href="#prin">工作原理</a>；看毫米坐标与三视图见<a href="#dwg">图纸与尺寸</a>。位图英文若粘连，以锁定表为准。</p>
+
+<div class="fig drawn">
+  <img src="assets/b300-dwg-a2-section-gpu.png" alt="Section of GPU jet zone versus HBM microchannel zone">
+</div>
+<p class="figcap"><strong>图 6-1 · 自绘示意 · 剖面 A-A</strong> 见图纸 A2 / 原理 P2：蓝箭下打 → 驻点 → 短槽 → 上抽。厚度以 P2b SVG 为准。</p>
+
+<div class="fig drawn">
+  <img src="assets/b300-dwg-a6-exploded.png" alt="Exploded assembly of orifice plate and copper base with GPU and HBM channels">
+</div>
+<p class="figcap"><strong>图 6-2 · 自绘示意 · 爆炸装配</strong> 见图纸 A6：盖 2.5 + 钎焊框 + 底 3.5，总装 8.5 mm。每 die 64 孔、合计 128。上 IN / 下 OUT。</p>
+
+<h3>6.1 分层</h3>
+<table>
+  <tr><th>层</th><th>厚度（候选）</th><th>功能</th><th>工艺</th></tr>
+  <tr><td>进液盖 / 喷嘴板</td><td>2.5 mm</td><td>静压箱 + 128 个 GPU 喷嘴 + 抽吸孔；HBM 区无喷嘴</td><td>微钻或蚀刻；密封面精铣</td></tr>
+  <tr><td>换热底板</td><td>3.5 mm（槽深 1.5）</td><td>GPU 短槽 + HBM 长槽 + 隔离肋</td><td>铲齿或 CNC</td></tr>
+  <tr><td>接触面余厚</td><td>≥1.8 mm</td><td>扩热、刚度、防穿透</td><td>与底板一体</td></tr>
+  <tr><td>进出水嘴</td><td>按 UQD</td><td>侧出或顶出，跟 Tray</td><td>钎焊或一体</td></tr>
+</table>
+
+<h3>6.2 GPU 射流区（两区对称）</h3>
+<table>
+  <tr><th>参数</th><th>符号</th><th>取值</th><th>依据</th></tr>
+  <tr><td>每 die 喷嘴阵列</td><td>—</td><td><strong>8×8 = 64</strong></td><td>覆盖 ≈24×24 mm</td></tr>
+  <tr><td>两 die 合计</td><td><em>N</em></td><td><strong>128</strong></td><td>—</td></tr>
+  <tr><td>孔径</td><td><em>D</em></td><td><strong>0.50 mm</strong></td><td>可微钻；堵点可接受</td></tr>
+  <tr><td>孔间距</td><td><em>S</em> / <em>S/D</em></td><td>3.0 mm / <strong>6</strong></td><td>文献窗 4–8</td></tr>
+  <tr><td>喷距</td><td><em>H</em> / <em>H/D</em></td><td>2.0 mm / <strong>4</strong></td><td>文献窗 2–6</td></tr>
+  <tr><td>短通道宽×高×长</td><td><em>w×h×L</em></td><td>0.40×1.50×8 mm</td><td>驻点后排液</td></tr>
+  <tr><td>每 die 槽数</td><td>—</td><td>30</td><td>节距 0.80 mm</td></tr>
+  <tr><td>抽吸</td><td>—</td><td>喷嘴间错排抽吸孔</td><td>抑交叉流</td></tr>
+</table>
+
+<h3>6.3 HBM 微通道区</h3>
+<table>
+  <tr><th>参数</th><th>取值</th><th>理由</th></tr>
+  <tr><td>喷嘴</td><td><strong>无</strong></td><td>权项必要特征</td></tr>
+  <tr><td>通道</td><td>0.60×1.50 mm，流程沿 HBM 长边</td><td><em>D</em><sub>h</sub> 大于 GPU 槽，降速</td></tr>
+  <tr><td>近壁设计流速</td><td><strong>≤ 0.80 m/s</strong></td><td>冲蚀 / 振动</td></tr>
+  <tr><td>隔离肋宽</td><td>2.0 mm，与加强环对位</td><td>隔流 + 抗弯</td></tr>
+</table>
+
+<h3>6.4 流量分配（孔阻设计）</h3>
+<table>
+  <tr><th>回路</th><th>设计流量（2.0 L/min 时）</th><th>实现</th></tr>
+  <tr><td>两 GPU 射流区</td><td>1.60 L/min（80%）</td><td>128 孔总面积约 25.1 mm²</td></tr>
+  <tr><td>HBM 区</td><td>0.40 L/min（20%）</td><td>单独进液缝或更宽槽，不用喷嘴减压</td></tr>
+</table>
+<div class="fig drawn">
+  <img src="assets/b300-dwg-a7-flow.png" alt="Flow split 80 percent GPU jets and 20 percent HBM microchannels">
+</div>
+<p class="figcap"><strong>图 6-3 · 自绘示意 · 水力分配</strong> 2.0 L/min 进液：GPU 两区共 1.60 L/min（孔速约 1.06 m/s），HBM 0.40 L/min（近壁约 0.46 m/s）。隔离肋禁止高速串到 HBM。板内压降预算 8–12 kPa，上限 20 kPa。图中英文以本节数字为准。</p>
+<p class="small">分配靠盖板开孔与隔墙，不靠外置调节阀。样件用分区流量计标定，偏差目标 ±10%。</p>
+
+<h3>6.5 零件与图纸清单（候选）</h3>
+<table>
+  <tr><th>图号</th><th>名称</th><th>数量</th><th>材料 / 备注</th></tr>
+  <tr><td>JM01-100</td><td>换热底板（短槽+隔离肋+HBM 槽）</td><td>1</td><td>C110 / C1020；铲齿或 CNC</td></tr>
+  <tr><td>JM01-200</td><td>喷嘴盖板（128 孔 + 抽吸 + 静压箱）</td><td>1</td><td>同铜；微钻/蚀刻</td></tr>
+  <tr><td>JM01-310</td><td>进液水嘴</td><td>1</td><td>跟 Tray UQD，<span class="tagr">待 ICD</span></td></tr>
+  <tr><td>JM01-320</td><td>出液水嘴</td><td>1</td><td>同上</td></tr>
+  <tr><td>JM01-400</td><td>钎料 / 封接框</td><td>1 套</td><td>不得流入 0.40 mm 槽</td></tr>
+  <tr><td>JM01-500</td><td>接触面（焊后精铣）</td><td>—</td><td>平面度 0.05 mm，<em>Ra</em> 0.8 μm</td></tr>
+</table>
+</section>
+
+<section id="dwg">
+<h2>图纸与尺寸</h2>
+<p class="lead">型号 <strong>CP-B300-JM-01</strong>。外形候选 <strong>95×75×8.5 mm</strong>（不含 UQD）。NVIDIA 未公布 B300 盖板轮廓，下表坐标是本报告冻结的<strong>同一套候选布置</strong>，所有新图必须与它对齐。比例以本节 SVG 为准；位图只作渲染，英文字母若粘连，以表格和中文图注为准。</p>
+
+<h3>锁定封装坐标（原点：冷板左下角，X 向右，Y 向上，mm）</h3>
+<table>
+  <tr><th>对象</th><th>x0</th><th>y0</th><th>宽 × 高</th><th>备注</th></tr>
+  <tr><td>冷板外形</td><td>0</td><td>0</td><td>95 × 75 × 8.5</td><td>候选，<span class="tagr">待 ICD</span></td></tr>
+  <tr><td>Die-A</td><td>19.0</td><td>23.5</td><td>27 × 28</td><td>左计算 die</td></tr>
+  <tr><td>NV-HBI 缝</td><td>46.0</td><td>23.5</td><td>3 × 28</td><td>不打密集射流</td></tr>
+  <tr><td>Die-B</td><td>49.0</td><td>23.5</td><td>27 × 28</td><td>右计算 die</td></tr>
+  <tr><td>射流阵 A / B</td><td>22.0 / 52.0</td><td>27.0</td><td>21 × 21</td><td>8×8，节距 3.0，落在 27×28 内</td></tr>
+  <tr><td>HBM-L1…L4</td><td>5.0</td><td>12.5 + n×13</td><td>11 × 11</td><td>左侧一列 4 颗，竖缝 2 mm</td></tr>
+  <tr><td>HBM-R1…R4</td><td>79.0</td><td>12.5 + n×13</td><td>11 × 11</td><td>右侧一列 4 颗</td></tr>
+  <tr><td>隔离肋左 / 右</td><td>16.5 / 76.5</td><td>12.5</td><td>2 × 50</td><td>切断 GPU↔HBM 串流</td></tr>
+  <tr><td>隔离肋南 / 北</td><td>19.0</td><td>21.5 / 51.5</td><td>57 × 2</td><td>die 上下边</td></tr>
+  <tr><td>进液歧管带</td><td>8</td><td>66</td><td>79 × 7</td><td>板上沿，IN</td></tr>
+  <tr><td>出液歧管带</td><td>8</td><td>2</td><td>79 × 7</td><td>板下沿，OUT</td></tr>
+</table>
+<p class="small">HBM 列：y = 12.5, 25.5, 38.5, 51.5。校核：5+11+0.5+2+0.5+27+3+27+0.5+2+0.5+11+5 = 95 mm。竖向 12.5+50+12.5 = 75 mm。厚度：余铜 2.0 + 槽 1.5 + <em>H</em> 2.0 + 孔板 2.5 = 8.0（腔）；外形 8.5 含周边钎缝 / 水嘴台阶 0.5。</p>
+
+<h3>图纸清单</h3>
+<table>
+  <tr><th>图号</th><th>名称</th><th>比例</th><th>状态</th></tr>
+  <tr><td>P0 / P2b / P4 / P5b</td><td>顶视、GPU 剖面、温度顶视、单元剖面（inline SVG）</td><td>1:1 mm</td><td>比例 / 布置基准</td></tr>
+  <tr><td>P6 / P7</td><td>沿程温度、能量分流（inline SVG）</td><td>数值基准</td><td>Tf 40→48；429+429+198+44=1100</td></tr>
+  <tr><td>P1 / P2 / P3 / P5</td><td>三维流向 / GPU 循环渲染 / HBM 对比 / 单元渲染</td><td>示意渲染</td><td>位图；厚度以 P2b / P5b 为准</td></tr>
+  <tr><td>A0</td><td>外形三视图</td><td>顶视 95:75</td><td>候选 · 位图渲染</td></tr>
+  <tr><td>A1</td><td>封装分区叠加</td><td>同 P0</td><td>候选 · 以 SVG 纠偏</td></tr>
+  <tr><td>A2</td><td>剖面 A-A（GPU）</td><td>厚度按 mm</td><td>候选 · 以 P2b 纠偏</td></tr>
+  <tr><td>A3</td><td>剖面 B-B（HBM）</td><td>厚度按 mm</td><td>候选</td></tr>
+  <tr><td>A4</td><td>射流单元</td><td>S=3.0</td><td>候选</td></tr>
+  <tr><td>A5</td><td>GPU 槽平面</td><td>27×28</td><td>候选</td></tr>
+  <tr><td>A6</td><td>爆炸 / 工艺栈</td><td>2.5 + 框 + 3.5</td><td>候选</td></tr>
+  <tr><td>A7</td><td>水力简图</td><td>—</td><td>与 6.4 表一致</td></tr>
+  <tr><td>A8</td><td>托盘四板</td><td>示意</td><td>不画 Grace 冷板细节</td></tr>
+</table>
+
+<h3>A0 · 外形三视图</h3>
+<div class="fig drawn">
+  <img src="assets/b300-dwg-a0-3view.png" alt="3-view of CP-B300-JM-01 95 by 75 by 8.5 mm">
+</div>
+<p class="figcap"><strong>图 A0 · 自绘示意</strong> 顶视 95×75，正视 / 侧视必须看起来像 <strong>8.5 mm 薄板</strong>，不是厚砖。上 IN、下 OUT，周边虚线 3 mm 压装让位。位图把 HBM 画成细颗粒时，以锁定表「每侧 4×11 mm」为准。图中 INNOW / OUTTET 即 IN / OUT。</p>
+
+<h3>A1 · 封装 + 分区叠加</h3>
+<div class="fig drawn">
+  <img src="assets/b300-dwg-a1-zones.png" alt="Zone overlay two GPU jet arrays and HBM microchannel columns">
+</div>
+<p class="figcap"><strong>图 A1 · 自绘示意</strong> 与 P0 同一套布置：两颗 27×28、8×8 密点（节距 3.0，阵面 21×21）、两侧 HBM 只走微通道、2 mm 肋。位图若把 HBM 挤到四角或 HBI 画太宽，以 SVG 为准。</p>
+
+<h3>A2 · 剖面 A-A（过一颗 GPU die）</h3>
+<div class="fig drawn">
+  <img src="assets/b300-dwg-a2-section-gpu.png" alt="Section A-A through GPU jet stack">
+</div>
+<p class="figcap"><strong>图 A2 · 自绘示意</strong> 自上而下：孔板 2.5 → 喷距 <em>H</em>=2.0（<em>D</em>=0.50）→ 短槽 0.40×1.50、<em>L</em>≤8 → 余铜 ≥1.8（本图取 2.0）→ 薄 TIM2 / 盖 / TIM1 / 硅。水缝不得画得比铜厚。8.5 是<strong>板厚</strong>不是板宽。细齿槽以 P2b SVG 为准。</p>
+
+<h3>A3 · 剖面 B-B（过 HBM）</h3>
+<div class="fig drawn">
+  <img src="assets/b300-dwg-a3-section-hbm.png" alt="Section B-B HBM channels no jets">
+</div>
+<p class="figcap"><strong>图 A3 · 自绘示意</strong> <strong>无射流</strong>。槽 0.60 宽 × 1.50 高，不是把 0.60 标在某层厚度上。近壁 V≤0.8 m/s。铜栈与 A2 同一套厚度语言，才能对比。</p>
+
+<h3>A4 · 射流单元</h3>
+<div class="fig drawn">
+  <img src="assets/b300-dwg-a4-unit-cell.png" alt="Jet unit cell D 0.50 S 3.0 H 2.0">
+</div>
+<p class="figcap"><strong>图 A4 · 自绘示意</strong> 重复单元：<em>D</em>=0.50，<em>S</em>=3.0，<em>H</em>=2.0，半槽 <em>w</em>=0.40。与 P5 是同一单元的工程尺寸版。</p>
+
+<h3>A5 · GPU 槽平面</h3>
+<div class="fig drawn">
+  <img src="assets/b300-dwg-a5-gpu-channels.png" alt="Thirty short GPU channels under 8 by 8 jets">
+</div>
+<p class="figcap"><strong>图 A5 · 自绘示意</strong> 单 die 27×28：30 条短槽，宽 0.40、长 ≤8、节距 0.80，看上去应是密梳，不是 6 条大缝。其上叠 8×8 落点（21×21）。位图若把槽画满 28 mm 长，以“L≤8”为准。</p>
+
+<h3>A6 · 爆炸 / 工艺栈</h3>
+<div class="fig drawn">
+  <img src="assets/b300-dwg-a6-exploded.png" alt="Exploded lid braze frame and base">
+</div>
+<p class="figcap"><strong>图 A6 · 自绘示意</strong> 只有三件：喷嘴盖 2.5 mm（两处密 8×8 孔）+ 钎焊框 0.5 mm（空心框，不是一块厚水层）+ 底板 3.5 mm（GPU 密槽 + HBM 宽槽 + 肋）。爆炸间隙要小，总装 8.5 mm，不是 50 mm 高三明治。上 IN / 下 OUT 在盖板进出。</p>
+
+<h3>A7 · 水力简图</h3>
+<div class="fig drawn">
+  <img src="assets/b300-dwg-a7-flow.png" alt="Hydraulic split 2.0 to 1.60 and 0.40 L/min">
+</div>
+<p class="figcap"><strong>图 A7 · 自绘示意</strong> 与 §6.4 同一组数：IN <strong>2.0</strong> L/min → GPU <strong>1.60</strong>（80%）/ HBM <strong>0.40</strong>（20%）→ OUT。HBM 支路 V≤0.8。压降档 1 / 2 / 5 / 8–12 / 上限 20 kPa。OUTTET=OUT。</p>
+
+<h3>A8 · 托盘语境</h3>
+<div class="fig drawn">
+  <img src="assets/b300-dwg-a8-tray.png" alt="Four independent B300 cold plates on a compute tray">
+</div>
+<p class="figcap"><strong>图 A8 · 自绘示意</strong> GB300 计算托盘上 <strong>4 块独立 B300 冷板</strong>，不是一块通铺铜。每块内部布置与 P0 相同（左 4 HBM + 双 die + 右 4 HBM）。右侧空框只标 CPU，<strong>不画 Grace 冷板细节</strong>。位图上的 400/420/220 不是本设计尺寸，忽略。</p>
+</section>
+
+
+<section id="calc">
+<h2>7. 热工水力估算（0 维 / 1 维，送 CFD 前）</h2>
+<p>物性取饱和水 40 °C：<em>ρ</em>=992 kg/m³，<em>c<sub>p</sub></em>=4179 J/kg·K，<em>μ</em>=6.53×10<sup>−4</sup> Pa·s，<em>k</em>=0.631 W/m·K，<em>Pr</em>≈4.3。计算仅用于方案可行性，<strong>不是保证点</strong>。</p>
+
+<h3>7.1 流体温升</h3>
+<p><em>ΔT</em><sub>f</sub> = <em>P</em> / (<em>ṁ c<sub>p</sub></em>)，<em>ṁ</em> = <em>ρQ</em>。</p>
+<table>
+  <tr><th><em>Q</em></th><th>1100 W</th><th>1400 W</th></tr>
+  <tr><td>2.0 L/min（<em>ṁ</em>=0.0331 kg/s）</td><td><strong>7.9 K</strong></td><td>10.1 K</td></tr>
+  <tr><td>2.4 L/min</td><td>6.6 K</td><td><strong>8.4 K</strong></td></tr>
+</table>
+<p>设计点流体温升约 8 K，与“常用 &lt;10 K”一致，但<strong>不得倒过来定流量</strong>。</p>
+
+<h3>7.2 射流孔速与雷诺数（GPU 区 1.60 L/min）</h3>
+<pre><code>A_jet = 128 × π × (0.25 mm)² = 25.1 mm²
+V_jet = Q / A_jet = (1.60 L/min) / 25.1 mm² ≈ 1.06 m/s
+Re_D  = ρ V D / μ ≈ 810
+H/D = 4, S/D = 6</code></pre>
+<p>属层流–过渡射流。驻点 Nu 量级按 Nu ~ 0.5 <em>Re</em><sup>0.5</sup> <em>Pr</em><sup>0.4</sup> ≈ 25，<em>h</em><sub>stag</sub> ≈ Nu <em>k</em>/<em>D</em> ≈ <strong>3.2×10<sup>4</sup> W/m²K</strong>。这只代表驻点，整区还靠壁面射流和短槽。</p>
+
+<h3>7.3 短通道（GPU）</h3>
+<pre><code>槽：0.40 × 1.50 mm，Dh = 0.63 mm；每 die 30 条，共 60 条
+单槽流量 ≈ 1.60/60 L/min → V ≈ 0.74 m/s
+Re ≈ 710（层流）
+f ≈ 64/Re ≈ 0.09
+ΔP_ch ≈ f (L/Dh) ρV²/2 ≈ 0.4 kPa（仅 8 mm 槽）</code></pre>
+<p>压降不在短槽，而在孔口、歧管和快接。</p>
+
+<h3>7.4 HBM 区流速校核（0.40 L/min）</h3>
+<p>设 16 条 0.60×1.50 mm 槽，<em>V</em>≈0.46 m/s，低于 0.80 m/s 帽。</p>
+
+<h3>7.5 压降预算</h3>
+<table>
+  <tr><th>分段</th><th>估算</th><th>备注</th></tr>
+  <tr><td>喷嘴孔口（K≈1.8）</td><td>≈1.0 kPa</td><td>0.5 <em>K ρ V</em>²</td></tr>
+  <tr><td>GPU 短槽 + 抽吸</td><td>≈1–2 kPa</td><td>层流短流程</td></tr>
+  <tr><td>盖板静压箱 / 隔墙</td><td>≈3–5 kPa</td><td>须 CFD</td></tr>
+  <tr><td>HBM 槽</td><td>≈1 kPa</td><td>低速</td></tr>
+  <tr><td>板内合计</td><td><strong>≈8–12 kPa</strong></td><td>设计点</td></tr>
+  <tr><td>一对 UQD（参考）</td><td>4–8 kPa</td><td>不计入 20 kPa 冷板窗则须在 ICD 声明</td></tr>
+</table>
+<p>冷板本体目标 ≤18 kPa @ 2.0 L/min，给脏污和公差留到 20 kPa。</p>
+
+<h3>7.6 对流热阻量级</h3>
+<p>GPU 两区投影约 12.5 cm²，短槽把润湿面积放大到约 3–4 倍；再叠加 128 个驻点。取等效 <em>h</em>·<em>A</em><sub>wet</sub> ≈ 70–100 W/K，则 <em>R</em><sub>conv</sub> ≈ <strong>0.010–0.014 °C/W</strong>。加上铜壁与 TIM2，壳–进液落在 0.023–0.028，<strong>DP-A 可行</strong>。DP-B 要把 <em>hA</em> 再抬约 20%，靠流量到 2.4 L/min 或减 TIM2，或加密为 10×10 阵列（须重算压降）。</p>
+<div class="note"><strong>下一步计算（开模前必须做）：</strong>① 共轭 CFD（两 die 热图 + 8 HBM）；② 孔流量一致性；③ PG25 40 °C 全套复算；④ 压装 300–500 N 下隔离肋变形。</div>
+</section>
+
+<section id="mfg">
+<h2>8. 材料、工艺与公差</h2>
+<table>
+  <tr><th>件</th><th>材料</th><th>工艺</th><th>关键公差</th></tr>
+  <tr><td>底板</td><td>C110 / C1020</td><td>铲齿或 CNC 短槽 + 隔离肋</td><td>槽宽 ±0.03 mm；接触面平面度 0.05 mm</td></tr>
+  <tr><td>喷嘴盖</td><td>同铜</td><td>微钻 0.50 mm 或蚀刻；抽吸孔错排</td><td>孔径 ±0.03；与 die 对位 ±0.20 mm</td></tr>
+  <tr><td>封合</td><td>—</td><td>真空钎焊（首选）或扩散焊</td><td>钎料不得进 0.40 mm 槽；100% 氦检</td></tr>
+  <tr><td>密封面</td><td>—</td><td>焊后精铣</td><td><em>Ra</em> ≤0.8 μm</td></tr>
+  <tr><td>表面</td><td>可选 Ni</td><td>接触面局部镀</td><td>不进流道</td></tr>
+</table>
+<div class="fig drawn">
+  <img src="assets/principle-skived-fin.png" alt="Skived-fin copper base process schematic">
+</div>
+<p class="figcap"><strong>图 8-1 · 自绘示意</strong> 底板优先铲齿或 CNC 短槽，<strong>不是</strong>整板增材。铲齿一体翅根导热好、适合量产；本设计 GPU 区槽长短（≤8 mm），比传统长铲齿更易控流。</p>
+<p>不采用整板 LPBF 出货：残粉与导热折损对 0.50 mm 孔不可接受。增材只允许做喷嘴盖<strong>验证件</strong>，密封面仍机加。</p>
+<div class="papergrid">
+  <div class="pfig">
+    <img src="assets/src/sciopen_fig8_fmhs.jpg" alt="Cover plate plus branched microchannel heat sink">
+    <p class="figcap"><strong>论文原图 · 盖板 + 微通道</strong> 机加/蚀刻盖板与底板封合，是本设计量产路线的同类结构。<span class="src">来源：SciOpen 微通道强化换热综述 Fig. 8。</span></p>
+  </div>
+  <div class="pfig">
+    <img src="assets/src/chip_fig9_integrated_mc.jpg" alt="Microchannel cooler integrated in chip module">
+    <p class="figcap"><strong>论文原图 · 模块内集成冷板</strong> 独立冷板 + TIM2 是 12–18 个月可交货路径；盖板内嵌（MLCP）是下一档。<span class="src">来源：芯片级微通道综述 Fig. 9。</span></p>
+  </div>
+</div>
+<p>清洗：超声 + 去离子冲洗；按最小孔径 1/10 设过滤。出厂带流量–压降–红外三条曲线。</p>
+</section>
+
+<section id="ifc">
+<h2>9. 接口、托盘与系统约束</h2>
+<table>
+  <tr><th>界面</th><th>要求</th><th>责任</th></tr>
+  <tr><td>TIM2</td><td>与盖板导热垫/液金按 OEM；冷板不规定品牌</td><td>整机</td></tr>
+  <tr><td>压装</td><td>隔离肋参与承载；HBM 区压强低于 GPU 区</td><td>冷板 + 托盘夹具</td></tr>
+  <tr><td>Tray</td><td>GB300：4×B300 + 2×Grace / Tray。四块 GPU 冷板并联，禁止串联</td><td>OEM</td></tr>
+  <tr><td>整柜水力</td><td>25/30/35/40/45 °C ↔ 59/71/89/119/177 L/min；压降 16–127 kPa</td><td>CDU / 机柜，本冷板只吃掉自己的 ΔP</td></tr>
+  <tr><td>单板流量</td><td>由 Tray 孔板分配；设计按 2.0 L/min，SAT 实测</td><td><span class="tagr">待 ICD</span></td></tr>
+  <tr><td>快接</td><td>跟 Tray UQD，不改口径</td><td>OEM</td></tr>
+  <tr><td>漏液</td><td>冷板本体氦检；托盘/机柜漏液链不在本供货</td><td>分层</td></tr>
+</table>
+<p>Grace 300 W 用单独冷板，不与 B300 共一块铜。NVSwitch Tray 水温窗口 2–50 °C 不得写成 GPU 冷板保证。</p>
+</section>
+
+<section id="rel">
+<h2>10. 可靠性、堵塞与验收</h2>
+<h3>10.1 风险与对策</h3>
+<table>
+  <tr><th>风险</th><th>对策</th></tr>
+  <tr><td>喷嘴堵</td><td>0.50 mm 孔；25 μm 过滤；可选方案 B 可换芯（本版先做成钎焊盖，结构预留拆芯凸台）</td></tr>
+  <tr><td>交叉流</td><td>短槽 + 抽吸孔；两 die 分腔</td></tr>
+  <tr><td>HBM 冲蚀</td><td>无射流 + 流速帽 + 隔离肋</td></tr>
+  <tr><td>钎料堵槽</td><td>钎料槽远离 0.40 mm 通道；X-ray / CT 抽检</td></tr>
+  <tr><td>PG25 性能掉</td><td>同流量下 <em>R</em> 按 +15% 校核；必要时加到 2.2 L/min</td></tr>
+  <tr><td>失冷</td><td>行业经验冷板可中断窗口约 90 s，<strong>非 NVIDIA 官方秒级指标</strong>；本冷板不写保证秒数</td></tr>
+</table>
+
+<h3>10.2 建议验收（FAT 冷板级）</h3>
+<ol class="tight">
+  <li>外观、外形、平面度、<em>Ra</em>。</li>
+  <li>氦检 100%。</li>
+  <li>水、40 °C、2.0 L/min：压降 ≤18 kPa。</li>
+  <li>等效 1100 W TTV：<em>R</em><sub>θ,c-in</sub> &lt;0.028 °C/W；两加热区温差 ≤5 K。</li>
+  <li>红外确认两驻点对准 die 中心，HBM 区无射流冷斑网格。</li>
+  <li>分区流量：GPU/HBM = 80/20 ±10%。</li>
+  <li>（抽检）PG25 复测压降与热阻。</li>
+</ol>
+<p>机柜 SAT 只验证本板落在 OEM 分流后的流量–压降点，不在冷板厂用 10 K 公式出报告。</p>
+</section>
+
+<section id="open">
+<h2>11. 开模 / 送样前必须关闭的项</h2>
+<table>
+  <tr><th>编号</th><th>项</th><th>关闭条件</th></tr>
+  <tr><td>C-01</td><td>B300 盖板外形、螺丝、TIM 窗、die/HBM 坐标</td><td>OEM 封装图或 SXM ICD</td></tr>
+  <tr><td>C-02</td><td>官方热图（两 die + 8 HBM）</td><td>NVIDIA / OEM power map</td></tr>
+  <tr><td>C-03</td><td>单板额定流量与压降窗</td><td>Tray 分流计算 + Table 27</td></tr>
+  <tr><td>C-04</td><td>UQD 型号、水嘴方向、压装力</td><td>订单 ICD</td></tr>
+  <tr><td>C-05</td><td>工质（DI vs PG25）与缓蚀</td><td>订单</td></tr>
+  <tr><td>C-06</td><td>保证点写 1100 还是兼 1400</td><td>商务；本设计默认只保证 1100</td></tr>
+  <tr><td>C-07</td><td>CFD + 首件 TTV</td><td>关闭前不得开量产模具</td></tr>
+</table>
+<div class="note ok"><strong>在 C-01～C-03 关闭前可以做的：</strong>按本报告几何出 1:1 铜样和透明流道样，用两块 25×25 mm 加热块模拟双 die，八块小加热块模拟 HBM，把方案打通。</div>
+</section>
+
+<section id="refs">
+<h2>12. 来源与局限</h2>
+<ol class="tight">
+  <li>NVIDIA，<em>Inside NVIDIA Blackwell Ultra</em>，2025-08-22：双 die、NV-HBI 10 TB/s、160 SM、8×12-Hi HBM3e、288 GB / 8 TB/s、TGP up to 1400 W。</li>
+  <li>NVIDIA Blackwell Ultra 数据手册公开页：TDP configurable up to 1400 W / 1100 W 两档；279/270 GB 可用口径。</li>
+  <li>Lenovo Press LP2357：B300 TGP 1100 W；GB300 NVL72 135 kW TDP / 155 kW EDP；Table 27 温度–流量–压降。</li>
+  <li>本仓库《NVIDIA GB300 NVL72 冷却系统总体设计报告 v2.2》。</li>
+  <li>同目录《AI算力芯片液冷冷板专利分析报告 v1.4》：方案 A、工艺、热阻标尺。</li>
+  <li>Hussain et al., <em>Energies</em> 2021：射流三区与 <em>H/D</em>。</li>
+  <li>OCP / Meta 公开 TIM2 面积热阻约 0.1–0.2 °C·cm²/W。</li>
+</ol>
+<div class="note risk"><strong>局限：</strong>封装坐标、单板 ICD 流量、官方热图均未获得。第 6–7 节几何与 0 维计算是候选设计，用于评审和打样，不能直接当采购保证。热阻与压降以 TTV / CFD 关闭 C-07 后的修订版为准。</div>
+</section>
+
+</main>
+<footer>
+  AIDC-B300-CP-HYB-001 · NVIDIA B300 微通道+冲击换热冷板设计报告 v1.1 · 2026-09-13<br>
+  保证点 DP-A 1100 W · 包络 DP-B 1400 W · 与 GB300 总体设计 v2.2 水力口径一致 · 非订单 ICD
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"/>
+<title>冷板总体设计报告</title><style>
+:root { --ink:#1c2430; --muted:#5c6b7a; --line:#d5dde6; --navy:#0e3a5d; --ok:#0d6b3a; --bad:#9d1c1c; --wait:#8a5a00; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--ink); background:#f6f4ef; font:16px/1.65 "Microsoft YaHei","PingFang SC",sans-serif; }
+main { max-width:1040px; margin:0 auto; padding:28px 26px 72px; background:#fff; }
+h1 { font-size:28px; line-height:1.3; margin:0 0 8px; color:var(--navy); }
+h2 { font-size:20px; margin:34px 0 10px; padding-top:10px; border-top:2px solid var(--navy); color:var(--navy); }
+h3 { font-size:17px; margin:18px 0 8px; }
+.sub { color:var(--muted); }
+.meta { display:flex; flex-wrap:wrap; gap:8px 16px; font-size:13px; color:var(--muted); }
+.lead { background:#f3f7fb; border-left:4px solid var(--navy); padding:12px 14px; }
+nav a { color:var(--navy); margin-right:12px; }
+table { width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:14px; }
+th, td { border:1px solid var(--line); padding:6px 8px; vertical-align:top; text-align:left; }
+th { background:#eef3f8; }
+.ok { color:var(--ok); font-weight:700; }
+.bad { color:var(--bad); font-weight:700; }
+.wait { color:var(--wait); font-weight:700; }
+.figcap { font-size:13px; color:var(--muted); }
+footer { margin-top:28px; font-size:13px; color:var(--muted); }
+</style></head>
+<body><main>
+<h1>GB300 计算托盘冷板<br>总体设计报告</h1>
+<p class="sub">按门控流程 ① 到 ⑦。GPU 射流冲击微通道冷板、HBM 微通道冷板、Grace CPU 冷板、LLDDRAM 冷板。</p>
+
+<p class="lead">几何和分区可以往下做。GPU 壳–进液热阻还没有压进 0.028 °C/W：一维上界是 0.0366 °C/W，12 孔共轭场按两 die 900.9 W 折算是 0.03208 °C/W，而且这场已经含 TIM 和铜。样件试验没开始。DR3 不放行，DR4 不启动。</p>
+<div class="meta"><span>CP-TRAY-DR-01</span><span>2026-09-29</span><span>覆盖 GPU 射流冷板、HBM 微通道冷板、Grace CPU 冷板、LLDDRAM（LPDDR5X）冷板</span></div>
+<nav>
+<a href="#s0">流程</a><a href="#s1">① 需求</a><a href="#s2">② 选型</a><a href="#s3">③ 性能</a>
+<a href="#s4">④ 一维</a><a href="#s5">⑤ 仿真</a><a href="#s6">⑥ 图纸</a><a href="#s7">⑦ 试验</a><a href="#s8">结论</a>
+</nav>
+
+<h2 id="s0">0　流程和本版走到哪</h2>
+<p>B300 设计报告 v2.0 的流程封面写的是：报告覆盖 ①–⑥，⑤ 的工具尚未选定，⑦ 未开始。那是 2026-09-14 的覆盖声明。到本汇总为止，ICEM 和 Fluent 已经用来算过 GPU 的 12 孔带和 HBM 的单列，四块冷板的名义尺寸链也重加过。工具选定了，放行条件没有满足。</p>
+<div><svg viewBox="0 0 980 200" width="980" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#0e3a5d"/></marker><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#9d1c1c"/></marker></defs><rect x="8" y="28" width="112" height="82" rx="8" fill="#fff" stroke="#1d6b45" stroke-width="2"/><text x="64.0" y="52" text-anchor="middle" font-size="16" fill="#1d6b45" font-family="Microsoft YaHei">①</text><text x="64.0" y="74" text-anchor="middle" font-size="13" fill="#1c2430" font-family="Microsoft YaHei">需求与输入</text><text x="64.0" y="94" text-anchor="middle" font-size="12" fill="#1d6b45" font-family="Microsoft YaHei">DR0</text><path d="M120 69.0 H136" stroke="#0e3a5d" marker-end="url(#ar)"/><rect x="138" y="28" width="112" height="82" rx="8" fill="#fff" stroke="#1d6b45" stroke-width="2"/><text x="194.0" y="52" text-anchor="middle" font-size="16" fill="#1d6b45" font-family="Microsoft YaHei">②</text><text x="194.0" y="74" text-anchor="middle" font-size="13" fill="#1c2430" font-family="Microsoft YaHei">概念与选型</text><text x="194.0" y="94" text-anchor="middle" font-size="12" fill="#1d6b45" font-family="Microsoft YaHei">DR1</text><path d="M250 69.0 H266" stroke="#0e3a5d" marker-end="url(#ar)"/><rect x="268" y="28" width="112" height="82" rx="8" fill="#fff" stroke="#8a5a00" stroke-width="2"/><text x="324.0" y="52" text-anchor="middle" font-size="16" fill="#8a5a00" font-family="Microsoft YaHei">③</text><text x="324.0" y="74" text-anchor="middle" font-size="13" fill="#1c2430" font-family="Microsoft YaHei">性能设计</text><text x="324.0" y="94" text-anchor="middle" font-size="12" fill="#8a5a00" font-family="Microsoft YaHei">DR2</text><path d="M380 69.0 H396" stroke="#0e3a5d" marker-end="url(#ar)"/><rect x="398" y="28" width="112" height="82" rx="8" fill="#fff" stroke="#8a5a00" stroke-width="2"/><text x="454.0" y="52" text-anchor="middle" font-size="16" fill="#8a5a00" font-family="Microsoft YaHei">④</text><text x="454.0" y="74" text-anchor="middle" font-size="13" fill="#1c2430" font-family="Microsoft YaHei">一维计算</text><text x="454.0" y="94" text-anchor="middle" font-size="12" fill="#8a5a00" font-family="Microsoft YaHei">DR2</text><path d="M510 69.0 H526" stroke="#0e3a5d" marker-end="url(#ar)"/><rect x="528" y="28" width="112" height="82" rx="8" fill="#fff" stroke="#9d1c1c" stroke-width="2"/><text x="584.0" y="52" text-anchor="middle" font-size="16" fill="#9d1c1c" font-family="Microsoft YaHei">⑤</text><text x="584.0" y="74" text-anchor="middle" font-size="13" fill="#1c2430" font-family="Microsoft YaHei">三维仿真</text><text x="584.0" y="94" text-anchor="middle" font-size="12" fill="#9d1c1c" font-family="Microsoft YaHei">DR3</text><path d="M640 69.0 H656" stroke="#0e3a5d" marker-end="url(#ar)"/><rect x="658" y="28" width="112" height="82" rx="8" fill="#fff" stroke="#8a5a00" stroke-width="2"/><text x="714.0" y="52" text-anchor="middle" font-size="16" fill="#8a5a00" font-family="Microsoft YaHei">⑥</text><text x="714.0" y="74" text-anchor="middle" font-size="13" fill="#1c2430" font-family="Microsoft YaHei">机械与图纸</text><text x="714.0" y="94" text-anchor="middle" font-size="12" fill="#8a5a00" font-family="Microsoft YaHei">DR3</text><path d="M770 69.0 H786" stroke="#0e3a5d" marker-end="url(#ar)"/><rect x="788" y="28" width="112" height="82" rx="8" fill="#fff" stroke="#8aa0b4" stroke-width="2"/><text x="844.0" y="52" text-anchor="middle" font-size="16" fill="#8aa0b4" font-family="Microsoft YaHei">⑦</text><text x="844.0" y="74" text-anchor="middle" font-size="13" fill="#1c2430" font-family="Microsoft YaHei">样件与试验</text><text x="844.0" y="94" text-anchor="middle" font-size="12" fill="#8aa0b4" font-family="Microsoft YaHei">DR4</text><path d="M584 112 C584 168, 324 168, 324 112" fill="none" stroke="#9d1c1c" stroke-width="1.6" marker-end="url(#ar2)"/><text x="454" y="188" text-anchor="middle" font-size="13" fill="#9d1c1c" font-family="Microsoft YaHei">仿真不达标 → 回 ③/④ 改孔径、阵列密度、TIM2</text></svg></div><p class="figcap">图 1 · 七道门。绿是已经选定，黄是有条件通过或只完成了一部分，红是还不能放行，灰是还没开始。红线是仿真回路，回到性能设计和一维计算。</p>
+<table><thead><tr><th>门</th><th>阶段</th><th>放行要看到什么</th><th>本版</th></tr></thead><tbody><tr><td>DR0</td><td>① 需求与输入</td><td>缺失项有责任人，不再靠口头假设往下画</td><td><span class="wait">有条件完成</span></td></tr><tr><td>DR1</td><td>② 概念与选型</td><td>权衡有权重，方案只留一个</td><td><span class="ok">完成</span></td></tr><tr><td>DR2</td><td>③ 性能设计 + ④ 一维计算</td><td>热阻预算和一维式子能复算</td><td><span class="wait">有条件通过</span></td></tr><tr><td>DR3</td><td>⑤ 三维仿真</td><td>网格无关，热阻和压降进目标，分区流量偏差在 ±10% 内</td><td><span class="bad">未通过</span></td></tr><tr><td>DR3</td><td>⑥ 机械与图纸</td><td>名义尺寸链闭合，承压过得去，图号能投产</td><td><span class="wait">部分完成</span></td></tr><tr><td>DR4</td><td>⑦ 样件与试验</td><td>TTV 热阻、流阻曲线、氦检</td><td><span class="bad">未开始</span></td></tr></tbody></table>
+<p>两条回路都还开着。仿真回路：热阻超目标、板内压降超过 20 kPa，或 GPU/HBM 流量偏差超过 ±10%，就回到 ③ 和 ④，先动孔径、TIM2、阵列密度。验证回路要等样件：TTV 和 CFD 相差超过 15%，再回来改关联式，现在没有实测，这条回路还没触发。</p>
+
+<h2 id="s1">①　需求与输入</h2>
+<p>一块计算托盘两块 GB300 NVL2。液冷位是 4 颗 B300 加 2 颗 Grace。B300 用分区射流冷板，Grace 用另一块铜，盖住 CPU 和两侧板载 LPDDR5X。风冷位不进液冷回路。四块 GPU 冷板和两块 Grace 冷板在托盘歧管上按并联取水：4×2.0 + 2×0.55 = 9.1 L/min，热负荷约 5000 W，温升大约 8 K。Grace 入口另加孔板，避免把 GPU 的流量吸走。</p>
+<table><thead><tr><th>对象</th><th>保证点</th><th>包络</th><th>冷板外形</th><th>流量</th></tr></thead><tbody><tr><td>B300 GPU + HBM，一块冷板</td><td>1100 W，Lenovo TGP</td><td>1400 W，只做包络</td><td>95 × 75 × 8.5 mm</td><td>2.0 / 2.4 L/min</td></tr><tr><td>其中 GPU 两 die</td><td>858 W</td><td>随 1400 W 放大</td><td>两颗 27 × 28 mm</td><td>1.60 L/min（80%）</td></tr><tr><td>其中 HBM 八颗</td><td>198 W</td><td>同上</td><td>两列，每列 11 × 50 mm</td><td>0.40 L/min（20%）</td></tr><tr><td>Grace，含内存</td><td>300 W</td><td>流量可到 0.70 L/min</td><td>200 × 120 × 8.0 mm</td><td>0.55 L/min</td></tr><tr><td>Grace CPU 窗</td><td>260 W</td><td>—</td><td>40 × 32 mm</td><td>按功率分</td></tr><tr><td>LLDDRAM，两侧合计</td><td>40 W</td><td>—</td><td>每侧 50 × 70 mm</td><td>每侧约 0.037 L/min</td></tr></tbody></table>
+<p>还没有冻结的输入：官方盖板图和螺孔、官方功率图、托盘单板额定流量、TIM2 的实测面积热阻、冷却液最终是水还是 PG25。这些缺项不阻止候选几何，但阻止把热阻写成保证值。封装坐标、die 尺寸 27×28、HBM 八颗、热点系数，在算到出图之前都还是假设。</p>
+<p>工作簿 <code>01_DR0_输入追溯.xlsx</code> 把每一项标成已有、假设或缺失。</p>
+
+<h2 id="s2">②　概念与选型</h2>
+<p>B300 一块板上热流差一个量级，所以分成两区：GPU 用射流加短槽，HBM 不打喷嘴，中间用隔离肋把两区的水切开。Grace 整板只有 300 W，CPU 窗大约 20 W/cm²，不再做微射流，用沿 Y 的交错槽。LLDDRAM 是这块 Grace 板上的两侧宽槽，不是第三块铜。</p>
+<table><thead><tr><th>维度</th><th>权重</th><th>铲齿微通道</th><th>纯射流</th><th>增材拓扑</th><th>分区杂交</th></tr></thead><tbody><tr><td>双 die 热点</td><td>25%</td><td>3</td><td>5</td><td>4</td><td>5</td></tr><tr><td>HBM 冲蚀和偏载</td><td>20%</td><td>3</td><td>1</td><td>3</td><td>5</td></tr><tr><td>压降</td><td>15%</td><td>2</td><td>3</td><td>4</td><td>4</td></tr><tr><td>可制造与交期</td><td>20%</td><td>5</td><td>3</td><td>1</td><td>4</td></tr><tr><td>防堵</td><td>10%</td><td>5</td><td>2</td><td>2</td><td>3</td></tr><tr><td>专利占位</td><td>10%</td><td>1</td><td>2</td><td>3</td><td>5</td></tr><tr><td>加权</td><td>100%</td><td>3.25</td><td>2.90</td><td>2.90</td><td>4.45</td></tr></tbody></table>
+<p>按上表分数重算，分区杂交 4.45，高于铲齿 3.25、纯射流 2.90、增材 2.90。v2.0 印出的加权分分别是 4.50、3.20、2.95、2.85，和逐项相乘差 0.05，名次不变。工作簿用公式重乘，以公式为准。</p>
+<p>工艺基线是机加加真空钎焊，整板金属增材不作出货件。专利上要保住的特征是：HBM 无喷嘴、近壁流速上限、隔离肋同时切水流和传压装载荷、额定流量下的压降窗。只写“分区用射流和微通道”覆盖不住这些特征。</p>
+<p>工作簿 <code>02_DR1_方案权衡.xlsx</code>。</p>
+
+<h2 id="s3">③　性能设计</h2>
+<p>冷板只对壳到进液负责。GPU 的目标是 DP-A 小于 0.028 °C/W，门槛 0.032，包络 DP-B 小于 0.025，包络不作出厂保证。板内压降目标 ≤ 18 kPa，上限 20 kPa。HBM 近壁流速帽 0.80 m/s。Grace CPU 区的目标是壳–进液小于 0.080 °C/W。两 die 中心温差目标 ≤ 5 K。</p>
+<table><thead><tr><th>GPU 壳–进液的一段</th><th>DP-A / °C/W</th><th>谁能改</th></tr></thead><tbody><tr><td>封装，硅 + TIM1 + 盖</td><td>0.008–0.012，在壳温之上</td><td>冷板改不了</td></tr><tr><td>TIM2</td><td>0.004–0.008</td><td>选材</td></tr><tr><td>余铜 2.0 mm 导热</td><td>0.0034</td><td>减薄会动刚度</td></tr><tr><td>对流，短槽模型</td><td>0.0252</td><td>孔径、阵列、流量</td></tr><tr><td>合计</td><td>0.0326 – 0.0366</td><td>目标 0.028，上界过线</td></tr></tbody></table>
+<p>80/20 的分流是按热流，不是按面积。HBM 只有 18% 的功率，多送水主要是加冲蚀。分配靠盖板上的开孔和隔墙，不用外置阀门。</p>
+<p>射流窗按孔径两个口径都落在 S/D = 4–8、H/D = 2–6 里。D = 0.50 mm 时 Sx/D = 6.0、Sy/D = 4.8、H/D = 4.0。UC01b 把孔径收到 0.40 mm 后，Sx/D = 7.5、Sy/D = 6.0、H/D = 5.0。孔数仍是 216。Martin 关联式要求 Re 大于 2000，两个口径的 Re 都在 600 上下，所以性能章不引用 Martin。</p>
+<p>Grace 支路目标压降 10 kPa，和 GPU 冷板同一档，这样并联时不会互抢。通道本身大约 1 kPa，差额由入口 4 个小孔承担。</p>
+
+<h2 id="s4">④　一维计算</h2>
+<p>水按 40 °C，密度 992.2 kg/m³，比热 4179 J/kg·K。混合温升只由总功率和总流量决定。DP-A：1100 W、2.0 L/min，温升 7.96 K。Grace 按 300 W、8 K 反算流量是 0.543 L/min，设计把流量收到 0.55 L/min。</p>
+<h3>GPU 射流</h3>
+<table><thead><tr><th>量</th><th>D = 0.50 mm，报告正文</th><th>D = 0.40 mm，UC01b</th></tr></thead><tbody><tr><td>孔数 × GPU 流量</td><td>216 × 1.60 L/min</td><td>同左</td></tr><tr><td>孔速</td><td>0.629 m/s</td><td>0.982 m/s</td></tr><tr><td>Re_D</td><td>478</td><td>597</td></tr><tr><td>孔口压降，K = 1.8</td><td>0.353 kPa</td><td>0.862 kPa</td></tr><tr><td>壳–进液</td><td>0.0326–0.0366 °C/W</td><td>一维式子仍用短槽，不随孔径自动改换热</td></tr></tbody></table>
+<p>短槽在“就近抽走”的拓扑里流速只有约 0.034 m/s，压降可以忽略。它的作用是把润湿面积放大，不是当一根长导管。板内压降一维合计约 3.5–5.5 kPa，离 20 kPa 很远。热阻上界已经过目标，所以下一轮该用压降去换换热，而不是再把压降压低。</p>
+<h3>HBM</h3>
+<p>一维里有两套截面，不要加在一起。</p>
+<table><thead><tr><th>量</th><th>v2.0 表：16 条 0.60×1.50，0.40 L/min</th><th>w08h20：单侧 7 条 0.80×2.00，0.20 L/min</th></tr></thead><tbody><tr><td>槽速</td><td>0.463 m/s</td><td>0.298 m/s</td></tr><tr><td>Re</td><td>603</td><td>517</td></tr><tr><td>50 mm 直槽摩擦压降</td><td>658 Pa</td><td>238 Pa</td></tr><tr><td>相对 0.80 m/s 帽</td><td>低于帽</td><td>低于帽</td></tr></tbody></table>
+<h3>Grace CPU 与 LLDDRAM</h3>
+<p>下表按设计流量 0.55 L/min、Nu = 4.8、每个 Z 向弯头 K = 1.5（一进一出合计 3）。报告正文里的 0.34 m/s 和 0.96 kPa 对应能量平衡流量 0.543 L/min 下的 CPU 通道（重算 0.340 m/s、0.96 kPa），不是 0.55 L/min 这一列。</p>
+<table><thead><tr><th>量</th><th>CPU，260 W，48 条 0.40×1.20</th><th>单侧内存，20 W，6 条 1.20×0.80</th></tr></thead><tbody><tr><td>分配流量</td><td>0.477 L/min</td><td>0.037 L/min</td></tr><tr><td>流速</td><td>0.345 m/s</td><td>0.106 m/s</td></tr><tr><td>Re</td><td>314</td><td>155</td></tr><tr><td>通道压降</td><td>0.98 kPa</td><td>0.20 kPa</td></tr><tr><td>对流热阻</td><td>0.046 °C/W</td><td>0.269 °C/W</td></tr><tr><td>对流温升</td><td>12.0 K</td><td>5.4 K</td></tr></tbody></table>
+<p>CPU 对流热阻 0.046 °C/W，低于 0.080 的目标，剩下的额度留给 TIM2。这是筛算。内存对流不是驱动项。内存缝 0.80×1.20 mm、长 12 mm，用来把内存支路的压降补到和 CPU 同一量级，平面坐标还没给。</p>
+<p>工作簿 <code>03_DR2_一维性能核算.xlsx</code>。蓝字是流量、孔径、槽截面；孔速、雷诺数、温升、热阻合计和加权都是公式。</p>
+
+<h2 id="s5">⑤　三维仿真</h2>
+<p>v2.0 停在“要做共轭 CFD”。现在有两场局部结果，都不是整板，也都还不能关 DR3。</p>
+<table><thead><tr><th>场</th><th>几何</th><th>结果</th><th>能不能当整板结论</th></tr></thead><tbody><tr><td>GPU，12 孔带，iter 600</td><td>D=0.40 mm，节距 3.0×2.4，沿 Y 12 格，28,005,504 六面体</td><td>TIM 底 342.049 K；入口静压平均 1100 Pa；R(T_TIM−T_in) = 0.03208 °C/W，除数是 900.899 W</td><td>不能。热流是边界冗余后的胞热流，不是 1100 W 整板。总压差、GCI、y+ 没有导出。出口约 2.3% 面积回流</td></tr><tr><td>HBM，单侧 7 槽，iter 200</td><td>0.80×2.00 mm，列宽 11 mm，4,677,600 六面体</td><td>TIM 底 333.489 K；R = 0.205 °C/W，除数是这一侧 99.22 W；进口静压 409 Pa</td><td>不能。连续性残差 2.6×10⁻⁴，未到 10⁻⁴。这个热阻不能和 0.028 的封装目标比</td></tr><tr><td>Grace CPU / LLDDRAM</td><td>网格方案已写</td><td>没有 Fluent 求解场</td><td>不能</td></tr></tbody></table>
+<p>12 孔带若再把设计假设里的 TIM2 和封装热阻叠回去，会和已经含在 TIM 底温度里的导热重复计算。报告里的 0.0226–0.0266 °C/W 只是对照行。和 0.028 的目标比，应该用场自己的 0.03208 °C/W，并且记住分母是 900.9 W 不是 1100 W。</p>
+<p>HBM 一维 50 mm 直槽摩擦约 238 Pa，CFD 进口静压 409 Pa。多出来的是发展段和进出口，不是把 61 Pa 改写成 409 Pa。槽速 0.298 m/s，没有碰到 0.80 m/s。</p>
+<p>因此仿真回路保持打开：下一轮仍是孔径、阵列密度和 TIM2。在 GCI 和整板场出来之前，不增加阵列密度的加工承诺。</p>
+<p>工作簿 <code>04_DR3_仿真图纸与试验门.xlsx</code> 的「仿真」页用温度和功率重算热阻。</p>
+
+<h2 id="s6">⑥　机械与图纸</h2>
+<p>四块冷板的名义尺寸链已经单独成报告，放在本目录的上一级。这里只收放行时要看的闭合结果，和还没合成一块铜的地方。</p>
+<table><thead><tr><th>链</th><th>算式</th><th>结果</th><th>判定</th></tr></thead><tbody><tr><td>GPU 板宽</td><td>5+11+0.5+2+0.5+27+3+27+0.5+2+0.5+11+5</td><td>95 mm</td><td><span class="ok">闭合</span></td></tr><tr><td>GPU 板长</td><td>12.5+50+12.5</td><td>75 mm</td><td><span class="ok">闭合</span></td></tr><tr><td>GPU 外形厚</td><td>2+1.5+2+2.5+0.5</td><td>8.5 mm</td><td><span class="ok">闭合</span></td></tr><tr><td>GPU 射流覆盖 X</td><td>9×3.0</td><td>27 mm，等于 die 宽</td><td><span class="ok">闭合</span></td></tr><tr><td>GPU 射流覆盖 Y</td><td>12×2.4</td><td>28.8 mm，比 die 高 0.8 mm</td><td><span class="ok">闭合</span></td></tr><tr><td>HBM 列宽，采用</td><td>0.30+7×0.80+6×0.80+0.30</td><td>11 mm</td><td><span class="ok">闭合</span></td></tr><tr><td>HBM 列宽，对照</td><td>0.65+8×0.60+7×0.70</td><td>11 mm</td><td>闭合，不采用</td></tr><tr><td>HBM 铜厚</td><td>2+2+4</td><td>8.0 mm</td><td>闭合，但与 GPU 的 8.5 不是同一条厚度栈</td></tr><tr><td>Grace 板宽 / 板厚</td><td>分区相加；2+1.2+0.3+2.5+2</td><td>200 mm；8.0 mm</td><td><span class="ok">闭合</span></td></tr><tr><td>CPU 肋场</td><td>49×0.40+48×0.40</td><td>38.8 mm，窗内两岸各 0.6</td><td><span class="ok">闭合</span></td></tr><tr><td>CPU / 内存口带</td><td>补上两段各 1.2 mm 实铜之后</td><td>跨度 44 mm / 82 mm，再加边距等于 120</td><td><span class="ok">闭合</span></td></tr><tr><td>LLDDRAM 节距 8.333 mm</td><td>6×(50/6)</td><td>50 mm</td><td><span class="ok">闭合</span></td></tr><tr><td>LLDDRAM 节距 8.00 mm</td><td>同样半肋岸结构</td><td>48 mm</td><td><span class="bad">不闭合</span></td></tr></tbody></table>
+<p>口带表原来从 42.8 跳到 44、从 76 跳到 77.2（内存是 23.8 到 25、95 到 96.2）。这两段 1.2 mm 是实铜，补进链之后才闭合。8.00 mm 的内存节距不能铺满 50 mm 窗口，出图用 8.333 mm。</p>
+<p>承压按 3 bar、两端固支板条估算。余铜跨 0.8 mm 槽，弯曲应力远小于 1 MPa。盖板若按无支撑跨过 26.4 mm 射流中心距、板厚 2.5 mm，弯曲应力约 16.7 MPa，退火铜屈服取 70 MPa，比值约 4.2。这是保守的无肋板条，不是开了短槽之后的真实盖板。</p>
+<p>孔径 0.40 与 0.50 不影响孔位链，但影响钻头、过滤和压降。过滤仍按最小孔径的 1/10，0.40 mm 对应 40 μm，系统侧目前按 25 μm 写，细于这个判据。生产二维图、爆炸图和公差还没有冻结，所以 DR3 的图纸半边只算部分完成。</p>
+<p>细部见上一级目录里的四份尺寸链报告和四份尺寸核实2工作簿。本目录工作簿的「尺寸链」页复算了板宽、列宽、板厚和两种节距。</p>
+
+<h2 id="s7">⑦　样件与试验</h2>
+<p>这一章还没有数据。放行要同时看到三件事：TTV 上的壳–进液热阻进 DP-A 目标，流阻曲线在设计流量下不超过 18 kPa，氦检通过。Grace 支路单独看 10 kPa 这一档。红外用来看两 die 温差和 HBM 是否比 GPU 驻点更热。试验大纲上的判据已经写进工作簿「试验门」，格子空着，等有数再填。</p>
+<table><thead><tr><th>试验</th><th>对象</th><th>判据</th><th>状态</th></tr></thead><tbody><tr><td>TTV 热阻</td><td>GPU 冷板，1100 W，2.0 L/min，40 °C</td><td>Rθ,c-in &lt; 0.028 °C/W</td><td><span class="bad">未开始</span></td></tr><tr><td>流阻曲线</td><td>GPU 冷板</td><td>≤ 18 kPa，极限 20</td><td><span class="bad">未开始</span></td></tr><tr><td>分区流量</td><td>GPU : HBM</td><td>80:20，偏差 ±10%</td><td><span class="bad">未开始</span></td></tr><tr><td>支路压降</td><td>Grace，0.55 L/min</td><td>约 10 kPa，窗口 8–12</td><td><span class="bad">未开始</span></td></tr><tr><td>氦检</td><td>两块冷板</td><td>按钎焊件的漏率</td><td><span class="bad">未开始</span></td></tr><tr><td>红外</td><td>双 die 与 HBM</td><td>两 die 温差 ≤ 5 K</td><td><span class="bad">未开始</span></td></tr></tbody></table>
+<p>TTV 和 CFD 相差超过 15% 时，走验证回路，回到 ③ 和 ④ 改关联式，不直接改图。</p>
+
+<h2 id="s8">结论</h2>
+<table><thead><tr><th>#</th><th>结论</th><th>门</th></tr></thead><tbody><tr><td>1</td><td>方案选定：B300 分区杂交，Grace 交错宽槽，LLDDRAM 附在 Grace 板上。</td><td>DR1 完成</td></tr><tr><td>2</td><td>水力余量大，GPU 热阻上界过 0.028 °C/W。优化方向是用压降换换热。</td><td>DR2 有条件通过</td></tr><tr><td>3</td><td>局部 CFD 已经跑起来，整板热阻、网格无关和 Grace 求解都还没有。</td><td>DR3 未通过</td></tr><tr><td>4</td><td>名义尺寸链闭合。HBM 的 8.0 mm 铜厚和 GPU 的 8.5 mm 外形还没合成一条厚度栈；内存节距用 8.333 mm。</td><td>图纸部分完成</td></tr><tr><td>5</td><td>没有样件数据，不能送样。</td><td>DR4 未开始</td></tr></tbody></table>
+<p>下一步按回路，不按新开课题：先把 GPU 孔径在 0.40 与 0.50 里定一个，并选 TIM2 档；HBM 只保留 0.80 mm 七槽；补一次整板或至少含歧管的共轭场，并做网格无关；尺寸上先定 GPU 与 HBM 的共用 z。这些数出来之前，不写采购保证。</p>
+<footer>
+数值来自 B300 设计报告 v2.0 的计算模块、UC01b 12 孔 iter 600、HBM w08h20 iter 200、Grace 冷板报告，以及上一级目录的尺寸链核实。
+一维和权衡以本目录 Excel 的公式为准。本文件不是订单 ICD，也不是出厂保证。
+</footer>
+
+</main></body></html>
