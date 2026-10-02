@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AIDC 算力冷却设计工具</title>
+  <style>
+    :root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#172235;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+    header{padding:52px max(24px,calc((100% - 1100px)/2));background:linear-gradient(135deg,#081f39,#124f91 68%,#008b7a);color:#fff}
+    h1{font-size:34px;margin:6px 0}.sub{opacity:.88}.wrap{max-width:1100px;margin:0 auto;padding:34px 24px}
+    .flow{padding:14px 18px;border-left:5px solid var(--teal);background:#fff;border-radius:7px;margin-bottom:22px;box-shadow:0 3px 15px #102a4c10}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;box-shadow:0 4px 18px #102a4c12}
+    .step{color:var(--teal);font-weight:800}.card h2{color:var(--navy);margin:6px 0 10px}.card ul{padding-left:20px;color:var(--muted)}
+    a{display:inline-block;margin-top:10px;padding:10px 18px;border-radius:7px;background:var(--blue);color:#fff;text-decoration:none;font-weight:800}.card:nth-child(2) a{background:var(--teal)}
+    .note{margin-top:24px;color:var(--muted);font-size:13px}@media(max-width:760px){.grid{grid-template-columns:1fr}header{padding:38px 24px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div>AIDC Engineering Toolkit · v1.0</div>
+    <h1>算力冷却系统设计工具</h1>
+    <div class="sub">两级连续设计：总体系统方案 → 单台 CDU 详细设计与零部件规格</div>
+  </header>
+  <main class="wrap">
+    <div class="flow"><strong>推荐流程：</strong>先用工具 1 完成项目总体设计并导出 JSON，再导入工具 2，自动继承容量、流量、温度和压降工况。</div>
+    <div class="grid">
+      <article class="card">
+        <div class="step">STEP 1 · 总体系统</div>
+        <h2>算力冷却系统总体设计</h2>
+        <ul>
+          <li>AI 机柜负荷与液冷捕获率</li>
+          <li>CDU 数量、容量及冗余架构</li>
+          <li>TCS/FWS 流量、主管和泵参数</li>
+          <li>冷源、空气侧、配电和 PUE 初筛</li>
+        </ul>
+        <a href="../solutions/算力冷却系统总体设计工具_v1.0.html">打开总体设计工具</a>
+      </article>
+      <article class="card">
+        <div class="step">STEP 2 · CDU 详细设计</div>
+        <h2>CDU 系统详细设计</h2>
+        <ul>
+          <li>板式换热器 UA、面积与接口</li>
+          <li>泵流量、扬程、电机和冗余</li>
+          <li>管路、储液、过滤器与阀件</li>
+          <li>仪表 I/O、电控、联锁及 FAT</li>
+        </ul>
+        <a href="../solutions/CDU系统详细设计工具_v1.0.html">打开 CDU 设计工具</a>
+      </article>
+    </div>
+    <div class="note">工程边界：工具结果为概念设计/FEED 初筛值。施工与采购前仍须完成厂家选型、水力平衡、NPSH、瞬态、材料兼容性及认证复核。</div>
+  </main>
+</body>
+</html>

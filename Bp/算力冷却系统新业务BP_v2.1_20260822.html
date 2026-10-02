@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="算力冷却系统新业务BP v2.1 OEM Operating Model / 20260822，证据基线：调研报告 v3.1 Evidence-led / 20260822">
+  <title>算力冷却系统新业务BP · v2.1 OEM Operating Model / 20260822</title>
+  <style>
+    :root{--navy:#0b2239;--blue:#175cd3;--teal:#087a70;--gold:#b7791f;--ink:#172033;--muted:#5d687a;--line:#d8e1eb;--bg:#f2f5f9;--soft:#f7f9fc;--ok:#087a55;--warn:#9a6700;--bad:#b42318;--purple:#6941c6}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.72 "Microsoft YaHei","PingFang SC","Segoe UI",Arial,sans-serif}
+    .page{max-width:1220px;margin:auto;background:#fff;box-shadow:0 12px 44px rgba(10,31,68,.10)}
+    header{padding:62px 68px 48px;color:#fff;background:linear-gradient(135deg,#07192d,#123d70 64%,#087a70);position:relative;overflow:hidden}
+    header:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-160px;top:-180px;background:rgba(255,255,255,.08)}
+    .kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#d6b866;font-weight:700}.subtitle{font-size:19px;max-width:940px;color:#e5eef8}
+    h1{font-size:43px;line-height:1.18;margin:13px 0 10px}h2{font-size:26px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:9px;margin:0 0 16px}h3{font-size:19px;color:#174474;margin:28px 0 10px}h4{font-size:15px;color:var(--navy);margin:18px 0 5px}
+    .meta,.tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.pill{border:1px solid rgba(255,255,255,.36);border-radius:999px;padding:5px 11px;background:rgba(255,255,255,.10);font-size:12.5px}
+    .conf{margin-top:24px;border-left:4px solid #d6b866;padding-left:14px;color:#dce8f3;font-size:12.5px;max-width:980px}
+    nav{padding:28px 66px;background:#f8fafc;border-bottom:1px solid var(--line)}nav h2{font-size:18px}.toc{columns:2;column-gap:36px}.toc a{display:block;text-decoration:none;color:#183b69;padding:3px 0;break-inside:avoid}.toc a:hover{text-decoration:underline}
+    main{padding:40px 66px 68px}section{margin:0 0 48px;scroll-margin-top:16px}.overview{min-height:850px;padding:42px 66px;border-bottom:1px solid var(--line);break-after:page}
+    .decision{font-size:18px;font-weight:700;color:var(--navy);background:#eef5ff;border-left:6px solid var(--blue);padding:16px 19px;border-radius:8px}.lead{font-size:16px;background:#f1f7f6;border-left:5px solid var(--teal);padding:14px 18px;border-radius:8px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:15px 0}.card{border:1px solid var(--line);border-radius:10px;padding:15px;background:#fff}.card b{display:block;color:var(--blue);font-size:19px}.card small{color:var(--muted)}
+    table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:13.2px}th{background:#102d4f;color:#fff;font-weight:600;text-align:left}th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top}tbody tr:nth-child(even) td{background:#f8fafc}.num{text-align:right;font-variant-numeric:tabular-nums}.total td{background:#eaf4f1!important;font-weight:700;color:#075e54}
+    .callout{border:1px solid #c7d8f9;background:#f3f7ff;border-radius:9px;padding:14px 17px;margin:16px 0}.risk{border-color:#efc7c3;background:#fff7f6}.ok{border-color:#b9dfce;background:#f3fbf7}.warn{border-color:#ead69d;background:#fffaf0}
+    .tag{display:inline-block;border-radius:5px;padding:1px 6px;font-size:11px;font-weight:700;white-space:nowrap}.a{background:#e6f6ef;color:var(--ok)}.f{background:#fff2cc;color:var(--warn)}.m{background:#eee9fe;color:var(--purple)}.na{background:#feeceb;color:var(--bad)}
+    .formula{font:12.5px/1.7 Consolas,"Microsoft YaHei",monospace;background:#101828;color:#f2f4f7;padding:12px 15px;border-radius:8px;overflow:auto;white-space:pre-wrap}.small{font-size:12.5px;color:var(--muted)}.nowrap{white-space:nowrap}
+    .smile{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;align-items:end;height:245px;margin:20px 0;padding:18px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(#fff,#f6f9fd)}
+    .smile div{background:linear-gradient(180deg,var(--blue),var(--teal));border-radius:7px 7px 3px 3px;color:#fff;text-align:center;padding:8px 4px;font-size:12px;display:flex;align-items:flex-end;justify-content:center}.smile div:nth-child(1),.smile div:nth-child(7){height:195px}.smile div:nth-child(2),.smile div:nth-child(6){height:145px}.smile div:nth-child(3),.smile div:nth-child(5){height:105px}.smile div:nth-child(4){height:72px}
+    .footer{padding:26px 66px;background:var(--navy);color:#d4dfeb;font-size:12.5px}.footer b{color:#fff}
+    @media(max-width:820px){header,nav,main,.overview,.footer{padding-left:22px;padding-right:22px}.grid{grid-template-columns:1fr}.toc{columns:1}.smile{grid-template-columns:repeat(4,1fr);height:auto}.smile div{height:90px!important}h1{font-size:34px}table{display:block;overflow-x:auto}}
+    @media print{body{background:#fff;font-size:11.5px}.page{box-shadow:none;max-width:none}header,nav,main,.overview,.footer{padding-left:28px;padding-right:28px}.overview{min-height:auto}table,.card,.callout,.smile{break-inside:avoid}a{color:inherit}.toc{columns:1}}
+    @page{size:A4;margin:13mm 11mm}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header id="top">
+    <div class="kicker">Business Plan · v2.1 OEM Operating Model / 20260822 · Confidential</div>
+    <h1>算力冷却系统新业务BP</h1>
+    <div class="subtitle">轻资产OEM“微笑曲线”：保留需求定义、系统架构、应用控制、qualification、数据与客户责任；外协硬件、基础软件和制造，以三道商业门逐级进入CDU、Pod与冷板托盘</div>
+    <div class="tags">
+      <span class="pill">2027启动</span><span class="pill">阶段上限 800 / 1,200 / 1,500万元</span><span class="pill">近期 50–200 kW CDU + 应用控制</span><span class="pill">项目级 qualification</span><span class="pill">无客户牵引不建重资产产线</span>
+    </div>
+    <div class="meta">
+      <span class="pill">文件版本：v2.1 OEM Operating Model</span><span class="pill">日期：2026-08-22</span><span class="pill">数据截止日：2026-08-22</span><span class="pill">证据基线：调研报告 v3.1 Evidence-led / 20260822</span><span class="pill">总体结论有效期：2026-11-30</span>
+    </div>
+    <div class="conf"><b>文件属性：</b>供股东、董事会和核心团队讨论的内部决策稿。市场端点、标准状态和原厂参数按 A/E/F/M/NA 分级；资金、组织上限和门禁均为管理框架，不是估值、融资、业绩或法律承诺。估值、cap table、激励比例、清算优先、反稀释和责任额度均待股东会、律师、税务、客户与保险人确认。本版仅把市场口径对齐到调研报告 v3.1，未改变经营模式、资金上限与门禁结论。</div>
+  </header>
+
+  <section class="overview" id="overview-1">
+    <h2>两页概述①｜市场、证据与投资判断</h2>
+    <div class="decision">董事会判断：购买一个“下行封顶、证据逐步解锁”的验证期权，而不是按行业CAGR批准量产。需求方向成立；独立供应商的可得份额、价格、责任和现金回报仍为NA。</div>
+    <div class="grid">
+      <div class="card"><b>25–35 → 60–80 → 90–140亿美元</b>全球液冷设备制造商收入，2025E / 2029F / 2032M；Base 约30 / 70 / 115亿美元。仅作TAM外部锚，不与服务器整机或宽产业相加</div>
+      <div class="card"><b>415 / 485 / 950 TWh</b>IEA全球数据中心用电，2024E / 2025E / 2030F；仅作需求旁证</div>
+      <div class="card"><b>SAM<sub>24m</sub> / SOM = NA</b>公开项目尚未同时闭环电力、融资、开工、平台、服务和有效价格</div>
+    </div>
+    <h3>投资命题与反证</h3>
+    <table>
+      <thead><tr><th scope="col">结论</th><th scope="col">证据</th><th scope="col">商业含义</th><th scope="col">失效条件</th></tr></thead>
+      <tbody>
+        <tr><td>高密AI推动液冷</td><td>原厂平台功率、液体负荷与Q–ΔP资料；IEA用电；Dell’Oro液冷设备制造商收入端点（2025E / 2029F）</td><td>50–200 kW适合作为利基验证容量段，但必须按具体BOM选型</td><td>平台延迟、并网延期、OEM垂直整合或风冷延寿使独立采购减少</td></tr>
+        <tr><td>工程壁垒是系统适配</td><td>Lenovo GB300、N1380、Dell、Huawei、OCP均显示工质、ATD、Q–ΔP和冗余不可省略</td><td>卖的是可验证系统和责任闭环，不是铭牌kW</td><td>无site-planning包、无有效曲线或客户不允许独立CDU</td></tr>
+        <tr><td>增长不保证高毛利</td><td>曙光数创2025冷板液冷毛利10.36%；Modine扩产期分部毛利承压</td><td>毛利、ASP、ROIC保持NA，先验证项目贡献和现金</td><td>两个同边界合同价、四SKU BOM和三批试制数据形成新证据</td></tr>
+        <tr><td>外协不转移最终责任</td><td>ISO 9001外部过程控制原则；中国产品质量法；公开DCLC/SEC合同结构</td><td>本公司保留最终放行、品牌、客户责任和追偿闭环</td><td>合同无法封顶/投保、供应商拒绝审核/变更控制或追偿不可执行</td></tr>
+        <tr><td>行业TAM增长不构成公司预算</td><td>调研报告 v3.1 明确：2026–2028与2031–2032全部为M情景；2030存在Dell’Oro版本跳点；容量强度与机柜强度校验均不能独立闭环</td><td>TAM序列只用于外部锚定和情景分析；公司收入必须自下而上由项目池、qualification、合同价和回款验证</td><td>取得可复算项目池与两个同边界合同价后，改由自下而上模型替代情景</td></tr>
+      </tbody>
+    </table>
+    <div class="callout risk"><b>v1.9与调研报告的关键冲突已裁决（v2.0 建立、v2.1 维持不回退）：</b>撤销v1.9的SAM/SOM、三年营收与毛利点值、固定项目数/客单价、CDU通用毛利和统一“大厂认证”表述；原三年损益和现金表因缺合同、BOM、良率、DSO和项目现金流，不再作为基准预测，只保留为“已撤销的历史管理情景”。</div>
+    <h3>本轮可批准与不可批准</h3>
+    <div class="grid">
+      <div class="card"><b>可批准</b>阶段1上限内的架构、样机、付费PoC、供应链/NPI、软件/IP与责任验证</div>
+      <div class="card"><b>条件批准</b>阶段2/3仅在G1/G2通过后，由董事会按13周现金和订单逐批释放</div>
+      <div class="card"><b>不可批准</b>无订单扩产、无NRE开发冷板专线、无限责任项目、按TAM份额倒推收入</div>
+    </div>
+  </section>
+
+  <section class="overview" id="overview-2">
+    <h2>两页概述②｜OEM微笑曲线与商业三步走</h2>
+    <div class="decision">核心经营逻辑：把资本和团队集中于曲线两端——前端需求/架构/IP与后端qualification/数据/服务/客户；中段标准硬件、基础软件和制造由受控供应商完成。</div>
+    <div class="smile" role="img" aria-label="OEM微笑曲线">
+      <div>需求定义<br>系统架构</div><div>热工水力<br>控制策略</div><div>器件采购<br>基础软件</div><div>加工装配<br>整机制造</div><div>系统集成<br>FAT/SAT</div><div>qualification<br>质量签署</div><div>诊断数据<br>品牌客户</div>
+    </div>
+    <table>
+      <thead><tr><th scope="col">阶段</th><th scope="col">产品与客户</th><th scope="col">高附加值自留</th><th scope="col">外协边界</th><th scope="col">资金与解锁</th></tr></thead>
+      <tbody>
+        <tr><td><b>1 利基验证</b><br>2027 / M0–M12</td><td>优先50–200 kW；中小云、区域IDC、存量改造/实验集群；只做已获电、平台明确、付款和责任可接受项目</td><td>四SKU架构、应用控制、DVP、FAT放行、数据与客户</td><td>钣金/机加/板换/泵阀/线束/柜装/PCBA/控制硬件/BSW/整机制造</td><td><b>上限800万元</b>；G1前不得扩产</td></tr>
+        <tr><td><b>2 梯度扩张</b><br>M13–M24</td><td>200–500 kW / Pod，冗余并联、控制平台和远程诊断；进入OEM/ODM/运营商项目qualification</td><td>并联控制、故障域、远程诊断、版本管理、质量与全球服务规范</td><td>授权制造商/EMS、区域服务、第三方测试</td><td><b>最高1,200万元</b>；仅G1通过后逐批释放</td></tr>
+        <tr><td><b>3 高价值延伸</b><br>M25–M36+</td><td>客户牵引的芯片级/微通道冷板托盘、Manifold与液冷模组联合开发</td><td>热设计、接口、测试方法、联合IP、客户数据和产品责任管理</td><td>冷板加工、钎焊/扩散焊、模具工装、小批制造</td><td><b>最高1,500万元</b>；无NRE、采购意向、热输入和IP边界则不启动</td></tr>
+      </tbody>
+    </table>
+    <div class="callout ok"><b>阶段1交付证据：</b>工程样机；全工况可靠性数据；至少两个付费PoC；两个同边界合同/成交价；100/200/300/450 kW四SKU BOM报价体系（阶段1物理样机可聚焦100/200 kW）；关键件双源；项目贡献和回款闭环。任何一项未达，不得把“展示样机”升级为“量产产品”。</div>
+    <div class="callout warn"><b>阶段划分与资金上限未随市场口径变化：</b>启动年份仍为2027；阶段1/2/3上限仍为800 / 1,200 / 1,500万元；阶段2与阶段3仍为条件期权。v2.1 只对齐外部市场口径，不因TAM上修而放宽任何门禁或额度。</div>
+  </section>
+
+  <nav aria-label="目录">
+    <h2>目录</h2>
+    <div class="toc">
+      <a href="#s1">1. 执行摘要、版本差异与口径审计</a>
+      <a href="#s2">2. 市场口径、情景表与项目筛选</a>
+      <a href="#s3">3. OEM微笑曲线与价值链控制点</a>
+      <a href="#s4">4. Operating Model / RACI</a>
+      <a href="#s5">5. Make-or-buy矩阵</a>
+      <a href="#s6">6. 供应商、制造与IP治理</a>
+      <a href="#s7">7. 产品与技术路线</a>
+      <a href="#s8">8. 商业模式、GTM与qualification</a>
+      <a href="#s9">9. 项目单位经济与情景模型</a>
+      <a href="#s10">10. 资本效率与资金用途</a>
+      <a href="#s11">11. 团队激励与资本股东平衡</a>
+      <a href="#s12">12. 董事会G0–G3门禁</a>
+      <a href="#s13">13. 风险、反证与监测</a>
+      <a href="#s14">14. 90/180/365日行动与组织</a>
+      <a href="#s15">15. 附录：证据、合同、询价与月报</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="s1">
+      <h2>1. 执行摘要、版本差异与口径审计</h2>
+      <p class="lead"><b>一句话定位：</b>成为高密算力客户的“热管理系统架构与责任主体”，近期用外协制造和授权BSW交付标准化CDU+内部应用控制，后续在客户NRE牵引下进入冷板托盘与液冷模组。</p>
+      <h3>1.1 公司必须拥有的能力</h3>
+      <div class="grid">
+        <div class="card"><b>前端定义</b>客户需求、平台/BOM边界、热工/水力、接口、可靠性、网络安全和可维修性规范</div>
+        <div class="card"><b>控制与验证</b>应用算法、状态机、故障降级、参数标定、数字孪生/诊断、接口与测试用例</div>
+        <div class="card"><b>后端闭环</b>供应商批准、设计冻结、变更控制、FAT最终放行、qualification、数据、售后、品牌与客户责任</div>
+      </div>
+      <h3>1.2 v2.0 与 v2.1 差异说明</h3>
+      <p>本次修订是<b>口径对齐</b>，不是重写。经营模式、组织形态、资金上限、门禁与风险结构全部沿用 v2.0。</p>
+      <table>
+        <thead><tr><th scope="col">项目</th><th scope="col">v2.0（20260821）</th><th scope="col">v2.1（20260822）</th><th scope="col">为什么改</th></tr></thead>
+        <tbody>
+          <tr><td>证据基线</td><td>调研报告 v3.0 Evidence-led；数据截止 2026-08-21</td><td>调研报告 <b>v3.1 Evidence-led / 20260822</b>；数据截止 <b>2026-08-22</b></td><td>调研报告已发布 v3.1，新增“2025–2032 全球算力与液冷对比”章节并给出可审计的情景区间</td></tr>
+          <tr><td>全液冷设备TAM端点</td><td>仅两点：2025E接近30亿美元、2029F约70亿美元</td><td>三点区间：2025 <b>25–35</b>、2029 <b>60–80</b>、2032 <b>90–140</b>亿美元；Base 约 30 / 70 / 115亿美元</td><td>v3.1 用宏观占比与容量强度校验给出区间；区间比单点更能反映预测不确定性，且避免把机构单点当确定值</td></tr>
+          <tr><td>2030–2032 序列</td><td>未列</td><td>新增 2025–2032 Bear/Base/Bull 情景表，中间年与2031–2032全部标 M</td><td>董事会需要长期外部锚做情景分析；但机构未发布同边界逐年表，必须标注为本文模型</td></tr>
+          <tr><td>Dell’Oro 数字关系</td><td>只引用全液冷端点</td><td>新增版本隔离表：DLC 2029 58亿美元、全液冷 2029 约70亿美元、DLC 2030 超80亿美元<b>来自三个不同发布版本</b>；禁止母子精确拆分与相减推导</td><td>三个数字分别来自 July-2025 DCPI、Jan-2026 液冷专项研究、Jan-2026 DCPI；跨版本相减会造出不存在的“浸没/RDHx规模”</td></tr>
+          <tr><td>旁证口径</td><td>列出IDC、CAICT、IEA</td><td>补齐 McKinsey 需求、JLL 供给、C&amp;W 在建，并统一写明<b>不可相加、不可相减、不可用于计算份额</b></td><td>v3.1 明确这些序列对象、基准与时点不同；相减会被误读为“订单缺口”</td></tr>
+          <tr><td>TAM 与预算关系</td><td>散见“不推导公司份额”</td><td>新增独立小节“TAM 与公司预算的隔离说明”</td><td>把纪律从一句话提升为可审计条款，防止后续版本用行业增速反推收入预算</td></tr>
+          <tr><td>结论、资金、门禁</td><td>验证期权；2027启动；800/1,200/1,500万元；G0–G3</td><td><b>完全不变</b></td><td>市场口径上修不改变公司侧证据状态：SAM/SOM、ASP、毛利、ROIC 仍为 NA</td></tr>
+        </tbody>
+      </table>
+      <div class="callout ok"><b>哪些结论未变：</b>①投资判断仍是“下行封顶的验证期权”，不是按CAGR扩产；②OEM微笑曲线、Operating Model/RACI、Make-or-buy、供应商与IP治理（含BSW源码托管、step-in rights）全部沿用；③产品路线仍是近期CDU+应用控制、后续芯片级/微通道冷板托盘；④商业三步走仍为2027启动、800/1,200/1,500万元阶段上限、阶段2/3为条件期权；⑤SAM/SOM、四SKU ASP、BOM、毛利、ROIC、现金跑道仍为 NA 或变量模型；⑥G0–G3 门禁、风险监测、90/180/365日行动表与附录结构不变。</div>
+      <div class="callout warn"><b>有效期说明：</b>总体结论有效期保持 <b>2026-11-30</b>，与调研报告 v3.1 的总体 valid_until 一致，理由是决定本BP结论的约束条件（平台revision、并购方季报、招标结果、项目状态、可靠性事件）复核周期在此之前。其中“2029 约70亿美元”单项锚的 valid_until 为 <b>2027-02-28</b>，若 Dell’Oro / JLL / McKinsey / IEA 任一新版先发布，则该锚提前失效并触发市场章节复核；单项锚失效不自动延长或缩短本BP总体结论有效期。</div>
+      <h3>1.3 历史版本冲突清单（v1.9 → v2.0 已裁决，v2.1 沿用不回退）</h3>
+      <table>
+        <thead><tr><th scope="col">v1.9 原口径</th><th scope="col">调研报告证据裁决（v3.0 建立、v3.1 维持）</th><th scope="col">v2.0 处理，v2.1 沿用</th></tr></thead>
+        <tbody>
+          <tr><td>“自研CDU”容易被理解为自制控制硬件、BSW、总装和产线</td><td>公开证据支持工程/准入壁垒，不支持早期重资产内制</td><td>改为自有系统设计与应用控制；硬件、BSW、制造可受控外购/外协</td></tr>
+          <tr><td>50/100/150/200与300/450 kW阶段边界混杂</td><td>容量必须服从平台液体负荷、Q–ΔP、ATD、工质和故障态</td><td>阶段1优先50–200；四SKU经济模板100/200/300/450；阶段2扩至200–500/Pod</td></tr>
+          <tr><td>原SAM/SOM点值及目标份额</td><td>SAM<sub>24m</sub>=NA；公告MW、服务器整机和宽产业不可替代项目池</td><td>只用五门项目池：已获电、融资、开工、平台、服务</td></tr>
+          <tr><td>原三年营收与综合毛利路径</td><td>缺成交ASP、四SKU BOM、良率、质保、DSO和现金模型</td><td>撤销为基准；Base/Bull/Bear用变量与解锁条件，不填伪点值</td></tr>
+          <tr><td>统一“NVIDIA/华为CDU认证”或名录</td><td>不存在可公开验证的统一CDU认证/公开AVL</td><td>统一改为具体OEM/整柜/客户项目级qualification</td></tr>
+          <tr><td>“芯片级PCB冷板”泛称</td><td>普通冷板、封装冷板与PCB内嵌概念混用</td><td>定义为冷板托盘；只有流道真实集成于PCB时才称PCB冷板</td></tr>
+        </tbody>
+      </table>
+      <h3>1.4 高风险伪精确点值：继续禁止恢复</h3>
+      <p>以下点值在 v2.0 已删除，v2.1 <b>不恢复、不以任何形式回填</b>，包括不得写成“区间中位”“行业通常值”或图表标注：</p>
+      <ul>
+        <li>市场份额与集中度（冷板/浸没/喷淋结构比、CDU或冷板前五份额）；部件价值占比（冷板/CDU/UQD/Manifold）。</li>
+        <li>通用毛利率（CDU 通用毛利、各产品无来源毛利）；CDU 静态 ASP（含 300–500 kW 台均价、200 kW 成本反推价）。</li>
+        <li>SAM/SOM 亿元点值、目标份额、项目数与客单价；高端AI机柜或MW级冷却价值点值。</li>
+        <li>固定 PUE 区间与W-class映射、AI控制节电率。</li>
+        <li>MTBF、切换时间、UQD 瞬时漏量、负压通用最优值、“零外漏/100%拦截”。</li>
+        <li>先进冷板逐行 Rth/压降/热流密度/良率与量产时点；专利数量与“专利墙”。</li>
+        <li>统一“大厂认证/名录”表述；公告或组合容量直接进入近期 SAM。</li>
+      </ul>
+      <div class="callout warn"><b>财务审计（沿用 v2.0）：</b>v1.9的三年累计毛利7,284万元、总支出7,060万元、注资3,500万元与期末现金3,300万元之间仅以424万元“暂定占款”桥接，未形成月度资产负债表与营运资金联动；同时Y1“800万元首期”对应910万元运营+资本开支且依赖经营回款。v2.0/v2.1不继承该三表点值，只保留800/1,200/1,500万元阶段上限并重建用途和释放门。</div>
+    </section>
+
+    <section id="s2">
+      <h2>2. 市场口径、情景表与项目筛选</h2>
+      <p class="lead">本章全部端点与情景对齐《算力冷却商业调研报告 v3.1 Evidence-led / 20260822》，数据截止 2026-08-22。市场章节的唯一用途是外部锚定与情景分析；公司收入、SAM/SOM、ASP 与毛利不得由本章任何数字推导。</p>
+      <h3>2.1 证据化市场边界</h3>
+      <table>
+        <thead><tr><th scope="col">指标</th><th scope="col">端点</th><th scope="col">性质/边界</th><th scope="col">本BP用途与禁止事项</th></tr></thead>
+        <tbody>
+          <tr><td><b>全球液冷设备制造商收入（主锚）</b></td><td>2025 <b>25–35亿美元</b>（Base 约30）；2029 <b>60–80亿美元</b>（Base 约70）；2032 <b>90–140亿美元</b>（Base 约115）</td><td><span class="tag f">2025 E/M</span> <span class="tag f">2029 F/M</span> <span class="tag m">2032 M</span> L2；DLC、浸没、RDHx制造商收入，不含服务器整机</td><td>TAM外部锚与情景分析；不推导公司份额、不换算收入预算</td></tr>
+          <tr><td>Dell’Oro DLC 子集</td><td>2024 11亿美元；2029 58亿美元；更新版 2030 超过80亿美元</td><td><span class="tag f">E/F</span> L2；全球直接液冷子集，跨三个发布版本</td><td>路线与预测上调旁证；<b>不得与全液冷相加，不得跨版本做精确差额</b></td></tr>
+          <tr><td>IDC中国液冷服务器整机</td><td>2024E 23.7亿美元；2029F 162亿美元</td><td><span class="tag f">E/F</span> L2；服务器整机收入</td><td>中国需求旁证；不得当CDU TAM，不可与主锚相加/相减，不可算份额</td></tr>
+          <tr><td>CAICT中国智算中心液冷宽产业</td><td>2024E 184亿元；2029F 约1,300亿元</td><td><span class="tag f">E/F</span> L1；宽产业口径</td><td>产业链旁证；边界最宽，不可与上述任一项相加或相减</td></tr>
+          <tr><td>IEA全球数据中心用电</td><td>2024E 415；2025E 485；2030F 950 TWh</td><td><span class="tag f">E/F</span> L1；IT与设施总用电</td><td>能耗旁证；不得以8760小时反推关键IT GW，不得换算液冷收入</td></tr>
+          <tr><td>McKinsey 关键IT容量需求</td><td>2025E 82 GW；2030F 219 GW（AI 约44→156 GW）</td><td><span class="tag f">E/F</span> L2；continued-momentum <b>需求</b>情景</td><td>需求方向旁证；不等于已建/获电供给，不得与供给相减</td></tr>
+          <tr><td>JLL 设施供给/市场容量</td><td>2025E 103 GW；2030F 200 GW；2026–2030 近100 GW上线</td><td><span class="tag f">E/F</span> L2；hyperscale/colo/on-prem <b>供给</b>展望</td><td>供给节奏旁证；累计上线不等于当年投运，不得与需求相减认定订单缺口</td></tr>
+          <tr><td>C&amp;W 建设状态</td><td>2025年末全球在建约31.7 GW</td><td><span class="tag f">E</span> L2；在建存量</td><td>可交付性旁证；在建/规划pipeline不得计入当年投运或任何SAM</td></tr>
+          <tr><td>本公司SAM/SOM</td><td><span class="tag na">NA</span></td><td>需客户项目池、平台BOM、有效价格和服务方案</td><td>董事会预算输入；证据未解锁前不填，且不得由上述任一行推导</td></tr>
+        </tbody>
+      </table>
+      <div class="callout risk"><b>不同边界的三条禁令：</b>①<b>不可相加</b>——设备制造商收入、服务器整机、宽产业、总用电、容量GW是不同分母；②<b>不可相减</b>——需求219 GW与供给200 GW之差、全液冷70亿与DLC 58亿之差都不是可交付订单或路线规模；③<b>不可用于计算份额</b>——任何“公司收入 ÷ 上述某一行”得到的比例都不具备可比性，不得进入董事会材料。</div>
+
+      <h3>2.2 2025–2032 全球液冷设备市场情景表</h3>
+      <p class="small">单位：亿美元（全球液冷设备制造商收入，含DLC、浸没、RDHx，不含服务器整机）。标签：<span class="tag a">A</span> 实绩／<span class="tag f">E</span> 机构对已发生年份的估计／<span class="tag f">F</span> 机构预测／<span class="tag m">M</span> 本文模型。与调研报告 v3.1 第2.5节一致。</p>
+      <table>
+        <thead><tr><th scope="col">年份</th><th class="num" scope="col">Bear</th><th class="num" scope="col">Base</th><th class="num" scope="col">Bull</th><th class="num" scope="col">其中DLC</th><th scope="col">标签</th><th scope="col">来源版本与处理</th></tr></thead>
+        <tbody>
+          <tr><td>2025</td><td class="num">25</td><td class="num">30</td><td class="num">35</td><td class="num">20–28</td><td><span class="tag f">E</span> + <span class="tag m">M</span></td><td>Dell’Oro 液冷专项研究（2026-01-08）“接近30亿美元”为E；区间边界与DLC拆分为M</td></tr>
+          <tr><td>2026</td><td class="num">30</td><td class="num">37</td><td class="num">44</td><td class="num">27–36</td><td><span class="tag m">M</span></td><td>2025→2029端点几何桥接，<b>非机构预测</b></td></tr>
+          <tr><td>2027</td><td class="num">37</td><td class="num">46</td><td class="num">55</td><td class="num">34–46</td><td><span class="tag m">M</span></td><td>同上，<b>非机构预测</b></td></tr>
+          <tr><td>2028</td><td class="num">47</td><td class="num">57</td><td class="num">68</td><td class="num">44–56</td><td><span class="tag m">M</span></td><td>同上，<b>非机构预测</b></td></tr>
+          <tr><td>2029</td><td class="num">60</td><td class="num">70</td><td class="num">80</td><td class="num">55–65（58为F锚）</td><td><span class="tag f">F</span> + <span class="tag m">M</span></td><td>全液冷“约70亿美元”来自 Jan-2026 液冷专项研究；DLC 58亿美元来自 July-2025 DCPI Forecast，<b>两者不同版本</b>；区间边界为M</td></tr>
+          <tr><td>2030</td><td class="num">82</td><td class="num">88</td><td class="num">100</td><td class="num">&gt;80（F）；模型 82–90</td><td><span class="tag f">F</span> 约束 + <span class="tag m">M</span></td><td>DLC“超过80亿美元”来自 Jan-2026 DCPI Forecast；全液冷不得低于其子集，故设为下限约束；全液冷本身为M</td></tr>
+          <tr><td>2031</td><td class="num">86</td><td class="num">101</td><td class="num">120</td><td class="num">82–105</td><td><span class="tag m">M</span></td><td>增速减速情景，<b>无同边界机构端点</b></td></tr>
+          <tr><td>2032</td><td class="num">90</td><td class="num">115</td><td class="num">140</td><td class="num">88–125</td><td><span class="tag m">M</span></td><td>情景组合，<b>无同边界机构端点</b></td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><b>本表用途边界（必须随表引用）：</b>①仅用于外部市场锚定与Bear/Base/Bull情景分析；②<b>不得</b>直接换算为公司收入预算、订单、产能或SAM/SOM；③<b>不得</b>用于计算公司市场份额或倒推目标份额；④中间年份（2026–2028）与2031–2032均为本文模型 M，<b>不得</b>在任何对外或对内材料中写成机构预测；⑤2030相对2029的跳升含Dell’Oro新版预测上调造成的<b>版本断点</b>，不解释为有机同比增长；⑥情景增速假设（2030后 Bear 约5%、Base 约14%–15%、Bull 约17%–20%）是情景组合，不是逐年机构预测。</div>
+      <div class="callout risk"><b>情景失效条件（invalidate_if）：</b>Dell’Oro 新版预测偏离 2029 年 60–80亿美元区间；2027–2028 已获电投运或AI液冷采用显著落后；主流设备价格年降幅超过15%且无法由瓦数/配置增长抵消。任一成立即须重设端点，不得跨版本拼接旧序列。“2029 约70亿美元”锚 confidence 0.88、valid_until 2027-02-28。</div>
+
+      <h3>2.3 Dell’Oro 三个发布版本的隔离纪律</h3>
+      <table>
+        <thead><tr><th scope="col">公开摘要与日期</th><th scope="col">数字</th><th scope="col">边界</th><th scope="col">纪律</th></tr></thead>
+        <tbody>
+          <tr><td>July-2025 DCPI Forecast（摘要 2025-08-15）</td><td>DLC 2024E 11亿美元 → 2029F <b>58亿美元</b></td><td>全球 DLC 制造商收入子集</td><td>底层逐年表与方法为付费内容，不可见；不可当作全液冷</td></tr>
+          <tr><td>Liquid Cooling Advanced Research（摘要 2026-01-08）</td><td>全液冷 2025E 接近30亿美元 → 2029F <b>约70亿美元</b></td><td>全球 DLC + 浸没 + RDHx 制造商收入</td><td>独立研究；<b>70 − 58 不得视作浸没/RDHx 规模</b></td></tr>
+          <tr><td>January-2026 DCPI Forecast（摘要 2026-02-10）</td><td>DLC 2030F <b>超过80亿美元</b></td><td>全球 DLC 更新预测</td><td>预测上调/版本断点；<b>不是前两组的同版续表</b></td></tr>
+        </tbody>
+      </table>
+      <div class="callout risk"><b>明确禁止：</b>①禁止把 DLC 58亿美元 与全液冷 70亿美元 做“母子精确拆分”；②禁止用相减推导浸没、RDHx 或任何其他路线的规模；③禁止把 2030 DLC “超过80亿美元” 与 2029 全液冷 “约70亿美元” 连成一条连续年度曲线；④三个数字必须始终标注各自的发布版本与日期，单独引用任一数字时须同时说明其边界。</div>
+
+      <h3>2.4 TAM 与公司预算的隔离说明</h3>
+      <p><b>结论：行业 TAM 增长不能推导公司收入。</b>本BP在市场章节与财务/资金章节之间设置硬隔离，理由如下：</p>
+      <table>
+        <thead><tr><th scope="col">断点</th><th scope="col">为什么行业增长到不了公司收入</th><th scope="col">只能由什么解锁</th></tr></thead>
+        <tbody>
+          <tr><td>分母断点</td><td>TAM 是全球制造商收入，公司面对的是特定区域、特定客户、特定平台的可服务项目；两者不是比例关系</td><td>逐项目的项目池，而非行业总量乘份额</td></tr>
+          <tr><td>可交付断点</td><td>需求与在建管线不等于当年投运；JLL 称 2025 年 57% 项目延迟至少3个月、主要市场并网平均等待超过4年；C&amp;W 称全球大负荷平均供电周期4.4年</td><td>已获电、已融资、已开工、平台已冻结的批次</td></tr>
+          <tr><td>准入断点</td><td>不存在可公开验证的统一 CDU 认证；OEM 指定、整柜 BOM 与客户项目级 qualification 决定能否投标</td><td>具体OEM/整柜/客户的项目级 qualification 证据</td></tr>
+          <tr><td>价格断点</td><td>行业规模不含价格结构；招标预算、最高限价、候选、中标、合同与结算是六种不同价格，包价还含管路、工质、安装与深化</td><td>两个同边界、同工况、同冗余、同质保的分项合同价</td></tr>
+          <tr><td>现金断点</td><td>确认收入不等于回款；最终验收、PBG/履约保证、质保期与返修决定峰值资金</td><td>合同付款节点、验收主体与13周现金模型</td></tr>
+          <tr><td>模型断点</td><td>本BP的 2026–2028 与 2031–2032 TAM 值是 M 模型，本身带情景不确定性，不能作为预算基线</td><td>自下而上的项目池 × 有效ASP × 投运批次</td></tr>
+        </tbody>
+      </table>
+      <div class="formula">禁止：公司收入 = TAM × 目标份额
+禁止：公司收入 = (需求GW − 供给GW) × 单位设备价值
+禁止：SAM = 公告MW × 液冷渗透率 × 设备价值/MW
+唯一允许：SAM_24m = Σ(Eligible_i × 经验证项目收入_i × 24个月内投运开关_i)
+          SOM = SAM 中经 qualification、订单、产能、交付、服务与回款约束后的可获收入</div>
+      <p class="small">TAM 序列仅用于三件事：判断需求方向是否仍成立、为情景分析提供外部上下界、在反证监测中作为“行业下修”的先行指标。它不进入资金用途表、不进入门禁判据、不进入董事会收入预算。</p>
+
+      <h3>2.5 阶段1客户筛选</h3>
+      <table>
+        <thead><tr><th scope="col">客户</th><th scope="col">适配理由</th><th scope="col">进入硬门</th><th scope="col">No-Go</th></tr></thead>
+        <tbody>
+          <tr><td>中小云/实验集群</td><td>决策链可较短、定制价值高、容量适配50–200 kW</td><td>平台明确、付费PoC、预付款/信用保障、责任可封顶</td><td>免费无限PoC、平台反复变更、无最终验收人</td></tr>
+          <tr><td>区域IDC/存量改造</td><td>本地服务与水力改造能力可差异化</td><td>获电、现场勘察、一次/二次侧边界、停机窗口与SAT标准</td><td>设施条件不明、旧管路污染/压损责任全转嫁</td></tr>
+          <tr><td>运营商/OEM项目</td><td>可形成qualification资产，但周期长</td><td>正式RFQ/技术附件、收费或可转订单的验证、明确BOM</td><td>框架无订单、统一“认证”口头承诺、长账期无保障</td></tr>
+          <tr><td>东南亚/中东</td><td>高温、服务和本地化需求真实</td><td>接电、融资、在建、平台、本地EPC/备件、信用证/预付款</td><td>仅MoU/announced MW、GPU许可不清、无本地服务</td></tr>
+        </tbody>
+      </table>
+      <div class="formula">Eligible_i = Power_i × Finance_i × Build_i × Platform_i × ServiceGeo_i
+SAM_24m = Σ(Eligible_i × 经验证项目收入_i × 24个月内投运开关_i)
+任一项目门未闭环或有效ASP为NA：该项目不得货币化。</div>
+    </section>
+
+    <section id="s3">
+      <h2>3. OEM微笑曲线与价值链控制点</h2>
+      <h3>3.1 四种经营方式比较</h3>
+      <table>
+        <thead><tr><th scope="col">方式</th><th scope="col">适用对象</th><th scope="col">资本/速度</th><th scope="col">IP与质量控制</th><th scope="col">结论</th></tr></thead>
+        <tbody>
+          <tr><td><b>自制</b></td><td>应用控制算法、状态机、故障策略、标定、测试用例、系统架构</td><td>投入较高、迭代可控</td><td>最强；形成差异化数据</td><td>只对高战略、高IP、持续迭代能力采用</td></tr>
+          <tr><td><b>授权外协</b></td><td>BSW、协议栈、OS/驱动/通用库、整机制造</td><td>快、轻资产</td><td>需永久使用权/托管、版本冻结、审计、替代计划</td><td>阶段1主方式</td></tr>
+          <tr><td><b>联合开发</b></td><td>控制器硬件、特殊板换、冷板托盘/模组</td><td>共享NRE与专长</td><td>必须划分背景IP、前景IP、改进权与客户领域</td><td>有客户NRE/采购意向后采用</td></tr>
+          <tr><td><b>采购集成</b></td><td>泵阀、传感、VFD、PLC/IO、板换、UQD、钣金、线束</td><td>最快、规模经济最好</td><td>通过规格、AVL、PCN、双源和来料/FAT控制</td><td>标准件优先</td></tr>
+        </tbody>
+      </table>
+      <h3>3.2 价值控制点</h3>
+      <ul>
+        <li><b>需求权：</b>公司签署客户URS、偏离表和责任矩阵，供应商不得直接改需求。</li>
+        <li><b>架构权：</b>公司拥有P&amp;ID、控制架构、接口规范、失效域和DVP主文件。</li>
+        <li><b>版本权：</b>硬件BOM、控制应用、BSW、参数集和测试用例形成可追溯配置基线。</li>
+        <li><b>变更权：</b>任何ECR/ECO/PCN经工程、质量、供应链批准；安全关键变更需回归测试和客户批准。</li>
+        <li><b>放行权：</b>制造商执行FAT，公司质量负责人最终签署；未经签署不得贴牌或发货。</li>
+        <li><b>数据权：</b>在合法合规和客户授权范围内，公司取得遥测、故障、维修和验证数据的使用权。</li>
+        <li><b>客户权：</b>报价、合同、品牌、售后诊断和召回由公司控制；制造商不得绕开客户。</li>
+      </ul>
+      <div class="callout"><b>轻资产的真实代价：</b>固定CapEx下降，但供应商毛利、NRE、MOQ、关键件预付款、质量工程、供应商审核、库存缓冲、软件许可、托管、保险和合同管理成本上升。微笑曲线不是“少做事”，而是把资源从加工转向规格、验证、责任与数据。</div>
+    </section>
+
+    <section id="s4">
+      <h2>4. Operating Model / RACI</h2>
+      <p class="small">R=执行；A=最终负责/签署；C=协商；I=知会。每项仅一个A。</p>
+      <table>
+        <thead><tr><th scope="col">活动</th><th scope="col">产品</th><th scope="col">研发/系统</th><th scope="col">供应链</th><th scope="col">质量</th><th scope="col">制造商</th><th scope="col">BSW供应商</th><th scope="col">EPC/服务</th></tr></thead>
+        <tbody>
+          <tr><td>客户URS/平台边界</td><td><b>A/R</b></td><td>C</td><td>I</td><td>C</td><td>I</td><td>I</td><td>C</td></tr>
+          <tr><td>系统架构/P&amp;ID/接口</td><td>C</td><td><b>A/R</b></td><td>C</td><td>C</td><td>C</td><td>C</td><td>C</td></tr>
+          <tr><td>应用控制/状态机/故障降级</td><td>C</td><td><b>A/R</b></td><td>I</td><td>C</td><td>C</td><td>C</td><td>I</td></tr>
+          <tr><td>BSW/协议栈/漏洞修复</td><td>I</td><td><b>A</b></td><td>C</td><td>C</td><td>I</td><td><b>R</b></td><td>I</td></tr>
+          <tr><td>供应商选择/关键件批准</td><td>C</td><td>C</td><td><b>R</b></td><td><b>A</b></td><td>I</td><td>I</td><td>I</td></tr>
+          <tr><td>APQP/NPI/过程控制</td><td>I</td><td>C</td><td>C</td><td><b>A</b></td><td><b>R</b></td><td>I</td><td>I</td></tr>
+          <tr><td>设计冻结/ECO/PCN</td><td>C</td><td><b>A</b></td><td>R</td><td>R</td><td>C</td><td>C</td><td>I</td></tr>
+          <tr><td>装配、过程检验、序列化</td><td>I</td><td>I</td><td>C</td><td><b>A</b></td><td><b>R</b></td><td>I</td><td>I</td></tr>
+          <tr><td>FAT执行/最终放行</td><td>I</td><td>C</td><td>I</td><td><b>A</b></td><td><b>R</b></td><td>C</td><td>I</td></tr>
+          <tr><td>SAT/ISAT/现场服务</td><td>C</td><td>C</td><td>I</td><td><b>A</b></td><td>C</td><td>C</td><td><b>R</b></td></tr>
+          <tr><td>重大故障/停发/召回</td><td>C</td><td>R</td><td>C</td><td><b>A</b></td><td>R</td><td>R</td><td>R</td></tr>
+          <tr><td>客户合同/产品责任</td><td><b>R</b></td><td>C</td><td>C</td><td>C</td><td>I</td><td>I</td><td>C</td></tr>
+        </tbody>
+      </table>
+      <div class="callout ok"><b>最终放行：</b>质量负责人是FAT放行和质量偏离的唯一A；CTO/系统负责人是架构与应用控制版本的唯一A；CEO/授权商务负责人是客户合同和责任接受的唯一A。制造商、BSW供应商或EPC均不得替代公司最终签署。</div>
+    </section>
+
+    <section id="s5">
+      <h2>5. Make-or-buy矩阵</h2>
+      <p>评分1（低）—5（高）；“战略/IP/质量”越高越倾向自留，“规模/可替代/资本”越高越倾向采购或外协。评分是本BP管理判断，G1/G2按数据复盘。</p>
+      <table>
+        <thead><tr><th scope="col">对象</th><th class="num" scope="col">战略</th><th class="num" scope="col">IP敏感</th><th class="num" scope="col">质量风险</th><th class="num" scope="col">供应商规模经济</th><th class="num" scope="col">可替代</th><th class="num" scope="col">资本强度</th><th scope="col">结论</th><th scope="col">复盘触发</th></tr></thead>
+        <tbody>
+          <tr><td>系统架构/热工水力/接口</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">1</td><td class="num">1</td><td class="num">2</td><td><b>内部拥有</b></td><td>仅可补充专家，不外包最终裁决</td></tr>
+          <tr><td>应用控制算法/状态机/标定/测试</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">2</td><td class="num">1</td><td class="num">2</td><td><b>内部或完整IP受让</b></td><td>核心人才不足时允许定向开发，但须源码/IP移交</td></tr>
+          <tr><td>PLC/IO/VFD/控制器硬件</td><td class="num">3</td><td class="num">2</td><td class="num">4</td><td class="num">5</td><td class="num">3</td><td class="num">4</td><td>采购/联合设计，双平台</td><td>单一厂商占比、停产、交期或出口限制触发替代</td></tr>
+          <tr><td>BSW/OS/驱动/协议栈/通用库</td><td class="num">3</td><td class="num">3</td><td class="num">5</td><td class="num">5</td><td class="num">2</td><td class="num">3</td><td>授权外购+源码托管</td><td>SLA违约、许可证变化、漏洞超期、并购/破产</td></tr>
+          <tr><td>泵/板换/阀/传感/UQD</td><td class="num">3</td><td class="num">2</td><td class="num">5</td><td class="num">5</td><td class="num">3</td><td class="num">5</td><td>AVL采购+关键件双源</td><td>故障率、PCN、成本/交期、材料兼容变化</td></tr>
+          <tr><td>钣金/机加/管路/线束/电控柜</td><td class="num">2</td><td class="num">2</td><td class="num">4</td><td class="num">5</td><td class="num">4</td><td class="num">5</td><td>图纸受控外协</td><td>一次通过率、泄密、交期、变更失控</td></tr>
+          <tr><td>PCBA/整机装配制造</td><td class="num">3</td><td class="num">3</td><td class="num">5</td><td class="num">5</td><td class="num">3</td><td class="num">5</td><td>授权制造商/EMS</td><td>量产规模、良率、客户原产地要求；不自动内制</td></tr>
+          <tr><td>FAT方法/qualification/最终质量</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">2</td><td class="num">1</td><td class="num">3</td><td><b>内部拥有和签署</b></td><td>第三方可执行测试，不能外包最终责任</td></tr>
+          <tr><td>冷板托盘/液冷模组</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">4</td><td class="num">2</td><td class="num">5</td><td>阶段3联合开发</td><td>NRE、采购意向、热输入、IP边界、良率齐备后再决策</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="s6">
+      <h2>6. 供应商、制造与IP治理</h2>
+      <h3>6.1 供应商全生命周期</h3>
+      <table>
+        <thead><tr><th scope="col">阶段</th><th scope="col">机制</th><th scope="col">强制输出</th><th scope="col">停止条件</th></tr></thead>
+        <tbody>
+          <tr><td>准入</td><td>能力/财务/质量/网络安全/制裁与出口审查；现场审核</td><td>批准供应商名录、风险等级、分包商清单、审计权</td><td>隐瞒分包、无法追溯、拒绝审计</td></tr>
+          <tr><td>APQP/NPI</td><td>DFMEA/PFMEA、控制计划、特殊特性、工装与测试策划</td><td>试制计划、量具能力、材料/焊接/清洁度方案</td><td>关键特性无检测能力</td></tr>
+          <tr><td>FAI/PPAP（按适用性）</td><td>首件尺寸/材料/性能；量产过程批准；非汽车项目不机械套表</td><td>FAI、PSW或等效批准、序列化BOM、COA、Golden Sample</td><td>设计记录与过程能力不一致</td></tr>
+          <tr><td>量产</td><td>来料、过程、EOL/FAT、批次追溯、一次通过率与8D</td><td>检验记录、校准、偏离批准、月度供应商评分</td><td>重大缺陷或未授权变更：隔离、停发、审计</td></tr>
+          <tr><td>变更/退出</td><td>ECR/ECO、PCN提前通知、末次采购、工装/数据移交</td><td>影响分析、回归DVP、替代源、灾备和step-in计划</td><td>未经批准变更视为重大违约</td></tr>
+        </tbody>
+      </table>
+      <h3>6.2 合同与资产归属清单</h3>
+      <ul>
+        <li>公司拥有或控制：产品规格、图纸/P&amp;ID、应用软件、参数、测试用例、FAT程序、客户专用数据、品牌、序列号和质量档案。</li>
+        <li>模具、工装、专用测试夹具明确付款方、所有权、保管地、维护、保险、盘点、迁移和破产隔离。</li>
+        <li>供应商必须披露背景IP、第三方软件、开源组件与许可证；不得将客户/公司资料用于训练、营销或竞品。</li>
+        <li>设置保密、成果归属、有限竞业/客户绕开、禁止挖角、分包限制、审计、灾备、交付连续性和step-in rights；适用性由律师审查。</li>
+        <li>关键件双源不是“两个品牌名”，而是第二来源完成材料兼容、性能、控制、FAT和客户批准。</li>
+      </ul>
+      <h3>6.3 BSW与软件供应链</h3>
+      <table>
+        <thead><tr><th scope="col">对象</th><th scope="col">最低权利/控制</th><th scope="col">退出与替代</th></tr></thead>
+        <tbody>
+          <tr><td>BSW/OS/驱动/协议栈</td><td>永久、全球、产品内嵌、可复制部署和售后使用；变更/维护权边界明确；禁止不可接受的转授权限制</td><td>源码托管触发：破产、停止维护、重大SLA违约、控制权变化、出口/许可不可用</td></tr>
+          <tr><td>版本与漏洞</td><td>版本冻结、SBOM、CVE通知、严重度分级、补丁/缓解SLA、签名构建和可复现交付</td><td>双版本支持；替代供应商；硬件抽象层与接口隔离；迁移演练</td></tr>
+          <tr><td>开源/第三方</td><td>许可证清单、copyleft审查、出口/加密审查、无已知高危漏洞声明</td><td>不合规组件替换义务与成本归属；不得用免责声明掩盖产品责任</td></tr>
+          <tr><td>应用控制</td><td>公司内部拥有；若委托开发则书面IP受让、源码/构建链/测试/文档完整移交，或取得永久可转授权权利</td><td>公司可独立维护、修改、迁移和授权制造商使用</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><b>依据：</b>WIPO指出外包软件IP在多法域下不会自动归委托方，应通过书面受让或充分许可明确；NIST SP 800-161建议对软件供应链实施供应商风险、SBOM和漏洞管理；ISO 9001外部过程指导明确外包后组织仍须控制并承担满足要求的责任。</div>
+    </section>
+
+    <section id="s7">
+      <h2>7. 产品与技术路线</h2>
+      <h3>7.1 CDU+控制系统分层</h3>
+      <table>
+        <thead><tr><th scope="col">层级</th><th scope="col">内容</th><th scope="col">权属/采购策略</th><th scope="col">验收证据</th></tr></thead>
+        <tbody>
+          <tr><td>执行硬件</td><td>PLC/控制器、IO、VFD、HMI、传感器、网络模块</td><td>采购或联合设计；至少两套迁移路线</td><td>EMC/安规、IO故障、掉电/重启、环境与寿命</td></tr>
+          <tr><td>基础软件</td><td>OS、驱动、协议栈、通用库、设备适配</td><td>授权外购；托管、冻结、SBOM、SLA</td><td>许可证、漏洞、接口、性能、回归测试</td></tr>
+          <tr><td>应用控制</td><td>泵/阀控制、温压流状态机、故障降级、冗余切换、告警联锁、标定</td><td><b>公司拥有或永久可转授权</b></td><td>模型在环/硬件在环、故障注入、DVP、代码审查</td></tr>
+          <tr><td>数据/诊断</td><td>数字孪生、健康评分、远程诊断、版本/配置、服务知识库</td><td><b>公司拥有</b>；客户数据按合同和法规使用</td><td>数据字典、网络安全、访问控制、告警准确性、恢复演练</td></tr>
+        </tbody>
+      </table>
+      <h3>7.2 平台兼容判定</h3>
+      <div class="formula">L_design = RackCount × P_IT × HCR × PeakFactor
+C_effective = C_curve(ATD,TCS,FWS,fluid,pump_state) × altitude_derating × fouling_derating
+同时满足：热负荷、Q–ΔP、工质/材料、水质、最大压力、冗余失效域、过滤污堵、控制接口、qualification。</div>
+      <table>
+        <thead><tr><th scope="col">容量段</th><th scope="col">阶段定位</th><th scope="col">当前状态</th><th scope="col">必须发布</th></tr></thead>
+        <tbody>
+          <tr><td>50–200 kW</td><td>阶段1优先；存量改造、实验/小集群、单柜/小Pod</td><td>工程定义；兼容平台/柜数不得预先承诺</td><td>ATD 3/4/5/8℃ × 水/PG25 × N/N+1 × clean/dirty filter矩阵</td></tr>
+          <tr><td>200–500 kW</td><td>阶段2；Pod/Row模块、冗余并联</td><td>G1后开发；300/450 kW可先作为报价/工程模板</td><td>并联稳定、故障域、反流/水锤、控制协调、服务性</td></tr>
+          <tr><td>冷板托盘/模组</td><td>阶段3客户牵引</td><td>条件期权</td><td>冷板+支撑/歧管/快接/传感/装配/测试接口的完整边界</td></tr>
+        </tbody>
+      </table>
+      <h3>7.3 冷板托盘定义与进入条件</h3>
+      <p><b>产品边界：</b>面向指定服务器/节点的冷板、机械支撑、歧管、UQD/软管、传感、线束、装配定位、防呆、泄漏/压力/流阻/热性能测试接口及可追溯数据。它不当然包含PCB，也不等于封装内嵌或硅内嵌微流道。</p>
+      <div class="callout risk"><b>阶段3一票否决：</b>无客户NRE或等效共同投入；无书面采购意向/最低批次；无芯片/封装热设计输入；背景IP/前景IP/改进IP与量产使用权不清；责任不可保不可封顶；专用产线无法由订单覆盖。任一成立即不自建重资产产线。</div>
+      <p class="small">先进冷板（封装内嵌/硅内嵌微流道、金刚石扩热）仍为研究路线：公开证据不足以支持量产时点、良率、寿命或专利壁垒点值，本BP不给任何时间表点值。</p>
+    </section>
+
+    <section id="s8">
+      <h2>8. 商业模式、GTM与qualification</h2>
+      <h3>8.1 收入线与价值主张</h3>
+      <table>
+        <thead><tr><th scope="col">收入线</th><th scope="col">收费对象</th><th scope="col">价值</th><th scope="col">当前经济状态</th></tr></thead>
+        <tbody>
+          <tr><td>CDU设备</td><td>按冻结配置/工况/冗余报价</td><td>受控OEM制造+内部应用控制+质量签署</td><td><span class="tag na">ASP/毛利 NA</span></td></tr>
+          <tr><td>NRE/qualification</td><td>平台适配、样机、专项DVP、接口与客户验证</td><td>避免免费定制；覆盖不可复用工程</td><td><span class="tag na">待客户合同</span></td></tr>
+          <tr><td>系统集成</td><td>Manifold/UQD/管路/工质/BMS/DCIM/安装调试</td><td>单一责任界面和现场能力</td><td><span class="tag na">项目化</span></td></tr>
+          <tr><td>服务/软件</td><td>远程诊断、巡检、备件、延保、版本维护</td><td>运行数据、可用性和快速定位</td><td><span class="tag na">待装机量/SLA验证</span></td></tr>
+          <tr><td>联合开发/授权</td><td>冷板托盘、液冷模组、客户专用IP</td><td>高价值工程与量产许可</td><td><span class="tag na">阶段3条件期权</span></td></tr>
+        </tbody>
+      </table>
+      <h3>8.2 项目级qualification链</h3>
+      <div class="formula">平台/BOM冻结 → TCS/FWS与Q–ΔP对齐 → 材料/压力/泄漏/遥测/冗余验证
+→ DVT/PVT或付费PoC → FAT → 安装联调 → SAT/ISAT → 最终验收 → 项目BOM/订单 → 质保数据回灌</div>
+      <p>截至2026-08-22，公开证据不足以验证统一“NVIDIA/华为CDU认证”或完整公开AVL。NPN是伙伴网络，NVIDIA-Certified Systems面向整机；华为存在公司级供应商体系与项目物料选型流程。所有营销材料只可写具体项目、具体平台、具体版本的qualification状态。</p>
+      <h3>8.3 报价清单</h3>
+      <ul>
+        <li>不含税净设备价、NRE、选配、备件、安装/SAT、第三方测试、运保税费逐项分列。</li>
+        <li>明确额定工况、工质、冗余、控制/通信、边界点、FAT/SAT、交付物、偏离项与有效期。</li>
+        <li>明确付款、验收主体、发票、PBG/保函、质保、SLA、LD、变更计价、暂停/终止和知识产权。</li>
+        <li>明确漏液、失流、水质、一次/二次侧、IT设备、网络安全、数据/停机损失、第三方索赔、责任上限与保险。</li>
+        <li>价格证据分级：预算 / 最高限价 / 候选 / 中标 / 合同 / 结算六类严格分列，包价不得除以台数当作裸机ASP。</li>
+      </ul>
+    </section>
+
+    <section id="s9">
+      <h2>9. 项目单位经济与情景模型</h2>
+      <h3>9.1 利润—现金桥</h3>
+      <div class="formula">净收入 = 不含税已验收设备/项目收入 + NRE + 服务 − 折扣/返利/预计变更
+项目贡献 = 净收入 − BOM − 制造/FAT − 安装/SAT − 物流/税/保险 − 渠道/EPC − 质保 − 坏账/LD
+EBIT = Σ项目贡献 − 平台固定研发 − 通用认证 − 销售管理固定费用 − 折旧摊销
+经营现金 = EBIT + 非现金费用 − 税 − 营运资金增加 − 质保/索赔现金
+自由经营现金 = 经营现金 − CapEx
+峰值资金 = MAX(0, 最低现金缓冲 − MIN(累计周度现金))</div>
+      <h3>9.2 四SKU经济底表</h3>
+      <table>
+        <thead><tr><th scope="col">字段</th><th scope="col">100 kW</th><th scope="col">200 kW</th><th scope="col">300 kW</th><th scope="col">450 kW</th><th scope="col">解锁证据</th></tr></thead>
+        <tbody>
+          <tr><td>额定工况/Q–ΔP/工质/冗余</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>客户RFQ+样机性能矩阵</td></tr>
+          <tr><td>CDU净ASP</td><td>ASP100</td><td>ASP200</td><td>ASP300</td><td>ASP450</td><td>至少两个同边界合同/成交价</td></tr>
+          <tr><td>BOM/制造/FAT</td><td>询价/实测</td><td>询价/实测</td><td>询价/实测</td><td>询价/实测</td><td>每类双报价+至少三批试制</td></tr>
+          <tr><td>项目可变成本</td><td>项目化</td><td>项目化</td><td>项目化</td><td>项目化</td><td>合同、服务商、物流、保险报价</td></tr>
+          <tr><td>贡献率/ROIC/盈亏平衡</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>以上输入及固定成本全部解锁</td></tr>
+        </tbody>
+      </table>
+      <p class="small">四SKU 之间<b>不得</b>用容量线性插值生成 ASP、BOM 或毛利；市场章节的TAM情景<b>不得</b>作为任何一格的替代输入。</p>
+      <h3>9.3 Base / Bull / Bear联动框架</h3>
+      <table>
+        <thead><tr><th scope="col">驱动</th><th scope="col">Bear</th><th scope="col">Base</th><th scope="col">Bull</th><th scope="col">当前值</th></tr></thead>
+        <tbody>
+          <tr><td>订单/项目</td><td>仅不可撤销最低批次；认证延迟</td><td>合格项目主批次按书面排程</td><td>仅有书面提前批次可上调</td><td><span class="tag na">NA</span></td></tr>
+          <tr><td>ASP</td><td>经验证区间低位+价格压力</td><td>同边界合同中位</td><td>有增配/服务证据的高位</td><td><span class="tag na">NA</span></td></tr>
+          <tr><td>贡献毛利</td><td>FAT返工、价格降、质保/服务上升</td><td>标准BOM与正常一次通过率</td><td>双源降本和NRE充分回收</td><td><span class="tag na">NA</span></td></tr>
+          <tr><td>认证/qualification</td><td>延迟6–12个月</td><td>按客户书面计划</td><td>不得无证据提前</td><td><span class="tag na">NA</span></td></tr>
+          <tr><td>DSO/库存</td><td>验收+90天、框架兑现下降、关键件预付</td><td>按合同里程碑周模型</td><td>预付款/供应商账期改善</td><td><span class="tag na">NA</span></td></tr>
+          <tr><td>质量事故</td><td>批次隔离、现场整改、免赔额/LD/索赔</td><td>正常质保准备</td><td>不可假设为0</td><td><span class="tag na">NA</span></td></tr>
+          <tr><td>CapEx/现金余额</td><td>冻结非关键CapEx和招聘</td><td>门禁分批释放</td><td>订单覆盖且压力现金安全后加速</td><td><span class="tag na">需13周模型</span></td></tr>
+        </tbody>
+      </table>
+      <p class="small"><b>与市场情景表的关系：</b>本表的 Bear/Base/Bull 是<b>公司项目侧</b>情景，输入是订单、合同价、试制与回款；第2.2节的 Bear/Base/Bull 是<b>外部市场</b>情景。两套情景同名但不同边界，不得互相代入，也不得用市场Bull解锁公司Bull。</p>
+      <div class="callout risk"><b>质量事故敏感性：</b>每个项目必须至少跑“单台返工、一次FAT失败、一次现场整改、批次召回、重大漏液直接财产损失”五档；保险赔款不得在确认承保范围、免赔额和除外责任前视为现金流入。</div>
+      <h3>9.4 OEM模式核心KPI</h3>
+      <p>项目贡献率、NRE回收率、现金转换周期/峰值资金、质保成本率、FAT一次通过率、准时交付率、供应商集中度、软件许可/NRE摊销、ROIC、重大缺陷关闭周期。实际数据均为<span class="tag na">NA</span>，分别以首个合同、三批试制、首个完整质保批次和月度三表解锁。</p>
+    </section>
+
+    <section id="s10">
+      <h2>10. 资本效率与资金用途</h2>
+      <p class="lead">800/1,200/1,500万元是阶段现金上限，不是一次性承诺、融资估值或必须花完的预算。后两阶段由客户预付款/NRE、经营回款和共享资源优先抵减。阶段上限与外部TAM无关，不因市场情景上修而调整。</p>
+      <table>
+        <thead><tr><th scope="col">用途（万元）</th><th class="num" scope="col">阶段1 上限800</th><th class="num" scope="col">阶段2 最高1,200</th><th class="num" scope="col">阶段3 最高1,500</th><th scope="col">自下而上依据</th></tr></thead>
+        <tbody>
+          <tr><td>核心团队与专项工程</td><td class="num">220</td><td class="num">300</td><td class="num">350</td><td>轻核心团队全成本+短期专项，不建设重复职能</td></tr>
+          <tr><td>产品NRE/软件/IP</td><td class="num">115</td><td class="num">180</td><td class="num">0</td><td>阶段3并入冷板NRE；合同后按里程碑付款</td></tr>
+          <tr><td>样机/物料/工装或冷板NRE</td><td class="num">130</td><td class="num">170</td><td class="num">310</td><td>阶段1聚焦100/200 kW代表样机；阶段3含冷板工装</td></tr>
+          <tr><td>测试/认证/客户验证</td><td class="num">95</td><td class="num">140</td><td class="num">200</td><td>优先租赁、共享、第三方；客户专项尽量由NRE覆盖</td></tr>
+          <tr><td>供应商NPI/授权制造</td><td class="num">50</td><td class="num">120</td><td class="num">120</td><td>审核、FAI/PPAP、治具、双源、质量驻厂</td></tr>
+          <tr><td>PoC/订单营运资金</td><td class="num">110</td><td class="num">250</td><td class="num">300</td><td>仅用于已签项目；按周峰值模型，拒绝长期无担保垫资</td></tr>
+          <tr><td>保险/法务/网络安全/服务</td><td class="num">30</td><td class="num">40</td><td class="num">80</td><td>产品责任、合同、软件供应链、区域服务</td></tr>
+          <tr><td>董事会预备金</td><td class="num">50</td><td class="num">—</td><td class="num">140</td><td>阶段2预备金含在项目周转审批；动用须专项说明</td></tr>
+          <tr class="total"><td>阶段上限</td><td class="num">800</td><td class="num">1,200</td><td class="num">1,500</td><td>阶段2/3为条件期权</td></tr>
+        </tbody>
+      </table>
+      <p class="small">注：阶段2的项目周转250万元中包含最高100万元的董事会机动缓冲，未动用不得转作招聘或固定资产；具体科目须在G1时以供应商报价、人员offer、测试报价和项目现金表重新核定。</p>
+      <h3>10.1 现金管理与资本释放</h3>
+      <ul>
+        <li>每周更新13周现金：期初现金、客户里程碑、供应商付款、工资税费、NRE、FAT/SAT、保函、保险、CapEx和最低缓冲。</li>
+        <li>按“下一关键证据所需现金+已签项目峰值资金”释放，不按年度预算平均拨付。</li>
+        <li>现金安全线由董事会批准；未批准前，最低要求是压力情景下覆盖至下一门禁决策日，不使用“期末现金”替代年内最低现金。</li>
+        <li>新增固定CapEx不得领先不可撤销订单和qualification超过两个季度；专用库存覆盖原则上不超过已签交付窗口。</li>
+        <li>资金释放判据只接受项目侧证据（订单、合同价、试制、回款）；行业TAM或情景表不构成任何释放理由。</li>
+      </ul>
+      <div class="callout warn"><b>跑道状态：</b>由于实际人员offer、供应商付款、客户预付款和项目时点尚未取得，当前现金跑道为NA。任何“800万元可支撑X个月”的表述，须在G0以逐月预算和13周现金模型解锁。</div>
+    </section>
+
+    <section id="s11">
+      <h2>11. 团队激励与资本股东平衡</h2>
+      <h3>11.1 三种组织形态</h3>
+      <table>
+        <thead><tr><th scope="col">方案</th><th scope="col">适用条件</th><th scope="col">团队激励</th><th scope="col">资本/治理</th><th scope="col">主要风险</th></tr></thead>
+        <tbody>
+          <tr><td><b>内部事业部</b></td><td>母公司客户、品牌、供应链和资金贡献最大；商业模式未验证</td><td>现金递延、项目奖金、虚拟股权/跟投收益权（依法税务落地）</td><td>预算制；母公司保留IP和重大事项</td><td>团队上行不足、内部资源定价不透明</td></tr>
+          <tr><td><b>控股子公司/合资平台</b></td><td>需隔离责任、引入产业伙伴/团队持股；资源与IP可清晰许可</td><td>受限股权/期权/持股平台，分层归属</td><td>董事会、保留事项、关联交易和IP许可必须清晰</td><td>股东冲突、关联交易、死锁与IP归属</td></tr>
+          <tr><td><b>独立创业公司融资</b></td><td>团队承担完整创业风险，外部资本和客户可独立进入，母公司边界可切割</td><td>创始/核心团队长期股权，里程碑增量激励</td><td>标准融资治理、信息权、优先权与董事会监督</td><td>估值/稀释、母公司资源授权、竞业与客户冲突</td></tr>
+        </tbody>
+      </table>
+      <p><b>选择顺序：</b>G0前先以内部事业部验证；若客户责任隔离、外部资本/产业伙伴或团队长期激励成为必要，再比较控股子公司与独立公司。不得由800万元预算机械反推估值、股权比例或cap table。</p>
+      <h3>11.2 激励原则</h3>
+      <ul>
+        <li>激励池规模、对象和授予价格保持<span class="tag na">待股东会/估值/法律税务确认</span>；按岗位稀缺性、持续贡献、现金投入和风险承担分层。</li>
+        <li>4年归属+1年cliff仅作市场化示例，不是既定方案；研发、商业、质量和经营负责人可设置不同绩效权重。</li>
+        <li>里程碑股/期权不得只挂营收：至少联动回款、项目贡献、FAT一次通过、重大可靠性、客户集中、现金安全和合规。</li>
+        <li>good leaver/bad leaver、死亡/伤残、无过错解除、回购价格、已归属/未归属处理、竞业补偿、保密和IP归属由律师设计；避免惩罚性回购或明显不可执行条款。</li>
+        <li>销售激励以回款和项目贡献为基准；重大质量/合规事件可递延或追回，具体机制须合法且可执行。</li>
+      </ul>
+      <h3>11.3 投资人保护与谈判边界</h3>
+      <table>
+        <thead><tr><th scope="col">工具</th><th scope="col">合理目的</th><th scope="col">谈判边界</th></tr></thead>
+        <tbody>
+          <tr><td>董事席位/观察员</td><td>监督资本与重大风险</td><td>不介入日常产品、用人和客户执行；避免单方事实否决经营</td></tr>
+          <tr><td>保留事项</td><td>预算超支、关联交易、重大CapEx、债务/担保、IP处置、新融资、并购清算</td><td>设金额/重要性阈值、响应时限和紧急授权；不把普通采购纳入</td></tr>
+          <tr><td>信息权</td><td>月报、季报、年度预算、重大事故</td><td>保护客户NDA、个人信息和竞争敏感数据</td></tr>
+          <tr><td>优先认购/反稀释</td><td>保护后续融资权益</td><td>原则性选择；避免全额棘轮等过度惩罚，保留员工池和战略融资空间</td></tr>
+          <tr><td>清算优先</td><td>下行保护</td><td>仅列可选框架；倍数、是否参与、上限和转换由融资谈判决定</td></tr>
+          <tr><td>创始人/核心团队归属</td><td>长期绑定与离职公平</td><td>已贡献价值、good leaver和控制权变更加速须平衡</td></tr>
+        </tbody>
+      </table>
+      <div class="callout risk"><b>法律提示：</b>以上不是确定法律意见。公司法、劳动/竞业、税务、外汇、国资、数据、证券与境外投资规则随组织形态和投资人而变；应由中国律师、税务顾问及必要的境外律师落地。NVCA模型文件仅作为条款结构参考，不直接适用于中国公司。</div>
+      <h3>11.4 “经营自主权—资本监督”双清单</h3>
+      <div class="grid">
+        <div class="card"><b>管理层权限</b><small>在批准预算/编制/合同模板/风险限额内：产品迭代、供应商日常、定价折扣、招聘与绩效、普通采购、项目排期、服务和营销。</small></div>
+        <div class="card"><b>董事会保留</b><small>年度预算及超支、阶段资金、重大CapEx、重大责任偏离、关联交易、担保债务、IP出售/排他许可、组织重组、股权融资、核心激励和重大诉讼/事故。</small></div>
+        <div class="card"><b>共同规则</b><small>阈值和时限写入章程/授权表；紧急停发/召回由质量负责人先行动、后报告；日常经营不需逐项董事批准。</small></div>
+      </div>
+    </section>
+
+    <section id="s12">
+      <h2>12. 董事会G0–G3门禁</h2>
+      <table>
+        <thead><tr><th scope="col">门禁</th><th scope="col">工程</th><th scope="col">商业</th><th scope="col">质量</th><th scope="col">责任</th><th scope="col">现金</th><th scope="col">组织</th></tr></thead>
+        <tbody>
+          <tr><td><b>G0 立项/首笔</b></td><td>50–200 kW URS、架构、DVP、物理样机范围冻结</td><td>≥2个书面客户需求；至少1个付费PoC/NRE路径</td><td>质量负责人到位；关键特性与FAT计划</td><td>标准合同责任矩阵、保险询价、供应商追偿模板</td><td>800上限内逐月预算+13周现金；跑道阈值经董事会批准</td><td>核心FTE≤8的建议上限；关键岗位明确</td></tr>
+          <tr><td><b>G1 阶段2前</b></td><td>代表样机全工况矩阵、故障注入和可靠性计划通过</td><td>≥2付费验证；两个同边界合同价；回款闭环；项目贡献可计算且为正</td><td>四SKU BOM；关键件双源；三批试制或等效批次；无开放重大缺陷</td><td>客户责任可保可封顶；供应商质量/IP/BSW合同签署</td><td>压力情景不突破现金安全线；峰值资金可覆盖</td><td>职责/RACI有效；阶段2编制建议上限≤14</td></tr>
+          <tr><td><b>G2 阶段3前</b></td><td>200–500 kW/Pod并联、远程诊断和客户qualification证据</td><td>不可撤销订单/最低采购；至少1个OEM/ODM书面项目认可</td><td>批量一致性、现场故障和质保率可测；第三方测试完成</td><td>本地服务、网络安全、保险和跨境合规闭环</td><td>现金调整后贡献持续为正；DSO/库存在董事会阈值内</td><td>授权制造商/服务体系；阶段3编制建议上限≤20</td></tr>
+          <tr><td><b>G3 专用产能/规模</b></td><td>冷板托盘DVT/PVT与良率稳定</td><td>NRE、采购意向、热输入、IP边界及订单覆盖新增固定成本</td><td>量产过程批准、追溯、召回与备件体系</td><td>产品责任可保、可封顶、可追偿；重大事故为零或已关闭</td><td>Bear情景下仍满足现金安全线与ROIC门</td><td>关键团队稳定、股东机制无实质死锁</td></tr>
+        </tbody>
+      </table>
+      <div class="callout risk"><b>强制动作：</b>任一硬门未达，自动冻结下一期资金、新增编制、专用库存和非关键CapEx；管理层只能申请整改预算。董事会不得以“融资到账、框架入围、展示样机、行业景气或外部TAM上修”替代门禁证据。</div>
+    </section>
+
+    <section id="s13">
+      <h2>13. 风险、反证与监测</h2>
+      <table>
+        <thead><tr><th scope="col">风险</th><th scope="col">先行指标</th><th scope="col">内部阈值/动作</th><th scope="col">责任人</th><th scope="col">复盘</th></tr></thead>
+        <tbody>
+          <tr><td>OEM/制造商失效</td><td>OTD、一次通过、财务/人员、未授权变更</td><td>重大未授权变更或连续两批重大缺陷：停发、隔离、step-in/转移</td><td>供应链/质量</td><td>月度</td></tr>
+          <tr><td>BSW漏洞/许可证</td><td>CVE、SBOM差异、SLA、许可证/出口变化</td><td>高危无缓解或SLA超期：冻结版本/断开远程面/启动迁移</td><td>CTO/安全</td><td>双周</td></tr>
+          <tr><td>IP泄露/OEM绕单</td><td>异常图纸访问、客户直接接触、相似产品</td><td>证据触发审计、停供敏感资料、保全与法律处置</td><td>法务/产品</td><td>月度</td></tr>
+          <tr><td>客户集中</td><td>单一客户订单、应收、专用库存占比</td><td>超过董事会批准阈值：不得新增专用CapEx，要求最低采购/预付款</td><td>CEO/CFO</td><td>月度</td></tr>
+          <tr><td>量产良率/交付</td><td>FAT一次通过、返工、供应商OTD</td><td>重大缺陷或趋势恶化：停线8D；未关闭前不扩批</td><td>质量/制造</td><td>每批</td></tr>
+          <tr><td>漏液/失流/GPU损害</td><td>告警、压力/水质、现场事件、near miss</td><td>重大事件：立即停发、隔离批次、通知保险/客户、8D与召回评估</td><td>质量负责人</td><td>即时</td></tr>
+          <tr><td>保险不足</td><td>除外、免赔、地区/产品/合同责任覆盖</td><td>合同责任超过可承保范围：No-Go或专项董事批准</td><td>CFO/法务</td><td>每合同</td></tr>
+          <tr><td>并网/项目延期</td><td>接电、NTP、施工、平台交付</td><td>缺电力/开工/平台任两项：移出24个月SAM，不备专用料</td><td>销售/项目</td><td>月度</td></tr>
+          <tr><td>价格下行</td><td>同工况合同价与完全成本</td><td>现金调整后贡献持续为负：停报价/重设计；不以收入换规模</td><td>CFO/产品</td><td>月度</td></tr>
+          <tr><td>现金周期</td><td>周度最低现金、DSO、库存、PBG、验收延期</td><td>触及董事会安全线：冻结非必要采购、招聘和CapEx</td><td>CFO</td><td>每周</td></tr>
+          <tr><td>核心团队离职</td><td>关键岗位覆盖、文档/代码单点、敬业度</td><td>关键模块无双人覆盖：禁止发布；启动交接/继任</td><td>CEO/HR</td><td>月度</td></tr>
+          <tr><td>股东冲突</td><td>预算/关联交易/授权争议、决策超期</td><td>保留事项超时进入升级/调解；不得以僵局阻断安全停发</td><td>董事长/公司秘书</td><td>季度</td></tr>
+          <tr><td><b>外部市场口径漂移</b></td><td>Dell’Oro / JLL / McKinsey / IEA 新版发布或分母定义变化；2029 全液冷预测偏离60–80亿美元；同工况设备价格年降幅&gt;15%</td><td>新版发布即重设端点，禁止跨版本拼接旧序列；连续两期下修则冻结阶段2/3讨论并重做情景</td><td>战略/产品</td><td>新版即时；否则季度</td></tr>
+        </tbody>
+      </table>
+      <p class="small">阈值均为内部管理门，不代表行业事实；G0时必须补充数值化的现金、集中度、缺陷和SLA阈值。下一统一复盘日：2026-11-30；新平台revision、重大事故、正式合同价、标准实施变化或Dell’Oro新版液冷预测提前触发。</p>
+    </section>
+
+    <section id="s14">
+      <h2>14. 90/180/365日行动与组织</h2>
+      <table>
+        <thead><tr><th scope="col">时点</th><th scope="col">产品/工程</th><th scope="col">商业/供应链</th><th scope="col">质量/责任/现金</th><th scope="col">董事会输出</th></tr></thead>
+        <tbody>
+          <tr><td><b>0–90日</b></td><td>冻结阶段1 URS、架构、BSW边界、DVP和100/200 kW样机计划</td><td>发四SKU统一RFQ；筛选两家制造商/BSW；取得客户书面需求</td><td>RACI、质量协议、合同偏离表、保险询价、13周现金</td><td>G0包：逐月预算、组织方案、客户/供应商证据</td></tr>
+          <tr><td><b>91–180日</b></td><td>工程样机、MIL/SIL/HIL、性能矩阵、故障注入</td><td>制造商NPI/FAI；至少一个付费PoC；第二来源验证启动</td><td>FAT程序、序列化BOM、软件托管/SBOM、责任矩阵签署</td><td>半年度反证复盘（含外部市场口径复核）；是否继续第一阶段</td></tr>
+          <tr><td><b>181–365日</b></td><td>两台代表样机可靠性与客户SAT；四SKU报价/配置体系</td><td>≥2付费验证；两个同边界合同价；项目回款闭环</td><td>三批试制/等效批次、一次通过、质保/服务数据、峰值资金</td><td>G1：通过/整改/停止；决定是否释放阶段2</td></tr>
+        </tbody>
+      </table>
+      <h3>14.1 编制上限与外部专家边界</h3>
+      <table>
+        <thead><tr><th scope="col">阶段</th><th scope="col">核心FTE建议上限</th><th scope="col">最低核心岗位</th><th scope="col">外部专家可做</th><th scope="col">不得外包</th></tr></thead>
+        <tbody>
+          <tr><td>阶段1</td><td>≤8</td><td>业务/产品、系统/热工、控制软件、质量、供应链、项目/售前；财法HR共享</td><td>CFD/水力复核、安规EMC、可靠性、保险/合同、测试执行</td><td>客户需求签署、架构、应用控制主干、最终质量与合同责任</td></tr>
+          <tr><td>阶段2</td><td>≤14</td><td>增加平台软件、服务/项目、供应商质量、网络安全</td><td>区域服务、第三方测试、法规/本地化</td><td>版本/数据、qualification裁决、重大故障指挥</td></tr>
+          <tr><td>阶段3</td><td>≤20</td><td>增加冷板/结构、量产质量、关键客户项目</td><td>冷板工艺、封装/材料实验、联合中试</td><td>热设计输入管理、联合IP边界、量产放行</td></tr>
+        </tbody>
+      </table>
+      <p class="small">编制上限是成本护栏，不是招聘承诺；每新增岗位须说明替代外协后的净收益、门禁需求和12个月现金影响。</p>
+    </section>
+
+    <section id="s15">
+      <h2>15. 附录：证据、合同、询价与月报</h2>
+      <h3>15.1 证据等级与有效期</h3>
+      <table>
+        <thead><tr><th scope="col">等级</th><th scope="col">定义</th><th scope="col">使用规则</th><th scope="col">建议有效期</th></tr></thead>
+        <tbody>
+          <tr><td>L1</td><td>政府/监管/正式标准/交易所或SEC/采购人原件/原厂正式手册</td><td>仍须标日期、版本、边界和条款</td><td>标准至修订；滚动规格90天；合同长期</td></tr>
+          <tr><td>L2</td><td>公司正式公告、OCP规范、研究机构官方摘要</td><td>预测不是Actual；摘要不补造方法；不同发布版本不得拼接</td><td>季报/预测3–6个月</td></tr>
+          <tr><td>L3</td><td>镜像、转录、二手研究</td><td>仅作线索/旁证，不做关键价格与责任依据</td><td>正式原件出现即失效</td></tr>
+          <tr><td>M / NA</td><td>透明管理模型 / 证据不足</td><td>给公式与解锁条件；NA不改成0；M不得写成机构预测</td><td>输入变化即复算</td></tr>
+        </tbody>
+      </table>
+      <h3>15.2 关键假设与待验证项</h3>
+      <ul>
+        <li>阶段1 50–200 kW的客户需求、有效工况、物理样机配置与竞争价格。</li>
+        <li>100/200/300/450 kW四SKU的BOM、MOQ、交期、质保、付款和替代源。</li>
+        <li>两个客户/OEM qualification包、PoC收费/周期/转订单、平台边界和独立CDU准入。</li>
+        <li>两个同边界合同/成交分项价；预算、限价、候选、中标、合同和结算不得互换。</li>
+        <li>BSW永久使用/转授权、源码托管、漏洞SLA、出口/许可证、替代迁移的可签条款。</li>
+        <li>产品责任、漏液/GPU损害、停机/数据损失、责任上限、保险保额/免赔和追偿。</li>
+        <li>三种组织形态的税务、国资/关联交易、外汇、劳动竞业和激励可执行性。</li>
+        <li>外部市场：Dell’Oro 液冷专项与 DCPI 新版发布节奏、分母定义变化，以及是否出现同边界的 2031–2032 机构端点。</li>
+      </ul>
+      <h3>15.3 合同清单</h3>
+      <p>客户NDA/URS与偏离表、付费PoC/NRE、主销售/供货合同、SOW/验收、SLA/运维、数据与网络安全附件；制造框架、质量协议、NPI/工装、ECR/ECO/PCN、保密/IP/不绕单、灾备/step-in；BSW许可、开发/IP受让、托管、漏洞/SBOM；EPC/服务分包；物流/保险/保函；员工/顾问保密IP与竞业；组织融资相关章程、股东协议与激励文件。</p>
+      <h3>15.4 供应商询价模板（最小字段）</h3>
+      <div class="formula">RFQ_ID | SKU/Revision | 额定/降额工况 | 流量/压差/工质 | 冗余/故障态 | 材料/清洁度
+品牌/型号 | 单价/币种/税/Incoterm | MOQ | 样件/NRE/工装 | 交期 | 产能 | 付款
+质保/SLA | PCN通知期 | FAI/PPAP适用项 | 检验/COA | 分包商 | IP/图纸/工装归属
+出口/许可证 | 灾备/第二工厂 | 报价有效期 | 偏离项 | 签署人/日期</div>
+      <h3>15.5 董事会月报</h3>
+      <table>
+        <thead><tr><th scope="col">维度</th><th scope="col">指标</th><th scope="col">证据/状态</th></tr></thead>
+        <tbody>
+          <tr><td>商业</td><td>合格项目池、付费PoC、PO、确认收入、回款、客户集中</td><td>按项目门与合同，不报虚拟pipeline</td></tr>
+          <tr><td>经济</td><td>项目贡献、NRE回收、ASP/BOM差异、质保、现金调整后贡献</td><td>NA项列解锁日和责任人</td></tr>
+          <tr><td>现金</td><td>13周最低现金、峰值资金、DSO、库存、PBG、供应商预付款</td><td>Base/Bear周曲线</td></tr>
+          <tr><td>工程</td><td>版本、DVP通过率、缺陷、性能矩阵、软件漏洞/许可证</td><td>按SKU/批次/软件版本</td></tr>
+          <tr><td>质量供应链</td><td>FAT一次通过、OTD、8D、未授权变更、双源、召回/near miss</td><td>重大问题直接红灯</td></tr>
+          <tr><td>组织治理</td><td>编制、关键岗位、激励归属条件、关联交易、保留事项、股东争议</td><td>超权限和决策超时单列</td></tr>
+          <tr><td>外部口径</td><td>市场端点版本、valid_until到期项、口径漂移与情景重设</td><td>只报版本与边界变化，不报行业增速当业绩</td></tr>
+        </tbody>
+      </table>
+      <h3>15.6 主要外部依据</h3>
+      <ol class="small">
+        <li><a href="https://www.delloro.com/news/data-center-liquid-cooling-market-to-approach-7-billion-by-2029-as-ai-deployments-accelerate/">Dell’Oro, Data Center Liquid Cooling Advanced Research摘要, 2026-01-08</a>：全液冷 2025E 接近30亿美元、2029F 约70亿美元。</li>
+        <li><a href="https://www.delloro.com/news/ai-build-out-to-propel-data-center-physical-infrastructure-market-to-63-1-billion-by-2029/">Dell’Oro, July-2025 DCPI Forecast摘要, 2025-08-15</a>：DLC 2024E 11亿美元 → 2029F 58亿美元（<b>与上一条不同发布版本</b>）。</li>
+        <li><a href="https://www.delloro.com/news/data-center-physical-infrastructure-market-to-surpass-80-billion-by-2030/">Dell’Oro, January-2026 DCPI Forecast摘要, 2026-02-10</a>：DLC 2030F 超过80亿美元（<b>预测上调，版本断点</b>）。</li>
+        <li><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary">IEA, Key Questions on Energy and AI, 2026-04-16</a>：全球数据中心用电 485 TWh(2025E) → 950 TWh(2030F)。</li>
+        <li><a href="https://www.mckinsey.com/featured-insights/sustainable-inclusive-growth/charts/data-center-demands">McKinsey, Data center demands, 2025-05-20</a>：continued-momentum 需求 82 GW(2025) → 219 GW(2030)。</li>
+        <li><a href="https://www.jll.com/content/dam/jllcom/en/global/documents/reports/research-reports/26-research-global-data-center-outlook-new.pdf">JLL, 2026 Global Data Center Outlook, 2026-01-06</a>：设施供给 103 → 200 GW；2026–2030 近100 GW上线；57%项目延迟≥3个月。</li>
+        <li><a href="https://www.cushmanwakefield.com/en/news/2026/05/dallas-texas-ranked-number-one-primary-data-market-in-the-world">Cushman &amp; Wakefield, Global Data Center Market Comparison, 2026-05-20</a>：2025年末全球在建约31.7 GW；大负荷平均供电周期4.4年。</li>
+        <li><a href="https://www.opencompute.org/documents/ocp-wp-l-lcdu-test-methodology-performance-rating-r1-pdf">OCP, Liquid-to-Liquid CDU Test Methodology, Rev.1.0</a>。</li>
+        <li><a href="https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=114934594976F57EA3F3683C13B13DB8">GB/T 48023-2026官方条目（2027-02-01实施）</a>。</li>
+        <li><a href="https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final">NIST SP 800-161 Rev.1 Update 1，软件/网络安全供应链风险</a>。</li>
+        <li><a href="https://www.wipo.int/documents/d/mobile-apps/docs-en-wipo-handbook-key-contracts-mobile-apps.pdf">WIPO，外包软件合同、IP受让/许可与源码交付指引</a>。</li>
+        <li><a href="https://committee.iso.org/files/live/sites/tc176/files/documents/ISO%209001%20Auditing%20Practices%20Group%20docs/Auditing%20to%20ISO%209001%202015/APG-ExternalProviders2015.pdf">ISO 9001 Auditing Practices Group，外部供应方控制</a>。</li>
+        <li><a href="https://www.aiag.org/training-and-resources/manuals/details/PPAP-4">AIAG，PPAP与生产过程批准</a>（按项目适用，不视为数据中心行业强制标准）。</li>
+        <li><a href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2023/art_cc0398e33f8d4e4fb591940fde346cea.html">《中华人民共和国产品质量法》官方文本</a>。</li>
+        <li><a href="https://amr.sz.gov.cn/xxgk/qt/ztlm/jyztdjzc/flfgjzcjd/content/post_12616868.html">《中华人民共和国公司法（2023修订）》政府发布文本</a>。</li>
+        <li><a href="https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng">Directive (EU) 2024/2853，软件及组件产品责任</a>（适用时由律师判断）。</li>
+        <li><a href="https://nvca.org/model-legal-documents/">NVCA Model Legal Documents</a>（仅作融资条款结构参考）。</li>
+      </ol>
+      <p class="small">市场章节的完整模型、逐项证据台账、来源等级与限制条件见调研报告 v3.1 第2、2.5节及其底稿 <code>temp/research-compute-cooling-report/findings/angle-09-global-compute-liquid-2025-2032.md</code>。</p>
+      <div class="callout ok"><b>数据室最小清单：</b>客户项目池及五门证据、平台site-planning包、四SKU规格/BOM/RFQ、软件架构/SBOM/许可证/托管、DVP/FMEA/FAT/SAT、供应商审核与质量协议、合同/责任/保险、13周现金/月度三表、组织/IP/激励/关联交易、董事会门禁与月报。</div>
+    </section>
+  </main>
+
+  <div class="footer">
+    <b>算力冷却系统新业务BP · v2.1 OEM Operating Model / 20260822</b><br>
+    数据截止：2026-08-22；证据基线：《算力冷却商业调研报告 v3.1 Evidence-led / 20260822》。本文件为独立新版本，不修改历史BP（v1.9_20260808、v2.0_20260821）及各版调研报告。<br>
+    市场方向判断置信度较高；市场情景表仅用于外部锚定与情景分析，不得换算为公司收入预算或SAM/SOM。公司SAM、ASP、BOM、毛利、ROIC、现金跑道、估值、cap table与责任额度均待书面证据。阶段2/3额度不是承诺；未达G0/G1/G2/G3即冻结后续资金、招聘和非关键CapEx。
+  </div>
+</div>
+</body>
+</html>

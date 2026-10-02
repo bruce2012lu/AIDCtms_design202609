@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>2 · 三维 CAD</title><style>
+body{margin:0;font-family:"Segoe UI","Microsoft YaHei",sans-serif;background:#f4efe6;color:#1c1915}
+header{background:#241c16;color:#f3eadf;padding:22px 28px}
+header a{color:#f3eadf;margin-right:14px;font-size:14px}
+main{padding:22px 28px 48px;max-width:980px}
+h1{margin:0 0 6px;font-size:22px} h2{margin:22px 0 8px;font-size:18px}
+p{line-height:1.55} table{border-collapse:collapse;width:100%;background:#fff;margin:8px 0 16px}
+th,td{border-bottom:1px solid #e2d9cc;padding:7px 9px;text-align:left;font-size:14px;vertical-align:top}
+th{color:#5c564c;font-size:12px} img{max-width:100%;background:#fff;border:1px solid #e2d9cc}
+.note{background:#fff;border-left:4px solid #8c4a24;padding:10px 14px}
+code{font-family:Consolas,monospace;font-size:13px}
+</style></head><body><header><div><a href="index.html">流程</a><a href="01_一维设计.html">1 一维</a><a href="02_三维CAD.html">2 三维 CAD</a><a href="03_单孔CFD仿真分析.html">3 单孔 CFD</a><a href="04_结构工艺装配.html">4 结构工艺装配</a></div><h1>2 · 三维 CAD</h1><p>CP-B300-JM-01 · 设计循环 2026-09-26 · 一维来自 design/calc/model.py</p></header><main>
+<p>参数化内核 <code>cad/coldplate</code> 只有一个节距，建不出 Sx=3.0、Sy=2.4。这一轮的实体由 <code>build_cad.py</code> 按 model.py 直接生成，不改冻结的 v1.0 yaml（128 孔、节距 3.0）。</p>
+<img src="out/fig_cell.png" alt="单孔胞">
+<h2>零件</h2>
+<table>
+<tr><th>零件</th><th>内容</th></tr>
+<tr><td>底板</td><td>本体 95×75×3.5 mm，余铜 2.0。导出的 STEP 含隔离肋，包围盒高度因此是 5.5 mm。每 die 短槽沿 Y 共 35 条、宽 0.40、深 1.5、节距 0.80，沿 X 分成 4 段。两侧 HBM 各 8 条 0.60 mm 平槽。</td></tr>
+<tr><td>喷嘴板</td><td>厚 2.5 mm。216 个 D0.50 直孔。不打抽吸孔，一维模型没有这个直径。</td></tr>
+<tr><td>钎缝框</td><td>周边 0.5 mm，把外形收到 8.5 mm。</td></tr>
+<tr><td>单孔胞</td><td>3.0×2.4 mm。一版 D0.50，对应一维；一版 D0.40，对应已收敛网格的孔径。</td></tr>
+</table>
+<h2>文件</h2>
+<table><tr><th>文件</th><th>大小</th></tr><tr><td><code>cell_d040_assembly.step</code></td><td>79 KB</td></tr><tr><td><code>cell_d040_base.step</code></td><td>58 KB</td></tr><tr><td><code>cell_d040_lid.step</code></td><td>19 KB</td></tr><tr><td><code>cell_d050_assembly.step</code></td><td>79 KB</td></tr><tr><td><code>cell_d050_base.step</code></td><td>58 KB</td></tr><tr><td><code>cell_d050_lid.step</code></td><td>19 KB</td></tr><tr><td><code>plate_assembly.step</code></td><td>5475 KB</td></tr><tr><td><code>plate_base.step</code></td><td>4551 KB</td></tr><tr><td><code>plate_nozzle.step</code></td><td>839 KB</td></tr><tr><td><code>plate_seal.step</code></td><td>29 KB</td></tr></table>
+<p>STEP 回读核对：总装包围盒 95.000 × 75.000 × 8.500 mm，体积 41848 mm³。喷嘴板比同外形实心板少约 106 mm³，与 216 个 D0.50、深 2.5 mm 的孔体积一致。两个单孔胞装配高度都是 8.0 mm（不含 0.5 mm 钎缝）。</p>
+<p>装配顺序在结构页。OCC 若段错误，脚本会重试；冻结 yaml 和 <code>cad/out</code> 不写入。</p>
+</main></body></html>

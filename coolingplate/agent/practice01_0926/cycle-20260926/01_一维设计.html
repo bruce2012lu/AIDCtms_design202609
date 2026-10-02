@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>1 · 一维设计</title><style>
+body{margin:0;font-family:"Segoe UI","Microsoft YaHei",sans-serif;background:#f4efe6;color:#1c1915}
+header{background:#241c16;color:#f3eadf;padding:22px 28px}
+header a{color:#f3eadf;margin-right:14px;font-size:14px}
+main{padding:22px 28px 48px;max-width:980px}
+h1{margin:0 0 6px;font-size:22px} h2{margin:22px 0 8px;font-size:18px}
+p{line-height:1.55} table{border-collapse:collapse;width:100%;background:#fff;margin:8px 0 16px}
+th,td{border-bottom:1px solid #e2d9cc;padding:7px 9px;text-align:left;font-size:14px;vertical-align:top}
+th{color:#5c564c;font-size:12px} img{max-width:100%;background:#fff;border:1px solid #e2d9cc}
+.note{background:#fff;border-left:4px solid #8c4a24;padding:10px 14px}
+code{font-family:Consolas,monospace;font-size:13px}
+</style></head><body><header><div><a href="index.html">流程</a><a href="01_一维设计.html">1 一维</a><a href="02_三维CAD.html">2 三维 CAD</a><a href="03_单孔CFD仿真分析.html">3 单孔 CFD</a><a href="04_结构工艺装配.html">4 结构工艺装配</a></div><h1>1 · 一维设计</h1><p>CP-B300-JM-01 · 设计循环 2026-09-26 · 一维来自 design/calc/model.py</p></header><main>
+<p>计算书由 <code>make_cycle.py</code> 调用 <code>model.solve</code> 生成。几何冻结在 model.py：板 95×75×8.5 mm，
+每 die 9×12，两 die 共 216 孔，D=0.50 mm，Sx=3.0，Sy=2.4，H=2.0。</p>
+<img src="out/fig_layout.png" alt="俯视">
+<img src="out/fig_stack.png" alt="厚度栈">
+<h2>设计点</h2>
+<table>
+<tr><th></th><th>DP-A 保证点</th><th>DP-B 包络</th></tr>
+<tr><td>功率 / 流量 / 进液</td><td>1100 W · 2.0 L/min · 40 °C</td><td>1400 W · 2.4 L/min · 40 °C</td></tr>
+<tr><td>die / HBM / 其他</td><td>429.0 W×2 · 24.75 W×8 · 44.0 W</td><td>546.0 W×2 · 31.50 W×8 · 56.0 W</td></tr>
+<tr><td>混合温升</td><td>7.96 K</td><td>8.44 K</td></tr>
+<tr><td>孔速 / Re / 孔口压降（D=0.50）</td><td>0.629 m/s · 478 · 0.35 kPa</td><td>0.755 m/s · 573 · 0.51 kPa</td></tr>
+<tr><td>同一流量若孔径改为 0.40</td><td>0.982 m/s · Re 597</td><td>1.179 m/s · Re 717</td></tr>
+<tr><td>壳–进液热阻</td><td>0.0326–0.0366 °C/W</td><td>0.0311–0.0351 °C/W</td></tr>
+<tr><td>和目标比</td><td>下限 0.0326，上限 0.0366，目标 0.028</td><td>下限 0.0311，上限 0.0351，目标 0.025</td></tr>
+<tr><td>板内压降区间</td><td>3.52–5.52 kPa</td><td>3.71–5.71 kPa</td></tr>
+<tr><td>HBM 槽速</td><td>0.463 m/s</td><td>0.556 m/s</td></tr>
+</table>
+<p>Re 低于 2000，Martin 阵列式在 DP-A 上不采用。热阻上限来自短槽肋模型加 TIM2 = 0.008 °C/W。DP-A 施加到单孔 CFD 的热流是名义胞热流的 1.05 倍：57.928 W/cm²（579282 W/m²），流量不乘这 5%。</p>
+<img src="out/fig_r.png" alt="热阻">
+<h2>几何校核</h2>
+<table><tr><th>项</th><th>式</th><th>计算</th><th>预期</th></tr><tr><td>X 向链</td><td>5+11+0.5+2+0.5+27+3+27+0.5+2+0.5+11+5</td><td>95.000</td><td>95.000</td></tr><tr><td>Y 向链</td><td>12.5+50+12.5</td><td>75.000</td><td>75.000</td></tr><tr><td>腔体厚度</td><td>2.0+1.5+2.0+2.5</td><td>8.000</td><td>8.000</td></tr><tr><td>射流中心距 X</td><td>(9-1)x3.0</td><td>24.000</td><td>24.000</td></tr><tr><td>射流中心距 Y</td><td>(12-1)x2.4</td><td>26.400</td><td>26.400</td></tr><tr><td>覆盖长度 X</td><td>9x3.0</td><td>27.000</td><td>27.000</td></tr><tr><td>覆盖长度 Y</td><td>12x2.4</td><td>28.800</td><td>28.800</td></tr><tr><td>Y 向超出 die</td><td>28.8-28</td><td>0.800</td><td>0.800</td></tr><tr><td>Y 向板外包络</td><td>28+1.2</td><td>29.200</td><td>29.200</td></tr><tr><td>外包络余量</td><td>29.2-28.8</td><td>0.400</td><td>0.400</td></tr><tr><td>单 die 槽覆盖</td><td>35x0.8</td><td>28.000</td><td>28.000</td></tr></table>
+<p>Y 向射流覆盖比 die 高 0.8 mm，两侧各约 0.4 mm，孔本身仍落在 die 投影内。这是 model.py 写明的外包络，不是尺寸链错误。</p>
+</main></body></html>

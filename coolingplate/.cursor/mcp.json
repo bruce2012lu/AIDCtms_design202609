@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "cp-design": {
+      "command": "cad/.venv/Scripts/python.exe",
+      "args": ["agent/practice01_0926/mcp/server.py"]
+    }
+  }
+}

@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>算力液冷系统 · 商业计划书（BP）· v1.9 Profit Model</title>
+<style>
+  :root{
+    --navy:#0f2b46;
+    --navy2:#14385c;
+    --steel:#1f5f8b;
+    --accent:#c8962f;      /* gold accent */
+    --accent2:#0a7d6b;     /* teal for liquid/cooling */
+    --ink:#1c2630;
+    --muted:#5b6b78;
+    --line:#d8dee5;
+    --bg:#ffffff;
+    --soft:#f4f7fa;
+    --soft2:#eef3f8;
+    --zebra:#f6f9fc;
+    --warn:#9a3412;
+    --hl:#fff6e0;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Microsoft YaHei","微软雅黑","PingFang SC","Hiragino Sans GB","Source Han Sans SC","Noto Sans CJK SC",-apple-system,"Segoe UI",sans-serif;
+    color:var(--ink);
+    background:var(--soft);
+    line-height:1.75;
+    font-size:15px;
+  }
+  .page{
+    max-width:980px;
+    margin:0 auto;
+    background:var(--bg);
+    box-shadow:0 0 24px rgba(15,43,70,.08);
+  }
+  /* ---------- Cover ---------- */
+  .cover{
+    background:linear-gradient(150deg,var(--navy) 0%,var(--navy2) 45%,var(--steel) 100%);
+    color:#fff;
+    padding:74px 64px 60px;
+    position:relative;
+    overflow:hidden;
+  }
+  .cover::after{
+    content:"";
+    position:absolute;right:-120px;top:-120px;
+    width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(200,150,47,.30),transparent 70%);
+  }
+  .cover::before{
+    content:"";
+    position:absolute;left:-80px;bottom:-140px;
+    width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle,rgba(10,125,107,.30),transparent 70%);
+  }
+  .cover .kicker{
+    letter-spacing:.32em;font-size:13px;color:var(--accent);
+    text-transform:uppercase;font-weight:700;margin-bottom:18px;
+    position:relative;z-index:2;
+  }
+  .cover h1{
+    font-size:42px;line-height:1.25;margin:0 0 10px;font-weight:800;
+    position:relative;z-index:2;
+  }
+  .cover h2{
+    font-size:20px;font-weight:500;color:#cfe0ee;margin:0 0 34px;
+    position:relative;z-index:2;
+  }
+  .cover .logo-box{
+    display:inline-block;border:1.5px dashed rgba(255,255,255,.55);
+    padding:10px 22px;border-radius:6px;color:#dfe9f2;font-size:14px;
+    margin-bottom:30px;position:relative;z-index:2;
+  }
+  .cover .meta{
+    position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.25);
+    padding-top:22px;display:flex;flex-wrap:wrap;gap:26px 50px;font-size:14px;color:#d6e3ef;
+  }
+  .cover .meta b{color:#fff;font-weight:700;display:block;font-size:12px;letter-spacing:.05em;color:var(--accent);margin-bottom:2px;}
+  .cover .tagstrip{
+    position:relative;z-index:2;margin:14px 0 30px;display:flex;flex-wrap:wrap;gap:10px;
+  }
+  .cover .tag{
+    background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);
+    padding:5px 13px;border-radius:20px;font-size:12.5px;color:#eaf2f9;
+  }
+  .confid{
+    margin-top:30px;font-size:12px;color:#aebfce;line-height:1.6;
+    border-left:3px solid var(--accent);padding-left:14px;position:relative;z-index:2;
+  }
+  .overview-page{padding:38px 64px 44px;background:#fff;min-height:900px;border-bottom:1px solid var(--line);break-after:page;}
+  .overview-page h2{font-size:28px;color:var(--navy);border-bottom:3px solid var(--navy);padding-bottom:9px;margin:0 0 16px;}
+  .overview-page .decision{font-size:17px;font-weight:700;color:var(--navy);background:var(--soft2);border-left:6px solid var(--accent2);padding:14px 18px;border-radius:0 8px 8px 0;}
+  .overview-page .three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0;}
+  .overview-page .mini{border:1px solid var(--line);border-radius:9px;padding:13px;background:#fbfcfe;}
+  .overview-page .mini b{display:block;font-size:20px;color:var(--accent2);}
+  /* ---------- TOC ---------- */
+  .toc{
+    padding:40px 64px;background:var(--soft2);border-bottom:1px solid var(--line);
+  }
+  .toc h3{margin:0 0 18px;color:var(--navy);font-size:19px;border-left:5px solid var(--accent);padding-left:12px;}
+  .toc ol{margin:0;padding:0;counter-reset:toc;list-style:none;column-count:2;column-gap:46px;}
+  .toc li{margin:0 0 9px;break-inside:avoid;}
+  .toc a{
+    text-decoration:none;color:var(--ink);font-size:14px;display:flex;align-items:baseline;gap:10px;
+    padding:3px 0;border-bottom:1px dotted transparent;
+  }
+  .toc a:hover{color:var(--steel);border-bottom-color:var(--line);}
+  .toc .num{color:var(--accent);font-weight:800;min-width:24px;font-variant-numeric:tabular-nums;}
+  /* ---------- Body ---------- */
+  .content{padding:20px 64px 70px;}
+  section{padding-top:30px;margin-top:10px;}
+  h2.sec{
+    font-size:25px;color:var(--navy);margin:34px 0 6px;font-weight:800;
+    border-bottom:3px solid var(--navy);padding-bottom:8px;
+    display:flex;align-items:center;gap:14px;
+  }
+  h2.sec .chip{
+    background:var(--navy);color:#fff;border-radius:7px;font-size:16px;
+    min-width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;font-weight:800;
+  }
+  h3.sub{font-size:18px;color:var(--steel);margin:26px 0 8px;font-weight:700;border-left:4px solid var(--accent2);padding-left:11px;}
+  h4{font-size:15.5px;color:var(--navy2);margin:18px 0 6px;font-weight:700;}
+  p{margin:9px 0;}
+  ul,ol{margin:8px 0;padding-left:24px;}
+  li{margin:5px 0;}
+  a.back{font-size:12px;color:var(--muted);text-decoration:none;float:right;font-weight:400;}
+  a.back:hover{color:var(--steel);}
+  strong{color:var(--navy2);}
+  .lead{font-size:16px;color:#2a3947;background:var(--soft);border-left:4px solid var(--steel);padding:14px 18px;border-radius:0 6px 6px 0;margin:14px 0;}
+  /* ---------- Tables ---------- */
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.3px;}
+  caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);margin-bottom:6px;font-style:italic;}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+  thead th{background:var(--navy);color:#fff;font-weight:700;font-size:13px;border-color:var(--navy2);}
+  tbody tr:nth-child(even){background:var(--zebra);}
+  tbody tr:hover{background:#eef6ff;}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;}
+  tr.total td{background:var(--soft2);font-weight:800;color:var(--navy);border-top:2px solid var(--navy);}
+  tr.total2 td{background:#e7f0ea;font-weight:800;color:var(--accent2);}
+  /* ---------- Callouts ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:16px 0;}
+  .card{border:1px solid var(--line);border-radius:9px;padding:15px 16px;background:#fff;box-shadow:0 1px 3px rgba(15,43,70,.05);}
+  .card .big{font-size:27px;font-weight:800;color:var(--navy);line-height:1.1;}
+  .card .big.gold{color:var(--accent);}
+  .card .big.teal{color:var(--accent2);}
+  .card .lbl{font-size:12.5px;color:var(--muted);margin-top:5px;}
+  .hlbox{background:var(--hl);border:1px solid #e8cf8e;border-left:5px solid var(--accent);border-radius:0 7px 7px 0;padding:13px 18px;margin:16px 0;}
+  .hlbox b{color:var(--warn);}
+  .note{font-size:12.5px;color:var(--muted);font-style:italic;}
+  .pill{display:inline-block;background:var(--soft2);border:1px solid var(--line);border-radius:14px;padding:2px 10px;font-size:12px;color:var(--steel);margin:2px 4px 2px 0;}
+  .keyfig{background:var(--hl);padding:1px 6px;border-radius:4px;font-weight:800;color:var(--warn);}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .assume{font-size:11.5px;color:#8a5a12;background:#fdf4dd;border:1px dashed #d9b96a;border-radius:5px;padding:2px 8px;display:inline-block;font-weight:700;}
+  /* Gantt */
+  .gantt td{font-size:12px;text-align:center;}
+  .gantt .ph{text-align:left;font-weight:600;background:var(--soft);}
+  .bar{display:block;height:16px;border-radius:8px;}
+  .b1{background:linear-gradient(90deg,var(--steel),var(--accent2));}
+  .b2{background:linear-gradient(90deg,var(--accent2),#5fb39f);}
+  .b3{background:linear-gradient(90deg,var(--accent),#e0bb6a);}
+  .b4{background:linear-gradient(90deg,var(--navy),var(--steel));}
+  .gono{background:#fdeaea;color:#9a3412;font-weight:800;border-radius:5px;padding:1px 6px;font-size:11.5px;}
+  footer{background:var(--navy);color:#cdd9e4;padding:26px 64px;font-size:12px;line-height:1.7;}
+  footer b{color:#fff;}
+  @media print{
+    body{background:#fff;font-size:11.5px;}
+    .page{box-shadow:none;max-width:100%;}
+    .cover,.toc,.content,footer{padding-left:30px;padding-right:30px;}
+    section{page-break-inside:auto;}
+    .overview-page{min-height:auto;break-after:page;}
+    h2.sec{page-break-after:avoid;}
+    table{font-size:10px;page-break-inside:avoid;}
+    tbody tr:hover{background:inherit;}
+    a.back{display:none;}
+    .toc ol{column-count:2;}
+  }
+  @media(max-width:760px){
+    .cover{padding:46px 26px;}.cover h1{font-size:30px;}
+    .toc,.content,footer{padding-left:24px;padding-right:24px;}
+    .toc ol{column-count:1;}.two-col{grid-template-columns:1fr;}
+  }
+  @page{size:A4;margin:14mm 12mm;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ COVER ============ -->
+  <div class="cover">
+    <div class="kicker">Business Plan · v1.9 Profit Model · Internal Incubation · Confidential</div>
+    <div class="logo-box">［公司 LOGO / 业务线名称占位］　建议名：智冷科技 ChillEdge（示意）</div>
+    <h1>算力液冷系统商业计划书</h1>
+    <h2>母公司内部立项 · 分步注资｜以中小云服务商为滩头阵地，由利基市场向主流市场梯度渗透，进军英伟达与华为液冷供应体系</h2>
+    <div class="tagstrip">
+      <span class="tag">内部立项 · 分步注资</span>
+      <span class="tag">自研 CDU（含控制系统）</span>
+      <span class="tag">水基冷板液冷主线</span>
+      <span class="tag">外购集成起步 · 以销定研</span>
+      <span class="tag">大厂认证级 CDU</span>
+      <span class="tag">芯片级 PCB 冷板</span>
+      <span class="tag">PUE ≤ 1.25 政策刚需</span>
+      <span class="tag">配套调研：v2.8 Risk-buffered</span>
+    </div>
+    <div class="meta">
+      <div><b>立项性质</b>母公司内部孵化 · 新业务线</div>
+      <div><b>分步注资上限（估算）</b>¥800 万 → ¥1,200 万 → ¥1,500 万（合计最高 ¥3,500 万）</div>
+      <div><b>资金边界</b>不含自建完整冷板产线和客户项目大额垫资；估值另行评审</div>
+      <div><b>更新日期</b>2026 年 8 月</div>
+      <div><b>文件版本</b>V1.9 Profit Model（与调研 v2.8 勾稽）</div>
+      <div><b>配套调研</b>《算力冷却商业调研报告 v2.8 Risk-buffered》</div>
+    </div>
+    <div class="confid">
+      <b>保密声明：</b>本商业计划书为［公司名称］内部立项评审材料，包含商业秘密与前瞻性信息，仅供母公司立项评审委员会及潜在战略跟投方于评估之目的使用。未经书面许可，不得复制、披露或向任何第三方传播。本文件中所有财务、估值、注资金额及市场预测均为基于当前信息的<strong>假设与示意</strong>，不构成任何要约、承诺或业绩保证；前瞻性陈述存在重大不确定性，实际结果可能与预测存在重大差异。决策须审慎。
+    </div>
+  </div>
+
+  <section class="overview-page" id="bp-market-ecosystem-overview">
+    <h2>两页概述①｜市场趋势与生态判断</h2>
+    <div class="decision">投资前提成立，但不是无门槛红利：AI算力扩张、机柜热密度和电力约束推动液冷规模化；与此同时，接口、认证、可靠性和全球服务能力使行业竞争从单设备升级为生态竞争。</div>
+    <div class="three">
+      <div class="mini"><b>1,880 EFLOPS</b>中国智能算力规模（2026Q1，FP16，国家数据局）</div>
+      <div class="mini"><b>$3B → $7B</b>全球液冷设备厂商收入（2025E→2029F，Dell'Oro）</div>
+      <div class="mini"><b>485 → 950 TWh</b>全球数据中心用电（2025E→2030F，IEA）</div>
+    </div>
+    <h3 class="sub">市场趋势</h3>
+    <table>
+      <thead><tr><th>趋势</th><th>关键证据</th><th>商业含义</th><th>风险边界</th></tr></thead>
+      <tbody>
+        <tr><td><strong>高密算力驱动液冷刚需</strong></td><td>GB200/GB300 NVL72约120–142 kW；Vera Rubin采用100%液冷</td><td>冷板、CDU、Manifold、UQD及控制系统形成完整需求</td><td>IT功率不等于液体热负荷；选型必须取得OEM热设计参数</td></tr>
+        <tr><td><strong>液冷进入规模化阶段</strong></td><td>全球液冷设备收入预计由2025年约$3B增至2029年约$7B</td><td>设备、系统集成、调试和运维均有增长空间</td><td>设备、服务器整机和宽口径产业规模不可直接相加</td></tr>
+        <tr><td><strong>电力与能效成为约束</strong></td><td>中国大型/超大型数据中心PUE≤1.25、枢纽节点≤1.2</td><td>温水液冷、系统控制和余热利用价值提高</td><td>PUE受负载、气候、冷源和配电影响，不由单一产品决定</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">生态观察</h3>
+    <table>
+      <thead><tr><th>生态层</th><th>主导者与变化</th><th>对本业务的要求</th></tr></thead>
+      <tbody>
+        <tr><td><strong>算力平台/OEM</strong></td><td>NVIDIA、华为及OEM/ODM掌握液路接口、认证和客户名录</td><td>先做兼容与联合验证，不能只按铭牌功率销售</td></tr>
+        <tr><td><strong>热管理方案商</strong></td><td>Vertiv、Schneider、CoolIT、英维克等向全栈方案和全球服务整合</td><td>避开头部正面竞争，从响应速度和本地服务切入</td></tr>
+        <tr><td><strong>关键供应链</strong></td><td>泵、板换、UQD、阀件、PLC和冷板国产化加速</td><td>关键件双源，验证批量一致性并明确质保责任</td></tr>
+        <tr><td><strong>标准与准入</strong></td><td>OCP、YD/T、国标和客户规范逐步统一</td><td>额定工况、性能曲线、第三方测试和书面认可成为门票</td></tr>
+      </tbody>
+    </table>
+    <p class="note">生态结论：市场需求真实，但可获得收入取决于客户准入、验证周期、回款条件和现场服务；因此应选择决策快、可预付款且服务价值高的客户作为滩头阵地。</p>
+  </section>
+
+  <section class="overview-page" id="bp-commercial-overview">
+    <h2>两页概述②｜商业三步走、投入与门禁</h2>
+    <div class="decision">投资主张：业务于2027年启动，首期预算提高至¥800万，以覆盖验证、试点周转和约5.4个月模型现金缓冲；后续仍须以商业里程碑解锁最高¥1,200万和¥1,500万。</div>
+    <div class="three">
+      <div class="mini"><b>三期上限</b>¥800万 → ¥1,200万 → ¥1,500万，合计最高¥3,500万</div>
+      <div class="mini"><b>条件性风险改善</b>在三年总支出不增加时，Y1现金约¥180万→¥380万</div>
+      <div class="mini"><b>轻资产边界</b>外协制造、共享资源；无客户牵引不建产线</div>
+    </div>
+    <h3 class="sub">商业三步走</h3>
+    <table>
+      <thead><tr><th>阶段</th><th>客户与打法</th><th>投入</th><th>解锁门禁</th><th>要形成的资产</th></tr></thead>
+      <tbody>
+        <tr><td><strong>第一步｜滩头阵地</strong><br>2027 · M0–M12</td><td>中小云、区域IDC和存量改造；快速交付、本地服务和标准化系统</td><td><strong>¥800万</strong></td><td>1,000h；≥2个付费项目；回款≥¥1,200万；制造完全成本毛利≥30%</td><td>可交付产品、真实BOM/毛利、案例和现金闭环</td></tr>
+        <tr><td><strong>第二步｜梯度扩张</strong><br>2028 · M13–M24</td><td>进入OEM/ODM生态、运营商和头部项目；以第三方测试和联合验证换取准入</td><td><strong>最高¥1,200万</strong></td><td>客户书面认可；无重大可靠性事件；现金跑道≥6个月</td><td>标准接口、批量质量体系和可复制渠道</td></tr>
+        <tr><td><strong>第三步｜主流市场</strong><br>2029+ · M25–M36+</td><td>联合开发高价值核心部件，进入全球高密算力和主权AI供应链</td><td><strong>最高¥1,500万</strong></td><td>明确NRE/采购意向；经营现金流改善；无客户不建产线</td><td>核心IP、较高毛利产品和全球增长期权</td></tr>
+      </tbody>
+    </table>
+    <div class="three">
+      <div class="mini"><b>首期资金边界</b>共享场地/职能、外协制造、客户预付款缺一不可</div>
+      <div class="mini"><b>核心经营指标</b>回款、制造完全成本毛利、项目贡献、应收和质保</div>
+      <div class="mini"><b>No-Go</b>冻结下一期、招聘和非关键CapEx，保留现金跑道</div>
+    </div>
+    <h3 class="sub">董事会批准前必须补齐</h3>
+    <ol>
+      <li>首期800万元逐月预算、两台代表样机书面BOM/报价及测试机构报价。</li>
+      <li>至少两家灯塔客户的需求、付款节点和验证计划；拒绝预付款的项目不纳入首期基准。</li>
+      <li>36个月月度三表、13周现金预测、压力测试及母公司过桥/backstop书面条件。</li>
+    </ol>
+  </section>
+
+  <!-- ============ TOC ============ -->
+  <nav class="toc">
+    <h3>目录 · Table of Contents</h3>
+    <ol>
+      <li><a href="#s1"><span class="num">01</span>执行摘要（含分步注资要点）</a></li>
+      <li><a href="#s2"><span class="num">02</span>行业与市场机会</a></li>
+      <li><a href="#s3"><span class="num">03</span>痛点 · 解决方案 · 产品与技术路线</a></li>
+      <li><a href="#s4"><span class="num">04</span>目标市场与客户分层</a></li>
+      <li><a href="#s5"><span class="num">05</span>商业模式</a></li>
+      <li><a href="#s5a"><span class="num">05A</span>商业利润模型</a></li>
+      <li><a href="#s6"><span class="num">06</span>市场进入与营销方案（GTM）</a></li>
+      <li><a href="#s7"><span class="num">07</span>竞争分析与差异化</a></li>
+      <li><a href="#s8"><span class="num">08</span>运营与供应链</a></li>
+      <li><a href="#s9"><span class="num">09</span>团队与组织</a></li>
+      <li><a href="#s10"><span class="num">10</span>财务预测与现金流模型</a></li>
+      <li><a href="#s11"><span class="num">11</span>分步注资计划</a></li>
+      <li><a href="#s12"><span class="num">12</span>里程碑路线图 + 内部立项口径</a></li>
+      <li><a href="#s13"><span class="num">13</span>风险与对策</a></li>
+    </ol>
+  </nav>
+
+  <div class="content">
+
+  <div class="hlbox" style="background:#fffaf0;border-color:#f3d088;border-left-color:#d97706;margin:0 0 18px">
+    <b style="color:#92400e">货币与单位约定（适用于本 BP 全文）：</b>
+    <ul style="margin:6px 0 0">
+      <li><strong>人民币（RMB）：</strong>使用 "¥" 或 "元 / 万元 / 亿元" 后缀，例如 ¥800 万、¥1.3 亿元。本 BP 财务模型默认币种为<strong>人民币</strong>。</li>
+      <li><strong>美元（USD）：</strong>使用 "$" 或 "亿美元 / 万美元" 后缀，例如 $50–100/套。仅在引用全球市场或海外厂商口径时出现。</li>
+      <li><strong>未注明币种的"亿/万/元"或财务表格数字：</strong>默认为<strong>人民币</strong>。所有融资金额、营收、毛利、估值、Cap Table、预算明细均为人民币口径。</li>
+      <li><strong>容量与算力单位：</strong>电力 W/kW/MW/GW；算力 PFLOPS/EFLOPS；机柜密度 kW/柜；热阻 ℃/W 或 K/W；热流密度 W/cm²。</li>
+      <li><strong>时间口径：</strong>本报告于2026年编制，业务从2027年启动；Y1=2027、Y2=2028、Y3=2029（财年与日历年一致）。</li>
+      <li><strong>数据性质：</strong>财务、估值、注资金额、渗透率、营收预测、Cap Table 均标注<span class="assume">假设</span>/示意；不构成要约或业绩承诺。</li>
+    </ul>
+  </div>
+
+  <!-- ============ 1. EXECUTIVE SUMMARY ============ -->
+  <section id="s1">
+    <h2 class="sec"><span class="chip">01</span>执行摘要</h2>
+    <p class="lead"><strong>一句话定位：</strong>本业务线以<strong>50–200 kW 模块化 CDU（含控制系统）为首款产品族</strong>、其余部件外购集成，为中小云、区域 IDC 与高密 AI 项目提供可验证的液冷解决方案；后续再扩展 300–450 kW 客户验证级 CDU。每一步注资必须由样机可靠性、付费客户和回款触发。</p>
+    <div class="hlbox" style="background:#eef6ff;border-color:#9bbfe0;border-left-color:var(--steel);"><b style="color:var(--navy);">v1.8 风险缓冲校正：</b>业务仍于2027年启动；三期上限调整为800/1,200/1,500万元，合计最高3,500万元。新增资金优先补足测试、客户验证、项目周转和预备金，不放宽G1/G2门禁。</div>
+
+    <h3 class="sub">1.1 我们抓住的核心机会</h3>
+    <div class="grid">
+      <div class="card"><div class="big gold">PUE≤1.25</div><div class="lbl">2025 年底新建大型/超大型数据中心政策硬约束（枢纽节点 ≤1.2），液冷成为刚需底座 <span class="note">（970 号文，已核实）</span></div></div>
+      <div class="card"><div class="big">120–142 kW</div><div class="lbl">GB200/GB300 NVL72 官方整柜功率量级；Rubin 未披露固定机架功率</div></div>
+      <div class="card"><div class="big teal">$3B → $7B</div><div class="lbl">全球数据中心液冷设备厂商收入 2025E→2029F（Dell'Oro）</div></div>
+      <div class="card"><div class="big gold">30%–45%</div><div class="lbl">L1 CDU 目标毛利 <span class="assume">管理层假设</span>；须由 BOM、良率和质保准备金验证</div></div>
+    </div>
+    <p>窗口真实存在，但不是“供应商全面放开 + 国产必然低 30%”的无条件红利。2026 年多起并购显示液冷已成为战略级赛道；OCP Project Deschutes 5 将 2 MW CDU 设计开放化；3M 已完成 PFAS 制造退出。我们的机会来自<strong>中小客户响应速度、标准化 50–200 kW 产品、现场服务和可量化可靠性</strong>。</p>
+
+    <h3 class="sub">1.2 战略路径（三步走 · 滩头阵地战略 Beachhead Strategy）</h3>
+    <p>以<strong>低端 / 未充分服务市场切入（Low-end / Underserved-market Disruption）</strong>建立滩头阵地，再以<strong>由利基市场向主流市场的梯度渗透与扩张（Land-and-Expand）</strong>逐级向上攻入高端主战场。三步走与三步注资、三级产品研发严格对齐。</p>
+    <table>
+      <thead><tr><th style="width:14%">阶段</th><th style="width:16%">时间 / 注资</th><th>战略重心 + 产品里程碑</th><th style="width:24%">目标客户</th></tr></thead>
+      <tbody>
+        <tr><td><strong>滩头阵地<br><span class="note">利基切入</span></strong></td><td>第 1 年<br>2027<br><span class="note">第一步 ¥800 万</span></td><td>自研 <strong>50–200 kW 水基 CDU 共平台与控制系统</strong>，只制造 100/200 kW 两台代表样机；其余部件外购集成，50/150 kW 通过模块组合和降额验证形成 SKU</td><td>中小云服务商、区域 IDC、AI 智算运营商；优先选择可预付款的灯塔项目</td></tr>
+        <tr><td><strong>梯度扩张<br><span class="note">向上攻坚</span></strong></td><td>第 2 年<br>2028<br><span class="note">第二步最高 ¥1,200 万</span></td><td>开发 300/450 kW 客户验证级 CDU，完成热工、可靠性、EMC/安规及 OEM/ODM 联合验证</td><td>英伟达生态 ODM、华为及其伙伴、头部运营商集采</td></tr>
+        <tr><td><strong>主流市场<br><span class="note">条件期权</span></strong></td><td>第 3 年+<br>2029–<br><span class="note">第三步最高 ¥1,500 万</span></td><td>与客户/高校/制造伙伴联合开发<strong>芯片级 PCB 冷板</strong>；不在无订单牵引时自建完整冷板产线</td><td>全球 Hyperscaler、主权 AI、超算；大厂高密集群</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">1.3 三年关键财务（示意 / 假设，详见第 10 章）</h3>
+    <table>
+      <thead><tr><th>口径（单位：万元人民币）</th><th class="num">2027（Y1）</th><th class="num">2028（Y2）</th><th class="num">2029（Y3）</th></tr></thead>
+      <tbody>
+        <tr><td>营业收入</td><td class="num">1,800</td><td class="num">5,500</td><td class="num">13,000</td></tr>
+        <tr><td>综合毛利率</td><td class="num">26%</td><td class="num">32%</td><td class="num">39%</td></tr>
+        <tr><td>毛利额</td><td class="num">471</td><td class="num">1,783</td><td class="num">5,030</td></tr>
+        <tr><td>经营利润（EBIT）</td><td class="num">-379</td><td class="num">-67</td><td class="num">+1,260</td></tr>
+        <tr class="total"><td>期末现金余额</td><td class="num">380</td><td class="num">1,150</td><td class="num">3,300</td></tr>
+      </tbody>
+    </table>
+    <p>三年收入、毛利和现金为<strong>门禁全部达成的管理层目标情景</strong>，不是无条件基准预测。在三年总支出仍为¥7,060万、增量融资不转化为新增开支的前提下，Y1年末现金约¥380万，相当于约5.4个月平均运营费用；任何新增招聘、设备或库存均须从该余额等额扣减。</p>
+
+    <h3 class="sub">1.4 分步注资要点</h3>
+    <table>
+      <thead><tr><th>步骤</th><th>时间</th><th class="num">建议注资上限</th><th>估算基础</th><th>核心用途与里程碑</th></tr></thead>
+      <tbody>
+        <tr><td><strong>第一步</strong></td><td>M0（董事会批准）</td><td class="num"><span class="keyfig">¥800 万</span></td><td>6人精干团队12个月 + 2台代表样机 + 基础测试/认证 + 试点周转与现金缓冲</td><td>共平台、1,000h 运行、2 个付费项目、13 周现金预测</td></tr>
+        <tr><td><strong>第二步</strong></td><td>G1 后</td><td class="num"><span class="keyfig">最高 ¥1,200 万</span></td><td>8人团队12个月 + 300/450 kW 两台样机 + 第三方/OEM 联合验证 + 项目周转</td><td>累计回款≥¥1,200万、制造完全成本毛利≥30%、项目贡献为正且无重大可靠性事件后启动</td></tr>
+        <tr><td><strong>第三步</strong></td><td>G2 后</td><td class="num"><span class="keyfig">最高 ¥1,500 万</span></td><td>10人/合作团队12个月 + 冷板样件/工装 + 热工寿命测试 + 小批验证</td><td>现金跑道 ≥6 个月、至少 1 个联合客户及书面验证计划后启动</td></tr>
+        <tr class="total"><td>合计上限</td><td>—</td><td class="num">¥3,500 万</td><td>不含自建完整冷板产线和客户项目大额垫资</td><td>分步、精简、里程碑驱动；未达门禁不拨下一期</td></tr>
+      </tbody>
+    </table>
+    <p class="note">注：注资金额、估值与比例为基于内部立项阶段的<strong>合理假设/示意</strong>，最终以立项评审与条款约定为准；详见第 11 章。</p>
+  </section>
+
+  <!-- ============ 2. INDUSTRY ============ -->
+  <section id="s2">
+    <h2 class="sec"><span class="chip">02</span>行业与市场机会<a class="back" href="#s1">↑ 返回目录</a></h2>
+    <p class="lead">液冷需求由高密机柜、算力建设和电力约束共同驱动。2026Q1 全国智能算力已达 1,880 EFLOPS（FP16）；中国算力中心用电预计由 2025 年 1,700 亿 kWh 增至 2030 年约 8,000 亿 kWh。市场增长明确，但年度订单仍受并网、审批、客户验证和供应链约束。</p>
+
+    <h3 class="sub">2.1 市场规模与增速</h3>
+    <table>
+      <caption>优先采用国家数据局、国家能源局、IEA、Dell'Oro、CAICT 与 IDC；不同口径不可相加。</caption>
+      <thead><tr><th>指标</th><th class="num">数值</th><th>年份 / 口径</th><th>性质</th></tr></thead>
+      <tbody>
+        <tr><td>中国智算中心液冷产业</td><td class="num"><span class="keyfig">184 亿元</span>（+66.1%）</td><td>2024（信通院）</td><td>机构测算</td></tr>
+        <tr><td>中国智算中心液冷产业</td><td class="num">约 <span class="keyfig">1,300 亿元</span></td><td>2029F（信通院）</td><td>机构预测</td></tr>
+        <tr><td>中国液冷服务器市场 CAGR</td><td class="num"><span class="keyfig">46.8%</span> → 162 亿美元</td><td>2024E→2029F（IDC）</td><td>机构跟踪/预测</td></tr>
+        <tr><td>中国智能算力规模</td><td class="num"><span class="keyfig">1,880 EFLOPS</span>（FP16）</td><td>2026Q1；八大枢纽占比 &gt;80%</td><td>国家数据局</td></tr>
+        <tr><td>中国算力中心用电</td><td class="num">1,700 → 8,000 亿 kWh</td><td>2025A→2030F；占全社会用电 1.6%→约6%</td><td>国家能源局</td></tr>
+        <tr><td>全球数据中心用电</td><td class="num">415 → 485 → 950 TWh</td><td>2024E→2025E→2030F</td><td>IEA 模型估计/预测</td></tr>
+        <tr><td>全球关键 IT 容量需求</td><td class="num">82 → 219 GW</td><td>2025E→2030F；持续动量情景</td><td>McKinsey</td></tr>
+        <tr><td>全球液冷设备厂商收入</td><td class="num">近 $3B → 约 $7B</td><td>2025E→2029F</td><td>Dell'Oro</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">2.2 2024–2032 年度市场框架</h3>
+    <table>
+      <thead><tr><th>指标</th><th class="num">2024</th><th class="num">2025</th><th class="num">2026</th><th class="num">2027</th><th class="num">2028</th><th class="num">2029</th><th class="num">2030</th><th class="num">2031</th><th class="num">2032</th></tr></thead>
+      <tbody>
+        <tr><td>全球数据中心用电（TWh）</td><td class="num">415E</td><td class="num">485E</td><td class="num">555M</td><td class="num">635M</td><td class="num">726M</td><td class="num">830M</td><td class="num">950F</td><td class="num">995M</td><td class="num">1,043M</td></tr>
+        <tr><td>全球关键 IT 容量需求（GW，持续动量情景）</td><td class="num">67M</td><td class="num">82E</td><td class="num">100M</td><td class="num">122M</td><td class="num">148M</td><td class="num">180M</td><td class="num">219F</td><td class="num">267M</td><td class="num">324M</td></tr>
+        <tr><td>中国算力中心用电（TWh）</td><td class="num">166E*</td><td class="num">170A</td><td class="num">296M</td><td class="num">422M</td><td class="num">548M</td><td class="num">674M</td><td class="num">800F</td><td class="num">900–926M</td><td class="num">1,000–1,052M</td></tr>
+        <tr><td>全球液冷设备收入（十亿美元）</td><td class="num">约1.5M</td><td class="num">约3.0E</td><td class="num">约3.7M</td><td class="num">约4.6M</td><td class="num">约5.7M</td><td class="num">约7.0F</td><td class="num">约8.4M</td><td class="num">约9.8M</td><td class="num">约11.2M</td></tr>
+        <tr><td>全球解决方案+服务（十亿美元，宽口径）</td><td class="num">2.13M</td><td class="num">2.84E</td><td class="num">3.78M</td><td class="num">5.04M</td><td class="num">6.71M</td><td class="num">8.94M</td><td class="num">11.91M</td><td class="num">15.87M</td><td class="num">21.14F</td></tr>
+        <tr><td>中国液冷服务器整机（十亿美元）</td><td class="num">2.37E</td><td class="num">3.48M</td><td class="num">5.11M</td><td class="num">7.51M</td><td class="num">11.03M</td><td class="num">16.20F</td><td class="num">21.06M</td><td class="num">25.69M</td><td class="num">29.55M</td></tr>
+        <tr><td>中国智算中心液冷产业（亿元）</td><td class="num">184E</td><td class="num">272M</td><td class="num">402M</td><td class="num">595M</td><td class="num">879M</td><td class="num">1,300F</td><td class="num">1,690M</td><td class="num">2,062M</td><td class="num">2,371M</td></tr>
+      </tbody>
+    </table>
+    <p class="note">A=官方实绩；E=机构估计/测算；F=机构预测；M=本BP模型。全球关键IT容量统一采用McKinsey“持续动量”82→219GW情景，不与其他版本的171GW下行情景拼接；2031–2032仅机械延伸。2024年中国166TWh与2025年实绩统计边界不完全可比。2030年后液冷数字采用透明递减增速，均非机构原始预测；各市场口径禁止相加。</p>
+    <p>核心物理驱动：AI 机架功率密度快速上升，传统风冷在高密场景受到换热与噪声约束。NVIDIA 公开资料显示，<strong>GB200 NVL72 整柜约 120–132 kW，GB300 NVL72 参考架构约 142 kW；Vera Rubin 采用 100% 液冷，并支持最高约 45℃供液温度</strong>。Rubin Ultra NVL576 是多机架计算域，不能表述为 600 kW“单柜”。</p>
+
+    <h3 class="sub">2.3 政策硬约束：液冷的刚性底座</h3>
+    <div class="hlbox">
+      <b>《数据中心绿色低碳发展专项行动计划》（发改环资〔2024〕970 号，四部门，2024.07，已核实）：</b>到 2025 年底，新建及改扩建大型/超大型数据中心 <strong>PUE ≤ 1.25</strong>，国家枢纽节点项目 <strong>PUE ≤ 1.2</strong>；明确因地制宜推广液冷、蒸发冷却、热管、氟泵等技术。PUE 受负载率、气候、冷源和配电共同影响，液冷是高密场景的重要手段，但不能仅凭 PUE 反推单一冷却技术性能。
+    </div>
+    <p>叠加 GB/T 44989-2024《绿色数据中心评价》（含液冷暖通设计指标附录）、液冷部件国标（CDU/冷板/快接头，计划号 20243523-T-469）、YD/T 6358-2025《冷板液冷数据中心》等标准从"碎片化"走向"统一"，<strong>取得标准合规与第三方评价资质将成为竞争筹码</strong>。</p>
+
+    <h3 class="sub">2.4 双重国产替代窗口（我们的战略时间窗）</h3>
+    <div class="two-col">
+      <div>
+        <h4>窗口一：开放标准与供应链重构</h4>
+        <p>OCP Project Deschutes 5（2025.07 生效）将 2 MW CDU 设计开放化，整机厂、ODM、设施侧和热管理厂商之间的接口正在标准化。国产供应商仍需通过客户可靠性、接口兼容和交付体系验证，不能把“开放”理解为自动取得采购资格。</p>
+      </div>
+      <div>
+        <h4>窗口二：PFAS 供应与合规变化</h4>
+        <p>3M 已于 2025 年底完成 PFAS 制造退出，但其公告披露的约 $13 亿为全部自制 PFAS 产品年净销售，并非数据中心冷却液规模。L1 以水基冷板液冷为主，氟化工质只作为经客户和法规验证后的技术选项。</p>
+      </div>
+    </div>
+
+    <h3 class="sub">2.5 TAM / SAM / SOM 与目标份额（口径校正）</h3>
+    <p>以 Dell'Oro 的液冷设备厂商收入作为 TAM 主口径，再将区域、产品层和渠道可达性逐层折减。SOM 对应本 BP 营收路径，但“低份额”不等于“低难度”。</p>
+    <table>
+      <caption>TAM：Dell'Oro；2027–2028为2025近$30亿至2029约$70亿之间的管理层插值，2030为本文模型。SAM为管理层折算，SOM为本BP目标。</caption>
+      <thead><tr><th>口径</th><th class="num">2027（Y1）</th><th class="num">2028（Y2）</th><th class="num">2029（Y3）</th><th class="num">2030（指引）</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td><strong>TAM</strong> 全球液冷设备厂商收入</td><td class="num">约 $46 亿</td><td class="num">约 $57 亿</td><td class="num">约 $70 亿</td><td class="num">约 $84 亿</td><td>2027/2028为端点插值；2029为机构预测；2030为本文递减增速模型</td></tr>
+        <tr><td><strong>需求旁证</strong></td><td class="num" colspan="4">中国智算中心液冷产业规模、液冷服务器整机收入、数据中心建设投资</td><td>不得与设备厂商收入口径相加</td></tr>
+        <tr><td><strong>SAM</strong> 本业务可服务市场<br><span class="note">中国及邻近出海区域 × 50–450 kW CDU/系统集成环节</span></td><td class="num">约 ¥40–65 亿</td><td class="num">约 ¥55–90 亿</td><td class="num">约 ¥76–126 亿</td><td class="num">约 ¥90–150 亿</td><td>管理层折算；与调研v2.8一致，需在数据室公开逐层公式</td></tr>
+        <tr class="total2"><td><strong>SOM</strong> 本 BP 目标份额</td><td class="num">¥1,800 万<br><span class="note">≈ SAM 0.28%–0.45%</span></td><td class="num">¥5,500 万<br><span class="note">≈ SAM 0.61%–1.00%</span></td><td class="num">¥13,000 万<br><span class="note">≈ SAM 1.03%–1.71%</span></td><td class="num">¥25,000 万<br><span class="note">≈ SAM 1.67%–2.78%</span></td><td>以各阶段门禁达成为前提的管理层目标情景</td></tr>
+      </tbody>
+    </table>
+    <div class="hlbox"><b>可达性结论：</b>份额数学上可达，但订单集中、认证周期、账期和质保责任会放大执行风险；年度目标必须拆成客户、产能、回款和现金转换周期四张底表。</div>
+  </section>
+
+  <!-- ============ 3. PRODUCT & TECH ============ -->
+  <section id="s3">
+    <h2 class="sec"><span class="chip">03</span>痛点 · 解决方案 · 产品与技术路线<a class="back" href="#s1">↑ 返回目录</a></h2>
+
+    <h3 class="sub">3.1 客户痛点</h3>
+    <ul>
+      <li><strong>风冷物理失效</strong>：高密 AI 机柜（50–200 kW）远超风冷上限，必须上液冷。</li>
+      <li><strong>PUE 不达标无法过审</strong>：能评/建设审批受 PUE≤1.25/1.2 硬约束，风冷方案直接出局。</li>
+      <li><strong>漏液与可靠性恐惧</strong>：液体进机柜的最大心理与技术障碍，需可靠的 CDU 控制 + 负压/盲插快接头方案。</li>
+      <li><strong>头部供应商交付与服务下沉不足</strong>：中小云、区域 IDC 拿不到头部产能与定制响应。</li>
+      <li><strong>出海高温高湿环境适配难</strong>：东南亚/中东自然冷源条件差，需冷媒/两相方案保障 PUE。</li>
+      <li><strong>进口部件成本高、标准不统一、互换性差。</strong></li>
+    </ul>
+
+    <h3 class="sub">3.2 解决方案与产品路线图（三级演进，对齐三步注资）</h3>
+    <p class="lead">我们以 <strong>"自研 CDU（含控制）为核心 + 外购部件系统集成"</strong> 起步，确保 1 年内出可商用产品、快速形成现金流；再沿"<strong>认证级 CDU → 芯片级 PCB 冷板</strong>"向高毛利、高壁垒的核心部件梯度延伸。</p>
+    <table>
+      <thead><tr><th style="width:10%">级别</th><th>自研/外购范围与产品</th><th>关键技术 / 性能指标（目标）</th><th>认证目标</th><th class="num">目标毛利</th><th>对应注资 / 时间</th></tr></thead>
+      <tbody>
+        <tr><td><strong>L1<br>滩头阵地</strong></td><td><strong>自研：</strong>50/100/150/200 kW 模块化 CDU 共平台（含控制）；物理样机聚焦100/200 kW。<br><strong>外购集成：</strong>Manifold、UQD、冷板、二次侧管路</td><td>每档明确额定工况；N+1 泵组、双电源、漏液检测；水基冷板液冷为主</td><td>基础 EMC/安规摸底、YD/T 6358-2025 相关测试、客户接口规范</td><td class="num">系统集成 18%–20%<br>CDU 30%–40% <span class="assume">目标</span></td><td><strong>第一步 ¥800 万</strong><br>共平台 → 两台代表样机 → 1,000h → 2 个付费项目</td></tr>
+        <tr><td><strong>L2<br>梯度扩张</strong></td><td><strong>自研：</strong>300–450 kW 客户验证级 CDU，更高可靠性、兼容性与在线监控</td><td>发布全工况性能曲线；设施水解耦、故障降级；系统级 CDU 并联与 N+1 容量验证</td><td>第三方热工/可靠性测试、生态伙伴联合验证、运营商集采入围</td><td class="num">35%–45% <span class="assume">目标</span></td><td><strong>第二步最高 ¥1,200 万</strong><br>由 L1 回款触发</td></tr>
+        <tr><td><strong>L3<br>技术期权</strong></td><td><strong>联合开发：</strong>芯片级/PCB 冷板，不在无客户牵引时自建完整工艺线</td><td>工程基线 R<sub>th</sub> 0.05–0.08 K/W；微通道、封装应力、泄漏和可制造性联合验证</td><td>高校/封装厂/客户联合中试</td><td class="num">仅G2达成后计入Y3目标情景</td><td><strong>第三步最高 ¥1,500 万</strong><br>仅在联合客户与回款达标后启动</td></tr>
+        <tr><td>贯穿<br>耗材/服务</td><td>冷却液/冷媒首充与复购、AIoT 运维（漏液预警/能效寻优）+ SLA</td><td>出海高温高湿工质适配；远程运维；能效在线优化</td><td>—</td><td class="num">45%–50%</td><td>Y1 起持续</td></tr>
+      </tbody>
+    </table>
+    <p class="note">第一阶段刻意以"自研 CDU + 外购集成"轻资产起步，把有限资金集中在最高壁垒的 CDU 与控制系统上；其余部件待规模与现金流起来后，再按 L2/L3 节奏选择性自研内化。</p>
+
+    <h3 class="sub">3.3 200/300/450 kW CDU 的目标机柜与销售口径</h3>
+    <p class="lead">销售必须区分整柜 IT 功率和液体热负荷。统一采用：Q<sub>design</sub> = Σ(P<sub>IT</sub> × 液冷带热比例 × 同时负载系数) × (1 + 工程余量)，并按实际温度、ATD、流量、压降和工质对 CDU 额定冷量降额。下表以 10% 余量作可比示例，该比例不是客户标准。</p>
+    <table>
+      <thead><tr><th>CDU SKU</th><th>可覆盖的规划场景</th><th>不可直接覆盖/需并联场景</th><th>销售边界</th></tr></thead>
+      <tbody>
+        <tr><td><strong>200 kW</strong><br>L1 主力</td><td>1× NVIDIA GB200/GB300；约2–3×华为 Atlas A3；1×Lenovo N1380</td><td>满配 Supermicro 250 kW 柜；Dell 504 kW 柜</td><td>只能承诺“容量段匹配”；NVIDIA 公开资料未给统一液体热负荷和流量，必须取得 OEM 热设计表</td></tr>
+        <tr><td><strong>300 kW</strong><br>L2 入门</td><td>2×GB200或1×GB300；约4–5×Atlas A3；1×N1380；1×Supermicro 250 kW 柜</td><td>2×GB300 在整柜功率+10%假设下约312 kW；2×N1380 约356 kW；Dell 504 kW 柜</td><td>多柜项目采用 CDU 并联和系统 N+1；泵 N+1 不代表冷量 N+1</td></tr>
+        <tr><td><strong>450 kW</strong><br>L2 Row CDU</td><td>3×GB200或2×GB300；约6–8×Atlas A3；2×N1380；1×Supermicro 250 kW 柜</td><td>3×GB300 加10%约469 kW；Dell 504 kW 满配柜</td><td>额定 450 kW 必须绑定工况；不得引用实验室最大冷量替代客户现场有效冷量</td></tr>
+      </tbody>
+    </table>
+    <div class="hlbox"><b>产品定义硬要求：</b>Vertiv XDU450 的 453 kW 名义值对应 4℃ ATD；OCP Deschutes 的 2 MW 对应 3℃ ATD、500 GPM、80–90 psi。公司 200/300/450 kW 每个 SKU 必须发布额定工况、性能曲线、最大外部压差、泵冗余状态和降额规则，否则“kW”不可用于投标比较。</div>
+    <p class="note">证据来源：<a href="https://docs.nvidia.com/dgx/dgxgb200-user-guide/hardware.html" target="_blank">NVIDIA DGX GB</a>；<a href="https://support.huawei.com/enterprise/zh/doc/EDOC1100401572/908e3129" target="_blank">华为 Atlas 900 A3 功率/液冷比</a>（其公开62/74 LPM参数针对可选液冷门，不作为D2C回路流量）；<a href="https://lenovopress.lenovo.com/ds0187.pdf" target="_blank">Lenovo N1380</a>；<a href="https://www.supermicro.com/datasheet/Datasheet_Supermicro_DLC-2.pdf" target="_blank">Supermicro DLC-2</a>；<a href="https://www.dell.com/en-us/shop/dell-poweredge-integrated-rack-scalable-systems/sf/integrated-rack-scalable-systems" target="_blank">Dell IR7000</a>；<a href="https://www.vertiv.com/48ed4b/globalassets/shared/vertiv-xdu450-cdu_datasheet_en-na.pdf" target="_blank">Vertiv XDU450</a>；<a href="https://www.opencompute.org/documents/ocp-specification-deschutes-final-2025-09-05-pdf" target="_blank">OCP Deschutes</a>。机柜数量是规划计算，不是厂商兼容认证。</p>
+
+    <h3 class="sub">3.4 技术路线选择</h3>
+    <p>以<strong>水基冷板式（D2C）为 L1 主力</strong>，优先解决可改造、可维护和规模交付。冷媒/两相涉及泵、密封、换热器和控制逻辑的不同工程边界，不承诺一台 L1 CDU 无条件“双模式切换”；按客户项目建立独立 SKU 与验证计划。</p>
+    <table>
+      <thead><tr><th>维度</th><th>冷板液冷（D2C）· 主力</th><th>冷媒 / 两相 · CDU 兼容</th><th>芯片级 PCB 冷板 · L3 自研</th></tr></thead>
+      <tbody>
+        <tr><td>散热能力</td><td>60–150 kW/柜</td><td>100–200+ kW/柜（热流密度高）</td><td>贴片级高热流密度</td></tr>
+        <tr><td>目标 PUE</td><td><strong>1.15–1.25</strong></td><td><strong>~1.05–1.08</strong></td><td>提升冷板换热效率</td></tr>
+        <tr><td>我们的切入</td><td><strong>L1 主打，现金流引擎</strong></td><td>独立 SKU/联合方案，完成工质与部件验证后进入</td><td><strong>L3 技术期权</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">3.5 技术壁垒与专利规划</h3>
+    <div class="grid">
+      <div class="card"><div class="big teal">按评审立项</div><div class="lbl">优先保护 CDU 控制、故障降级、漏液联动和可维护性；不以专利数量替代质量</div></div>
+      <div class="card"><div class="big teal">3 类资质</div><div class="lbl">绿色数据中心第三方评价、液冷部件国标合规、大厂可靠性/兼容性认证</div></div>
+      <div class="card"><div class="big teal">软硬一体</div><div class="lbl">AIoT 运维平台 + 漏液预警 + 能效寻优，构建数据飞轮护城河</div></div>
+    </div>
+    <p class="note">壁垒优先级：水基 CDU 控制与集成 &gt; 客户级可靠性与兼容性验证 &gt; 系统调试、水质与运维数据 &gt; 芯片级冷板联合工艺 &gt; 特种工质期权。</p>
+
+    <h3 class="sub">3.6 L3+ 前瞻路线与极致散热预研（参见调研 §3A.5、§3A.9.5）</h3>
+    <p>面向 GB300 Ultra / Rubin / Rubin Ultra / 主权 AI 等 2028+ 极端高热流密度场景，我们在 L3 主推（铜微通道 + 钎焊）之外，预研下列五条候选路线，并按"性能 / 成本 / 工程难度 / 时点 / 战略契合度"进行评级。</p>
+    <table>
+      <thead><tr><th>路线</th><th>最大热流密度</th><th>R_th 量级</th><th>可量产时点</th><th>对本公司战略意义</th><th>L3+ 推荐度</th></tr></thead>
+      <tbody>
+        <tr><td>① VC + 微通道复合</td><td>200–300 W/cm²</td><td>0.03–0.05 ℃/W</td><td><strong>2027–2028</strong></td><td>承接 L3 工艺与供应链；自然延伸</td><td><strong>★★★★★ 首选</strong></td></tr>
+        <tr><td>② <strong>CVD 金刚石散热基底</strong></td><td><strong>500–1000+ W/cm²</strong></td><td>0.02–0.04 ℃/W</td><td>2028–2030</td><td>极端场景预研 + IP 卡位空白；与材料厂合作，<strong>不自建产线</strong></td><td>★★★★ 战略预研</td></tr>
+        <tr><td>③ 喷射冲击（Jet Impingement）</td><td>250–400 W/cm²</td><td>0.025–0.04 ℃/W</td><td>2027–2029</td><td>跟踪 JetCool（Flex 系）/ IBM 进展；做接口适配方</td><td>★★★ 跟踪</td></tr>
+        <tr><td>④ 毛细蒸发（Capillary 两相）</td><td>300–500 W/cm²</td><td>0.02–0.04 ℃/W</td><td>2028–2030</td><td>需配套两相工质供应；与 ZutaCore/Calyos 路线相似</td><td>★★★ 跟踪</td></tr>
+        <tr><td>⑤ 两相浸没（Tank/Chassis）</td><td>≥1000 W/cm²（整柜整体）</td><td>系统级</td><td>2026–2028 已小批量</td><td>系统级方案；不正面做浸没系统，做 In-Tank CDU 接口适配</td><td>★★ 边缘卡位</td></tr>
+      </tbody>
+    </table>
+    <p class="note"><strong>战略口径：</strong>L3采用铜微通道+钎焊联合开发；VC+微通道复合作为后续储备；CVD金刚石只做合作样件和IP卡位，不自建CVD产线。该路线与800/1,200/1,500万元三期上限匹配；如评审决定自建完整冷板工艺线，必须另行立项并追加CapEx，不得挤占本预算。</p>
+  </section>
+
+  <!-- ============ 4. TARGET MARKET ============ -->
+  <section id="s4">
+    <h2 class="sec"><span class="chip">04</span>目标市场与客户分层<a class="back" href="#s1">↑ 返回目录</a></h2>
+    <p class="lead"><strong>滩头阵地战略（Beachhead Strategy）</strong>的客户路径：<strong>中小云/区域 IDC（滩头阵地）→ 英伟达生态 + 华为体系（梯度扩张）→ 全球 Hyperscaler（主流市场）</strong>。优先切入决策链短、竞争相对薄弱、痛点最强的未充分服务市场，以现金流与标杆案例换取进入头部名录的入场券。</p>
+    <table>
+      <thead><tr><th>阶段 / 客户层</th><th>客户画像</th><th>采购逻辑与痛点</th><th>我们的切入打法</th></tr></thead>
+      <tbody>
+        <tr><td><strong>① 滩头阵地<br>中小云 / 区域 IDC / AI 智算运营商</strong></td><td>新兴 GPU 云、行业云、地方国资智算中心；决策链短、对新技术接受度高、被头部供应商忽视</td><td>痛点：拿不到头部产能、PUE 过审压力、预算敏感、要快交付。决策快（1–3 月）</td><td><strong>自研 CDU + 外购集成的标准化整柜方案 + 快速交付 + 高性价比 + 贴身服务</strong>；以灯塔客户（Lighthouse）样板打透首批标杆</td></tr>
+        <tr><td><strong>① 滩头阵地（出海）<br>东南亚 / 中东</strong></td><td>跟随中资云出海项目（如马来 IDC）、中东主权 AI（G42/NEOM 类）</td><td>高温高湿、电网、水源、审批与本地服务约束</td><td><strong>高温供液水基 CDU + 低水耗排热系统协同</strong>；按电力、水源和审批成熟度筛选项目</td></tr>
+        <tr><td><strong>② 梯度扩张<br>英伟达 GPU 体系</strong></td><td>英伟达生态 ODM/OEM 与 MGX 平台合作伙伴</td><td>客户验证门槛高，产能、可靠性与接口要求严</td><td>完成 ODM/OEM 客户级可靠性与兼容性验证；NPN 是伙伴网络、MGX 是模块化平台，均不表述为统一产品认证</td></tr>
+        <tr><td><strong>② 梯度扩张<br>华为昇腾 / 华为云</strong></td><td>华为及其液冷合作伙伴生态、昇腾算力集群</td><td>国产自主可控硬性偏好、全栈一致性</td><td>进入<strong>华为液冷供应商名录</strong>，配套昇腾高功耗芯片散热</td></tr>
+        <tr><td><strong>② 梯度扩张<br>运营商集采</strong></td><td>移动/电信/联通（与互联网合计占市场约 90%）</td><td>国产化率、能耗指标、集采性价比；账期长</td><td>取得集采<strong>入围资格</strong>，参与液冷集采（参考中移动 30 亿液冷项目）</td></tr>
+        <tr><td><strong>③ 主流市场<br>全球 Hyperscaler / 欧洲</strong></td><td>北美超大规模云、欧洲（废热回收法规驱动）、全球超算</td><td>极致 PUE、超高密、供应链安全、合规</td><td>芯片级 PCB 冷板 + 认证级 CDU 全链条方案，参与全球主战场竞争</td></tr>
+      </tbody>
+    </table>
+    <p>需求侧不再使用“宽口径中国液冷市场 × 固定部件占比”直接推导收入。销售计划应按<strong>已获电力/审批的项目 MW × 液冷适用比例 × 单位 MW 设备价值 × 中标率 × 交付率 × 回款率</strong>建立，并与 CDU 台数、集成柜数和服务收入逐项勾稽。CAICT、IDC 与 Dell'Oro 数据只用于市场边界校验。</p>
+
+    <h3 class="sub">4.2 重点 BD 目标客户/项目示例（逐国锚定）<span class="note" style="font-weight:400;">　结合调研v2.8；商务前逐项核验</span></h3>
+    <p>下表为按"<strong>滩头阵地 → 梯度扩张 → 主流市场</strong>"三阶段对调研 §4.5 逐国典型项目清单的锚定，每个目标客户/项目对应 L1 / L2 / L3 的进入节奏，供销售 / BD 团队按优先级排序与名单维护。</p>
+    <table>
+      <caption>项目名为公开报道的代表性案例；规模为公开/估算区间；正式商务前请按最新公告再核对。</caption>
+      <thead><tr><th style="width:11%">国家/区域</th><th>代表 BD 目标客户 / 项目</th><th class="num">单项目容量</th><th>对应阶段</th><th>BD 切入抓手</th></tr></thead>
+      <tbody>
+        <tr><td><strong>中国（滩头阵地）</strong></td><td>中移动智算中心（呼和浩特/哈尔滨/贵阳）、中电信智算中心、华为乌兰察布昇腾基地、字节张北/怀来、阿里张北、腾讯仪征/天津</td><td class="num">数十–数百 MW</td><td><strong>L1 → L2</strong></td><td>L1 切入区域 IDC 与中移动子项；L2 申请运营商集采入围与华为名录</td></tr>
+        <tr><td><strong>马来西亚柔佛（出海重点）</strong></td><td>字节 Johor、AirTrunk、YTL、GDS Johor、Equinix JH1</td><td class="num">在运、已签约与 pipeline 分层核验</td><td><strong>L1（出海标杆）</strong></td><td>本地 IDC/EPC 合作；高温供液、备件服务；未获电力/水源/审批的 pipeline 不计入近期订单</td></tr>
+        <tr><td><strong>新加坡</strong></td><td>Equinix SG5/SG6、ST Telemedia、Digital Realty SIN、AirTrunk SIN1</td><td class="num">20–60 MW</td><td><strong>L1 → L2</strong></td><td>高 PUE 改善方案 + 绿色准入；高价值标杆案例</td></tr>
+        <tr><td><strong>印尼 / 泰国</strong></td><td>NeutraDC、DCI Indonesia、PDG、STT GDC、True IDC、AWS Bangkok</td><td class="num">10–50 MW</td><td><strong>L1</strong></td><td>本地服务和备件体系是关键；易维护 CDU + 远程监控</td></tr>
+        <tr><td><strong>沙特（出海战略高地）</strong></td><td><strong>HUMAIN（PIF 主导）</strong>、NEOM 数据中心、Saudi Aramco AI</td><td class="num">数百 MW（主权 AI GW 级）</td><td><strong>L2</strong></td><td>高温适配、冷媒/两相、主权项目准入；与国际认证与渠道协同</td></tr>
+        <tr><td><strong>阿联酋</strong></td><td><strong>G42（Khazna 集群）、Stargate UAE</strong>、Microsoft UAE、e& DC</td><td class="num">数百 MW–GW（Stargate UAE 5 GW 路线图）</td><td><strong>L2 → L3</strong></td><td>国际认证 + 英伟达生态 + 冷媒方案；联合验证型标杆</td></tr>
+        <tr><td><strong>美国（主流市场）</strong></td><td>Microsoft Stargate、Meta Hyperion、AWS、Google、CoreWeave / Lambda</td><td class="num">数百 MW–GW</td><td><strong>L3（终局主战场）</strong></td><td>需先有 L2 认证基础和标杆案例；通过 ODM/伙伴借道</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ 5. BUSINESS MODEL ============ -->
+  <section id="s5">
+    <h2 class="sec"><span class="chip">05</span>商业模式<a class="back" href="#s1">↑ 返回目录</a></h2>
+    <p class="lead">"<strong>集成起量 → 自研提毛利 → 部件筑壁垒</strong>"的进阶式收入结构——第一阶段以外购集成 + 自研 CDU 快速形成现金流，逐步把价值与毛利向自研 CDU、芯片级 PCB 冷板及耗材/服务迁移。</p>
+
+    <h3 class="sub">5.1 收入结构与毛利演变（门禁达成目标情景）</h3>
+    <table>
+      <caption>所有 ASP 和毛利均需由询价、样机完全成本与客户报价验证；L3只在G2达成后进入Y3目标情景。</caption>
+      <thead><tr><th>收入类型</th><th>计费模式</th><th>产品段 ASP</th><th class="num">目标毛利</th><th class="num">Y1 占比</th><th class="num">Y3 占比</th><th>战略角色</th></tr></thead>
+      <tbody>
+        <tr><td><strong>外购集成 / 系统交付</strong></td><td>整柜/整项目总包（外购部件 + 集成）</td><td>¥40–80 万/柜套件（参考 §5.4 集成段）</td><td class="num">18%–20%</td><td class="num">67%</td><td class="num">35%</td><td>快速起量、建立标杆与现金流</td></tr>
+        <tr><td><strong>L1 自研 CDU</strong></td><td>按 SKU/配置定价（50–200 kW）</td><td><strong>待 SKU 询价</strong> <span class="assume">50/100/150/200 kW 禁止混用均价</span></td><td class="num"><strong>30%–40%</strong> <span class="assume">目标</span></td><td class="num" rowspan="2">28%</td><td class="num" rowspan="2">46%</td><td><strong>L1 单位经济须在 G1 前验证</strong></td></tr>
+        <tr><td><strong>L2 认证级 CDU</strong></td><td>按台/配置定价（300–450 kW）</td><td>客户询价后确定</td><td class="num"><strong>35%–45%</strong> <span class="assume">目标</span></td><td>联合验证与规模化</td></tr>
+        <tr><td><strong>L3 芯片级/PCB 冷板</strong></td><td>联合研发 / 按项目</td><td>未定</td><td class="num">未定</td><td class="num">—</td><td class="num">11.5%</td><td>条件性技术期权，仅G2达成后计入Y3目标情景</td></tr>
+        <tr><td>冷却液耗材 + 运维/AIoT</td><td>首充 + 周期复购；年费/订阅</td><td>占客户全周期 10%–15%</td><td class="num">45%–50%</td><td class="num">5%</td><td class="num">7%</td><td><strong>稳定现金流 + 粘性</strong></td></tr>
+        <tr class="total"><td>合计 / 综合毛利率</td><td>—</td><td>—</td><td class="num">26%→39%</td><td class="num">100%</td><td class="num">100%</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p class="note">毛利演进解释：综合毛利率26%→32%→39%的提升路径，对应“外购集成（18%–20%，权重67%→35%）下降 + L1自研CDU（30%–40%）+ L2认证级CDU（35%–45%）+ 条件性L3收入（Y3占11.5%）”的结构再分配。上述均为待验证的制造毛利目标，项目贡献还须继续扣除项目可变费用。</p>
+
+    <h3 class="sub">5.2 定价逻辑与单位经济（示意）</h3>
+    <div class="grid">
+      <div class="card"><div class="big gold">4 档 SKU</div><div class="lbl">50/100/150/200 kW 分别建立 BOM、牌价、成交 ASP、渠道折扣和质保准备金</div></div>
+      <div class="card"><div class="big">¥40–80 万</div><div class="lbl">单柜外购集成套件 ASP（冷板+快接头+Manifold）<span class="assume">假设</span></div></div>
+      <div class="card"><div class="big teal">10%–15%</div><div class="lbl">耗材+运维占客户全周期支出，复购年化贡献</div></div>
+      <div class="card"><div class="big teal">按项目测算</div><div class="lbl">TCO/回收期取决于负载率、电价、水价、PUE 基线、改造成本和服务器寿命</div></div>
+    </div>
+    <p><strong>客户 TCO 价值主张：</strong>逐项目计算 CapEx、泵功、PUE/WUE、维护、停机风险和服务器寿命。Nature 2025 生命周期研究提示，先进冷却的潜在收益主要来自服务器寿命延长及电力/用水下降，但结果高度依赖系统边界；因此销售材料不再承诺统一“低 30%”或“6 个月回收”。</p>
+  </section>
+
+  <!-- ============ 5A. PROFIT MODEL ============ -->
+  <section id="s5a">
+    <h2 class="sec"><span class="chip">05A</span>商业利润模型<a class="back" href="#s1">↑ 返回目录</a></h2>
+    <p class="lead"><strong>利润逻辑不是“市场规模 × 份额”，而是“可回款项目数 × 单项目贡献利润 + 复购服务贡献 − 平台固定费用”。</strong>本业务先用系统集成获得客户和现金流，再提高自研CDU占比与服务复购，最终依靠认证级产品和联合开发提升毛利；所有利润必须从SKU、项目和客户三个层级自下而上汇总。</p>
+
+    <h3 class="sub">5A.1 利润树：从合同收入到可用现金</h3>
+    <table>
+      <thead><tr><th>利润层级</th><th>计算公式</th><th>必须计入的成本</th><th>管理用途</th></tr></thead>
+      <tbody>
+        <tr><td><strong>L0 营业收入</strong></td><td>设备/项目不含税收入 + NRE + 耗材/运维收入</td><td>仅按验收和会计政策确认，不以合同额代替收入</td><td>衡量交付规模</td></tr>
+        <tr><td><strong>L1 制造完全成本毛利</strong></td><td>营业收入 − 会计COGS</td><td>BOM、直接人工/测试、制造外协、运输、返工与良率；不含渠道、质保和平台认证</td><td>判断产品制造经济性</td></tr>
+        <tr><td><strong>L2 项目贡献利润</strong></td><td>制造完全成本毛利 − 项目可变费用</td><td>售前方案、渠道佣金、客户专项验证、现场调试、差旅、质保/备件、坏账、保函费用、保险/SLA赔偿、海外关税与汇率</td><td>报价审批和销售提成依据</td></tr>
+        <tr><td><strong>L3 经营利润（EBIT）</strong></td><td>Σ项目贡献利润 − 平台固定费用</td><td>平台研发、通用认证、非项目销售、管理职能、共享资源内部结算和固定实验室费用</td><td>判断业务线是否盈利</td></tr>
+        <tr><td><strong>L4 现金贡献</strong></td><td>实际现金回款 − 实际经营现金支出 − CapEx现金支出</td><td>应收、存货和预付款的影响已通过实际收付款时点体现，不再重复扣减营运资金增加</td><td>决定能否继续经营和解锁下一阶段</td></tr>
+      </tbody>
+    </table>
+    <div class="hlbox"><b>单项目利润公式：</b>经营性项目贡献 = 不含税合同收入 − 会计COGS − 项目专属销售/交付/售后费用 − 质保、坏账、保函及保险。通用认证和平台研发只进入平台固定费用，不再摊回项目重复扣减；客户专项认证进入对应项目贡献。实际利息列财务费用、位于EBIT以下；内部资金占用费仅用于管理报价，不直接桥接会计EBIT。</div>
+
+    <h3 class="sub">5A.2 四类收入的利润角色</h3>
+    <table>
+      <thead><tr><th>收入线</th><th>目标毛利口径</th><th>利润角色</th><th>关键验证</th><th>主要风险</th></tr></thead>
+      <tbody>
+        <tr><td><strong>外购集成/系统交付</strong></td><td>18%–20%</td><td>获取客户、形成案例和回款，不作为长期利润核心</td><td>供应商报价、交付工时、渠道和质保成本</td><td>低毛利叠加长账期导致“增收不增现”</td></tr>
+        <tr><td><strong>L1自研CDU</strong></td><td>30%–40% <span class="assume">目标</span></td><td>第一利润支柱；控制系统与可靠性形成差异化</td><td>各SKU BOM、10台试制良率、完全制造成本</td><td>小批量成本、返工和现场服务侵蚀毛利</td></tr>
+        <tr><td><strong>L2认证级CDU</strong></td><td>35%–45% <span class="assume">目标</span></td><td>规模客户和较高ASP的第二利润支柱</td><td>第三方/OEM验证、批量一致性、采购降本</td><td>认证周期长、客户集中和降价压力</td></tr>
+        <tr><td><strong>耗材/运维/AIoT</strong></td><td>45%–50% <span class="assume">目标</span></td><td>复购型利润与客户黏性，平滑项目波动</td><td>SLA成本、续约率、备件消耗和服务半径</td><td>装机量不足时无法覆盖服务团队</td></tr>
+        <tr><td><strong>L3联合开发</strong></td><td>未验证</td><td>NRE与核心部件的条件性上行，不作为无条件利润</td><td>客户NRE、采购意向、样件良率和量产责任</td><td>研发投入前置、规格变化和产线责任</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">5A.3 三年利润桥（门禁达成目标情景，单位：万元）</h3>
+    <table>
+      <thead><tr><th>利润桥</th><th class="num">2027（Y1）</th><th class="num">2028（Y2）</th><th class="num">2029（Y3）</th><th>解释</th></tr></thead>
+      <tbody>
+        <tr><td>营业收入</td><td class="num">1,800</td><td class="num">5,500</td><td class="num">13,000</td><td>项目数×项目金额，自下而上汇总</td></tr>
+        <tr><td>会计毛利</td><td class="num">471</td><td class="num">1,783</td><td class="num">5,030</td><td>综合毛利率26.2%→32.4%→38.7%；项目贡献尚待拆分</td></tr>
+        <tr><td>期间费用</td><td class="num">850</td><td class="num">1,850</td><td class="num">3,770</td><td>研发+销售+管理；现模型同时包含项目可变费用与平台固定费用，待月度模型拆分</td></tr>
+        <tr class="total"><td>经营利润（EBIT）</td><td class="num">-379</td><td class="num">-67</td><td class="num">1,260</td><td>Y3在产品结构和收入目标同时达成时转正</td></tr>
+        <tr><td>经营活动现金流</td><td class="num">-360</td><td class="num">-250</td><td class="num">1,000</td><td>仍受应收、库存和验收时点影响</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Y3的¥1,500万L3/联合开发收入属于G2通过后的条件性收入。由基准情景增量计算：EBIT<sub>无G2</sub> = 1,260 − 1,500×L3待验证毛利率 + 可避免的L3期间费用；已经计入基准期间费用的沉没研发不再重复扣减。L3毛利率和可避免成本未锁定前，不声称无G2情景仍盈利。</p>
+
+    <h3 class="sub">5A.4 盈亏平衡、敏感性与报价红线</h3>
+    <div class="grid">
+      <div class="card"><div class="big gold">≥¥0.97亿</div><div class="lbl">仅为示意下限：¥3,770万÷约39%毛利率；须拆出固定费用和真实项目贡献率后重算</div></div>
+      <div class="card"><div class="big">¥18/55/130万</div><div class="lbl">综合毛利率每下降1个百分点，对Y1/Y2/Y3毛利的影响</div></div>
+      <div class="card"><div class="big teal">¥150/458/1,083万</div><div class="lbl">均匀销售假设下，回款延后30天的简化收入暴露基准值</div></div>
+      <div class="card"><div class="big teal">项目贡献&gt;0</div><div class="lbl">最低报价红线；L1制造完全成本毛利还须≥30%，预付款覆盖关键采购首付款</div></div>
+    </div>
+    <table>
+      <thead><tr><th>变化因素</th><th>利润/现金传导</th><th>管理动作</th></tr></thead>
+      <tbody>
+        <tr><td>成交价下降5%</td><td>若销量和成本不变，Y1/Y2/Y3毛利分别减少约90/275/650万元</td><td>禁止用低价换规模；逐项目重新审批贡献利润</td></tr>
+        <tr><td>完全成本率上升5个百分点</td><td>影响与收入×5%近似相同，可能使Y2无法接近盈亏平衡</td><td>锁定BOM、良率、外协和质保准备金</td></tr>
+        <tr><td>回款延后30天</td><td>年度收入÷12仅是均匀销售假设下的简化基准值；净现金占用须结合含税开票、季节性、预付款和供应商账期</td><td>30/40/30节点、逾期停供、授信额度和客户集中度上限</td></tr>
+        <tr><td>L3未通过G2</td><td>剔除Y3条件性收入，并同步降低相关投入；Y3利润需重新测算</td><td>不以融资到账代替客户NRE和采购意向</td></tr>
+      </tbody>
+    </table>
+    <div class="hlbox"><b>董事会利润门禁：</b>每月同时查看“签单额、确认收入、制造完全成本毛利、项目贡献利润、回款、应收逾期、库存和质保事件”。报价必须计入验收保留款、投标/履约保证金、保函、产品责任险、SLA赔偿上限、备件池、工程变更、海外关税/汇率及共享资源内部结算。任何项目若贡献利润为负、拒绝合理预付款或责任上限不可控，即使能增加收入也应No-Go。</div>
+  </section>
+
+  <!-- ============ 6. GTM ============ -->
+  <section id="s6">
+    <h2 class="sec"><span class="chip">06</span>市场进入与营销方案（GTM）<a class="back" href="#s1">↑ 返回目录</a></h2>
+
+    <h3 class="sub">6.1 获客渠道与标杆客户打法</h3>
+    <ul>
+      <li><strong>母公司资源杠杆</strong>：作为内部立项业务线，优先复用母公司既有渠道、客户关系与供应链，降低首年获客成本、加速标杆落地。</li>
+      <li><strong>灯塔客户（Lighthouse）战术</strong>：首年集中资源打造 3 家中小云/区域 IDC 标杆，形成可参观、可量化（PUE/节电/可靠性）的样板案例，驱动口碑扩散。</li>
+      <li><strong>渠道矩阵</strong>：直销（核心客户）+ 区域系统集成商/IDC 总包方分销 + 服务器 OEM 配套（随整机进场）。</li>
+      <li><strong>生态合作</strong>：与服务器 OEM、ODM、绿电/IDC 运营商、设计院共建联合方案；绑定 GPU 云生态。</li>
+      <li><strong>行业影响力</strong>：参与 ODCC/信通院标准制定、行业白皮书、头部展会与技术峰会，建立技术品牌。</li>
+    </ul>
+
+    <h3 class="sub">6.2 招投标与集采名录进入策略（决定性门槛）</h3>
+    <div class="hlbox"><b>客户验证即生命线：</b>将准入主体拆开管理：Y1 完成适用标准与第三方测试 → Y2 进入运营商集采或 ODM/OEM 客户验证流程 → Y3 争取进入目标客户合格供应商名录。NPN、MGX、运营商集采和华为名录不是同一种“认证”，须分别取得书面要求、测试清单与周期。</div>
+
+    <h3 class="sub">6.3 出海本地化</h3>
+    <p>跟随中资云厂商出海（东南亚）并审慎跟踪中东主权 AI 项目；主打<strong>高温供液水基 CDU、本地调试、备件与服务网络</strong>，与当地 EPC/IDC 运营商合作。项目进入漏斗前必须核验电力接入、水源、审批和分期；Stargate UAE 近期机会以上限 200 MW 首期理解，不以 5 GW 园区总规划计单。</p>
+
+    <h3 class="sub">6.4 销售漏斗、团队与激励</h3>
+    <table>
+      <thead><tr><th>漏斗阶段</th><th class="num">Y1 目标</th><th class="num">Y2 目标</th><th class="num">Y3 目标</th><th>转化率（示意）</th></tr></thead>
+      <tbody>
+        <tr><td>有效线索（Leads）</td><td class="num">80</td><td class="num">250</td><td class="num">600</td><td>—</td></tr>
+        <tr><td>商机（SQL/POC）</td><td class="num">28</td><td class="num">90</td><td class="num">210</td><td class="num">~35%</td></tr>
+        <tr><td>中标/签约客户</td><td class="num">6</td><td class="num">20</td><td class="num">48</td><td class="num">~22%</td></tr>
+        <tr><td class="num">其中标杆/大客户</td><td class="num">3</td><td class="num">6</td><td class="num">12</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p><strong>销售团队与激励：</strong>Y1 组建 3–4 人直销+售前小团队，按区域+行业划分；采用"底薪+高弹性提成+回款挂钩"机制（提成与<strong>回款</strong>而非签单挂钩，保障现金流健康）；大客户突破设专项奖金。<span class="assume">假设/示意</span></p>
+
+    <h3 class="sub">6.5 销售组织架构与区域布局（三年演进）</h3>
+    <p>销售组织遵循"<strong>滩头阵地阶段轻量直销 → 梯度扩张阶段拉起大客户 KA + 出海双轨 → 主流市场阶段建立海外服务体系</strong>"的演进逻辑。Y1 编制 4 人，Y3 编制 18 人，与营收节奏 1,800→13,000 万严格匹配（人均产出 Y1 约 450 万 / Y2 约 600 万 / Y3 约 720 万）。</p>
+    <table>
+      <thead><tr><th>岗位 / 区域</th><th class="num">Y1 编制</th><th class="num">Y2 编制</th><th class="num">Y3 编制</th><th>职责</th></tr></thead>
+      <tbody>
+        <tr><td>销售 VP / 销售总监</td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td>总盘 + 大客户 + 战略合作</td></tr>
+        <tr><td>中国华北/华东直销</td><td class="num">2</td><td class="num">3</td><td class="num">4</td><td>中小云、运营商、IDC 项目销售</td></tr>
+        <tr><td>中国华南/西南直销</td><td class="num">0</td><td class="num">2</td><td class="num">3</td><td>区域 IDC + 国产算力项目</td></tr>
+        <tr><td>大客户 KA（华为/英伟达/运营商）</td><td class="num">0</td><td class="num">2</td><td class="num">3</td><td>认证、招投标、集采名录</td></tr>
+        <tr><td>东南亚销售（柔佛/雅加达/曼谷）</td><td class="num">0</td><td class="num">1</td><td class="num">2</td><td>本地化 BD、EPC/IDC 合作</td></tr>
+        <tr><td>中东销售（迪拜/利雅得）</td><td class="num">0</td><td class="num">0</td><td class="num">1</td><td>主权 AI 项目、国际认证客户</td></tr>
+        <tr><td>售前 / 解决方案工程师</td><td class="num">1</td><td class="num">2</td><td class="num">3</td><td>POC、方案撰写、招标技术响应</td></tr>
+        <tr><td>客户成功 / 运维续约</td><td class="num">0</td><td class="num">1</td><td class="num">1</td><td>SLA、复购、案例库、运维数据</td></tr>
+        <tr class="total"><td>合计</td><td class="num">4</td><td class="num">12</td><td class="num">18</td><td>人均产出 ~450→600→720 万</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">6.6 渠道策略与合作生态（直销 + 代理 + EPC + ODM 四通道）</h3>
+    <p>不同客户层级匹配不同渠道：滩头阵地阶段以直销为主（毛利最大化、建立直接客户关系）；规模化阶段引入代理与 EPC 借力扩张；进入大厂生态阶段通过 ODM/伙伴借道认证。</p>
+    <table>
+      <thead><tr><th>渠道</th><th>适用客户</th><th>分润/合作模式</th><th>本公司目标占比</th><th>战略意义</th></tr></thead>
+      <tbody>
+        <tr><td><strong>① 直销（Direct）</strong></td><td>中小云、区域 IDC、AI 智算运营商、华东华北重点客户</td><td>毛利 100% 归己；提成 4%–6%（按回款）</td><td>Y1 ≥85% · Y3 ~55%</td><td>毛利最大、客户关系最近</td></tr>
+        <tr><td><strong>② 渠道代理（Distributor / VAR）</strong></td><td>区域第二三梯队 IDC、行业客户、出海区域分销</td><td>给代理 10%–15% 渠道折扣；定标杆案例</td><td>Y1 ~10% · Y3 ~20%</td><td>低成本扩面，覆盖人不到的地方</td></tr>
+        <tr><td><strong>③ EPC / 系统集成商</strong></td><td>大型新建数据中心、出海 EPC 总包项目（柔佛/中东）</td><td>设备采购+联合交付；服务分润 5%–10%</td><td>Y1 ~5% · Y3 ~15%</td><td>跟随 EPC 出海，降低交付风险</td></tr>
+        <tr><td><strong>④ ODM / OEM / 战略伙伴</strong></td><td>浪潮/新华三/超聚变/华为/英伟达 ODM 链；运营商 OEM</td><td>设计授权或集采贴牌；OEM 折扣 15%–25%</td><td>Y1 0% · Y3 ~10%</td><td>借道大厂认证，规模化关键</td></tr>
+      </tbody>
+    </table>
+    <p class="note">关键合作伙伴优先级（Y1–Y2 重点签约）：</p>
+    <ol>
+      <li><strong>EPC：</strong>万国数据、世纪互联、中金数据、AirTrunk、ST Telemedia、SLB Capturi 等；</li>
+      <li><strong>区域代理：</strong>柔佛/雅加达/曼谷/迪拜的本地 IT/数据中心解决方案商；</li>
+      <li><strong>ODM/伙伴：</strong>浪潮、新华三、超聚变（中期签约的目标）；</li>
+      <li><strong>认证/测试机构：</strong>中国电子技术标准化研究院、ODCC、CTC、TÜV/CSA（认证加速）。</li>
+    </ol>
+
+    <h3 class="sub">6.7 定价、报价与折扣策略</h3>
+    <table>
+      <thead><tr><th>产品段</th><th>列表价（牌价）</th><th>直销折扣</th><th>代理/EPC 折扣</th><th>大客户/集采折扣</th><th>毛利底线</th></tr></thead>
+      <tbody>
+        <tr><td>L1 CDU（50–200 kW）</td><td>按 SKU 询价后确定</td><td>0%–5%</td><td>8%–12%</td><td>10%–15%</td><td>≥30%</td></tr>
+        <tr><td>L2 认证级 CDU（300–450 kW）</td><td>询价后确定</td><td>0%–5%</td><td>5%–10%</td><td>8%–12%</td><td>≥35%</td></tr>
+        <tr><td>L3 芯片级/PCB 冷板</td><td>未定；联合研发优先</td><td>0%–5%</td><td>—（直销为主）</td><td>项目谈判</td><td>不设基准</td></tr>
+        <tr><td>外购集成项目（含 Manifold/管路/UQD）</td><td>项目报价</td><td>—</td><td>—</td><td>项目谈判</td><td>≥18%</td></tr>
+        <tr><td>冷却液耗材 / 运维 SLA</td><td>按用量/年</td><td>—</td><td>—</td><td>年度续约</td><td>≥45%</td></tr>
+      </tbody>
+    </table>
+    <p class="note">报价原则：① <strong>分段定价</strong>（按 kW 阶梯定单价，避免一刀切）；② <strong>批量阶梯</strong>（3 台起 -3%、10 台起 -8%、年单 -12%）；③ <strong>付款条件</strong>（预付 30% + 发货 40% + 验收 30%；账期＞90 天加 2%）；④ <strong>所有折扣需毛利底线审批</strong>（销售总监 5% 以内、CEO 5–15%、董事会 &gt;15%）；⑤ <strong>报价模板</strong>由销售运营统一维护，避免飞单与价格穿透。</p>
+
+    <h3 class="sub">6.8 销售激励与回款管理</h3>
+    <table>
+      <thead><tr><th>项目</th><th>方案</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>底薪 : 提成结构</td><td><strong>销售岗 50:50；售前 70:30；客户成功 70:30</strong></td><td>销售弹性激励、售前/CS 稳定保障</td></tr>
+        <tr><td>提成挂钩</td><td><strong>挂钩回款</strong>而非签单（核心纪律）</td><td>避免应收账款拖累现金流</td></tr>
+        <tr><td>提成阶梯</td><td>毛利 ≤30% 提 3% · 30–45% 提 5% · &gt;45% 提 7%</td><td>鼓励高毛利产品和直销路径</td></tr>
+        <tr><td>大客户突破奖</td><td>进入华为/英伟达/运营商任一名录 → 团队 ¥30–50 万一次性奖金</td><td>认证类成绩单独奖励</td></tr>
+        <tr><td>灯塔客户奖</td><td>首 3 家可参观可量化的标杆客户 → ¥10–20 万/家</td><td>放大口碑效应</td></tr>
+        <tr><td>出海首单奖</td><td>每个目标国家首单 → ¥10 万一次性奖金</td><td>激励出海开拓</td></tr>
+        <tr><td>回款 KPI</td><td>逾期 30 天 → 提成减半；60 天 → 取消；90 天 → 上报董事会</td><td>硬约束账期管理</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">6.9 品牌、营销活动与生态参与</h3>
+    <p>"<strong>认证 + 标杆 + 内容 + 生态</strong>"四位一体的低成本高效率品牌策略，年度营销预算控制在营收 3%–5% 区间（与 §10/§12.3 一致）。</p>
+    <table>
+      <thead><tr><th>类别</th><th>Y1 重点动作</th><th>Y2 升级</th><th>Y3 主流化</th></tr></thead>
+      <tbody>
+        <tr><td><strong>展会 / 行业会议</strong></td><td>ODCC 峰会、CDCC 中国数据中心大会、Data Center World 北京</td><td>+ 新加坡 Cloud Expo Asia、迪拜 Data Cloud Global Congress</td><td>+ OCP Global Summit、SC（Supercomputing）、Computex</td></tr>
+        <tr><td><strong>技术白皮书 / 内容营销</strong></td><td>L1 CDU 白皮书 + 灯塔案例库（3 篇）；ODCC 联合白皮书 1 篇</td><td>认证级 CDU 测试报告；出海高温适配白皮书；IEEE ITHERM/ASHRAE 论文 1 篇</td><td>PCB 冷板 + L3+ 前瞻路线白皮书；IEEE ECTC/ITHERM 论文 2–3 篇</td></tr>
+        <tr><td><strong>行业协会 / 标准</strong></td><td>ODCC 冷板液冷工作组成员；信通院调研合作；GB/T 44989 与液冷部件国标参与</td><td>OCP 中国分会、CCSA 通信行业标准</td><td>OCP 全球成员、ASHRAE TC9.9 国际标准参与</td></tr>
+        <tr><td><strong>品牌 / 公关</strong></td><td>母公司渠道 + 微信 / LinkedIn 双线；行业媒体软文（C114、机房 360、UptimeInstitute）</td><td>+ 投资人 / 政策媒体（财新、第一财经、Reuters）</td><td>+ 国际化品牌（Tom's Hardware、DataCenter Knowledge）</td></tr>
+        <tr><td><strong>客户参观与认证</strong></td><td>3 家灯塔客户开放参观，PUE/节电/可靠性可量化展示</td><td>大厂联合发布会 + 第三方测试报告</td><td>海外标杆客户案例</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">6.10 客户成功 / 复购 / 续约体系</h3>
+    <p>液冷不只是"卖一次"，而是 5–10 年生命周期的运维 + 耗材 + 升级生意。客户成功体系既保留高毛利的耗材/运维复购流，也提供 L1→L2→L3 升级的天然渠道。</p>
+    <table>
+      <thead><tr><th>客户成功要素</th><th>具体动作</th><th>对应收入</th></tr></thead>
+      <tbody>
+        <tr><td>开箱即用与上线辅导</td><td>L1 阶段亲临现场调试 + 培训运维人员；3 个月内不限次响应</td><td>提高 NPS，降低早期售后成本</td></tr>
+        <tr><td>SLA + 远程监控</td><td>AIoT 远程监控平台 + 4 小时响应 + 24×7 热线 + 每季度健康巡检</td><td>SLA 年费 5%–10% 设备价</td></tr>
+        <tr><td>耗材复购</td><td>冷却液 / 滤芯 / 备件 1–2 年周期复购；建立"自动补货 + 价格年单"模式</td><td>耗材毛利 45%+，复购粘性强</td></tr>
+        <tr><td>L1→L2→L3 升级路径</td><td>客户负载增长时升级 CDU 容量、加装 PCB 冷板；CSM 主动跟进规划</td><td>客户终身价值（LTV）提升 2–4 倍</td></tr>
+        <tr><td>NPS / 客户咨询委员会</td><td>季度满意度调研 + 年度客户咨询委员会（前 10 大客户）</td><td>反哺产品路线图与认证优先级</td></tr>
+      </tbody>
+    </table>
+    <p class="note">客户终身价值（LTV）目标：L1 客户首单 ¥150–300 万 → 5 年累计 LTV ¥500–900 万（含 SLA、耗材、扩容、升级）。<strong>客户复购率（NRR）目标 ≥110%</strong>。</p>
+  </section>
+
+  <!-- ============ 7. COMPETITION ============ -->
+  <section id="s7">
+    <h2 class="sec"><span class="chip">07</span>竞争分析与差异化<a class="back" href="#s1">↑ 返回目录</a></h2>
+    <p class="lead">竞争主线已从"单一零部件供应"转向"<strong>全链条系统整合能力 + 大客户绑定</strong>"的比拼。头部集中度高（CDU 全球前五约占 65%），但国产替代正打破封闭体系，中小云与出海市场仍存在显著的未充分服务空间。</p>
+    <table>
+      <thead><tr><th>对标厂商</th><th>定位/优势</th><th>劣势/空隙</th><th>我们的差异化</th></tr></thead>
+      <tbody>
+        <tr><td><strong>英维克</strong></td><td>液冷链累计交付与客户基础领先，产品覆盖 CDU、冷源与系统方案</td><td>规模、渠道和验证数据优势显著</td><td>下沉中小云与区域项目，以标准化 L1、响应速度和本地服务错位竞争</td></tr>
+        <tr><td><strong>曙光数创</strong></td><td>浸没相变领先（PUE 1.08）、超算标杆</td><td>依赖大股东供养、对外开放度有限</td><td>开放生态、多客户绑定</td></tr>
+        <tr><td><strong>申菱环境</strong></td><td>CDU 国内排名第一、华为唯一合作伙伴</td><td>仍在空调转型中</td><td>专注液冷原生 CDU、软硬一体运维</td></tr>
+        <tr><td><strong>高澜股份</strong></td><td>赛迪液冷数据中心市场厂商排名第一、字节浸没独供</td><td>历史毛利偏低、依赖订单兑现</td><td>聚焦高毛利自研 CDU + 芯片级冷板 + 耗材复购</td></tr>
+        <tr><td><strong>Vertiv（维谛）</strong></td><td>全球设施侧与液冷能力领先，持续通过并购补强技术</td><td>全球服务和认证能力强，正下沉完整产品线</td><td>以细分客户响应、标准化 L1 与本地服务差异化</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">护城河四要素</h3>
+    <div class="grid">
+      <div class="card"><div class="big teal">技术</div><div class="lbl">水基 CDU 控制、故障降级、接口兼容、调试和全生命周期运维数据</div></div>
+      <div class="card"><div class="big teal">准入</div><div class="lbl">适用标准测试、ODM/OEM 客户验证、运营商集采与目标客户名录分别管理</div></div>
+      <div class="card"><div class="big teal">成本</div><div class="lbl">母公司供应链整合 + 标准化设计；成本优势必须由同配置询价证明</div></div>
+      <div class="card"><div class="big teal">数据</div><div class="lbl">AIoT 运维平台沉淀能效与可靠性数据，形成迭代飞轮与切换成本</div></div>
+    </div>
+  </section>
+
+  <!-- ============ 8. OPERATIONS ============ -->
+  <section id="s8">
+    <h2 class="sec"><span class="chip">08</span>运营与供应链<a class="back" href="#s1">↑ 返回目录</a></h2>
+    <h3 class="sub">8.1 生产模式：轻资产起步，按里程碑分阶段内化</h3>
+    <ul>
+      <li><strong>Y1（L1）：</strong>聚焦自研 CDU（总装+测试+控制）小试线，其余部件外购、做系统集成与交付；最大限度控制重资产投入，以销定研。</li>
+      <li><strong>Y2（L2）：</strong>建设认证级 CDU 标准化产线与可靠性/兼容性测试能力，配套 OEM/EMS 代工放量。</li>
+      <li><strong>Y3（L3）：</strong>与封装厂/高校/制造伙伴建立联合试制和外协工艺能力，自有能力聚焦设计、氦检、热阻与可靠性验证；不在第三期内自建完整冷板量产线。</li>
+    </ul>
+    <h3 class="sub">8.2 关键部件供应与国产化</h3>
+    <table>
+      <thead><tr><th>部件</th><th>阶段策略</th><th>国产/多源进展（参考调研）</th></tr></thead>
+      <tbody>
+        <tr><td>CDU 核心（泵/板换/控制）</td><td><strong>L1 即自研集成</strong> + 关键泵阀多源</td><td>循环泵国产突破中（飞龙），高端待提升 → 多源采购对冲</td></tr>
+        <tr><td>快接头/UQD、Manifold、TANK、管路</td><td><strong>L1 外购集成</strong>，规模起来后选择性内化</td><td>鼎通/川环/溯联/立敏达已进入头部供应链</td></tr>
+        <tr><td>芯片级 PCB 冷板</td><td><strong>L3 自研工艺</strong>（微通道/钎焊）</td><td>国产冷板成熟、竞争充分；高性能 PCB 冷板为壁垒延伸点</td></tr>
+        <tr><td>冷却液/冷媒</td><td>非氟优先 + 国产氟化液合作</td><td>3M 退出窗口；巨化/新宙邦/长芦等国产替代</td></tr>
+      </tbody>
+    </table>
+    <div class="hlbox"><b>供应链风险对冲：</b>第一阶段以外购集成降低自制风险与资金占用；高端泵阀/特种氟化液采取多源采购、战略备货、自研工质与国产协同；依托母公司集采议价。将"关键件国产化率"列为内部 KPI。</div>
+  </section>
+
+  <!-- ============ 9. TEAM ============ -->
+  <section id="s9">
+    <h2 class="sec"><span class="chip">09</span>团队与组织<a class="back" href="#s1">↑ 返回目录</a></h2>
+    <h3 class="sub">9.1 核心岗位与招聘计划（人员编制，精简起步）</h3>
+    <table>
+      <thead><tr><th>职能</th><th>核心岗位</th><th class="num">Y1</th><th class="num">Y2</th><th class="num">Y3</th></tr></thead>
+      <tbody>
+        <tr><td>研发（CDU/控制/冷板/软件）</td><td>技术负责人、CDU/控制器主任工程师、冷板与 AIoT 软件</td><td class="num">7</td><td class="num">16</td><td class="num">30</td></tr>
+        <tr><td>生产/供应链/质量</td><td>制造与采购、工艺、QA/可靠性测试（外购集成为主）</td><td class="num">2</td><td class="num">6</td><td class="num">14</td></tr>
+        <tr><td>销售/市场/售前</td><td>销售负责人、区域销售、售前方案、海外 BD</td><td class="num">3</td><td class="num">7</td><td class="num">14</td></tr>
+        <tr><td>交付/运维服务</td><td>项目交付、现场运维、客户成功</td><td class="num">1</td><td class="num">4</td><td class="num">8</td></tr>
+        <tr><td>职能（财务/HR/法务/IT）</td><td>财务、HR、法务知产（部分共享母公司职能）</td><td class="num">2</td><td class="num">3</td><td class="num">6</td></tr>
+        <tr class="total"><td>合计在职人数</td><td>—</td><td class="num">15</td><td class="num">36</td><td class="num">72</td></tr>
+      </tbody>
+    </table>
+    <p class="note">注：人数为期末编制；作为内部立项业务线，部分职能（财务/法务/IT/采购）与母公司共享，降低固定成本。薪酬与人数为财务模型中人力成本的驱动假设（示意）。</p>
+    <h3 class="sub">9.2 核心团队画像（占位 · 待创始人确认）</h3>
+    <ul>
+      <li><strong>业务线负责人：</strong>［占位］具备液冷/数据中心基础设施行业 + 大客户销售经验，主导战略与立项推进。</li>
+      <li><strong>技术负责人（CTO）：</strong>［占位］热管理/流体/CDU 控制系统资深专家（来自头部温控/服务器/汽车热管理企业）。</li>
+      <li><strong>销售负责人：</strong>［占位］拥有云厂商/运营商/英伟达-华为生态资源与集采经验。</li>
+      <li><strong>顾问团：</strong>［占位］行业标准专家（ODCC/信通院）、供应链与海外市场顾问、母公司战略与财务支持。</li>
+    </ul>
+  </section>
+
+  <!-- ============ 10. FINANCIALS ============ -->
+  <section id="s10">
+    <h2 class="sec"><span class="chip">10</span>财务预测与现金流模型<a class="back" href="#s1">↑ 返回目录</a></h2>
+    <p class="lead"><strong>核心财务哲学：以销定研 · 激进销售收入支撑后续研发 · 健康现金流闭环。</strong>第一阶段以外购集成快速起量并养活团队与研发，逐步把毛利向自研 CDU 与芯片级冷板迁移；每一步注资对应明确里程碑与 Go/No-Go。下列所有数字均为 <span class="assume">假设/示意</span>，口径自洽（收入−成本−费用−现金流一致）。</p>
+
+    <h3 class="sub">10.1 三年损益表（利润表 · 单位：万元）</h3>
+    <table>
+      <thead><tr><th>项目</th><th class="num">2027（Y1）</th><th class="num">2028（Y2）</th><th class="num">2029（Y3）</th></tr></thead>
+      <tbody>
+        <tr><td>营业收入</td><td class="num">1,800</td><td class="num">5,500</td><td class="num">13,000</td></tr>
+        <tr><td>营业成本（COGS）</td><td class="num">1,329</td><td class="num">3,717</td><td class="num">7,970</td></tr>
+        <tr class="total2"><td>毛利</td><td class="num">471</td><td class="num">1,783</td><td class="num">5,030</td></tr>
+        <tr><td>综合毛利率</td><td class="num">26.2%</td><td class="num">32.4%</td><td class="num">38.7%</td></tr>
+        <tr><td>研发费用（R&amp;D）</td><td class="num">450</td><td class="num">950</td><td class="num">1,900</td></tr>
+        <tr><td>销售费用（S&amp;M）</td><td class="num">180</td><td class="num">480</td><td class="num">1,150</td></tr>
+        <tr><td>管理费用（G&amp;A）</td><td class="num">220</td><td class="num">420</td><td class="num">720</td></tr>
+        <tr class="total"><td>经营利润（EBIT）</td><td class="num">-379</td><td class="num">-67</td><td class="num">+1,260</td></tr>
+        <tr><td>经营利润率</td><td class="num">-21.1%</td><td class="num">-1.2%</td><td class="num">+9.7%</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">10.2 收入构成（单位：万元）</h3>
+    <table>
+      <thead><tr><th>收入线</th><th class="num">毛利率</th><th class="num">Y1</th><th class="num">Y2</th><th class="num">Y3</th><th class="num">Y3 占比</th></tr></thead>
+      <tbody>
+        <tr><td>外购集成 / 系统交付</td><td class="num">18%–20%</td><td class="num">1,200</td><td class="num">2,800</td><td class="num">4,500</td><td class="num">34.6%</td></tr>
+        <tr><td>自研 CDU（含控制）</td><td class="num">30%–45% <span class="assume">目标</span></td><td class="num">500</td><td class="num">2,300</td><td class="num">6,000</td><td class="num">46.2%</td></tr>
+        <tr><td>L3/联合开发（条件性收入）</td><td class="num">未验证</td><td class="num">—</td><td class="num">—</td><td class="num">1,500</td><td class="num">11.5%</td></tr>
+        <tr><td>冷却液耗材 + 运维/AIoT</td><td class="num">45%–50%</td><td class="num">100</td><td class="num">400</td><td class="num">1,000</td><td class="num">7.7%</td></tr>
+        <tr class="total"><td>合计</td><td class="num">26%→39%</td><td class="num">1,800</td><td class="num">5,500</td><td class="num">13,000</td><td class="num">100%</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Y3的¥1,500万L3/联合开发收入以G2通过为前提，已计入本页“门禁达成目标情景”。若G2未通过，必须从收入、毛利和现金流同步剔除；当前26%→39%综合毛利仍是待验证模型输出，不能作为承诺。</p>
+
+    <h3 class="sub">10.3 现金流量表要点（单位：万元）</h3>
+    <table>
+      <thead><tr><th>现金流项目</th><th class="num">Y1（2027）</th><th class="num">Y2（2028）</th><th class="num">Y3（2029）</th></tr></thead>
+      <tbody>
+        <tr><td>期初现金</td><td class="num">0</td><td class="num">380</td><td class="num">1,150</td></tr>
+        <tr><td>注资现金流入（分步上限）</td><td class="num">+800<br><span class="note">第一步</span></td><td class="num">+1,200<br><span class="note">第二步</span></td><td class="num">+1,500<br><span class="note">第三步</span></td></tr>
+        <tr><td>经营活动现金流</td><td class="num">-360</td><td class="num">-250</td><td class="num">+1,000</td></tr>
+        <tr><td>投资活动现金流（CapEx）</td><td class="num">-60</td><td class="num">-180</td><td class="num">-350</td></tr>
+        <tr class="total"><td>期末现金余额</td><td class="num">380</td><td class="num">1,150</td><td class="num">3,300</td></tr>
+      </tbody>
+    </table>
+    <div class="hlbox"><b>现金健康度校正：</b>仅在三年总支出维持¥7,060万、增量融资用于替代项目垫资和保留流动性时，Y1期末现金才由¥180万提高至约¥380万。若新增测试、招聘、设备或库存超出原预算，须逐项从¥380万扣减；因此改善的是条件性流动性风险，不是整体运营风险。</div>
+
+    <h3 class="sub">10.4 盈亏平衡与关键假设</h3>
+    <div class="grid">
+      <div class="card"><div class="big gold">2029 H1</div><div class="lbl">经营性盈亏平衡点（季度口径，Y3 全年转盈）</div></div>
+      <div class="card"><div class="big">≥¥0.97 亿</div><div class="lbl">示意下限：期间费用¥3,770万÷约39%毛利率；固定/变动费用和真实贡献率拆分后重算</div></div>
+      <div class="card"><div class="big teal">26%→39%</div><div class="lbl">毛利率提升路径（结构向自研 CDU/芯片级冷板/服务倾斜）</div></div>
+      <div class="card"><div class="big teal">¥7,284 万</div><div class="lbl">门禁达成目标情景三年累计毛利，对应运营+资本开支约¥7,060万；回款时点仍需注资缓冲</div></div>
+    </div>
+    <p><strong>关键假设：</strong>① 全球液冷设备市场按Dell'Oro口径增长；② L1制造完全成本毛利达到30%–40%、外购集成18%–20%，且项目贡献利润为正；③ 坏账、存货、质保和资金成本纳入月度模型；④ 后续注资仅在里程碑达成后到位；⑤ 关键部件双源并完成询价；⑥ M0后12个月内完成首款CDU可靠性验证和付费交付。</p>
+
+    <h3 class="sub">10.5 情景分析（Y3 营收敏感性）</h3>
+    <table>
+      <thead><tr><th>情景</th><th>核心驱动</th><th class="num">Y3 营收</th><th class="num">Y3 综合毛利率</th><th class="num">Y3 EBIT</th><th>注资 / 节奏影响</th></tr></thead>
+      <tbody>
+        <tr><td><strong>保守</strong></td><td>认证滞后、PCB 冷板延迟、价格战压毛利</td><td class="num">8,500</td><td class="num">34%</td><td class="num">-450</td><td>第三步注资可后延/缩减，盈亏平衡推至2030年；依托母公司backstop控费</td></tr>
+        <tr><td><strong>基准</strong></td><td>按计划进入认证流程、自研 CDU 放量</td><td class="num">13,000</td><td class="num">39%</td><td class="num">+1,260</td><td>按本计划三步节奏</td></tr>
+        <tr><td><strong>乐观</strong></td><td>提前进入英伟达/华为放量 + PCB 冷板上量</td><td class="num">18,000</td><td class="num">42%</td><td class="num">+3,400</td><td>第三步估值上修，可考虑加速产能</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">10.6 年度客户与项目数计划（管理层目标情景）</h3>
+    <p>把三年营收（¥1,800 → ¥5,500 → ¥13,000 万元）拆解为"<strong>项目单价 × 项目数</strong>"，与调研 §10.5 的自下而上口径显式联动，证明营收目标的可达性、并为销售漏斗（§6.4）提供精确锚点。</p>
+    <table>
+      <caption>单项目金额含 CDU、外购集成、冷板/耗材/服务的综合 ASP；自下而上的客户数与自上而下的 SOM（§2.5）互相校验。</caption>
+      <thead><tr><th style="width:11%">年份</th><th>主要客户类型</th><th class="num">典型单项目金额</th><th class="num">需要项目数</th><th class="num">对应 BP 营收</th><th>产品阶段</th></tr></thead>
+      <tbody>
+        <tr><td><strong>2027（Y1）</strong></td><td>中小云 / 区域 IDC 灯塔 + 出海试点（柔佛）</td><td class="num"><strong>¥150–300 万</strong>/项目</td><td class="num"><strong>6–12</strong> 个项目</td><td class="num">¥1,800 万</td><td>L1（自研 CDU + 外购集成）</td></tr>
+        <tr><td><strong>2028（Y2）</strong></td><td>中小云 + 第三方 IDC + 出海试点（柔佛/印尼/泰国）+ 运营商集采小标</td><td class="num"><strong>¥300–600 万</strong>/项目</td><td class="num"><strong>10–18</strong> 个项目</td><td class="num">¥5,500 万</td><td>L1 放量 + L2 认证级 CDU 启动</td></tr>
+        <tr><td><strong>2029（Y3）</strong></td><td>认证级 CDU 集采 + 出海主权 AI（HUMAIN / G42 / Stargate UAE）+ PCB 冷板首单</td><td class="num"><strong>¥800–1,500 万</strong>/项目</td><td class="num"><strong>10–16</strong> 个项目</td><td class="num">¥13,000 万</td><td>L2 主力 + L3 PCB 冷板启动</td></tr>
+        <tr><td>2030（指引）</td><td>大厂生态（华为/英伟达名录）+ PCB 冷板放量</td><td class="num">¥1,500–3,000 万/项目</td><td class="num">10–17 个项目</td><td class="num">¥25,000 万 <span class="assume">指引</span></td><td>L2 规模 + L3 主力</td></tr>
+        <tr class="total2"><td colspan="6">勾稽校验：自下而上的项目数与 §6.4 销售漏斗（Y1 中标 6 / Y2 中标 20 / Y3 中标 48）口径一致——Y1 中标 6 与"6–12 个项目"区间下限对齐；Y2 中标 20 略高于"10–18"上限（含小客户跟进单）；Y3 中标 48 含 ~12 个大客户单 + ~36 个小客户 / 备品备件复购单。</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">10.7 L1 CDU 单位经济验证（50–200 kW）</h3>
+    <p>当前材料出现过“¥12–15 万目标价”“¥5.08 万目标 BOM”以及“¥80 万成本、¥120–150 万售价”等互不兼容口径。v1.4 全部降级为待验证假设；在 50/100/150/200 kW SKU 书面询价完成前，不设置统一 ASP。</p>
+    <table>
+      <caption>G1 前必须由工程、采购、财务共同完成三家供应商询价和样机实耗复盘。</caption>
+      <thead><tr><th>验证项</th><th>必须纳入成本</th><th>G1 通过标准</th></tr></thead>
+      <tbody>
+        <tr><td><strong>材料 BOM</strong></td><td>泵、板换、阀件、传感器、PLC/HMI、钣金、管路、电气、工质</td><td>关键件双源；量产 BOM 有书面报价</td></tr>
+        <tr><td><strong>制造完全成本</strong></td><td>装配工时、直接测试、包装运输、返工与良率；通用认证进入平台费用</td><td>10 台试制批次形成标准成本，制造毛利目标≥30%</td></tr>
+        <tr><td><strong>项目可变与风险成本</strong></td><td>客户专项验证、质保准备金、现场调试、备件、坏账、渠道、保函和保险</td><td>不重复计入制造毛利；扣除后项目贡献利润必须为正</td></tr>
+      </tbody>
+    </table>
+    <div class="hlbox"><b>管理纪律：</b>30%–45%指制造完全成本毛利目标；项目贡献利润还须继续扣除客户专项验证、渠道、交付、质保、坏账和资金成本。在两层成本均验证前，26%→39%综合毛利和经营利润均不视为已证实事实。</div>
+
+    <h3 class="sub">10.8 营运资金压力测试（立项前补齐）</h3>
+    <p>现有年度现金流尚未建立月度利润表、资产负债表和营运资金联动。在总支出不增加的口径下，¥380万年末现金约为5.4个月Y1平均运营费用，仍未达到“≥6个月跑道”；年末余额也不代表年内最低现金，90天验收延迟或客户拒绝预付款仍可能快速耗尽缓冲。</p>
+    <table>
+      <thead><tr><th>情景</th><th>回款 / 存货假设</th><th>管理动作</th></tr></thead>
+      <tbody>
+        <tr><td>基准</td><td>30/40/30 回款；按订单采购；验收无重大延迟</td><td>逐月滚动 13 周现金预测</td></tr>
+        <tr><td>压力</td><td>验收延迟 90 天；毛利低 5 pct；20% 应收逾期</td><td>冻结非关键招聘和 CapEx；提高预付款；母公司授信书面化</td></tr>
+        <tr><td>极端</td><td>最大客户取消/延期；关键件一次性备货；出现现场质保事件</td><td>暂停下一阶段研发，保交付和售后；触发董事会专项审查</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ 11. FINANCING ============ -->
+  <section id="s11">
+    <h2 class="sec"><span class="chip">11</span>分步注资计划<a class="back" href="#s1">↑ 返回目录</a></h2>
+    <p class="lead">建议三期注资上限为 <strong>¥800 万 / ¥1,200 万 / ¥1,500 万</strong>，合计最高 <span class="keyfig">¥3,500 万</span>。增量资金主要用于可靠性测试、客户验证、试点周转和现金缓冲，不用于提前扩编或无订单备货；未达门禁不拨下一期。</p>
+
+    <h3 class="sub">11.1 三步注资总览（金额 / 估值 / 注资比例 / 里程碑）</h3>
+    <table>
+      <thead><tr><th>步骤</th><th>时间</th><th class="num">建议注资上限</th><th>主要估算假设</th><th>研发主线与解锁里程碑</th></tr></thead>
+      <tbody>
+        <tr><td><strong>第一步</strong></td><td>M0–M12</td><td class="num"><span class="keyfig">¥800 万</span></td><td>6人核心团队+专项外协；两台代表样机；强化测试、试点周转和现金缓冲</td><td>共平台、1,000h运行、≥2个付费项目、累计回款、制造毛利及项目贡献达标</td></tr>
+        <tr><td><strong>第二步</strong></td><td>G1后，M13–M24</td><td class="num"><span class="keyfig">最高 ¥1,200 万</span></td><td>8人团队+专家外协；300/450 kW各1台样机；第三方及客户联合验证</td><td>完成L2性能曲线、可靠性/EMC/安规和至少1个OEM/ODM书面认可</td></tr>
+        <tr><td><strong>第三步</strong></td><td>G2后，M25–M36</td><td class="num"><span class="keyfig">最高 ¥1,500 万</span></td><td>10人/合作团队；冷板样件与工装；测试设备和小批验证；不自建完整产线</td><td>至少1个联合客户、现金跑道≥6个月、明确NRE或采购意向后启动</td></tr>
+        <tr class="total"><td>合计上限</td><td>—</td><td class="num">¥3,500 万</td><td>不含客户拒绝预付款造成的大额垫资，不含自建冷板量产线</td><td>分步精简、里程碑驱动、以销定研</td></tr>
+      </tbody>
+    </table>
+    <p class="note">资金需求公式：阶段注资上限 = 阶段研发与样机现金支出 + 测试/认证 + 必要项目周转 + 最低现金缓冲 − 可确认客户预付款/NRE − 已批准共享资源。估值和股权比例不由预算机械反推，另行走投资评审。</p>
+
+    <h3 class="sub">11.2 资金用途拆解（每步）</h3>
+    <table>
+      <thead><tr><th>用途及计算依据</th><th class="num">第一步 ¥800 万</th><th class="num">第二步 ¥1,200 万</th><th class="num">第三步 ¥1,500 万</th></tr></thead>
+      <tbody>
+        <tr><td>核心团队/外协工程<br><span class="note">基础团队全成本 + 专项热工/可靠性/认证外协</span></td><td class="num">210</td><td class="num">300</td><td class="num">350</td></tr>
+        <tr><td>样机、物料、工装<br><span class="note">P1：100/200 kW各1台；P2：300/450 kW各1台；P3：冷板样件/模具/小批工装</span></td><td class="num">170</td><td class="num">280</td><td class="num">320</td></tr>
+        <tr><td>测试台与仪器设备</td><td class="num">120</td><td class="num">150</td><td class="num">230</td></tr>
+        <tr><td>第三方测试/认证/客户验证</td><td class="num">75</td><td class="num">170</td><td class="num">120</td></tr>
+        <tr><td>试点交付及必要周转</td><td class="num">115</td><td class="num">190</td><td class="num">290</td></tr>
+        <tr><td>IP、软件、BD与现场服务</td><td class="num">30</td><td class="num">60</td><td class="num">80</td></tr>
+        <tr><td>预备金</td><td class="num">80</td><td class="num">50</td><td class="num">110</td></tr>
+        <tr class="total"><td>合计</td><td class="num">800</td><td class="num">1,200</td><td class="num">1,500</td></tr>
+      </tbody>
+    </table>
+    <div class="hlbox"><b>资金用途与财务模型桥接：</b>本表是“融资来源覆盖哪些既定预算”的分配，不是叠加在§12.3三年¥7,060万总支出之上的新增费用。相较上一方案增加的¥700万，优先降低项目回款依赖并形成现金缓冲；测试/验证额度的提高须通过压缩其他既定科目或董事会预备金实现。任何超出¥7,060万的新增支出，必须在现金流中等额扣减并重新计算跑道。</div>
+
+    <h3 class="sub">11.3 资金来源与治理原则</h3>
+    <table>
+      <thead><tr><th>阶段</th><th>优先资金来源</th><th>治理要求</th></tr></thead>
+      <tbody>
+        <tr><td>第一步</td><td>母公司验证预算 ¥800 万</td><td>按月预算、采购双签、13周现金预测；不因内部拨款机械确认股权估值</td></tr>
+        <tr><td>第二步</td><td>经营回款 + 母公司/战略伙伴最高 ¥1,200 万</td><td>战略资金须附带客户验证、渠道或供应能力，不接受纯财务资金放宽G1</td></tr>
+        <tr><td>第三步</td><td>客户NRE/联合研发、专项资金、经营回款 + 最高 ¥1,500 万注资</td><td>客户/NRE优先抵减注资；自建产线另行投资评审</td></tr>
+      </tbody>
+    </table>
+    <p class="note">本次只估算业务现金需求，不给出未经估值和条款谈判支持的投前/投后估值或稀释比例。</p>
+
+    <h3 class="sub">11.4 退出 / 价值兑现路径</h3>
+    <ul>
+      <li><strong>母公司体内整合（首选）：</strong>孵化成熟后并入母公司主体，贡献液冷业务利润与估值溢价。</li>
+      <li><strong>分拆独立融资 / 上市：</strong>业务规模与认证突破后分拆，引入外部 A 轮或冲刺科创板/北交所；对标英维克、申菱、高澜路径。</li>
+      <li><strong>战略并购：</strong>被服务器 OEM、温控龙头、IDC 运营商或国际液冷巨头（如 Trane 收购 LiquidStack 案例）并购。</li>
+    </ul>
+  </section>
+
+  <!-- ============ 12. ROADMAP ============ -->
+  <section id="s12">
+    <h2 class="sec"><span class="chip">12</span>里程碑路线图 + 内部立项口径<a class="back" href="#s1">↑ 返回目录</a></h2>
+
+    <h3 class="sub">12.1 里程碑甘特图（以 M0 为起点）</h3>
+    <p class="note">避免使用已经过期的固定自然年日期；M0 为董事会批准和首笔资金到账，后续阶段只由 G1/G2 门禁解锁。</p>
+    <table class="gantt">
+      <thead><tr><th style="width:26%">工作流 / 阶段</th><th>M0–3</th><th>M4–6</th><th>M7–12</th><th>M13–18</th><th>M19–24</th><th>M25–36</th></tr></thead>
+      <tbody>
+        <tr><td class="ph">L1 自研 CDU（含控制，冷板+冷媒）</td><td><span class="bar b1"></span></td><td><span class="bar b1"></span></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="ph">外购集成 + 系统交付（现金流引擎）</td><td><span class="bar b4"></span></td><td><span class="bar b4"></span></td><td><span class="bar b4"></span></td><td><span class="bar b4"></span></td><td><span class="bar b4"></span></td><td><span class="bar b4"></span></td></tr>
+        <tr><td class="ph">中小云标杆 + 出海首单</td><td><span class="bar b1"></span></td><td><span class="bar b1"></span></td><td><span class="bar b1"></span></td><td></td><td></td><td></td></tr>
+        <tr><td class="ph">资质认证（国标 / 第三方评价）</td><td></td><td><span class="bar b3"></span></td><td><span class="bar b3"></span></td><td></td><td></td><td></td></tr>
+        <tr><td class="ph">L2 认证级 CDU（华为/英伟达）+ 名录</td><td></td><td></td><td><span class="bar b3"></span></td><td><span class="bar b3"></span></td><td><span class="bar b3"></span></td><td></td></tr>
+        <tr><td class="ph">L3 芯片级 PCB 冷板研发</td><td></td><td></td><td></td><td></td><td><span class="bar b2"></span></td><td><span class="bar b2"></span></td></tr>
+        <tr><td class="ph">注资节奏</td><td>第一步<br>¥800万</td><td></td><td>第二步<br>最高¥1,200万</td><td></td><td>第三步<br>最高¥1,500万</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">12.2 KPI / OKR 与 Go/No-Go 决策点（内部立项口径）</h3>
+    <table>
+      <thead><tr><th>检查点</th><th>关键 KPI（目标）</th><th>Go / No-Go 判据</th></tr></thead>
+      <tbody>
+        <tr><td><strong>G1 · M9–12</strong>（第二步注资前）</td><td>L1完成1,000h运行；≥2个付费项目；累计回款≥¥1,200万；制造完全成本毛利≥30%；项目贡献利润为正；无重大可靠性事件</td><td><span class="gono">No-Go</span> 任一硬门槛未达 → 暂缓 L2，聚焦修复可靠性、回款与单位经济</td></tr>
+        <tr><td><strong>G2 · M18–24</strong>（第三步注资前）</td><td>L2 完成第三方测试并获联合客户书面认可；现金跑道 ≥6 个月；应收逾期率和库存周转在红线内</td><td><span class="gono">No-Go</span> 无联合客户或现金跑道不足 → 不启动 L3，不以收入确认替代回款</td></tr>
+        <tr><td><strong>G3 · M30–36</strong>（规模化）</td><td>核心产品经营现金流转正；L3 有联合验证结果或明确采购意向；重大质保事件为零</td><td><span class="gono">No-Go</span> 若客户牵引不足 → 保留 L3 为合作研发，不自建重资产产线</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">12.3 内部立项预算明细（三年累计 · 单位：万元）</h3>
+    <table>
+      <thead><tr><th>预算科目</th><th class="num">Y1</th><th class="num">Y2</th><th class="num">Y3</th><th class="num">三年累计</th></tr></thead>
+      <tbody>
+        <tr><td>研发投入</td><td class="num">450</td><td class="num">950</td><td class="num">1,900</td><td class="num">3,300</td></tr>
+        <tr><td>产线/设备 CapEx</td><td class="num">60</td><td class="num">180</td><td class="num">350</td><td class="num">590</td></tr>
+        <tr><td>市场/销售/认证</td><td class="num">180</td><td class="num">480</td><td class="num">1,150</td><td class="num">1,810</td></tr>
+        <tr><td>管理与职能</td><td class="num">220</td><td class="num">420</td><td class="num">720</td><td class="num">1,360</td></tr>
+        <tr class="total"><td>合计（运营+资本开支）</td><td class="num">910</td><td class="num">2,030</td><td class="num">4,120</td><td class="num">7,060</td></tr>
+      </tbody>
+    </table>
+    <p class="note">三年运营与资本开支约¥7,060万；三期注资上限合计¥3,500万，其余由项目回款和经营毛利滚动覆盖。利润口径桥接：累计毛利7,284 − 期间费用6,470 − CapEx590 + 注资3,500 = 3,724万元；与期末现金3,300万元的差额424万元，作为应收/存货增加、税费、质保及其他现金调整的暂定占款，须由月度三表进一步拆分。</p>
+
+    <h3 class="sub">12.4 IP 专利预算与样机测试设备明细（单位：万元）</h3>
+    <p>本节把“按评审质量立项的专利/IP”与 L3+ 前瞻合作研发显式落到预算里；不以专利数量代替技术质量，且不超出三期注资上限。</p>
+    <table>
+      <thead><tr><th>预算科目</th><th>用途</th><th class="num">Y1（L1）</th><th class="num">Y2（L2）</th><th class="num">Y3（L3）</th><th class="num">三年累计</th></tr></thead>
+      <tbody>
+        <tr><td>IP / 专利申请</td><td>优先保护CDU控制、防漏和冷板流道；按评审质量立项，不追求数量</td><td class="num">10</td><td class="num">20</td><td class="num">30</td><td class="num">60</td></tr>
+        <tr><td>测试设备与试验能力</td><td>L1基础热工台；L2流量/压降/可靠性升级；L3热阻与寿命测试，包含租赁/外协，不全部计入CapEx</td><td class="num">120</td><td class="num">150</td><td class="num">230</td><td class="num">500</td></tr>
+        <tr><td>第三方测试与认证费</td><td>EMC、安规、CE、可靠性及OEM/ODM客户验证</td><td class="num">75</td><td class="num">170</td><td class="num">120</td><td class="num">365</td></tr>
+        <tr><td>L3+ 前瞻路线合作研发</td><td>仅在客户牵引下开展VC+微通道等合作样件，不建设材料产线</td><td class="num">0</td><td class="num">20</td><td class="num">60</td><td class="num">80</td></tr>
+        <tr class="total"><td>合计</td><td>—</td><td class="num">205</td><td class="num">360</td><td class="num">440</td><td class="num">1,005</td></tr>
+      </tbody>
+    </table>
+    <p class="note">该¥1,005万包含在§11.2和§12.3对应科目内，不是额外预算。测试能力优先通过租赁、外协或母公司共享实验室获得；单项设备超过¥50万须单独经过Go/No-Go评审。</p>
+  </section>
+
+  <!-- ============ 13. RISKS ============ -->
+  <section id="s13">
+    <h2 class="sec"><span class="chip">13</span>风险与对策<a class="back" href="#s1">↑ 返回目录</a></h2>
+    <table>
+      <thead><tr><th>风险类别</th><th>具体风险</th><th>对策</th></tr></thead>
+      <tbody>
+        <tr><td><strong>技术风险</strong></td><td>自研 CDU 控制、可靠性、接口兼容；芯片级冷板工艺难度</td><td>L1 聚焦水基 CDU，其他部件外购；分级研发（L1→L2→L3）；通过 1,000h 运行、第三方测试和客户联合验证逐级解锁</td></tr>
+        <tr><td><strong>市场风险</strong></td><td>客户高度集中（互联网+电信占 90%）；需求受 AI 资本开支周期波动</td><td>中小云+出海多元化、错位竞争；外购集成快速起量；耗材+运维复购平滑波动</td></tr>
+        <tr><td><strong>政策风险</strong></td><td>PUE 政策执行节奏/区域差异；补贴退坡</td><td>紧跟政策与枢纽节点布局；以 TCO 经济性而非补贴为价值锚</td></tr>
+        <tr><td><strong>竞争 / 毛利风险</strong></td><td>外购集成毛利偏低、价格战；英维克等规模碾压</td><td>以自研 CDU 与芯片级冷板提毛利；母公司供应链降本；软硬一体提粘性</td></tr>
+        <tr><td><strong>供应链风险</strong></td><td>高端泵阀/特种氟化液依赖进口或少数供应商；外购备货占款</td><td>多源采购、战略备货、自研工质、国产协同；"背靠背"账期；母公司集采议价</td></tr>
+        <tr><td><strong>认证/资质风险</strong></td><td>未进入英伟达/华为/运营商名录则无法上探高毛利</td><td>认证作为第二步核心里程碑；与 ODM 合作借道；先以中小云跑通现金流降低依赖</td></tr>
+        <tr><td><strong>现金流/资金风险</strong></td><td>总支出不增加时Y1期末现金约¥380万；年内峰值、验收延期、应收与库存占款仍未建模</td><td>增量融资优先保留流动性；任何新增支出等额扣减现金；客户预付款、长账期上限、13周现金预测；未达G1不扩SKU和招聘</td></tr>
+      </tbody>
+    </table>
+    <div class="hlbox"><b>现金流安全底线：</b>任何时点保持 ≥6 个月现金跑道（含母公司 backstop）；触及 G1–G3 决策点的 No-Go 判据时，立即暂缓下一步注资、启动控费与战略收缩预案，确保现金不断裂——这是"精简注资、以销定研、健康滚动"原则的硬性纪律。</div>
+  </section>
+
+  </div><!-- /content -->
+
+  <footer>
+    <b>［公司名称占位］算力液冷系统商业计划书 · V1.9 Profit Model · 更新至 2026 年 8 月</b><br>
+    本文件为母公司内部立项评审与商业秘密材料，仅供立项评审委员会及潜在战略跟投方评估之用，未经书面许可不得复制或传播。<br>
+    文中市场数据与技术判断以配套《算力冷却商业调研报告 v2.8 Risk-buffered》为主；<b>所有财务、注资金额、SAM/SOM、ASP、毛利与预测均为管理层假设</b>，不构成要约或业绩承诺。首期800万元仍依赖母公司共享资源、外协制造和客户预付款条件。<br>
+    <b>版本演进：</b>V1.1 Research-aligned → V1.3 Evidence-aligned → V1.4 2024–2032 Evidence-aligned → V1.5 Funding-aligned → V1.6 2027 Start → V1.7 Funding Refresh → V1.8 Risk-buffered → <b>V1.9 Profit Model</b>（2026.08：新增§5A商业利润模型，建立项目贡献利润、利润桥、盈亏平衡和报价红线）。
+  </footer>
+
+</div><!-- /page -->
+</body>
+</html>
