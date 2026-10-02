@@ -1,0 +1,14 @@
+
+begin family ET3D1
+   begin solver Nastran
+      begin bctype IVOL
+         PID  1 4
+         MID  1 1
+         CORDM  0 2
+         IN  0 3
+         STRESS  "" 5
+         ISOP  "" 6
+         FCTN  "" 7
+      end bctype IVOL
+   end solver Nastran
+end family ET3D1

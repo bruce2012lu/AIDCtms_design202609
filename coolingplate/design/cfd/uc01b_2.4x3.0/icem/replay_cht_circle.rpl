@@ -1,0 +1,111 @@
+# UC-01b CHT geometry for the ALREADY-OPEN ICEM GUI.
+# File → Replay Scripts → Replay  this file.
+# Do NOT start a second icemcfd. Units: MILLIMETRES.
+# Circle D=0.40 (r=0.20). TIM 80 um. Cu base 2.0. Do not overlay on metre msh.
+
+set OUTDIR {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0}
+set ICEMDIR [file join $OUTDIR icem]
+file mkdir $ICEMDIR
+puts "CHT-circle replay (mm): start"
+
+set SX 3.0
+set SY 2.4
+set R 0.20
+set X0 -1.5
+set X1 1.5
+set Y0 -1.2
+set Y1 1.2
+set ZTIM -2.08
+set ZCU -2.0
+set ZIMP 0.0
+set ZRIB 1.50
+set ZLID 3.50
+set ZTOP 6.00
+set ZIN 8.00
+
+catch { ic_geo_delete_unattached }
+foreach fam {FLUID SOLID_CU SOLID_TIM2 INLET_JET RETURN_SLOT WALL_ORIFICE WALL_LID WALL_HEAT SYM GEOM} {
+    catch { ic_geo_new_family $fam }
+}
+
+# cell corners at TIM bottom, Cu/fluid floor, lid, inlet
+foreach {n x y z} {
+    t000 -1.5 -1.2 -2.08 t100 1.5 -1.2 -2.08 t110 1.5 1.2 -2.08 t010 -1.5 1.2 -2.08
+    c000 -1.5 -1.2 -2.00 c100 1.5 -1.2 -2.00 c110 1.5 1.2 -2.00 c010 -1.5 1.2 -2.00
+    i000 -1.5 -1.2 0     i100 1.5 -1.2 0     i110 1.5 1.2 0     i010 -1.5 1.2 0
+    r000 -1.5 -1.2 1.5   r100 1.5 -1.2 1.5   r110 1.5 1.2 1.5   r010 -1.5 1.2 1.5
+    l000 -1.5 -1.2 3.5   l100 1.5 -1.2 3.5   l110 1.5 1.2 3.5   l010 -1.5 1.2 3.5
+    p000 -1.5 -1.2 8     p100 1.5 -1.2 8     p110 1.5 1.2 8     p010 -1.5 1.2 8
+} {
+    catch { ic_point {} POINT $n $x,$y,$z }
+}
+
+# 8-point circle D=0.40 at lid and lid-top (official jet)
+set pi 3.141592653589793
+for {set i 0} {$i < 8} {incr i} {
+    set a [expr {$pi * $i / 4.0}]
+    set x [expr {$R * cos($a)}]
+    set y [expr {$R * sin($a)}]
+    catch { ic_point {} POINT oL$i $x,$y,$ZLID }
+    catch { ic_point {} POINT oT$i $x,$y,$ZTOP }
+    catch { ic_point {} POINT oI$i $x,$y,$ZIN }
+}
+for {set i 0} {$i < 8} {incr i} {
+    set j [expr {($i + 1) % 8}]
+    catch { ic_curve point CRV circL$i [list oL$i oL$j] }
+    catch { ic_curve point CRV circT$i [list oT$i oT$j] }
+    catch { ic_curve point CRV circI$i [list oI$i oI$j] }
+    catch { ic_curve point CRV genLT$i [list oL$i oT$i] }
+    catch { ic_curve point CRV genTI$i [list oT$i oI$i] }
+}
+
+# box edges (floor and inlet plane) so Fit shows the coupon
+foreach {cn a b} {
+    ebot0 i000 i100 ebot1 i100 i110 ebot2 i110 i010 ebot3 i010 i000
+    ein0 p000 p100 ein1 p100 p110 ein2 p110 p010 ein3 p010 p000
+    ev0 i000 p000 ev1 i100 p100 ev2 i110 p110 ev3 i010 p010
+    etim0 t000 t100 etim1 t100 t110 etim2 t110 t010 etim3 t010 t000
+} {
+    catch { ic_curve point CRV $cn [list $a $b] }
+}
+
+# slot / rib construction at z=0 and z=1.50 (Y = ±0.20, ±0.60, ±1.00)
+foreach {n y} {ym10 -1.00 ym06 -0.60 ym02 -0.20 yp02 0.20 yp06 0.60 yp10 1.00} {
+    catch { ic_point {} POINT s0$n -1.10,$y,0.0 }
+    catch { ic_point {} POINT s1$n  1.10,$y,0.0 }
+    catch { ic_point {} POINT r0$n -1.10,$y,1.50 }
+    catch { ic_point {} POINT r1$n  1.10,$y,1.50 }
+    catch { ic_curve point CRV sl0$n [list s0$n s1$n] }
+    catch { ic_curve point CRV sl1$n [list r0$n r1$n] }
+}
+
+# return half-slits at |x|=1.10..1.50 (construction)
+foreach {n x} {xm -1.10 xp 1.10} {
+    catch { ic_point {} POINT slb$n $x,-1.20,0.0 }
+    catch { ic_point {} POINT slt$n $x,1.20,0.0 }
+    catch { ic_point {} POINT slL$n $x,-1.20,3.50 }
+    catch { ic_point {} POINT slH$n $x,1.20,3.50 }
+    catch { ic_curve point CRV slitb$n [list slb$n slt$n] }
+    catch { ic_curve point CRV slitL$n [list slL$n slH$n] }
+}
+
+catch { ic_point {} POINT p_fluid 0,0,2.5 }
+catch { ic_geo_set_part point p_fluid FLUID 0 }
+catch { ic_point {} POINT p_cu 0,0,-1.0 }
+catch { ic_geo_set_part point p_cu SOLID_CU 0 }
+catch { ic_point {} POINT p_tim 0,0,-2.04 }
+catch { ic_geo_set_part point p_tim SOLID_TIM2 0 }
+
+catch { ic_set_meshing_params global 0 hgt 0.06 }
+catch { ic_set_meshing_params prism 0 nlayers 12 hrat 1.2 h1 0.003 }
+
+set tin [file join $ICEMDIR uc01b_cht_circle.tin]
+catch { ic_save_tetin $tin }
+puts "saved $tin  (MILLIMETRES; circle D=0.40)"
+puts "Next in GUI: Fit F9 → Hexa O-grid on circle → Output Fluent V6"
+puts "Do not load mesh/uc01b_cht_medium.msh on top of this tin (metres vs mm)"
+puts "CHT-circle replay: done"
+catch { ::gui::fit }
+catch { ic_geo_update_visibility 1 1 1 1 }
+catch { ic_view_axis 0.6 -0.8 0.4 }
+puts "fit attempted"

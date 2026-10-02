@@ -1,0 +1,42 @@
+# Probe classic Fluent msh + Nastran tiny
+puts "PROBE2 start"
+set rf {E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/icemcfd/win64_amd/icemcfd/result-interfaces/readfluent.exe}
+set classic {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/tiny_classic.msh}
+set nas {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/icem/tiny.nas}
+set iced {E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/icemcfd/win64_amd/icemcfd/output-interfaces/IcedNastran.exe}
+puts "IcedNastran exists=[file exists $iced]"
+puts "classic exists=[file exists $classic]"
+
+catch { ic_unload_mesh }
+puts "=== classic fluent prec=2 ==="
+if {[catch { ic_read_external $rf $classic 1 2 0 "" } err]} {
+    puts "classic FAIL: $err"
+} else {
+    puts "classic OK loaded=[ic_uns_is_loaded]"
+    catch { puts "classic cells=[ic_count_elements 3d] nodes=[ic_count_nodes] types=[ic_uns_list_types]" }
+}
+
+catch { ic_unload_mesh }
+puts "=== IcedNastran tiny ==="
+if {[file exists $iced]} {
+    set pname {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/icem/tiny_icem}
+    if {[catch { ic_import_nastran $iced $nas 0 0 0 $pname } err]} {
+        puts "ic_import_nastran FAIL: $err"
+    } else {
+        puts "ic_import_nastran returned"
+    }
+    puts "tiny uns exists=[file exists ${pname}.uns]"
+    if {[file exists ${pname}.uns]} {
+        if {[catch { ic_uns_load ${pname}.uns } err]} {
+            puts "load tiny uns FAIL: $err"
+        } else {
+            puts "tiny uns cells=[ic_count_elements 3d] nodes=[ic_count_nodes] types=[ic_uns_list_types]"
+        }
+    }
+} else {
+    puts "NO IcedNastran.exe"
+    # try without .exe
+    set iced2 {E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/icemcfd/win64_amd/icemcfd/output-interfaces/IcedNastran}
+    puts "IcedNastran noext exists=[file exists $iced2]"
+}
+puts "PROBE2 done"

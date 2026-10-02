@@ -1,0 +1,17 @@
+# UC-01b CHT FINE geometry for the ALREADY-OPEN ICEM GUI.
+# File → Replay Scripts → Replay this file. Do NOT start a second icemcfd.
+# Units: MILLIMETRES. Circle D=0.40 (r=0.20).
+# BL intent (not an ICEM mesh yet): orifice lip first <= 0.003 mm,
+# center-slot walls y=+/-0.20 first 0.0025 mm, >= 8 layers, growth <= 1.2,
+# TIM through-thickness >= 4, Cu base >= 6.
+# Do not overlay mesh/uc01b_cht_fine.msh or *_hex.msh (metres, and not valid).
+
+set OUTDIR {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0}
+set ICEMDIR [file join $OUTDIR icem]
+source [file join $ICEMDIR replay_cht_circle.rpl]
+set tin [file join $ICEMDIR uc01b_cht_fine.tin]
+catch { ic_save_tetin $tin }
+puts "saved $tin"
+puts "Fit F9. Coupon 3.0 x 2.4 mm, circle D=0.40, TIM z=-2.08..-2.00, Cu to z=0."
+puts "Fluent mesh (metres, separate file): mesh/uc01b_cht_fine_v2.msh"
+puts "CHT-fine replay: done"

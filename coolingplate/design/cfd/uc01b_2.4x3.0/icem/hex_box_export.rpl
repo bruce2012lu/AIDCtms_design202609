@@ -1,0 +1,70 @@
+# ICEM box: points -> 12 curves -> 6 surfaces -> hex blocking -> fluent6.exe
+set OUTDIR {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0}
+set ICEMDIR [file join $OUTDIR icem]
+set MESHDIR [file join $OUTDIR mesh]
+file mkdir $ICEMDIR
+file mkdir $MESHDIR
+puts "UC01b-hexbox2: start"
+
+set X0 -1.5; set X1 1.5; set Y0 -1.2; set Y1 1.2; set Z0 0.0; set Z1 8.0
+catch { ic_uns_new }
+catch { ic_geo_delete_all }
+catch { ic_hex_unload_blocking }
+foreach fam {LIVE INLET_JET RETURN_SLOT WALL_IMP SYM} {
+    catch { ic_geo_new_family $fam }
+}
+foreach {n xyz} {
+    p000 {-1.5 -1.2 0} p100 {1.5 -1.2 0} p110 {1.5 1.2 0} p010 {-1.5 1.2 0}
+    p001 {-1.5 -1.2 8} p101 {1.5 -1.2 8} p111 {1.5 1.2 8} p011 {-1.5 1.2 8}
+} {
+    lassign $xyz x y z
+    catch { ic_point {} POINT $n $x,$y,$z }
+    puts "pt $n"
+}
+foreach {cn a b} {
+    e1 p000 p100 e2 p100 p110 e3 p110 p010 e4 p010 p000
+    e5 p001 p101 e6 p101 p111 e7 p111 p011 e8 p011 p001
+    e9 p000 p001 e10 p100 p101 e11 p110 p111 e12 p010 p011
+} {
+    if {[catch { ic_curve point CRV $cn [list $a $b] } err]} {
+        puts "curve $cn fail $err"
+    } else { puts "curve $cn" }
+}
+foreach {sn c1 c2 c3 c4 fam} {
+    sbot e1 e2 e3 e4 WALL_IMP
+    stop e5 e6 e7 e8 INLET_JET
+    sxm  e4 e12 e8 e9 RETURN_SLOT
+    sxp  e2 e10 e6 e11 RETURN_SLOT
+    sym  e1 e10 e5 e9 SYM
+    syp  e3 e11 e7 e12 SYM
+} {
+    if {[catch { ic_surface 4-pt SRFS $sn [list $c1 $c2 $c3 $c4] } err]} {
+        puts "surf $sn fail $err"
+    } else {
+        catch { ic_geo_set_part surface $sn $fam 0 }
+        puts "surf $sn $fam"
+    }
+}
+set ents {surface sbot surface stop surface sxm surface sxp surface sym surface syp}
+if {[catch { ic_hex_initialize_blocking $ents LIVE 1 } err]} {
+    puts "init_block fail $err"
+} else { puts "init_block ok" }
+if {[catch { ic_hex_create_mesh proj 2 } err]} {
+    puts "create_mesh fail $err"
+} else { puts "create_mesh ok" }
+set uns [file join $ICEMDIR uc01b_box.uns]
+catch { ic_hex_convert_to_unstruct }
+if {[catch { ic_save_unstruct $uns } err]} {
+    puts "save_uns fail $err"
+} else { puts "save_uns $uns exists=[file exists $uns]" }
+set msh [file join $MESHDIR uc01b_icem_box.msh]
+set fl6 {E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/icemcfd/win64_amd/icemcfd/output-interfaces/fluent6.exe}
+if {[file exists $uns] && [file exists $fl6]} {
+    if {[catch { ic_exec $fl6 -dom $uns $msh } err]} {
+        puts "fluent6 fail $err"
+    } else { puts "fluent6 $msh exists=[file exists $msh]" }
+} else {
+    puts "skip fl6 uns=[file exists $uns] exe=[file exists $fl6]"
+}
+catch { ic_save_tetin [file join $ICEMDIR uc01b_box.tin] }
+puts "UC01b-hexbox2: done"

@@ -1,0 +1,14 @@
+# UC-01b CHT v2 geometry for the ALREADY-OPEN ICEM.
+# File → Replay Scripts → Replay this file. Do NOT start a second icemcfd.
+# Units: MILLIMETRES. Circle D=0.40, cell 3.0 x 2.4, TIM 0.080, Cu base 2.0,
+# channel H=1.50, gap 2.0, lid 2.5, three slots 0.40, return strips |x|>1.10.
+# BL intent is in the Fluent hex (mesh/uc01b_cht_v2.msh), not in this tin.
+
+set OUTDIR {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0}
+set ICEMDIR [file join $OUTDIR icem]
+source [file join $ICEMDIR replay_cht_circle.rpl]
+set tin [file join $ICEMDIR uc01b_cht_v2.tin]
+catch { ic_save_tetin $tin }
+puts "saved $tin (mm). Fit F9."
+puts "Fluent volume mesh is separate, in metres: mesh/uc01b_cht_v2.msh"
+puts "CHT-v2 replay: done"

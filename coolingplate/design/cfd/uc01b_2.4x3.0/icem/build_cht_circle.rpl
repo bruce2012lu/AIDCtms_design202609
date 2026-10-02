@@ -1,0 +1,75 @@
+# ICEM: circular orifice D=0.40 mm cylinder + CHT boxes, then tetra
+# Official jet: CIRCLE r=0.20 mm. Not square, not D=0.50.
+set OUTDIR {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0}
+set ICEMDIR [file join $OUTDIR icem]
+set MESHDIR [file join $OUTDIR mesh]
+file mkdir $ICEMDIR
+file mkdir $MESHDIR
+puts "CHT-circle: start D=0.40 circular"
+
+set R 0.20
+set ZLID 3.50
+set ZTOP 6.00
+set ZIN 8.00
+
+catch { ic_uns_new }
+catch { ic_geo_delete_all }
+catch { ic_hex_unload_blocking }
+
+foreach fam {FLUID SOLID_CU SOLID_TIM2 INLET_JET RETURN_SLOT WALL_ORIFICE WALL_LID WALL_HEAT WALL_CU_FLUID WALL_TIM_CU SYM} {
+    catch { ic_geo_new_family $fam }
+}
+
+# circle points at lid and plenum
+set nseg 24
+for {set i 0} {$i < $nseg} {incr i} {
+    set ang [expr {2.0 * 3.141592653589793 * $i / $nseg}]
+    set x [expr {$R * cos($ang)}]
+    set y [expr {$R * sin($ang)}]
+    catch { ic_point {} POINT pL$i $x,$y,$ZLID }
+    catch { ic_point {} POINT pT$i $x,$y,$ZTOP }
+    catch { ic_point {} POINT pI$i $x,$y,$ZIN }
+}
+# circle curves (polyline segments)
+for {set i 0} {$i < $nseg} {incr i} {
+    set j [expr {($i + 1) % $nseg}]
+    catch { ic_curve point CRV cL$i [list pL$i pL$j] }
+    catch { ic_curve point CRV cT$i [list pT$i pT$j] }
+    catch { ic_curve point CRV cI$i [list pI$i pI$j] }
+    catch { ic_curve point CRV gLT$i [list pL$i pT$i] }
+    catch { ic_curve point CRV gTI$i [list pT$i pI$i] }
+}
+# cylinder wall surfaces (2-curve ruled)
+for {set i 0} {$i < $nseg} {incr i} {
+    if {[catch { ic_surface 2-4crv SRFS cylLT$i [list cL$i gLT$i cT$i gLT[expr {($i+1)%$nseg}]] } err]} {
+        puts "cylLT$i fail $err"
+    } else {
+        catch { ic_geo_set_part surface cylLT$i WALL_ORIFICE 0 }
+    }
+}
+
+# material points
+catch { ic_point {} POINT p_fluid 0,0,2.5 }
+catch { ic_geo_set_part point p_fluid FLUID 0 }
+catch { ic_point {} POINT p_cu 0,0,-1.0 }
+catch { ic_geo_set_part point p_cu SOLID_CU 0 }
+catch { ic_point {} POINT p_tim 0,0,-2.04 }
+catch { ic_geo_set_part point p_tim SOLID_TIM2 0 }
+
+catch { ic_set_meshing_params global 0 hgt 0.06 }
+catch { ic_set_meshing_params prism 0 nlayers 4 hrat 1.2 h1 0.003 }
+
+set tet_ok 0
+if {![catch { ic_run_tetra {} {} {} } err]} {
+    set tet_ok 1
+    puts "tetra cmd issued"
+} else {
+    puts "tetra fail $err"
+}
+catch { puts "cells3d=[ic_count_elements 3d] nodes=[ic_count_nodes]" }
+
+set tin [file join $ICEMDIR uc01b_cht_circle.tin]
+catch { ic_save_tetin $tin }
+puts "saved tin exists=[file exists $tin]"
+puts "CHT-circle: note Python O-grid msh is the shipped circular CHT mesh if tetra has no closed volume"
+puts "CHT-circle: done"

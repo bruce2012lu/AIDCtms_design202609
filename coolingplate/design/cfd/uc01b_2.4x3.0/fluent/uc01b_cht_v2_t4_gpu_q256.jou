@@ -1,0 +1,55 @@
+; UC-01b CHT v2 q256 restart — visible GUI, no /exit
+; DP-A P=1100 W is the plate total (two dies), not one die. Role: Lenovo SXM DLC TGP.
+; GPU branch = SPLIT_GPU 0.80 -> 880 W and 1.60 L/min, shared by two dies x 128 holes = 256 holes.
+; HBM 20% is not in this coupon.
+; Cell stays 3.0 mm x 2.4 mm. Circular jet D=0.40 mm. Mesh unchanged.
+; q'' = 880/(256*7.2e-6 m2) = 477430.55555555556 W/m2 = 47.74305555555556 W/cm2.
+; mdot = (992.2*1.60/60000)/256 = 1.0335416666666667e-4 kg/s. Water inlet 40 C.
+; Initial field: converged uc01b_cht_v2_i7900 (old q''=56.746 W/cm2 and /128 flow). Do not reinitialize.
+; return_slot = pressure-outlet; return_slot:015 stays wall. SST.
+; Criteria: continuity and xyz-mom 1e-4, energy 1e-6, k/omega 1e-3.
+; Write fluent/uc01b_cht_v2_q256 on converge or at the 2000-iter cap.
+;
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_q256.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.cas.h5"
+/file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.dat.h5"
+/define/boundary-conditions/zone-type return_slot:015 wall
+/define/boundary-conditions/zone-type return_slot pressure-outlet
+/define/models/viscous/kw-sst yes
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet () mass-flow no 0.00010335416666666667 t no 313.15 q
+/define/boundary-conditions/wall
+wall_heat
+no
+0
+no
+0
+no
+yes
+heat-flux
+no
+477430.55555555556
+no
+no
+1
+/solve/monitors/residual/criterion-type 0
+/solve/monitors/residual/check-convergence? yes
+yes
+yes
+yes
+yes
+yes
+yes
+/solve/monitors/residual/convergence-criteria
+1e-4
+1e-4
+1e-4
+1e-4
+1e-6
+1e-3
+1e-3
+/solve/iterate 2000
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_q256"
+/file/stop-transcript
+; no /exit — leave the GUI open

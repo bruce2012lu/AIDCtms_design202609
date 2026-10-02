@@ -1,0 +1,10 @@
+; Report-only. Read the saved iter-8587 field. No iterate, no case write.
+; Not launched while lessmesh holds the license (uc01b_cht_less_m425_bc216.jou).
+/file/set-batch-options yes no no
+/file/confirm-overwrite yes
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_n216_q105.cas.h5"
+/file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_n216_q105.dat.h5"
+/report/surface-integrals/facet-min wall_heat () temperature no
+/report/surface-integrals/facet-max wall_heat () temperature no
+/report/surface-integrals/area-weighted-avg wall_heat () temperature no
+/exit yes

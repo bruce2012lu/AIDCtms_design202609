@@ -1,0 +1,8 @@
+; UC-01b CHT: read mesh, accept solids?, list zones. No iterate.
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_cht.msh"
+/mesh/check
+/define/boundary-conditions/list-zones
+/file/write-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_read"
+/exit yes

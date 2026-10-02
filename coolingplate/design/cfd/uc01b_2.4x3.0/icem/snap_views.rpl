@@ -1,0 +1,53 @@
+# Replay this INSIDE the already-open ICEM (File > Replay Scripts > Replay).
+# Loads uc01b.uns if needed, fits, hex on, two cut planes, tries PPM dumps.
+
+set ICEMDIR {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/icem}
+set VIEWDIR [file join $ICEMDIR views]
+file mkdir $VIEWDIR
+set uns [file join $ICEMDIR uc01b.uns]
+
+if {![ic_uns_is_loaded]} {
+    if {[catch { ic_uns_load $uns } err]} {
+        puts "SNAP: load failed $err"
+        return
+    }
+}
+puts "SNAP: cells3d=[ic_count_elements 3d] hexa=[ic_count_elements hexa] nodes=[ic_count_nodes]"
+
+catch { ic_visible unstruct HEXA_8 1 }
+catch { ic_display_update unstruct }
+catch { ic_view home }
+
+proc snap_ppm {stem} {
+    global VIEWDIR tdv_default
+    set ppm [file join $VIEWDIR ${stem}.ppm]
+    if {![info exists tdv_default]} { puts "SNAP: no tdv_default"; return }
+    if {[catch {
+        set fp [open $ppm w]
+        $tdv_default write_ppm $fp portrait 0 0 0 0 0
+        close $fp
+        puts "SNAP: $ppm size=[file size $ppm]"
+    } err]} { puts "SNAP: $stem fail $err" }
+}
+
+catch { update }
+after 500
+snap_ppm iso
+
+# X=0 through jet (meters)
+catch { ic_uns_subset_cut All plane 1 1 {0 0 0.004} {1 0 0} }
+catch { ic_display_update unstruct }
+catch { update }
+after 400
+snap_ppm section_jet_x0
+
+# Z=0.75 mm through the three slots
+catch { ic_uns_subset_cut All plane 1 1 {0 0 0.00075} {0 0 1} }
+catch { ic_display_update unstruct }
+catch { update }
+after 400
+snap_ppm section_slots_z075
+
+catch { ic_uns_subset_cut All plane 0 1 {0 0 0} {1 0 0} }
+catch { ic_view home }
+puts "SNAP: done. Convert PPM with python views/ppm_to_png.py"

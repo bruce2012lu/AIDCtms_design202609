@@ -1,0 +1,213 @@
+; UC-01b CHT: fluid + copper + TIM2
+; t_TIM=80 um  k_eff=8.8183 W/mK (R_TIM2=0.006 on A_2DIE)
+; q''=567460.31746 W/m2 on wall_heat  mdot=2.067e-4 kg/s  water 40 C
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_cht_coarse.msh"
+/mesh/check
+/define/boundary-conditions/list-zones
+/define/models/energy yes
+no
+no
+no
+no
+/define/models/viscous/kw-sst yes
+/define/materials/copy fluid water-liquid
+/define/materials/copy solid copper
+/define/materials/copy solid aluminum
+/define/materials/change-create
+water-liquid
+water-liquid
+yes
+constant
+992.2
+yes
+constant
+4179
+yes
+constant
+0.631
+no
+no
+no
+yes
+constant
+6.53e-4
+no
+no
+no
+no
+/define/materials/change-create
+copper
+copper
+yes
+constant
+8960
+yes
+constant
+385
+yes
+constant
+390
+no
+no
+no
+/define/materials/change-create
+aluminum
+tim2
+yes
+constant
+2800
+yes
+constant
+1000
+yes
+constant
+8.818342
+no
+no
+no
+/define/boundary-conditions/fluid
+fluid
+yes
+water-liquid
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+no
+/define/boundary-conditions/solid
+solid_cu
+yes
+copper
+no
+no
+no
+no
+/define/boundary-conditions/solid
+solid_tim2
+yes
+tim2
+no
+no
+no
+no
+/define/boundary-conditions/zone-type inlet_jet mass-flow-inlet
+/define/boundary-conditions/zone-type return_slot pressure-outlet
+/define/boundary-conditions/zone-type SYM symmetry
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet () mass-flow no 0.0002067 t no 313.15 q
+/define/boundary-conditions/set/pressure-outlet return_slot () t no 313.15 q
+/define/boundary-conditions/wall
+wall_heat
+no
+0
+no
+0
+no
+yes
+heat-flux
+no
+567460.3174603175
+no
+no
+no
+no
+1
+/report/reference-values/temperature 313.15
+/define/operating-conditions/operating-pressure 101325
+/solve/monitors/residual/print? yes
+/solve/monitors/residual/plot? no
+/solve/initialize/hyb-initialization
+/solve/iterate 80
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_CHT"
+/define/boundary-conditions/list-zones
+/report/surface-integrals/area-weighted-avg inlet_jet () temperature no
+/report/surface-integrals/area-weighted-avg return_slot () temperature no
+/report/surface-integrals/area-weighted-avg wall_heat () temperature no
+/report/surface-integrals/area-weighted-avg wall_heat () heat-flux no
+/report/surface-integrals/area-weighted-avg wall_cu_fluid () temperature no
+/report/surface-integrals/area-weighted-avg wall_tim_cu () temperature no
+/report/surface-integrals/area-weighted-avg inlet_jet () pressure no
+/report/surface-integrals/area-weighted-avg return_slot () pressure no
+/report/fluxes/mass-flow yes inlet_jet return_slot () no
+/report/fluxes/heat-transfer yes wall_heat () no
+/surface/iso-surface
+pl_x0
+x-coordinate
+,
+,
+0
+()
+/surface/iso-surface
+pl_y0
+y-coordinate
+,
+,
+0
+()
+/surface/iso-surface
+pl_yp08
+y-coordinate
+,
+,
+0.0008
+()
+/surface/iso-surface
+pl_ym08
+y-coordinate
+,
+,
+-0.0008
+()
+/surface/iso-surface
+pl_z075
+z-coordinate
+,
+,
+0.00075
+()
+/surface/iso-surface
+pl_z250
+z-coordinate
+,
+,
+0.0025
+()
+/surface/iso-surface
+pl_ztimcu
+z-coordinate
+,
+,
+-0.002
+()
+/surface/iso-surface
+pl_ztim
+z-coordinate
+,
+,
+-0.00204
+()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_pl_x0.prof" pl_x0 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_pl_y0.prof" pl_y0 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_pl_yp08.prof" pl_yp08 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_pl_ym08.prof" pl_ym08 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_pl_z075.prof" pl_z075 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_pl_z250.prof" pl_z250 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_pl_ztimcu.prof" pl_ztimcu () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_ztim.prof" pl_ztim () temperature ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_wall_heat.prof" wall_heat () temperature heat-flux ()
+; no /exit — keep the open GUI

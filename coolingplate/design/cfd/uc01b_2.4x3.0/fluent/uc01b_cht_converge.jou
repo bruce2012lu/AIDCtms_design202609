@@ -1,0 +1,248 @@
+; UC-01b CHT converge — FINE conjugate mesh, VISIBLE GUI (no -gu, no /exit)
+; Mesh: uc01b_cht_fine_v2.msh  (4472280 HEXA; hex indices; RH normal toward c0)
+; fluid 2760804 / Cu 1533156 / TIM 178320
+; center slot walls first=2.5 um n_BL=10  orifice radial first=3.0 um
+; Do not loosen 1e-4 / 1e-6. Window stays open.
+;
+; vs stalled fluid-only (continuity 0.18-0.30 @ 400/800, SIMPLE default):
+;   coupled P-V, pseudo-transient, 1st-order startup then 2nd-order,
+;   residual CRITERIA (not a fixed 80/400 stop), UR documented below.
+; Targets (do not loosen): continuity/xyz-mom < 1e-4, energy < 1e-6
+; k/omega 1e-3 so turbulence does not block the required flow/energy stop.
+;
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_run11.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_cht_fine_v2.msh"
+/mesh/check
+/define/boundary-conditions/list-zones
+/define/boundary-conditions/zone-type return_slot:015 wall
+/define/models/energy yes
+no
+no
+no
+no
+/define/models/viscous/kw-sst yes
+/define/materials/copy fluid water-liquid
+/define/materials/copy solid copper
+/define/materials/change-create
+water-liquid
+water-liquid
+yes
+constant
+992.2
+yes
+constant
+4179
+yes
+constant
+0.631
+yes
+constant
+6.53e-4
+no
+no
+no
+/define/materials/change-create
+copper
+copper
+yes
+constant
+8960
+yes
+constant
+385
+yes
+constant
+390
+/define/materials/change-create
+aluminum
+tim2
+yes
+constant
+2800
+yes
+constant
+1000
+yes
+constant
+8.818342
+yes
+/define/boundary-conditions/fluid
+fluid
+yes
+water-liquid
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+no
+no
+/define/boundary-conditions/solid
+solid_cu
+yes
+copper
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+/define/boundary-conditions/solid
+solid_tim2
+yes
+tim2
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+/define/boundary-conditions/zone-type inlet_jet mass-flow-inlet
+/define/boundary-conditions/zone-type return_slot pressure-outlet
+/define/boundary-conditions/zone-type SYM symmetry
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet () mass-flow no 0.0002067 t no 313.15 q
+/define/boundary-conditions/set/pressure-outlet return_slot () t no 313.15 q
+/define/boundary-conditions/wall
+wall_heat
+no
+0
+no
+0
+no
+yes
+heat-flux
+no
+567460.3174603175
+no
+no
+1
+/report/reference-values/temperature 313.15
+/define/operating-conditions/operating-pressure 101325
+; --- solver: coupled + pseudo-transient (fix for SIMPLE continuity stall) ---
+/solve/set/p-v-coupling 24
+/solve/set/pseudo-transient yes
+yes
+1
+1
+0
+yes
+/solve/set/p-v-controls
+50
+0.5
+0.5
+/solve/set/discretization-scheme/pressure 10
+/solve/set/discretization-scheme/mom 0
+/solve/set/discretization-scheme/k 0
+/solve/set/discretization-scheme/omega 0
+/solve/set/discretization-scheme/energy 0
+/solve/monitors/residual/print? yes
+/solve/monitors/residual/plot? yes
+/solve/monitors/residual/criterion-type 0
+/solve/monitors/residual/check-convergence? no
+/solve/initialize/set-defaults/temperature 313.15
+/solve/initialize/hyb-initialization
+; startup first-order, no early stop
+/solve/iterate 300
+; second-order + required residual criteria
+/solve/set/discretization-scheme/pressure 12
+/solve/set/discretization-scheme/mom 1
+/solve/set/discretization-scheme/k 1
+/solve/set/discretization-scheme/omega 1
+/solve/set/discretization-scheme/energy 1
+/solve/monitors/residual/check-convergence? yes
+/solve/monitors/residual/convergence-criteria
+1e-4
+1e-4
+1e-4
+1e-4
+1e-6
+1e-3
+1e-3
+/solve/iterate 4000
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_CHT_conv"
+/define/boundary-conditions/list-zones
+/report/surface-integrals/area-weighted-avg inlet_jet () temperature no
+/report/surface-integrals/area-weighted-avg return_slot () temperature no
+/report/surface-integrals/area-weighted-avg wall_heat () temperature no
+/report/surface-integrals/area-weighted-avg wall_heat () heat-flux no
+/report/surface-integrals/area-weighted-avg wall_cu_fluid () temperature no
+/report/surface-integrals/area-weighted-avg wall_tim_cu () temperature no
+/report/surface-integrals/area-weighted-avg inlet_jet () pressure no
+/report/surface-integrals/area-weighted-avg return_slot () pressure no
+/report/fluxes/mass-flow yes inlet_jet return_slot () no
+/report/fluxes/heat-transfer yes wall_heat wall_cu_fluid wall_tim_cu () no
+; planes for post only — real profiles, not hardcopy
+/surface/iso-surface
+x-coordinate
+cht_pl_x0
+,
+,
+0
+()
+/surface/iso-surface
+y-coordinate
+cht_pl_y0
+,
+,
+0
+()
+/surface/iso-surface
+z-coordinate
+cht_pl_z075
+,
+,
+0.00075
+()
+/surface/iso-surface
+z-coordinate
+cht_pl_z005
+,
+,
+0.00005
+()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_fine_pl_x0.prof" cht_pl_x0 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_fine_pl_y0.prof" cht_pl_y0 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_fine_pl_z075.prof" cht_pl_z075 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_fine_pl_z005.prof" cht_pl_z005 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/cht_fine_wall_heat.prof" wall_heat () temperature heat-flux ()
+/file/stop-transcript
+; no /exit — leave the GUI open so residuals and the mesh stay on screen

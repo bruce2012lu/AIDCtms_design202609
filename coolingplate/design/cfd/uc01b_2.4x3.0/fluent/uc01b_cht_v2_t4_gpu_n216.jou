@@ -1,0 +1,69 @@
+; UC-01b CHT v2 n216 restart — visible GUI, no /exit
+; DP-A P=1100 W is the whole plate. Two-die GPU heat = 1100*0.39*2 = 858 W.
+; Flow split SPLIT_GPU=0.80 is flow only: GPU branch 1.60 L/min, not 80% of 1100 W.
+; Jets: 9 along ribs (X, 3.0 mm, die 27.0 mm exact) x 12 along the return-slot
+; long axis (Y, 2.4 mm) = 108 per die, N=216.
+; Cell row Y = 28.8 mm, 0.8 mm wider than the 28 mm die.
+; Plate envelope in Y = 28+1.2 = 29.2 mm, so 0.4 mm remains inside the envelope.
+; q''_nominal = (858/216)/(2.4e-3*3.0e-3) = 551697.5308641976 W/m2 = 55.16975308641976 W/cm2.
+; Applied BC is 1.05 x nominal (edge-hole / nonuniform redundancy). Flow is NOT scaled.
+; q''_BC = 579282.4074074075 W/m2 = 57.92824074074075 W/cm2.
+; Coupon power at the BC = 858*1.05 = 900.9 W. Plate spec stays 429+429+198+44 = 1100 W.
+; Die-average flux stays 429/(27*28 mm2) = 56.74603174603175 W/cm2. That is not the coupon BC.
+; mdot = (992.2*1.60/60000)/216 = 0.00012249382716049385 kg/s. Tin=313.15 K. D=0.40 mm unchanged.
+; Initial field: uc01b_cht_v2_i7900 is the OLD 128-jet solution (q''=56.746 W/cm2, mdot=2.067e-4). Do not overwrite it.
+; return_slot = pressure-outlet gauge 0, backflow T=313.15 K. return_slot:015 stays wall.
+; Criteria: continuity and xyz-mom 1e-4, energy 1e-6, k/omega 1e-3.
+; Write fluent/uc01b_cht_v2_n216. Do not write i7900.
+;
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_n216.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.cas.h5"
+/file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.dat.h5"
+/define/boundary-conditions/zone-type return_slot:015 wall
+/define/boundary-conditions/zone-type return_slot pressure-outlet
+/define/boundary-conditions/set/pressure-outlet return_slot ()
+gauge-pressure
+no
+0
+temperature
+no
+313.15
+q
+/define/models/viscous/kw-sst yes
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet () mass-flow no 0.00012249382716049385 t no 313.15 q
+/define/boundary-conditions/wall
+wall_heat
+no
+0
+no
+0
+no
+yes
+heat-flux
+no
+579282.4074074075
+no
+no
+1
+/solve/monitors/residual/criterion-type 0
+/solve/monitors/residual/check-convergence? yes
+yes
+yes
+yes
+yes
+yes
+yes
+/solve/monitors/residual/convergence-criteria
+1e-4
+1e-4
+1e-4
+1e-4
+1e-6
+1e-3
+1e-3
+/solve/iterate 2000
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_n216"
+/file/stop-transcript
+; no /exit — leave the GUI open

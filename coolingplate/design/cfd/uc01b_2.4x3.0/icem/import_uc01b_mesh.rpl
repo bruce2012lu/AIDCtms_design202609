@@ -1,0 +1,8 @@
+# UC-01b batch: Fluent msh → ICEM .uns + .prj (no GUI)
+# icemcfd.bat -batch -script this file
+
+set _here {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/icem}
+if {![file isdirectory $_here]} {
+    set _here [file dirname [info script]]
+}
+source [file join $_here import_view_uc01b.tcl]

@@ -1,0 +1,49 @@
+; Symmetric restart of the n216 q105 coupon. Full cell, no symmetry BC.
+; Read the saved case for mesh and zones only. Do not read i7900 or n216_q105 data.
+; Hybrid initialization replaces any carried field with a BC-based symmetric start.
+; Do not overwrite i7900 or n216_q105.
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_n216_q105_sym.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_n216_q105.cas.h5"
+/define/boundary-conditions/zone-type return_slot:015 wall
+/define/boundary-conditions/zone-type return_slot pressure-outlet
+/define/models/viscous/kw-sst yes
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet () mass-flow no 0.00012249382716049385 t no 313.15 q
+/define/boundary-conditions/wall
+wall_heat
+no
+0
+no
+0
+no
+yes
+heat-flux
+no
+579282.4074074075
+no
+no
+1
+/report/reference-values/temperature 313.15
+/solve/initialize/set-defaults/temperature 313.15
+/solve/initialize/hyb-initialization
+/solve/monitors/residual/criterion-type 0
+/solve/monitors/residual/check-convergence? yes
+yes
+yes
+yes
+yes
+yes
+yes
+/solve/monitors/residual/convergence-criteria
+1e-4
+1e-4
+1e-4
+1e-4
+1e-6
+1e-3
+1e-3
+/solve/iterate 3000
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_n216_q105_sym"
+/file/stop-transcript
+; no /exit — leave the window open

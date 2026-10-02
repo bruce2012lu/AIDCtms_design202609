@@ -1,0 +1,161 @@
+; UC-01b CHT for the ALREADY-OPEN Fluent GUI
+; File → Read → Journal  → this file
+; DO NOT start a second fluent.exe (license is in the GUI).
+; Mesh: circular jet D=0.40 mm O-grid + Cu + TIM2  (medium / baseline)
+;
+; Frozen:
+;   t_TIM=80 um   k_eff=8.818342 W/mK = t/(R_TIM2*A_2DIE)  R=0.006
+;   q''=567460.31746 W/m2 on wall_heat  (DP-A die-average 56.746 W/cm2)
+;   mdot=2.067e-4 kg/s  (GPU 1.60 L/min / 128)   Tref=313.15 K
+;   SST    first layer 2.5 um   y+ est ~0.64
+;
+/file/confirm-overwrite yes
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_cht_medium.msh"
+/mesh/check
+/define/boundary-conditions/list-zones
+/define/models/energy yes
+no
+no
+no
+no
+/define/models/viscous/kw-sst yes
+/define/materials/copy fluid water-liquid
+/define/materials/copy solid copper
+/define/materials/copy solid aluminum
+/define/materials/change-create
+water-liquid
+water-liquid
+yes
+constant
+992.2
+yes
+constant
+4179
+yes
+constant
+0.631
+no
+no
+no
+yes
+constant
+6.53e-4
+no
+no
+no
+no
+/define/materials/change-create
+copper
+copper
+yes
+constant
+8960
+yes
+constant
+385
+yes
+constant
+390
+no
+no
+no
+/define/materials/change-create
+aluminum
+tim2
+yes
+constant
+2800
+yes
+constant
+1000
+yes
+constant
+8.818342
+no
+no
+no
+/define/boundary-conditions/fluid
+fluid
+yes
+water-liquid
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+no
+/define/boundary-conditions/solid
+solid_cu
+yes
+copper
+no
+no
+no
+no
+/define/boundary-conditions/solid
+solid_tim2
+yes
+tim2
+no
+no
+no
+no
+/define/boundary-conditions/zone-type inlet_jet mass-flow-inlet
+/define/boundary-conditions/zone-type return_slot pressure-outlet
+/define/boundary-conditions/zone-type SYM symmetry
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet () mass-flow no 0.0002067 t no 313.15 q
+/define/boundary-conditions/set/pressure-outlet return_slot () t no 313.15 q
+/define/boundary-conditions/wall
+wall_heat
+no
+0
+no
+0
+no
+yes
+heat-flux
+no
+567460.3174603175
+no
+no
+no
+no
+1
+/report/reference-values/temperature 313.15
+/define/operating-conditions/operating-pressure 101325
+/solve/monitors/residual/print? yes
+/solve/monitors/residual/plot? yes
+/solve/initialize/hyb-initialization
+/solve/iterate 80
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_CHT"
+/define/boundary-conditions/list-zones
+/report/surface-integrals/area-weighted-avg inlet_jet () temperature no
+/report/surface-integrals/area-weighted-avg return_slot () temperature no
+/report/surface-integrals/area-weighted-avg wall_heat () temperature no
+/report/surface-integrals/area-weighted-avg wall_heat () heat-flux no
+/report/surface-integrals/area-weighted-avg wall_cu_fluid () temperature no
+/report/surface-integrals/area-weighted-avg wall_tim_cu () temperature no
+/report/surface-integrals/area-weighted-avg inlet_jet () pressure no
+/report/surface-integrals/area-weighted-avg return_slot () pressure no
+/report/fluxes/mass-flow yes inlet_jet return_slot () no
+/report/fluxes/heat-transfer yes wall_heat () no
+; After this journal: copy Transcript numbers.
+; R_conv_cell = (T_wall_cu_fluid - 313.15) / 4.085714
+; R_conv_2die = R_conv_cell / 210
+; R_TIM2 = 0.006   R_wall = 0.002 / (390 * 0.001512) = 0.003392
+; R_c-in = 0.006 + 0.003392 + R_conv_2die
+; R_j-in = R_c-in + R_pkg   R_pkg = 0.008 to 0.012
+; Do NOT /exit — GUI session must stay open.

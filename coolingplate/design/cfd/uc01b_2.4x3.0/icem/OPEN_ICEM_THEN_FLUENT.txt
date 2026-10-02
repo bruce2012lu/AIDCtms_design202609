@@ -1,0 +1,30 @@
+UC-01b CHT — already-open ICEM + already-open Fluent
+Do NOT start icemcfd.bat / fluent.exe again.
+
+UNITS
+  ICEM tetin / this replay: MILLIMETRES
+  Python / Fluent msh:      METRES
+  Do not overlay tin and msh in one view.
+
+A) ICEM GUI (already open)
+  1. File → Replay Scripts → Replay
+     D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\icem\replay_cht_circle.rpl
+     (same Tcl: icem\replay_cht_circle.tcl)
+  2. Fit (F9). You should see: cell box, circle D=0.40 at z=3.5 / 6 / 8,
+     TIM slab z=-2.08..-2.00, Cu base z=-2.00..0, slot/rib lines, return slits.
+  3. Mesh → Hexa Blocking → Initialize (or continue O-grid on the circle).
+     Target: first layer ≤ 0.003 mm on Cu–fluid walls; growth ≤ 1.2;
+     O-grid around D=0.40 circle; parts FLUID / SOLID_CU / SOLID_TIM2.
+  4. Output → Fluent (V6) → write   [ICEM fluent6 writer; do not launch fluent.exe]
+     D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\mesh\uc01b_cht_icem.msh
+     (If blocking is not finished, skip 3–4 and use the Python circular msh in Fluent.)
+
+B) Fluent GUI (already open)
+  File → Read → Journal
+     D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent\uc01b_cht_gui.jou
+  That journal reads the Python circular medium msh (metres):
+     mesh\uc01b_cht_medium.msh
+  If you exported ICEM Fluent V6 successfully, first change the read-case path
+  in the journal to mesh\uc01b_cht_icem.msh, then Read Journal.
+
+Journal does not /exit. SST, water 40 C, mdot=2.067e-4 kg/s, q''=56.746 W/cm2.

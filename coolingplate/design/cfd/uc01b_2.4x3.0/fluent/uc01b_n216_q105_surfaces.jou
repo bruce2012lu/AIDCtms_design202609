@@ -1,0 +1,17 @@
+; Report-only. Read saved n216 q105. Do not iterate. Do not write case/data.
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_n216_q105_surfaces.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_n216_q105.cas.h5"
+/file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_n216_q105.dat.h5"
+/report/surface-integrals/area-weighted-avg inlet_jet () temperature no
+/report/surface-integrals/area-weighted-avg return_slot () temperature no
+/report/surface-integrals/area-weighted-avg wall_heat () temperature no
+/report/surface-integrals/area-weighted-avg wall_heat () heat-flux no
+/report/surface-integrals/area-weighted-avg wall_cu_fluid () temperature no
+/report/surface-integrals/area-weighted-avg wall_tim_cu () temperature no
+/report/surface-integrals/area-weighted-avg inlet_jet () pressure no
+/report/surface-integrals/area-weighted-avg return_slot () pressure no
+/report/fluxes/mass-flow inlet_jet () no return_slot () no q
+/file/stop-transcript
+/exit yes

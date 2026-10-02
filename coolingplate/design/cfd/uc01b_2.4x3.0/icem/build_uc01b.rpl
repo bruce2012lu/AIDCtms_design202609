@@ -1,0 +1,79 @@
+# UC-01b ICEM replay (Tcl). GUI: File > Replay Scripts > Replay
+# Batch: icemcfd.bat -batch -script this file
+
+set OUTDIR {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0}
+set ICEMDIR [file join $OUTDIR icem]
+set MESHDIR [file join $OUTDIR mesh]
+file mkdir $ICEMDIR
+file mkdir $MESHDIR
+puts "UC01b: start OUTDIR=$OUTDIR"
+
+set SX 3.0
+set SY 2.4
+set D 0.40
+set H 2.0
+set CHH 1.50
+set TLID 2.5
+set HPLEN 2.0
+set SLIT_HALF 0.40
+set R [expr {$D / 2.0}]
+set X0 [expr {-$SX / 2.0}]
+set X1 [expr {$SX / 2.0}]
+set Y0 [expr {-$SY / 2.0}]
+set Y1 [expr {$SY / 2.0}]
+set Z0 0.0
+set Z1 $CHH
+set Z2 [expr {$CHH + $H}]
+set Z3 [expr {$Z2 + $TLID}]
+set Z4 [expr {$Z3 + $HPLEN}]
+
+catch { ic_uns_new }
+catch { ic_geo_delete_all }
+catch { ic_hex_delete_all }
+
+foreach fam {fluid inlet_jet wall_orifice wall_lid wall_imp fin return_slot SYM GEOM} {
+    catch { ic_geo_new_family $fam }
+}
+
+catch { ic_point {} POINT c000 $X0,$Y0,$Z0 }
+catch { ic_point {} POINT c100 $X1,$Y0,$Z0 }
+catch { ic_point {} POINT c110 $X1,$Y1,$Z0 }
+catch { ic_point {} POINT c010 $X0,$Y1,$Z0 }
+catch { ic_point {} POINT c001 $X0,$Y0,$Z4 }
+catch { ic_point {} POINT c101 $X1,$Y0,$Z4 }
+catch { ic_point {} POINT c111 $X1,$Y1,$Z4 }
+catch { ic_point {} POINT c011 $X0,$Y1,$Z4 }
+catch { ic_point {} POINT p_mat 0,0,[expr {$Z1 + $H * 0.5}] }
+catch { ic_geo_set_part point p_mat fluid 0 }
+catch { ic_point {} POINT p_orif_b 0,0,$Z2 }
+catch { ic_point {} POINT p_orif_t 0,0,$Z3 }
+catch { ic_point {} POINT p_pl_t 0,0,$Z4 }
+catch { ic_curve point CRV axis_orif {p_orif_b p_orif_t} }
+catch { ic_curve point CRV axis_pl {p_orif_t p_pl_t} }
+
+catch { ic_set_meshing_params global 0 hgt 0.08 }
+catch { ic_set_meshing_params prism 0 nlayers 8 hrat 1.2 h1 0.003 }
+
+set tet_ok 0
+if {![catch { ic_run_tetra {} {} {} } err]} {
+    set tet_ok 1
+    puts "UC01b: ic_run_tetra ok"
+} else {
+    puts "UC01b: ic_run_tetra failed: $err"
+}
+
+set msh [file join $MESHDIR uc01b_icem.msh]
+set prj [file join $ICEMDIR uc01b]
+catch { ic_save_unstruct [file join $ICEMDIR uc01b.uns] }
+catch { ic_save_tetin [file join $ICEMDIR uc01b.tin] }
+if {$tet_ok} {
+    if {[catch { ic_uns_write $msh 1 } err]} {
+        puts "UC01b: ic_uns_write failed: $err"
+    } else {
+        puts "UC01b: wrote $msh"
+    }
+} else {
+    puts "UC01b: no ICEM tetra mesh; use mesh/write_hex_msh.py"
+}
+catch { ic_save_project $prj }
+puts "UC01b: done"

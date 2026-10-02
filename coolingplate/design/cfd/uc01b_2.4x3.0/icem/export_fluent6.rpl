@@ -1,0 +1,74 @@
+# Import Nastran (hex + BC quads) then fluent6.exe → msh Fluent 26 can read
+set MODE tiny
+if {[info exists env(UC01B_EXPORT_MODE)]} { set MODE $env(UC01B_EXPORT_MODE) }
+
+set OUTDIR {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0}
+set ICEMDIR [file join $OUTDIR icem]
+set MESHDIR [file join $OUTDIR mesh]
+set iced {E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/icemcfd/win64_amd/icemcfd/output-interfaces/IcedNastran.exe}
+set fl6  {E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/icemcfd/win64_amd/icemcfd/output-interfaces/fluent6.exe}
+
+if {$MODE eq "tiny"} {
+    set nas [file join $ICEMDIR tiny_bc.nas]
+    set stem [file join $ICEMDIR tiny_bc]
+    set msh  [file join $MESHDIR tiny_fluent6.msh]
+} else {
+    set nas [file join $ICEMDIR uc01b_bc.nas]
+    set stem [file join $ICEMDIR uc01b_bc]
+    set msh  [file join $MESHDIR uc01b_fluent6.msh]
+}
+
+puts "EXPORT start MODE=$MODE"
+puts "nas=$nas exists=[file exists $nas]"
+puts "fl6 exists=[file exists $fl6]"
+
+catch { ic_unload_mesh }
+if {[catch { ic_import_nastran $iced $nas 0 0 0 $stem } err]} {
+    puts "IMPORT FAIL: $err"
+} else {
+    puts "IMPORT ok uns_exists=[file exists ${stem}.uns]"
+}
+
+if {[file exists ${stem}.uns]} {
+    if {[catch { ic_uns_load ${stem}.uns } err]} {
+        puts "LOAD FAIL: $err"
+    } else {
+        catch { puts "cells=[ic_count_elements 3d] nodes=[ic_count_nodes] types=[ic_uns_list_types]" }
+        catch { puts "families=[ic_uns_list_families]" }
+        # rename ET2D* / ET3D* to Fluent part names if present
+        foreach {old new} {
+            ET3D1 FLUID
+            ET2D2 INLET_JET
+            ET2D3 RETURN_SLOT
+            ET2D4 WALL_IMP
+            ET2D5 WALL_LID
+            ET2D6 WALL_ORIFICE
+            ET2D7 FIN
+            ET2D8 SYM
+        } {
+            if {[catch { ic_uns_rename_family $old $new } err]} {
+                puts "rename $old->$new : $err"
+            } else {
+                puts "rename $old->$new ok"
+            }
+        }
+        catch { puts "families_after=[ic_uns_list_families]" }
+        catch { ic_save_unstruct ${stem}.uns }
+    }
+}
+
+if {[file exists ${stem}.uns] && [file exists $fl6]} {
+    set boco ${stem}.fbc
+    set cmd [list $fl6 -dom ${stem}.uns]
+    if {[file exists $boco]} { lappend cmd -b $boco }
+    lappend cmd $msh
+    puts "RUN $cmd"
+    if {[catch { eval ic_exec $cmd } err]} {
+        puts "FLUENT6 FAIL: $err"
+    } else {
+        puts "FLUENT6 ok exists=[file exists $msh] size=[expr {[file exists $msh] ? [file size $msh] : 0}]"
+    }
+} else {
+    puts "skip fluent6"
+}
+puts "EXPORT done"

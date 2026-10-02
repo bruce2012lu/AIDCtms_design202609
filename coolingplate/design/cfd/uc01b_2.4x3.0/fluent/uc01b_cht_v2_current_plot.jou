@@ -1,0 +1,70 @@
+; Read the exported intermediate v2 field. Visible GUI. No /exit.
+; Does not open the live unsaved session and does not read the mesh-only file.
+/file/set-batch-options yes no no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_current_plot.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_current.cas.h5"
+/file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_current.dat.h5"
+/define/boundary-conditions/list-zones
+/report/surface-integrals/area-weighted-avg wall_heat () temperature no
+/report/surface-integrals/area-weighted-avg wall_tim_cu () temperature no
+/report/surface-integrals/area-weighted-avg wall_cu_fluid () temperature no
+/surface/iso-surface
+z-coordinate
+v2cur_zmid
+,
+,
+0.00075
+()
+/surface/iso-surface
+z-coordinate
+v2cur_zorif
+,
+,
+0.004711008
+()
+/surface/iso-surface
+y-coordinate
+v2cur_y0
+,
+,
+0
+()
+/surface/iso-surface
+x-coordinate
+v2cur_x0
+,
+,
+0
+()
+/surface/iso-surface
+z-coordinate
+v2cur_ztim
+,
+,
+-0.00208
+()
+/surface/iso-surface
+z-coordinate
+v2cur_z0
+,
+,
+0
+()
+/surface/iso-surface
+z-coordinate
+v2cur_zrib
+,
+,
+0.0015
+()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_zmid.prof" v2cur_zmid () temperature x-velocity y-velocity z-velocity ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_zorif.prof" v2cur_zorif () temperature x-velocity y-velocity z-velocity ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_y0.prof" v2cur_y0 () temperature x-velocity y-velocity z-velocity ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_x0.prof" v2cur_x0 () temperature x-velocity y-velocity z-velocity ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_ztim.prof" v2cur_ztim () temperature x-velocity y-velocity z-velocity ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_z0.prof" v2cur_z0 () temperature x-velocity y-velocity z-velocity ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_zrib.prof" v2cur_zrib () temperature x-velocity y-velocity z-velocity ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_wall_heat.prof" wall_heat () temperature ()
+/file/stop-transcript
+; no /exit — leave this window open

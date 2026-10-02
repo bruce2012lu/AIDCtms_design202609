@@ -1,0 +1,4 @@
+# NASTRAN Boundary Condition File -- IcedNastran
+
+"ET3D1" 
+"ET3D1" "IVOL"   1 0 0 1

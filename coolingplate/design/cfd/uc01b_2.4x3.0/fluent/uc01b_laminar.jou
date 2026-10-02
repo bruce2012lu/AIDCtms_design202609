@@ -1,0 +1,30 @@
+; UC-01b laminar / water / Fluent 2026 R1
+; et2d2=inlet_jet et2d3=return_slot et2d4=wall_imp et2d8=SYM
+; mdot = 2.0671e-4 kg/s
+/file/set-batch-options yes yes no
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_fluent6.msh"
+/mesh/check
+/define/models/energy yes
+no
+no
+no
+no
+/define/models/viscous/laminar yes
+/define/materials/copy fluid water-liquid
+/define/boundary-conditions/zone-type et2d2 mass-flow-inlet
+/define/boundary-conditions/zone-type et2d3 pressure-outlet
+/define/boundary-conditions/zone-type et2d8 symmetry
+/define/boundary-conditions/set/mass-flow-inlet et2d2 () mass-flow no 0.00020671 t no 313.15 quit
+/define/boundary-conditions/set/pressure-outlet et2d3 () t no 313.15 quit
+/define/operating-conditions/operating-pressure 101325
+/solve/monitors/residual/print? yes
+/solve/monitors/residual/plot? no
+/solve/initialize/hyb-initialization
+/solve/iterate 80
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_L"
+/report/surface-integrals/area-weighted-avg pressure et2d2 () no
+/report/surface-integrals/area-weighted-avg pressure et2d3 () no
+/report/surface-integrals/area-weighted-avg heat-transfer-coef et2d4 () no
+/report/surface-integrals/area-weighted-avg total-surface-heat-flux et2d4 () no
+/report/fluxes/mass-flow yes et2d2 et2d3 () no
+/exit

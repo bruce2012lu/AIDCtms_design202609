@@ -1,0 +1,35 @@
+; UC-01b CHT v2 continuation from iter 7861
+; Superseded BC: this file still continues the old-flux i7861 field.
+; Corrected coupon BC is in uc01b_cht_v2_t4_gpu_q256.jou
+; (plate 1100 W, 256 holes, q''=477430.55555555556 W/m2, mdot=1.0335416666666667e-4 kg/s).
+; HBM 20% is not in this coupon.
+; 4-way parallel, GPU solver selected on the fluent command line (-gpu).
+; Read the saved case/data. Do not read the raw msh. Do not reinitialize.
+; Criteria unchanged: continuity and xyz-mom 1e-4, energy 1e-6, k/omega 1e-3.
+; Do not change outlet boundary conditions. Leave the GUI open (no /exit).
+;
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_t4_gpu.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7861.cas.h5"
+/file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7861.dat.h5"
+/solve/monitors/residual/criterion-type 0
+/solve/monitors/residual/check-convergence? yes
+yes
+yes
+yes
+yes
+yes
+yes
+/solve/monitors/residual/convergence-criteria
+1e-4
+1e-4
+1e-4
+1e-4
+1e-6
+1e-3
+1e-3
+/solve/iterate 2000
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_t4_gpu"
+/file/stop-transcript
+; no /exit — leave the GUI open

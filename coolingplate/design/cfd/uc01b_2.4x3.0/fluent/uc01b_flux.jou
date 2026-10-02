@@ -1,0 +1,45 @@
+; UC-01b Option A: heat flux then 2 mm Cu shell; Tref=313.15
+; q''=567460.31746 W/m2 (model.py DP-A q_die=56.746 W/cm2)
+/file/set-batch-options yes yes no
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_W"
+/report/reference-values/temperature 313.15
+/define/materials/copy solid copper
+/define/boundary-conditions/wall
+et2d4
+no
+0
+no
+0
+no
+yes
+heat-flux
+no
+567460.3174603175
+no
+no
+no
+no
+1
+/define/models/shell-conduction/multi-layer-shell? yes
+/define/models/shell-conduction/settings
+et2d4
+()
+yes
+1
+0.002
+copper
+no
+0
+/solve/monitors/residual/print? yes
+/solve/monitors/residual/plot? no
+/solve/iterate 400
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_R"
+/report/reference-values/list
+/report/surface-integrals/area-weighted-avg et2d2 () temperature no
+/report/surface-integrals/area-weighted-avg et2d3 () temperature no
+/report/surface-integrals/area-weighted-avg et2d4 () temperature no
+/report/surface-integrals/area-weighted-avg et2d4 () heat-transfer-coef no
+/report/surface-integrals/area-weighted-avg et2d4 () heat-flux no
+/report/surface-integrals/area-weighted-avg et2d2 () pressure no
+/report/surface-integrals/area-weighted-avg et2d3 () pressure no
+/exit

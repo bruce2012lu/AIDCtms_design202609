@@ -1,0 +1,87 @@
+; UC-01b laminar WATER 40C / Fluent 2026 R1
+; et3d1=water-liquid  et2d2=inlet  et2d3=return  et2d4=wall_imp  et2d8=SYM
+; mdot=2.0671e-4 kg/s
+/file/set-batch-options yes yes no
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_fluent6.msh"
+/mesh/check
+/define/models/energy yes
+no
+no
+no
+no
+/define/models/viscous/laminar yes
+/define/materials/copy fluid water-liquid
+/define/materials/change-create
+water-liquid
+water-liquid
+yes
+constant
+992.2
+yes
+constant
+4179
+yes
+constant
+0.631
+yes
+constant
+6.53e-4
+no
+no
+no
+/define/boundary-conditions/fluid
+et3d1
+yes
+water-liquid
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+no
+/define/boundary-conditions/zone-type et2d2 mass-flow-inlet
+/define/boundary-conditions/zone-type et2d3 pressure-outlet
+/define/boundary-conditions/zone-type et2d8 symmetry
+/define/boundary-conditions/set/mass-flow-inlet et2d2 () mass-flow no 0.00020671 t no 313.15 q
+/define/boundary-conditions/set/pressure-outlet et2d3 () t no 313.15 q
+/define/boundary-conditions/wall
+et2d4
+no
+0
+no
+0
+no
+yes
+temperature
+no
+323.15
+no
+no
+no
+no
+1
+/define/operating-conditions/operating-pressure 101325
+/solve/monitors/residual/print? yes
+/solve/monitors/residual/plot? no
+/solve/initialize/hyb-initialization
+/solve/iterate 400
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_W"
+/define/boundary-conditions/list-zones
+/report/surface-integrals/area-weighted-avg et2d2 () pressure no
+/report/surface-integrals/area-weighted-avg et2d3 () pressure no
+/report/surface-integrals/area-weighted-avg et2d4 () heat-transfer-coef no
+/report/surface-integrals/area-weighted-avg et2d4 () total-surface-heat-flux no
+/exit

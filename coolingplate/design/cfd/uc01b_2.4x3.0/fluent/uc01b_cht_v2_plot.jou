@@ -1,0 +1,11 @@
+; Plot-only Fluent. Visible GUI. Does not /exit.
+; Does not touch the solve in cx2610 PID 7688.
+; Reads the mesh that passed the check. No solution data yet, so no T/V export.
+/file/set-batch-options yes no no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_plot_v2b.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_cht_v2.msh"
+/mesh/check
+/define/boundary-conditions/list-zones
+/file/stop-transcript
+; no /exit — leave this plot window open
