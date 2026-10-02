@@ -1,0 +1,13 @@
+source mesh/uc01b_cht_v2.msh
+nodes 4547658
+unit m in file, mm on figures
+z_tim axis=2 value_mm=-2.080000 n=29720
+z_floor axis=2 value_mm=0.000000 n=29720
+z_rib axis=2 value_mm=1.500000 n=29720
+z_mid axis=2 value_mm=0.750000 n=29720
+z_orif axis=2 value_mm=4.711008 n=29720
+x0 axis=0 value_mm=0.000000 n=32824
+y0 axis=1 value_mm=0.000000 n=35506
+y_side axis=1 value_mm=0.800000 n=23542
+return_slot_n 24220 z_mm 6.000000 .. 6.000000
+wall_heat_n 29720

@@ -1,0 +1,26 @@
+source write_cht_circle_msh.py medium == uc01b_cht_medium.msh
+units msh metres; plots labelled mm. NOT CFD contours.
+level medium
+n_quads 3972
+nz 118
+n_cells 425320
+n_fluid 321168
+n_cu 88264
+n_tim 15888
+first_imp_mm 0.0025
+n_bl 12
+D 0.4
+msh D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\mesh\uc01b_cht_medium.msh
+cut_x0_faces 18416
+cut_y0_faces 15352
+cut_z_orifice 1576 zc 4.625
+cut_z_gap 3972 zc 2.5
+cut_z_slot 3972 zc 0.7500000000000002
+cut_z_timcu 3972 zc -2.05
+bl_impact_cells 1440
+bl_orifice_quads 736
+iso_x0_faces 18416
+iso_layer_quads 17464
+iso_edge_segs 143520
+no_icem_msh  uc01b_cht_icem.msh not present
+coarse 165112  fine 709664  not plotted (same topology)
