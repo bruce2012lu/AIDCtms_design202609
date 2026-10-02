@@ -1,0 +1,56 @@
+[
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 908,
+    "h": 629,
+    "captions_on_page": [
+      "Figure 1 Thermal resistance required to cool socket power."
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 1158,
+    "h": 740,
+    "captions_on_page": [
+      "Figure 2 Degree of cooling difficulty for socket cooling, 1/ca."
+    ]
+  },
+  {
+    "file": "figures/p012_i0.jpg",
+    "page": 12,
+    "w": 1132,
+    "h": 720,
+    "captions_on_page": [
+      "Figure 3 Degree of cooling difficulty for socket cooling, 1/ca, in log scale."
+    ]
+  },
+  {
+    "file": "figures/p017_i0.jpg",
+    "page": 17,
+    "w": 1168,
+    "h": 596,
+    "captions_on_page": [
+      "Figure 4 Air cooling versus liquid cooling, transitions, and temperatures."
+    ]
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 1068,
+    "h": 773,
+    "captions_on_page": [
+      "Figure 5 Economization example at ORNL."
+    ]
+  },
+  {
+    "file": "figures/p026_i0.jpg",
+    "page": 26,
+    "w": 883,
+    "h": 674,
+    "captions_on_page": [
+      "Figure 6 Reduction of cooling capability with cold-plate-based liquid cooling of CPU and memory."
+    ]
+  }
+]

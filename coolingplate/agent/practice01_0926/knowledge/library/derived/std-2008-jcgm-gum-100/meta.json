@@ -1,0 +1,11 @@
+{
+  "id": "std-2008-jcgm-gum-100",
+  "sha256": "41bbf068fbc0d7986c98691b2d1af6680cb3044f6a1a89b3560933ed9ef9626c",
+  "source": "files/standards/std-2008-jcgm-gum-100.pdf",
+  "extracted_at": "2026-10-02T23:31:16",
+  "pages": 134,
+  "chars": 390341,
+  "chunks": 347,
+  "tables": 18,
+  "figures": 25
+}

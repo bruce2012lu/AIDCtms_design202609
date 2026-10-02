@@ -1,0 +1,11 @@
+{
+  "id": "std-2019-ashrae-water-cooled-servers",
+  "sha256": "c80a573e9af25e2c963f294cb059b56274ecc32d8f60e2c9876455497dc202bd",
+  "source": "files/standards/std-2019-ashrae-water-cooled-servers.pdf",
+  "extracted_at": "2026-10-02T23:31:51",
+  "pages": 50,
+  "chars": 96623,
+  "chunks": 87,
+  "tables": 1,
+  "figures": 0
+}

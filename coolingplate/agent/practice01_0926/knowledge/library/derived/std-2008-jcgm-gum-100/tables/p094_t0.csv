@@ -1,0 +1,58 @@
+﻿"Standard
+uncertainty
+component
+u(x)
+i",Source of uncertainty,"Value of
+standard
+uncertainty
+u(x)
+i","c ≡ ∂f /∂x
+i i","u(l) ≡ |c|u(x)
+i i i
+(nm)","Degrees of
+freedom"
+"u(l )
+S","Calibration of standard end
+gauge",25 nm,1,25,18
+"u(d)
+u ( d )
+u(d )
+1
+u(d )
+2","Measured difference
+between end gauges
+repeated observations
+random effects of
+comparator
+systematic effects of
+comparator","9,7 nm
+5,8 nm
+3,9 nm
+6,7 nm",1,"9,7","25,6
+24
+5
+8"
+"u(α )
+S","Thermal expansion
+coefficient of standard end
+gauge","1,2 × 10−6 °C−1",0,0,
+"u(θ)
+u (θ )
+u(∆)","Temperature of test bed
+mean temperature of bed
+cyclic variation of
+temperature of room","0,41 °C
+0,2 °C
+0,35 °C",0,0,
+u(δα),"Difference in expansion
+coefficients of end gauges","0,58 × 10−6 °C−1","−l θ
+S","2,9",50
+u(δθ),"Difference in temperatures of
+end gauges","0,029 °C","−l α
+S S","16,6",2
+"u2( l)=∑u2( l)=1 002 nm2
+c i
+u ( l)=32 nm
+c
+v ( l)=16
+eff",,,,,

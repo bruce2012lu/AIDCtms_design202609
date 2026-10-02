@@ -1,0 +1,105 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 1841,
+    "h": 2582,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p013_i0.jpg",
+    "page": 13,
+    "w": 796,
+    "h": 469,
+    "captions_on_page": [
+      "图 1 冷板式液冷整体链路图"
+    ]
+  },
+  {
+    "file": "figures/p017_i0.jpg",
+    "page": 17,
+    "w": 1213,
+    "h": 497,
+    "captions_on_page": [
+      "图 2 一次侧冷却水余热回收示意图"
+    ]
+  },
+  {
+    "file": "figures/p017_i1.jpg",
+    "page": 17,
+    "w": 846,
+    "h": 497,
+    "captions_on_page": [
+      "图 2 一次侧冷却水余热回收示意图"
+    ]
+  },
+  {
+    "file": "figures/p018_i0.jpg",
+    "page": 18,
+    "w": 903,
+    "h": 530,
+    "captions_on_page": [
+      "图 3 一次侧冷冻水并联余热回收示意图",
+      "图 4 一次侧冷冻水串联余热回收示意图"
+    ]
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 985,
+    "h": 584,
+    "captions_on_page": [
+      "图 5 二次侧并联余热回收示意图"
+    ]
+  },
+  {
+    "file": "figures/p021_i0.jpg",
+    "page": 21,
+    "w": 1150,
+    "h": 572,
+    "captions_on_page": [
+      "图 6 冷却液分类图"
+    ]
+  },
+  {
+    "file": "figures/p032_i0.jpg",
+    "page": 32,
+    "w": 626,
+    "h": 510,
+    "captions_on_page": [
+      "图 8 某大型冷板式液冷算力中心项目效果图"
+    ]
+  },
+  {
+    "file": "figures/p034_i0.jpg",
+    "page": 34,
+    "w": 736,
+    "h": 497,
+    "captions_on_page": [
+      "图 9 液冷服务器部署示意图"
+    ]
+  },
+  {
+    "file": "figures/p035_i0.jpg",
+    "page": 35,
+    "w": 945,
+    "h": 273,
+    "captions_on_page": [
+      "图 10 液冷服务器实际部署图"
+    ]
+  },
+  {
+    "file": "figures/p037_i0.jpg",
+    "page": 37,
+    "w": 1819,
+    "h": 2573,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p037_i1.jpg",
+    "page": 37,
+    "w": 273,
+    "h": 273,
+    "captions_on_page": []
+  }
+]

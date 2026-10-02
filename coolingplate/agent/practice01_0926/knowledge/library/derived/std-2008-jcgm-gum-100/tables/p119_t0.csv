@@ -1,0 +1,21 @@
+﻿Source of uncertainty,Value
+"Average depth d of 5 indentations made by the calibration machine in the sample block:
+0,072 mm","36,0 Rockwell scale unit"
+"Indicated hardness index of the sample block from the 5 indentations:
+H = h /(0,002 mm) = [100(0,002 mm) − 0,072 mm]/(0,002 mm)
+Rockwell C Rockwell C
+(see H.6.1)","64,0 HRC"
+"Pooled experimental standard deviation s (d ) of the depths of indentations made by
+p k
+the calibration machine in a block having uniform hardness","0,45 Rockwell scale unit"
+Resolution δ of the display of the calibration machine,"0,1 Rockwell scale unit"
+"s (z ), square root of the average of the experimental variances of the means of
+av S
+m series of indentations made by the national standard machine in the transfer-
+standard block","0,10 Rockwell scale unit, m = 6"
+"s ( z ), square root of the average of the experimental variances of the means of
+av
+n series of indentations made by the calibration machine in the transfer-standard block","0,11 Rockwell scale unit, n = 6"
+Permitted fractional variation x of the depth of penetration in the transfer-standard block,"1,5 × 10−2"
+"Standard uncertainty u(∆) of the national standard machine and definition of hardness
+S","0,5 Rockwell scale unit"

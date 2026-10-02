@@ -1,0 +1,71 @@
+﻿U,"expanded uncertainty of output estimate y that defines an interval Y = y ± U having a high level
+of confidence, equal to coverage factor k times the combined standard uncertainty u (y) of y:
+c
+U =ku ( y)
+c"
+"U
+p","expanded uncertainty of output estimate y that defines an interval Y = y ± U having a high,
+p
+specified level of confidence p, equal to coverage factor k times the combined standard
+p
+uncertainty u (y) of y:
+c
+U = k u ( y)
+p p c"
+"x
+i","estimate of input quantity X
+i
+NOTE When x is determined from the arithmetic mean or average of n independent repeated
+i
+observations, x = X .
+i i"
+"X
+i","ith input quantity on which measurand Y depends
+NOTE X may be the physical quantity or the random variable (see 4.1.1, Note 1).
+i"
+"X
+i","estimate of the value of input quantity X, equal to the arithmetic mean or average of n
+i
+independent repeated observations X of X
+i, k i"
+"X
+i, k","kth independent repeated observation of X
+i"
+y,estimate of measurand Y
+,result of a measurement
+,output estimate
+"y
+i","estimate of measurand Y when two or more measurands are determined in the same
+i
+measurement"
+Y,a measurand
+"∆u (x )
+i
+u (x )
+i","estimated relative uncertainty of standard uncertainty u(x) of input estimate x
+i i"
+"µ
+q",expectation or mean of the probability distribution of randomly-varying quantity q
+v,degrees of freedom (general)
+"v
+i","degrees of freedom, or effective degrees of freedom, of standard uncertainty u(x) of input
+i
+estimate x
+i"
+"v
+eff","effective degrees of freedom of u (y), used to obtain t (v ) for calculating expanded uncertainty
+c p eff
+U
+p"
+"v
+effA","effective degrees of freedom of a combined standard uncertainty determined from standard
+uncertainties obtained from Type A evaluations alone"
+"v
+effB","effective degrees of freedom of a combined standard uncertainty determined from standard
+uncertainties obtained from Type B evaluations alone"
+σ2,"variance of a probabiIity distribution of (for example) a randomly-varying quantity q, estimated
+by s2(q )
+k"
+σ,"standard deviation of a probability distribution, equal to the positive square root of σ 2"
+,"s(q ) is a biased estimator of σ
+k"

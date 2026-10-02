@@ -1,0 +1,217 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 1049,
+    "h": 267,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p001_i1.jpg",
+    "page": 1,
+    "w": 1049,
+    "h": 267,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p001_i2.jpg",
+    "page": 1,
+    "w": 1049,
+    "h": 267,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p001_i3.jpg",
+    "page": 1,
+    "w": 1049,
+    "h": 266,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 168,
+    "h": 165,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p028_i0.jpg",
+    "page": 28,
+    "w": 1770,
+    "h": 450,
+    "captions_on_page": [
+      "Figure 1 — Graphical illustration of evaluating the standard uncertainty of an input quantity  from repeated observations"
+    ]
+  },
+  {
+    "file": "figures/p028_i1.jpg",
+    "page": 28,
+    "w": 1770,
+    "h": 450,
+    "captions_on_page": [
+      "Figure 1 — Graphical illustration of evaluating the standard uncertainty of an input quantity  from repeated observations"
+    ]
+  },
+  {
+    "file": "figures/p028_i2.jpg",
+    "page": 28,
+    "w": 1633,
+    "h": 486,
+    "captions_on_page": [
+      "Figure 1 — Graphical illustration of evaluating the standard uncertainty of an input quantity  from repeated observations"
+    ]
+  },
+  {
+    "file": "figures/p028_i3.jpg",
+    "page": 28,
+    "w": 1633,
+    "h": 485,
+    "captions_on_page": [
+      "Figure 1 — Graphical illustration of evaluating the standard uncertainty of an input quantity  from repeated observations"
+    ]
+  },
+  {
+    "file": "figures/p029_i0.jpg",
+    "page": 29,
+    "w": 1770,
+    "h": 450,
+    "captions_on_page": [
+      "Figure 2 — Graphical illustration of evaluating the standard uncertainty of an input quantity   from an a priori distribution"
+    ]
+  },
+  {
+    "file": "figures/p029_i1.jpg",
+    "page": 29,
+    "w": 1770,
+    "h": 450,
+    "captions_on_page": [
+      "Figure 2 — Graphical illustration of evaluating the standard uncertainty of an input quantity   from an a priori distribution"
+    ]
+  },
+  {
+    "file": "figures/p029_i2.jpg",
+    "page": 29,
+    "w": 1770,
+    "h": 466,
+    "captions_on_page": [
+      "Figure 2 — Graphical illustration of evaluating the standard uncertainty of an input quantity   from an a priori distribution"
+    ]
+  },
+  {
+    "file": "figures/p029_i3.jpg",
+    "page": 29,
+    "w": 1770,
+    "h": 466,
+    "captions_on_page": [
+      "Figure 2 — Graphical illustration of evaluating the standard uncertainty of an input quantity   from an a priori distribution"
+    ]
+  },
+  {
+    "file": "figures/p029_i4.jpg",
+    "page": 29,
+    "w": 1770,
+    "h": 464,
+    "captions_on_page": [
+      "Figure 2 — Graphical illustration of evaluating the standard uncertainty of an input quantity   from an a priori distribution"
+    ]
+  },
+  {
+    "file": "figures/p064_i0.jpg",
+    "page": 64,
+    "w": 2070,
+    "h": 485,
+    "captions_on_page": [
+      "Figure D.1 — Graphical illustration of value, error, and uncertainty"
+    ]
+  },
+  {
+    "file": "figures/p064_i1.jpg",
+    "page": 64,
+    "w": 2070,
+    "h": 485,
+    "captions_on_page": [
+      "Figure D.1 — Graphical illustration of value, error, and uncertainty"
+    ]
+  },
+  {
+    "file": "figures/p064_i2.jpg",
+    "page": 64,
+    "w": 2070,
+    "h": 485,
+    "captions_on_page": [
+      "Figure D.1 — Graphical illustration of value, error, and uncertainty"
+    ]
+  },
+  {
+    "file": "figures/p064_i3.jpg",
+    "page": 64,
+    "w": 2070,
+    "h": 485,
+    "captions_on_page": [
+      "Figure D.1 — Graphical illustration of value, error, and uncertainty"
+    ]
+  },
+  {
+    "file": "figures/p064_i4.jpg",
+    "page": 64,
+    "w": 2070,
+    "h": 485,
+    "captions_on_page": [
+      "Figure D.1 — Graphical illustration of value, error, and uncertainty"
+    ]
+  },
+  {
+    "file": "figures/p064_i5.jpg",
+    "page": 64,
+    "w": 2070,
+    "h": 483,
+    "captions_on_page": [
+      "Figure D.1 — Graphical illustration of value, error, and uncertainty"
+    ]
+  },
+  {
+    "file": "figures/p065_i0.jpg",
+    "page": 65,
+    "w": 1967,
+    "h": 518,
+    "captions_on_page": [
+      "Figure D.2 — Graphical illustration of values, error, and uncertainty"
+    ]
+  },
+  {
+    "file": "figures/p065_i1.jpg",
+    "page": 65,
+    "w": 1967,
+    "h": 518,
+    "captions_on_page": [
+      "Figure D.2 — Graphical illustration of values, error, and uncertainty"
+    ]
+  },
+  {
+    "file": "figures/p065_i2.jpg",
+    "page": 65,
+    "w": 1967,
+    "h": 518,
+    "captions_on_page": [
+      "Figure D.2 — Graphical illustration of values, error, and uncertainty"
+    ]
+  },
+  {
+    "file": "figures/p065_i3.jpg",
+    "page": 65,
+    "w": 1967,
+    "h": 518,
+    "captions_on_page": [
+      "Figure D.2 — Graphical illustration of values, error, and uncertainty"
+    ]
+  },
+  {
+    "file": "figures/p065_i4.jpg",
+    "page": 65,
+    "w": 1967,
+    "h": 516,
+    "captions_on_page": [
+      "Figure D.2 — Graphical illustration of values, error, and uncertainty"
+    ]
+  }
+]

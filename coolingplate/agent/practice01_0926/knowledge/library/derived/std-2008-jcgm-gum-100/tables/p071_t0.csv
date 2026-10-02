@@ -1,0 +1,34 @@
+﻿"Number of observations
+n","σ[ s ( q)] σ( q)
+(percent)"
+"2
+3
+4
+5
+10
+20
+30
+50","76
+52
+42
+36
+24
+16
+13
+10"
+"(a) The values given have been calculated from the exact expression for
+σ[ s ( q)]σ( q), not the approximate expression [2(n − 1)]−1/2.
+(b) In the expression σ[ s ( q)]σ( q), the denominator σ( q) is the expectation
+E [S n ] and the numerator σ[ s ( q)] is the square root of the variance
+V [S n ], where S denotes a random variable equal to the standard deviation
+of n independent random variables X1, ..., Xn, each having a normal
+distribution with mean value µ and variance σ 2:
+1 ∑n −X)2 1∑n
+S= (X , X = X
+n−1 i n i
+i=1 i=1
+The expectation and variance of S are given by:
+E [ S]= 2 Γ(n2) σ, V [ S]=σ2−E [ S] 2,
+n−1 Γ⎡(n−1) 2⎤
+⎣ ⎦
+where Γ(x) is the gamma function. Note that E[S] < σ for a finite number n.",

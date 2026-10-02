@@ -1,0 +1,11 @@
+{
+  "id": "std-2021-ashrae-lc-mainstream-wp",
+  "sha256": "56e7c3739f6f1af0ef71b91c3ad33e73dc43fc75fc43071a9bfc1bb5b804384f",
+  "source": "repo:agents/AIDCtms/coolingplate/papers/pdfs/04_ASHRAE_LiquidCooling_Mainstream_WP.pdf",
+  "extracted_at": "2026-10-02T23:31:53",
+  "pages": 32,
+  "chars": 69907,
+  "chunks": 61,
+  "tables": 0,
+  "figures": 6
+}

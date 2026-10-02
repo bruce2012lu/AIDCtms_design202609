@@ -1,0 +1,30 @@
+﻿"Set number
+k",Input quantities,,
+,"V
+(V)","I
+(mA)","φ
+(rad)"
+"1
+2
+3
+4
+5","5,007
+4,994
+5,005
+4,990
+4,999","19,663
+19,639
+19,640
+19,685
+19,678","1,045 6
+1,043 8
+1,046 8
+1,042 8
+1,043 3"
+Arithmetic mean,"V = 4,999 0","I = 19,661 0","φ = 1,044 46"
+"Experimental standard
+deviation of mean","s (V ) = 0,003 2","s ( I) = 0,009 5","s (φ ) = 0,000 75"
+Correlation coefficients,,,
+"r (V ,I ) = −0,36
+r (V ,φ) = 0,86
+r ( I ,φ ) = −0,65",,,

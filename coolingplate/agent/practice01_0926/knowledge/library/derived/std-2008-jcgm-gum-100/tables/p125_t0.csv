@@ -1,0 +1,7 @@
+﻿σ2( q),"variance of q , equal to σ2/n, estimated by s2( q)= s2(q ) n
+k"
+σ( q),"standard deviation of q , equal to the positive square root of σ2( q)"
+,s ( q ) is a biased estimator of σ( q)
+σ2[ s ( q)],variance of experimental standard deviation s ( q ) of q
+σ[ s ( q)],"standard deviation of experimental standard deviation s ( q ) of q, equal to the positive square
+root of σ2[ s ( q)]"

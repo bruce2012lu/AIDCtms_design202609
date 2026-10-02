@@ -1,0 +1,154 @@
+[
+  {
+    "file": "tables/p027_t0.csv",
+    "page": 27,
+    "rows": 13,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 1 — Twenty repeated observations of the temperature t   grouped in 1 °C intervals"
+    ]
+  },
+  {
+    "file": "tables/p071_t0.csv",
+    "page": 71,
+    "rows": 3,
+    "cols": 2,
+    "captions_on_page": [
+      "Table E.1 —  [ ( )] ( ) s q q σ σ , the standard deviation   of the experimental standard deviation of the mean q    of n independent observations of a normally distributed random variable q,   relative to the standard deviation of that mean (a) (b)"
+    ]
+  },
+  {
+    "file": "tables/p082_t0.csv",
+    "page": 82,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": [
+      "Table G.1 — Value of the coverage factor kp   that produces an interval having level of confidence p   assuming a normal distribution"
+    ]
+  },
+  {
+    "file": "tables/p090_t0.csv",
+    "page": 90,
+    "rows": 4,
+    "cols": 7,
+    "captions_on_page": [
+      "Table G.2 — Value of tp(v) from the t-distribution for degrees of freedom v that defines   an interval −tp(v) to +tp(v) that encompasses the fraction p of the distribution"
+    ]
+  },
+  {
+    "file": "tables/p094_t0.csv",
+    "page": 94,
+    "rows": 8,
+    "cols": 6,
+    "captions_on_page": [
+      "Table H.1 — Summary of standard uncertainty components"
+    ]
+  },
+  {
+    "file": "tables/p098_t0.csv",
+    "page": 98,
+    "rows": 7,
+    "cols": 4,
+    "captions_on_page": [
+      "Table H.2 — Values of the input quantities V, I, and φ obtained from five sets   of simultaneous observations"
+    ]
+  },
+  {
+    "file": "tables/p099_t0.csv",
+    "page": 99,
+    "rows": 6,
+    "cols": 4,
+    "captions_on_page": [
+      "Table H.3 — Calculated values of the output quantities R, X, and Z: approach 1"
+    ]
+  },
+  {
+    "file": "tables/p100_t0.csv",
+    "page": 100,
+    "rows": 6,
+    "cols": 4,
+    "captions_on_page": [
+      "Table H.4 — Calculated values of the output quantities R, X, and Z: approach 2"
+    ]
+  },
+  {
+    "file": "tables/p103_t0.csv",
+    "page": 103,
+    "rows": 2,
+    "cols": 5,
+    "captions_on_page": [
+      "Table H.6 — Data used to obtain a linear calibration curve for a thermometer by the method   of least squares"
+    ]
+  },
+  {
+    "file": "tables/p106_t0.csv",
+    "page": 106,
+    "rows": 8,
+    "cols": 7,
+    "captions_on_page": [
+      "Table H.7 — Counting data for determining the activity concentration   of an unknown sample"
+    ]
+  },
+  {
+    "file": "tables/p108_t0.csv",
+    "page": 108,
+    "rows": 6,
+    "cols": 5,
+    "captions_on_page": [
+      "Table H.8 — Calculation of decay-corrected and background-corrected counting rates"
+    ]
+  },
+  {
+    "file": "tables/p113_t0.csv",
+    "page": 113,
+    "rows": 11,
+    "cols": 5,
+    "captions_on_page": [
+      "Table H.9 — Summary of voltage standard calibration data obtained on J = 10 days,   with each daily mean  j V  and experimental standard deviation s(Vjk) based on K = 5 independent repeated observations"
+    ]
+  },
+  {
+    "file": "tables/p119_t0.csv",
+    "page": 119,
+    "rows": 9,
+    "cols": 2,
+    "captions_on_page": [
+      "Table H.10 — Summary of data for determining the hardness of a sample block   on the scale Rockwell C"
+    ]
+  },
+  {
+    "file": "tables/p121_t0.csv",
+    "page": 121,
+    "rows": 16,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p122_t0.csv",
+    "page": 122,
+    "rows": 24,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p123_t0.csv",
+    "page": 123,
+    "rows": 18,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p124_t0.csv",
+    "page": 124,
+    "rows": 21,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p125_t0.csv",
+    "page": 125,
+    "rows": 5,
+    "cols": 2,
+    "captions_on_page": []
+  }
+]

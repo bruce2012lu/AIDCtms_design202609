@@ -1,0 +1,64 @@
+﻿"q
+k",kth independent repeated observation of randomly-varying quantity q
+"r(x, x)
+i j","estimated correlation coefficient associated with input estimates x and x that estimate input
+i j
+quantities X and X:
+i j
+r (x ,x )=u (x ,x ) ⎡u (x ) u (x )⎤
+i j i j ⎣ i j ⎦"
+"r (X , X )
+i j","estimated correlation coefficient of input means X and X , determined from n independent
+i j
+pairs of repeated simultaneous observations X and X of X and X:
+i, k j, k i j
+r (X , X )= s (X , X ) ⎡s (X ) s (X )⎤
+i j i j ⎣ i j ⎦"
+"r(y, y)
+i j","estimated correlation coefficient associated with output estimates y and y when two or more
+i j
+measurands or output quantities are determined in the same measurement"
+"2
+s
+p",combined or pooled estimate of variance
+"s
+p","pooled experimental standard deviation, equal to the positive square root of s 2
+p"
+s2( q ),experimental variance of the mean q
+,"estimate of the variance σ 2/n of q:
+s2( q)= s2(q ) n
+k"
+,estimated variance obtained from a Type A evaluation
+s ( q ),"experimental standard deviation of the mean q, equal to the positive square root of s2( q )"
+,"biased estimator of σ( q) (see C.2.21, note)"
+,standard uncertainty obtained from a Type A evaluation
+"s2(q )
+k","experimental variance determined from n independent repeated observations q of q
+k"
+,estimate of the variance σ 2 of the probability distribution of q
+"s(q )
+k","experimental standard deviation, equal to the positive square root of s2(q )
+k"
+,biased estimator of the standard deviation σ of the probability distribution of q
+"s2(X )
+i","experimental variance of input mean X , determined from n independent repeated observations
+i
+X of X
+i, k i"
+,estimated variance obtained from a Type A evaluation
+"s (X )
+i","experimental standard deviation of input mean X , equal to the positive square root of s2(X )
+i i"
+,standard uncertainty obtained from a Type A evaluation
+"s ( q, r )","estimate of the covariance of means q and r that estimate the expectations µ and µ of two
+q r
+randomly-varying quantities q and r, determined from n independent pairs of repeated
+simultaneous observations q and r of q and r
+k k"
+,estimated covariance obtained from a Type A evaluation
+"s (X , X )
+i j","estimate of the covariance of input means X and X , determined from n independent pairs of
+i j
+repeated simultaneous observations X and X of X and X
+i, k j, k i j"
+,estimated covariance obtained from a Type A evaluation

@@ -1,0 +1,203 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 1825,
+    "h": 2580,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 796,
+    "h": 469,
+    "captions_on_page": [
+      "图1 冷板式液冷系统原理图"
+    ]
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 891,
+    "h": 477,
+    "captions_on_page": [
+      "图2 浸没式液冷系统原理图"
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 1591,
+    "h": 1067,
+    "captions_on_page": [
+      "图3 智算中心液冷产业规模测算"
+    ]
+  },
+  {
+    "file": "figures/p012_i0.jpg",
+    "page": 12,
+    "w": 1494,
+    "h": 898,
+    "captions_on_page": [
+      "图4 智算中心液冷产业全景 来源：中国信息通信研究院"
+    ]
+  },
+  {
+    "file": "figures/p013_i0.jpg",
+    "page": 13,
+    "w": 922,
+    "h": 456,
+    "captions_on_page": [
+      "图5 冷板领域"
+    ]
+  },
+  {
+    "file": "figures/p015_i0.jpg",
+    "page": 15,
+    "w": 922,
+    "h": 458,
+    "captions_on_page": [
+      "图6 冷却液领域"
+    ]
+  },
+  {
+    "file": "figures/p017_i0.jpg",
+    "page": 17,
+    "w": 922,
+    "h": 456,
+    "captions_on_page": [
+      "图7 快速接头领域"
+    ]
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 922,
+    "h": 458,
+    "captions_on_page": [
+      "图8 冷量分配单元（CDU）领域"
+    ]
+  },
+  {
+    "file": "figures/p021_i0.jpg",
+    "page": 21,
+    "w": 1016,
+    "h": 696,
+    "captions_on_page": [
+      "图9 一次侧系统领域"
+    ]
+  },
+  {
+    "file": "figures/p023_i0.jpg",
+    "page": 23,
+    "w": 994,
+    "h": 470,
+    "captions_on_page": [
+      "图10 冷却介质槽领域"
+    ]
+  },
+  {
+    "file": "figures/p025_i0.jpg",
+    "page": 25,
+    "w": 918,
+    "h": 442,
+    "captions_on_page": [
+      "图11 液冷管路及阀门组件领域"
+    ]
+  },
+  {
+    "file": "figures/p027_i0.jpg",
+    "page": 27,
+    "w": 920,
+    "h": 450,
+    "captions_on_page": [
+      "图12 冷板式液冷服务器领域"
+    ]
+  },
+  {
+    "file": "figures/p029_i0.jpg",
+    "page": 29,
+    "w": 926,
+    "h": 448,
+    "captions_on_page": [
+      "图13 浸没式液冷服务器领域"
+    ]
+  },
+  {
+    "file": "figures/p031_i0.jpg",
+    "page": 31,
+    "w": 922,
+    "h": 450,
+    "captions_on_page": [
+      "图14 液冷交换机领域"
+    ]
+  },
+  {
+    "file": "figures/p033_i0.jpg",
+    "page": 33,
+    "w": 922,
+    "h": 446,
+    "captions_on_page": [
+      "图15 液冷光模块领域"
+    ]
+  },
+  {
+    "file": "figures/p035_i0.jpg",
+    "page": 35,
+    "w": 1094,
+    "h": 746,
+    "captions_on_page": [
+      "图16 液冷机柜系统解决方案领域"
+    ]
+  },
+  {
+    "file": "figures/p037_i0.jpg",
+    "page": 37,
+    "w": 924,
+    "h": 424,
+    "captions_on_page": [
+      "图17 液冷机房级解决方案领域"
+    ]
+  },
+  {
+    "file": "figures/p038_i0.jpg",
+    "page": 38,
+    "w": 924,
+    "h": 420,
+    "captions_on_page": [
+      "图18 液冷智控系统领域"
+    ]
+  },
+  {
+    "file": "figures/p040_i0.jpg",
+    "page": 40,
+    "w": 1261,
+    "h": 625,
+    "captions_on_page": [
+      "图19 液冷智算中心建设领域"
+    ]
+  },
+  {
+    "file": "figures/p042_i0.jpg",
+    "page": 42,
+    "w": 958,
+    "h": 704,
+    "captions_on_page": [
+      "图20 液冷智算中心服务"
+    ]
+  },
+  {
+    "file": "figures/p048_i0.jpg",
+    "page": 48,
+    "w": 1819,
+    "h": 2573,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p048_i1.jpg",
+    "page": 48,
+    "w": 273,
+    "h": 273,
+    "captions_on_page": []
+  }
+]

@@ -1,0 +1,57 @@
+﻿a,"half-width of a rectangular distribution of possible values of input quantity X:
+i
+a =(a −a ) 2
++ −"
+"a
++","upper bound, or upper limit, of input quantity X
+i"
+"a
+−","lower bound, or lower limit, of input quantity X
+i"
+"b
++","upper bound, or upper limit, of the deviation of input quantity X from its estimate x:
+i i
+b =a −x
++ + i"
+"b
+−","lower bound, or lower limit, of the deviation of input quantity X from its estimate x:
+i i
+b = x −a
+− i −"
+"c
+i","partial derivative or sensitivity coefficient:
+c ≡∂f ∂x
+i i"
+f,"functional relationship between measurand Y and input quantities X on which Y depends, and
+i
+between output estimate y and input estimates x on which y depends
+i"
+"∂f /∂x
+i","partial derivative with respect to input quantity X of functional relationship f between measurand
+i
+Y and input quantities X on which Y depends, evaluated with estimates x for the X:
+i i i
+∂f ∂x = ∂f ∂X
+i i x1,x2, ...,xN"
+k,"coverage factor used to calculate expanded uncertainty U = ku (y) of output estimate y from its
+c
+combined standard uncertainty u (y), where U defines an interval Y = y ± U having a high level
+c
+of confidence"
+"k
+p","coverage factor used to calculate expanded uncertainty U = k u (y) of output estimate y from its
+p p c
+combined standard uncertainty u (y), where U defines an interval Y = y ± U having a high,
+c p p
+specified level of confidence p"
+n,number of repeated observations
+N,"number of input quantities X on which measurand Y depends
+i"
+p,"probability; level of confidence:
+0u pu 1"
+q,randomly varying quantity described by a probability distribution
+q,"arithmetic mean or average of n independent repeated observations q of randomly-varying
+k
+quantity q"
+,"estimate of the expectation or mean µ of the probability distribution of q
+q"
