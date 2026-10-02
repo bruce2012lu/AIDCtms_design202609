@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>UC-01b lessmesh 1D与CFD契合性</title>
+<style>
+body{font-family:Segoe UI,Microsoft YaHei,sans-serif;max-width:1100px;margin:2rem auto;line-height:1.55;padding:0 1rem;color:#182536}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:13px}
+th,td{border:1px solid #ccc;padding:.4rem .5rem;text-align:left;vertical-align:top}
+th{background:#0b2748;color:#fff}
+h1{font-size:1.55rem}
+h2{font-size:1.25rem;border-bottom:2px solid #0b2748;padding-bottom:.3rem;margin-top:2rem}
+code{background:#eef2f7;padding:1px 4px;border-radius:3px}
+.note{border:1px solid #e3ca8d;background:#fffcf2;padding:.8rem 1rem;border-radius:6px}
+</style>
+</head>
+<body>
+<h1>UC-01b lessmesh 一维与 CFD 契合性分析报告</h1>
+<p><strong>文档编号：</strong> AIDC-B300-CFD-UC01b-LESS-CMP-001<br>
+<strong>日期：</strong> 2026-09-27<br>
+<strong>来源：</strong> 《NVIDIA B300 微通道冲击换热冷板设计报告》v2.0（2026-09-14）及其计算模块 <code>design/calc/model.py</code>；《NVIDIA Grace GB300 冷板详细设计报告》v1.0（2026-09-26）。CFD 场 <code>uc01b_cht_less_m425_bc216</code>，iter 380，4,259,680 HEXA。</p>
+<p>本胞是 B300 GPU 射流阵列里的一个孔。设计报告正文的孔径是 <strong>D = 0.50 mm</strong>，本网格按报告里的单胞口径取 <strong>D = 0.40 mm</strong>。流量、孔数、热流冗余与 v2.0 的 DP-A 相同。Grace 是托盘上的另一块 300 W 冷板，第 4 节单独列表。</p>
+<p>相对差 = (CFD − 1D) / 1D。同一口径、约在 ±20% 以内记为接近。分母或组成不同的量只并列，不相减。</p>
+
+<h2>1. B300 设计报告中的设计点</h2>
+<p>下列数字由 v2.0 的同一计算模块复算，与报告摘要中的壳–进液区间 0.0326–0.0366 °C/W、板内压降 3.5–5.5 kPa 一致。水物性 40 °C：ρ = 992.2 kg/m³，cp = 4179 J/kg·K，μ = 6.53×10⁻⁴ Pa·s，k = 0.631 W/m·K，Pr = 4.32。铜 k = 390 W/m·K。孔口系数 K = 1.8。Martin 1977 的有效域是 Re<sub>D</sub> ≥ 2000，DP-A 的 Re<sub>D</sub> = 478（D = 0.50 mm）和本胞的 597（D = 0.40 mm）都低于该下限，报告不采用 Martin h，壳–进液只保留短槽模型 C 加 R<sub>TIM2</sub> 区间。</p>
+<table>
+<tr><th>项</th><th>DP-A（本胞所属）</th><th>DP-B（报告中的包络，本场未算）</th></tr>
+<tr><td>整板功率 / 流量</td><td>1100 W，2.0 L/min，进液 40 °C</td><td>1400 W，2.4 L/min，进液 40 °C</td></tr>
+<tr><td>功率拆分</td><td>die 429 W × 2，HBM 24.75 W × 8，其它 44 W</td><td>die 546 W × 2，HBM 31.5 W × 8，其它 56 W</td></tr>
+<tr><td>GPU 支路</td><td>858 W，1.60 L/min（总流量的 80%）</td><td>1092 W，1.92 L/min</td></tr>
+<tr><td>孔</td><td>每 die 9 × 12 = 108，两 die <strong>216</strong>。节距 X 3.0 mm × Y 2.4 mm</td><td>同左</td></tr>
+<tr><td>单孔流量</td><td>0.007407 L/min，ṁ = <strong>1.22494×10⁻⁴ kg/s</strong></td><td>0.008889 L/min，ṁ = 1.46993×10⁻⁴ kg/s</td></tr>
+<tr><td>胞热流</td><td>名义 55.170 W/cm²（551698 W/m²）。施加边界 ×1.05 = <strong>57.928 W/cm²（579282 W/m²）</strong>。单胞名义 3.972 W，边界 4.171 W。两 die 边界功率 900.9 W。整板仍是 1100 W，流量不加这 5%</td><td>名义 70.216 W/cm²，边界 73.727 W/cm²</td></tr>
+<tr><td>die 面热流</td><td>56.75 W/cm²（die 27 × 28 mm）</td><td>72.22 W/cm²</td></tr>
+<tr><td>整板流体温升</td><td>7.959 K，出液约 47.96 °C</td><td>8.441 K，出液约 48.44 °C</td></tr>
+<tr><td>单孔名义温升</td><td>P<sub>cell</sub>/(ṁ cp) = <strong>7.760 K</strong></td><td>8.230 K</td></tr>
+<tr><td>单孔边界温升</td><td>4.17083/(ṁ cp) = <strong>8.147 K</strong>，出口 bulk 321.30 K</td><td>本场未按 DP-B 加热</td></tr>
+<tr><td>壳–进液目标</td><td>&lt; 0.028 °C/W</td><td>&lt; 0.025 °C/W</td></tr>
+<tr><td>板内压降目标</td><td>≤ 18 kPa，上限 20 kPa</td><td>同左</td></tr>
+</table>
+
+<h3>1.1 几何（v2.0 冻结候选）</h3>
+<table>
+<tr><th>特征</th><th>设计报告</th><th>本网格</th></tr>
+<tr><td>板</td><td>95 × 75 × 8.5 mm</td><td>本计算域是一个胞，不是整板</td></tr>
+<tr><td>射流</td><td>正文 D = 0.50 mm，H = 2.0 mm，S/D<sub>x</sub> = 6.0，S/D<sub>y</sub> = 4.8，H/D = 4.0，开孔率 f = 0.0273</td><td>圆孔 <strong>D = 0.40 mm</strong>（R = 0.20 mm）。间隙从肋顶 z = 1.50 mm 到 z = 3.50 mm，高 2.0 mm，与 H 一致。D = 0.40 mm 时 S/D<sub>x</sub> = 7.5，S/D<sub>y</sub> = 6.0，H/D = 5.0，f = 0.0175</td></tr>
+<tr><td>胞</td><td>X 3.0 mm × Y 2.4 mm，面积 7.20 mm²</td><td>X = ±1.50 mm，Y = ±1.20 mm</td></tr>
+<tr><td>短槽</td><td>0.40 × 1.50 mm，节距 0.80 mm，每个 Y 向胞 3 条。Dh = 0.632 mm，f·Re = 17.98。湿润面积放大 4.25 倍</td><td>三条 0.40 mm 槽，槽深到 z = 1.50 mm，双侧边界层首层 2.5 μm</td></tr>
+<tr><td>余铜</td><td>槽底以下 2.0 mm，k = 390 W/m·K</td><td>铜从水界面 z = 0 向下。TIM 另有一层，见 1.3</td></tr>
+<tr><td>盖板 / 静压箱</td><td>盖板 2.5 mm；歧管压降在 CFD 之前按 3–5 kPa 留区间</td><td>本胞含孔板固体与回液缝，不含整板歧管</td></tr>
+</table>
+
+<h3>1.2 短槽模型 C 与热阻链</h3>
+<p>模型 C：短槽当肋，导管 Nu 取 Hausen 型热入口与恒热流全发展下界 Nu = 4 的较大值，再叠加驻点核。R<sub>wall</sub> = 2.0×10⁻³ / (390 × 1.512×10⁻³) = <strong>0.003392 °C/W</strong>（两 die 投影面积 15.12 cm²）。R<sub>TIM2</sub> 是假设区间 <strong>0.004–0.008 °C/W</strong>，R<sub>pkg</sub> 是假设区间 <strong>0.008–0.012 °C/W</strong>。R<sub>θ,c-in</sub> = R<sub>TIM2</sub> + R<sub>wall</sub> + R<sub>conv</sub>，再乘整板功率得到壳温。</p>
+<table>
+<tr><th>量</th><th>DP-A，D = 0.50 mm（报告正文）</th><th>同一公式，D = 0.40 mm（本胞孔径）</th></tr>
+<tr><td>孔口速度 / Re<sub>D</sub> / ΔP</td><td>0.629 m/s，Re = 478，353 Pa</td><td>0.9824 m/s，Re = 597，<strong>862 Pa</strong></td></tr>
+<tr><td>短槽（单孔就近排走）</td><td>0.0343 m/s，Re = 33，1.5 Pa</td><td>槽道公式不随孔径变，仍是 0.0343 m/s、1.5 Pa</td></tr>
+<tr><td>短槽（全流量单向，对比上界）</td><td>0.635 m/s，Re = 609，75 Pa</td><td>同左</td></tr>
+<tr><td>Nu / h<sub>ch</sub> / 肋效率</td><td>5.777 / 5772 W/m²·K / 0.948</td><td>同左（导管段不随孔径变）</td></tr>
+<tr><td>驻点 h</td><td>2.48×10⁴ W/m²·K</td><td>3.46×10⁴ W/m²·K</td></tr>
+<tr><td>h<sub>eff</sub> / R<sub>conv</sub></td><td>2.55×10⁴ W/m²·K，<strong>0.02524 °C/W</strong></td><td>2.54×10⁴ W/m²·K，<strong>0.02530 °C/W</strong></td></tr>
+<tr><td>R<sub>θ,c-in</sub></td><td><strong>0.03263–0.03663 °C/W</strong></td><td><strong>0.03269–0.03669 °C/W</strong></td></tr>
+<tr><td>ΔT<sub>c</sub> / T<sub>c</sub> / T<sub>j</sub>（乘 1100 W）</td><td>35.9–40.3 K；75.9–80.3 °C；84.7–93.5 °C</td><td>与 D = 0.50 mm 只差约 0.06 K</td></tr>
+<tr><td>对 0.028 °C/W</td><td>0.03263 与 0.03663 都高于目标</td><td>同左</td></tr>
+</table>
+<p>DP-B、D = 0.50 mm：孔口 0.755 m/s，Re = 573，508 Pa；R<sub>conv</sub> = 0.02373 °C/W；R<sub>θ,c-in</sub> = 0.03113–0.03513 °C/W；T<sub>c</sub> = 83.6–89.2 °C；T<sub>j</sub> = 94.8–106.0 °C。目标 0.025 °C/W，这一档也高于目标。</p>
+<p>HBM 区无喷嘴。DP-A：0.40 L/min，近壁 0.463 m/s（帽 0.80 m/s），Re = 603，槽压降 168 Pa。本胞计算域不含 HBM。</p>
+
+<h3>1.3 压降预算（报告第 9.8 节口径）</h3>
+<table>
+<tr><th>分段</th><th>DP-A</th><th>DP-B</th><th>本胞 CFD 能对上的部分</th></tr>
+<tr><td>喷嘴孔口 K = 1.8</td><td>0.353 kPa（D = 0.50 mm）；<strong>0.862 kPa（D = 0.40 mm）</strong></td><td>0.508 kPa（D = 0.50 mm）</td><td>入口静压 1.087 kPa，出口 0</td></tr>
+<tr><td>GPU 短槽</td><td>0.0015 kPa</td><td>0.0018 kPa</td><td>含在 1.087 kPa 里，没有单独的槽压降导出</td></tr>
+<tr><td>HBM 槽</td><td>0.168 kPa</td><td>0.202 kPa</td><td>本胞无此区</td></tr>
+<tr><td>歧管 / 隔墙</td><td>3–5 kPa（CFD 前的区间）</td><td>3–5 kPa</td><td>本胞无整板歧管</td></tr>
+<tr><td>板内合计</td><td>3.52–5.52 kPa</td><td>3.71–5.71 kPa</td><td>单胞静压差 1.087 kPa。歧管那 3–5 kPa 不在这个数里</td></tr>
+</table>
+
+<h2>2. 与 iter 380 的对照</h2>
+<p>CFD 施加的是 DP-A 的边界热流 579282 W/m² 和单孔 ṁ。期刊把 1.22494×10⁻⁴ kg/s 写成 1.225×10⁻⁴ kg/s（+0.005%）。面速度积分：入口 1.22500×10⁻⁴ kg/s，出口 1.22500×10⁻⁴ kg/s（比入口 +0.00033%）。</p>
+<table>
+<tr><th>项目</th><th>一维</th><th>CFD iter 380</th><th>相对差</th><th>判断</th></tr>
+<tr><td>入口温度</td><td>40 °C = 313.15 K</td><td>313.15 K</td><td>0</td><td>契合</td></tr>
+<tr><td>孔数 / 节距</td><td>216；3.0 × 2.4 mm</td><td>单孔单元胞，X 3.0 mm，Y 2.4 mm</td><td>0</td><td>契合</td></tr>
+<tr><td>单孔 ṁ</td><td>1.22494×10⁻⁴ kg/s</td><td>期刊与入口积分都是 1.22500×10⁻⁴ kg/s</td><td>+0.005%</td><td>契合</td></tr>
+<tr><td>热流</td><td>名义 551698 W/m²；边界 579282 W/m²</td><td><code>wall_heat</code> 579282 W/m²，P<sub>cell</sub> = 4.17083 W</td><td>边界 0</td><td>契合。5% 只加在热流上</td></tr>
+<tr><td>孔径</td><td>报告正文 0.50 mm；单胞口径 0.40 mm</td><td>圆孔 0.40 mm</td><td>0（相对单胞口径）</td><td>契合</td></tr>
+<tr><td>孔口速度</td><td>D = 0.40 mm 时 0.9824 m/s</td><td>入口面均匀 0.98265 m/s（孔面积 1.25643×10⁻⁷ m²）</td><td>+0.022%</td><td>契合</td></tr>
+<tr><td>Re<sub>D</sub></td><td>597</td><td>597</td><td>0</td><td>契合。低于 2000，两边都不用 Martin h</td></tr>
+<tr><td>孔口静压</td><td>K = 1.8，D = 0.40 mm：<strong>862 Pa</strong></td><td>1087.09 − 0 = <strong>1087.09 Pa</strong></td><td><strong>+26.1%</strong></td><td>超出 ±20%。一维这一项只有孔口；CFD 含射流、槽和回液缝</td></tr>
+<tr><td>整板流体温升</td><td>7.959 K（1100 W / 2.0 L/min）</td><td>本胞出口质量加权温升 8.159 K</td><td>分母不同</td><td>整板含 HBM 与其它 242 W，以及 20% 的非 GPU 流量。单胞只走 GPU 孔</td></tr>
+<tr><td>能量温升</td><td>边界功率：8.147 K，bulk 321.297 K</td><td>质量加权出口 <strong>321.309 K</strong>，温升 <strong>8.159 K</strong>。面积加权 320.910 K</td><td>bulk <strong>+0.15%</strong>；面积加权 −4.8%</td><td>接近。ṁ<sub>out</sub>·cp·ΔT<sub>bulk</sub> / P<sub>cell</sub> = <strong>1.0015</strong>（4.1769 W / 4.1708 W）</td></tr>
+<tr><td>R<sub>conv</sub></td><td>模型 C：0.02524 °C/W（D = 0.50 mm），0.02530 °C/W（D = 0.40 mm）</td><td>(326.600 − 313.15) / 900.899 = <strong>0.01493 °C/W</strong>，界面温升 13.45 K</td><td>约 −41%</td><td>一维用肋效率后的有效 h；CFD 是铜–水界面的面积加权温度。数值上 CFD 界面更冷，短槽模型偏保守</td></tr>
+<tr><td>TIM 层</td><td>R<sub>TIM2</sub> 假设 0.004–0.008 °C/W</td><td>固体层厚 80 μm，k = 8.818 W/m·K。底到铜界面 341.385 → 336.130 K，温降 5.255 K，除以 900.899 W 得 <strong>0.00583 °C/W</strong></td><td>落在假设区间内</td><td>0.00583 是这一层导热。设计区间还留着接触与品牌未定的部分</td></tr>
+<tr><td>余铜</td><td>R<sub>wall</sub> = 0.003392 °C/W（2.0 mm 平板，两 die 面积）</td><td>TIM–铜 336.130 K 到铜–水 326.600 K，温降 9.530 K，<strong>0.01058 °C/W</strong></td><td>组成不同</td><td>CFD 这一段含肋和扩散，大于 2 mm 平板导热</td></tr>
+<tr><td>R(T<sub>TIM</sub>−T<sub>in</sub>)</td><td>报告的 R<sub>θ,c-in</sub> = 0.03263–0.03663 °C/W，乘的是 1100 W</td><td>341.385 K。 (341.385 − 313.15) / 900.899 = <strong>0.03134 °C/W</strong>。单胞 6.770 °C/W</td><td>分母不同</td><td>CFD 已含 80 μm TIM、铜和对流。不再叠加 R<sub>TIM2</sub> 与 R<sub>wall</sub></td></tr>
+<tr><td>R<sub>θ,j-in</sub></td><td>再加 R<sub>pkg</sub> 0.008–0.012，T<sub>j</sub> = 84.7–93.5 °C</td><td>本场没有管芯温度</td><td>—</td><td>封装热阻仍是假设</td></tr>
+<tr><td>目标 0.028 °C/W</td><td>短槽链两端都高于 0.028</td><td>0.03134 °C/W 的分母是 900.9 W</td><td>—</td><td>设计未关闭</td></tr>
+</table>
+
+<h2>3. 差从哪里来</h2>
+<p>压降：D = 0.40 mm 的孔口一维是 862 Pa，CFD 静压差 1087 Pa，高 225 Pa（+26.1%）。短槽一维只有 1.5 Pa，填不满这 225 Pa，其余在射流转向和回液缝。和 2,115,436 单元、同边界的 iter 421 相比，ΔP 从 1091.51 Pa 到 1087.09 Pa，TIM 底从 342.096 K 到 341.385 K。</p>
+<p>能量：质量加权出口 321.309 K 来自 <code>return_slot</code> 面速度和面温度，ρ = 992.2 kg/m³。入口、出口积分流量相对差 +0.00033%。面积加权 320.910 K 给出温升比 0.952，因为慢速热区面积大、质量小。能量闭合看质量加权，比值 1.0015。</p>
+<p>热阻：模型 C 的 R<sub>conv</sub> = 0.0252 °C/W，对应 GPU 热量下大约 22 K 的流体侧温升。CFD 铜–水界面比进液高 13.45 K。短槽关联式在这个胞上偏保守。R<sub>θ,c-in</sub> 的 0.0326–0.0366 °C/W 乘的是整板 1100 W，并且把 R<sub>TIM2</sub>、平板余铜和模型 C 加在一起。CFD 的 0.03134 °C/W 乘的是两 die 边界功率 900.9 W，温度来自共轭场。两个数都高于 0.028 的目标线，都不能单独宣布达标。</p>
+
+<h2>4. Grace 设计报告中的数</h2>
+<p>来自《NVIDIA Grace GB300 冷板详细设计报告》v1.0。这是 CP-GRACE-MC-01，与本胞不是同一个计算域。水按 40 °C：ρ = 992 kg/m³，cp = 4179 J/kg·K，μ = 6.53×10⁻⁴ Pa·s，k = 0.632 W/m·K。300 W、流体温升 8 K 时体积流量 0.543 L/min，设计取 0.55 L/min。报告写明：B300 在 2.0 L/min、1100 W 下的流体温升也大约是 8 K。</p>
+<div class="note">Grace 报告第 3 节的对照表写 B300 为 128 孔射流、总厚 12.5 mm。B300 v2.0 的冻结几何是 <strong>216 孔</strong>、板 <strong>95 × 75 × 8.5 mm</strong>、正文孔径 0.50 mm。本页 B300 列以 v2.0 为准。</div>
+<table>
+<tr><th>项</th><th>Grace v1.0</th></tr>
+<tr><td>热设计点</td><td>300 W（含内存）。CPU 裸片按 260 W，两侧内存合计按 40 W。无官方功率地图，40 W 高于宣传材料里的约 16 W</td></tr>
+<tr><td>面热流</td><td>CPU 窗口 40 × 32 mm：20 W/cm²。一侧内存 50 × 70 mm：0.6 W/cm²。裸片若为 25 × 25 mm，CPU 约 42 W/cm²</td></tr>
+<tr><td>结构</td><td>两层铜，外形 200 × 120 × 8.0 mm（平面为候选）。z 0–2.0 余铜，z 2.0–3.2 通道深 1.2 mm，z 3.5–6.0 盖板腔，z 6.0–8.0 盖板顶。材料 C11000 / TU1</td></tr>
+<tr><td>CPU 通道</td><td>48 条，0.40 × 1.20 mm，节距 0.80 mm，长 32 mm，Dh = 0.60 mm。无喷嘴</td></tr>
+<tr><td>内存通道</td><td>每侧 6 条，1.20 × 0.80 mm，长 70 mm，Dh = 0.96 mm。每侧一条 0.80 × 1.20 mm 缝</td></tr>
+<tr><td>流量分配</td><td>设计 0.55 L/min，包络 0.70 L/min。CPU 0.47 L/min，单侧内存 0.036 L/min，两侧内存合计约 0.08 L/min</td></tr>
+<tr><td>CPU 水力与换热</td><td>0.34 m/s，Re = 310，通道压降 0.71 kPa，h ≈ 5100 W/m²·K，260 W 下对流温升约 12 K。Nu 按 4.8（三边受热、深宽比 3 的充分发展量级）。压降用 f = 64/Re，再加入口 0.5、出口 0.81；0.71 kPa 是下限量级</td></tr>
+<tr><td>单侧内存</td><td>0.11 m/s，Re = 153，槽压降 0.17 kPa，缝另补约 0.5 kPa，h ≈ 3200 W/m²·K，20 W 下约 5 K</td></tr>
+<tr><td>壳–进液目标</td><td>CPU 区 &lt; 0.080 °C/W（260 W 下小于 21 K）。一维对流约占 0.046 °C/W，其余留给 TIM2 和扩热</td></tr>
+<tr><td>孔板</td><td>入口 4 × ⌀1.04 mm，流量系数 0.62，约 9.3 kPa。加通道后支路约 10 kPa，窗口 8–12 kPa。送样上限 18 kPa，极限 20 kPa，与 B300 冷板同一档</td></tr>
+<tr><td>接头</td><td>外径 8 mm、内径 6 mm。0.55 L/min 时管内约 0.32 m/s</td></tr>
+<tr><td>进厂</td><td>贴芯片面平面度 ≤ 0.05 mm，Ra ≤ 0.8 μm。回路过滤 ≤ 25 μm（限制孔是 B300 的 0.50 mm 射流孔）</td></tr>
+</table>
+<p>两块冷板在托盘歧管上并联。Grace 通道本身约 0.7 kPa，入口孔板把它配到与 GPU 支路同一压降档。本胞 CFD 没有 Grace 通道，也不包含这块孔板。</p>
+
+<h2>5. 不用的数</h2>
+<p>不用 iter 430 / 547 的 2237.64 Pa、335.404 K，也不用 i7900 的 2227.11 Pa、335.428 K。那些场的热流是 567460 W/m²，单孔流量是 2.067×10⁻⁴ kg/s。网格说明文件里的 567460 W/m² 和 P<sub>cell</sub> = 4.086 W 属于那一档，不是 iter 380。上一份同边界 iter 421 的 1091.51 Pa、342.096 K 只留在第 3 节作网格对照。总压差、GCI、y+ 本场没有导出。</p>
+</body>
+</html>

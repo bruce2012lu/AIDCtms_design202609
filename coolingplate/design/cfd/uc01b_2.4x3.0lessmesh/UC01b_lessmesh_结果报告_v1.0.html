@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>UC-01b lessmesh 结果报告 v1.0</title><style>body{font-family:Segoe UI,Microsoft YaHei,sans-serif;max-width:980px;margin:2rem auto;line-height:1.5;padding:0 1rem}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #ccc;padding:.4rem .5rem;text-align:left}th{background:#f4f4f4}pre{background:#f6f6f6;padding:1rem;overflow:auto}</style></head><body>
+<h1>UC-01b lessmesh 结果报告 v1.0</h1>
+
+<p>**文档编号：** AIDC-B300-CFD-UC01b-LESS-RES-001  </p>
+<p>**日期：** 2026-09-25  </p>
+<p>**性质：** 当前设计点的运行记录。数字来自 `logs/fluent_cht_less_m425_gpu.log`，iter 380。网格是加密后的 4,259,680 HEXA。不是旧的 567460.32 W/m²、0.0002067 kg/s 场，也不是上一份 2,115,436 单元、iter 421 的场。</p>
+
+<p>场：`fluent/uc01b_cht_less_m425_bc216.cas.h5` / `.dat.h5`。网格：`mesh/uc01b_cht_less.msh`（2026-09-25 11:42）。</p>
+
+<hr>
+
+<h2>0. 状态</h2>
+
+<table>
+<tr><th>项</th><th>值</th></tr>
+<tr><td>孔数</td><td>每颗 die **108**，两颗 **216**。单孔模型，进口区只有一个孔</td></tr>
+<tr><td>胞尺寸</td><td>Y（导流槽所在的跨槽方向）**2.4 mm**，X 沿槽 **3.0 mm**。孔距未压缩，孔心未移动</td></tr>
+<tr><td>热流</td><td>`wall_heat` **579282 W/m²**（57.928 W/cm²）</td></tr>
+<tr><td>流量</td><td>`inlet_jet`（单孔）**1.225×10⁻⁴ kg/s**。不是 ×108，也不是 ×216</td></tr>
+<tr><td>入口温度</td><td>313.15 K</td></tr>
+<tr><td>网格</td><td>Fluent 读入 **2055516 + 2083716 + 120448 = 4259680** HEXA。边界层首层 2.5 μm，n_BL=10，增长 1.2</td></tr>
+<tr><td>平面加密</td><td>孔外过渡段均匀 **0.080 mm**（原 0.354 mm）；缝唇外侧 **0.0675 mm**（原 0.135 mm）；槽芯 Y **0.045 mm × 6**（原 0.090 mm × 3）；肋芯 **0.068 mm**（原 0.135 mm）</td></tr>
+<tr><td>求解</td><td>3ddp **-t4 -gpu**，桌面 GUI，无 `-g`。SST k-ω，能量，共轭。iter **380** 已收敛</td></tr>
+</table>
+
+<p>启动命令：</p>
+
+<pre>
+"E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\ntbin\win64\fluent.exe" 3ddp -r26.1.0 -t4 -gpu -i fluent\uc01b_cht_less_m425_bc216.jou
+</pre>
+
+<p>`FLUENT_INC` 是目录 `...\v261\fluent`。窗口标题：`uc01b_cht_less_m425_bc216 Parallel Fluent@DESKTOP-JHEHF28 [3d, dp, pbns, sstkw, 4-processes, gpu]`，会话 1。期刊没有 `/exit`，窗口在写完 cas/dat 后仍开着。</p>
+
+<hr>
+
+<h2>1. 残差</h2>
+
+<pre>
+   380  6.2412e-07  6.2793e-07  1.9747e-06  2.6352e-06  9.9059e-07  1.1046e-06  1.6245e-04
+!  380 solution is converged
+</pre>
+
+<table>
+<tr><th>量</th><th>iter 380</th><th>判据</th></tr>
+<tr><td>continuity</td><td>6.241e-07</td><td>< 1e-4</td></tr>
+<tr><td>x / y / z</td><td>6.279e-07 / 1.975e-06 / 2.635e-06</td><td>< 1e-4</td></tr>
+<tr><td>energy</td><td>9.906e-07</td><td>< 1e-6</td></tr>
+<tr><td>k / omega</td><td>1.105e-06 / 1.625e-04</td><td>< 1e-3</td></tr>
+</table>
+
+<p>前 300 步一阶，之后二阶。coupled + pseudo-transient。GPU：4 个进程共用 RTX 4090。</p>
+
+<hr>
+
+<h2>2. 工程量（216 孔口径）</h2>
+
+<p>q'' = 579282 W/m²。A_cell = 3.0×2.4 mm² = 7.20×10⁻⁶ m²。  </p>
+<p>P_cell = **4.17083 W**。N = **216**。P_2die = **900.899 W**。T_in = 313.15 K。</p>
+
+<table>
+<tr><th>量</th><th>Fluent 打印</th></tr>
+<tr><td>T_in (`inlet_jet`)</td><td>**313.15 K**</td></tr>
+<tr><td>T_out (`return_slot`，面积加权)</td><td>**320.910 K**</td></tr>
+<tr><td>T_TIM 底 (`wall_heat`)</td><td>**341.385 K**</td></tr>
+<tr><td>T_铜–水 (`wall_cu_fluid`)</td><td>**326.600 K**</td></tr>
+<tr><td>T_TIM–铜 (`wall_tim_cu`)</td><td>**336.130 K**</td></tr>
+<tr><td>热流 (`wall_heat`)</td><td>**579282 W/m²**</td></tr>
+<tr><td>P_in</td><td>**1087.09 Pa**</td></tr>
+<tr><td>P_out</td><td>**0 Pa**</td></tr>
+<tr><td>静压 ΔP</td><td>**1087.09 Pa = 1.087 kPa**</td></tr>
+</table>
+
+<p>R(T_TIM−T_in)_2die = (341.38529−313.15)/900.899 = **0.03134 K/W**。单胞 **6.770 K/W**。已含 TIM、铜、对流，不要再加 R_TIM2、R_wall。  </p>
+<p>R_conv,2die = (326.59968−313.15)/900.899 = **0.01493 K/W**。单胞 **3.225 K/W**。  </p>
+<p>h(TIM 底) = q''/(T_TIM−T_in) = **2.052×10⁴**。h(铜–水，同一 q'') = **4.307×10⁴**，不是湿面局部对流系数。</p>
+
+<p>R_wall（一维，A_2DIE=1512 mm²）= 0.003392 K/W。  </p>
+<p>**R_c-in = (0.004–0.008)+0.003392+0.01493 = 0.02232–0.02632 K/W。**  </p>
+<p>**R_j-in = (0.008–0.012)+R_c-in = 0.03032–0.03832 K/W。**</p>
+
+<p>U = 0.9825 m/s，Re_D = **597**。低于 Martin 1977 的 Re≥2000，不引用 Martin h。  </p>
+<p>T_out 是面积平均。ṁ cp ΔT_area / P_cell = **0.952**，不要当成能量已经闭合。需要的 bulk 温升是 8.147 K（出口 bulk 321.30 K）。</p>
+
+<hr>
+
+<h2>3. 和上一份 bc216（2,115,436 单元，iter 421）的差别</h2>
+
+<p>边界条件相同：579282 W/m²，单孔 1.225×10⁻⁴ kg/s。变的是平面上的粗格子。</p>
+
+<table>
+<tr><th></th><th>上一份 iter 421</th><th>本次 iter 380</th></tr>
+<tr><td>单元</td><td>2,115,436</td><td>**4,259,680**</td></tr>
+<tr><td>静压 ΔP</td><td>1091.51 Pa</td><td>**1087.09 Pa**</td></tr>
+<tr><td>T_TIM</td><td>342.096 K</td><td>**341.385 K**</td></tr>
+<tr><td>T_铜–水</td><td>326.838 K</td><td>**326.600 K**</td></tr>
+<tr><td>T_out</td><td>320.993 K</td><td>**320.910 K**</td></tr>
+</table>
+
+<p>压降低 4.4 Pa（约 −0.4%），TIM 底低 0.71 K。加密没有改掉设计点的量级。</p>
+<h2>云图与网格</h2>
+<p>完整图集在 <code>UC01b_lessmesh_ICEM_Fluent_结果报告_v1.0.html</code>。下面是同一场 iter 380 的图，路径相对本目录。</p>
+<p><img src="figs/m425_wall_heat_T.png" alt="TIM" style="max-width:100%"><img src="figs/m425_z0_T.png" alt="floor" style="max-width:100%"><img src="figs/m425_y0_TV.png" alt="Y0" style="max-width:100%"><img src="figs/m425_mesh_z_orifice.png" alt="mesh" style="max-width:100%"><img src="figs/m425_mesh_y0_bl.png" alt="bl" style="max-width:100%"></p>
+</body></html>
