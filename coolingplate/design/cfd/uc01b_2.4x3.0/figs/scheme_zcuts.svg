@@ -1,0 +1,21 @@
+<svg viewBox="0 0 520 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Z cuts">
+  <rect width="520" height="480" fill="#f7fafd"/>
+  <text x="12" y="22" fill="#0b2748" font-size="14" font-weight="700">Fig 4-3 Z cuts</text>
+  <text x="12" y="48" fill="#14507f" font-size="12">top: Z=4.75 lid (circle + slits)</text>
+  <rect x="60" y="56" width="200" height="160" fill="#f4f6f7" stroke="#bbb"/>
+  <rect x="60" y="56" width="28" height="160" fill="#5dade2"/>
+  <rect x="232" y="56" width="28" height="160" fill="#5dade2"/>
+  <circle cx="160" cy="136" r="16" fill="#2980b9" stroke="#0b2748"/>
+  <text x="148" y="140" fill="#fff" font-size="9">D</text>
+  <text x="280" y="48" fill="#14507f" font-size="12">mid: Z=0.75 channels</text>
+  <rect x="280" y="56" width="200" height="160" fill="#d4a017" stroke="#7d6608"/>
+  <rect x="280" y="76" width="200" height="28" fill="#5dade2"/>
+  <rect x="280" y="122" width="200" height="28" fill="#5dade2"/>
+  <rect x="280" y="168" width="200" height="28" fill="#5dade2"/>
+  <text x="12" y="250" fill="#14507f" font-size="12">bottom: Z=-2.04 TIM  and  Z=-1 Cu</text>
+  <rect x="60" y="260" width="200" height="160" fill="#c0392b" stroke="#7b241c"/>
+  <rect x="280" y="260" width="200" height="160" fill="#d4a017" stroke="#7d6608"/>
+  <text x="120" y="340" fill="#fff" font-size="12">TIM</text>
+  <text x="350" y="340" fill="#5d4037" font-size="12">Cu</text>
+  <text x="12" y="450" fill="#5d6b80" font-size="11">Circle only in lid/plenum. Scheme SVG, not CFD contour.</text>
+</svg>

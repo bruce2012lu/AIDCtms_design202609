@@ -1,0 +1,27 @@
+<svg viewBox="0 0 820 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="exploded stack">
+  <rect width="820" height="400" fill="#f4f8fc"/>
+  <text x="20" y="28" fill="#0b2748" font-size="16" font-weight="700">Fig 3-2 exploded Z stack</text>
+  <rect x="220" y="48" width="280" height="36" fill="#aed6f1" stroke="#1a5276"/>
+  <ellipse cx="360" cy="66" rx="16" ry="8" fill="#1abc9c" stroke="#0e6655"/>
+  <text x="520" y="70" fill="#14507f" font-size="13">plenum inlet z=6-8</text>
+  <rect x="220" y="100" width="280" height="28" fill="#85c1e9" stroke="#1a5276"/>
+  <ellipse cx="360" cy="114" rx="16" ry="7" fill="#2980b9"/>
+  <text x="520" y="118" fill="#14507f" font-size="13">orifice D=0.40 z=3.5-6 lid solid omitted</text>
+  <rect x="220" y="148" width="280" height="40" fill="#5dade2" stroke="#1a5276"/>
+  <text x="520" y="172" fill="#14507f" font-size="13">water gap H=2.0 z=1.5-3.5</text>
+  <rect x="220" y="204" width="36" height="44" fill="#5dade2" stroke="#1a5276"/>
+  <rect x="256" y="204" width="32" height="44" fill="#d4a017" stroke="#7d6608"/>
+  <rect x="288" y="204" width="40" height="44" fill="#5dade2" stroke="#1a5276"/>
+  <rect x="328" y="204" width="32" height="44" fill="#d4a017" stroke="#7d6608"/>
+  <rect x="360" y="204" width="40" height="44" fill="#5dade2" stroke="#1a5276"/>
+  <rect x="400" y="204" width="32" height="44" fill="#d4a017" stroke="#7d6608"/>
+  <rect x="432" y="204" width="36" height="44" fill="#5dade2" stroke="#1a5276"/>
+  <rect x="468" y="204" width="32" height="44" fill="#d4a017" stroke="#7d6608"/>
+  <text x="520" y="230" fill="#7d6608" font-size="13">slots water / fins Cu z=0-1.5</text>
+  <rect x="220" y="268" width="280" height="44" fill="#d4a017" stroke="#7d6608"/>
+  <text x="520" y="294" fill="#7d6608" font-size="13">Cu base 2.0 mm z=-2-0</text>
+  <rect x="220" y="328" width="280" height="14" fill="#c0392b" stroke="#7b241c"/>
+  <text x="520" y="338" fill="#922b21" font-size="13">TIM2 80 um bottom q''</text>
+  <line x1="360" y1="380" x2="360" y2="348" stroke="#b42318" stroke-width="3"/>
+  <text x="370" y="378" fill="#b42318" font-size="12">q''=56.746 W/cm2 wall_heat</text>
+</svg>

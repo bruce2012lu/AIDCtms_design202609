@@ -1,0 +1,21 @@
+<svg viewBox="0 0 760 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="X=0 YZ">
+  <rect width="760" height="520" fill="#f7fafd"/>
+  <text x="16" y="26" fill="#0b2748" font-size="15" font-weight="700">Fig 4-1 X=0 YZ three slots Sy=2.4</text>
+  <rect x="80" y="468" width="600" height="10" fill="#c0392b"/>
+  <rect x="80" y="408" width="600" height="60" fill="#d4a017"/>
+  <rect x="80" y="333" width="50" height="75" fill="#d4a017"/>
+  <rect x="130" y="333" width="100" height="75" fill="#5dade2"/>
+  <rect x="230" y="333" width="100" height="75" fill="#d4a017"/>
+  <rect x="330" y="333" width="100" height="75" fill="#5dade2"/>
+  <rect x="430" y="333" width="100" height="75" fill="#d4a017"/>
+  <rect x="530" y="333" width="100" height="75" fill="#5dade2"/>
+  <rect x="630" y="333" width="50" height="75" fill="#d4a017"/>
+  <rect x="80" y="233" width="600" height="100" fill="#5dade2"/>
+  <rect x="355" y="58" width="50" height="175" fill="#2980b9"/>
+  <text x="412" y="70" fill="#0e6655" font-size="12">circle D=0.40</text>
+  <text x="16" y="64" fill="#1abc9c" font-size="12">inlet</text>
+  <text x="16" y="478" fill="#b42318" font-size="12">q'' TIM bottom</text>
+  <text x="80" y="508" fill="#5d6b80" font-size="12">Y -1.2  -0.8 slot  0 jet  +0.8 slot  +1.2  | water gold Cu red TIM</text>
+  <rect x="328" y="400" width="104" height="8" fill="none" stroke="#1769e0" stroke-dasharray="3 2"/>
+  <rect x="353" y="58" width="54" height="175" fill="none" stroke="#1769e0" stroke-dasharray="3 2"/>
+</svg>

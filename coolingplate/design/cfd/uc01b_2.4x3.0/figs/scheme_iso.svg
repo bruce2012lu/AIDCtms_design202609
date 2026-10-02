@@ -1,0 +1,27 @@
+<svg viewBox="0 0 820 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="isometric coupon">
+  <rect width="820" height="520" fill="#f4f8fc"/>
+  <text x="20" y="28" fill="#0b2748" font-size="16" font-weight="700">Fig 3-1 isometric Sx=3.0 Sy=2.4 D=0.40</text>
+  <polygon points="180,430 520,430 590,392 250,392" fill="#c0392b" stroke="#7b241c"/>
+  <polygon points="520,430 590,392 590,382 520,420" fill="#922b21" stroke="#7b241c"/>
+  <text x="600" y="412" fill="#922b21" font-size="12">TIM 80 um</text>
+  <polygon points="180,420 520,420 590,382 250,382" fill="#d4a017" stroke="#7d6608"/>
+  <polygon points="180,420 250,382 250,330 180,368" fill="#b7950b" stroke="#7d6608"/>
+  <polygon points="520,420 590,382 590,330 520,368" fill="#b7950b" stroke="#7d6608"/>
+  <text x="600" y="360" fill="#7d6608" font-size="12">Cu base 2.0 mm</text>
+  <polygon points="210,368 250,346 250,290 210,312" fill="#d4a017" stroke="#7d6608"/>
+  <polygon points="300,368 340,346 340,290 300,312" fill="#d4a017" stroke="#7d6608"/>
+  <polygon points="390,368 430,346 430,290 390,312" fill="#d4a017" stroke="#7d6608"/>
+  <polygon points="470,368 500,350 500,294 470,312" fill="#d4a017" stroke="#7d6608"/>
+  <text x="600" y="310" fill="#7d6608" font-size="12">Cu fins 1.50</text>
+  <polygon points="180,312 520,312 590,274 250,274" fill="#5dade2" fill-opacity=".55" stroke="#1a5276"/>
+  <text x="600" y="268" fill="#14507f" font-size="12">water gap H=2.0</text>
+  <polygon points="180,220 520,220 590,182 250,182" fill="#aed6f1" stroke="#1a5276"/>
+  <ellipse cx="385" cy="201" rx="18" ry="10" fill="#2980b9" stroke="#1a5276"/>
+  <rect x="376" y="120" width="18" height="82" fill="#2980b9" stroke="#1a5276"/>
+  <ellipse cx="385" cy="120" rx="18" ry="10" fill="#1abc9c" stroke="#0e6655"/>
+  <text x="410" y="125" fill="#0e6655" font-size="12">inlet_jet D=0.40</text>
+  <rect x="180" y="182" width="28" height="38" fill="#e67e22" stroke="#a04000"/>
+  <rect x="562" y="182" width="28" height="38" fill="#e67e22" stroke="#a04000"/>
+  <text x="20" y="200" fill="#a04000" font-size="12">return half-slit 0.40</text>
+  <text x="20" y="500" fill="#5d6b80" font-size="12">gold=Cu red=TIM blue=water orange=return. Scheme SVG, not Fluent contour.</text>
+</svg>
