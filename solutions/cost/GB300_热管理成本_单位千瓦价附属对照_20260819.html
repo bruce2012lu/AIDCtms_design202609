@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GB300 热管理成本 · 单位千瓦价附属对照 · v1.4 · 2026-08-21</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+:root{
+  --navy:#102a43; --navy2:#173f5f; --teal:#087f8c; --gold:#d3a62b;
+  --ink:#17212b; --muted:#637282; --line:#d8e1e8; --side:286px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;color:var(--ink);background:#f5f7f9;line-height:1.9;font-size:16px}
+a{color:#0b6e75;text-decoration:none}
+a:hover{text-decoration:underline}
+aside.toc{position:fixed;left:0;top:0;bottom:0;width:var(--side);background:var(--navy);color:#d7e4ef;overflow-y:auto;z-index:200;box-shadow:2px 0 14px rgba(15,42,67,.18)}
+.toc-head{padding:22px 18px 16px;border-bottom:1px solid rgba(255,255,255,.12)}
+.toc-head .brand{font-size:11px;letter-spacing:2px;color:#8fb4c9;margin-bottom:6px}
+.toc-head h1{font-size:15px;line-height:1.5;color:#fff}
+.toc nav{padding:12px 10px 36px}
+.toc a{display:block;color:#b7c9d6;font-size:13px;padding:8px 12px;border-radius:6px}
+.toc a:hover{background:rgba(255,255,255,.08);text-decoration:none}
+.toc a.active{background:#0e6672;color:#fff}
+main{margin-left:var(--side)}
+.wrap{max-width:1160px;margin:0 auto;padding:20px 42px 90px}
+.cover{background:linear-gradient(155deg,#102a43 0%,#173f5f 48%,#087f8c 100%);color:#fff;padding:56px 42px 40px;border-bottom:5px solid var(--gold)}
+.cover .inner{max-width:1080px;margin:0 auto}
+.kicker{display:inline-block;border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:4px 14px;font-size:12.5px;letter-spacing:1.5px;color:#d7efe8;margin-bottom:16px}
+.cover h1{max-width:920px;font-size:30px;line-height:1.32;font-weight:800;margin-bottom:10px}
+.cover h2{max-width:900px;font-size:16px;font-weight:500;color:#cfe8e4;margin-bottom:18px}
+.cover .meta{display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));gap:14px 24px;font-size:13.5px;color:#d7e8e4;border-top:1px solid rgba(255,255,255,.22);padding-top:14px}
+.cover .meta b{display:block;font-size:12px;color:#f0d27a;margin-bottom:2px}
+section{margin:40px 0 56px;scroll-margin-top:20px}
+.h-sec{display:flex;align-items:center;gap:16px;margin:0 0 22px;padding:0 0 12px;border-bottom:1px solid #b9c8d4}
+.h-sec .no{background:var(--navy);color:#fff;border-radius:10px;min-width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-weight:800}
+.h-sec h2{font-size:24px;color:var(--navy);font-weight:800}
+.h-sec .en{margin-top:3px;font-size:11.5px;color:var(--muted);letter-spacing:.08em}
+p{max-width:90ch;margin:12px 0}
+.lead{background:#e8f5f3;border-left:5px solid var(--teal);padding:16px 18px;border-radius:0 8px 8px 0;margin:18px 0}
+.callout{border-radius:10px;padding:13px 16px;margin:14px 0;font-size:14.5px}
+.callout.info{background:#eef6ff;border-left:5px solid #0284c7}
+.callout.key{background:#fffbeb;border-left:5px solid var(--gold)}
+.tbl-wrap{overflow:auto;margin:16px 0 10px;border-radius:9px;border:1px solid #c8d3dc;background:#fff;box-shadow:0 3px 14px rgba(16,42,67,.06)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:13.5px}
+thead th{position:sticky;top:0;background:#173f5f;color:#fff;padding:10px 12px;text-align:left;font-weight:600}
+tbody td{padding:8px 12px;border-bottom:1px solid #edf1f4;vertical-align:top}
+tbody tr:nth-child(even){background:#f6f8fa}
+td.r,th.r{text-align:right}
+.num{font-variant-numeric:tabular-nums}
+.note{font-size:12.5px;color:var(--muted);margin:6px 0 18px;padding-left:10px;border-left:2px solid #b7c5cf}
+.chart{width:100%;height:420px}
+.chart-box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px;margin:18px 0}
+.chart-box .cap{font-size:14.5px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:1px dashed var(--line);margin-bottom:8px}
+footer{background:var(--navy);color:#b7c9d6;padding:22px 42px;font-size:12.5px}
+@media(max-width:720px){aside.toc{display:none}main{margin-left:0}.wrap{padding:16px 18px 70px}}
+</style>
+</head>
+<body>
+<aside class="toc">
+  <div class="toc-head">
+    <div class="brand">AIDCTMS · COST · ANNEX</div>
+    <h1>单位千瓦价附属对照</h1>
+  </div>
+  <nav>
+    <a href="#cover">封面</a>
+    <a href="#use">用法</a>
+    <a href="#map">原报告金额 → 千瓦价</a>
+    <a href="#dual">国内 vs 海外</a>
+    <a href="#src">来源</a>
+  </nav>
+</aside>
+<main>
+<header class="cover" id="cover">
+  <div class="inner">
+    <div class="kicker">附属说明 · 不改原报告数字</div>
+    <h1>GB300 热管理成本 · 单位千瓦价附属对照</h1>
+    <h2>把主报告里的单柜 / 单台金额折成美元/kW 与 元/kW，并对照国内与海外公开口径。主报告表格保持原样。</h2>
+    <div class="meta">
+      <div><b>性质</b>附属说明，不是新报价</div>
+      <div><b>主报告</b><a href="GB300_热管理系统子系统零部件成本分析报告_20260815.html" style="color:#f0d27a">GB300 热管理成本分析报告</a></div>
+      <div><b>汇率</b>1 USD = 7.2 CNY</div>
+      <div><b>版本</b>v1.4 · 2026-08-21 · 与主报告对齐</div>
+      <div><b>分母约定</b>设备额定 ≠ 机柜排热 ≠ 设施 MW</div>
+      <div><b>用途</b>比价、招标标尺、口径核对</div>
+    </div>
+  </div>
+</header>
+<div class="wrap">
+<div class="callout key" style="margin-top:8px"><b>已并入主报告第 11 章，数字随 v1.4 对齐。</b>本页与 <a href="GB300_热管理系统子系统零部件成本分析报告_20260815.html#unitpx">主报告第 11 章</a>给出同一套答案。国内 82–104 万元与海外 15.1–18.9 万美元是两套市场，不是汇率换算。</div>
+<section id="use">
+  <div class="h-sec"><div class="no">01</div><div><h2>怎么用这份附属页</h2><div class="en">HOW TO READ</div></div></div>
+  <p class="lead">主报告继续以<b>美元/柜、万元/柜、美元/块</b>为主数字。本页只回答：“这个金额对应多少钱/kW？国内和海外差多少？”<b>不替代、不改写主报告表格。</b></p>
+  <div class="callout info"><b>三把尺子不要混：</b>① 设备额定（CDU/塔铭牌 kW）；② 机柜排热负荷（142 / 150 / 155 / 169 kW）；③ 设施/土建（美元/MW）。企业级 DLC <b>1,875–5,000</b> 美元/kW（Yobitel；Adam Silva 实验室子集 3,500–5,000）是改造口径，<b>参照，非本报告单柜硬件</b>。</div>
+</section>
+
+<section id="map">
+  <div class="h-sec"><div class="no">02</div><div><h2>主报告金额 → 单位千瓦价</h2><div class="en">ANNEX TO MAIN REPORT FIGURES</div></div></div>
+  <p>下表左边是主报告已经采用的金额，右边是附属折算。金额本身以主报告为准。</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>主报告位置 / 口径</th><th class="r">主报告金额</th><th>分母</th><th class="r">美元/kW</th><th class="r">元/kW</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>L1 托盘冷却（MS）</td><td class="r num">49,860 美元</td><td>139.5 kW 运行液冷</td><td class="r num">357</td><td class="r num">2,570</td></tr>
+      <tr><td>Compute 单盘 2,260 美元</td><td class="r num">2,260 美元</td><td>6.2 kW</td><td class="r num">365</td><td class="r num">2,628</td></tr>
+      <tr><td>Switch 单盘 1,020 美元</td><td class="r num">1,020 美元</td><td>约 3.1 kW</td><td class="r num">329</td><td class="r num">2,369</td></tr>
+      <tr><td>L2 共享 CDU 包</td><td class="r num">107,400 美元</td><td>150 kW 选型</td><td class="r num">716</td><td class="r num">5,155</td></tr>
+      <tr><td>L2 专用 · 海外液冷小计</td><td class="r num">15.1–18.9 万美元</td><td>150 kW 负荷</td><td class="r num">1,007–1,260</td><td class="r num">7,250–9,072</td></tr>
+      <tr><td>L2 专用 · 国内液冷小计</td><td class="r num">82–104 万元</td><td>150 kW 负荷</td><td class="r num">759–963</td><td class="r num">5,467–6,933</td></tr>
+      <tr><td>Bernstein L3 全栈</td><td class="r num">211,000 美元</td><td>169 kW 设施</td><td class="r num">1,249</td><td class="r num">8,993</td></tr>
+      <tr><td>同上，分母改 155 kW</td><td class="r num">211,000 美元</td><td>155 kW 峰值</td><td class="r num">1,361</td><td class="r num">9,799</td></tr>
+      <tr><td>同上，分母改 142 kW</td><td class="r num">211,000 美元</td><td>142 kW 参考</td><td class="r num">1,486</td><td class="r num">10,699</td></tr>
+      <tr><td>1 GW 热管理</td><td class="r num">13 亿美元</td><td>1,000,000 kW</td><td class="r num">1,300</td><td class="r num">9,360</td></tr>
+      <tr><td>第 9 章国内项目</td><td class="r num">102–138 万元（=14.2–19.2 万美元）</td><td>155 kW 包络</td><td class="r num">914–1,237</td><td class="r num">6,581–8,903</td></tr>
+      <tr><td>第 9 章海外认证</td><td class="r num">19–26 万美元</td><td>155 kW 包络</td><td class="r num">1,226–1,677</td><td class="r num">8,827–12,074</td></tr>
+      <tr><td>国内 CDU 单机</td><td class="r num">20–22 万元 / 200 kW</td><td>设备额定</td><td class="r num">139–153</td><td class="r num">1,000–1,100</td></tr>
+      <tr><td>海外 CDU 单机</td><td class="r num">4.0–4.8 万美元 / 200 kW</td><td>设备额定</td><td class="r num">200–240</td><td class="r num">1,440–1,730</td></tr>
+      <tr><td>UQD 整柜 22,000 美元</td><td class="r num">22,000 美元</td><td>150 kW</td><td class="r num">147</td><td class="r num">1,058</td></tr>
+      <tr><td>GPU 冷板 280–400 美元</td><td class="r num">280–400 美元/块</td><td>1.4 kW</td><td class="r num">200–286</td><td class="r num">1,440–2,059</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">同一套硬件换分母，金额不变、美元/kW 会变。国内 82–104 万元与海外 15.1–18.9 万美元是两套市场，不是汇率换算。150 kW 液冷与 25 kW 风侧不可加总成 175 kW。国内项目 102–138 万元 = 14.2–19.2 万美元（÷7.2）。</p>
+</section>
+
+<section id="dual">
+  <div class="h-sec"><div class="no">03</div><div><h2>国内 vs 海外单位千瓦价</h2><div class="en">CN vs OVERSEAS</div></div></div>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>科目</th><th>功率口径</th><th class="r">国内</th><th class="r">海外 / 国际</th><th class="r">海外÷国内</th><th>来源</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>CDU 硬件</td><td>设备额定 kW</td><td class="r">1,000–1,100 元/kW<br>139–153 美元/kW</td><td class="r">200–240 美元/kW<br>1,440–1,730 元/kW</td><td class="r">约 1.5–1.7×</td><td>东吴 2026；九方转述</td></tr>
+      <tr><td>70 kW CDU</td><td>设备 70 kW</td><td class="r">约 1,000–1,140 元/kW</td><td class="r">约 3.0 万美元<br><b>429 美元/kW</b></td><td class="r">约 2.8×</td><td>腾讯新闻 2025-08：北美/欧洲主流 70 kW ≈ 3 万美元</td></tr>
+      <tr><td>150 kW CDU</td><td>设备 150 kW</td><td class="r">约 1,000–1,130 元/kW</td><td class="r">3.5–4.0 万美元<br><b>233–267 美元/kW</b></td><td class="r">约 1.6–1.9×</td><td>同上</td></tr>
+      <tr><td>二次侧工程包</td><td>液冷负荷 kW</td><td class="r"><b>3,000–5,000 元/kW</b></td><td class="r"><b>4,500–9,000 元/kW</b></td><td class="r">1.5–2.0×</td><td>东吴：海外高 50–100%</td></tr>
+      <tr><td>一次侧排热</td><td>冷源额定 kW</td><td class="r"><b>1,500–2,000 元/kW</b></td><td class="r">2,250–4,000 元/kW</td><td class="r">1.5–2.0×</td><td>东吴；海外品牌 BAC / Marley</td></tr>
+      <tr><td>整柜液冷招标</td><td>机柜功率 kW</td><td class="r"><b>5,000–8,000 元/kW</b></td><td class="r"><b>8,000–12,000 元/kW</b></td><td class="r">约 1.5×</td><td>天下工场 2026</td></tr>
+      <tr><td>冷却土建</td><td>设施 MW</td><td class="r">少见单独披露</td><td class="r">1,000–1,500 美元/kW</td><td class="r">—</td><td>ThePricer 转 KPMG</td></tr>
+      <tr><td>DLC 设施（企业/改造）</td><td>装机 kW</td><td class="r">—</td><td class="r">1,875–5,000 美元/kW</td><td class="r">口径更宽</td><td>参照，非本报告单柜硬件。Yobitel；Adam Silva 实验室子集 3,500–5,000</td></tr>
+      <tr><td>Vertiv SAM</td><td>设施 MW</td><td class="r">—</td><td class="r">2,500–3,500 美元/kW</td><td class="r">上限</td><td>Bernstein 转述，含电气交付</td></tr>
+      <tr><td>GPU 冷板</td><td>1.4 kW / 块</td><td class="r">约 1,400–2,200 元/块<br>1,000–1,570 元/kW</td><td class="r">200–400 美元/块<br>143–286 美元/kW</td><td class="r">约 1.2–1.5×</td><td>MS；腾讯：GB300 小冷板 200–300 美元</td></tr>
+      <tr><td>UQD / QDC</td><td>只 / 对</td><td class="r">认证 300–600 元/对<br>白牌量产 30–50 元/只</td><td class="r">NVUQD03 40–50 美元/只<br>认证对约 1,300 元</td><td class="r">1.5–2.2×（认证）</td><td>九方；天下工场量产价。认证件与白牌不是同一商品</td></tr>
+      <tr><td>全球 CDU 出货均价</td><td>混合机型 / 台</td><td class="r">—</td><td class="r">约 1.6 万美元/台</td><td class="r">不可直接 ÷kW</td><td>QY Research 2025，含大量小机</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="chart-box"><div class="cap">图 A-1 国内 vs 海外：关键科目单位千瓦价（区间中位，统一折元/kW）</div><div id="c7" class="chart"></div></div>
+  <div class="callout key">国内二次侧 3–5 千元/kW 与主报告 L2 中枢 5,155 元/kW 落在同一区间上沿。图 A-1 海外一次侧 3,125、二次侧 6,750 为区间中位；「L2 共享包」海外柱 6,500 是东吴工程包中位，不是 107,400×1.5；「L3」国内 7,742=120 万÷155 kW，海外 8,993=211,000÷169×7.2。70 kW 机 429 美元/kW 高于 200 kW 机，是小机摊不薄，不是打架。</div>
+</section>
+
+<section id="src">
+  <div class="h-sec"><div class="no">04</div><div><h2>来源</h2><div class="en">SOURCES</div></div></div>
+  <p>东吴证券《AI 行业液冷专题》（2026-08）；九方智投转述；天下工场《China Data Center Liquid Cooling 2026》；腾讯新闻行业访谈（2025-08）；Bernstein 2025-10-27；Morgan Stanley / TechPowerUp / Lianli / TGM；ThePricer / KPMG；Yobitel 汇总 Uptime / 451 / OCP；Adam Silva Consulting 2026；QY Research 2025。</p>
+  <p class="note">本页是附属折算，存在口径、汇率和时点差。采购以有效报价为准。主报告：<a href="GB300_热管理系统子系统零部件成本分析报告_20260815.html">GB300_热管理系统子系统零部件成本分析报告_20260815.html</a></p>
+</section>
+</div>
+<footer>GB300 热管理成本 · 单位千瓦价附属对照 · v1.4 · 2026-08-21 · 与主报告第 11 章对齐 · 不构成投资或采购承诺。</footer>
+</main>
+<script>
+(function(){
+  if (!window.echarts) return;
+  const el = document.getElementById('c7');
+  if (!el) return;
+  echarts.init(el).setOption({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
+    legend:{bottom:0},
+    grid:{left:90,right:24,top:20,bottom:50},
+    xAxis:{type:'value',name:'元/kW（中位）'},
+    yAxis:{type:'category',data:['GPU 冷板','CDU 硬件','一次侧排热','二次侧工程包','L2 共享包','整柜液冷工程','L3 全栈']},
+    series:[
+      {name:'国内',type:'bar',data:[1285,1050,1750,4000,5155,6500,7742],itemStyle:{color:'#087f8c'},label:{show:true,position:'right',fontSize:11}},
+      {name:'海外',type:'bar',data:[1544,1584,3125,6750,6500,10000,8993],itemStyle:{color:'#102a43'},label:{show:true,position:'right',fontSize:11}}
+    ]
+  });
+  window.addEventListener('resize', () => { const c=echarts.getInstanceByDom(el); if(c) c.resize(); });
+})();
+</script>
+</body>
+</html>

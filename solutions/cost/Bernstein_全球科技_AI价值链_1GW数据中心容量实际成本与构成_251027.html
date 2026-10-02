@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bernstein 全球科技｜AI价值链：1GW数据中心容量实际成本多少，由哪些部分构成？｜2025-10-27</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+:root{
+  --navy:#0b1f33; --navy2:#12324d; --teal:#0d7377; --teal2:#14919b;
+  --gold:#c9a227; --ink:#1a2332; --muted:#5b6b7c; --bg:#f3f5f7;
+  --card:#fff; --line:#d5dde6; --side:300px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.8;font-size:15.5px}
+a{color:#0b6e75;text-decoration:none}
+a:hover{text-decoration:underline}
+.layout{display:flex;min-height:100vh}
+aside.toc{
+  position:fixed;left:0;top:0;bottom:0;width:var(--side);background:var(--navy);color:#d7e4ef;
+  overflow-y:auto;z-index:200;transition:transform .25s ease,width .25s ease;
+  box-shadow:4px 0 18px rgba(0,0,0,.18);
+}
+body.toc-collapsed aside.toc{transform:translateX(calc(-1 * var(--side) + 46px))}
+.toc-head{padding:18px 16px 12px;border-bottom:1px solid rgba(255,255,255,.12);position:sticky;top:0;background:var(--navy);z-index:2}
+.toc-head .brand{font-size:12px;letter-spacing:1.5px;color:#8fb4c9;margin-bottom:6px}
+.toc-head h1{font-size:14.5px;line-height:1.45;color:#fff;font-weight:700}
+.toc-toggle{
+  position:absolute;right:10px;top:16px;width:28px;height:28px;border:1px solid rgba(255,255,255,.25);
+  background:transparent;color:#fff;border-radius:6px;cursor:pointer;font-size:14px
+}
+.toc nav{padding:10px 8px 28px}
+.toc details{margin:2px 0}
+.toc summary{cursor:pointer;padding:7px 10px;border-radius:6px;font-size:13.5px;font-weight:700;color:#f2f7fb;list-style:none}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary::before{content:"▸ ";color:var(--gold)}
+.toc details[open] summary::before{content:"▾ "}
+.toc summary:hover,.toc a:hover{background:rgba(255,255,255,.08);text-decoration:none}
+.toc a{display:block;color:#b7c9d6;font-size:13px;padding:5px 10px 5px 22px;border-radius:6px}
+.toc a.active{background:rgba(20,145,155,.28);color:#fff}
+.toc .l2{padding-left:32px;font-size:12.5px}
+main{margin-left:var(--side);flex:1;min-width:0;transition:margin-left .25s ease}
+body.toc-collapsed main{margin-left:46px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 64px}
+.cover{background:linear-gradient(155deg,#0b1f33 0%,#12324d 48%,#0d7377 100%);color:#fff;padding:72px 28px 48px;position:relative;overflow:hidden}
+.cover::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.28),transparent 70%)}
+.cover .inner{position:relative;z-index:2;max-width:1080px;margin:0 auto}
+.kicker{display:inline-block;border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:4px 14px;font-size:12.5px;letter-spacing:1.5px;color:#d7efe8;margin-bottom:18px}
+.cover h1{font-size:30px;line-height:1.4;font-weight:800;margin-bottom:10px}
+.cover h2{font-size:17px;font-weight:500;color:#cfe8e4;margin-bottom:22px;line-height:1.65}
+.cover .meta{display:flex;flex-wrap:wrap;gap:12px 36px;font-size:13.5px;color:#d7e8e4;border-top:1px solid rgba(255,255,255,.22);padding-top:16px}
+.cover .meta b{display:block;font-size:12px;color:#f0d27a;margin-bottom:2px}
+.authors{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.authors .a{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:8px 10px;font-size:12.5px}
+.authors .a b{display:block;color:#fff;font-size:13px}
+section{margin:36px 0 46px}
+.h-sec{display:flex;align-items:center;gap:12px;margin-bottom:18px;border-bottom:2px solid var(--navy);padding-bottom:10px}
+.h-sec .no{background:var(--navy);color:#fff;border-radius:8px;min-width:46px;height:46px;display:flex;align-items:center;justify-content:center;font-weight:800}
+.h-sec h2{font-size:23px;color:var(--navy);font-weight:800}
+.h-sec .en{color:var(--muted);font-size:12px;font-weight:400}
+h3{font-size:18px;color:var(--navy2);margin:24px 0 10px;border-left:4px solid var(--teal);padding-left:10px}
+h4{font-size:16px;margin:16px 0 8px}
+p{margin:10px 0;text-align:justify}
+.lead{background:#eef8f7;border-left:4px solid var(--teal);padding:14px 16px;border-radius:0 8px 8px 0;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0;box-shadow:0 2px 10px rgba(15,23,42,.04)}
+.callout{border-radius:10px;padding:12px 16px;margin:12px 0;font-size:14.5px}
+.callout.key{background:#fffbeb;border-left:5px solid var(--gold)}
+.callout.info{background:#eef6ff;border-left:5px solid #0284c7}
+.callout.tip{background:#ecfdf5;border-left:5px solid #16a34a}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+.kpi{background:linear-gradient(160deg,#fff,#f3faf8);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:10px;padding:14px 10px;text-align:center}
+.kpi .v{font-size:22px;font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums}
+.kpi .l{font-size:12.5px;color:var(--muted);margin-top:4px}
+.tbl-wrap{overflow-x:auto;margin:14px 0;border-radius:10px;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:#fff;min-width:640px}
+thead th{background:var(--navy);color:#fff;padding:8px 9px;text-align:left;font-weight:600;white-space:nowrap}
+tbody td{padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:#f7faf9}
+td.r,th.r{text-align:right}
+td.c,th.c{text-align:center}
+.num{font-variant-numeric:tabular-nums}
+.sub{background:#e8eef3;font-weight:700}
+.tot{background:#dceee9;font-weight:800}
+.note{font-size:12.5px;color:var(--muted);margin:6px 0 14px}
+.chart{width:100%;height:420px}
+.chart-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin:16px 0}
+.chart-box .cap{font-size:14px;font-weight:700;color:var(--navy);padding:2px 4px 8px;border-bottom:1px dashed var(--line);margin-bottom:8px}
+.fig{display:block;max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);margin:10px auto}
+.flow{display:grid;gap:10px}
+.flow-row{display:flex;flex-wrap:wrap;gap:8px}
+.box{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-width:140px;flex:1}
+.box b{display:block;color:var(--navy);font-size:13px}
+.box span{font-size:12.5px;color:var(--muted)}
+.box.teal{border-top:3px solid var(--teal)}
+.box.gold{border-top:3px solid var(--gold)}
+.box.navy{border-top:3px solid var(--navy)}
+ul.dot{list-style:none;padding-left:0}
+ul.dot li{padding-left:20px;position:relative;margin:7px 0}
+ul.dot li::before{content:"◆";position:absolute;left:2px;color:var(--teal);font-size:11px;top:3px}
+.fn{font-size:13px;color:#334155;background:#f8fafc;border-left:3px solid #94a3b8;padding:10px 12px;margin:10px 0}
+.disc{font-size:13.5px}
+.disc p{margin:8px 0}
+.tag{display:inline-block;background:#e0f2f1;color:#0d5c5f;border-radius:4px;padding:0 6px;font-size:12px;font-weight:700}
+footer{background:var(--navy);color:#b7c9d6;padding:22px 28px;font-size:12.5px}
+@media(max-width:980px){
+  :root{--side:260px}
+  .authors,.kpis{grid-template-columns:1fr 1fr}
+  .cover h1{font-size:24px}
+}
+@media(max-width:720px){
+  aside.toc{transform:translateX(calc(-1 * var(--side) + 46px))}
+  main{margin-left:46px}
+  .authors,.kpis{grid-template-columns:1fr}
+}
+
+/* 第二版排版：修复长篇研究报告的阅读节奏与宽表体验 */
+:root{
+  --navy:#102a43; --navy2:#173f5f; --teal:#087f8c; --teal2:#14919b;
+  --gold:#d3a62b; --ink:#17212b; --muted:#637282; --bg:#eef2f5;
+  --card:#ffffff; --line:#d8e1e8; --side:286px;
+}
+body{
+  font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC","Segoe UI",sans-serif;
+  font-size:16px; line-height:1.9; letter-spacing:.01em;
+  background:linear-gradient(90deg,#e8edf1 0,#f5f7f9 18%,#f5f7f9 82%,#e8edf1 100%);
+}
+aside.toc{box-shadow:2px 0 14px rgba(15,42,67,.18)}
+.toc-head{padding:22px 44px 16px 18px}
+.toc-head .brand{font-size:11px;letter-spacing:2px}
+.toc-head h1{font-size:15px;line-height:1.55}
+.toc-toggle{right:10px;top:20px;width:30px;height:30px}
+.toc nav{padding:12px 10px 36px}
+.toc details{margin:5px 0}
+.toc summary{padding:9px 10px;font-size:13.5px}
+.toc a{padding:6px 10px 6px 23px;line-height:1.45}
+.toc a.active{background:#0e6672;box-shadow:inset 3px 0 0 #f0c75e}
+main{background:#f7f9fa}
+.wrap{max-width:1160px;padding:20px 42px 90px}
+.cover{padding:64px 42px 46px;border-bottom:5px solid var(--gold)}
+.cover .inner{max-width:1080px}
+.cover h1{max-width:900px;font-size:36px;line-height:1.32;letter-spacing:-.02em}
+.cover h2{max-width:900px;font-size:16px;line-height:1.6;opacity:.92}
+.cover .meta{display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));gap:16px 28px}
+.cover .meta>div{padding:2px 0}
+.author-panel{margin-top:22px;border:1px solid rgba(255,255,255,.2);border-radius:10px;background:rgba(255,255,255,.06)}
+.author-panel summary{cursor:pointer;padding:11px 14px;color:#fff;font-size:13.5px;font-weight:700;list-style:none}
+.author-panel summary::before{content:"＋";display:inline-block;margin-right:8px;color:#f0d27a}
+.author-panel[open] summary::before{content:"－"}
+.author-panel .authors{margin:0;padding:0 12px 12px}
+section{margin:44px 0 64px;scroll-margin-top:22px}
+.h-sec{align-items:center;gap:16px;margin:0 0 28px;padding:0 0 14px;border-bottom:1px solid #b9c8d4}
+.h-sec .no{min-width:52px;height:52px;border-radius:10px;font-size:17px;box-shadow:0 5px 14px rgba(16,42,67,.18)}
+.h-sec h2{font-size:27px;line-height:1.3;letter-spacing:-.02em}
+.h-sec .en{margin-top:3px;font-size:11.5px;letter-spacing:.08em}
+h3{
+  scroll-margin-top:20px; margin:38px 0 16px; padding:10px 14px;
+  border-left:5px solid var(--teal); border-radius:0 7px 7px 0;
+  background:linear-gradient(90deg,#eaf4f5 0,rgba(234,244,245,.25) 72%,transparent);
+  font-size:20px; line-height:1.6;
+}
+h4{margin:26px 0 10px;font-size:17px;color:var(--navy2)}
+p{max-width:86ch;margin:12px 0;text-align:left}
+b{font-weight:700;color:#102a43}
+.lead{padding:18px 20px;margin:22px 0;background:#e8f5f3;border-left-width:5px;font-size:16.5px;line-height:1.85}
+.card{padding:22px 26px;margin:18px 0;border-radius:10px;box-shadow:0 4px 18px rgba(16,42,67,.06)}
+.kpis{gap:16px;margin:26px 0}
+.kpi{padding:20px 12px;border-radius:11px;box-shadow:0 3px 14px rgba(16,42,67,.06)}
+.kpi .v{font-size:28px;line-height:1.2}
+.kpi .l{margin-top:9px;font-size:13px;line-height:1.5}
+ul.dot{margin:14px 0}
+ul.dot li{padding:9px 8px 9px 26px;margin:0;border-bottom:1px dashed #dce4ea;line-height:1.85}
+ul.dot li:last-child{border-bottom:0}
+ul.dot li::before{left:5px;top:11px;color:var(--teal)}
+.tbl-wrap{
+  position:relative;overflow:auto;margin:20px 0 10px;border-radius:9px;
+  border:1px solid #c8d3dc;background:#fff;box-shadow:0 3px 14px rgba(16,42,67,.06);
+  scrollbar-color:#91a6b6 #eef2f5;scrollbar-width:thin;
+}
+table{width:max-content;min-width:100%;font-size:13.5px;line-height:1.55}
+thead th{
+  position:sticky;top:0;z-index:2;padding:11px 12px;
+  background:#173f5f;border-right:1px solid rgba(255,255,255,.13);
+}
+tbody td{padding:9px 12px;border-right:1px solid #edf1f4}
+tbody td:not(:first-child){white-space:nowrap}
+tbody tr:hover{background:#eaf4f5}
+tbody tr:nth-child(even){background:#f6f8fa}
+tbody tr:nth-child(even):hover{background:#eaf4f5}
+tbody td[rowspan]{background:#e9f0f5;color:var(--navy);font-weight:800;vertical-align:middle}
+.sub,.sub:nth-child(even){background:#e7edf2!important;color:#173f5f}
+.tot,.tot:nth-child(even){background:#dff0eb!important;color:#0d554f}
+.note{max-width:none;margin:8px 3px 22px;padding-left:10px;border-left:2px solid #b7c5cf;font-size:12.5px;line-height:1.7}
+.chart-box{padding:20px;margin:22px 0;border-radius:10px;box-shadow:0 4px 18px rgba(16,42,67,.06)}
+.chart-box .cap{padding:0 2px 12px;margin-bottom:8px;font-size:15px}
+.fig{margin:18px auto 8px;box-shadow:0 4px 18px rgba(16,42,67,.08)}
+.figure-source{margin:12px 0 24px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.figure-source summary{cursor:pointer;padding:10px 14px;color:var(--navy2);font-size:13px;font-weight:700}
+.figure-source .fig{margin:0 auto 14px;max-width:calc(100% - 28px)}
+.flow-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}
+.box{min-width:0;padding:12px 13px}
+.box b{font-size:14px}
+.box span{display:block;margin-top:5px;line-height:1.65}
+.disc{padding-top:10px}
+.disc p{max-width:90ch;margin:12px 0;color:#334455}
+.disc h3{margin-top:34px}
+.disc h4{padding-bottom:6px;border-bottom:1px solid #dbe3e9}
+footer{padding:28px 42px;line-height:1.7}
+@media(max-width:980px){
+  :root{--side:258px}
+  .wrap{padding:18px 26px 70px}
+  .cover{padding:48px 28px 38px}
+  .cover h1{font-size:29px}
+  .cover .meta{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:720px){
+  body{font-size:15px;background:#f7f9fa}
+  .wrap{padding:12px 16px 60px}
+  .cover{padding:42px 18px 32px}
+  .cover h1{font-size:25px}
+  .cover .meta{grid-template-columns:1fr}
+  .h-sec h2{font-size:22px}
+  h3{font-size:17px;margin-top:30px}
+  .card{padding:17px 16px}
+  .chart{height:360px}
+}
+@media print{
+  aside.toc{display:none} main{margin-left:0!important}
+  body,.cover,main{background:#fff;color:#000}
+  .cover{color:#000;border-bottom:2px solid #000;padding:30px 0}
+  .cover h1,.cover h2,.cover .meta,.cover .authors .a{color:#000}
+  .wrap{max-width:none;padding:0}
+  .tbl-wrap{overflow:visible;box-shadow:none}
+  table{width:100%;font-size:9pt}
+  .chart-box,.card{box-shadow:none}
+  section{break-before:page}
+}
+</style>
+</head>
+<body>
+<aside class="toc" id="toc">
+  <div class="toc-head">
+    <div class="brand">BERNSTEIN · 中文全译本</div>
+    <h1>AI价值链：1GW数据中心成本拆解</h1>
+    <button class="toc-toggle" id="tocBtn" title="折叠/展开目录">☰</button>
+  </div>
+  <nav>
+    <details open>
+      <summary>封面与核心结论</summary>
+      <a href="#cover">报告封面</a>
+      <a href="#exec" class="l2">核心要点</a>
+    </details>
+    <details open>
+      <summary>作者与覆盖标的</summary>
+      <a href="#authors">作者团队</a>
+      <a href="#tickers">伯恩斯坦股票一览表</a>
+      <a href="#implications">投资含义</a>
+    </details>
+    <details open>
+      <summary>详细分析</summary>
+      <a href="#details">分析导言</a>
+      <a href="#rack">机柜级经济性与每GW资本开支</a>
+      <a href="#gpu">GPU主导的资本开支结构</a>
+      <a href="#net">网络开支</a>
+      <a href="#storage">存储开支</a>
+      <a href="#upstream">晶圆厂、HBM与设备价值捕获</a>
+      <a href="#me">机电设备与热管理</a>
+      <a href="#tco">经济成本 vs 现金资本开支</a>
+      <a href="#outlook">前瞻：瓶颈与含量提升</a>
+    </details>
+    <details open>
+      <summary>图表与附表</summary>
+      <a href="#ex1">图表1 机柜BOM拆解</a>
+      <a href="#ex2">图表2 基础设施资本开支</a>
+      <a href="#ex3">图表3 资本开支结构图</a>
+      <a href="#ex4">图表4 上游价值份额</a>
+      <a href="#ex5">图表5 WFE强度演变</a>
+      <a href="#ex6">图表6 折旧年限披露</a>
+      <a href="#ex7">图表7 机柜电源含量</a>
+      <a href="#ex8">图表8 电源组件明细</a>
+      <a href="#ex9">图表9 电源TAM</a>
+      <a href="#ex10">图表10 AI服务器供应链</a>
+      <a href="#ex11">图表11 供应链公司摘要</a>
+    </details>
+    <details>
+      <summary>披露附录</summary>
+      <a href="#disc-req">必要披露</a>
+      <a href="#disc-val">估值方法与风险</a>
+      <a href="#disc-rate">评级定义与分布</a>
+      <a href="#disc-coi">利益冲突</a>
+      <a href="#disc-cert">分析师声明</a>
+      <a href="#disc-region">各地区声明</a>
+      <a href="#disc-legal">法律声明</a>
+    </details>
+  </nav>
+</aside>
+
+<main>
+<header class="cover" id="cover">
+  <div class="inner">
+    <div class="kicker">GLOBAL TECHNOLOGY · 全球科技 · 2025年10月27日</div>
+    <h1>AI价值链：1GW数据中心容量实际成本多少，由哪些部分构成？</h1>
+    <h2>原文：AI Value Chain: How much does a GW of data center capacity actually cost, and what goes into it?</h2>
+    <p style="max-width:860px;color:#dceee9;margin-bottom:18px">基于与行业专家的一系列交流，以及对物理基础设施的第三方数据，我们构建了 GB200 / NVL72 AI数据中心的机柜级经济性估算。本报告收录我们的分析与核心结论。</p>
+    <div class="meta">
+      <div><b>机构 / 品牌</b>Bernstein · Société Générale Group</div>
+      <div><b>首次发布</b>2025年10月26日 23:08 UTC</div>
+      <div><b>完成日期</b>2025年10月26日 23:08 UTC</div>
+      <div><b>报告日期</b>2025年10月27日</div>
+      <div><b>原文页数</b>25页 · 全文完整翻译</div>
+      <div><b>网站</b>www.bernsteinresearch.com</div>
+    </div>
+    <details class="author-panel">
+      <summary>查看作者团队与联系方式（13人）</summary>
+      <div class="authors" id="authors">
+      <div class="a"><b>Stacy A. Rasgon, Ph.D.</b>+1 213 559 5917<br>stacy.rasgon@bernsteinsg.com</div>
+      <div class="a"><b>Daniel Zhu</b>+1 917 344 8309<br>daniel.zhu@bernsteinsg.com</div>
+      <div class="a"><b>Alex Wang, CFA</b>+852 2123 2613<br>alex.wang@bernsteinsg.com</div>
+      <div class="a"><b>Mark Li</b>+852 2123 2645<br>mark.li@bernsteinsg.com</div>
+      <div class="a"><b>David Dai, CFA</b>+852 2918 5704<br>david.dai@bernsteinsg.com</div>
+      <div class="a"><b>Chad Dillard</b>+1 917 344 8469<br>chad.dillard@bernsteinsg.com</div>
+      <div class="a"><b>Mark C. Newman</b>+1 212 845 7822<br>mark.newman@bernsteinsg.com</div>
+      <div class="a"><b>Arpad von Nemes</b>+1 917 344 8461<br>arpad.vonnemes@bernsteinsg.com</div>
+      <div class="a"><b>Alrick Shaw</b>+1 917 344 8454<br>alrick.shaw@bernsteinsg.com</div>
+      <div class="a"><b>Shirley Yang, CFA</b>+852 2123 2660<br>shirley.yang@bernsteinsg.com</div>
+      <div class="a"><b>Ethan Xu</b>+852 2123 2634<br>ethan.xu@bernsteinsg.com</div>
+      <div class="a"><b>Edward Hou, CFA</b>+852 2123 2623<br>edward.hou@bernsteinsg.com</div>
+      <div class="a"><b>Yipin Cai, CFA</b>+852 2123 2669<br>yipin.cai@bernsteinsg.com</div>
+      </div>
+    </details>
+  </div>
+</header>
+
+<div class="wrap">
+<section id="exec">
+  <div class="h-sec"><div class="no">01</div><div><h2>核心结论</h2><div class="en">EXECUTIVE TAKEAWAYS · 原文第1页</div></div></div>
+  <p>基于与行业专家的一系列交流，以及对物理基础设施的第三方数据，我们构建了 GB200 / NVL72 AI数据中心的机柜级经济性估算。本报告收录我们的分析与核心结论。</p>
+  <div class="kpis">
+    <div class="kpi"><div class="v">$3.4M</div><div class="l">典型 GB200 / NVL72 单柜成本</div></div>
+    <div class="kpi"><div class="v">$2.5M</div><div class="l">单柜物理基础设施成本</div></div>
+    <div class="kpi"><div class="v">$5.9M</div><div class="l">单柜全口径资本开支</div></div>
+    <div class="kpi"><div class="v">$35B</div><div class="l">每 GW 全口径资本开支</div></div>
+  </div>
+  <div class="lead">我们估计，典型 GB200 / NVL72 机柜成本约为 <b>340万美元/柜</b>。叠加约 <b>250万美元/柜</b> 的物理基础设施成本，对应 AI 数据中心全口径资本开支为 <b>590万美元/柜</b>，或 <b>350亿美元/GW</b>。该估算明显低于英伟达在 2026 财年第二季度业绩会上给出的 <b>500–600亿美元</b> 数字——我们相信英伟达是在前瞻后续产品周期。</div>
+  <p>数据中心资本开支显著由 GPU 主导：我们估计 GPU 占总成本的 <b>39%</b>，英伟达毛利美元占 <b>29%</b>。鉴于英伟达约 <b>70%</b> 的毛利率，这意味着英伟达毛利美元约占 AI 数据中心总支出的 <b>30%</b>。即便 ASIC 毛利率更低，AI ASIC 仍将以显著优势保持最大成本项：假设 GPU 与 ASIC 的销售成本（COGS）相同，但 ASIC 毛利率为 50% 而非 70%，则加速计算价格将从约 <b>230万美元</b> 降至约 <b>120万美元</b>，相当于全口径资本开支节省约 <b>19%</b>，但 ASIC 仍约占 ASIC 数据中心资本开支的 <b>28%</b>。</p>
+  <p>网络是另一大开支项，约占支出的 <b>13%</b>，但网络支出更分散于不同类型设备。存储相对较小，约占支出的 <b>1.4%</b>。</p>
+  <p>晶圆厂、HBM 与晶圆厂设备（WFE）供应商在 GPU 与 ASIC 路径下捕获的份额差异很大。在 GB200 路径下，晶圆厂获得数据中心资本开支的 <b>2.5–3%</b>（11亿美元/GW），若 CPU 也由晶圆厂代工则再多约 <b>1%</b>（3亿美元/GW）。HBM 获得 <b>3–3.5%</b>（11亿美元/GW）。WFE 获得 <b>3–4%</b>（12亿美元/GW）。在 ASIC 路径下，它们获得的份额更高，因为同样的数据中心资本开支可以买到更多芯片。</p>
+  <p>机电设备支出集中度较低，但主要项目包括柴油与天然气发电机及涡轮机（约占支出 <b>6%</b>）、不间断电源（约 <b>4%</b>）和变压器（约 <b>5%</b>）。热管理在支出中相对较小（约 <b>4%</b>），目前仍在风冷与液冷之间分配，但我们预计支出将继续向液冷倾斜。我们模型显示，到 2027 年 Rubin Ultra 采用 800V 高压直流（HVDC）设计后，柜内电源组件含量将增至 GB200 的 <b>7–8倍</b>。</p>
+  <p>鉴于服务器、网络等 IT 硬件的折旧年限短于机电设备或土地与建筑，且运营成本相对较低，<b>真实经济成本</b> 很可能比现金资本开支所暗示的更加向服务器与网络倾斜。即便按偏高的 <b>0.15美元/千瓦时</b> 电价，运行 1GW 数据中心容量一年的电费也约为 <b>13亿美元</b>。人员成本同样可忽略：据称 20GW 数据中心仅需 8–10 人运营，每人年成本 3–8 万美元。</p>
+  <p class="note">有关必要披露、分析师声明及其他重要信息，请见本报告披露附录；亦可访问 Bernstein 全球研究披露网站。www.bernsteinresearch.com</p>
+</section>
+
+<section id="tickers">
+  <div class="h-sec"><div class="no">02</div><div><h2>伯恩斯坦股票一览表</h2><div class="en">BERNSTEIN TICKER TABLE · 截至 2025年10月24日收盘 · 原文第2–3页</div></div></div>
+  <p>评级：<span class="tag">O</span> 跑赢大盘（Outperform）　<span class="tag">M</span> 与大盘同步（Market-Perform）　<span class="tag">U</span> 跑输大盘（Underperform）　NR 未评级　CS 覆盖暂停</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>代码</th><th class="c">评级</th><th class="c">币种</th><th class="r">收盘价</th><th class="r">目标价</th><th class="r">相对表现</th>
+        <th class="r">EPS 2024A</th><th class="r">2025E</th><th class="r">2026E</th>
+        <th class="r">P/E 2024A</th><th class="r">2025E</th><th class="r">2026E</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>NVDA</td><td class="c">O</td><td class="c">USD</td><td class="r num">186.26</td><td class="r num">225.00</td><td class="r">15.8%</td><td class="r num">2.99</td><td class="r num">4.44</td><td class="r num">5.84</td><td class="r num">62.2</td><td class="r num">42.0</td><td class="r num">31.9</td></tr>
+      <tr><td>AVGO</td><td class="c">O</td><td class="c">USD</td><td class="r num">354.13</td><td class="r num">400.00</td><td class="r">89.8%</td><td class="r num">4.86</td><td class="r num">6.73</td><td class="r num">9.38</td><td class="r num">72.9</td><td class="r num">52.6</td><td class="r num">37.7</td></tr>
+      <tr><td>AMD</td><td class="c">M</td><td class="c">USD</td><td class="r num">252.92</td><td class="r num">200.00</td><td class="r">47.9%</td><td class="r num">3.31</td><td class="r num">3.92</td><td class="r num">5.27</td><td class="r num">76.4</td><td class="r num">64.5</td><td class="r num">48.0</td></tr>
+      <tr><td>INTC</td><td class="c">M</td><td class="c">USD</td><td class="r num">38.28</td><td class="r num">35.00</td><td class="r">54.5%</td><td class="r num">(0.13)</td><td class="r num">0.34</td><td class="r num">0.41</td><td class="r num">(289.5)</td><td class="r num">111.9</td><td class="r num">93.1</td></tr>
+      <tr><td>QCOM</td><td class="c">O</td><td class="c">USD</td><td class="r num">168.94</td><td class="r num">185.00</td><td class="r">(16.4)%</td><td class="r num">10.21</td><td class="r num">11.88</td><td class="r num">11.55</td><td class="r num">16.5</td><td class="r num">14.2</td><td class="r num">14.6</td></tr>
+      <tr><td>TXN</td><td class="c">M</td><td class="c">USD</td><td class="r num">169.13</td><td class="r num">160.00</td><td class="r">(35.0)%</td><td class="r num">5.20</td><td class="r num">5.44</td><td class="r num">5.72</td><td class="r num">32.5</td><td class="r num">31.1</td><td class="r num">29.6</td></tr>
+      <tr><td>ADI</td><td class="c">M</td><td class="c">USD</td><td class="r num">238.01</td><td class="r num">240.00</td><td class="r">(13.3)%</td><td class="r num">6.38</td><td class="r num">7.75</td><td class="r num">8.92</td><td class="r num">37.3</td><td class="r num">30.7</td><td class="r num">26.7</td></tr>
+      <tr><td>NXPI</td><td class="c">M</td><td class="c">USD</td><td class="r num">219.16</td><td class="r num">220.00</td><td class="r">(25.2)%</td><td class="r num">13.08</td><td class="r num">11.77</td><td class="r num">13.00</td><td class="r num">16.7</td><td class="r num">18.6</td><td class="r num">16.9</td></tr>
+      <tr><td>LRCX</td><td class="c">O</td><td class="c">USD</td><td class="r num">151.68</td><td class="r num">170.00</td><td class="r">81.2%</td><td class="r num">4.14</td><td class="r num">4.85</td><td class="r num">5.67</td><td class="r num">36.7</td><td class="r num">31.3</td><td class="r num">26.8</td></tr>
+      <tr><td>AMAT</td><td class="c">O</td><td class="c">USD</td><td class="r num">228.75</td><td class="r num">195.00</td><td class="r">7.6%</td><td class="r num">8.65</td><td class="r num">9.38</td><td class="r num">9.50</td><td class="r num">26.4</td><td class="r num">24.4</td><td class="r num">24.1</td></tr>
+      <tr><td>DELL</td><td class="c">O</td><td class="c">USD</td><td class="r num">158.64</td><td class="r num">180.00</td><td class="r">14.7%</td><td class="r num">8.10</td><td class="r num">9.55</td><td class="r num">11.11</td><td class="r num">19.6</td><td class="r num">16.6</td><td class="r num">14.3</td></tr>
+      <tr><td>2360.TT（致茂 Chroma ATE）</td><td class="c">O</td><td class="c">TWD</td><td class="r num">692.00</td><td class="r num">570.00</td><td class="r">44.6%</td><td class="r num">12.41</td><td class="r num">19.40</td><td class="r num">21.77</td><td class="r num">55.8</td><td class="r num">35.7</td><td class="r num">31.8</td></tr>
+      <tr><td>2308.TT（台达 Delta）</td><td class="c">O</td><td class="c">TWD</td><td class="r num">1,010.00</td><td class="r num">1,130.00</td><td class="r">130.2%</td><td class="r num">13.53</td><td class="r num">23.25</td><td class="r num">28.73</td><td class="r num">74.7</td><td class="r num">43.4</td><td class="r num">35.2</td></tr>
+      <tr><td>2382.TT（广达 Quanta）</td><td class="c">U</td><td class="c">TWD</td><td class="r num">293.50</td><td class="r num">240.00</td><td class="r">(26.3)%</td><td class="r num">15.40</td><td class="r num">17.56</td><td class="r num">19.50</td><td class="r num">19.1</td><td class="r num">16.7</td><td class="r num">15.0</td></tr>
+      <tr><td>3037.TT（欣兴 Unimicron）</td><td class="c">O</td><td class="c">TWD</td><td class="r num">156.00</td><td class="r num">170.00</td><td class="r">(27.0)%</td><td class="r num">3.32</td><td class="r num">3.68</td><td class="r num">9.59</td><td class="r num">46.9</td><td class="r num">42.4</td><td class="r num">16.3</td></tr>
+      <tr><td>2330.TT（台积电 TSMC）</td><td class="c">O</td><td class="c">TWD</td><td class="r num">1,450.00</td><td class="r num">1,444.00</td><td class="r">15.2%</td><td class="r num">45.25</td><td class="r num">60.94</td><td class="r num">70.54</td><td class="r num">8.8*</td><td class="r num">7.3*</td><td class="r num">6.0*</td></tr>
+      <tr><td>TSM</td><td class="c">O</td><td class="c">USD</td><td class="r num">294.96</td><td class="r num">290.00</td><td class="r">32.1%</td><td class="r num">7.04</td><td class="r num">9.92</td><td class="r num">11.48</td><td class="r num">11.7*</td><td class="r num">9.2*</td><td class="r num">7.5*</td></tr>
+      <tr><td>2454.TT（联发科 MediaTek）</td><td class="c">O</td><td class="c">TWD</td><td class="r num">1,295.00</td><td class="r num">1,600.00</td><td class="r">(22.5)%</td><td class="r num">66.94</td><td class="r num">66.92</td><td class="r num">75.86</td><td class="r num">19.3</td><td class="r num">19.4</td><td class="r num">17.1</td></tr>
+      <tr><td>005930.KS（三星电子 SEC）</td><td class="c">O</td><td class="c">KRW</td><td class="r num">98,900</td><td class="r num">95,000</td><td class="r">55.9%</td><td class="r num">4,948.97</td><td class="r num">4,686.49</td><td class="r num">8,080.39</td><td class="r num">20.0</td><td class="r num">21.1</td><td class="r num">12.2</td></tr>
+      <tr><td>005935.KS（三星电子优先股）</td><td class="c">O</td><td class="c">KRW</td><td class="r num">77,900</td><td class="r num">80,750</td><td class="r">42.5%</td><td class="r num">4,948.97</td><td class="r num">4,686.49</td><td class="r num">8,080.39</td><td class="r num">15.7</td><td class="r num">16.6</td><td class="r num">9.6</td></tr>
+      <tr><td>SMSN.LI</td><td class="c">O</td><td class="c">USD</td><td class="r num">1,726.00</td><td class="r num">1,734.00</td><td class="r">46.3%</td><td class="r num">90.66</td><td class="r num">83.78</td><td class="r num">147.45</td><td class="r num">19.0</td><td class="r num">20.6</td><td class="r num">11.7</td></tr>
+      <tr><td>000660.KS（SK海力士）</td><td class="c">O</td><td class="c">KRW</td><td class="r num">513,000</td><td class="r num">400,000</td><td class="r">134.2%</td><td class="r num">28,300</td><td class="r num">50,488</td><td class="r num">64,734</td><td class="r num">18.1</td><td class="r num">10.2</td><td class="r num">7.9</td></tr>
+      <tr><td>MU</td><td class="c">O</td><td class="c">USD</td><td class="r num">219.02</td><td class="r num">170.00</td><td class="r">88.1%</td><td class="r num">1.26</td><td class="r num">8.14</td><td class="r num">14.64</td><td class="r num">173.4</td><td class="r num">26.9</td><td class="r num">15.0</td></tr>
+      <tr><td>ETN</td><td class="c">O</td><td class="c">USD</td><td class="r num">376.29</td><td class="r num">414.00</td><td class="r">(7.9)%</td><td class="r num">10.80</td><td class="r num">12.07</td><td class="r num">14.07</td><td class="r num">34.8</td><td class="r num">31.2</td><td class="r num">26.7</td></tr>
+      <tr><td>HUBB</td><td class="c">O</td><td class="c">USD</td><td class="r num">434.39</td><td class="r num">511.00</td><td class="r">(20.4)%</td><td class="r num">16.56</td><td class="r num">18.13</td><td class="r num">20.44</td><td class="r num">26.2</td><td class="r num">24.0</td><td class="r num">21.2</td></tr>
+      <tr><td>PWR</td><td class="c">M</td><td class="c">USD</td><td class="r num">440.93</td><td class="r num">410.00</td><td class="r">25.4%</td><td class="r num">8.97</td><td class="r num">10.70</td><td class="r num">13.58</td><td class="r num">49.1</td><td class="r num">41.2</td><td class="r num">32.5</td></tr>
+      <tr><td>LGN</td><td class="c">O</td><td class="c">USD</td><td class="r num">36.12</td><td class="r num">38.00</td><td class="r">NA</td><td class="r num">229.63†</td><td class="r num">252.28†</td><td class="r num">278.67†</td><td class="r num">16.5‡</td><td class="r num">15.1‡</td><td class="r num">13.6‡</td></tr>
+      <tr><td>ASML</td><td class="c">M</td><td class="c">USD</td><td class="r num">1,033.10</td><td class="r num">935.00</td><td class="r">28.4%</td><td class="r num">20.83</td><td class="r num">27.00</td><td class="r num">28.18</td><td class="r num">42.7</td><td class="r num">32.9</td><td class="r num">31.5</td></tr>
+      <tr><td>8035.JP（东京电子）</td><td class="c">O</td><td class="c">JPY</td><td class="r num">30,270</td><td class="r num">31,100</td><td class="r">6.2%</td><td class="r num">1,179.08</td><td class="r num">1,057.50</td><td class="r num">1,262.81</td><td class="r num">25.7</td><td class="r num">28.6</td><td class="r num">24.0</td></tr>
+      <tr><td>6525.JP（Kokusai）</td><td class="c">O</td><td class="c">JPY</td><td class="r num">4,877.00</td><td class="r num">5,580.00</td><td class="r">53.7%</td><td class="r num">153.87</td><td class="r num">154.97</td><td class="r num">193.39</td><td class="r num">31.7</td><td class="r num">31.5</td><td class="r num">25.2</td></tr>
+      <tr><td>6146.JP（DISCO）</td><td class="c">O</td><td class="c">JPY</td><td class="r num">53,450</td><td class="r num">58,500</td><td class="r">17.6%</td><td class="r num">1,119.74</td><td class="r num">1,153.84</td><td class="r num">1,389.59</td><td class="r num">47.7</td><td class="r num">46.3</td><td class="r num">38.5</td></tr>
+      <tr><td>6857.JP（爱德万 Advantest）</td><td class="c">M</td><td class="c">JPY</td><td class="r num">17,080</td><td class="r num">9,430.00</td><td class="r">94.2%</td><td class="r num">218.94</td><td class="r num">348.54</td><td class="r num">344.78</td><td class="r num">78.0</td><td class="r num">49.0</td><td class="r num">49.5</td></tr>
+      <tr><td>BESI.NA</td><td class="c">O</td><td class="c">EUR</td><td class="r num">147.05</td><td class="r num">169.00</td><td class="r">19.6%</td><td class="r num">2.30</td><td class="r num">1.52</td><td class="r num">2.76</td><td class="r num">63.9</td><td class="r num">96.5</td><td class="r num">53.2</td></tr>
+      <tr><td>6920.JP（Lasertec）</td><td class="c">U</td><td class="c">JPY</td><td class="r num">21,680</td><td class="r num">10,900</td><td class="r">(22.1)%</td><td class="r num">654.49</td><td class="r num">937.82</td><td class="r num">754.02</td><td class="r num">33.1</td><td class="r num">23.1</td><td class="r num">28.8</td></tr>
+      <tr><td>7735.JP（Screen）</td><td class="c">M</td><td class="c">JPY</td><td class="r num">13,375</td><td class="r num">12,000</td><td class="r">16.1%</td><td class="r num">1,024.91</td><td class="r num">901.02</td><td class="r num">983.51</td><td class="r num">13.0</td><td class="r num">14.8</td><td class="r num">13.6</td></tr>
+      <tr><td>HPE</td><td class="c">M</td><td class="c">USD</td><td class="r num">23.50</td><td class="r num">24.00</td><td class="r">4.2%</td><td class="r num">1.98</td><td class="r num">1.88</td><td class="r num">2.69</td><td class="r num">11.9</td><td class="r num">12.5</td><td class="r num">8.7</td></tr>
+      <tr><td>SMCI</td><td class="c">M</td><td class="c">USD</td><td class="r num">48.29</td><td class="r num">46.00</td><td class="r">(12.4)%</td><td class="r num">2.04</td><td class="r num">2.10</td><td class="r num">2.85</td><td class="r num">23.7</td><td class="r num">23.0</td><td class="r num">17.0</td></tr>
+      <tr><td>STX</td><td class="c">O</td><td class="c">USD</td><td class="r num">234.12</td><td class="r num">275.00</td><td class="r">108.3%</td><td class="r num">8.10</td><td class="r num">11.36</td><td class="r num">14.47</td><td class="r num">28.9</td><td class="r num">20.6</td><td class="r num">16.2</td></tr>
+      <tr><td>WDC</td><td class="c">M</td><td class="c">USD</td><td class="r num">129.43</td><td class="r num">120.00</td><td class="r">141.4%</td><td class="r num">4.96</td><td class="r num">6.63</td><td class="r num">7.53</td><td class="r num">26.1</td><td class="r num">19.5</td><td class="r num">17.2</td></tr>
+      <tr><td>SNDK</td><td class="c">O</td><td class="c">USD</td><td class="r num">186.16</td><td class="r num">120.00</td><td class="r">NA</td><td class="r num">2.32</td><td class="r num">6.88</td><td class="r num">12.12</td><td class="r num">80.4</td><td class="r num">27.0</td><td class="r num">15.4</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">基准指数（2025年10月24日）：SPX 6,791.69；ASIAX 1,627.83；EM 1,525.86；JPL 2,119.17；EDM 1,533.36。</p>
+  <p class="note">* 2330.TT、TSM 估值为市净率 P/B（倍）。† LGN 估计值为 EBITDA（百万）。‡ LGN 估值为 EV/EBITDA（倍）。NVDA、AVGO、AMD、INTC、QCOM、ADI、NXPI、LRCX、AMAT、MU、ETN、HUBB、PWR、HPE、SMCI、STX、WDC、SNDK 估计值为调整后 EPS；TXN、2360.TT、2308.TT、2382.TT、3037.TT、2454.TT、005930.KS、005935.KS、SMSN.LI、000660.KS、ASML、8035.JP、6525.JP、6146.JP、6857.JP、BESI.NA、6920.JP、7735.JP 估值为报告 P/E（倍）。NVDA、LRCX、DELL、SMCI、STX、WDC、SNDK 基准年为 2025 年。来源：Bloomberg、Bernstein 估计与分析。</p>
+</section>
+
+<section id="implications">
+  <div class="h-sec"><div class="no">03</div><div><h2>投资含义</h2><div class="en">INVESTMENT IMPLICATIONS · 原文第3–4页</div></div></div>
+  <div class="card">
+    <ul class="dot">
+      <li><b>NVDA（跑赢，225美元）：</b>数据中心机遇巨大，仍处早期，仍有可观上行空间。</li>
+      <li><b>AVGO（跑赢，400美元）：</b>2025 年强劲的 AI 轨迹料将在 2026 年加速，并得到软件、现金部署以及优异毛利率与自由现金流的支撑。</li>
+      <li><b>AMD（同步，200美元）：</b>AI 预期仍然很高，但与 OpenAI 的新交易有望推动进一步（可能相当可观的）增长。</li>
+      <li><b>INTC（同步，35美元）：</b>英特尔的问题已全面暴露到台前。</li>
+      <li><b>QCOM（跑赢，目标价 185美元）：</b>苹果相关逆风现已到来但已被市场知晓；产品组合强于以往，存在期权价值，且股价非常便宜。</li>
+      <li><b>TXN（同步，160美元）：</b>在当前环境下，德州仪器股价感觉已充分估值。</li>
+      <li><b>ADI（同步，240美元）：</b>在景气中存在需求前置担忧，且股价偏贵。</li>
+      <li><b>NXPI（同步，220美元）：</b>鉴于关税不确定性（汽车或受更不利影响），复苏节奏仍有争议。</li>
+      <li><b>AMAT（跑赢，195美元）：</b>我们对晶圆厂设备（WFE）的长期增长保持积极看法，并看到多项驱动因素，包括可服务市场（SAM）扩张、服务叙事增强以及资本回报。</li>
+      <li><b>LRCX（跑赢，170美元）：</b>公司受益于关键拐点（GAA、先进封装、HBM、NAND 升级），对 2026 日历年的表态似乎具有支撑性。</li>
+      <li><b>DELL（跑赢，180.00美元）：</b>公司在 AI 服务器与存储上仍有巨大上行机会，相对其增长画像非常便宜。</li>
+      <li><b>SNDK（跑赢，120.00美元）：</b>从西部数据分拆后，SNDK 作为 NAND 领导者、智能革命的核心积木之一，仍被显著低估与低估值。</li>
+      <li><b>STX（跑赢，275.00美元）：</b>周期与结构性顺风正在对齐：HDD 周期走强，希捷在 HAMR 上的技术领先开始兑现回报。（原文拼写为 Outpeform）</li>
+      <li><b>WDC（同步，120.00美元）：</b>尽管西部数据无论绝对还是相对希捷都偏便宜，并将受益于 HDD 周期走强，但在追赶 HAMR 的过程中将同时面临份额与利润率压力。</li>
+      <li><b>SMCI（同步，46.00美元）：</b>超微虽是增长故事中的突出者，但其增长正在急剧减速，指引显得激进，且考虑到现金转化挑战，业务比表面看起来更贵。</li>
+      <li><b>HPE（同步，24.00美元）：</b>HPE 对瞻博网络的转型性收购已于 7 月 2 日在与司法部和解后交割，但我们仍难以为交易逻辑提供充分支撑。</li>
+    </ul>
+  </div>
+  <div class="card">
+    <ul class="dot">
+      <li><b>三星电子：</b>给予跑赢评级，目标价 95,000 韩元。</li>
+      <li><b>SK海力士：</b>给予跑赢评级，目标价 400,000 韩元。</li>
+      <li><b>美光：</b>给予跑赢评级，目标价 170.00 美元。</li>
+      <li><b>台积电：</b>给予跑赢评级，目标价 1,444.00 新台币。</li>
+      <li><b>联发科：</b>给予跑赢评级，目标价 1,600.00 新台币。</li>
+      <li>我们给予东京电子（目标价 31,100 日元）、Kokusai（目标价 5,580.00 日元）、DISCO（目标价 58,500 日元）、Besi（目标价 169.00 欧元）<b>跑赢</b>评级；给予 ASML（目标价 935.00 欧元）、爱德万（目标价 9,430.00 日元）、Screen（目标价 12,000 日元）<b>与大盘同步</b>评级；给予 Lasertec（目标价 10,900 日元）<b>跑输</b>评级。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="details">
+  <div class="h-sec"><div class="no">04</div><div><h2>详细分析</h2><div class="en">DETAILS · 原文第5–8页</div></div></div>
+  <p>基于与行业专家的一系列交流、供应链核查，以及关于土地与物理基础设施柜外成本的第三方数据，我们构建了 GB200 / NVL72 AI 数据中心的机柜级经济性拆解估算。本报告收录我们的分析与核心结论。</p>
+
+  <h3 id="rack">我们估计典型 GB200 / NVL72 机柜成本约 340 万美元/柜。叠加约 250 万美元/柜的物理基础设施成本，对应全口径 AI 数据中心资本开支 590 万美元/柜，或 350 亿美元/GW。</h3>
+  <ul class="dot">
+    <li><b>GB200 / NVL72 单柜 340 万美元。</b>基于行业专家表态，我们估计 GB200 / NVL72 机柜成本为 290–350 万美元，并得出“典型”机柜约 <b>340 万美元</b>（见图表1）。</li>
+    <li><b>每 GW 全口径资本开支 350 亿美元。</b>我们估计单柜机柜功耗 132 kW、支撑单柜的数据中心总功耗 169 kW（即机柜占数据中心功耗的 78%）。这对应每 GW 约 <b>5,900 柜</b>，进而意味着每 GW 机柜成本 200 亿美元。行业联系人进一步指向约 <b>150 亿美元</b> 的柜外物理基础设施成本（折合 250 万美元/柜），从而得到全口径数据中心资本开支 <b>590 万美元/柜</b> 或 <b>350 亿美元/GW</b>（见图表2）。</li>
+    <li><b>如何看待英伟达的表态？那只是“黄仁勋式乐观”吗？</b>半导体整体、尤其是英伟达的每 GW 机遇显然巨大，但本估算明显低于英伟达在 2026 财年第二季度业绩会上给出的 <b>500–600 亿美元/GW</b>，而更接近博通与 AMD 所称的每 GW 约 <b>150–200 亿美元</b> 可寻址机遇。我们的行业联系人明确指出他们认为英伟达数字偏高，但我们怀疑英伟达是在前瞻后续 GPU 周期——届时单柜与每 GW 成本都会更高。</li>
+  </ul>
+
+  <h3 id="gpu">数据中心资本开支显著由 GPU 主导：我们估计其占总成本的 39%，英伟达毛利美元占 29%。</h3>
+  <ul class="dot">
+    <li><b>英伟达毛利美元是 AI 数据中心物料清单中单一最大分项。</b>鉴于英伟达约 70% 的毛利率，这意味着英伟达毛利美元约占 AI 数据中心总支出的 <b>29%</b>（见图表3），几乎相当于全部机电设备（约 33%）。尽管 HBM、GPU 硅片及其他 GPU 成本在 GPU 经济中只占相对较小份额，但 GPU 支出体量巨大，使这些分项在整体物料清单中仍相当可观。</li>
+    <li><b>即便 ASIC 毛利率更低，AI ASIC 仍是最大成本项。</b>假设 GPU 与 ASIC 的 COGS 相同，但 ASIC 毛利率为 50% 而非 70%，则加速计算价格将从约 230 万美元降至约 120 万美元，相当于全口径资本开支节省约 19%，且仍约占 ASIC 数据中心资本开支的 <b>24%</b>。</li>
+    <li><b>CPU 还重要吗？或多或少……</b>从表面看，CPU 仍是相当显著的成本项（占总资本开支的 3%，大体与交换机等更常被论证为 AI 赢家的组件相当）。不过，鉴于 CPU 相对 GPU 的支出份额较小，且 CPU 与 GPU 常作为超级芯片捆绑，CPU 往往被视为更大捆绑中的附加项。</li>
+  </ul>
+
+  <h3 id="net">网络是另一大开支项，约占支出的 13%，但网络支出更分散于不同类型设备。</h3>
+  <p>交换机是网络设备中最大的一块（约占总支出 3%），但其他扩展（scale-up）网络——如铜缆（约 2%）以及安费诺等供应的背板连接器（约 2%）——以及横向扩展（scale-out）网络基础设施（例如网络加速器）也同样显著。</p>
+  <ul class="dot">
+    <li><b>交换机约占支出 3%，网络厂商与交换硅设计商毛利率都相对较高。</b>交换机并非巨大成本项（可能占扩展网络的 40–50%，而扩展网络又占机柜成本的 10–15%），但约占总支出 3% 仍相当可观。我们还注意到，Arista 等网络厂商在交换机硬件上赚取相对较高毛利率（60%+），交换硅设计商在硅片（COGS 中最大组件）上也赚取相对较高毛利率，因此交换机在利润池中的份额可能比在终端用户支出中的份额更重要。</li>
+    <li><b>DPU（3%）、铜缆（2%）、背板连接器（2%）、网卡 NIC（2%）与光模块（1%）也都是支出的显著部分。</b>而且，其中许多品类的单柜含量存在潜在变化，尤其是随着共封装光学（CPO）获得采用。</li>
+  </ul>
+
+  <h3 id="storage">存储在支出中份额相当小，约 1.4%。</h3>
+  <p>一位行业联系人观察到，典型机柜约有 <b>2 PB</b> 存储——按硬盘 0.01 美元/GB 计，甚至更低，约 2 万美元/柜，或约占机柜成本的 0.6%。这重新框定了为何数据中心运营商可能优先考虑能效等因素，而非每 GB 存储价格。</p>
+  <ul class="dot">
+    <li><b>2 PB 存储折合约占机柜成本的 0.6%。</b>一位行业联系人观察到典型机柜约有 2 PB 存储——按硬盘 0.01 美元/GB 计，折合约 2 万美元/柜，或约占机柜成本 0.6%——这实际上低于行业专家反馈，可能是因为部分存储采用了成本更高的 NAND。</li>
+    <li><b>我们是否把 QLC 之争想错了？HDD 与 NAND 的成本差还重要吗？</b>这也重新框定了被广泛讨论的 Meta 白皮书：Meta 主张在数据中心更广泛使用 QLC NAND 闪存而非 HDD。即便每 GB 成本显著更高（我们估计 TLC SSD 为 0.066 美元，QLC 通常便宜约 40%，因此或许约 0.04 美元），增量成本（或许 6 万美元/柜）相对总体成本并不十分相关，且或许合理——因为（如 Meta 所论）QLC SSD 比 HDD 和 TLC SSD 都更省电，在电力受限环境中，这可能比增量成本节省更重要。</li>
+    <li><b>间接支出呢？</b>不过我们观察到，尽管 AI 数据中心对存储的直接支出相对较小，存储也可能从 AI 获得间接收益。例如，戴尔等认为企业 AI 采用将要求存储足迹现代化，进而可能推动企业存储更强的更新周期。</li>
+    <li><b>延伸阅读。</b>关于 Toni Sacconaghi 为何认为存储在支出中相对较小，见：<i>Dell, HPE: Dimensioning the AI storage opportunity — Bonanza or wishful thinking?</i>（戴尔、HPE：度量 AI 存储机遇——是盛宴还是一厢情愿？）。关于 Mark Newman 在近期启动 IT 硬件覆盖后对 HDD 行业的入门，见：<i>Global Hard Disk Drives: It's HAMR time! A primer on the HDD industry and why STX is poised to reap outsized rewards</i>（全球硬盘：HAMR 时刻到了！HDD 行业入门及为何希捷有望收获超常回报）。</li>
+  </ul>
+
+  <h3 id="upstream">晶圆厂、HBM、半导体设备及其他上游供应商在 GPU 与 ASIC 路径下捕获的份额差异很大。</h3>
+  <ul class="dot">
+    <li><b>我们估计，在 GB200 路径下，晶圆厂机遇约为 GPU 的 2.5–3%，网络与 HBM 存储机遇为 3–3.5%，WFE 为 3–4%。</b>对于部署 GB200 NVL72 的数据中心，我们估计晶圆厂通过 GPU、网络芯片等获得数据中心资本开支的 2.5–3%；若 CPU 也由晶圆厂代工，再多约 1%。存储供应商通过 HBM 获得 3–3.5%（不含常规 DRAM）。WFE（晶圆厂设备）供应商获得 3–4%。这相当于晶圆厂获得 <b>11 亿美元/GW</b>，CPU 也由晶圆厂制造时再加 <b>3 亿美元/GW</b>。存储公司通过 HBM 将有 <b>11 亿美元/GW</b>，WFE 供应商将享有 <b>12 亿美元/GW</b>（见图表4）。</li>
+    <li><b>更低的价格/毛利率从而更高的出货量，意味着 ASIC 对晶圆厂及其他上游供应商提供更有利的经济性。</b>然而，若数据中心部署基于 ASIC 的服务器，ASIC 厂商要求的低毛利率意味着同样的数据中心资本开支可以买到更多服务器、从而更多芯片。沿用上例：ASIC 厂商要求 50% 毛利率，而英伟达享受 70%，则数据中心资本开支可降低约 16%；或者在资本开支金额不变时，可多采购约 19% 的机柜/服务器/芯片。同理，若 ASIC 由联发科或世芯（3661 TT，未覆盖）等要求毛利率低于 50% 的亚洲供应商提供，或 GPU 来自要求更低的供应商（AMD，甚至英特尔？），则晶圆厂、存储与 WFE 等上游供应商将获得更多。因此，上述占数据中心资本开支的百分比数字，应根据采用这些供应商所带来的节省相应上调。</li>
+    <li><b>能效增加了复杂性。</b>不过，若我们简单地假设 GPU 与 ASIC 仅在供应商毛利率上不同、能效相同，则上述每 GW 收入估算不会改变。现实当然更复杂，GPU 与 ASIC 很可能针对不同用例优化能效。</li>
+    <li><b>这是一个时点快照……它会如何演变？</b>我们也怀疑此处估算受技术演进影响，可能随时间变化，例如图表5所示从 A100 到 B300 的趋势。本练习基于部署 GB200 NVL72 的数据中心，预测未来时应调整。因此我们计划在后续研究中一并讨论这一点，以及从 GPU 到 ASIC 的变化。</li>
+    <li><b>如何看待拉姆研究（Lam）所称每 1000 亿美元数据中心投资对应 80 亿美元机遇？</b>有人可能觉得上述数据中心资本开支中仅 3–4% 流向 WFE 偏低，因为拉姆刚指引每 1000 亿美元数据中心投资对应 80 亿美元 WFE 支出。我们将差异归因于：拉姆的指引很可能假设数据中心部署的是英伟达、AMD 与 ASIC 供应商的芯片组合。拉姆的指引也可能嵌入了我们基于 GB200 NVL72 的分析尚未捕捉的未来变化。我们还观察到，若假设 WFE 支出为 GPU 支出的 20%（鉴于 GPU 占总支出的 40%），则拉姆的指引大致正确。虽然 20% 这一数字对许多 ASIC 供应商似乎大致正确（再次见图表5），但对英伟达偏高——因为英伟达资本效率更高（反过来，ASIC 通常低于总支出的 40%）。</li>
+  </ul>
+
+  <h3 id="me">机电设备支出集中度较低，但主要项目包括柴油与天然气发电机及涡轮机（约占支出 6%）、不间断电源（约 4%）和变压器（约 5%）。</h3>
+  <p>热管理在支出中相对较小（约 4%），目前仍在风冷与液冷之间分配，但我们预计支出将继续向液冷倾斜（再次见图表2）。</p>
+  <ul class="dot">
+    <li><b>用于冗余的备用柴油与天然气发电机及涡轮机是机电设备中单一最大块，约占支出 6%。</b>这些产品包括卡特彼勒（由 Chad Dillard 覆盖）生产的发电机、MTU（属劳斯莱斯，由 Adrien Rabier 覆盖）、科勒（Bernstein 未覆盖），以及现已进入市场的 Generac（Bernstein 未覆盖）——后者于 4 月进入市场，并于 2025 年下半年开始国际交付。公用事业级发电不在本分析范围内（因其不坐落于数据中心内，而是反映在电力成本中），但它们日益成为辩论焦点——后文详述。</li>
+    <li><b>配电合计约占支出 10%，跨越多个垂直领域与厂商。</b>配电设备制造商包括伊顿（由 Chad Dillard 覆盖）、施耐德电气（由 Alasdair Leslie 覆盖）、维谛（未覆盖）、ABB（由 Alasdair Leslie 覆盖）、nVent（未覆盖）以及罗格朗（由 Alasdair Leslie 覆盖）等。更完整的配电参与者名录见：<i>Grid investment - who to play? A compendium of the 20 key electrical players</i>（电网投资——谁来参与？20 家关键电气厂商汇编）。电气含量提升是该领域参与者的关键催化剂。伊顿约 20% 收入来自数据中心与分布式 IT。在传统数据中心，伊顿每 MW 可产生 120–150 万美元潜在销售，占计算与基础设施总资本开支的 6–10%。在 AI 数据中心，这一机遇可扩大 50%，至 120–290 万美元潜在销售，最高占计算与基础设施总资本开支的 8%。因此，伊顿目前正投资 15 亿美元，增加三相 UPS、低中压成套、开关柜与配电盘产能，以满足增量数据中心需求。它还通过并购（Fibrebond）优先投资模块化建设。电气元件制造商 Hubbell 也通过收购 PCX 进入该市场。</li>
+    <li><b>热管理相对较小，为 4%。</b>热管理似乎是支出中相对较小的部分（约 4%），目前仍在风冷与液冷之间分配。不过，我们预计支出将继续向液冷倾斜。此外，该领域参与者如维谛（Bernstein 未覆盖）对机遇的看法比我们的分析所暗示的更为乐观：维谛称传统计算应用的机遇为 250–300 万美元/MW，高密度计算应用上升约 20%，至 300–350 万美元/MW。</li>
+  </ul>
+
+  <h3 id="tco">鉴于服务器、网络等 IT 硬件的折旧年限短于机电设备或土地与建筑，且运营成本相对较低，真实经济成本很可能比现金资本开支所暗示的更加向服务器与网络倾斜。</h3>
+  <p>即便按偏高的 0.15 美元/千瓦时电价，运行 1GW 数据中心容量一年的电费也约为 <b>13 亿美元</b>。人员成本同样可忽略：据称 20GW 数据中心仅需 8–10 人运营，每人年成本 3–8 万美元。</p>
+  <p>相比之下，即便按我们视为偏慷慨的 <b>6 年折旧周期</b><sup>1</sup>，计算 + 网络的年折旧也约为 <b>34 亿美元</b>。鉴于资本开支相对持续运营成本偏高，且硬件折旧年限短于物理基础设施（见图表6），真实 TCO 经济性实际上可能比现金资本开支所暗示的更加向服务器与网络倾斜。</p>
+  <div class="fn"><b>脚注 1：</b>诚然，GPU 不会在三年结束时“爆炸”。然而，在电力被视为主要瓶颈的世界里，用宝贵的电力和数据中心空间去运行 5 年前的 A100——250W 上仅得 300 FP32 TFLOPS——可能并不合理，因为你可以运行 B200，在 1000W 上得到 2500。</div>
+
+  <h3 id="outlook">展望未来，增量经济性很可能归于构成瓶颈、或具有含量提升潜力的公司。</h3>
+  <p>超越我们对数据中心经济性的当下快照，我们观察到：作为瓶颈的公司很可能捕获不断增加的经济价值份额，因为供应不足会推高定价与毛利率。含量提升也是公司捕获不成比例经济性的机会。最后，我们怀疑那些虽不构成瓶颈、但掌握关键技术或能力的公司，可以针对需求管理供给。</p>
+  <ul class="dot">
+    <li><b>公用事业级电力日益成为该领域的瓶颈。</b>行业参与者越来越多地指出，拥有电网公用事业承诺的“带电土地”可用性，是持续扩建的瓶颈。公用事业级联合循环燃气轮机 OEM 包括 GE Vernova（未覆盖）、三菱重工（未覆盖）和西门子能源，它们合计拥有全球产能的 70–80%，并预计将产能从 2025 年的约 40GW 增至 2027 年的约 70GW，以满足增加的需求，尤其是来自数据中心的需求。作为背景，西门子能源在最新业绩会上提到，年初至今新增订单 14GW，其中 60% 仅来自数据中心。</li>
+    <li><b>超大规模云厂商正在寻找绕过这一瓶颈的方法。</b>由于持续的产能约束，超大规模云厂商日益通过更小型工业燃气轮机寻求替代方案，例如卡特彼勒（由 Chad Dillard 覆盖）旗下 Solar Turbines——全球最大的工业燃气轮机制造商。卡特彼勒的发电能力还延伸至用于冗余的备用柴油与天然气发电机。其他参与者包括康明斯（由 Chad Dillard 覆盖）、MTU（属劳斯莱斯；由 Adrien Rabier 覆盖）、科勒（未覆盖），以及现已进入市场的 Generac（未覆盖）——后者于 4 月进入市场，并于 2025 年下半年开始国际交付。小型模块化反应堆（SMR）等替代能源也正被广泛探索为潜在替代方案。</li>
+    <li><b>掌握关键能力与市值的厂商能否借势？有可能……</b>我们观察到，行业参与者普遍对 1–2 年需求能见度有信心，很可能是因为 AI 扩建节奏正由电力约束决定，因此 AI 实验室正将扩建节奏与电力可用节奏对齐。表面上这会增强电力生态的议价权，但我们想知道：拥有关键技术、能力或市场力量的厂商，能否通过将供给增加节奏与需求增长对齐来加以利用。如此，台积电或存储厂商等或能维持有利的供需平衡，从而帮助管理历史上周期性行业的周期性。</li>
+    <li><b>柜内电源存在显著的含量提升机遇。</b>我们模型显示，Vera Rubin（VR200）的柜内电源含量将为 GB200 的 <b>2–3 倍</b>，到 2027 年 Rubin Ultra 将增至 <b>7–8 倍</b>。近端，GB300 相对 GB200 的电源含量提升有限，因 PSU 与 BBU 规格相近，但 BBU 更高的采用率可使电源 TAM 提升约百分之十几，至 4.6 万美元（见图表7）。尽管 VR200 的电源设计尚未最终确定，我们预计电源含量至少翻倍至 <b>8–12 万美元</b>，伴随更高的单柜功率与更高的电源稳定性要求（见图表8），从而增加对 BBU 与超级电容的需求。第一代 800V HVDC（高压直流）部署很可能从 2026 年下半年开始。将其应用于 Bernstein 对英伟达芯片的出货量估计，我们模型显示电源组件 TAM 明年将增加约 <b>70%</b>，2027 年再增 <b>30%</b>（见图表9）。更多细节见：<i>Delta Electronics: sizing the upside from power rack; PT raised to NT$1130</i>（台达电：度量电源机柜上行空间；目标价上调至 1,130 新台币）。</li>
+  </ul>
+  <p>供参考：图表10 包含 AI 服务器供应链地图。图表11 包含 AI 服务器硬件供应链中的公司。各子环节竞争格局的详细讨论见以下报告：服务器 ODM/OEM、电源组件、液冷、铜连接器与光模块。</p>
+</section>
+
+<section id="exhibits">
+  <div class="h-sec"><div class="no">05</div><div><h2>图表与附表</h2><div class="en">EXHIBITS · 原文第9–16页</div></div></div>
+
+  <h3 id="ex1">图表1：GB200 / NVL72 机柜资本开支拆解</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>GB200 / NVL72 物料清单</th><th class="r">千美元/柜</th><th class="r">十亿美元/GW</th><th class="r">占全负荷资本开支%</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>CPU 硅片</td><td class="r num">85</td><td class="r num">0.5</td><td class="r">1.4%</td></tr>
+      <tr><td>CPU 设计商毛利</td><td class="r num">85</td><td class="r num">0.5</td><td class="r">1.4%</td></tr>
+      <tr class="sub"><td>CPU 合计</td><td class="r num">171</td><td class="r num">1.0</td><td class="r">2.9%</td></tr>
+      <tr><td>HBM</td><td class="r num">192</td><td class="r num">1.1</td><td class="r">3.2%</td></tr>
+      <tr><td>GPU 硅片（不含 HBM）</td><td class="r num">159</td><td class="r num">0.9</td><td class="r">2.7%</td></tr>
+      <tr><td>GPU 设计商毛利</td><td class="r num">1,728</td><td class="r num">10.2</td><td class="r">29.1%</td></tr>
+      <tr><td>其他 GPU 成本（GPU 封装基板、PCB、散热器等）</td><td class="r num">225</td><td class="r num">1.3</td><td class="r">3.8%</td></tr>
+      <tr class="sub"><td>GPU 合计</td><td class="r num">2,304</td><td class="r num">13.7</td><td class="r">38.8%</td></tr>
+      <tr class="tot"><td>计算合计</td><td class="r num">2,475</td><td class="r num">14.7</td><td class="r">41.6%</td></tr>
+      <tr><td>交换硅片</td><td class="r num">13</td><td class="r num">0.1</td><td class="r">0.2%</td></tr>
+      <tr><td>交换硅设计商毛利</td><td class="r num">53</td><td class="r num">0.3</td><td class="r">0.9%</td></tr>
+      <tr><td>网络厂商毛利</td><td class="r num">118</td><td class="r num">0.7</td><td class="r">2.0%</td></tr>
+      <tr class="sub"><td>交换机合计</td><td class="r num">184</td><td class="r num">1.1</td><td class="r">3.1%</td></tr>
+      <tr><td>铜缆</td><td class="r num">123</td><td class="r num">0.7</td><td class="r">2.1%</td></tr>
+      <tr><td>背板连接器</td><td class="r num">102</td><td class="r num">0.6</td><td class="r">1.7%</td></tr>
+      <tr class="sub"><td>其他扩展（scale-up）网络</td><td class="r num">225</td><td class="r num">1.3</td><td class="r">3.8%</td></tr>
+      <tr><td>光模块（原文 Tranceivers）</td><td class="r num">51</td><td class="r num">0.3</td><td class="r">0.9%</td></tr>
+      <tr><td>网卡 NIC</td><td class="r num">102</td><td class="r num">0.6</td><td class="r">1.7%</td></tr>
+      <tr><td>DPU / 网络加速</td><td class="r num">188</td><td class="r num">1.1</td><td class="r">3.2%</td></tr>
+      <tr class="sub"><td>横向扩展（scale-out）网络</td><td class="r num">341</td><td class="r num">2.0</td><td class="r">5.7%</td></tr>
+      <tr class="tot"><td>网络合计</td><td class="r num">751</td><td class="r num">4.5</td><td class="r">12.6%</td></tr>
+      <tr><td>电源输送 / 托盘机箱</td><td class="r num">34</td><td class="r num">0.2</td><td class="r">0.6%</td></tr>
+      <tr><td>配电节点</td><td class="r num">17</td><td class="r num">0.1</td><td class="r">0.3%</td></tr>
+      <tr><td>智能机柜 PDU</td><td class="r num">—</td><td class="r">—</td><td class="r">—</td></tr>
+      <tr><td>非智能机柜 PDU</td><td class="r num">—</td><td class="r">—</td><td class="r">—</td></tr>
+      <tr><td>开放计算配电</td><td class="r num">—</td><td class="r">—</td><td class="r">—</td></tr>
+      <tr><td>机柜 PDU 附件</td><td class="r num">—</td><td class="r">—</td><td class="r">—</td></tr>
+      <tr><td>机柜转换开关</td><td class="r num">—</td><td class="r">—</td><td class="r">—</td></tr>
+      <tr class="sub"><td>机柜电源合计</td><td class="r num">51</td><td class="r num">0.3</td><td class="r">0.9%</td></tr>
+      <tr><td>液冷（柜内）</td><td class="r num">51</td><td class="r num">0.3</td><td class="r">0.9%</td></tr>
+      <tr><td>存储及其他</td><td class="r num">85</td><td class="r num">0.5</td><td class="r">1.4%</td></tr>
+      <tr class="tot"><td>机柜合计</td><td class="r num">3,413</td><td class="r num">20.2</td><td class="r">57.4%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">假设毛利率：GPU 70%、CPU 50%、网络 64%、交换硅 80%、HBM 70%。来源：专家交流、公司披露、文献检索、Bernstein 估计与分析。</p>
+
+  <h3 id="ex2">图表2：数据中心基础设施资本开支拆解</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>GB200 / NVL72 物料清单</th><th class="r">千美元/柜</th><th class="r">十亿美元/GW</th><th class="r">占全负荷资本开支%</th></tr>
+    </thead>
+    <tbody>
+      <tr class="tot"><td>机柜合计</td><td class="r num">3,413</td><td class="r num">20.2</td><td class="r">57.4%</td></tr>
+      <tr><td>三相变压器式 PDU</td><td class="r num">19</td><td class="r num">0.1</td><td class="r">0.3%</td></tr>
+      <tr><td>母线槽</td><td class="r num">50</td><td class="r num">0.3</td><td class="r">0.8%</td></tr>
+      <tr><td>远程配电盘</td><td class="r num">3</td><td class="r num">0.0</td><td class="r">0.0%</td></tr>
+      <tr><td>静态转换开关</td><td class="r num">7</td><td class="r num">0.0</td><td class="r">0.1%</td></tr>
+      <tr><td>线缆</td><td class="r num">93</td><td class="r num">0.5</td><td class="r">1.6%</td></tr>
+      <tr><td>低/中压开关柜</td><td class="r num">110</td><td class="r num">0.7</td><td class="r">1.9%</td></tr>
+      <tr><td>变压器</td><td class="r num">306</td><td class="r num">1.8</td><td class="r">5.1%</td></tr>
+      <tr class="sub"><td>配电合计</td><td class="r num">587</td><td class="r num">3.5</td><td class="r">9.9%</td></tr>
+      <tr><td>电池备份单元（BBU）</td><td class="r num">14</td><td class="r num">0.1</td><td class="r">0.2%</td></tr>
+      <tr><td>UPS 硬件</td><td class="r num">258</td><td class="r num">1.5</td><td class="r">4.3%</td></tr>
+      <tr class="sub"><td>备用电源合计</td><td class="r num">272</td><td class="r num">1.6</td><td class="r">4.6%</td></tr>
+      <tr><td>风冷</td><td class="r num">110</td><td class="r num">0.7</td><td class="r">1.9%</td></tr>
+      <tr><td>液冷（柜外）</td><td class="r num">44</td><td class="r num">0.3</td><td class="r">0.7%</td></tr>
+      <tr><td>配套基础设施</td><td class="r num">57</td><td class="r num">0.3</td><td class="r">1.0%</td></tr>
+      <tr class="sub"><td>热管理合计</td><td class="r num">211</td><td class="r num">1.3</td><td class="r">3.6%</td></tr>
+      <tr><td>柴油与天然气发电机及涡轮机</td><td class="r num">365</td><td class="r num">2.2</td><td class="r">6.1%</td></tr>
+      <tr><td>前期 DCIM 软件与传感器成本</td><td class="r num">55</td><td class="r num">0.3</td><td class="r">0.9%</td></tr>
+      <tr><td>物理安防</td><td class="r num">31</td><td class="r num">0.2</td><td class="r">0.5%</td></tr>
+      <tr><td>消防与灭火</td><td class="r num">18</td><td class="r num">0.1</td><td class="r">0.3%</td></tr>
+      <tr><td>KVM 切换器</td><td class="r num">15</td><td class="r num">0.1</td><td class="r">0.2%</td></tr>
+      <tr><td>天花与地板</td><td class="r num">11</td><td class="r num">0.1</td><td class="r">0.2%</td></tr>
+      <tr><td>照明</td><td class="r num">10</td><td class="r num">0.1</td><td class="r">0.2%</td></tr>
+      <tr><td>其他（如管道、泵、机器人）</td><td class="r num">319</td><td class="r num">1.9</td><td class="r">5.4%</td></tr>
+      <tr class="sub"><td>其他物理基础设施合计</td><td class="r num">824</td><td class="r num">4.9</td><td class="r">13.9%</td></tr>
+      <tr class="tot"><td>机电合计</td><td class="r num">1,894</td><td class="r num">11.2</td><td class="r">31.9%</td></tr>
+      <tr><td>土地与建筑</td><td class="r num">636</td><td class="r num">3.8</td><td class="r">10.7%</td></tr>
+      <tr class="tot"><td>数据中心资本开支总计</td><td class="r num">5,943</td><td class="r num">35.2</td><td class="r">100.0%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>功率与柜数假设</th><th class="r">数值</th></tr></thead>
+    <tbody>
+      <tr><td>支撑单柜的数据中心功率（kW）</td><td class="r num">169</td></tr>
+      <tr><td>机柜功率（kW）</td><td class="r num">132</td></tr>
+      <tr><td>机柜功耗占数据中心总功耗比例</td><td class="r">78%</td></tr>
+      <tr><td>每 GW 机柜数</td><td class="r num">5,929</td></tr>
+      <tr><td>每 GW 机柜成本（十亿美元）</td><td class="r num">20</td></tr>
+      <tr><td>每 GW 总成本（十亿美元）</td><td class="r num">35</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">来源：Omdia、专家交流、公司披露、文献检索、Bernstein 估计与分析。</p>
+
+  <h3 id="ex3">图表3：GBL / NVL72 资本开支由 GPU 主导，网络次之</h3>
+  <div class="chart-box">
+    <div class="cap">全口径资本开支 5,943 千美元/柜；计算与网络 3,226 千美元/柜</div>
+    <div id="chart3" class="chart"></div>
+  </div>
+  <p class="note">来源：Omdia、专家交流、公司披露、文献检索、Bernstein 估计与分析。原文图表为 100% 堆叠柱，左柱为总计，右柱为计算与网络细拆。</p>
+  <details class="figure-source"><summary>查看原文图表3</summary><img class="fig" src="exhibits/ex_p11.jpg" alt="原文图表3：资本开支结构堆叠柱"></details>
+
+  <h3 id="ex4">图表4：晶圆厂、HBM 及其他上游供应商捕获份额在 GPU 与 ASIC 之间差异很大</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>各自价值份额</th>
+        <th class="c">晶圆厂：XPU、网络芯片等</th>
+        <th class="c">晶圆厂：CPU</th>
+        <th class="c">存储（仅 HBM）</th>
+        <th class="c">WFE（晶圆厂设备）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="sub"><td colspan="5">以 GB200、70% 毛利率为例</td></tr>
+      <tr><td>占数据中心资本开支%</td><td class="c">2.5–3%</td><td class="c">约 1%</td><td class="c">3–3.5%</td><td class="c">3–4%</td></tr>
+      <tr><td>十亿美元/GW</td><td class="c">1.1</td><td class="c">0.3</td><td class="c">1.1</td><td class="c">1.2</td></tr>
+      <tr class="sub"><td colspan="5">以 AI ASIC、50% 毛利率为例</td></tr>
+      <tr><td>占数据中心资本开支%</td><td class="c">3–4%</td><td class="c">约 1.2%</td><td class="c">3.5–4.5%</td><td class="c">3.5–5%</td></tr>
+      <tr><td>十亿美元/GW</td><td class="c">1.1</td><td class="c">0.3</td><td class="c">1.1</td><td class="c">1.2</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">来源：Bernstein 估计与分析。</p>
+
+  <h3 id="ex5">图表5：我们怀疑产生 XPU 价值所需的 WFE 可能随时间变化</h3>
+  <p>纵轴：每单位 XPU 年收入所需资本开支（美元 /（美元/年））；横轴：峰值量产年份（2022–2028）。图例：英伟达 GPU、AMD GPU、谷歌 TPU（与博通）、谷歌 TPU（与联发科）、亚马逊 ASIC。</p>
+  <p>标注产品包括：A100、H100、H200、B100/200、B300、R200、R300；MI300X、MI325X、MI350/355X、MI400X、MI450X；TPU v4、v5e、v5p、v6e、v7、v8e；Trainium2。</p>
+  <p>图表标题：按峰值量产年份计，每年 XPU 收入所需的晶圆厂 + HBM WFE 总量。</p>
+  <details class="figure-source"><summary>查看原文图表4与图表5</summary><img class="fig" src="exhibits/ex_p12.jpg" alt="原文图表4与图表5：上游价值份额及WFE强度散点图"></details>
+  <p class="note">来源：Bernstein 估计与分析。</p>
+
+  <h3 id="ex6">图表6：超大规模云厂商对相关类别折旧年限的披露</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>类别</th><th>公司</th><th>公司所用标签</th><th>披露年限</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="7">IT 硬件</td><td>GOOGL</td><td>服务器与网络设备</td><td>六年</td></tr>
+      <tr><td>AMZN</td><td>服务器与网络设备</td><td>五年</td></tr>
+      <tr><td>META</td><td>服务器与网络资产</td><td>四至五年（自1月起生效，原文截断）</td></tr>
+      <tr><td>MSFT</td><td>计算机设备</td><td>二至六年</td></tr>
+      <tr><td>ORCL</td><td>计算机、网络、机械与设备</td><td>1–6 年</td></tr>
+      <tr><td>NBIS</td><td>服务器与网络设备</td><td>4.0 年</td></tr>
+      <tr><td>CRWV</td><td>技术设备</td><td>6 年</td></tr>
+      <tr><td rowspan="7">机电</td><td>GOOGL</td><td>—</td><td>—</td></tr>
+      <tr><td>AMZN</td><td>—</td><td>—</td></tr>
+      <tr><td>META</td><td>设备及其他</td><td>一至二十五年</td></tr>
+      <tr><td>MSFT</td><td>家具与设备</td><td>一至十年</td></tr>
+      <tr><td>ORCL</td><td>—</td><td>—</td></tr>
+      <tr><td>NBIS</td><td>基础设施系统与设备</td><td>3.0–10.0 年</td></tr>
+      <tr><td>CRWV</td><td>数据中心设备</td><td>8–12 年</td></tr>
+      <tr><td rowspan="7">土地与建筑</td><td>GOOGL</td><td>数据中心与办公楼</td><td>7 至 40 年</td></tr>
+      <tr><td>AMZN</td><td>—</td><td>—</td></tr>
+      <tr><td>META</td><td>建筑物</td><td>25 至 30 年</td></tr>
+      <tr><td>MSFT</td><td>建筑物与改良</td><td>五至十五年</td></tr>
+      <tr><td>ORCL</td><td>建筑物与改良</td><td>1–40 年</td></tr>
+      <tr><td>NBIS</td><td>建筑物</td><td>20.0 年</td></tr>
+      <tr><td>CRWV</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">来源：公司备案文件、Bernstein 分析。原文部分单元格为空，按原文保留。</p>
+
+  <h3 id="ex7">图表7：我们预计 VR Ultra 电源含量相对 GB200 增长 7.6 倍</h3>
+  <div class="chart-box">
+    <div class="cap">英伟达 AI 服务器各代单柜电源含量（千美元）；BBU 含量已按采用率折算</div>
+    <div id="chart7" class="chart" style="height:380px"></div>
+  </div>
+  <details class="figure-source"><summary>查看原文图表6与图表7</summary><img class="fig" src="exhibits/ex_p13.jpg" alt="原文图表6与图表7：折旧年限与电源含量柱状图"></details>
+  <p class="note">来源：Bernstein 估计与分析。</p>
+
+  <h3 id="ex8">图表8：英伟达 AI 服务器单柜电源组件</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>英伟达 AI 服务器机柜电源含量</th>
+        <th class="r">GB200 NV72</th>
+        <th class="r">GB300 NV72</th>
+        <th class="r">VR200 电源架</th>
+        <th class="r">VR200 电源柜</th>
+        <th class="r">VR Ultra</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>GPU TDP（kW）</td><td class="r">1.2</td><td class="r">1.4</td><td class="r">2</td><td class="r">2</td><td class="r">3.6</td></tr>
+      <tr><td>GPU 数量</td><td class="r">72</td><td class="r">72</td><td class="r">72</td><td class="r">72</td><td class="r">144</td></tr>
+      <tr><td>单柜 GPU TDP（kW）</td><td class="r">86</td><td class="r">101</td><td class="r">144</td><td class="r">144</td><td class="r">518</td></tr>
+      <tr><td>其他芯片与组件单柜 TDP（CPU、网络等，kW）</td><td class="r">44</td><td class="r">44</td><td class="r">56</td><td class="r">76</td><td class="r">82</td></tr>
+      <tr><td>不含冗余的服务器功耗（kW）</td><td class="r">130</td><td class="r">145</td><td class="r">200</td><td class="r">220</td><td class="r">600</td></tr>
+      <tr><td>单柜设计功率容量</td><td class="r">198</td><td class="r">198</td><td class="r">288</td><td class="r">330</td><td class="r">900</td></tr>
+      <tr><td>冗余倍数</td><td class="r">1.5</td><td class="r">1.4</td><td class="r">1.4</td><td class="r">1.5</td><td class="r">1.5</td></tr>
+      <tr class="sub"><td colspan="6">PSU 电源模块</td></tr>
+      <tr><td>电源规格</td><td class="r">6×33kW</td><td class="r">6×33kW 或 4×72kW</td><td class="r">4×72kW？</td><td class="r">10×33kW？</td><td class="r">5×180kW？</td></tr>
+      <tr><td>PSU 每 kW 单价（美元）</td><td class="r">130</td><td class="r">130</td><td class="r">130</td><td class="r">130</td><td class="r">130</td></tr>
+      <tr><td>PSU 每单元 kW</td><td class="r">5.5</td><td class="r">5.5</td><td class="r">12.0</td><td class="r">5.5</td><td class="r">30.0</td></tr>
+      <tr><td>PSU 每单元单价（美元）</td><td class="r">715</td><td class="r">715</td><td class="r">1,560</td><td class="r">715</td><td class="r">3,900</td></tr>
+      <tr><td>单柜 PSU 含量合计（千美元）</td><td class="r">26</td><td class="r">26</td><td class="r">37</td><td class="r">43</td><td class="r">117</td></tr>
+      <tr class="sub"><td colspan="6">BBU 电池备份</td></tr>
+      <tr><td>BBU 每 kW 单价（美元）</td><td class="r">105</td><td class="r">105</td><td class="r">105</td><td class="r">105</td><td class="r">105</td></tr>
+      <tr><td>BBU 每单元规格（kW）</td><td class="r">5.5</td><td class="r">5.5</td><td class="r">12.0</td><td class="r">5.5</td><td class="r">30.0</td></tr>
+      <tr><td>BBU 每单元单价（美元）</td><td class="r">578</td><td class="r">578</td><td class="r">1,260</td><td class="r">578</td><td class="r">3,150</td></tr>
+      <tr><td>单柜 BBU 含量合计（千美元）</td><td class="r">21</td><td class="r">21</td><td class="r">30</td><td class="r">35</td><td class="r">95</td></tr>
+      <tr><td>采用率</td><td class="r">30%</td><td class="r">50%</td><td class="r">70%</td><td class="r">100%</td><td class="r">100%</td></tr>
+      <tr><td>BBU 含量 × 采用率（千美元）</td><td class="r">6</td><td class="r">10</td><td class="r">21</td><td class="r">35</td><td class="r">95</td></tr>
+      <tr class="sub"><td colspan="6">其他</td></tr>
+      <tr><td>其他电源/机械组件成本（千美元）</td><td class="r">8</td><td class="r">10</td><td class="r">20</td><td class="r">42</td><td class="r">91</td></tr>
+      <tr><td>其他电源组件占比</td><td class="r">20%</td><td class="r">22%</td><td class="r">25%</td><td class="r">35%</td><td class="r">30%</td></tr>
+      <tr class="tot"><td>单柜电源组件合计（千美元）</td><td class="r">40</td><td class="r">46</td><td class="r">78</td><td class="r">119</td><td class="r">302</td></tr>
+      <tr><td>相对 GB200 倍数</td><td class="r">—</td><td class="r">1.16×</td><td class="r">2.0×</td><td class="r">3.0×</td><td class="r">7.6×</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">来源：台达、Bernstein 估计与分析。</p>
+
+  <h3 id="ex9">图表9：英伟达 AI 服务器电源组件 TAM</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>英伟达机柜电源组件 TAM</th><th class="r">2025E</th><th class="r">2026E</th><th class="r">2027E</th></tr>
+    </thead>
+    <tbody>
+      <tr class="sub"><td>英伟达芯片出货（千颗）</td><td class="r">6,629</td><td class="r">8,087</td><td class="r">5,829</td></tr>
+      <tr><td>　B200</td><td class="r">4,349</td><td class="r">2,507</td><td class="r">80</td></tr>
+      <tr><td>　B300</td><td class="r">2,280</td><td class="r">3,455</td><td class="r">968</td></tr>
+      <tr><td>　R200</td><td class="r">—</td><td class="r">2,124</td><td class="r">3,181</td></tr>
+      <tr><td>　R300</td><td class="r">—</td><td class="r">—</td><td class="r">1,600</td></tr>
+      <tr class="sub"><td>每柜芯片数</td><td class="r" colspan="3">B200/B300/R200 = 72；R300 = 144</td></tr>
+      <tr class="sub"><td>英伟达 GPU 机柜出货（千柜）</td><td class="r">91</td><td class="r">110</td><td class="r">69</td></tr>
+      <tr><td>　GB200 机柜</td><td class="r">60</td><td class="r">34</td><td class="r">1</td></tr>
+      <tr><td>　GB300 机柜</td><td class="r">31</td><td class="r">47</td><td class="r">13</td></tr>
+      <tr><td>　VR200 机柜</td><td class="r">—</td><td class="r">29</td><td class="r">44</td></tr>
+      <tr><td>　VR Ultra 机柜</td><td class="r">—</td><td class="r">—</td><td class="r">11</td></tr>
+      <tr class="sub"><td colspan="4">单柜电源组件含量（百万美元）</td></tr>
+      <tr><td>　GB200/B200A 机柜</td><td class="r" colspan="3">40</td></tr>
+      <tr><td>　GB300 机柜</td><td class="r" colspan="3">46</td></tr>
+      <tr><td>　VR200 机柜</td><td class="r" colspan="3">99</td></tr>
+      <tr><td>　VR Ultra 机柜</td><td class="r" colspan="3">302</td></tr>
+      <tr><td>出货机柜混合电源含量（千美元）</td><td class="r">42</td><td class="r">58</td><td class="r">120</td></tr>
+      <tr><td>同比%</td><td class="r">—</td><td class="r">38%</td><td class="r">107%</td></tr>
+      <tr class="sub"><td>电源组件 TAM（百万美元）</td><td class="r"></td><td class="r"></td><td class="r"></td></tr>
+      <tr><td>　GB200 机柜</td><td class="r">2,398</td><td class="r">1,359</td><td class="r">40</td></tr>
+      <tr><td>　GB300 机柜</td><td class="r">1,436</td><td class="r">2,177</td><td class="r">602</td></tr>
+      <tr><td>　VR200 机柜</td><td class="r">—</td><td class="r">2,863</td><td class="r">4,344</td></tr>
+      <tr><td>　VR Ultra 机柜</td><td class="r">—</td><td class="r">—</td><td class="r">3,324</td></tr>
+      <tr class="tot"><td>电源组件 TAM 合计（百万美元）</td><td class="r">3,834</td><td class="r">6,399</td><td class="r">8,310</td></tr>
+      <tr><td>同比%</td><td class="r">—</td><td class="r">67%</td><td class="r">30%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">来源：Bernstein 估计与分析。</p>
+
+  <h3 id="ex10">图表10：AI 服务器供应链</h3>
+  <p class="note">注：Bernstein 覆盖广达、台达电、欣兴、致茂、台积电、三星、SK海力士、美光、英伟达、AMD、博通、DISCO、Ibiden、BE Semi，其余未覆盖。来源：英伟达、SK海力士、Bernstein 分析。</p>
+  <details class="figure-source"><summary>查看原文图表10</summary><img class="fig" src="exhibits/ex_p15.jpg" alt="原文图表10：AI服务器供应链地图"></details>
+  <div class="card">
+    <p><b>中文结构还原（自上而下）：</b></p>
+    <div class="flow">
+      <div class="flow-row">
+        <div class="box navy"><b>无晶圆厂设计</b><span>NVIDIA、AMD → 指向晶圆厂前端制造</span></div>
+        <div class="box navy"><b>设备供应商</b><span>BE Semi、Shibaura、DISCO、Scientech、致茂；通往封装路径标注“专用设备”</span></div>
+        <div class="box navy"><b>存储供应商</b><span>SK海力士、三星、美光 → 先进封装（优化内存）</span></div>
+        <div class="box navy"><b>基板供应商</b><span>Ibiden、欣兴 → 先进封装</span></div>
+      </div>
+      <div class="flow-row">
+        <div class="box teal"><b>互联网/系统公司</b><span>Google、Amazon、Meta → ASIC 设计服务</span></div>
+        <div class="box teal"><b>ASIC 设计服务</b><span>博通、世芯、Marvell、GUC、联发科 → 晶圆厂前端</span></div>
+        <div class="box teal"><b>晶圆厂（前端制造）</b><span>台积电 → 先进封装</span></div>
+        <div class="box teal"><b>晶圆厂/OSAT（先进封装）</b><span>台积电、Amkor、ASE → 最终测试</span></div>
+        <div class="box teal"><b>OSAT（最终测试）</b><span>京元电 KYEC → GPU 模块</span></div>
+      </div>
+      <div class="flow-row">
+        <div class="box gold"><b>机柜（产出）</b><span>广达、ZT Systems、纬颖、富士康工业互联网、超微</span></div>
+        <div class="box gold"><b>服务器（集成）</b><span>广达、技嘉、超微、纬颖、富士康工业互联网</span></div>
+        <div class="box gold"><b>冷却方案</b><span>台达电、AVC</span></div>
+        <div class="box gold"><b>AC/DC、DC/DC 电源</b><span>台达电、光宝</span></div>
+        <div class="box gold"><b>高速网络</b><span>连接至服务器</span></div>
+        <div class="box gold"><b>英伟达底板</b><span>纬创（主）、富士康工业互联网</span></div>
+        <div class="box gold"><b>主板</b><span>广达、英业达、超微、富士康工业互联网</span></div>
+        <div class="box gold"><b>PCB</b><span>欣兴、GCE、WUS → 高速网络与英伟达底板</span></div>
+        <div class="box gold"><b>GPU 模块</b><span>富士康工业互联网（主）、纬创；承接 OSAT 最终测试，指向英伟达底板</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 id="ex11">图表11：AI 供应链公司摘要</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>供应链环节</th><th>代码</th><th>公司</th>
+        <th class="r">市值（百万美元）</th><th class="r">远期市盈率</th>
+        <th class="r">收入 2024（百万美元）</th><th class="r">收入 24–26 复合增速</th>
+        <th class="r">毛利率 2024</th><th class="r">毛利率 2026E</th>
+        <th class="r">EPS 24–26 复合增速</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td rowspan="3">OEM</td><td>DELL US</td><td>戴尔 Dell</td><td class="r">104,265</td><td class="r">14.2x</td><td class="r">95,567</td><td class="r">11%</td><td class="r">22.8%</td><td class="r">20.2%</td><td class="r">18%</td></tr>
+      <tr><td>SMCI US</td><td>超微 SuperMicro</td><td class="r">28,478</td><td class="r">16.8x</td><td class="r">21,972</td><td class="r">36%</td><td class="r">11.2%</td><td class="r">10.7%</td><td class="r">29%</td></tr>
+      <tr><td>HPE US</td><td>HPE</td><td class="r">30,598</td><td class="r">9.7x</td><td class="r">30,127</td><td class="r">16%</td><td class="r">32.8%</td><td class="r">33.1%</td><td class="r">10%</td></tr>
+      <tr><td rowspan="5">ODM</td><td>2317 TT</td><td>鸿海 Hon Hai</td><td class="r">110,160</td><td class="r">14.9x</td><td class="r">213,554</td><td class="r">22%</td><td class="r">6.3%</td><td class="r">5.9%</td><td class="r">25%</td></tr>
+      <tr><td>601138 CH</td><td>工业富联 FII</td><td class="r">178,397</td><td class="r">29.9x</td><td class="r">84,606</td><td class="r">45%</td><td class="r">7.3%</td><td class="r">6.5%</td><td class="r">43%</td></tr>
+      <tr><td>2382 TT</td><td>广达 Quanta</td><td class="r">36,377</td><td class="r">14.2x</td><td class="r">43,920</td><td class="r">45%</td><td class="r">7.9%</td><td class="r">6.0%</td><td class="r">20%</td></tr>
+      <tr><td>6669 TT</td><td>纬颖 Wiwynn</td><td class="r">24,575</td><td class="r">15.6x</td><td class="r">11,224</td><td class="r">76%</td><td class="r">10.4%</td><td class="r">7.5%</td><td class="r">49%</td></tr>
+      <tr><td>3231 TT</td><td>纬创 Wistron</td><td class="r">14,680</td><td class="r">13.0x</td><td class="r">32,665</td><td class="r">59%</td><td class="r">8.0%</td><td class="r">5.7%</td><td class="r">41%</td></tr>
+      <tr><td rowspan="2">铜连接</td><td>APH US</td><td>安费诺 Amphenol</td><td class="r">165,203</td><td class="r">35.6x</td><td class="r">15,223</td><td class="r">31%</td><td class="r">33.8%</td><td class="r">37.4%</td><td class="r">44%</td></tr>
+      <tr><td>002475 CH</td><td>立讯精密 Luxshare</td><td class="r">61,481</td><td class="r">23.0x</td><td class="r">37,334</td><td class="r">21%</td><td class="r">10.4%</td><td class="r">11.6%</td><td class="r">25%</td></tr>
+      <tr><td rowspan="4">光模块</td><td>300308 CH</td><td>中际旭创 Innolight</td><td class="r">68,773</td><td class="r">37.7x</td><td class="r">3,314</td><td class="r">51%</td><td class="r">33.8%</td><td class="r">38.6%</td><td class="r">70%</td></tr>
+      <tr><td>300502 CH</td><td>新易盛 Eoptolink</td><td class="r">48,528</td><td class="r">29.6x</td><td class="r">1,201</td><td class="r">100%</td><td class="r">44.7%</td><td class="r">46.8%</td><td class="r">116%</td></tr>
+      <tr><td>300394 CH</td><td>天孚通信 TFC Optical</td><td class="r">18,248</td><td class="r">45.5x</td><td class="r">452</td><td class="r">56%</td><td class="r">57.2%</td><td class="r">52.8%</td><td class="r">54%</td></tr>
+      <tr><td>COHR US</td><td>Coherent</td><td class="r">19,071</td><td class="r">24.5x</td><td class="r">5,810</td><td class="r">10%</td><td class="r">37.9%</td><td class="r">39.9%</td><td class="r">28%</td></tr>
+      <tr><td rowspan="5">电源 / 热管理组件</td><td>2308 TT</td><td>台达 Delta</td><td class="r">86,190</td><td class="r">35.1x</td><td class="r">13,111</td><td class="r">25%</td><td class="r">32.4%</td><td class="r">35.6%</td><td class="r">53%</td></tr>
+      <tr><td>VRT US</td><td>维谛 Vertiv</td><td class="r">70,044</td><td class="r">37.5x</td><td class="r">8,012</td><td class="r">23%</td><td class="r">36.6%</td><td class="r">37.4%</td><td class="r">33%</td></tr>
+      <tr><td>FLEX US</td><td>伟创力 Flex</td><td class="r">23,980</td><td class="r">19.9x</td><td class="r">25,813</td><td class="r">4%</td><td class="r">8.4%</td><td class="r">9.3%</td><td class="r">12%</td></tr>
+      <tr><td>3017 TT</td><td>AVC</td><td class="r">14,838</td><td class="r">20.8x</td><td class="r">2,234</td><td class="r">54%</td><td class="r">23.5%</td><td class="r">26.7%</td><td class="r">71%</td></tr>
+      <tr><td>2301 TT</td><td>光宝 Lite-On</td><td class="r">12,624</td><td class="r">22.1x</td><td class="r">4,269</td><td class="r">20%</td><td class="r">22%</td><td class="r">23%</td><td class="r">27%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">来源：Bernstein 覆盖戴尔、超微、HPE、广达、立讯、台达，其余未覆盖。</p>
+</section>
+
+<section id="disc-req" class="disc">
+  <div class="h-sec"><div class="no">06</div><div><h2>披露附录</h2><div class="en">DISCLOSURE APPENDIX · 原文第17–25页</div></div></div>
+
+  <h3>一、必要披露</h3>
+  <p>本披露中提及的“Bernstein”或“本机构（the Firm）”涉及以下实体：Bernstein Institutional Services LLC（2024年4月1日起）、Sanford C. Bernstein &amp; Co., LLC（2024年4月1日前）、Bernstein Autonomous LLP、BSG France S.A.（2024年4月1日起）、Sanford C. Bernstein (Hong Kong) Limited 盛博香港有限公司、Sanford C. Bernstein (Canada) Limited、Sanford C. Bernstein (India) Private Limited（SEBI 注册号 INH000006378）、Sanford C. Bernstein (Singapore) Private Limited 以及 Sanford C. Bernstein Japan KK（サンフォード・C・バーンスタイン株式会社）。</p>
+  <p>2024年4月1日，法国兴业银行（SG）与 AllianceBernstein, L.P.（AB）完成一项交易，成立新的合资公司，使其各自的现金股票与研究业务在新的业务组合中运营。尽管双方在北美与世界其他地区的合资持股比例不同，但研究的创建、制作与发布以全球协作方式，跨越“Bernstein”与“Autonomous”两个研究品牌进行。除非另有特别说明，就本披露而言，对 Bernstein“关联方”的提及同时涉及 SG 与 AB 及其各自关联方。</p>
+
+  <h3 id="disc-val">估值方法</h3>
+  <p>本研究出版物覆盖六家或以上公司。有关估值方法及其他公司披露：请访问 <a href="https://bernstein-autonomous.bluematrix.com/sellside/Disclosures.action" target="_blank" rel="noopener">https://bernstein-autonomous.bluematrix.com/sellside/Disclosures.action</a>。或者，您也可致函合规总监：Bernstein Institutional Services LLC, 245 Park Avenue, New York, NY 10167。</p>
+
+  <h3>风险</h3>
+  <p>本研究出版物覆盖六家或以上公司。有关风险及其他公司披露：请访问上述同一披露网站，或致函上述合规总监地址。</p>
+
+  <h3 id="disc-rate">评级定义、基准与分布</h3>
+  <h4>股票评级定义 · Bernstein 品牌</h4>
+  <p>Bernstein 品牌基于未来 12 个月相对表现预测对股票评级：相对标普 500（在美国与加拿大交易所上市的股票）；相对彭博欧洲发达市场大中盘价格回报指数（EDM）（在欧洲交易所以及亚太以外新兴市场交易所上市的股票）；相对彭博日本大中盘价格回报指数美元（JP）（在日本交易所上市的股票）；相对彭博亚洲（除日本）大中盘价格回报指数（ASIAX）（在亚洲（除日本）交易所上市的股票）——除非另有说明。</p>
+  <p>Bernstein 品牌有三类评级：</p>
+  <ul class="dot">
+    <li><b>跑赢大盘（Outperform）：</b>股票将领先市场指数超过 15 个百分点。</li>
+    <li><b>与大盘同步（Market-Perform）：</b>股票将与市场指数表现一致，偏离在 ±15 个百分点以内。</li>
+    <li><b>跑输大盘（Underperform）：</b>股票将落后市场指数超过 15 个百分点。</li>
+  </ul>
+  <p><b>覆盖暂停（Coverage Suspended）：</b>Bernstein 研究品牌对该公司的覆盖已暂停。评级与目标价暂时中止，不再具有时效性，因此不应被依赖。</p>
+  <p><b>未评级（Not Rated）：</b>在当前无法准确估值股票、或无法准确预测公司表现时给予的评级。覆盖分析师可继续发布研究报告，向投资者更新事件与进展。</p>
+  <p><b>未覆盖（NC）</b>表示公司不在覆盖范围内。Bernstein 品牌股票评级基于 12 个月时间范围。</p>
+
+  <h4>Autonomous 品牌 · 普通股</h4>
+  <p>Autonomous 品牌对普通股的评级如下。我们使用的基准包括：彭博欧洲 500 银行与金融服务指数（BEBANKS）以及彭博欧洲发达市场金融大中盘价格回报指数欧元（EDMFI），用于发达欧洲银行与支付；彭博欧洲 500 保险指数（BEINSUR），用于欧洲保险公司；标普 500 与标普金融，用于美国银行与支付覆盖；S5LIFE 用于美国保险；标普保险精选行业（SPSIINS）用于美国非寿险覆盖；以及彭博新兴市场金融大中小盘价格回报指数（EMLSF），用于新兴市场银行、保险公司与支付。评级相对于行业（而非市场）表述。</p>
+  <p>Autonomous 品牌有三类普通股评级：</p>
+  <ul class="dot">
+    <li><b>跑赢（OP）：</b>股票将领先相关指数超过 10 个百分点。</li>
+    <li><b>中性（N）：</b>股票将与市场指数表现一致，偏离在 ±10 个百分点以内。</li>
+    <li><b>跑输（UP）：</b>股票将落后相关指数超过 10 个百分点。</li>
+  </ul>
+  <p>覆盖暂停、未评级、未覆盖的定义与上文类似。标注为“Feature”（例如 Feature Outperform FOP、Feature Under Outperform FUP）的是我们的核心观点。Autonomous 品牌普通股评级基于 12 个月时间范围。</p>
+
+  <h4>Autonomous 品牌 · 优先股</h4>
+  <p>Autonomous 品牌有三类优先股评级：</p>
+  <ul class="dot">
+    <li><b>跑赢（OP）：</b>预计该优先工具的总回报将在未来六个月内跑赢在类似行业或评级类别运营的其他发行人的优先证券。</li>
+    <li><b>中性（N）：</b>预计该优先工具的总回报将在未来六个月内与在类似行业或评级类别运营的其他发行人的优先证券表现一致。</li>
+    <li><b>跑输（UP）：</b>预计该优先工具的总回报将在未来六个月内跑输在类似行业或评级类别运营的其他发行人的优先证券。</li>
+  </ul>
+  <p>Autonomous 优先股评级基于 6 个月时间范围。</p>
+
+  <h4>Autonomous 信用研究</h4>
+  <p>若本报告包含《市场滥用条例》第 3(1)(35) 条所定义的信用工具投资建议，则以下信息为满足其披露要求而列示。</p>
+  <p>本报告也可能包含其他 Autonomous 或 Bernstein 分析师就本文所述发行人的股权证券已发表意见的引用。请注意，本报告作者就信用工具发表的投资建议，可能不同于覆盖本报告所含发行人股权证券的分析师已发表的观点，反之亦然。</p>
+
+  <h4>信用评级定义</h4>
+  <p>Autonomous 品牌有三类信用评级：</p>
+  <ul class="dot">
+    <li><b>信用跑赢（C-OP）：</b>预计参考信用工具的总回报将在未来六个月内跑赢在类似行业或评级类别运营的其他发行人债券的信用利差。</li>
+    <li><b>信用中性（C-N）：</b>预计参考信用工具的总回报将在未来六个月内与在类似行业或评级类别运营的其他发行人债券的信用利差表现一致。</li>
+    <li><b>信用跑输（C-UP）：</b>预计参考信用工具的总回报将在未来六个月内跑输在类似行业或评级类别运营的其他发行人债券的信用利差。</li>
+  </ul>
+  <p>Autonomous 信用评级基于 6 个月时间范围。本报告作者所做全部投资建议及信用评级历史可应要求提供。</p>
+  <p>何时启动、更新与停止研究覆盖，由本机构全权决定。本机构已建立、维持并依赖信息隔离墙，以控制本机构一个或多个区域（即私密侧）所含信息向本机构其他区域、单位、集团或关联方（即公开侧）的流动。</p>
+
+  <h4>股票评级 / 投资银行服务分布</h4>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>评级</th>
+        <th>市场滥用条例（MAR）与 FINRA 规则 2241 分类</th>
+        <th class="r">数量</th>
+        <th class="r">占比</th>
+        <th class="r">投行服务数量*</th>
+        <th class="r">投行服务占比*</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>跑赢大盘</td><td>买入 BUY</td><td class="r">620</td><td class="r">51.07%</td><td class="r">112</td><td class="r">18.06%</td></tr>
+      <tr><td>与大盘同步（Bernstein）/ 中性（Autonomous）</td><td>持有 HOLD</td><td class="r">420</td><td class="r">34.60%</td><td class="r">81</td><td class="r">19.29%</td></tr>
+      <tr><td>跑输大盘</td><td>卖出 SELL</td><td class="r">174</td><td class="r">14.33%</td><td class="r">19</td><td class="r">10.92%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">* 这些数字代表 Bernstein 与 Autonomous 向各类别中提供投资银行服务的公司数量与百分比。截至 2025 年 9 月 30 日。所有数字每季度更新。</p>
+  <p>在 2024 年 4 月 1 日之前，Sanford C. Bernstein &amp; Co., LLC 发布了以下公司在图中的评级与目标价信息：NVIDIA Corp、Broadcom Inc、Advanced Micro Devices Inc、Intel Corp、Qualcomm Inc、Texas Instruments Inc、Analog Devices Inc、NXP Semiconductors NV、Lam Research Corp、Applied Materials Inc、Dell Technologies Inc、Quanta Services Inc 以及 Hewlett Packard Enterprise Co。</p>
+
+  <h4>价格图 / 评级与目标价历史</h4>
+  <p>本研究出版物覆盖六家或以上公司。有关价格图及其他公司披露，请访问 <a href="https://bernstein-autonomous.bluematrix.com/sellside/Disclosures.action" target="_blank" rel="noopener">https://bernstein-autonomous.bluematrix.com/sellside/Disclosures.action</a>，或致函合规总监：Bernstein Institutional Services LLC, 245 Park Avenue, New York, NY 10167。</p>
+
+  <h3 id="disc-coi">利益冲突</h3>
+  <p>本报告中归因于 Gartner 的所有陈述，代表 Bernstein 对作为 Gartner, Inc. 联合订阅服务一部分发布的数据、研究意见或观点的解读，未经 Gartner 审阅。每份 Gartner 出版物以其原始发布日期为准（而非本报告日期）。Gartner 出版物中表达的意见不是对事实的陈述，且可在不通知的情况下变更。</p>
+  <p>Stacy A. Rasgon 在多种加密货币中持有多头头寸。</p>
+  <p>Bernstein Autonomous LLP 或 BSG France SA 实益持有以下 MiFID 合格证券某一类普通股已发行股本净多头或净空头 0.5% 或以上：Broadcom Inc、Qualcomm Inc、Texas Instruments Inc、NXP Semiconductors NV、Applied Materials Inc、Eaton Corp PLC、Legence Corp.、Western Digital Corp 以及 SanDisk Corp。</p>
+  <p>AB 及/或其关联方实益拥有以下公司某一类普通股 1% 或以上：Texas Instruments Inc、Applied Materials Inc 以及 Legence Corp.。</p>
+  <p>SG 及/或其关联方实益拥有以下公司某一类普通股 1% 或以上：Kokusai Electric Corp。</p>
+  <p>Bernstein 及/或关联方在过去十二个月内从 Hewlett Packard Enterprise Co 获得投资银行服务报酬。</p>
+  <p>Bernstein 及/或关联方在过去十二个月内从以下客户获得非投资银行证券相关产品或服务报酬：Intel Corp、Dell Technologies Inc、Samsung Electronics Co Ltd、SK Hynix Inc、Screen Holdings Co Ltd 以及 Hewlett Packard Enterprise Co。</p>
+  <p>Bernstein 在过去十二个月内从以下客户获得非投资银行证券相关产品或服务报酬：NXP Semiconductors NV 以及 Samsung Electronics Co Ltd。</p>
+  <p>Bernstein 的一家关联方在过去十二个月内从以下客户获得非投资银行证券相关产品或服务报酬：Western Digital Corp。</p>
+  <p>Bernstein 的某些关联方在以下公司的股权证券中担任做市商或流动性提供者：NVIDIA Corp、Broadcom Inc、Advanced Micro Devices Inc、Intel Corp、Qualcomm Inc、Texas Instruments Inc、Analog Devices Inc、NXP Semiconductors NV、Lam Research Corp、Applied Materials Inc、Dell Technologies Inc、Micron Technology Inc、Eaton Corp PLC、Hubbell Incorporated、Quanta Services Inc、BE Semiconductor Industries NV 以及 Hewlett Packard Enterprise Co。</p>
+  <p>Bernstein 的某些关联方在以下公司的债务证券中担任做市商或流动性提供者：Broadcom Inc、Intel Corp、Dell Technologies Inc、SK Hynix Inc、Screen Holdings Co Ltd 以及 Hewlett Packard Enterprise Co。</p>
+  <p>Bernstein 的关联方在过去十二个月内管理或共同管理了 Hewlett Packard Enterprise Co 的证券公开发行。</p>
+  <p>Bernstein 及/或关联方在过去十二个月内与 Hewlett Packard Enterprise Co 存在投资银行客户关系。</p>
+
+  <h3>其他事项</h3>
+  <p>本报告所列分析师的雇佣法律实体及其所在地，可通过其电话号码的国家代码确定，如下：</p>
+  <ul class="dot">
+    <li>+1 Bernstein Institutional Services LLC；美国纽约州纽约市</li>
+    <li>+44 Bernstein Autonomous LLP；英国伦敦</li>
+    <li>+33 BSG France S.A.；法国巴黎</li>
+    <li>+34 BSG France S.A.；西班牙马德里</li>
+    <li>+41 Bernstein Autonomous LLP；瑞士日内瓦</li>
+    <li>+49 BSG France S.A.；德国法兰克福</li>
+    <li>+91 Sanford C. Bernstein (India) Private Limited；印度孟买</li>
+    <li>+852 Sanford C. Bernstein (Hong Kong) Limited 盛博香港有限公司；中国香港</li>
+    <li>+65 Sanford C. Bernstein (Singapore) Private Limited；新加坡</li>
+    <li>+81 Sanford C. Bernstein Japan KK；日本东京</li>
+  </ul>
+  <p>若本报告由受雇于非美国关联方的研究分析师撰写，则该（等）分析师（除非下文另有明确说明）未注册为 Bernstein Institutional Services LLC 或任何其他向 SEC 注册的经纪自营商的关联人士，也未获得 FINRA 的研究分析师许可或资格。因此，该（等）分析师可能不受 FINRA 关于（其中包括）研究分析师与标的公司的沟通、研究分析师与投资银行人员的互动、研究分析师参与与投资银行交易相关的招揽与营销活动、研究分析师公开露面，以及研究分析师账户所持证券交易的限制。</p>
+
+  <h3 id="disc-cert">声明</h3>
+  <p>本报告所列、对本报告内容准备负主要责任的每位研究分析师声明：本出版物中表达的所有观点准确反映该分析师对任何及所有标的证券或发行人的个人观点，且该分析师的报酬没有任何部分曾经、现在或将来直接或间接与本出版物中的具体建议或观点相关。</p>
+
+  <h3>二、额外全球利益冲突披露</h3>
+  <p>何时启动、更新与停止研究覆盖，由本机构全权决定。本机构已建立、维持并依赖信息隔离墙，以控制本机构一个或多个区域（即私密侧）所含信息向本机构其他区域、单位、集团或关联方（即公开侧）的流动。</p>
+
+  <h3>三、其他重要信息与披露</h3>
+  <p>“Bernstein”与“Autonomous”研究产品保持独立品牌。</p>
+  <ul class="dot">
+    <li>Bernstein 在“Autonomous”与“Bernstein”品牌下制作多种不同类型的研究产品，包括（但不限于）基本面分析与量化分析。一种研究产品中的建议可能因时间范围、方法或其他原因而不同于其他类型研究产品中的建议。此外，一个品牌下研究产品中的观点或建议，可能不同于另一品牌下同类研究产品中的观点或建议。两个品牌的研究评级体系及与这些评级体系相关的其他信息见上一节。</li>
+    <li>Autonomous 作为独立业务单元在以下实体内运营：Bernstein Institutional Services LLC、Bernstein Autonomous LLP、Sanford C. Bernstein (Hong Kong) Limited 盛博香港有限公司以及 Sanford C. Bernstein (India) Private Limited。有关“Autonomous”品牌产品（包括某些销售材料）的信息，请访问：www.autonomous.com。有关 Bernstein 品牌产品的信息，请访问：www.bernsteinresearch.com。</li>
+  </ul>
+  <p>分析师的报酬基于对研究特许经营的总体贡献，以账户渗透、生产力与投资想法的主动性衡量。没有任何分析师基于对投资银行收入的表现或贡献获得报酬。</p>
+  <p>本报告由欧盟 596/2014《市场滥用条例》（“MAR”）第 3(1)(34)(i) 条以及因《2018 年欧洲联盟（退出）法案》而构成英国国内法的同一 MAR 条款所定义的独立分析师撰写。</p>
+
+  <h3 id="disc-region">各地区读者声明</h3>
+  <p><b>致美国读者：</b>Bernstein Institutional Services LLC 是在美国证券交易委员会（“SEC”）注册的经纪自营商，也是美国金融业监管局（“FINRA”）会员，正在美国分发本出版物并对其内容承担责任。若本材料包含对债务产品的分析，则该材料仅面向机构投资者，且不受适用于为零售投资者准备的债务研究的美国独立性与披露标准约束。Bernstein Institutional Services LLC 可为其自身账户作为当事人、或作为另一人（包括关联方）的代理人，买卖作为本报告标的的任何证券。本报告并不声称满足任何特定个人、实体或账户的目标或需求。</p>
+  <p><b>致加拿大读者：</b>若本出版物涉及加拿大注册公司，则由受加拿大投资监管组织许可与监管的 Sanford C. Bernstein (Canada) Limited 在加拿大分发。若本出版物涉及非加拿大注册公司，则由同时受 SEC 与 FINRA 许可与监管的 Bernstein Institutional Services LLC 根据国际交易商豁免向加拿大分发。本文件不得传递给加拿大的任何人，除非该人符合 NI 31-103 第 1.1 条所定义的“许可客户”。</p>
+  <p><b>致巴西读者：</b>本报告由 Bernstein Institutional Services LLC 准备，Banco BTG Pactual S.A.（“BTG”）负责在巴西分发本报告。</p>
+  <p><b>致英国读者：</b>本出版物已由 Bernstein Autonomous LLP 在英国发布或批准发布。该公司受金融行为监管局授权与监管，地址为 60 London Wall, London EC2M 5SH，+44 (0)20-7170-5000。在英格兰与威尔士注册，编号 OC343985。</p>
+  <p>本文件仅分发给以下人士：(i) 在《2000 年金融服务与市场法（金融推广）令 2005》（经修订，“金融推广令”）第 19(5) 条范围内对投资事项具有专业经验的人士；(ii) 属于金融推广令第 49(2)(a) 至 (d) 条（“高净值公司、非法人团体等”）的人士；(iii) 位于英国以外的人士；或 (iv) 向其发出或促使其发出从事投资活动（在 FSMA 第 21 条含义内）的邀请或诱导，且与任何证券的发行或出售相关，在其他方面可合法传达的人士（以上所有人士合称“相关人士”）。本文件仅针对相关人士，不得由非相关人士据以行动或依赖。与本文件相关的任何投资或投资活动仅向相关人士提供，且仅与相关人士进行。</p>
+  <p><b>致欧洲经济区成员国读者：</b>本出版物由 BSG France SA 分发，该公司受审慎监管与处置局（ACPR）及金融市场管理局（AMF）授权与监管。</p>
+  <p><b>致香港读者：</b>本出版物由 Sanford C. Bernstein (Hong Kong) Limited 盛博香港有限公司在香港分发，该公司受香港证券及期货事务监察委员会许可与监管（中央编号 AXC846），可从事第 4 类（就证券提供意见）受规管活动，并受证监会公众登记册（https://www.sfc.hk/publicregWeb/corp/AXC846/details）所列发牌条件约束。本出版物仅供《证券及期货条例》（第 571 章）所定义的专业投资者使用。</p>
+  <p><b>致新加坡读者：</b>本出版物由 Sanford C. Bernstein (Singapore) Private Limited 在新加坡分发，仅分发给新加坡《2001 年证券及期货法》（“SFA”）所定义的合格投资者或机构投资者。新加坡收件人应就因本出版物产生或与之相关的事项联系 Sanford C. Bernstein (Singapore) Private Limited。该公司受新加坡金融管理局监管，并根据 SFA 持有资本市场服务牌照，可买卖属于证券与集体投资计划的资本市场产品，并作为豁免财务顾问就证券提供意见、发布与颁布分析与报告。该公司在新加坡注册，公司注册号 20213710W，地址为 One Raffles Quay, #27-11 South Tower, Singapore 048583，+65-6230-4612。</p>
+  <p><b>致中华人民共和国读者：</b>本文所述证券并未、也不得在违反中华人民共和国（就此目的而言不包括香港与澳门特别行政区或台湾，下称“中国”）任何适用法律的情况下，在中国直接或间接要约或出售。本文件不构成向在中国向其作出要约或招揽属违法的任何人要约出售或招揽购买任何证券。我们不声明本文件可在遵守中国任何适用登记或其他要求、或依据其下可获得的豁免的情况下合法分发，或任何证券可被合法要约；也不承担为促成任何此类分发或要约的责任。尤其是，我们未采取任何行动以允许在中国公开发行任何证券或分发本文件。因此，证券并非通过本文件或任何其他文件在中国要约或出售。本文件及任何广告或其他要约材料不得在中国分发或发布，除非在将导致遵守任何适用法律法规的情形下。</p>
+  <p><b>致日本读者：</b>本出版物由 Sanford C. Bernstein Japan KK（サンフォード・C・バーンスタイン株式会社）在日本分发，该公司在日本注册为金融商品交易业者，关东财务局（登记号：关东财务局长（金商）第 3387 号）并受金融厅监管。它也是日本投资顾问业协会会员。本出版物仅供《金融商品交易法》第 2 条第 3 款第 (i) 项所定义的日本合格机构投资者使用。对于已被大和证券集团（“Daiwa”）授予 Bernstein 网站访问权限的日本机构客户读者，您对本文件的访问不应被解释为 Bernstein 出于任何目的向您提供投资建议。尽管 Bernstein 准备了本文件，您的关系是、并将继续是与大和的关系，Bernstein 与您既无合同关系，也对您不负有任何义务。</p>
+  <p><b>致澳大利亚读者：</b>Sanford C. Bernstein (Hong Kong) Limited 盛博香港有限公司负责在澳大利亚分发研究。它受美国法律下的证券交易委员会、以及不同于澳大利亚法律的英国法律下的金融行为监管局监管。Sanford C. Bernstein (Hong Kong) Limited 盛博香港有限公司就向批发客户提供以下金融服务，豁免持有《2001 年公司法》下的澳大利亚金融服务牌照：提供金融产品建议；买卖金融产品；为金融产品做市；以及提供托管或存管服务。</p>
+  <p><b>致印度读者：</b>本出版物由 Sanford C. Bernstein (India) Private Limited（SCB India）在印度分发，该公司受印度证券交易委员会（“SEBI”）许可与监管，作为研究分析师实体根据《2014 年 SEBI（研究分析师）条例》注册，注册号 INH000006378，并作为股票经纪商注册号 INZ000213537。SCB India 目前从事提供研究与股票经纪服务。更多信息请见 www.bernsteinresearch.in。</p>
+  <ul class="dot">
+    <li>SCB India 是根据《2013 年公司法》于 2017 年 4 月 12 日成立的私人有限公司，公司识别号 U65999MH2017FTC293762，注册办公地址为 Level 3A, 4th Floor, First International Financial Centre, Plot Nos C-54 and C-55, G Block, Near CBI Office, Bandra Kurla Complex, Bandra (East), Mumbai 400098, Maharashtra, India（电话：+91-22-68421401）。</li>
+    <li>有关 SCB India 关联方（即关联/集团公司）的详情，请电邮 MUM-BERNSTEIN-InCompliance@bernsteinsg.com。</li>
+    <li>截至本报告日期，SCB India 没有任何纪律处分历史。</li>
+    <li>除上文所述外，SCB India 及/或其关联方（即关联/集团公司）、撰写本报告的研究分析师及其亲属：在标的公司中没有任何财务利益；不实际/实益拥有标的公司证券百分之一或以上；未从事印度公司的任何投资银行活动；在过去十二个月内未为任何印度公司管理或共同管理公开发行；在过去 12 个月内未从标的公司获得投资银行服务或商人银行服务报酬；在过去十二个月内未从标的公司获得经纪服务报酬；未从标的公司或与本报告中具体建议或观点相关的第三方获得任何报酬或其他利益；目前不是、但将来可能担任本报告所覆盖公司金融工具的做市商；截至本报告日期在标的公司中没有任何利益冲突。</li>
+    <li>除上文所述外，标的公司在本研究报告分发之日前十二个月内不是 SCB India 的客户。SCB India 及其关联方均未在过去十二个月内从标的公司获得投资银行、商人银行或经纪服务以外的产品或服务报酬。</li>
+    <li>准备本报告的主要研究分析师、分析师团队成员及其家庭成员，不是本报告所覆盖公司的高管、董事、雇员或顾问委员会成员。</li>
+    <li>我们的合规官 / 投诉官是 Rupal Talati 女士，可通过 +91-22-68421451，或 MUM-BERNSTEIN-InCompliance@bernsteinsg.com / Scbin-investorgrievance@bernsteinsg.com 联系。</li>
+    <li>SCB India 的投资者章程可在其网站查阅，访问地址为 Sanford C. Bernstein (India) Private Limited（bernsteinresearch.in）。</li>
+    <li>免责声明：SEBI 授予的注册以及 NISM 的认证，绝不保证中介机构的业绩，也不向投资者提供任何回报保证。证券市场投资受市场风险影响。投资前请仔细阅读所有相关文件。</li>
+  </ul>
+  <p><b>致瑞士读者：</b>本文件由 Bernstein Autonomous LLP 在瑞士提供或通过其提供，且仅提供给《瑞士集体投资计划法》（“CISA”）第 10 条及集体投资计划条例相关条款所定义的合格投资者，并严格遵守适用的瑞士法律法规。本文所述产品可能并不适合所有类型的投资者。本文件基于瑞士银行家协会（SBA）于 2008 年 1 月发布的《金融研究独立性指令》。</p>
+  <p><b>致中东读者：</b>Bernstein Autonomous LLP 迪拜国际金融中心（DIFC）分行主要办公地址为 Gate Village 06, DIFC, Dubai, UAE。该分行受迪拜金融服务管理局（DFSA）监管，注册号 F008549，获准安排投资交易并就金融产品提供建议。所有沟通与服务仅面向专业客户与市场对手方（如 DFSA 规则手册所定义）。专业客户与市场对手方以外的人士，例如零售客户，不是我们沟通或服务的预期接收人。</p>
+
+  <h3 id="disc-legal">法律声明</h3>
+  <p>所有研究出版物通过在本机构密码保护网站 bernsteinresearch.com 与 autonomous.com 上发布向我们的客户传播。某些（但非全部）研究出版物也通过第三方供应商向客户提供，或作为便利通过替代电子方式向客户再分发。</p>
+  <p>本出版物已根据本机构投资研究利益冲突管理政策发布与分发，该政策副本可向 Bernstein Institutional Services LLC 合规总监索取，地址 245 Park Avenue, New York, NY 10167。有关 Bernstein 业务的额外披露与信息可在我们的网站 www.bernsteinresearch.com 查阅。</p>
+  <p>本文所述证券可能并非在所有司法管辖区或对某些类别的投资者符合销售资格，若该许可概况与本文所述实体所持牌照不一致。本文件仅在法律允许的范围内分发。本出版物不针对、也不意图分发给或供以下人士或实体使用：其为任何地方、州、国家或其他司法管辖区的公民或居民，或位于其中，而在该处此类分发、发布、提供或使用将违反法律或法规，或将使本文所述任何实体或其任何子公司或关联方在该司法管辖区内承担任何登记或许可要求。本出版物基于我们认为可靠的公开来源，但我们不声明本出版物准确或完整。我们不承诺就所报告信息或本文意见的任何变化向您提供建议。本出版物由本文所述实体准备并发布，供合格对手方或专业客户分发。本出版物不是买卖任何证券的要约，也不构成投资、法律或税务建议。本文所述投资可能并不适合您。投资者必须在咨询其专业顾问后，根据其具体情形作出自己的投资决定。投资价值可能波动，以外币计价的投资可能因汇率变动而波动。关于投资过往表现的信息，并不必然是未来表现的指引、指标或保证。</p>
+  <p>本报告针对并仅意图供我们符合上述监管机构所定义的“合格对手方”“专业客户”“机构投资者”及/或“专业投资者”的客户使用，不得再分发给上述监管机构所定义的零售客户。收到本报告的零售客户应注意，本文所述实体的服务对其不可用，且不应依赖本文材料作出投资决定。此类行为的结果将不使本文所述实体对由此产生的任何损失承担责任，因为本文所述实体未注册/授权/获许可与零售客户交易，也不会与零售客户订立任何合同协议/安排。</p>
+  <p>本报告受客户可能与本文所述实体订立的任何协议的条款与条件约束。所有研究报告通过电子发布至我们的客户门户，在同步基础上向合格客户传播。信息为私密与保密，仅供客户使用。</p>
+  <p>本报告仅为信息目的准备，基于我们认为可靠的当前公开信息，但本文所述实体不保证或声明（明示或暗示）本文所含信息或数据来源准确、完整、不具误导性，或其适合预期目的；即便本文所述实体依赖声誉良好或可信的数据提供商，也不应被如此依赖。所表达的意见仅为作者截至材料所示日期的当前意见，我们不承诺就所报告信息或本文意见的任何变化向您提供建议。</p>
+  <p>本出版物由本文所述实体准备并发布，供合格对手方或专业客户分发。本报告中的信息旨在一般传阅，不构成买卖任何证券的要约、投资、法律或税务建议，也不构成上述任何监管机构所定义的个人推荐。它不考虑个人投资者的特定投资目标、财务状况或需求。本报告未经上述任何监管机构审阅，不代表上述监管机构的任何官方推荐。本文所述投资可能并不适合您。投资者必须在咨询财务顾问、就其投资目标、财务状况或任何推荐接收人的特定需求寻求关于投资产品适合性的建议后，再作出购买投资产品的承诺，作出自己的投资决定。</p>
+  <p>本文所含分析基于大量假设。不同假设可能导致实质上不同的结果。本报告中的信息不构成、也不构成任何出售或发行要约、或任何购买或认购股份要约的一部分，也不诱导从事任何其他投资活动。本报告所述任何证券或金融工具的价值可能随市场状况波动。关于投资过往表现的信息，并不必然是未来表现的指引、指示或保证。研究分析师在本报告中提及的未来表现估计，基于可能因市场波动等不可预见因素而无法实现的假设。对于以客户本币以外的外币计价的证券或金融工具，汇率变动将对其价值产生有利或不利影响。在根据本报告中的任何建议采取行动之前，收件人应考虑投资本报告所述标的证券或金融工具的适当性，并在必要时寻求独立专业建议。</p>
+  <p>本文所述证券可能并非在所有司法管辖区或对某些类别的投资者符合销售资格，若该许可概况与本文所述实体所持牌照不一致。本文件仅在法律允许的范围内分发。它不针对、也不意图分发给或供以下人士或实体使用：其为任何地方、州、国家或其他司法管辖区的公民或居民或位于其中，而在该处此类分发、发布、提供或使用将违反法律或法规，或将使本文所述实体在该司法管辖区内承担任何监管或许可要求。</p>
+  <p>来源：Bloomberg Index Services Limited。BLOOMBERG® 是 Bloomberg Finance L.P. 及其关联方（合称“Bloomberg”）的商标与服务标志。Bloomberg 或 Bloomberg 的许可方拥有彭博指数中的所有专有权利。Bloomberg 或 Bloomberg 的许可方均不批准或背书本材料，不保证本文任何信息的准确性或完整性，也不对由此获得的结果作出任何明示或暗示保证；在法律允许的最大范围内，任何一方均不对与之相关的伤害或损害承担任何责任。</p>
+  <p>未经本文所述实体事先同意，本材料的任何部分不得被复制、分发或传输，或以其他方式提供。版权所有 Bernstein Institutional Services LLC、Bernstein Autonomous LLP、BSG France S.A.、Sanford C. Bernstein (Hong Kong) Limited 盛博香港有限公司、Sanford C. Bernstein (Canada) Limited、Sanford C. Bernstein (India) Private Limited（SEBI 注册号 INH000006378）、Sanford C. Bernstein (Singapore) Private Limited 以及 Sanford C. Bernstein Japan KK（サンフォード・C・バーンスタイン株式会社）。保留所有权利。本文所含商标与服务标志为其各自所有者的财产。任何未经授权的使用或披露均被严格禁止。若未经授权的使用导致对本文所述实体及以 Bernstein 与 Autonomous 品牌发布的研究的任何诽谤及/或声誉风险，本文所述实体可采取法律行动。</p>
+</section>
+</div>
+
+<footer>
+  本页为 Bernstein《全球科技｜AI价值链：1GW数据中心容量实际成本多少，由哪些部分构成？》（2025年10月27日，原文25页）的完整中文译本，供内部研究使用。原文版权归 Bernstein / Société Générale Group 所有。首次发布：2025年10月26日 23:08 UTC。GLOBAL TECHNOLOGY · BERNSTEIN · SOCIETE GENERALE GROUP
+</footer>
+</main>
+
+<script>
+(function(){
+  const btn = document.getElementById('tocBtn');
+  btn.addEventListener('click', () => document.body.classList.toggle('toc-collapsed'));
+  const links = document.querySelectorAll('aside.toc a');
+  links.forEach(link => link.addEventListener('click', () => {
+    const target = document.querySelector(link.getAttribute('href'));
+    const parentDetails = target && target.closest('details');
+    if (parentDetails) parentDetails.open = true;
+  }));
+  const map = [...links].map(a => ({a, el: document.querySelector(a.getAttribute('href'))})).filter(x => x.el);
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(l => l.classList.remove('active'));
+      const hit = map.find(m => m.el === e.target);
+      if (hit) hit.a.classList.add('active');
+    });
+  }, {rootMargin:'-20% 0px -70% 0px', threshold:0});
+  map.forEach(m => io.observe(m.el));
+
+  if (window.echarts) {
+    const c3 = echarts.init(document.getElementById('chart3'));
+    c3.setOption({
+      tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
+      legend:{bottom:0,type:'scroll'},
+      grid:{left:50,right:20,top:30,bottom:70},
+      xAxis:{type:'category',data:['总计 5,943','计算与网络 3,226']},
+      yAxis:{type:'value',max:100,axisLabel:{formatter:'{value}%'}},
+      series:[
+        {name:'CPU',type:'bar',stack:'a',data:[2.9, 171/3226*100]},
+        {name:'HBM',type:'bar',stack:'a',data:[3.2, 192/3226*100]},
+        {name:'GPU（不含HBM）',type:'bar',stack:'a',data:[35.6, 2112/3226*100]},
+        {name:'交换机',type:'bar',stack:'a',data:[3.1, 184/3226*100]},
+        {name:'铜缆',type:'bar',stack:'a',data:[2.1, 123/3226*100]},
+        {name:'背板连接器',type:'bar',stack:'a',data:[1.7, 102/3226*100]},
+        {name:'光模块',type:'bar',stack:'a',data:[0.9, 51/3226*100]},
+        {name:'网卡',type:'bar',stack:'a',data:[1.7, 102/3226*100]},
+        {name:'DPU/网络加速',type:'bar',stack:'a',data:[3.2, 188/3226*100]},
+        {name:'存储及其他',type:'bar',stack:'a',data:[1.4, 0]},
+        {name:'电源',type:'bar',stack:'a',data:[15.4, 0]},
+        {name:'热管理',type:'bar',stack:'a',data:[3.6, 0]},
+        {name:'其他物理基础设施',type:'bar',stack:'a',data:[13.9, 0]},
+        {name:'土地与建筑',type:'bar',stack:'a',data:[10.7, 0]}
+      ]
+    });
+    const c7 = echarts.init(document.getElementById('chart7'));
+    c7.setOption({
+      tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
+      legend:{bottom:0},
+      grid:{left:50,right:20,top:20,bottom:50},
+      xAxis:{type:'category',data:['GB200 NV72','GB300 NV72','VR200 电源架','VR200 电源柜','VR Ultra']},
+      yAxis:{type:'value',name:'千美元'},
+      series:[
+        {name:'PSU',type:'bar',stack:'p',data:[26,26,37,43,117],itemStyle:{color:'#7dd3d8'}},
+        {name:'BBU（按采用率）',type:'bar',stack:'p',data:[6,10,21,35,95],itemStyle:{color:'#12324d'}},
+        {name:'其他组件',type:'bar',stack:'p',data:[8,10,20,42,91],itemStyle:{color:'#0d7377'}}
+      ]
+    });
+    window.addEventListener('resize', () => { c3.resize(); c7.resize(); });
+  }
+})();
+</script>
+</body>
+</html>
