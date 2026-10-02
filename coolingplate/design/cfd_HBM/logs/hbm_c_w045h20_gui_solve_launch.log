@@ -1,0 +1,2 @@
+CMD="E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\ntbin\win64\fluent.exe" 3d -r26.1.0 -t4 -i "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM\fluent\hbm_c_w045h20_gui_solve.jou" 
+libpng warning: iCCP: known incorrect sRGB profile

@@ -1,0 +1,644 @@
+Transcript Start Time:  06:56:22, 28 Sep 2026 中国标准时间 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM"
+
+Build Time: Feb  2 2026 16:22:05 EST  Build Id: 10262 
+Executable Path: E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/ntbin/win64/fluent.exe
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  51292  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  42476  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  35864  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  53808  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  68016  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+Cortex Process ID: 54152 
+License Server Path: 1055@localhost 
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/mesh/hbm_cf_w08h20.msh"
+Reading "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/mesh/hbm_cf_w08h20.msh"...
+
+Buffering for file scan...
+
+ 8370474 nodes.
+ 1313960 hexahedral cells, zone  2.
+ 6582040 hexahedral cells, zone  3.
+  216000 hexahedral cells, zone  4.
+23974892 quadrilateral interior faces, zone  5.
+  174988 quadrilateral wall faces, zone  6.
+   36000 quadrilateral wall faces, zone  7.
+    3360 quadrilateral velocity-inlet faces, zone  8.
+    4480 quadrilateral velocity-inlet faces, zone  9.
+    2400 quadrilateral pressure-outlet faces, zone 10.
+    2800 quadrilateral pressure-outlet faces, zone 11.
+   36000 quadrilateral wall faces, zone 12.
+  210640 quadrilateral wall faces, zone 13.
+   40560 quadrilateral wall faces, zone 14.
+
+Building...
+     mesh
+	auto partitioning mesh by Metis (fast),
+	distributing mesh
+		parts....,
+      interior -> interior (5) and interior:015 (15)
+      interior -> interior (5) and interior:016 (16)
+      wall_adiabat -> wall_adiabat (13) and wall_adiabat:017 (17)
+      wall_adiabat -> wall_adiabat (13) and wall_adiabat:018 (18)
+      wall_side -> wall_side (14) and wall_side:019 (19)
+      wall_side -> wall_side (14) and wall_side:020 (20)
+		faces....,
+Note: Separating interior zone 5 into zones 5 and 15. 
+Note: Separating interior zone 5 into zones 5 and 16. 
+Note: Separating wall zone 13 into zones 13 and 17. 
+Note: Separating wall zone 13 into zones 13 and 18. 
+Note: Separating wall zone 14 into zones 14 and 19. 
+Note: Separating wall zone 14 into zones 14 and 20. 
+		nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 15161/10773 = 1.40731
+     materials,
+     interface,
+     domains,
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	wall_side:020
+	wall_side:019
+	wall_adiabat:018
+	wall_adiabat:017
+	interior:016
+	interior:015
+	wall_side
+	wall_adiabat
+	wall_heat
+	outlet_hi
+	outlet_lo
+	inlet_hi
+	inlet_lo
+	wall_tim_cu
+	wall_cu_fluid
+	interior
+	solid_tim2
+	solid_cu
+	fluid
+     parallel,
+Done.
+
+
+> /mesh/check
+
+ Domain Extents:
+   x-coordinate: min (m) = 0.000000e+00, max (m) = 1.100000e-02
+   y-coordinate: min (m) = -7.000000e-03, max (m) = 5.700000e-02
+   z-coordinate: min (m) = -2.080000e-03, max (m) = 6.000000e-03
+ Volume statistics:
+   minimum volume (m3): 3.199848e-15
+   maximum volume (m3): 9.388098e-12
+     total volume (m3): 5.670720e-06
+ Face area statistics:
+   minimum face area (m2): 6.400000e-11
+   maximum face area (m2): 1.397147e-07
+ Checking mesh..........................................
+ Done.
+
+> /define/boundary-conditions/list-zones
+  id  name                       type                adj-zone-material     wall-material         kind
+----  -------------------------  ------------------  --------------------  --------------------  ----
+   2  fluid                      fluid               air                                         cell
+   3  solid_cu                   solid               aluminum                                    cell
+   4  solid_tim2                 solid               aluminum                                    cell
+   5  interior                   interior                                                        face
+   6  wall_cu_fluid              wall                air                   aluminum              face
+   7  wall_tim_cu                wall                aluminum              aluminum              face
+   8  inlet_lo                   mass-flow-inlet                                                 face
+   9  inlet_hi                   mass-flow-inlet                                                 face
+  10  outlet_lo                  pressure-outlet                                                 face
+  11  outlet_hi                  pressure-outlet                                                 face
+  12  wall_heat                  wall                aluminum              aluminum              face
+  13  wall_adiabat               wall                air                   aluminum              face
+  14  wall_side                  wall                air                   aluminum              face
+  15  interior:015               interior                                                        face
+  16  interior:016               interior                                                        face
+  17  wall_adiabat:017           wall                aluminum              aluminum              face
+  18  wall_adiabat:018           wall                aluminum              aluminum              face
+  19  wall_side:019              wall                aluminum              aluminum              face
+  20  wall_side:020              wall                aluminum              aluminum              face
+  21  wall_tim_cu-shadow         wall                aluminum              aluminum              face
+  22  wall_cu_fluid-shadow       wall                aluminum              aluminum              face
+
+> /define/models/energy yes
+Compute viscous energy work? [no] no
+Include pressure work in energy equation? [no] no
+Include kinetic energy in energy equation? [no] no
+Include diffusion at inlets? [yes] no
+
+> /define/models/viscous/laminar yes
+
+> /define/materials/copy fluid water-liquid
+
+Material "water-liquid" copied from database.
+
+
+> /define/materials/copy solid copper
+
+Material "copper" copied from database.
+
+
+> /define/materials/change-create
+
+material-name> water-liquid
+material name [water-liquid] water-liquid
+water-liquid is a fluid
+change Density? [no] yes
+
+Density
+methods: (constant ideal-gas incompressible-ideal-gas rgp-table real-gas-soave-redlich-kwong real-gas-peng-robinson real-gas-aungier-redlich-kwong real-gas-redlich-kwong real-gas-nist boussinesq piecewise-linear piecewise-polynomial polynomial expression compressible-liquid user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [998.2] 992.2
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined kinetic-theory)
+new method [constant] constant
+value (in [J/(kg K)]) [4182] 4179
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression kinetic-theory user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [0.6] 0.631
+
+change Viscosity? [no] yes
+
+Viscosity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression power-law sutherland kinetic-theory cross herschel-bulkley carreau non-newtonian-power-law user-defined)
+new method [constant] constant
+value (in [kg/(m s)]) [0.001003] 6.53e-4
+
+change Molecular Weight? [no] no
+change Thermal Expansion Coefficient? [no] no
+change Speed of Sound? [no] no
+
+> /define/materials/change-create
+
+material-name> copper
+material name [copper] copper
+copper is a solid
+change Density? [no] yes
+
+Density
+methods: (constant expression user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [8978] 8960
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined)
+new method [constant] constant
+value (in [J/(kg K)]) [381] 385
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression cyl-orthotropic orthotropic anisotropic biaxial principal-axes-values user-defined-anisotropic-k user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [387.6] 390
+
+
+> /define/materials/change-create
+
+material-name> aluminum
+material name [aluminum] tim2
+tim2 is a solid
+change Density? [no] yes
+
+Density
+methods: (constant expression user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [2719] 2800
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined)
+new method [constant] constant
+value (in [J/(kg K)]) [871] 1000
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression cyl-orthotropic orthotropic anisotropic biaxial principal-axes-values user-defined-anisotropic-k user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [202.4] 8.818342
+
+
+Change/Create material and Overwrite aluminum? [no] yes
+
+> /define/boundary-conditions/fluid
+(fluid)
+zone id/name [fluid] fluid
+material-name [air]: Change current value? [no] yes
+
+material-name [air]> water-liquid
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Enter yes or no to continue [no] no
+Porous zone? [no] no
+3D Fan Zone? [no] no
+
+> /define/boundary-conditions/solid
+(solid_cu solid_tim2)
+zone id/name [solid_cu] solid_cu
+material-name [tim2]: Change current value? [no] yes
+
+material-name [tim2]> copper
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Solid Motion? [no] no
+Enter yes or no to continue [no] no
+
+> /define/boundary-conditions/solid
+(solid_cu solid_tim2)
+zone id/name [solid_cu] solid_tim2
+material-name [tim2]: Change current value? [no] yes
+
+material-name [tim2]> tim2
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Solid Motion? [no] no
+Enter yes or no to continue [no] no
+
+> /define/boundary-conditions/zone-type inlet_lo mass-flow-inlet
+
+> /define/boundary-conditions/zone-type inlet_hi mass-flow-inlet
+
+> /define/boundary-conditions/zone-type outlet_lo pressure-outlet
+
+> /define/boundary-conditions/zone-type outlet_hi pressure-outlet
+
+> /define/boundary-conditions/zone-type wall_heat wall
+
+> /define/boundary-conditions/zone-type wall_adiabat wall
+
+> /define/boundary-conditions/zone-type wall_side wall
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_lo () mass-flow no 1.41742857e-3 t no 313.15 q
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_hi () mass-flow no 1.88990476e-3 t no 313.15 q
+
+> /define/boundary-conditions/set/pressure-outlet outlet_lo () t no 313.15 q
+
+> /define/boundary-conditions/set/pressure-outlet outlet_hi () t no 313.15 q
+
+> /define/boundary-conditions/wall
+(wall_side wall_adiabat wall_heat wall_cu_fluid wall_tim_cu wall_adiabat:017 wall_adiabat:018 wall_side:019 wall_side:020 wall_tim_cu-shadow wall_cu_fluid-shadow)
+zone id/name [wall_side] wall_heat
+Use Profile for Wall Thickness? [no] no
+Wall Thickness (constant or expression) (in [m]) [0] 0
+Use Profile for Heat Generation Rate? [no] no
+Heat Generation Rate (constant or expression) (in [W/m^3]) [0] 0
+material-name [tim2]: Change current value? [no] no
+Thermal BC Type [heat-flux]: Change current value? [no] yes
+
+Thermal BC Type [heat-flux]> heat-flux
+Use Profile for Heat Flux? [no] no
+Heat Flux (constant or expression) (in [W/m^2]) [0] 205000
+Enable shell conduction? [no] no
+Use Profile for Convective Augmentation Factor? [no] no
+Convective Augmentation Factor (constant or expression) [1] 1
+
+> /report/reference-values/temperature 313.15
+
+> /define/operating-conditions/operating-pressure 101325
+
+> /solve/set/p-v-coupling 24
+
+> /solve/set/pseudo-transient yes
+Activate automatic time step size calculation? [yes] yes
+Length scale calculation methods: (0 1 2)
+0 - Aggressive 
+1 - Conservative 
+2 - User-Specified 
+Length Scale Calculation Method [1] 1
+Auto time step scaling factor (constant or expression) [1] 1
+Auto time verbosity [0] 0
+Activate automatic time step size calculation for solid zone? [yes] yes
+Auto time step scale factor for solid zone [1] 1
+
+> /solve/set/discretization-scheme/pressure 10
+
+> /solve/set/discretization-scheme/mom 0
+
+> /solve/set/discretization-scheme/temperature 0
+
+> /solve/monitors/residual/print? yes
+
+> /solve/monitors/residual/plot? no
+
+> /solve/monitors/residual/criterion-type Available options: (absolute none)
+0
+
+> ; laminar: continuity, x, y, z, energy
+/solve/monitors/residual/check-convergence? no
+Check convergence of x-velocity residuals? [yes] no
+Check convergence of y-velocity residuals? [yes] no
+Check convergence of z-velocity residuals? [yes] no
+Check convergence of energy residuals? [yes] no
+
+> ; criteria menu is empty while every equation check is off. Do not send 1e-4 here.
+; case+data every 200 iterations; each-time saves the case with every data file.
+; iterate also writes hbm_array_laminar_conv when it stops.
+/file/auto-save/root-name "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_cf_w08h20"
+
+> /file/auto-save/data-frequency 200
+
+> /file/auto-save/case-frequency
+Available options: ("if-case-is-modified" "each-time" "if-mesh-is-modified")
+Case save frequency ["if-case-is-modified"] each-time
+
+> /solve/initialize/set-defaults/temperature 313.15
+
+> /solve/initialize/initialize-flow
+
+> ; stops early when the residual criteria above are met, otherwise at 400
+/solve/iterate 200
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     1  1.0000e+00  0.0000e+00  1.0033e-03  0.0000e+00  8.9302e-08  0:56:22  199
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     2  1.0000e+00  6.7740e-04  6.5291e-03  1.5826e-03  9.8298e-08  1:21:41  198
+
+ Reversed flow on 118 faces (4.5% area) of pressure-outlet 10.
+
+ Reversed flow on 193 faces (6.1% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     3  7.4472e-01  3.5691e-04  3.5007e-03  8.4835e-04  1.0091e-07  1:21:25  197
+
+ Reversed flow on 581 faces (24.7% area) of pressure-outlet 10.
+
+ Reversed flow on 699 faces (23.6% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     4  4.3823e-01  2.2765e-04  2.1525e-03  5.7971e-04  9.7489e-08  1:22:10  196
+
+ Reversed flow on 942 faces (39.9% area) of pressure-outlet 10.
+
+ Reversed flow on 1267 faces (44.2% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     5  2.8245e-01  1.7240e-04  1.3663e-03  4.3072e-04  9.2533e-08  1:23:52  195
+
+ Reversed flow on 1081 faces (45.9% area) of pressure-outlet 10.
+
+ Reversed flow on 1446 faces (50.8% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     6  1.9712e-01  1.2519e-04  8.7686e-04  3.1345e-04  8.9204e-08  1:26:19  194
+
+ Reversed flow on 1098 faces (46.8% area) of pressure-outlet 10.
+
+ Reversed flow on 1499 faces (52.7% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     7  1.4534e-01  8.8872e-05  5.6737e-04  2.3453e-04  8.6507e-08  1:29:13  193
+
+ Reversed flow on 1121 faces (47.2% area) of pressure-outlet 10.
+
+ Reversed flow on 1552 faces (53.7% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     8  1.1403e-01  6.2468e-05  3.6620e-04  1.7556e-04  8.4133e-08  1:31:13  192
+
+ Reversed flow on 1148 faces (47.9% area) of pressure-outlet 10.
+
+ Reversed flow on 1576 faces (54.3% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     9  1.1880e-01  4.6966e-05  2.7036e-04  1.3667e-04  8.2122e-08  1:34:02  191
+
+ Reversed flow on 1138 faces (47.3% area) of pressure-outlet 10.
+
+ Reversed flow on 1624 faces (56.0% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    10  9.2064e-02  3.4193e-05  1.6936e-04  1.0292e-04  8.0214e-08  1:33:29  190
+
+ Reversed flow on 1117 faces (46.6% area) of pressure-outlet 10.
+
+ Reversed flow on 1647 faces (56.7% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    11  7.2749e-02  2.4912e-05  1.1706e-04  7.6611e-05  7.8694e-08  1:30:53  189
+
+ Reversed flow on 1104 faces (46.3% area) of pressure-outlet 10.
+
+ Reversed flow on 1676 faces (57.8% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    12  5.7932e-02  1.8806e-05  8.5096e-05  5.9701e-05  7.7380e-08  1:28:34  188
+
+ Reversed flow on 1099 faces (46.1% area) of pressure-outlet 10.
+
+ Reversed flow on 1689 faces (58.6% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    13  4.6128e-02  1.4726e-05  6.5370e-05  4.7314e-05  7.6113e-08  1:27:26  187
+
+ Reversed flow on 1100 faces (45.9% area) of pressure-outlet 10.
+
+ Reversed flow on 1697 faces (59.2% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    14  3.7271e-02  1.1869e-05  5.1146e-05  3.8451e-05  7.5054e-08  1:25:47  186
+
+ Reversed flow on 1104 faces (45.8% area) of pressure-outlet 10.
+
+ Reversed flow on 1703 faces (59.7% area) of pressure-outlet 11.
+    15  3.0116e-02  9.6163e-06  4.0709e-05  3.0896e-05  7.3893e-08  1:21:32  185
+
+ Reversed flow on 1111 faces (45.6% area) of pressure-outlet 10.
+
+ Reversed flow on 1705 faces (59.9% area) of pressure-outlet 11.
+    16  2.5578e-02  7.9116e-06  3.2576e-05  2.5085e-05  7.3055e-08  1:17:15  184
+
+ Reversed flow on 1122 faces (45.7% area) of pressure-outlet 10.
+
+ Reversed flow on 1706 faces (59.9% area) of pressure-outlet 11.
+    17  2.1755e-02  6.5850e-06  2.6174e-05  2.0672e-05  7.2060e-08  1:14:34  183
+
+ Reversed flow on 1129 faces (45.6% area) of pressure-outlet 10.
+
+ Reversed flow on 1706 faces (60.0% area) of pressure-outlet 11.
+    18  1.8666e-02  5.4808e-06  2.1037e-05  1.7014e-05  7.1203e-08  1:14:44  182
+
+ Reversed flow on 1143 faces (45.9% area) of pressure-outlet 10.
+
+ Reversed flow on 1700 faces (59.7% area) of pressure-outlet 11.
+    19  1.5977e-02  4.5835e-06  1.7048e-05  1.4081e-05  7.0463e-08  1:14:55  181
+
+ Reversed flow on 1149 faces (46.0% area) of pressure-outlet 10.
+
+ Reversed flow on 1697 faces (59.5% area) of pressure-outlet 11.
+    20  1.3702e-02  3.8479e-06  1.3870e-05  1.1686e-05  6.9754e-08  1:12:37  180
+
+ Reversed flow on 1150 faces (45.9% area) of pressure-outlet 10.
+
+ Reversed flow on 1703 faces (59.8% area) of pressure-outlet 11.
+    21  1.1724e-02  3.2388e-06  1.1337e-05  9.7499e-06  6.9160e-08  1:10:26  179
+
+ Reversed flow on 1149 faces (45.8% area) of pressure-outlet 10.
+
+ Reversed flow on 1705 faces (59.9% area) of pressure-outlet 11.
+    22  1.0017e-02  2.7320e-06  9.3230e-06  8.2015e-06  6.8555e-08  1:08:53  178
+
+ Reversed flow on 1147 faces (45.6% area) of pressure-outlet 10.
+
+ Reversed flow on 1704 faces (59.8% area) of pressure-outlet 11.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    23  8.6589e-03  2.3223e-06  7.6882e-06  6.9542e-06  6.7994e-08  1:08:03  177
+
+ Reversed flow on 1147 faces (45.6% area) of pressure-outlet 10.
+
+ Reversed flow on 1701 faces (59.7% area) of pressure-outlet 11.
+    24  7.3494e-03  1.9836e-06  6.3335e-06  5.9262e-06  6.7441e-08  1:13:39  176
+
+ Reversed flow on 1146 faces (45.6% area) of pressure-outlet 10.
+
+ Reversed flow on 1698 faces (59.5% area) of pressure-outlet 11.
+    25  6.3323e-03  1.7029e-06  5.2206e-06  5.0631e-06  6.7115e-08  1:10:59  175
+
+ Reversed flow on 1139 faces (45.3% area) of pressure-outlet 10.
+
+ Reversed flow on 1699 faces (59.6% area) of pressure-outlet 11.
+    26  5.3974e-03  1.4699e-06  4.3533e-06  4.3830e-06  6.6662e-08  1:11:43  174
+
+ Reversed flow on 1140 faces (45.4% area) of pressure-outlet 10.
+
+ Reversed flow on 1703 faces (59.8% area) of pressure-outlet 11.
+    27  4.6911e-03  1.2741e-06  3.6451e-06  3.7873e-06  6.6316e-08  1:11:17  173
+
+ Reversed flow on 1137 faces (45.4% area) of pressure-outlet 10.
+
+ Reversed flow on 1707 faces (59.9% area) of pressure-outlet 11.
+    28  4.0751e-03  1.1069e-06  3.0787e-06  3.3159e-06  6.5845e-08  1:10:12  172
+
+ Reversed flow on 1131 faces (45.1% area) of pressure-outlet 10.
+
+ Reversed flow on 1709 faces (60.1% area) of pressure-outlet 11.
+    29  3.5927e-03  9.6971e-07  2.6177e-06  2.9302e-06  6.5426e-08  1:09:20  171
+
+ Reversed flow on 1125 faces (44.8% area) of pressure-outlet 10.
+
+ Reversed flow on 1709 faces (60.0% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    30  3.2180e-03  8.6384e-07  2.1873e-06  2.5885e-06  6.5309e-08  1:13:00  170
+
+ Reversed flow on 1125 faces (44.9% area) of pressure-outlet 10.
+
+ Reversed flow on 1708 faces (59.9% area) of pressure-outlet 11.
+    31  2.8538e-03  7.6508e-07  1.8300e-06  2.2696e-06  6.4885e-08  1:10:58  169
+
+ Reversed flow on 1129 faces (45.2% area) of pressure-outlet 10.
+
+ Reversed flow on 1708 faces (59.9% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    32  2.4843e-03  6.7200e-07  1.6082e-06  1.9387e-06  6.4783e-08  1:11:10  168
+
+ Reversed flow on 1126 faces (45.1% area) of pressure-outlet 10.
+
+ Reversed flow on 1705 faces (59.8% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    33  2.2513e-03  6.0065e-07  1.3762e-06  1.6862e-06  6.4636e-08  1:11:36  167
+
+ Reversed flow on 1121 faces (44.8% area) of pressure-outlet 10.
+
+ Reversed flow on 1707 faces (59.8% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    34  2.0840e-03  5.3999e-07  1.1528e-06  1.5169e-06  6.4352e-08  1:11:42  166
+
+ Reversed flow on 1121 faces (44.8% area) of pressure-outlet 10.
+
+ Reversed flow on 1710 faces (60.0% area) of pressure-outlet 11.
+    35  1.8104e-03  4.8860e-07  1.0177e-06  1.3275e-06  6.4222e-08  1:09:13  165
+
+ Reversed flow on 1121 faces (44.8% area) of pressure-outlet 10.
+
+ Reversed flow on 1711 faces (59.9% area) of pressure-outlet 11.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    36  1.7709e-03  4.3761e-07  9.0519e-07  1.1684e-06  6.4131e-08  1:09:46  164
+
+ Reversed flow on 1125 faces (45.2% area) of pressure-outlet 10.
+
+ Reversed flow on 1711 faces (60.0% area) of pressure-outlet 11.
+    37  1.5253e-03  4.0069e-07  7.7414e-07  1.0387e-06  6.4030e-08  1:07:25  163
+
+ Reversed flow on 1123 faces (45.1% area) of pressure-outlet 10.
+
+ Reversed flow on 1710 faces (60.0% area) of pressure-outlet 11.
+    38  1.4347e-03  3.5627e-07  6.8206e-07  9.0916e-07  6.3672e-08  1:06:12  162
+
+ Reversed flow on 1117 faces (44.7% area) of pressure-outlet 10.
+
+ Reversed flow on 1707 faces (59.8% area) of pressure-outlet 11.
+    39  1.3253e-03  3.2586e-07  6.0786e-07  8.3182e-07  6.3478e-08  1:05:36  161
+
+ Reversed flow on 1118 faces (44.8% area) of pressure-outlet 10.
+
+ Reversed flow on 1709 faces (59.8% area) of pressure-outlet 11.
+    40  1.2559e-03  3.0522e-07  5.5975e-07  7.5313e-07  6.3498e-08  1:05:19  160
+
+ Reversed flow on 1118 faces (44.8% area) of pressure-outlet 10.
+
+ Reversed flow on 1710 faces (60.0% area) of pressure-outlet 11.
+    41  1.1798e-03  2.7828e-07  4.9902e-07  6.9340e-07  6.3171e-08  1:04:08  159
+
+ Reversed flow on 1122 faces (45.1% area) of pressure-outlet 10.
+
+ Reversed flow on 1709 faces (59.9% area) of pressure-outlet 11.
+    42  1.1162e-03  2.6266e-07  4.6038e-07  6.0812e-07  6.3299e-08  1:03:44  158

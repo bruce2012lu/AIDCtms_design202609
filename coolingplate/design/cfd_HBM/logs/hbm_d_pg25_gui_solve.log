@@ -1,0 +1,590 @@
+Transcript Start Time:  18:01:01, 29 Sep 2026 中国标准时间 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM"
+
+Build Time: Feb  2 2026 16:22:05 EST  Build Id: 10262 
+Executable Path: E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/ntbin/win64/fluent.exe
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  29104  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  29232  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  17692  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  20092  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  27868  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+Cortex Process ID: 12964 
+License Server Path: 1055@localhost 
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/mesh/hbm_d_w045h20.msh"
+Reading "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/mesh/hbm_d_w045h20.msh"...
+
+Buffering for file scan...
+
+28593005 nodes.
+ 8768000 hexahedral cells, zone  2.
+18404800 hexahedral cells, zone  3.
+  856800 hexahedral cells, zone  4.
+82528424 quadrilateral interior faces, zone  5.
+ 1091296 quadrilateral wall faces, zone  6.
+  142800 quadrilateral wall faces, zone  7.
+    3360 quadrilateral velocity-inlet faces, zone  8.
+    8800 quadrilateral pressure-outlet faces, zone  9.
+  142800 quadrilateral wall faces, zone 10.
+  391040 quadrilateral wall faces, zone 11.
+  106560 quadrilateral wall faces, zone 12.
+
+Building...
+     mesh
+	auto partitioning mesh by Metis (fast),
+	distributing mesh
+		parts....,
+      interior -> interior (5) and interior:013 (13)
+      interior -> interior (5) and interior:014 (14)
+      wall_adiabat -> wall_adiabat (11) and wall_adiabat:015 (15)
+      wall_adiabat -> wall_adiabat (11) and wall_adiabat:016 (16)
+      wall_side -> wall_side (12) and wall_side:017 (17)
+      wall_side -> wall_side (12) and wall_side:018 (18)
+		faces....,
+Note: Separating interior zone 5 into zones 5 and 13. 
+Note: Separating interior zone 5 into zones 5 and 14. 
+Note: Separating wall zone 11 into zones 11 and 15. 
+Note: Separating wall zone 11 into zones 11 and 16. 
+Note: Separating wall zone 12 into zones 12 and 17. 
+Note: Separating wall zone 12 into zones 12 and 18. 
+		nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 43920/19677 = 2.23205
+     materials,
+     interface,
+     domains,
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	wall_side:018
+	wall_side:017
+	wall_adiabat:016
+	wall_adiabat:015
+	interior:014
+	interior:013
+	wall_side
+	wall_adiabat
+	wall_heat
+	outlet
+	inlet
+	wall_tim_cu
+	wall_cu_fluid
+	interior
+	solid_tim2
+	solid_cu
+	fluid
+     parallel,
+Done.
+
+Preparing mesh for display...
+Done.
+
+
+> /mesh/check
+
+ Domain Extents:
+   x-coordinate: min (m) = 0.000000e+00, max (m) = 1.100000e-02
+   y-coordinate: min (m) = -2.000000e-03, max (m) = 5.200000e-02
+   z-coordinate: min (m) = -2.080000e-03, max (m) = 8.000000e-03
+ Volume statistics:
+   minimum volume (m3): 3.199831e-15
+   maximum volume (m3): 5.006457e-12
+     total volume (m3): 5.978720e-06
+ Face area statistics:
+   minimum face area (m2): 6.400000e-11
+   maximum face area (m2): 1.054528e-07
+ Checking mesh..........................................
+ Done.
+
+> /define/boundary-conditions/list-zones
+  id  name                       type                adj-zone-material     wall-material         kind
+----  -------------------------  ------------------  --------------------  --------------------  ----
+   2  fluid                      fluid               air                                         cell
+   3  solid_cu                   solid               aluminum                                    cell
+   4  solid_tim2                 solid               aluminum                                    cell
+   5  interior                   interior                                                        face
+   6  wall_cu_fluid              wall                air                   aluminum              face
+   7  wall_tim_cu                wall                aluminum              aluminum              face
+   8  inlet                      mass-flow-inlet                                                 face
+   9  outlet                     pressure-outlet                                                 face
+  10  wall_heat                  wall                aluminum              aluminum              face
+  11  wall_adiabat               wall                air                   aluminum              face
+  12  wall_side                  wall                air                   aluminum              face
+  13  interior:013               interior                                                        face
+  14  interior:014               interior                                                        face
+  15  wall_adiabat:015           wall                aluminum              aluminum              face
+  16  wall_adiabat:016           wall                aluminum              aluminum              face
+  17  wall_side:017              wall                aluminum              aluminum              face
+  18  wall_side:018              wall                aluminum              aluminum              face
+  19  wall_tim_cu-shadow         wall                aluminum              aluminum              face
+  20  wall_cu_fluid-shadow       wall                aluminum              aluminum              face
+
+> /define/models/energy yes
+Compute viscous energy work? [no] no
+Include pressure work in energy equation? [no] no
+Include kinetic energy in energy equation? [no] no
+Include diffusion at inlets? [yes] no
+
+> /define/models/viscous/laminar yes
+
+> /define/materials/copy fluid water-liquid
+
+Material "water-liquid" copied from database.
+
+
+> /define/materials/copy solid copper
+
+Material "copper" copied from database.
+
+
+> /define/materials/change-create
+
+material-name> water-liquid
+material name [water-liquid] water-liquid
+water-liquid is a fluid
+change Density? [no] yes
+
+Density
+methods: (constant ideal-gas incompressible-ideal-gas rgp-table real-gas-soave-redlich-kwong real-gas-peng-robinson real-gas-aungier-redlich-kwong real-gas-redlich-kwong real-gas-nist boussinesq piecewise-linear piecewise-polynomial polynomial expression compressible-liquid user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [998.2] 1022.5
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined kinetic-theory)
+new method [constant] constant
+value (in [J/(kg K)]) [4182] 3900
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression kinetic-theory user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [0.6] 0.476
+
+change Viscosity? [no] yes
+
+Viscosity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression power-law sutherland kinetic-theory cross herschel-bulkley carreau non-newtonian-power-law user-defined)
+new method [constant] constant
+value (in [kg/(m s)]) [0.001003] 1.58e-3
+
+change Molecular Weight? [no] no
+change Thermal Expansion Coefficient? [no] no
+change Speed of Sound? [no] no
+
+> /define/materials/change-create
+
+material-name> copper
+material name [copper] copper
+copper is a solid
+change Density? [no] yes
+
+Density
+methods: (constant expression user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [8978] 8960
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined)
+new method [constant] constant
+value (in [J/(kg K)]) [381] 385
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression cyl-orthotropic orthotropic anisotropic biaxial principal-axes-values user-defined-anisotropic-k user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [387.6] 390
+
+
+> /define/materials/change-create
+
+material-name> aluminum
+material name [aluminum] tim2
+tim2 is a solid
+change Density? [no] yes
+
+Density
+methods: (constant expression user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [2719] 2800
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined)
+new method [constant] constant
+value (in [J/(kg K)]) [871] 1000
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression cyl-orthotropic orthotropic anisotropic biaxial principal-axes-values user-defined-anisotropic-k user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [202.4] 8.818342
+
+
+Change/Create material and Overwrite aluminum? [no] yes
+
+> /define/boundary-conditions/fluid
+(fluid)
+zone id/name [fluid] fluid
+material-name [air]: Change current value? [no] yes
+
+material-name [air]> water-liquid
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Enter yes or no to continue [no] no
+Porous zone? [no] no
+3D Fan Zone? [no] no
+
+> /define/boundary-conditions/solid
+(solid_cu solid_tim2)
+zone id/name [solid_cu] solid_cu
+material-name [tim2]: Change current value? [no] yes
+
+material-name [tim2]> copper
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Solid Motion? [no] no
+Enter yes or no to continue [no] no
+
+> /define/boundary-conditions/solid
+(solid_cu solid_tim2)
+zone id/name [solid_cu] solid_tim2
+material-name [tim2]: Change current value? [no] yes
+
+material-name [tim2]> tim2
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Solid Motion? [no] no
+Enter yes or no to continue [no] no
+
+> /define/boundary-conditions/zone-type inlet mass-flow-inlet
+
+> /define/boundary-conditions/zone-type outlet pressure-outlet
+
+> /define/boundary-conditions/zone-type wall_heat wall
+
+> /define/boundary-conditions/zone-type wall_adiabat wall
+
+> /define/boundary-conditions/zone-type wall_side wall
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet () mass-flow no 1.0225e-2 t no 313.15 q
+
+> /define/boundary-conditions/set/pressure-outlet outlet () t no 313.15 q
+
+> /define/boundary-conditions/set/pressure-outlet outlet () prevent-reverse-flow? yes q
+
+> /define/boundary-conditions/wall
+(wall_side wall_adiabat wall_heat wall_cu_fluid wall_tim_cu wall_adiabat:015 wall_adiabat:016 wall_side:017 wall_side:018 wall_tim_cu-shadow wall_cu_fluid-shadow)
+zone id/name [wall_side] wall_heat
+Use Profile for Wall Thickness? [no] no
+Wall Thickness (constant or expression) (in [m]) [0] 0
+Use Profile for Heat Generation Rate? [no] no
+Heat Generation Rate (constant or expression) (in [W/m^3]) [0] 0
+material-name [tim2]: Change current value? [no] no
+Thermal BC Type [heat-flux]: Change current value? [no] yes
+
+Thermal BC Type [heat-flux]> heat-flux
+Use Profile for Heat Flux? [no] no
+Heat Flux (constant or expression) (in [W/m^2]) [0] 205000
+Enable shell conduction? [no] no
+Use Profile for Convective Augmentation Factor? [no] no
+Convective Augmentation Factor (constant or expression) [1] 1
+
+> /report/reference-values/temperature 313.15
+
+> /define/operating-conditions/operating-pressure 101325
+
+> /solve/set/p-v-coupling 24
+
+> /solve/set/pseudo-transient yes
+Activate automatic time step size calculation? [yes] yes
+Length scale calculation methods: (0 1 2)
+0 - Aggressive 
+1 - Conservative 
+2 - User-Specified 
+Length Scale Calculation Method [1] 1
+Auto time step scaling factor (constant or expression) [1] 1
+Auto time verbosity [0] 0
+Activate automatic time step size calculation for solid zone? [yes] yes
+Auto time step scale factor for solid zone [1] 1
+
+> /solve/set/discretization-scheme/pressure 10
+
+> /solve/set/discretization-scheme/mom 0
+
+> /solve/set/discretization-scheme/temperature 0
+
+> /solve/monitors/residual/print? yes
+
+> /solve/monitors/residual/plot? yes
+
+> /solve/monitors/residual/criterion-type Available options: (absolute none)
+0
+
+> /solve/monitors/residual/check-convergence? no
+Check convergence of x-velocity residuals? [yes] no
+Check convergence of y-velocity residuals? [yes] no
+Check convergence of z-velocity residuals? [yes] no
+Check convergence of energy residuals? [yes] no
+
+> /file/auto-save/root-name "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_d_pg25"
+
+> /file/auto-save/data-frequency 200
+
+> /file/auto-save/case-frequency
+Available options: ("if-case-is-modified" "each-time" "if-mesh-is-modified")
+Case save frequency ["if-case-is-modified"] each-time
+
+> /solve/initialize/set-defaults/temperature 313.15
+
+> /solve/initialize/initialize-flow
+
+> /solve/iterate 200
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     1  1.0000e+00  1.8706e-02  0.0000e+00  0.0000e+00  7.6095e-08  5:20:56  199
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+     2  8.0812e-01  3.2751e-03  7.2476e-04  1.5540e-03  8.7079e-08 10:38:15  198
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     3  7.8221e-01  1.3010e-03  4.2203e-04  1.0246e-03  1.1586e-07 10:42:01  197
+     4  1.0000e+00  7.6621e-04  7.6046e-04  7.3905e-04  1.0247e-07  9:18:49  196
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     5  5.6496e-01  4.3480e-04  3.2454e-04  4.2264e-04  1.4977e-07  9:42:37  195
+     6  1.8654e+00  4.3054e-04  1.2950e-03  5.8233e-04  1.2091e-07  8:29:46  194
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     7  9.8803e-01  2.8948e-04  4.8657e-04  3.7824e-04  1.6329e-07  9:06:41  193
+     8  1.7345e+00  3.3067e-04  1.4950e-03  5.8618e-04  1.1282e-07  8:00:37  192
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+     9  9.3151e-01  1.8282e-04  5.8111e-04  2.9932e-04  9.7166e-08 22:24:42  191
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    10  5.2514e-01  1.1931e-04  3.5210e-04  2.0773e-04  9.3857e-08 19:07:06  190
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    11  4.1695e-01  9.5380e-05  2.6524e-04  1.5994e-04  8.2764e-08 20:33:25  189
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    12  2.3946e-01  6.7545e-05  1.6107e-04  1.1457e-04  1.8503e-07 18:02:05  188
+    13  2.1087e+00  4.0320e-04  2.7573e-03  7.9702e-04  1.1180e-07 15:06:27  187
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    14  1.1140e+00  2.0394e-04  9.9934e-04  3.6143e-04  1.1752e-07 14:07:03  186
+    15  1.0060e+00  1.7924e-04  8.2402e-04  3.1441e-04  9.3985e-08 12:07:26  185
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    16  5.3607e-01  1.1530e-04  4.2115e-04  1.9483e-04  1.1761e-07 12:24:37  184
+    17  1.0617e+00  1.6146e-04  6.7035e-04  2.6369e-04  9.4057e-08 10:38:15  183
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    18  5.6944e-01  9.9633e-05  2.8736e-04  1.5944e-04  1.2525e-07 11:43:21  182
+    19  9.3234e-01  1.5179e-04  5.4151e-04  2.5936e-04  9.2654e-08 10:03:02  181
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    20  4.9687e-01  8.6118e-05  2.2943e-04  1.4354e-04  8.5059e-08 78:14:21  180
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    21  3.4200e-01  6.3412e-05  1.8773e-04  1.1245e-04  9.1548e-08 64:13:10  179
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    22  4.3711e-01  7.8148e-05  2.6656e-04  1.2910e-04  8.2885e-08 52:20:02  178
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    23  3.1526e-01  5.8273e-05  1.4888e-04  9.1807e-05  8.1175e-08 42:41:25  177
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    24  2.6758e-01  5.4563e-05  1.2304e-04  8.5558e-05  7.4058e-08 35:51:06  176
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    25  1.7411e-01  4.1912e-05  7.7628e-05  6.0423e-05  8.0571e-08 29:34:18  175
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    26  2.5338e-01  6.0187e-05  1.1260e-04  8.7610e-05  7.4065e-08 24:51:31  174
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    27  1.6861e-01  4.5610e-05  7.1440e-05  6.5680e-05  2.1699e-07 21:16:50  173
+    28  2.3619e+00  5.5370e-04  2.4964e-03  9.1394e-04  1.2150e-07 17:37:13  172
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    29  1.2348e+00  2.6090e-04  8.9172e-04  4.2894e-04  2.2482e-07 16:23:25  171
+    30  2.9112e+00  5.0242e-04  3.8021e-03  1.1009e-03  1.2418e-07 13:38:30  170
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    31  1.5670e+00  3.0006e-04  1.4915e-03  5.4985e-04  1.1611e-07 11:59:37  169
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    32  1.0366e+00  2.0848e-04  9.2907e-04  3.7971e-04  1.0770e-07 10:47:26  168
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    33  7.3845e-01  1.5208e-04  6.5636e-04  2.7087e-04  3.7991e-07 11:35:24  167
+
+ Artificial walls on 299 faces (2.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    34  5.9918e+00  1.5727e-03  1.6110e-02  3.8645e-03  1.5349e-07  9:49:54  166
+
+ Artificial walls on 294 faces (2.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    35  3.2319e+00  1.1872e-03  9.5849e-03  2.4117e-03  1.1936e-07  8:32:03  165
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+
+ Artificial walls on 10 faces (0.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    36  1.6213e+00  7.3747e-04  5.4983e-03  1.4353e-03  1.0140e-07 10:48:14  164
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    37  9.7037e-01  4.4602e-04  2.9932e-03  8.3501e-04  2.1069e-07  9:59:41  163
+    38  3.0124e+00  5.6882e-04  5.2067e-03  1.3621e-03  1.0982e-07  8:34:10  162
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    39  1.7035e+00  3.1870e-04  2.1923e-03  6.5056e-04  1.5277e-07  9:34:04  161
+    40  1.8934e+00  4.2885e-04  3.2221e-03  8.6104e-04  9.8534e-08  8:21:05  160
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    41  1.0362e+00  2.3212e-04  1.3881e-03  4.2889e-04  1.3822e-07  7:53:40  159
+    42  1.6024e+00  2.9695e-04  2.1417e-03  6.1433e-04  9.8025e-08  6:55:06  158
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    43  8.7711e-01  1.7787e-04  9.0442e-04  3.1799e-04  9.1374e-08  8:23:10  157
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    44  5.4748e-01  1.1667e-04  5.0473e-04  2.0587e-04  1.6515e-07  8:48:41  156
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    45  1.6974e+00  2.9016e-04  1.5408e-03  5.5259e-04  1.1037e-07  7:40:29  155
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    46  9.2604e-01  1.5997e-04  6.2675e-04  2.9326e-04  1.1522e-07  7:17:18  154
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    47  9.1150e-01  1.5744e-04  6.3130e-04  2.7281e-04  9.5127e-08  8:36:32  153
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    48  5.7013e-01  9.7717e-05  3.2896e-04  1.6940e-04  9.0736e-08  8:48:12  152
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    49  4.1691e-01  7.7518e-05  2.1502e-04  1.2635e-04  7.9951e-08 11:18:45  151
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    50  2.2762e-01  4.9281e-05  1.3168e-04  8.6260e-05  1.1037e-07  9:57:28  150
+    51  6.2940e-01  1.1548e-04  3.5345e-04  1.9347e-04  8.3545e-08  8:33:10  149
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    52  3.4000e-01  7.0345e-05  1.4454e-04  1.0960e-04  8.6066e-08  7:49:24  148
+    53  3.0843e-01  7.0935e-05  1.3987e-04  1.1117e-04  7.6901e-08  6:53:09  147
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    54  1.6753e-01  5.0719e-05  8.6685e-05  7.9423e-05  7.4435e-08  6:57:32  146
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    55  1.6277e-01  4.5319e-05  7.0884e-05  6.2845e-05  7.1391e-08 10:28:39  145
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    56  9.0479e-02  3.4155e-05  4.8584e-05  5.1520e-05  1.0055e-07 10:53:56  144
+    57  6.0479e-01  9.5702e-05  4.5243e-04  1.5844e-04  7.5619e-08  9:16:18  143
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    58  3.1818e-01  5.6895e-05  1.6256e-04  8.3507e-05  7.0825e-08 63:59:01  142
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    59  1.8110e-01  4.1441e-05  9.9288e-05  6.3140e-05  1.3471e-07 52:12:15  141
+    60  1.0883e+00  2.6036e-04  9.0454e-04  3.8354e-04  9.4403e-08 42:02:50  140
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    61  5.6766e-01  1.3714e-04  3.5901e-04  2.0887e-04  2.8062e-07 34:57:27  139
+
+ Artificial walls on 10 faces (0.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    62  3.4251e+00  7.4465e-04  6.9945e-03  1.7472e-03  1.3152e-07 28:15:24  138
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    63  1.8337e+00  4.6811e-04  3.0869e-03  9.1863e-04  1.2439e-07 23:20:01  137
+    64  1.3207e+00  3.1569e-04  1.8885e-03  6.0777e-04  9.7271e-08 19:08:58  136
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    65  7.2763e-01  1.9140e-04  9.9134e-04  3.4657e-04  1.2682e-07 16:11:52  135
+    66  1.1601e+00  2.1724e-04  1.1438e-03  3.9947e-04  9.2332e-08 13:25:39  134
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    67  6.3952e-01  1.2534e-04  5.1593e-04  2.1498e-04  1.3183e-07 11:23:34  133
+    68  1.3323e+00  2.0757e-04  1.0908e-03  3.8877e-04  9.2005e-08  9:35:03  132
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    69  6.9775e-01  1.1332e-04  4.2952e-04  1.9919e-04  1.0302e-07  9:12:59  131
+    70  6.0444e-01  1.1159e-04  4.1277e-04  1.9243e-04  8.2168e-08  7:51:57  130
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    71  3.2941e-01  6.8933e-05  2.1812e-04  1.1607e-04  8.4007e-08  7:05:03  129
+    72  3.6112e-01  6.7465e-05  1.8902e-04  1.0433e-04  7.5603e-08  6:15:35  128
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    73  1.9824e-01  4.7730e-05  1.0381e-04  7.3591e-05  9.3267e-08  5:53:49  127
+    74  4.7814e-01  8.2219e-05  2.5887e-04  1.2911e-04  7.5776e-08  5:12:45  126
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    75  2.5832e-01  5.1537e-05  1.0553e-04  7.7304e-05  1.0500e-07  4:53:24  125
+    76  6.6421e-01  1.3835e-04  6.0425e-04  2.5170e-04  8.0275e-08  4:23:14  124
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    77  3.6192e-01  8.3173e-05  2.3051e-04  1.3901e-04  8.7731e-08  4:50:11  123
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    78  4.4868e-01  8.8508e-05  2.6339e-04  1.3925e-04  7.5363e-08  4:22:28  122
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    79  2.4182e-01  5.8453e-05  1.3309e-04  9.4346e-05  1.1511e-07  5:38:16  121
+    80  9.3512e-01  1.5964e-04  1.0848e-03  3.1308e-04  8.1625e-08  4:58:41  120
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    81  4.9037e-01  8.4593e-05  3.8242e-04  1.4599e-04  7.4323e-08 37:12:18  119
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    82  2.7128e-01  5.6810e-05  2.1546e-04  9.5305e-05  8.4125e-08 30:17:29  118
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    83  3.9252e-01  7.1200e-05  2.7302e-04  1.0881e-04  7.3180e-08 24:49:21  117
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    84  2.2864e-01  4.6396e-05  1.2621e-04  6.9177e-05  7.6261e-08 21:47:37  116
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    85  2.6402e-01  4.8159e-05  1.2798e-04  7.0062e-05  7.3636e-08 18:22:06  115
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    86  2.2241e-01  4.1890e-05  8.6658e-05  5.7124e-05  6.8259e-08 17:44:27  114
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    87  1.1980e-01  3.0884e-05  5.2147e-05  4.3996e-05  6.6149e-08 53:38:00  113
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    88  6.9666e-02  2.6172e-05  3.8346e-05  3.7162e-05  7.6882e-08 43:45:07  112
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    89  2.7150e-01  4.7855e-05  9.4569e-05  5.8527e-05  6.9436e-08 35:16:47  111
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    90  1.4761e-01  3.0972e-05  4.6906e-05  4.1781e-05  6.9395e-08 28:37:02  110
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    91  1.7933e-01  3.7464e-05  7.2910e-05  5.3574e-05  6.7035e-08 24:38:18  109

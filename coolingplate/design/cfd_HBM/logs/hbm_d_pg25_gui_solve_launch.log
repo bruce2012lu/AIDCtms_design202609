@@ -1,0 +1,1 @@
+CMD="E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\ntbin\win64\fluent.exe" 3d -r26.1.0 -t8 -i "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM\fluent\hbm_d_pg25_gui_solve.jou" 

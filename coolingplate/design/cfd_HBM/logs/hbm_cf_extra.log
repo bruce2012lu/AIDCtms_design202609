@@ -1,0 +1,82 @@
+
+> /report/surface-integrals/facet-min
+Available surfaces: (wall_side wall_heat outlet_lo inlet_lo wall_tim_cu wall_cu_fluid inlet_hi outlet_hi wall_adiabat wall_adiabat:017 wall_adiabat:018 wall_side:019 wall_side:020 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] wall_heat
+Select surface names/ids(2) [()] ()
+
+facet-min of> temperature
+Write to file? [no] no
+
+         Minimum of Facet Values
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                       wall_heat            329.31686
+
+> /report/surface-integrals/area-weighted-avg
+Available surfaces: (wall_side wall_heat outlet_lo inlet_lo wall_tim_cu wall_cu_fluid inlet_hi outlet_hi wall_adiabat wall_adiabat:017 wall_adiabat:018 wall_side:019 wall_side:020 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] wall_cu_fluid
+Select surface names/ids(2) [()] ()
+
+area-weighted-avg of> temperature
+Write to file? [no] no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                   wall_cu_fluid            329.73845
+
+> /report/surface-integrals/mass-weighted-avg
+Available surfaces: (wall_side wall_heat outlet_lo inlet_lo wall_tim_cu wall_cu_fluid inlet_hi outlet_hi wall_adiabat wall_adiabat:017 wall_adiabat:018 wall_side:019 wall_side:020 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] outlet_lo
+Select surface names/ids(2) [()] outlet_hi
+Select surface names/ids(3) [()] ()
+
+mass-weighted-avg of> temperature
+Write to file? [no] no
+
+           Mass-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                       outlet_lo            317.70174
+                       outlet_hi            317.22398
+                ---------------- --------------------
+                             Net            317.48471
+
+> /report/surface-integrals/area-weighted-avg
+Available surfaces: (wall_side wall_heat outlet_lo inlet_lo wall_tim_cu wall_cu_fluid inlet_hi outlet_hi wall_adiabat wall_adiabat:017 wall_adiabat:018 wall_side:019 wall_side:020 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] outlet_lo
+Select surface names/ids(2) [()] outlet_hi
+Select surface names/ids(3) [()] ()
+
+area-weighted-avg of> temperature
+Write to file? [no] no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                       outlet_lo            315.99503
+                       outlet_hi              315.005
+                ---------------- --------------------
+                             Net            315.50002
+
+> /report/surface-integrals/area-weighted-avg
+Available surfaces: (wall_side wall_heat outlet_lo inlet_lo wall_tim_cu wall_cu_fluid inlet_hi outlet_hi wall_adiabat wall_adiabat:017 wall_adiabat:018 wall_side:019 wall_side:020 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] inlet_lo
+Select surface names/ids(2) [()] inlet_hi
+Select surface names/ids(3) [()] ()
+
+area-weighted-avg of> velocity-magnitude
+Write to file? [no] no
+
+           Area-Weighted Average
+              Velocity Magnitude                [m/s]
+-------------------------------- --------------------
+                        inlet_lo           0.29761876
+                        inlet_hi           0.29761885
+                ---------------- --------------------
+                             Net           0.29761881
+
+> (display "EXTRA-DONE")
+EXTRA-DONE
+
+> /file/stop-transcript

@@ -1,0 +1,21 @@
+; Continue the closed-slot solution from iteration 34 to iteration 200.
+; Convergence check is off so it does not stop early. Do not exit.
+/file/set-batch-options no no no
+/file/confirm-overwrite yes
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h35_i400.cas.h5"
+/display/mesh
+/display/views/auto-scale
+/solve/monitors/residual/print? yes
+/solve/monitors/residual/plot? yes
+/solve/monitors/residual/check-convergence? no
+no
+no
+no
+no
+/file/auto-save/root-name "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h35"
+/file/auto-save/data-frequency 200
+/file/auto-save/case-frequency
+each-time
+/solve/iterate 166
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h35_i200"
+(display "I200-DONE")

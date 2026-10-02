@@ -1,0 +1,106 @@
+Transcript Start Time:  09:52:23, 27 Sep 2026 中国标准时间 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM"
+
+Build Time: Feb  2 2026 16:22:05 EST  Build Id: 10262 
+Executable Path: E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/ntbin/win64/fluent.exe
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  64144  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  63564  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  63844  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  36896  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  62984  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+Cortex Process ID: 33472 
+License Server Path: 1055@localhost 
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/mesh/hbm_array.msh"
+Reading "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/mesh/hbm_array.msh"...
+
+Buffering for file scan...
+
+ 6668886 nodes.
+ 3205248 hexahedral cells, zone  2.
+ 2993904 hexahedral cells, zone  3.
+  230040 hexahedral cells, zone  4.
+18930546 quadrilateral interior faces, zone  5.
+  189856 quadrilateral wall faces, zone  6.
+   38340 quadrilateral wall faces, zone  7.
+   23568 quadrilateral velocity-inlet faces, zone  8.
+   23568 quadrilateral pressure-outlet faces, zone  9.
+   38340 quadrilateral wall faces, zone 10.
+  142008 quadrilateral wall faces, zone 11.
+   30184 quadrilateral wall faces, zone 12.
+
+Building...
+     mesh
+	auto partitioning mesh by Metis (fast),
+	distributing mesh
+		parts....,
+Error: = (equal): invalid argument [2]: wrong type [not a number]
+Error Object: b
+
+Error: = (equal): invalid argument [2]: wrong type [not a number]
+Error Object: b
+
+Error: = (equal): invalid argument [2]: wrong type [not a number]
+Error Object: b
+
+Error: = (equal): invalid argument [2]: wrong type [not a number]
+Error Object: b
+
+Error: = (equal): invalid argument [2]: wrong type [not a number]
+Error Object: b
+
+		faces....,
+Note: Separating interior zone 5 into zones 5 and 13. 
+Note: Separating interior zone 5 into zones 5 and 14. 
+Note: Separating wall zone 11 into zones 11 and 15. 
+Note: Separating wall zone 12 into zones 12 and 16. 
+Note: Separating wall zone 12 into zones 12 and 17. 
+		nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 7033/6259 = 1.12366
+       Clearing partially read grid.
+
+WARNING: no face with given nodes. Thread 2, cell 0
+
+
+Error: Failed in Fill_Domain.
+
+
+Note: It is possible that this case or mesh file needs to be first
+      processed by the serial solver.  To do this, please read
+      file into the serial solver and then save it.  Next,
+      read saved file into the parallel solver.
+
+
+WARNING: no face with given nodes. Thread 2, cell 0
+
+WARNING: no face with given nodes. Thread 2, cell 0
+
+WARNING: no face with given nodes. Thread 2, cell 0
+
+===============Message from the Cortex Process================================
+
+Compute processes interrupted. Processing can be resumed.
+
+==============================================================================
+
+Error at Node 2: Build Grid: Aborted due to critical error.
+
+Error at Node 0: Build Grid: Aborted due to critical error.
+
+Error at Node 1: Build Grid: Aborted due to critical error.
+
+Error at Node 3: Build Grid: Aborted due to critical error.
+
+Transcript Stop Time:  09:53:12, 27 Sep 2026 中国标准时间 
+Total Transcript Time: 0 Minute 48 Second.

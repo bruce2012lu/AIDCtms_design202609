@@ -1,0 +1,44 @@
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] qprobe
+
+Choose setting to change> field
+
+contours of> heat-flux
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] wall_tim_cu
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "qprobe". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> qprobe
+
+> (display "PROBE-DONE")
+PROBE-DONE
+
+> /file/stop-transcript

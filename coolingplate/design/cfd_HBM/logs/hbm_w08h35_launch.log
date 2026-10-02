@@ -1,0 +1,659 @@
+AWP_ROOT261=E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261 
+CMD="E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\ntbin\win64\fluent.exe" 3d -r26.1.0 -t4 -g -i "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM\fluent\hbm_w08h35.jou" 
+
+Opening input/output transcript to file "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM\\fluent-20260927-223157-39900.trn".
+Auto-Transcript Start Time:  22:31:57, 27 Sep 2026 中国标准时间 
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:22:05 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:55104 
+
+Node 0 connecting to the Host ... connection established.
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  49908  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  62060  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  51328  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  49984  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  61108  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd_HBM\\cleanup-fluent-DESKTOP-JHEHF28-61108.bat
+Note: Rank = 0: Process affinity not being set (6).
+Note: Rank = 1: Process affinity not being set (6).
+Note: Rank = 2: Process affinity not being set (6).
+Note: Rank = 3: Process affinity not being set (6).
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM\fluent\hbm_w08h35.jou...
+
+> ; HBM one-side 7-channel closed slot 0.80 x 3.50 mm, fin 0.80 mm. Laminar conjugate, DP-A.
+; mdot = 0.20 L/min = 3.30733333e-3 kg/s. q'' = 205000 W/m2.
+; Water 40 C. First-order, coupled + pseudo-transient.
+; Save case+data every 200 iterations, and again when iterate stops (converged or 400).
+; Two-sided wall_cu_fluid and wall_tim_cu stay at Fluent's coupled default.
+/file/set-batch-options yes yes no
+
+> /file/confirm-overwrite yes
+
+> /file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/logs/hbm_w08h35.log"
+Opening input/output transcript to file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/logs/hbm_w08h35.log".
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  49908  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  62060  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  51328  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  49984  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  61108  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/mesh/hbm_w08h35.msh"
+Reading "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/mesh/hbm_w08h35.msh"...
+
+Buffering for file scan...
+
+ 5578712 nodes.
+ 1555848 hexahedral cells, zone  2.
+ 3559752 hexahedral cells, zone  3.
+  216000 hexahedral cells, zone  4.
+15673515 quadrilateral interior faces, zone  5.
+  168756 quadrilateral wall faces, zone  6.
+   36000 quadrilateral wall faces, zone  7.
+   10584 quadrilateral velocity-inlet faces, zone  8.
+   10584 quadrilateral pressure-outlet faces, zone  9.
+   36000 quadrilateral wall faces, zone 10.
+  149232 quadrilateral wall faces, zone 11.
+   26658 quadrilateral wall faces, zone 12.
+
+Building...
+     mesh
+	auto partitioning mesh by Metis (fast),
+	distributing mesh
+		parts....,
+      interior -> interior (5) and interior:013 (13)
+      interior -> interior (5) and interior:014 (14)
+      wall_adiabat -> wall_adiabat (11) and wall_adiabat:015 (15)
+      wall_side -> wall_side (12) and wall_side:016 (16)
+		faces....,
+Note: Separating interior zone 5 into zones 5 and 13. 
+Note: Separating interior zone 5 into zones 5 and 14. 
+Note: Separating wall zone 11 into zones 11 and 15. 
+Note: Separating wall zone 12 into zones 12 and 16. 
+		nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 8172/6778 = 1.20567
+     materials,
+     interface,
+     domains,
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	wall_side:016
+	wall_adiabat:015
+	interior:014
+	interior:013
+	wall_side
+	wall_adiabat
+	wall_heat
+	outlet
+	inlet
+	wall_tim_cu
+	wall_cu_fluid
+	interior
+	solid_tim2
+	solid_cu
+	fluid
+     parallel,
+Done.
+
+
+> /mesh/check
+
+ Domain Extents:
+   x-coordinate: min (m) = 0.000000e+00, max (m) = 1.100000e-02
+   y-coordinate: min (m) = -1.302326e-02, max (m) = 6.302325e-02
+   z-coordinate: min (m) = -2.080000e-03, max (m) = 6.000000e-03
+ Volume statistics:
+   minimum volume (m3): 3.199902e-15
+   maximum volume (m3): 1.313224e-11
+     total volume (m3): 6.730813e-06
+ Face area statistics:
+   minimum face area (m2): 6.400000e-11
+   maximum face area (m2): 1.954356e-07
+ Checking mesh..........................................
+ Done.
+
+> /define/boundary-conditions/list-zones
+  id  name                       type                adj-zone-material     wall-material         kind
+----  -------------------------  ------------------  --------------------  --------------------  ----
+   2  fluid                      fluid               air                                         cell
+   3  solid_cu                   solid               aluminum                                    cell
+   4  solid_tim2                 solid               aluminum                                    cell
+   5  interior                   interior                                                        face
+   6  wall_cu_fluid              wall                air                   aluminum              face
+   7  wall_tim_cu                wall                aluminum              aluminum              face
+   8  inlet                      mass-flow-inlet                                                 face
+   9  outlet                     pressure-outlet                                                 face
+  10  wall_heat                  wall                aluminum              aluminum              face
+  11  wall_adiabat               wall                aluminum              aluminum              face
+  12  wall_side                  wall                aluminum              aluminum              face
+  13  interior:013               interior                                                        face
+  14  interior:014               interior                                                        face
+  15  wall_adiabat:015           wall                aluminum              aluminum              face
+  16  wall_side:016              wall                aluminum              aluminum              face
+  17  wall_tim_cu-shadow         wall                aluminum              aluminum              face
+  18  wall_cu_fluid-shadow       wall                aluminum              aluminum              face
+
+> /define/models/energy yes
+Compute viscous energy work? [no] no
+Include pressure work in energy equation? [no] no
+Include kinetic energy in energy equation? [no] no
+Include diffusion at inlets? [yes] no
+
+> /define/models/viscous/laminar yes
+
+> /define/materials/copy fluid water-liquid
+
+Material "water-liquid" copied from database.
+
+
+> /define/materials/copy solid copper
+
+Material "copper" copied from database.
+
+
+> /define/materials/change-create
+
+material-name> water-liquid
+material name [water-liquid] water-liquid
+water-liquid is a fluid
+change Density? [no] yes
+
+Density
+methods: (constant ideal-gas incompressible-ideal-gas rgp-table real-gas-soave-redlich-kwong real-gas-peng-robinson real-gas-aungier-redlich-kwong real-gas-redlich-kwong real-gas-nist boussinesq piecewise-linear piecewise-polynomial polynomial expression compressible-liquid user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [998.2] 992.2
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined kinetic-theory)
+new method [constant] constant
+value (in [J/(kg K)]) [4182] 4179
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression kinetic-theory user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [0.6] 0.631
+
+change Viscosity? [no] yes
+
+Viscosity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression power-law sutherland kinetic-theory cross herschel-bulkley carreau non-newtonian-power-law user-defined)
+new method [constant] constant
+value (in [kg/(m s)]) [0.001003] 6.53e-4
+
+change Molecular Weight? [no] no
+change Thermal Expansion Coefficient? [no] no
+change Speed of Sound? [no] no
+
+> /define/materials/change-create
+
+material-name> copper
+material name [copper] copper
+copper is a solid
+change Density? [no] yes
+
+Density
+methods: (constant expression user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [8978] 8960
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined)
+new method [constant] constant
+value (in [J/(kg K)]) [381] 385
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression cyl-orthotropic orthotropic anisotropic biaxial principal-axes-values user-defined-anisotropic-k user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [387.6] 390
+
+
+> /define/materials/change-create
+
+material-name> aluminum
+material name [aluminum] tim2
+tim2 is a solid
+change Density? [no] yes
+
+Density
+methods: (constant expression user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [2719] 2800
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined)
+new method [constant] constant
+value (in [J/(kg K)]) [871] 1000
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression cyl-orthotropic orthotropic anisotropic biaxial principal-axes-values user-defined-anisotropic-k user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [202.4] 8.818342
+
+
+Change/Create material and Overwrite aluminum? [no] yes
+
+> /define/boundary-conditions/fluid
+(fluid)
+zone id/name [fluid] fluid
+material-name [air]: Change current value? [no] yes
+
+material-name [air]> water-liquid
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Enter yes or no to continue [no] no
+Porous zone? [no] no
+3D Fan Zone? [no] no
+
+> /define/boundary-conditions/solid
+(solid_cu solid_tim2)
+zone id/name [solid_cu] solid_cu
+material-name [tim2]: Change current value? [no] yes
+
+material-name [tim2]> copper
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Solid Motion? [no] no
+Enter yes or no to continue [no] no
+
+> /define/boundary-conditions/solid
+(solid_cu solid_tim2)
+zone id/name [solid_cu] solid_tim2
+material-name [tim2]: Change current value? [no] yes
+
+material-name [tim2]> tim2
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Solid Motion? [no] no
+Enter yes or no to continue [no] no
+
+> /define/boundary-conditions/zone-type inlet mass-flow-inlet
+
+> /define/boundary-conditions/zone-type outlet pressure-outlet
+
+> /define/boundary-conditions/zone-type wall_heat wall
+
+> /define/boundary-conditions/zone-type wall_adiabat wall
+
+> /define/boundary-conditions/zone-type wall_side wall
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet () mass-flow no 3.30733333e-3 t no 313.15 q
+
+> /define/boundary-conditions/set/pressure-outlet outlet () t no 313.15 q
+
+> /define/boundary-conditions/wall
+(wall_side wall_adiabat wall_heat wall_cu_fluid wall_tim_cu wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+zone id/name [wall_side] wall_heat
+Use Profile for Wall Thickness? [no] no
+Wall Thickness (constant or expression) (in [m]) [0] 0
+Use Profile for Heat Generation Rate? [no] no
+Heat Generation Rate (constant or expression) (in [W/m^3]) [0] 0
+material-name [tim2]: Change current value? [no] no
+Thermal BC Type [heat-flux]: Change current value? [no] yes
+
+Thermal BC Type [heat-flux]> heat-flux
+Use Profile for Heat Flux? [no] no
+Heat Flux (constant or expression) (in [W/m^2]) [0] 205000
+Enable shell conduction? [no] no
+Use Profile for Convective Augmentation Factor? [no] no
+Convective Augmentation Factor (constant or expression) [1] 1
+
+> /report/reference-values/temperature 313.15
+
+> /define/operating-conditions/operating-pressure 101325
+
+> /solve/set/p-v-coupling 24
+
+> /solve/set/pseudo-transient yes
+Activate automatic time step size calculation? [yes] yes
+Length scale calculation methods: (0 1 2)
+0 - Aggressive 
+1 - Conservative 
+2 - User-Specified 
+Length Scale Calculation Method [1] 1
+Auto time step scaling factor (constant or expression) [1] 1
+Auto time verbosity [0] 0
+Activate automatic time step size calculation for solid zone? [yes] yes
+Auto time step scale factor for solid zone [1] 1
+
+> /solve/set/discretization-scheme/pressure 10
+
+> /solve/set/discretization-scheme/mom 0
+
+> /solve/set/discretization-scheme/temperature 0
+
+> /solve/monitors/residual/print? yes
+
+> /solve/monitors/residual/plot? no
+
+> /solve/monitors/residual/criterion-type Available options: (absolute none)
+0
+
+> ; laminar: continuity, x, y, z, energy
+/solve/monitors/residual/check-convergence? yes
+Check convergence of x-velocity residuals? [yes] yes
+Check convergence of y-velocity residuals? [yes] yes
+Check convergence of z-velocity residuals? [yes] yes
+Check convergence of energy residuals? [yes] yes
+
+> /solve/monitors/residual/convergence-criteria
+continuity residual convergence criterion [0.001] 1e-4
+x-velocity residual convergence criterion [0.001] 1e-4
+y-velocity residual convergence criterion [0.001] 1e-4
+z-velocity residual convergence criterion [0.001] 1e-4
+energy residual convergence criterion [1e-06] 1e-6
+
+> ; case+data every 200 iterations; each-time saves the case with every data file.
+; iterate also writes hbm_array_laminar_conv when it stops.
+/file/auto-save/root-name "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h35"
+
+> /file/auto-save/data-frequency 200
+
+> /file/auto-save/case-frequency
+Available options: ("if-case-is-modified" "each-time" "if-mesh-is-modified")
+Case save frequency ["if-case-is-modified"] each-time
+
+> /solve/initialize/set-defaults/temperature 313.15
+
+> /solve/initialize/initialize-flow
+
+> ; stops early when the residual criteria above are met, otherwise at 400
+/solve/iterate 400
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     1  1.0000e+00  0.0000e+00  5.7148e-04  0.0000e+00  9.4126e-08  2:24:32  399
+
+ Reversed flow on 5190 faces (43.5% area) of pressure-outlet 9.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     2  1.0000e+00  8.7024e-04  1.1571e-02  1.2164e-03  3.0082e-07  3:02:56  398
+
+ Reversed flow on 9072 faces (85.7% area) of pressure-outlet 9.
+     3  1.0000e+00  6.0608e-04  1.7970e-02  1.5972e-03  1.3973e-07  2:41:51  397
+
+ Reversed flow on 1948 faces (25.5% area) of pressure-outlet 9.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     4  5.3210e-01  1.5548e-03  3.0073e-02  3.7747e-03  1.6919e-06  2:22:17  396
+
+ Reversed flow on 4127 faces (37.8% area) of pressure-outlet 9.
+     5  1.0000e+00  1.9127e-03  3.3746e-02  3.0002e-03  4.5310e-07  2:08:00  395
+
+ Reversed flow on 3577 faces (34.0% area) of pressure-outlet 9.
+     6  5.6418e-01  3.8446e-03  7.9447e-02  6.0830e-03  4.3421e-07  1:57:19  394
+
+ Reversed flow on 4245 faces (31.7% area) of pressure-outlet 9.
+     7  2.7128e-01  5.9714e-03  8.5188e-02  7.5769e-03  2.6916e-07  1:50:47  393
+
+ Reversed flow on 4102 faces (38.2% area) of pressure-outlet 9.
+     8  1.9307e-01  4.7276e-03  8.6621e-02  7.0614e-03  2.1148e-07  1:46:12  392
+
+ Reversed flow on 5005 faces (37.3% area) of pressure-outlet 9.
+     9  1.5872e-01  4.1622e-03  6.9003e-02  5.4007e-03  1.9713e-07  1:43:06  391
+
+ Reversed flow on 4771 faces (37.7% area) of pressure-outlet 9.
+    10  1.3406e-01  3.4341e-03  4.9849e-02  4.6331e-03  1.8904e-07  1:38:44  390
+
+ Reversed flow on 4714 faces (40.2% area) of pressure-outlet 9.
+    11  1.1061e-01  2.3635e-03  3.3921e-02  3.3622e-03  1.8799e-07  1:38:04  389
+
+ Reversed flow on 3796 faces (34.7% area) of pressure-outlet 9.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    12  8.4726e-02  1.4869e-03  1.9370e-02  2.0977e-03  1.5405e-07  1:35:29  388
+
+ Reversed flow on 3195 faces (29.4% area) of pressure-outlet 9.
+    13  6.3874e-02  8.5900e-04  1.1110e-02  1.2317e-03  1.2795e-07  1:36:31  387
+
+ Reversed flow on 2300 faces (21.5% area) of pressure-outlet 9.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    14  4.8265e-02  6.4482e-04  6.6698e-03  9.5071e-04  1.1969e-07  3:17:08  386
+
+ Reversed flow on 572 faces (6.1% area) of pressure-outlet 9.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    15  3.6844e-02  1.0400e-03  8.9204e-03  1.3244e-03  1.0946e-07  3:01:35  385
+
+ Reversed flow on 911 faces (7.5% area) of pressure-outlet 9.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    16  2.8023e-02  6.8335e-04  6.3268e-03  8.6012e-04  1.0566e-07  5:41:11  384
+
+ Reversed flow on 738 faces (4.9% area) of pressure-outlet 9.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    17  2.0391e-02  4.1878e-04  4.3216e-03  5.6420e-04  9.8138e-08  4:56:34  383
+
+ Reversed flow on 2 faces (0.1% area) of pressure-outlet 9.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    18  1.4241e-02  2.0150e-04  2.6860e-03  2.9399e-04  9.1385e-08  4:27:23  382
+
+ Reversed flow on 1 face (0.0% area) of pressure-outlet 9.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    19  1.0043e-02  1.1134e-04  1.5826e-03  1.5928e-04  8.3932e-08  4:06:13  381
+
+ Reversed flow on 19 faces (0.0% area) of pressure-outlet 9.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    20  7.0331e-03  7.9886e-05  8.5164e-04  1.0056e-04  8.0341e-08  4:00:20  380
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    21  5.0734e-03  4.0483e-05  5.1656e-04  5.4862e-05  7.6549e-08  3:40:33  379
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    22  3.5686e-03  2.6319e-05  3.0948e-04  3.3995e-05  7.7828e-08  3:34:53  378
+
+ Reversed flow on 955 faces (2.6% area) of pressure-outlet 9.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    23  4.9373e-03  3.9957e-05  3.8962e-04  4.1694e-05  7.7408e-08  3:24:22  377
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    24  4.0768e-03  2.4909e-05  3.1991e-04  2.9462e-05  7.4285e-08  3:10:02  376
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    25  3.3736e-03  1.7806e-05  2.6561e-04  2.3432e-05  7.0034e-08  2:54:33  375
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    26  2.1841e-03  1.1150e-05  1.7741e-04  1.4278e-05  6.8295e-08  2:40:52  374
+
+ Reversed flow on 2 faces (0.0% area) of pressure-outlet 9.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    27  1.5077e-03  7.4992e-06  1.2041e-04  9.7246e-06  6.6634e-08  2:30:26  373
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    28  9.5704e-04  4.7607e-06  7.9562e-05  6.6102e-06  6.5630e-08  2:22:25  372
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    29  5.9987e-04  3.1524e-06  5.7984e-05  4.7136e-06  6.5030e-08  2:19:21  371
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    30  4.0876e-04  2.1095e-06  4.7643e-05  3.2489e-06  6.3646e-08  2:14:07  370
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    31  2.5886e-04  1.4402e-06  3.9860e-05  2.3571e-06  6.3588e-08  2:09:51  369
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    32  1.7205e-04  9.9996e-07  3.2878e-05  1.6573e-06  6.3092e-08  2:07:18  368
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    33  1.1137e-04  7.3475e-07  2.5837e-05  1.2073e-06  6.3274e-08  2:11:32  367
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    34  7.4687e-05  5.2248e-07  1.8376e-05  8.6112e-07  6.2816e-08  2:17:15  366
+!   34 solution is converged
+
+> /file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h35_i400"Fast-loading "E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\fluent26.1.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Writing to DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h35_i400.cas.h5" in NODE0 mode and compression level 1 ...
+Grouping cells for Laplace smoothing ...
+     5331600 cells,     3 zones ...
+    16316085 faces,    14 zones ...
+     5650710 nodes,     1 zone  ...
+  Done.
+Done.
+
+Writing to DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h35_i400.dat.h5" in NODE0 mode and compression level 1 ...
+  Writing results.
+Done.
+
+
+> (display "REPORT-BEGIN i400")
+REPORT-BEGIN i400
+
+> /report/surface-integrals/area-weighted-avg
+Available surfaces: (wall_side wall_heat inlet wall_tim_cu wall_cu_fluid outlet wall_adiabat wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] wall_heat
+Select surface names/ids(2) [()] ()
+
+area-weighted-avg of> temperature
+Write to file? [no] no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                       wall_heat            329.15146
+
+> /report/surface-integrals/facet-max
+Available surfaces: (wall_side wall_heat inlet wall_tim_cu wall_cu_fluid outlet wall_adiabat wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] wall_heat
+Select surface names/ids(2) [()] ()
+
+facet-max of> temperature
+Write to file? [no] no
+
+         Maximum of Facet Values
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                       wall_heat            331.78799
+
+> /report/surface-integrals/area-weighted-avg
+Available surfaces: (wall_side wall_heat inlet wall_tim_cu wall_cu_fluid outlet wall_adiabat wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] inlet
+Select surface names/ids(2) [()] ()
+
+area-weighted-avg of> pressure
+Write to file? [no] no
+
+           Area-Weighted Average
+                 Static Pressure                 [Pa]
+-------------------------------- --------------------
+                           inlet            200.09196
+
+> /report/surface-integrals/area-weighted-avg
+Available surfaces: (wall_side wall_heat inlet wall_tim_cu wall_cu_fluid outlet wall_adiabat wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] outlet
+Select surface names/ids(2) [()] ()
+
+area-weighted-avg of> pressure
+Write to file? [no] no
+
+           Area-Weighted Average
+                 Static Pressure                 [Pa]
+-------------------------------- --------------------
+                          outlet                    0
+
+> /report/surface-integrals/mass-flow-rate
+Available surfaces: (wall_side wall_heat inlet wall_tim_cu wall_cu_fluid outlet wall_adiabat wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] inlet
+Select surface names/ids(2) [()] outlet
+Select surface names/ids(3) [()] ()
+Write to file? [no] no
+
+                  Mass Flow Rate               [kg/s]
+-------------------------------- --------------------
+                           inlet         0.0033073388
+                          outlet        -0.0033083943
+                ---------------- --------------------
+                             Net       -1.0554955e-06
+
+> (display "REPORT-END i400")
+REPORT-END i400
+
+> /file/stop-transcript
+
+Transcript closed.
+
+> /exit yes
+Auto-Transcript Stop Time:  22:48:12, 27 Sep 2026 中国标准时间 
+Total Transcript Time: 16 Minute 15 Second.
+
+Automatic transcript closed.
+FLUENT_EXIT=0 

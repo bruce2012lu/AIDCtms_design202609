@@ -1,0 +1,171 @@
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /preferences/graphics/colormap-settings/number-format-type
+Valid values: ("general" "float" "exponential")
+Number Format Type ["general"] float
+
+> /preferences/graphics/colormap-settings/number-format-precision
+Number Format Precision (0-9) [5] 0
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=2.004 mm"] "z=-0.008 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] qz008f
+
+Choose setting to change> field
+
+contours of> heat-flux
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] zm008
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/objects/display
+
+Object name> qz008f
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [0.2010481208562851] 0.049992
+
+> /display/views/camera/target
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [0.002003999892622232] -0.000008
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/zm008_heatflux.png
+The file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/zm008_heatflux.png" already exists.
+OK to overwrite? [no] yes
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-0.008 mm"] "z=2.004 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] qz2004f
+
+Choose setting to change> field
+
+contours of> heat-flux
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] qz2004
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/objects/display
+
+Object name> qz2004f
+
+> /display/views/camera/position
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [0.1990361213684082] 0.052004
+
+> /display/views/camera/target
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [-7.999999979801942e-06] 0.002004
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/z2004_heatflux.png
+The file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/z2004_heatflux.png" already exists.
+OK to overwrite? [no] yes
+
+> (display "QFIX-DONE")QFIX-DONE
+
+> /file/stop-transcript

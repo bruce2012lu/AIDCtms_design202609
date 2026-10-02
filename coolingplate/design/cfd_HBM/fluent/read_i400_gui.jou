@@ -1,0 +1,6 @@
+; Open the 400-iteration HBM case in the GUI. Do not solve. Do not exit.
+/file/set-batch-options no no no
+/file/confirm-overwrite yes
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_array_laminar_i400.cas.h5"
+/display/mesh
+/display/views/auto-scale

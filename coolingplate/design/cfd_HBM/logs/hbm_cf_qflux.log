@@ -1,0 +1,297 @@
+
+> /preferences/graphics/graphics-effects/grid-plane-enabled
+Ground plane grid [no] no
+
+> /preferences/graphics/colormap-settings/number-format-type
+Valid values: ("general" "float" "exponential")
+Number Format Type ["general"] general
+
+> /preferences/graphics/colormap-settings/number-format-precision
+Number Format Precision (0-9) [5] 5
+
+> /display/set/picture/use-window-resolution?
+Use active window's resolution? [yes] no
+
+> /surface/plane-surface qz008 xy -0.000008
+
+> /surface/plane-surface qz2004 xy 0.002004
+
+> (display "ANNO-PICK")
+ANNO-PICK
+
+> /display/annotation/annotate
+Annotation Text [""] "z=-2.08 mm"
+Available options: ("None" "Date" "Time" "Version" "No. of Iterations" "No. of Timesteps" "Flowtime")
+Append Quantity ["None"] "None"
+Pick a screen location with the Left Mouse Button.
+Drag the mouse for an attachment line ...
+(cx-use-window-id 51)
+
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> font-name
+Available options: ("黑体" "隶书" "等线 Light" "等线" "汉仪中黑 197" "楷体" "方正舒体" "方正姚体" "新宋体" "微软雅黑 Light" "微软雅黑" "幼圆" "宋体" "华文隶书" "华文行楷" "华文细黑" "华文琥珀" "华文楷体" "华文新魏" "华文彩云" "华文宋体" "华文仿宋" "华文中宋" "仿宋" "yyb" "Yu Gothic UI Semilight" "Yu Gothic UI Semibold" "Yu Gothic UI Light" "Yu Gothic UI" "Yu Gothic Medium" "Yu Gothic Light" "Yu Gothic" "Wingdings 3" "Wingdings 2" "Wingdings" "Wide Latin" "Webdings" "Vladimir Script" "Vivaldi" "Vineta BT" "Viner Hand ITC" "Verdana" "UniversalMath1 BT" "Ubuntu Mono Medium" "Ubuntu Mono" "Txt" "Tw Cen MT Condensed Extra Bold" "Tw Cen MT Condensed" "Tw Cen MT" "Trebuchet MS" "Times New Roman" "Terminal" "Tempus Sans ITC" "TechnicLite" "TechnicBold" "Technic" "Tahoma" "System" "Symusic" "Symeteo" "Symbol" "Symath" "Symap" "Sylfaen" "Syastro" "Swis721 LtEx BT" "Swis721 LtCn BT" "Swis721 Lt BT" "Swis721 Ex BT" "Swis721 Cn BT" "Swis721 BT" "Swis721 BlkOul BT" "Swis721 BlkEx BT" "Swis721 BlkCn BT" "Swis721 Blk BT" "Swis721 BdOul BT" "Swis721 BdCnOul BT" "SuperFrench" "Stylus BT" "Stencil" "Source Sans Pro Semibold" "Source Sans Pro Light" "Source Sans Pro ExtraLight" "Source Sans Pro Black" "Source Sans Pro" "Source Han Serif SC Heavy" "Source Han Serif SC" "Snap ITC" "Small Fonts" "Sitka Text Semibold" "Sitka Text" "Sitka Subheading Semibold" "Sitka Subheading" "Sitka Small Semibold" "Sitka Small" "Sitka Heading Semibold" "Sitka Heading" "Sitka Display Semibold" "Sitka Display" "Sitka Banner Semibold" "Sitka Banner" "Sitka" "SimSun-ExtG" "SimSun-ExtB" "Simplex" "Showcard Gothic" "Segoe UI Variable Text Semiligh" "Segoe UI Variable Text Semibold" "Segoe UI Variable Text Light" "Segoe UI Variable Text" "Segoe UI Variable Small Semilig" "Segoe UI Variable Small Semibol" "Segoe UI Variable Small Light" "Segoe UI Variable Small" "Segoe UI Variable Display Semil" "Segoe UI Variable Display Semib" "Segoe UI Variable Display Light" "Segoe UI Variable Display" "Segoe UI Variable" "Segoe UI Symbol" "Segoe UI Semilight" "Segoe UI Semibold" "Segoe UI Light" "Segoe UI Historic" "Segoe UI Emoji" "Segoe UI Black" "Segoe UI" "Segoe Script" "Segoe Print" "Segoe MDL2 Assets" "Segoe Fluent Icons" "ScriptS" "ScriptC" "Script MT Bold" "Script" "SansSerif" "Sans Serif Collection" "Rubik Medium" "Rubik Light" "Rubik Black" "Rubik" "Romantic" "RomanT" "RomanS" "RomanD" "RomanC" "Roman" "Rockwell Extra Bold" "Rockwell Condensed" "Rockwell" "Ravie" "Rage Italic" "Proxy 9" "Proxy 8" "Proxy 7" "Proxy 6" "Proxy 5" "Proxy 4" "Proxy 3" "Proxy 2" "Proxy 1" "Pristina" "Poor Richard" "PMingLiU-ExtB" "Playbill" "Perpetua Titling MT" "Perpetua" "Parchment" "Papyrus" "PanRoman" "Palatino Linotype" "Palace Script MT" "Open Sans SemiBold" "Open Sans Medium" "Open Sans Light" "Open Sans ExtraBold" "Open Sans" "Onyx" "Old English Text MT" "OCR A Extended" "Noto Serif SC SemiBold" "Noto Serif SC Medium" "Noto Serif SC Light" "Noto Serif SC ExtraLight" "Noto Serif SC Black" "Noto Serif SC" "Noto Sans SC Thin" "Noto Sans SC Medium" "Noto Sans SC Light" "Noto Sans SC DemiLight" "Noto Sans SC Black" "Noto Sans SC" "Nirmala UI Semilight" "Nirmala UI" "Niagara Solid" "Niagara Engraved" "Myanmar Text" "MV Boli" "MT Extra" "MS UI Gothic" "MS Serif" "MS Sans Serif" "MS Reference Specialty" "MS Reference Sans Serif" "MS PGothic" "MS Outlook" "MS Gothic" "Monotype Corsiva" "Monotxt" "Monospac821 BT" "Mongolian Baiti" "Modern No. 20" "Modern" "Mistral" "MingLiU_HKSCS-ExtB" "MingLiU-ExtB" "Microsoft Yi Baiti" "Microsoft YaHei UI Light" "Microsoft YaHei UI" "Microsoft YaHei" "Microsoft Uighur" "Microsoft Tai Le" "Microsoft Sans Serif" "Microsoft PhagsPa" "Microsoft New Tai Lue" "Microsoft JhengHei UI Light" "Microsoft JhengHei UI" "Microsoft JhengHei Light" "Microsoft JhengHei" "Microsoft Himalaya" "Matura MT Script Capitals" "Marlett" "Malgun Gothic Semilight" "Malgun Gothic" "Maiandra GD" "Magneto" "Lucida Sans Unicode" "Lucida Sans Typewriter" "Lucida Sans" "Lucida Handwriting" "Lucida Fax" "Lucida Console" "Lucida Calligraphy" "Lucida Bright" "Leelawadee UI Semilight" "Leelawadee UI" "Leelawadee" "Kunstler Script" "Kristen ITC" "Juice ITC" "Jokerman" "Javanese Text" "ItalicT" "ItalicC" "Italic" "ISOCTEUR" "ISOCT3" "ISOCT2" "ISOCT" "ISOCPEUR" "ISOCP3" "ISOCP2" "ISOCP" "Ink Free" "Informal Roman" "Imprint MT Shadow" "Impact" "HYZhongHei" "HoloLens MDL2 Assets" "High Tower Text" "Harrington" "Harlow Solid Italic" "Haettenschweiler" "GreekS" "GreekC" "Goudy Stout" "Goudy Old Style" "GothicI" "GothicG" "GothicE" "Gloucester MT Extra Condensed" "Gill Sans Ultra Bold Condensed" "Gill Sans Ultra Bold" "Gill Sans MT Ext Condensed Bold" "Gill Sans MT Condensed" "Gill Sans MT" "Gigi" "Georgia" "GENISO" "GDT" "Garamond" "Gadugi" "Gabriola" "French Script MT" "Freestyle Script" "Franklin Gothic Medium Cond" "Franklin Gothic Medium" "Franklin Gothic Heavy" "Franklin Gothic Demi Cond" "Franklin Gothic Demi" "Franklin Gothic Book" "Forte" "Footlight MT Light" "Fixedsys" "FFont-Family" "Felix Titling" "EuroRoman" "Eras Medium ITC" "Eras Light ITC" "Eras Demi ITC" "Eras Bold ITC" "Engravers MT" "Elephant" "Edwardian Script ITC" "Ebrima" "Dutch801 XBd BT" "Dutch801 Rm BT" "DengXian" "Curlz MT" "Courier New" "Courier" "CountryBlueprint" "Corbel Light" "Corbel" "Copperplate Gothic Light" "Copperplate Gothic Bold" "Cooper Black" "Constantia" "Consolas" "Complex" "CommercialScript BT" "CommercialPi BT" "Comic Sans MS" "Colonna MT" "CityBlueprint" "Chiller" "Century Schoolbook" "Century Gothic" "Century" "Centaur" "Castellar" "Cascadia Mono SemiLight" "Cascadia Mono SemiBold" "Cascadia Mono Light" "Cascadia Mono ExtraLight" "Cascadia Mono" "Cascadia Code SemiLight" "Cascadia Code SemiBold" "Cascadia Code Light" "Cascadia Code ExtraLight" "Cascadia Code" "Candara Light" "Candara" "Cambria Math" "Cambria" "Calisto MT" "Californian FB" "Calibri Light" "Calibri" "Brush Script MT" "Broadway" "Britannic Bold" "Bradley Hand ITC" "Bookshelf Symbol 7" "Bookman Old Style" "Book Antiqua" "Bodoni MT Poster Compressed" "Bodoni MT Condensed" "Bodoni MT Black" "Bodoni MT" "Blackadder ITC" "Bernard MT Condensed" "Berlin Sans FB Demi" "Berlin Sans FB" "Bell MT" "Bauhaus 93" "Baskerville Old Face" "BankGothic Md BT" "BankGothic Lt BT" "Bahnschrift SemiLight SemiConde" "Bahnschrift SemiLight Condensed" "Bahnschrift SemiLight" "Bahnschrift SemiCondensed" "Bahnschrift SemiBold SemiConden" "Bahnschrift SemiBold Condensed" "Bahnschrift SemiBold" "Bahnschrift Light SemiCondensed" "Bahnschrift Light Condensed" "Bahnschrift Light" "Bahnschrift Condensed" "Bahnschrift" "Artifakt Element Thin" "Artifakt Element Medium" "Artifakt Element Light" "Artifakt Element Heavy" "Artifakt Element Hair" "Artifakt Element Book" "Artifakt Element Black" "Artifakt Element" "Arial Unicode MS" "Arial Rounded MT Bold" "Arial Narrow" "Arial Black" "Arial" "AMGDT" "AmdtSymbols" "Algerian" "Alegreya Sans SC Thin" "Alegreya Sans SC Medium" "Alegreya Sans SC Light" "Alegreya Sans SC ExtraBold" "Alegreya Sans SC Black" "Alegreya Sans SC" "AIGDT" "Agency FB" "AcadEref")
+Text font family ["Rubik"] "Microsoft YaHei"
+
+//display/annotation/text-0> font-size
+Available options: ("6" "8" "9" "10" "11" "12" "14" "16" "18" "20" "24" "28" "32" "48" "64")
+Text font size ["11"] "24"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] qheat
+
+Choose setting to change> field
+
+contours of> heat-flux
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] wall_heat
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "qheat". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> qheat
+
+> /display/set/picture/x-resolution
+Raster image width [960] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [720] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["perspective"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [-0.01152409520000219] 0.0055
+Y (in [m]) [0.05942266434431076] 0.025
+Z (in [m]) [0.2452206909656525] 0.04792
+
+> /display/views/camera/target
+X (in [m]) [-0.001617912901565433] 0.0055
+Y (in [m]) [0.01998687908053398] 0.025
+Z (in [m]) [0.002237432869151235] -0.00208
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.02303190156817436] -1
+Y (in [m]) [0.99973464012146] 0
+Z (in [m]) [0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/wall_heat_heatflux.png
+
+> (display "SAVED wall_heat_heatflux.png")
+SAVED wall_heat_heatflux.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-2.08 mm"] "z=-2 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] qtimcu
+
+Choose setting to change> field
+
+contours of> heat-flux
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] wall_tim_cu
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "qtimcu". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> qtimcu
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.02499999850988388] 0.025
+Z (in [m]) [0.1539497077465057] 0.048
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.02499999850988388] 0.025
+Z (in [m]) [-0.002080000005662441] -0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/wall_tim_cu_heatflux.png
+
+> (display "SAVED wall_tim_cu_heatflux.png")
+SAVED wall_tim_cu_heatflux.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-2 mm"] "z=-0.008 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] qz008t
+
+Choose setting to change> field
+
+contours of> z-heat-flux
+
+Error: invalid command
+Error Object: "z-heat-flux"
+
+Warning: An error or interrupt occurred while reading the journal file.
+Some commands may not have been completed.
+
+
+Interrupted.
+
+> 
+adjoint/                parallel/               server/
+define/                 parametric-study/       solve/
+display/                plot/                   surface/
+exit                    preferences/            turbo-setup/
+file/                   print-license-usage     views/
+mesh/                   report/
+
+> (cx-use-window-id 51)
+(handle-key "up arrow")
+/file/read-journal
+Journal file names [()] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_cf_extra.jou
+Journal file names [()] ()
+
+Reading journal file D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_cf_extra.jou...
+
+> ; Extra integrals for the counterflow iter-200 report. Do not solve. Do not exit.
+/file/set-batch-options yes no no
+
+> /file/confirm-overwrite yes
+
+> /file/start-transcript D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/logs/hbm_cf_extra.log
+
+Error: A transcript has already been started.
+Error Object: #f
+
+Error: A transcript has already been started.
+Error Object: #f
+
+Warning: An error or interrupt occurred while reading the journal file.
+Some commands may not have been completed.
+
+
+Interrupted.
+
+> 
+adjoint/                parallel/               server/
+define/                 parametric-study/       solve/
+display/                plot/                   surface/
+exit                    preferences/            turbo-setup/
+file/                   print-license-usage     views/
+mesh/                   report/
+
+> /file/read-journal
+Journal file names [()] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_cf_fields.jou
+Journal file names [()] ()
+
+Reading journal file D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_cf_fields.jou...
+
+> ; List contour field names. Do not solve. Do not exit.
+/file/stop-transcript

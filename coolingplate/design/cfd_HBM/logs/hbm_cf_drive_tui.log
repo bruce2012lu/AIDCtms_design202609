@@ -1,0 +1,3118 @@
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /preferences/graphics/graphics-effects/grid-plane-enabled
+Ground plane grid [no] no
+
+> /preferences/graphics/colormap-settings/number-format-type
+Valid values: ("general" "float" "exponential")
+Number Format Type ["general"] general
+
+> /preferences/graphics/colormap-settings/number-format-precision
+Number Format Precision (0-9) [5] 5
+
+> /display/set/picture/use-window-resolution?
+Use active window's resolution? [no] no
+
+> /surface/plane-surface zm1992 xy -0.001992
+
+> /surface/plane-surface zm1000 xy -0.001
+
+> /surface/plane-surface zm008 xy -0.000008
+
+> /surface/plane-surface z1000 xy 0.001
+
+> /surface/plane-surface z4000 xy 0.004
+
+> /surface/plane-surface x550 yz 0.0055
+
+> /surface/plane-surface x630 yz 0.0063
+
+> /surface/plane-surface y185 zx 0.0185
+
+> /surface/iso-clip
+
+iso-clip of> y-coordinate
+new surface id/name [clip-36] whc
+from surface [] wall_heat
+Enter Minimum: (in [m]) [0] 0.013
+Enter Maximum: (in [m]) [0.05000000074505806] 0.024
+
+> /surface/iso-clip
+
+iso-clip of> y-coordinate
+new surface id/name [clip-37] x550c
+from surface [] x550
+Enter Minimum: (in [m]) [-0.007000000216066837] 0.013
+Enter Maximum: (in [m]) [0.05700000002980232] 0.024
+
+> /surface/iso-clip
+
+iso-clip of> y-coordinate
+new surface id/name [clip-38] z1000c
+from surface [] z1000
+Enter Minimum: (in [m]) [-0.007000000216066837] 0.013
+Enter Maximum: (in [m]) [0.05700000002980232] 0.024
+
+> /surface/iso-clip
+
+iso-clip of> y-coordinate
+new surface id/name [clip-39] zm1992c
+from surface [] zm1992
+Enter Minimum: (in [m]) [-0.007000000216066837] 0.013
+Enter Maximum: (in [m]) [0.05700000002980232] 0.024
+
+> /display/annotation/delete
+(text-0)
+Select annotation to delete(1) [()] text-0
+Select annotation to delete(2) [()] ()
+Do you want to delete objects :- (text-0) [no] yes
+
+> (display "ANNO-PICK")ANNO-PICK
+
+> /display/annotation/annotate
+Annotation Text [""] "z=-2.08 mm"
+Available options: ("None" "Date" "Time" "Version" "No. of Iterations" "No. of Timesteps" "Flowtime")
+Append Quantity ["None"] "None"
+Pick a screen location with the Left Mouse Button.
+Drag the mouse for an attachment line ...
+(cx-use-window-id 51)
+
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> font-name
+Available options: ("黑体" "隶书" "等线 Light" "等线" "汉仪中黑 197" "楷体" "方正舒体" "方正姚体" "新宋体" "微软雅黑 Light" "微软雅黑" "幼圆" "宋体" "华文隶书" "华文行楷" "华文细黑" "华文琥珀" "华文楷体" "华文新魏" "华文彩云" "华文宋体" "华文仿宋" "华文中宋" "仿宋" "yyb" "Yu Gothic UI Semilight" "Yu Gothic UI Semibold" "Yu Gothic UI Light" "Yu Gothic UI" "Yu Gothic Medium" "Yu Gothic Light" "Yu Gothic" "Wingdings 3" "Wingdings 2" "Wingdings" "Wide Latin" "Webdings" "Vladimir Script" "Vivaldi" "Vineta BT" "Viner Hand ITC" "Verdana" "UniversalMath1 BT" "Ubuntu Mono Medium" "Ubuntu Mono" "Txt" "Tw Cen MT Condensed Extra Bold" "Tw Cen MT Condensed" "Tw Cen MT" "Trebuchet MS" "Times New Roman" "Terminal" "Tempus Sans ITC" "TechnicLite" "TechnicBold" "Technic" "Tahoma" "System" "Symusic" "Symeteo" "Symbol" "Symath" "Symap" "Sylfaen" "Syastro" "Swis721 LtEx BT" "Swis721 LtCn BT" "Swis721 Lt BT" "Swis721 Ex BT" "Swis721 Cn BT" "Swis721 BT" "Swis721 BlkOul BT" "Swis721 BlkEx BT" "Swis721 BlkCn BT" "Swis721 Blk BT" "Swis721 BdOul BT" "Swis721 BdCnOul BT" "SuperFrench" "Stylus BT" "Stencil" "Source Sans Pro Semibold" "Source Sans Pro Light" "Source Sans Pro ExtraLight" "Source Sans Pro Black" "Source Sans Pro" "Source Han Serif SC Heavy" "Source Han Serif SC" "Snap ITC" "Small Fonts" "Sitka Text Semibold" "Sitka Text" "Sitka Subheading Semibold" "Sitka Subheading" "Sitka Small Semibold" "Sitka Small" "Sitka Heading Semibold" "Sitka Heading" "Sitka Display Semibold" "Sitka Display" "Sitka Banner Semibold" "Sitka Banner" "Sitka" "SimSun-ExtG" "SimSun-ExtB" "Simplex" "Showcard Gothic" "Segoe UI Variable Text Semiligh" "Segoe UI Variable Text Semibold" "Segoe UI Variable Text Light" "Segoe UI Variable Text" "Segoe UI Variable Small Semilig" "Segoe UI Variable Small Semibol" "Segoe UI Variable Small Light" "Segoe UI Variable Small" "Segoe UI Variable Display Semil" "Segoe UI Variable Display Semib" "Segoe UI Variable Display Light" "Segoe UI Variable Display" "Segoe UI Variable" "Segoe UI Symbol" "Segoe UI Semilight" "Segoe UI Semibold" "Segoe UI Light" "Segoe UI Historic" "Segoe UI Emoji" "Segoe UI Black" "Segoe UI" "Segoe Script" "Segoe Print" "Segoe MDL2 Assets" "Segoe Fluent Icons" "ScriptS" "ScriptC" "Script MT Bold" "Script" "SansSerif" "Sans Serif Collection" "Rubik Medium" "Rubik Light" "Rubik Black" "Rubik" "Romantic" "RomanT" "RomanS" "RomanD" "RomanC" "Roman" "Rockwell Extra Bold" "Rockwell Condensed" "Rockwell" "Ravie" "Rage Italic" "Proxy 9" "Proxy 8" "Proxy 7" "Proxy 6" "Proxy 5" "Proxy 4" "Proxy 3" "Proxy 2" "Proxy 1" "Pristina" "Poor Richard" "PMingLiU-ExtB" "Playbill" "Perpetua Titling MT" "Perpetua" "Parchment" "Papyrus" "PanRoman" "Palatino Linotype" "Palace Script MT" "Open Sans SemiBold" "Open Sans Medium" "Open Sans Light" "Open Sans ExtraBold" "Open Sans" "Onyx" "Old English Text MT" "OCR A Extended" "Noto Serif SC SemiBold" "Noto Serif SC Medium" "Noto Serif SC Light" "Noto Serif SC ExtraLight" "Noto Serif SC Black" "Noto Serif SC" "Noto Sans SC Thin" "Noto Sans SC Medium" "Noto Sans SC Light" "Noto Sans SC DemiLight" "Noto Sans SC Black" "Noto Sans SC" "Nirmala UI Semilight" "Nirmala UI" "Niagara Solid" "Niagara Engraved" "Myanmar Text" "MV Boli" "MT Extra" "MS UI Gothic" "MS Serif" "MS Sans Serif" "MS Reference Specialty" "MS Reference Sans Serif" "MS PGothic" "MS Outlook" "MS Gothic" "Monotype Corsiva" "Monotxt" "Monospac821 BT" "Mongolian Baiti" "Modern No. 20" "Modern" "Mistral" "MingLiU_HKSCS-ExtB" "MingLiU-ExtB" "Microsoft Yi Baiti" "Microsoft YaHei UI Light" "Microsoft YaHei UI" "Microsoft YaHei" "Microsoft Uighur" "Microsoft Tai Le" "Microsoft Sans Serif" "Microsoft PhagsPa" "Microsoft New Tai Lue" "Microsoft JhengHei UI Light" "Microsoft JhengHei UI" "Microsoft JhengHei Light" "Microsoft JhengHei" "Microsoft Himalaya" "Matura MT Script Capitals" "Marlett" "Malgun Gothic Semilight" "Malgun Gothic" "Maiandra GD" "Magneto" "Lucida Sans Unicode" "Lucida Sans Typewriter" "Lucida Sans" "Lucida Handwriting" "Lucida Fax" "Lucida Console" "Lucida Calligraphy" "Lucida Bright" "Leelawadee UI Semilight" "Leelawadee UI" "Leelawadee" "Kunstler Script" "Kristen ITC" "Juice ITC" "Jokerman" "Javanese Text" "ItalicT" "ItalicC" "Italic" "ISOCTEUR" "ISOCT3" "ISOCT2" "ISOCT" "ISOCPEUR" "ISOCP3" "ISOCP2" "ISOCP" "Ink Free" "Informal Roman" "Imprint MT Shadow" "Impact" "HYZhongHei" "HoloLens MDL2 Assets" "High Tower Text" "Harrington" "Harlow Solid Italic" "Haettenschweiler" "GreekS" "GreekC" "Goudy Stout" "Goudy Old Style" "GothicI" "GothicG" "GothicE" "Gloucester MT Extra Condensed" "Gill Sans Ultra Bold Condensed" "Gill Sans Ultra Bold" "Gill Sans MT Ext Condensed Bold" "Gill Sans MT Condensed" "Gill Sans MT" "Gigi" "Georgia" "GENISO" "GDT" "Garamond" "Gadugi" "Gabriola" "French Script MT" "Freestyle Script" "Franklin Gothic Medium Cond" "Franklin Gothic Medium" "Franklin Gothic Heavy" "Franklin Gothic Demi Cond" "Franklin Gothic Demi" "Franklin Gothic Book" "Forte" "Footlight MT Light" "Fixedsys" "FFont-Family" "Felix Titling" "EuroRoman" "Eras Medium ITC" "Eras Light ITC" "Eras Demi ITC" "Eras Bold ITC" "Engravers MT" "Elephant" "Edwardian Script ITC" "Ebrima" "Dutch801 XBd BT" "Dutch801 Rm BT" "DengXian" "Curlz MT" "Courier New" "Courier" "CountryBlueprint" "Corbel Light" "Corbel" "Copperplate Gothic Light" "Copperplate Gothic Bold" "Cooper Black" "Constantia" "Consolas" "Complex" "CommercialScript BT" "CommercialPi BT" "Comic Sans MS" "Colonna MT" "CityBlueprint" "Chiller" "Century Schoolbook" "Century Gothic" "Century" "Centaur" "Castellar" "Cascadia Mono SemiLight" "Cascadia Mono SemiBold" "Cascadia Mono Light" "Cascadia Mono ExtraLight" "Cascadia Mono" "Cascadia Code SemiLight" "Cascadia Code SemiBold" "Cascadia Code Light" "Cascadia Code ExtraLight" "Cascadia Code" "Candara Light" "Candara" "Cambria Math" "Cambria" "Calisto MT" "Californian FB" "Calibri Light" "Calibri" "Brush Script MT" "Broadway" "Britannic Bold" "Bradley Hand ITC" "Bookshelf Symbol 7" "Bookman Old Style" "Book Antiqua" "Bodoni MT Poster Compressed" "Bodoni MT Condensed" "Bodoni MT Black" "Bodoni MT" "Blackadder ITC" "Bernard MT Condensed" "Berlin Sans FB Demi" "Berlin Sans FB" "Bell MT" "Bauhaus 93" "Baskerville Old Face" "BankGothic Md BT" "BankGothic Lt BT" "Bahnschrift SemiLight SemiConde" "Bahnschrift SemiLight Condensed" "Bahnschrift SemiLight" "Bahnschrift SemiCondensed" "Bahnschrift SemiBold SemiConden" "Bahnschrift SemiBold Condensed" "Bahnschrift SemiBold" "Bahnschrift Light SemiCondensed" "Bahnschrift Light Condensed" "Bahnschrift Light" "Bahnschrift Condensed" "Bahnschrift" "Artifakt Element Thin" "Artifakt Element Medium" "Artifakt Element Light" "Artifakt Element Heavy" "Artifakt Element Hair" "Artifakt Element Book" "Artifakt Element Black" "Artifakt Element" "Arial Unicode MS" "Arial Rounded MT Bold" "Arial Narrow" "Arial Black" "Arial" "AMGDT" "AmdtSymbols" "Algerian" "Alegreya Sans SC Thin" "Alegreya Sans SC Medium" "Alegreya Sans SC Light" "Alegreya Sans SC ExtraBold" "Alegreya Sans SC Black" "Alegreya Sans SC" "AIGDT" "Agency FB" "AcadEref")
+Text font family ["Rubik"] "Microsoft YaHei"
+
+//display/annotation/text-0> font-size
+Available options: ("6" "8" "9" "10" "11" "12" "14" "16" "18" "20" "24" "28" "32" "48" "64")
+Text font size ["11"] "24"
+
+//display/annotation/text-0> quit
+
+> /preferences/graphics/colormap-settings/number-format-type
+Valid values: ("general" "float" "exponential")
+Number Format Type ["general"] fixed
+
+
+non-fatal Error: 'fixed' unknown -- enter choice again.
+
+
+Valid values: ("general" "float" "exponential")
+Number Format Type ["general"] float
+
+The updated colormap settings will only be applied to new graphics objects, not the existing ones. Use an existing object's local settings to change its colormap properties.
+
+> /preferences/graphics/colormap-settings/number-format-precision
+Number Format Precision (0-9) [5] 0
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-2.08 mm"] "z=-2.08 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] qheatb
+
+Choose setting to change> field
+
+contours of> heat-flux
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] wall_heat
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "qheatb". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/objects/display
+
+Object name> qheatb
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.02499999850988388] 0.025
+Z (in [m]) [0.1540296971797943] 0.04792
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.02499999850988388] 0.025
+Z (in [m]) [-0.002000000094994903] -0.00208
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/wall_heat_heatflux.png
+The file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/wall_heat_heatflux.png" already exists.
+OK to overwrite? [no] yes
+
+> (display "SAVED wall_heat_heatflux.png")SAVED wall_heat_heatflux.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-2.08 mm"] "z=-2 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] qtimb
+
+Choose setting to change> field
+
+contours of> heat-flux
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] wall_tim_cu
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "qtimb". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/objects/display
+
+Object name> qtimb
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [0.1534232348203659] 0.048
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [-0.002080000005662441] -0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/wall_tim_cu_heatflux.png
+The file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/wall_tim_cu_heatflux.png" already exists.
+OK to overwrite? [no] yes
+
+> (display "SAVED wall_tim_cu_heatflux.png")SAVED wall_tim_cu_heatflux.png
+
+> /preferences/graphics/colormap-settings/number-format-type
+Valid values: ("general" "float" "exponential")
+Number Format Type ["float"] general
+
+> /preferences/graphics/colormap-settings/number-format-precision
+Number Format Precision (0-9) [0] 5
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] wallheat
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] wall_heat
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "wallheat". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-2 mm"] "z=-2.08 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> wallheat
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [0.1535032242536545] 0.047920
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [-0.002000000094994903] -0.002080
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/wall_heat_temperature.png
+
+> (display "SAVED wall_heat_temperature.png")SAVED wall_heat_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] whct
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] whc
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "whct". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-2.08 mm"] "z=-2.08 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> whct
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 1600
+
+> /display/set/picture/y-resolution
+Raster image height [560] 700
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.02500000037252903] 0.0185
+Z (in [m]) [0.1534232348203659] 0.047920
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.02500000037252903] 0.0185
+Z (in [m]) [-0.002080000005662441] -0.002080
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999975562095642] -1
+Y (in [m]) [-0.002231218852102757] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/wall_heat_center_temperature.png
+
+> (display "SAVED wall_heat_center_temperature.png")SAVED wall_heat_center_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] zm1992t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] zm1992
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-2.08 mm center"] "z=-1.992 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> zm1992t
+
+> /display/set/picture/x-resolution
+Raster image width [1600] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [700] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [0.01850000210106373] 0.025
+Z (in [m]) [0.04415068030357361] 0.048008
+
+> /display/views/camera/target
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [0.01850000210106373] 0.025
+Z (in [m]) [-0.002080000005662441] -0.001992
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999975562095642] -1
+Y (in [m]) [-0.002231347840279341] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/zm1992_temperature.png
+
+> (display "SAVED zm1992_temperature.png")SAVED zm1992_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] zm1992ct
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] zm1992c
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-1.992 mm"] "z=-1.992 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> zm1992ct
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 1600
+
+> /display/set/picture/y-resolution
+Raster image height [560] 700
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.0185
+Z (in [m]) [0.1970521211624146] 0.048008
+
+> /display/views/camera/target
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.0185
+Z (in [m]) [-0.001992000034078956] -0.001992
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999975562095642] -1
+Y (in [m]) [-0.002231214195489883] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/zm1992_center_temperature.png
+
+> (display "SAVED zm1992_center_temperature.png")SAVED zm1992_center_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] zm1000t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] zm1000
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-1.992 mm center"] "z=-1 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> zm1000t
+
+> /display/set/picture/x-resolution
+Raster image width [1600] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [700] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [0.01850000210106373] 0.025
+Z (in [m]) [0.04423868283629417] 0.049000
+
+> /display/views/camera/target
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [0.01850000210106373] 0.025
+Z (in [m]) [-0.001992000034078956] -0.001000
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002232647035270929] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/zm1000_temperature.png
+
+> (display "SAVED zm1000_temperature.png")SAVED zm1000_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] zm008t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] zm008
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-1 mm"] "z=-0.008 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> zm008t
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [0.1980441212654114] 0.049992
+
+> /display/views/camera/target
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [-0.001000000047497451] -0.000008
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/zm008_temperature.png
+
+> (display "SAVED zm008_temperature.png")SAVED zm008_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] z1000t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] z1000
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-0.008 mm"] "z=1 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> z1000t
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> aster 
+
+non-fatal Error: invalid command [aster]
+
+
+image width [2400] 2400
+
+> 
+adjoint/                parallel/               server/
+define/                 parametric-study/       solve/
+display/                plot/                   surface/
+exit                    preferences/            turbo-setup/
+file/                   print-license-usage     views/
+mesh/                   report/
+
+> > 
+
+non-fatal Error: invalid command [>]
+
+
+
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [0.1990361213684082] 0.051000
+
+> /display/views/camera/target
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [-7.999999979801942e-06] 0.001000
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/z1000_temperature.png
+
+> (display "SAVED z1000_temperature.png")SAVED z1000_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] z1000v
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] z1000
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=1 mm"] "z=1 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> z1000v
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [0.2000441253185272] 0.051000
+
+> /display/views/camera/target
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [0.001000000047497451] 0.001000
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-3.725281061406349e-08] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/z1000_velocity.png
+
+> (display "SAVED z1000_velocity.png")SAVED z1000_velocity.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] z1000ct
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] z1000c
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=1 mm"] "z=1 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> z1000ct
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 1600
+
+> /display/set/picture/y-resolution
+Raster image height [560] 700
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.00549999438226223] 0.0055
+Y (in [m]) [0.02500000037252903] 0.0185
+Z (in [m]) [0.2000441253185272] 0.051000
+
+> /display/views/camera/target
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.0185
+Z (in [m]) [0.001000000047497451] 0.001000
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999975562095642] -1
+Y (in [m]) [-0.0022312190849334] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/z1000_center_temperature.png
+
+> (display "SAVED z1000_center_temperature.png")SAVED z1000_center_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] z1000cv
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] z1000c
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=1 mm center"] "z=1 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> z1000cv
+
+> /display/set/picture/x-resolution
+Raster image width [1600] 1600
+
+> /display/set/picture/y-resolution
+Raster image height [700] 700
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [0.01850000210106373] 0.0185
+Z (in [m]) [0.04723067954182625] 0.051000
+
+> /display/views/camera/target
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [0.01850000210106373] 0.0185
+Z (in [m]) [0.001000000047497451] 0.001000
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [9.228678266026691e-09] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/z1000_center_velocity.png
+
+> (display "SAVED z1000_center_velocity.png")SAVED z1000_center_velocity.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] z4000t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] z4000
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=1 mm center"] "z=4 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> z4000t
+
+> /display/set/picture/x-resolution
+Raster image width [1600] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [700] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.01850000023841858] 0.025
+Z (in [m]) [0.04723067954182625] 0.054000
+
+> /display/views/camera/target
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [0.01850000210106373] 0.025
+Z (in [m]) [0.001000000047497451] 0.004000
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999975562095642] -1
+Y (in [m]) [-0.002235305495560169] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/z4000_temperature.png
+
+> (display "SAVED z4000_temperature.png")SAVED z4000_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] x550t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x550
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=4 mm"] "x=5.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> x550t
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 480
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500001832842827] 0.085500
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [0.2030441164970398] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005500001832842827] 0.005500
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [0.004000000189989805] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [-0] 0
+Y (in [m]) [-0.09044182300567627] 0
+Z (in [m]) [-0.9959017634391785] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/x550_temperature.png
+
+> (display "SAVED x550_temperature.png")SAVED x550_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] x550v
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x550
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=5.5 mm"] "x=5.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> x550v
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [480] 480
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.2045441120862961] 0.085500
+Y (in [m]) [0.02499999850988388] 0.025
+Z (in [m]) [0.001959999091923237] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.005500
+Y (in [m]) [0.02499999850988388] 0.025
+Z (in [m]) [0.001959999091923237] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.0005000111414119601] 0
+Y (in [m]) [-0.002268926473334432] 0
+Z (in [m]) [0.9999973773956299] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/x550_velocity.png
+
+> (display "SAVED x550_velocity.png")SAVED x550_velocity.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=5.5 mm"] "x=5.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] vector
+New object name [vector-1] vx550
+
+Choose setting to change> vector-field
+
+vector-of> velocity
+
+Choose setting to change> field
+
+colored by> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x550
+surface id/name(2) [()] ()
+
+Choose setting to change> vector-opt
+
+Choose setting to change/vector-opt> in-plane?
+In Plane? [no] yes
+
+Choose setting to change/vector-opt> fixed-length?
+Fixed Length? [no] yes
+
+Choose setting to change/vector-opt> quit
+
+Choose setting to change> scale
+
+Choose setting to change/scale> auto-scale?
+Auto Scale? [yes] no
+
+Choose setting to change/scale> scale-f
+Scale [1] 0.004
+
+Choose setting to change/scale> quit
+
+Choose setting to change> skip
+Skip [0] 24
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> x550v
+
+> /display/objects/add-to-graphics
+
+Object name> vx550
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [480] 480
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.2045440822839737] 0.085500
+Y (in [m]) [0.02500000223517418] 0.025
+Z (in [m]) [0.0020595274399966] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.005500
+Y (in [m]) [0.02499999850988388] 0.025
+Z (in [m]) [0.001960002817213535] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.0004999645752832294] 0
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [0.9999973773956299] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/x550_velocity_vector.png
+
+> (display "SAVED x550_velocity_vector.png")SAVED x550_velocity_vector.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] x550ct
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x550c
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=5.5 mm"] "x=5.5 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> x550ct
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [480] 1100
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.2262683659791946] 0.085500
+Y (in [m]) [0.0252887774258852] 0.0185
+Z (in [m]) [0.003692649072036147] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005500000435858965] 0.005500
+Y (in [m]) [0.0252887737005949] 0.0185
+Z (in [m]) [0.003582272445783019] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [0] 0
+Y (in [m]) [-0.003962095826864243] 0
+Z (in [m]) [0.9999920725822449] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/x550_center_temperature.png
+
+> (display "SAVED x550_center_temperature.png")SAVED x550_center_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] x550cv
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x550c
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=5.5 mm center"] "x=5.5 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> x550cv
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [1100] 1100
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.03971071168780327] 0.085500
+Y (in [m]) [0.01850000023841858] 0.0185
+Z (in [m]) [0.001960000256076455] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.005500
+Y (in [m]) [0.01850000023841858] 0.0185
+Z (in [m]) [0.001960000256076455] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.0004999966477043927] 0
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [0.9999973773956299] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/x550_center_velocity.png
+
+> (display "SAVED x550_center_velocity.png")SAVED x550_center_velocity.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=5.5 mm center"] "x=5.5 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] vector
+New object name [vector-1] vx550c
+
+Choose setting to change> vector-field
+
+vector-of> velocity
+
+Choose setting to change> field
+
+colored by> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x550c
+surface id/name(2) [()] ()
+
+Choose setting to change> vector-opt
+
+Choose setting to change/vector-opt> in-plane?
+In Plane? [no] yes
+
+Choose setting to change/vector-opt> fixed-length?
+Fixed Length? [no] yes
+
+Choose setting to change/vector-opt> quit
+
+Choose setting to change> scale
+
+Choose setting to change/scale> auto-scale?
+Auto Scale? [yes] no
+
+Choose setting to change/scale> scale-f
+Scale [1] 0.0012
+
+Choose setting to change/scale> quit
+
+Choose setting to change> skip
+Skip [0] 24
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> x550cv
+
+> /display/objects/add-to-graphics
+
+Object name> vx550c
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [1100] 1100
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.03971070051193237] 0.085500
+Y (in [m]) [0.01849999837577343] 0.0185
+Z (in [m]) [0.001977105624973774] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.005500
+Y (in [m]) [0.01849999837577343] 0.0185
+Z (in [m]) [0.001960000488907099] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.0004999936791136861] 0
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [0.9999973773956299] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/x550_center_velocity_vector.png
+
+> (display "SAVED x550_center_velocity_vector.png")SAVED x550_center_velocity_vector.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] x630t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x630
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=5.5 mm center"] "x=6.3 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> x630t
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [1100] 480
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.04258750751614571] 0.086300
+Y (in [m]) [0.01896250061690807] 0.025
+Z (in [m]) [0.00197854358702898] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.006300
+Y (in [m]) [0.01896250061690807] 0.025
+Z (in [m]) [0.001960000023245811] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [0] 0
+Y (in [m]) [-0.00225596153177321] 0
+Z (in [m]) [0.9999975562095642] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/x630_temperature.png
+
+> (display "SAVED x630_temperature.png")SAVED x630_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] y185t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] y185
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=6.3 mm"] "Y=18.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> y185t
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [480] 1200
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.2053441107273102] 0.0055
+Y (in [m]) [0.02499999850988388] 0.068500
+Z (in [m]) [0.001959999091923237] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.006300000008195639] 0.0055
+Y (in [m]) [0.02499999850988388] 0.018500
+Z (in [m]) [0.001959999091923237] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [-2.48075375566259e-05] 0
+Y (in [m]) [0] 0
+Z (in [m]) [1] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/y185_temperature.png
+
+> (display "SAVED y185_temperature.png")SAVED y185_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] y185v
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] y185
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["Y=18.5 mm"] "Y=18.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> y185v
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [1200] 1200
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500000435858965] 0.0055
+Y (in [m]) [0.05271133035421371] 0.068500
+Z (in [m]) [0.001959999557584524] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005500000435858965] 0.0055
+Y (in [m]) [0.01850000023841858] 0.018500
+Z (in [m]) [0.001959999557584524] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [0.002244119299575686] 0
+Y (in [m]) [-0.0008000085363164544] 0
+Z (in [m]) [0.9999971985816956] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/y185_velocity.png
+
+> (display "SAVED y185_velocity.png")SAVED y185_velocity.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] inhit
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] inlet_hi
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "inhit". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["Y=18.5 mm"] "Y=51.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> inhit
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 1600
+
+> /display/set/picture/y-resolution
+Raster image height [1200] 500
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [0.05271069705486298] 0.101500
+Z (in [m]) [0.001987369265407324] 0.001
+
+> /display/views/camera/target
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [0.01850000023841858] 0.051500
+Z (in [m]) [0.001960000256076455] 0.001
+
+> /display/views/camera/up-vector
+X (in [m]) [0.002269251737743616] 0
+Y (in [m]) [0] 0
+Z (in [m]) [0.9999974966049194] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/inlet_hi_temperature.png
+
+> (display "SAVED inlet_hi_temperature.png")SAVED inlet_hi_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] inhiv
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] inlet_hi
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "inhiv". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["Y=51.5 mm"] "Y=51.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> inhiv
+
+> /display/set/picture/x-resolution
+Raster image width [1600] 1600
+
+> /display/set/picture/y-resolution
+Raster image height [500] 500
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.00550000136718154] 0.0055
+Y (in [m]) [0.08384467661380768] 0.101500
+Z (in [m]) [0.001000000047497451] 0.001
+
+> /display/views/camera/target
+X (in [m]) [0.00550000136718154] 0.0055
+Y (in [m]) [0.05150000005960464] 0.051500
+Z (in [m]) [0.001000000047497451] 0.001
+
+> /display/views/camera/up-vector
+X (in [m]) [0.002268926240503788] 0
+Y (in [m]) [6.339307551117557e-11] 0
+Z (in [m]) [0.9999974966049194] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/inlet_hi_velocity.png
+
+> (display "SAVED inlet_hi_velocity.png")SAVED inlet_hi_velocity.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] inlot
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] inlet_lo
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "inlot". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["Y=51.5 mm"] "Y=-1.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> inlot
+
+> /display/set/picture/x-resolution
+Raster image width [1600] 1600
+
+> /display/set/picture/y-resolution
+Raster image height [500] 500
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500000435858965] 0.0055
+Y (in [m]) [0.08384467661380768] 0.048500
+Z (in [m]) [0.001000000047497451] 0.001
+
+> /display/views/camera/target
+X (in [m]) [0.00550000136718154] 0.0055
+Y (in [m]) [0.05150000005960464] -0.001500
+Z (in [m]) [0.001000000047497451] 0.001
+
+> /display/views/camera/up-vector
+X (in [m]) [0.002268926240503788] 0
+Y (in [m]) [0] 0
+Z (in [m]) [0.9999974966049194] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/inlet_lo_temperature.png
+
+> (display "SAVED inlet_lo_temperature.png")SAVED inlet_lo_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] inlov
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] inlet_lo
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "inlov". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["Y=-1.5 mm"] "Y=-1.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> inlov
+
+> /display/set/picture/x-resolution
+Raster image width [1600] 1600
+
+> /display/set/picture/y-resolution
+Raster image height [500] 500
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [0.02089246734976768] 0.048500
+Z (in [m]) [0.0009999999310821295] 0.001
+
+> /display/views/camera/target
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [-0.001500000013038516] -0.001500
+Z (in [m]) [0.0009999999310821295] 0.001
+
+> /display/views/camera/up-vector
+X (in [m]) [0.002268926240503788] 0
+Y (in [m]) [-2.349431760251264e-09] 0
+Z (in [m]) [0.9999974966049194] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/inlet_lo_velocity.png
+
+> (display "SAVED inlet_lo_velocity.png")SAVED inlet_lo_velocity.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] outlot
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] outlet_lo
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "outlot". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["Y=-1.5 mm"] "z=6 mm lo"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> outlot
+
+> /display/set/picture/x-resolution
+Raster image width [1600] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [500] 700
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [0.02089246734976768] -0.0055
+Z (in [m]) [0.0009999999310821295] 0.056000
+
+> /display/views/camera/target
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [-0.001500000013038516] -0.0055
+Z (in [m]) [0.0009999999310821295] 0.006000
+
+> /display/views/camera/up-vector
+X (in [m]) [0.03134730085730553] -1
+Y (in [m]) [0.9995086193084717] 0
+Z (in [m]) [0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/outlet_lo_temperature.png
+
+> (display "SAVED outlet_lo_temperature.png")SAVED outlet_lo_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] outlov
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] outlet_lo
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "outlov". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=6 mm lo"] "z=6 mm lo"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> outlov
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [700] 700
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [-0.00549999950453639] -0.0055
+Z (in [m]) [0.05223068594932556] 0.056000
+
+> /display/views/camera/target
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [-0.00549999950453639] -0.0055
+Z (in [m]) [0.006000000052154064] 0.006000
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [1.860527376607024e-08] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/outlet_lo_velocity.png
+
+> (display "SAVED outlet_lo_velocity.png")SAVED outlet_lo_velocity.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] outhit
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] outlet_hi
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "outhit". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=6 mm lo"] "z=6 mm hi"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> outhit
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [700] 700
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [-0.005500000435858965] 0.0555
+Z (in [m]) [0.05223068594932556] 0.056000
+
+> /display/views/camera/target
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [-0.00549999950453639] 0.0555
+Z (in [m]) [0.006000000052154064] 0.006000
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999996423721313] -1
+Y (in [m]) [-0.0009118019952438772] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/outlet_hi_temperature.png
+
+> (display "SAVED outlet_hi_temperature.png")SAVED outlet_hi_temperature.png
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] outhiv
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] outlet_hi
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "outhiv". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=6 mm hi"] "z=6 mm hi"
+
+//display/annotation/text-0> quit
+
+> /display/objects/display
+
+Object name> outhiv
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [700] 700
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [0.05550000444054604] 0.0555
+Z (in [m]) [0.05223068594932556] 0.056000
+
+> /display/views/camera/target
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [0.05550000444054604] 0.0555
+Z (in [m]) [0.006000000052154064] 0.006000
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [1.845735653205338e-08] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/outlet_hi_velocity.png
+
+> (display "SAVED outlet_hi_velocity.png")SAVED outlet_hi_velocity.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=6 mm hi"] "z=-0.008 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] qz008h
+
+Choose setting to change> field
+
+contours of> heat-flux
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] zm008
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/objects/display
+
+Object name> qz008h
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [700] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.05549999698996544] 0.025
+Z (in [m]) [0.05223068594932556] 0.049992
+
+> /display/views/camera/target
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [0.05550000444054604] 0.025
+Z (in [m]) [0.006000000052154064] -0.000008
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999988675117493] -1
+Y (in [m]) [-0.001532362890429795] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/zm008_heatflux.png
+
+> (display "SAVED zm008_heatflux.png")SAVED zm008_heatflux.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-0.008 mm"] "z=2.004 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] qz2004h
+
+Choose setting to change> field
+
+contours of> heat-flux
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] qz2004
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+Error: ~%Warning, non-fatal Error: Postprocessing object ...'s field identifier should be a string, is (~a) ~g.~%~%
+Error Object: boolean
+
+> /display/objects/display
+
+Object name> qz2004h
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [0.1990361213684082] 0.052004
+
+> /display/views/camera/target
+X (in [m]) [0.005500001832842827] 0.0055
+Y (in [m]) [0.02500000037252903] 0.025
+Z (in [m]) [-7.999999979801942e-06] 0.002004
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/cf_i200/z2004_heatflux.png
+
+> (display "SAVED z2004_heatflux.png")SAVED z2004_heatflux.png
+
+> (display "CAPTURE-DONE")CAPTURE-DONE
+
+> /file/stop-transcript

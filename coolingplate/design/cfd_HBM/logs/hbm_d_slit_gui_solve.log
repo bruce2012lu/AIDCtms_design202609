@@ -1,0 +1,1005 @@
+Transcript Start Time:  10:12:21, 01 Oct 2026 中国标准时间 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM"
+
+Build Time: Feb  2 2026 16:22:05 EST  Build Id: 10262 
+Executable Path: E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/ntbin/win64/fluent.exe
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n7    DESKTOP-JHEHF28  8/32  Windows-x64  23612  Intel(R) Core(TM) i9-14900KF      
+n6    DESKTOP-JHEHF28  7/32  Windows-x64  21256  Intel(R) Core(TM) i9-14900KF      
+n5    DESKTOP-JHEHF28  6/32  Windows-x64  27904  Intel(R) Core(TM) i9-14900KF      
+n4    DESKTOP-JHEHF28  5/32  Windows-x64  22056  Intel(R) Core(TM) i9-14900KF      
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  20000  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  7084   Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  10388  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  32728  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  26100  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+Cortex Process ID: 31812 
+License Server Path: 1055@localhost 
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/mesh/hbm_d_slit_lt10m.msh"
+Reading "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/mesh/hbm_d_slit_lt10m.msh"...
+
+Buffering for file scan...
+
+ 5694975 nodes.
+ 1826688 hexahedral cells, zone  2.
+ 3251712 hexahedral cells, zone  3.
+  319104 hexahedral cells, zone  4.
+15576160 quadrilateral interior faces, zone  5.
+  280288 quadrilateral wall faces, zone  6.
+   53184 quadrilateral wall faces, zone  7.
+     672 quadrilateral velocity-inlet faces, zone  8.
+   91520 quadrilateral pressure-outlet faces, zone  9.
+   53184 quadrilateral wall faces, zone 10.
+   62112 quadrilateral wall faces, zone 11.
+  358272 quadrilateral wall faces, zone 12.
+
+Building...
+     mesh
+	auto partitioning mesh by Metis (fast),
+	distributing mesh
+		parts........,
+      interior -> interior (5) and interior:013 (13)
+      interior -> interior (5) and interior:014 (14)
+      wall_adiabat -> wall_adiabat (11) and wall_adiabat:015 (15)
+      wall_adiabat -> wall_adiabat (11) and wall_adiabat:016 (16)
+      wall_side -> wall_side (12) and wall_side:017 (17)
+      wall_side -> wall_side (12) and wall_side:018 (18)
+		faces........,
+Note: Separating interior zone 5 into zones 5 and 13. 
+Note: Separating interior zone 5 into zones 5 and 14. 
+Note: Separating wall zone 11 into zones 11 and 15. 
+Note: Separating wall zone 11 into zones 11 and 16. 
+Note: Separating wall zone 12 into zones 12 and 17. 
+Note: Separating wall zone 12 into zones 12 and 18. 
+		nodes........,
+		cells........,
+        bandwidth reduction using Reverse Cuthill-McKee: 1920/1702 = 1.12808
+     materials,
+     interface,
+     domains,
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	wall_side:018
+	wall_side:017
+	wall_adiabat:016
+	wall_adiabat:015
+	interior:014
+	interior:013
+	wall_side
+	wall_adiabat
+	wall_heat
+	outlet
+	inlet
+	wall_tim_cu
+	wall_cu_fluid
+	interior
+	solid_tim2
+	solid_cu
+	fluid
+     parallel,
+Done.
+
+Preparing mesh for display...
+Done.
+
+
+> /mesh/check
+
+ Domain Extents:
+   x-coordinate: min (m) = 0.000000e+00, max (m) = 1.100000e-02
+   y-coordinate: min (m) = 0.000000e+00, max (m) = 5.000000e-02
+   z-coordinate: min (m) = -2.080000e-03, max (m) = 8.000000e-03
+ Volume statistics:
+   minimum volume (m3): 1.599869e-14
+   maximum volume (m3): 8.012618e-11
+     total volume (m3): 5.538720e-06
+ Face area statistics:
+   minimum face area (m2): 6.400000e-11
+   maximum face area (m2): 3.407186e-07
+ Checking mesh..........................................
+ Done.
+
+> /define/boundary-conditions/list-zones
+  id  name                       type                adj-zone-material     wall-material         kind
+----  -------------------------  ------------------  --------------------  --------------------  ----
+   2  fluid                      fluid               air                                         cell
+   3  solid_cu                   solid               aluminum                                    cell
+   4  solid_tim2                 solid               aluminum                                    cell
+   5  interior                   interior                                                        face
+   6  wall_cu_fluid              wall                air                   aluminum              face
+   7  wall_tim_cu                wall                aluminum              aluminum              face
+   8  inlet                      mass-flow-inlet                                                 face
+   9  outlet                     pressure-outlet                                                 face
+  10  wall_heat                  wall                aluminum              aluminum              face
+  11  wall_adiabat               wall                air                   aluminum              face
+  12  wall_side                  wall                air                   aluminum              face
+  13  interior:013               interior                                                        face
+  14  interior:014               interior                                                        face
+  15  wall_adiabat:015           wall                aluminum              aluminum              face
+  16  wall_adiabat:016           wall                aluminum              aluminum              face
+  17  wall_side:017              wall                aluminum              aluminum              face
+  18  wall_side:018              wall                aluminum              aluminum              face
+  19  wall_tim_cu-shadow         wall                aluminum              aluminum              face
+  20  wall_cu_fluid-shadow       wall                aluminum              aluminum              face
+
+> /define/models/energy yes
+Compute viscous energy work? [no] no
+Include pressure work in energy equation? [no] no
+Include kinetic energy in energy equation? [no] no
+Include diffusion at inlets? [yes] no
+
+> /define/models/viscous/laminar yes
+
+> /define/materials/copy fluid water-liquid
+
+Material "water-liquid" copied from database.
+
+
+> /define/materials/copy solid copper
+
+Material "copper" copied from database.
+
+
+> /define/materials/change-create
+
+material-name> water-liquid
+material name [water-liquid] water-liquid
+water-liquid is a fluid
+change Density? [no] yes
+
+Density
+methods: (constant ideal-gas incompressible-ideal-gas rgp-table real-gas-soave-redlich-kwong real-gas-peng-robinson real-gas-aungier-redlich-kwong real-gas-redlich-kwong real-gas-nist boussinesq piecewise-linear piecewise-polynomial polynomial expression compressible-liquid user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [998.2] 1022.5
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined kinetic-theory)
+new method [constant] constant
+value (in [J/(kg K)]) [4182] 3900
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression kinetic-theory user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [0.6] 0.476
+
+change Viscosity? [no] yes
+
+Viscosity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression power-law sutherland kinetic-theory cross herschel-bulkley carreau non-newtonian-power-law user-defined)
+new method [constant] constant
+value (in [kg/(m s)]) [0.001003] 1.58e-3
+
+change Molecular Weight? [no] no
+change Thermal Expansion Coefficient? [no] no
+change Speed of Sound? [no] no
+
+> /define/materials/change-create
+
+material-name> copper
+material name [copper] copper
+copper is a solid
+change Density? [no] yes
+
+Density
+methods: (constant expression user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [8978] 8960
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined)
+new method [constant] constant
+value (in [J/(kg K)]) [381] 385
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression cyl-orthotropic orthotropic anisotropic biaxial principal-axes-values user-defined-anisotropic-k user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [387.6] 390
+
+
+> /define/materials/change-create
+
+material-name> aluminum
+material name [aluminum] tim2
+tim2 is a solid
+change Density? [no] yes
+
+Density
+methods: (constant expression user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [2719] 2800
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined)
+new method [constant] constant
+value (in [J/(kg K)]) [871] 1000
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression cyl-orthotropic orthotropic anisotropic biaxial principal-axes-values user-defined-anisotropic-k user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [202.4] 8.818342
+
+
+Change/Create material and Overwrite aluminum? [no] yes
+
+> /define/boundary-conditions/fluid
+(fluid)
+zone id/name [fluid] fluid
+material-name [air]: Change current value? [no] yes
+
+material-name [air]> water-liquid
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Enter yes or no to continue [no] no
+Porous zone? [no] no
+3D Fan Zone? [no] no
+
+> /define/boundary-conditions/solid
+(solid_cu solid_tim2)
+zone id/name [solid_cu] solid_cu
+material-name [tim2]: Change current value? [no] yes
+
+material-name [tim2]> copper
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Solid Motion? [no] no
+Enter yes or no to continue [no] no
+
+> /define/boundary-conditions/solid
+(solid_cu solid_tim2)
+zone id/name [solid_cu] solid_tim2
+material-name [tim2]: Change current value? [no] yes
+
+material-name [tim2]> tim2
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Solid Motion? [no] no
+Enter yes or no to continue [no] no
+
+> /define/boundary-conditions/zone-type inlet mass-flow-inlet
+
+> /define/boundary-conditions/zone-type outlet pressure-outlet
+
+> /define/boundary-conditions/zone-type wall_heat wall
+
+> /define/boundary-conditions/zone-type wall_adiabat wall
+
+> /define/boundary-conditions/zone-type wall_side wall
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet () mass-flow no 1.0225e-2 t no 313.15 q
+
+> /define/boundary-conditions/set/pressure-outlet outlet () t no 313.15 q
+
+> /define/boundary-conditions/set/pressure-outlet outlet () prevent-reverse-flow? yes q
+
+> /define/boundary-conditions/wall
+(wall_side wall_adiabat wall_heat wall_cu_fluid wall_tim_cu wall_adiabat:015 wall_adiabat:016 wall_side:017 wall_side:018 wall_tim_cu-shadow wall_cu_fluid-shadow)
+zone id/name [wall_side] wall_heat
+Use Profile for Wall Thickness? [no] no
+Wall Thickness (constant or expression) (in [m]) [0] 0
+Use Profile for Heat Generation Rate? [no] no
+Heat Generation Rate (constant or expression) (in [W/m^3]) [0] 0
+material-name [tim2]: Change current value? [no] no
+Thermal BC Type [heat-flux]: Change current value? [no] yes
+
+Thermal BC Type [heat-flux]> heat-flux
+Use Profile for Heat Flux? [no] no
+Heat Flux (constant or expression) (in [W/m^2]) [0] 205000
+Enable shell conduction? [no] no
+Use Profile for Convective Augmentation Factor? [no] no
+Convective Augmentation Factor (constant or expression) [1] 1
+
+> /report/reference-values/temperature 313.15
+
+> /define/operating-conditions/operating-pressure 101325
+
+> /solve/set/p-v-coupling 24
+
+> /solve/set/pseudo-transient yes
+Activate automatic time step size calculation? [yes] yes
+Length scale calculation methods: (0 1 2)
+0 - Aggressive 
+1 - Conservative 
+2 - User-Specified 
+Length Scale Calculation Method [1] 1
+Auto time step scaling factor (constant or expression) [1] 1
+Auto time verbosity [0] 0
+Activate automatic time step size calculation for solid zone? [yes] yes
+Auto time step scale factor for solid zone [1] 1
+
+> /solve/set/discretization-scheme/pressure 10
+
+> /solve/set/discretization-scheme/mom 0
+
+> /solve/set/discretization-scheme/temperature 0
+
+> /solve/monitors/residual/print? yes
+
+> /solve/monitors/residual/plot? yes
+
+> /solve/monitors/residual/criterion-type Available options: (absolute none)
+0
+
+> /solve/monitors/residual/check-convergence? no
+Check convergence of x-velocity residuals? [yes] no
+Check convergence of y-velocity residuals? [yes] no
+Check convergence of z-velocity residuals? [yes] no
+Check convergence of energy residuals? [yes] no
+
+> /file/auto-save/root-name "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_d_slit"
+
+> /file/auto-save/data-frequency 200
+
+> /file/auto-save/case-frequency
+Available options: ("if-case-is-modified" "each-time" "if-mesh-is-modified")
+Case save frequency ["if-case-is-modified"] each-time
+
+> /solve/initialize/set-defaults/temperature 313.15
+
+> /solve/initialize/initialize-flow
+
+> /solve/iterate 200
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     1  1.0000e+00  0.0000e+00  0.0000e+00  4.8032e-03  9.1730e-08  0:45:14  199
+
+ Artificial walls on 5370 faces (4.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing temperature to enhance linear solver robustness.
+     2  1.0000e+00  2.6690e-03  1.4162e-03  2.1438e-03  1.9435e-07  1:09:08  198
+
+ Artificial walls on 49091 faces (49.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     3  9.5857e-01  1.3972e-03  5.5748e-04  9.2727e-04  2.8571e-07  1:06:10  197
+
+ Artificial walls on 51280 faces (52.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     4  9.0495e-01  1.4082e-03  4.2722e-04  8.0514e-04  4.5597e-07  1:02:22  196
+
+ Artificial walls on 41097 faces (44.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     5  1.0000e+00  2.2696e-03  5.1408e-04  9.4036e-04  2.5346e-07  1:02:43  195
+
+ Artificial walls on 37516 faces (40.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     6  6.5161e-01  1.4408e-03  2.9899e-04  5.6763e-04  3.2261e-07  1:24:15  194
+
+ Artificial walls on 37568 faces (42.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     7  6.2505e-01  1.7534e-03  2.9189e-04  6.0603e-04  4.0003e-07  1:40:52  193
+
+ Artificial walls on 37212 faces (40.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     8  7.5425e-01  2.8746e-03  3.3864e-04  7.2091e-04  2.7207e-07  1:54:24  192
+
+ Artificial walls on 38913 faces (42.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+     9  5.9676e-01  1.6248e-03  2.4823e-04  5.4080e-04  5.4210e-07  1:43:23  191
+
+ Artificial walls on 37367 faces (43.6% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    10  8.8514e-01  3.9183e-03  3.8881e-04  9.5557e-04  2.3142e-07  9:42:38  190
+
+ Artificial walls on 31478 faces (36.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    11  5.4961e-01  1.7457e-03  2.4516e-04  5.5460e-04  2.3460e-07 22:04:05  189
+
+ Artificial walls on 28008 faces (32.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    12  4.6253e-01  1.3634e-03  1.9399e-04  4.0686e-04  1.9013e-07 31:34:31  188
+
+ Artificial walls on 27372 faces (30.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    13  3.3042e-01  8.3131e-04  1.3781e-04  2.7650e-04  4.4216e-07 25:21:10  187
+
+ Artificial walls on 30604 faces (32.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    14  6.5054e-01  2.4472e-03  2.9135e-04  5.7851e-04  1.9431e-07 34:11:04  186
+
+ Artificial walls on 26573 faces (27.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    15  4.1839e-01  9.3585e-04  1.6170e-04  3.1328e-04  1.0032e-06 27:26:45  185
+
+ Artificial walls on 34664 faces (38.1% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    16  1.6251e+00  9.1157e-03  7.3585e-04  2.2155e-03  3.4084e-07 21:57:06  184
+
+ Artificial walls on 31696 faces (34.6% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    17  9.1953e-01  6.3017e-03  5.6845e-04  1.7256e-03  2.9779e-07 31:12:17  183
+
+ Artificial walls on 34413 faces (37.6% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    18  6.0473e-01  4.3867e-03  3.8645e-04  1.0705e-03  4.9911e-07 24:55:01  182
+
+ Artificial walls on 46387 faces (50.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    19  8.1310e-01  3.6143e-03  3.8725e-04  8.7808e-04  3.0218e-07 20:00:36  181
+
+ Artificial walls on 40236 faces (44.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    20  5.9803e-01  2.2964e-03  2.8127e-04  6.6034e-04  1.2282e-06 16:25:50  180
+
+ Artificial walls on 42257 faces (47.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    21  1.8122e+00  9.5778e-03  6.5471e-04  1.6985e-03  4.0707e-07 13:09:46  179
+
+ Artificial walls on 42447 faces (45.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    22  1.0456e+00  6.0980e-03  6.1416e-04  1.5290e-03  5.8267e-07 10:38:19  178
+
+ Artificial walls on 47231 faces (51.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    23  9.5993e-01  6.0032e-03  4.8911e-04  1.2344e-03  4.0970e-07  8:38:53  177
+
+ Artificial walls on 37591 faces (41.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    24  7.7281e-01  3.9203e-03  4.2532e-04  1.0074e-03  2.8948e-07 19:52:40  176
+
+ Artificial walls on 32352 faces (36.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    25  4.8149e-01  2.2973e-03  2.5426e-04  5.8764e-04  4.9293e-07 16:04:02  175
+
+ Artificial walls on 32994 faces (37.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    26  7.9086e-01  2.9944e-03  3.4061e-04  7.1996e-04  4.7514e-07 12:58:18  174
+
+ Artificial walls on 53855 faces (59.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    27  9.1014e-01  3.0009e-03  4.4066e-04  8.0372e-04  5.3299e-07 10:23:50  173
+
+ Artificial walls on 49555 faces (52.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    28  8.7483e-01  2.9980e-03  4.1857e-04  9.2746e-04  5.8778e-07  8:34:41  172
+
+ Artificial walls on 47056 faces (50.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    29  1.0983e+00  6.2805e-03  4.4954e-04  1.1055e-03  5.1005e-07  7:16:07  171
+
+ Artificial walls on 47123 faces (50.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    30  9.4413e-01  3.9218e-03  4.2412e-04  1.0424e-03  5.3511e-07  5:53:32  170
+
+ Artificial walls on 42263 faces (47.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    31  8.8097e-01  3.9274e-03  3.8528e-04  8.7206e-04  3.0197e-07 17:15:00  169
+
+ Artificial walls on 36419 faces (41.1% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    32  6.1994e-01  2.4515e-03  2.9176e-04  7.1392e-04  2.9907e-07 26:18:16  168
+
+ Artificial walls on 34110 faces (37.6% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    33  5.0311e-01  1.5143e-03  2.0612e-04  4.4654e-04  6.8902e-07 21:04:02  167
+
+ Artificial walls on 44343 faces (51.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    34  9.3662e-01  3.5455e-03  3.3229e-04  8.0125e-04  3.3996e-07 16:52:54  166
+
+ Artificial walls on 39659 faces (45.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    35  6.5300e-01  1.8347e-03  2.3526e-04  5.6209e-04  6.7545e-07 13:36:54  165
+
+ Artificial walls on 42753 faces (47.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    36  9.4979e-01  3.8095e-03  4.1233e-04  9.4438e-04  2.6891e-07 11:35:47  164
+
+ Artificial walls on 33196 faces (35.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    37  5.4979e-01  2.0036e-03  2.5052e-04  5.8036e-04  1.9746e-06  9:38:15  163
+
+ Artificial walls on 45359 faces (49.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    38  2.8615e+00  1.1525e-02  6.9887e-04  1.9971e-03  4.7297e-07  7:44:46  162
+
+ Artificial walls on 44894 faces (47.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    39  1.6206e+00  1.2158e-02  1.1156e-03  2.6341e-03  3.0641e-07  6:15:52  161
+
+ Artificial walls on 33955 faces (34.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    40  8.8211e-01  9.3279e-03  9.4073e-04  2.0675e-03  3.1315e-07  5:08:31  160
+
+ Artificial walls on 39537 faces (38.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    41  6.7152e-01  6.0109e-03  6.5375e-04  1.3075e-03  2.4185e-07  4:20:50  159
+
+ Artificial walls on 27625 faces (27.9% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    42  5.8060e-01  3.5721e-03  4.1439e-04  7.9061e-04  2.0759e-07 15:28:43  158
+
+ Artificial walls on 24272 faces (23.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    43  4.6174e-01  2.0519e-03  2.7760e-04  5.0360e-04  1.8850e-07 23:33:13  157
+
+ Artificial walls on 20655 faces (20.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    44  3.2452e-01  1.1195e-03  1.6938e-04  3.0223e-04  1.5156e-07 30:22:23  156
+
+ Artificial walls on 18874 faces (18.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    45  2.4917e-01  5.9212e-04  1.0739e-04  1.8099e-04  6.2716e-07 24:23:42  155
+
+ Artificial walls on 28476 faces (29.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    46  8.9640e-01  2.7944e-03  3.2644e-04  6.8575e-04  2.4392e-07 21:06:05  154
+
+ Artificial walls on 32290 faces (30.6% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    47  5.3178e-01  1.2331e-03  2.0768e-04  4.8383e-04  6.8140e-07 16:53:23  153
+
+ Artificial walls on 40871 faces (44.9% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    48  1.0660e+00  3.7994e-03  4.1138e-04  9.0478e-04  2.5635e-07 13:39:24  152
+
+ Artificial walls on 45708 faces (44.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    49  6.2479e-01  1.7002e-03  2.3129e-04  5.8537e-04  2.5986e-07 22:12:39  151
+
+ Artificial walls on 38939 faces (41.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    50  5.5047e-01  1.4225e-03  2.0362e-04  4.4967e-04  1.9621e-07 29:06:08  150
+
+ Artificial walls on 30737 faces (33.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    51  3.6343e-01  8.0656e-04  1.2094e-04  2.9007e-04  1.9457e-07 34:29:42  149
+
+ Artificial walls on 28280 faces (30.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    52  3.4886e-01  5.5628e-04  1.0347e-04  2.0184e-04  4.6200e-07 27:38:58  148
+
+ Artificial walls on 35364 faces (38.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing temperature to enhance linear solver robustness.
+    53  6.3446e-01  1.6840e-03  2.0933e-04  4.5257e-04  1.2953e-05 22:31:30  147
+
+ Artificial walls on 36420 faces (37.6% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    54  1.8450e+01  1.1916e-02  1.1432e-03  4.1212e-03  4.5460e-06 17:54:59  146
+
+ Artificial walls on 55197 faces (51.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    55  1.0619e+01  2.3175e-02  2.4274e-03  6.7696e-03  1.6722e-06 14:15:19  145
+
+ Artificial walls on 58954 faces (56.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    56  5.8420e+00  2.9374e-02  3.5677e-03  9.3453e-03  1.2001e-06 11:20:58  144
+
+ Artificial walls on 72042 faces (70.6% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    57  4.4991e+00  2.8543e-02  3.7910e-03  9.6059e-03  8.7655e-07  9:02:30  143
+
+ Artificial walls on 82653 faces (86.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    58  3.9167e+00  2.4192e-02  3.6042e-03  8.7002e-03  6.6795e-07  7:12:48  142
+
+ Artificial walls on 85553 faces (92.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    59  3.3631e+00  1.7672e-02  3.1289e-03  6.7477e-03  5.0977e-07  5:47:18  141
+
+ Artificial walls on 88621 faces (96.6% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    60  2.7417e+00  1.1932e-02  2.3302e-03  4.8681e-03  3.8665e-07  4:39:20  140
+
+ Artificial walls on 90618 faces (99.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    61  2.2357e+00  7.7389e-03  1.7327e-03  3.2955e-03  3.1848e-07  3:45:49  139
+
+ Artificial walls on 91490 faces (99.9% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    62  1.7740e+00  4.8359e-03  1.2806e-03  2.1950e-03  9.5391e-07 13:15:30  138
+
+ Artificial walls on 91490 faces (99.9% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    63  2.5039e+00  7.0516e-03  1.3425e-03  2.2613e-03  2.5643e-07 10:35:19  137
+
+ Artificial walls on 57266 faces (53.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    64  6.6288e+00  2.1765e-02  9.2182e-04  1.2869e-03  4.7519e-07  9:07:34  136
+
+ Artificial walls on 36107 faces (45.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    65  2.9734e+00  1.1593e-02  7.7978e-04  1.3192e-03  4.4113e-07  7:22:21  135
+
+ Artificial walls on 51463 faces (42.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    66  2.3338e+00  7.6438e-03  7.3073e-04  1.4498e-03  2.5248e-07  5:55:34  134
+
+ Artificial walls on 31116 faces (33.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    67  1.7459e+00  4.7922e-03  4.6533e-04  8.2009e-04  2.5325e-07  5:05:50  133
+
+ Artificial walls on 28342 faces (28.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    68  1.3794e+00  3.8368e-03  3.7977e-04  6.8680e-04  2.0283e-07  4:12:30  132
+
+ Artificial walls on 29885 faces (27.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    69  1.0149e+00  2.0326e-03  2.5917e-04  4.2009e-04  1.7506e-07 13:06:56  131
+
+ Artificial walls on 22144 faces (19.9% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    70  7.3383e-01  1.2450e-03  1.9134e-04  3.0404e-04  1.6125e-07 20:14:03  130
+
+ Artificial walls on 17177 faces (12.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    71  5.6802e-01  7.2512e-04  1.4445e-04  2.0268e-04  2.5312e-07 16:27:29  129
+
+ Artificial walls on 32446 faces (32.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    72  6.0646e-01  1.0376e-03  2.4399e-04  3.4976e-04  1.2022e-06 13:12:52  128
+
+ Artificial walls on 38269 faces (37.9% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    73  1.7838e+00  6.8328e-03  7.2498e-04  2.1096e-03  2.9237e-07 10:33:20  127
+
+ Artificial walls on 37915 faces (37.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    74  1.0202e+00  4.0590e-03  3.8903e-04  1.1253e-03  3.4412e-07 17:43:24  126
+
+ Artificial walls on 33332 faces (35.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    75  8.1501e-01  3.4572e-03  3.4178e-04  8.3634e-04  6.8241e-07 14:08:22  125
+
+ Artificial walls on 44305 faces (47.9% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    76  1.2715e+00  5.3406e-03  4.6654e-04  1.1172e-03  1.0585e-06 11:34:13  124
+
+ Artificial walls on 53556 faces (55.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    77  2.4479e+00  1.3940e-02  9.2298e-04  2.5685e-03  5.1429e-07 18:16:16  123
+
+ Artificial walls on 49833 faces (52.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    78  1.5738e+00  1.4330e-02  1.3098e-03  3.7888e-03  2.6576e-07 14:34:02  122
+
+ Artificial walls on 41555 faces (43.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    79  8.4664e-01  1.0980e-02  1.0372e-03  2.8562e-03  2.5241e-07 11:39:21  121
+
+ Artificial walls on 33763 faces (34.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    80  6.0032e-01  6.7528e-03  7.0407e-04  1.7755e-03  2.1749e-07 17:28:05  120
+
+ Artificial walls on 27615 faces (26.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    81  4.6406e-01  3.8186e-03  4.5610e-04  1.0017e-03  2.3661e-07 14:02:40  119
+
+ Artificial walls on 22021 faces (22.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    82  4.2632e-01  2.0744e-03  2.9555e-04  5.9760e-04  2.1908e-07 11:17:07  118
+
+ Artificial walls on 26718 faces (24.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    83  3.6416e-01  1.1473e-03  1.9785e-04  3.6630e-04  5.9223e-07  9:00:59  117
+
+ Artificial walls on 41321 faces (43.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    84  9.2007e-01  2.6356e-03  3.5997e-04  6.8280e-04  2.4671e-07  7:13:27  116
+
+ Artificial walls on 38305 faces (39.6% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    85  5.4617e-01  1.5261e-03  2.4431e-04  4.3816e-04  5.9452e-07  5:48:06  115
+
+ Artificial walls on 47414 faces (49.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    86  9.4090e-01  3.2885e-03  3.6562e-04  7.5928e-04  2.5212e-07  4:57:01  114
+
+ Artificial walls on 46250 faces (49.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    87  5.7938e-01  1.4803e-03  2.3627e-04  5.2502e-04  4.1374e-07  4:01:49  113
+
+ Artificial walls on 45182 faces (49.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    88  7.0514e-01  1.7349e-03  3.0860e-04  5.7481e-04  2.3882e-07  3:17:56  112
+
+ Artificial walls on 41758 faces (44.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    89  4.4493e-01  9.0724e-04  1.7252e-04  3.6020e-04  2.9330e-07  2:43:23  111
+
+ Artificial walls on 36973 faces (39.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    90  4.7228e-01  8.3737e-04  1.8397e-04  3.8515e-04  2.0066e-07 10:23:58  110
+
+ Artificial walls on 26014 faces (27.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    91  3.1174e-01  4.7863e-04  1.1448e-04  2.2866e-04  4.0132e-07  8:22:09  109
+
+ Artificial walls on 32527 faces (34.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    92  6.0475e-01  1.2994e-03  2.3816e-04  4.9892e-04  2.2143e-07  6:43:39  108
+
+ Artificial walls on 29158 faces (27.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    93  3.6058e-01  5.6662e-04  1.3796e-04  2.8956e-04  3.9719e-07  5:33:14  107
+
+ Artificial walls on 33485 faces (35.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    94  6.1174e-01  1.7374e-03  2.0506e-04  4.1745e-04  2.8524e-07  4:34:21  106
+
+ Artificial walls on 34911 faces (35.6% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    95  5.1048e-01  1.0313e-03  1.6887e-04  3.7446e-04  4.5018e-07  3:42:12  105
+
+ Artificial walls on 33719 faces (36.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    96  8.0607e-01  3.0241e-03  2.8857e-04  6.2328e-04  2.3206e-07  3:01:13  104
+
+ Artificial walls on 43425 faces (46.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    97  5.2801e-01  1.2894e-03  2.0975e-04  4.3714e-04  8.8615e-07  2:32:02  103
+
+ Artificial walls on 42139 faces (45.1% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+    98  1.4768e+00  8.2058e-03  5.9099e-04  1.4942e-03  4.1208e-07  2:03:04  102
+
+ Artificial walls on 41941 faces (42.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    99  8.3715e-01  4.1532e-03  4.1287e-04  1.1081e-03  2.7033e-07  8:30:09  101
+
+ Artificial walls on 34055 faces (34.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+   100  5.1114e-01  2.6962e-03  2.4347e-04  6.6200e-04  4.3237e-07  7:02:09  100
+
+ Artificial walls on 53134 faces (55.9% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   101  8.0097e-01  3.9729e-03  3.6916e-04  7.4565e-04  2.5453e-07  5:39:39   99
+
+ Artificial walls on 43775 faces (47.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   102  5.2600e-01  2.2013e-03  2.4384e-04  5.8840e-04  7.3535e-07  4:35:17   98
+
+ Artificial walls on 38678 faces (41.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   103  1.0881e+00  7.3062e-03  4.5455e-04  1.1133e-03  3.5520e-07  3:55:35   97
+
+ Artificial walls on 37974 faces (39.9% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+   104  8.1707e-01  4.1615e-03  3.5513e-04  9.0615e-04  2.3184e-07  4:23:16   96
+
+ Artificial walls on 30719 faces (30.9% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   105  4.5190e-01  2.6450e-03  2.1969e-04  5.5077e-04  4.3883e-07  3:34:59   95
+
+ Artificial walls on 36543 faces (40.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   106  6.6353e-01  2.1727e-03  2.5809e-04  5.3935e-04  2.5322e-07  3:06:30   94
+
+ Artificial walls on 34118 faces (33.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   107  4.5635e-01  1.2865e-03  1.6491e-04  3.4575e-04  6.9836e-07  2:34:29   93
+
+ Artificial walls on 45466 faces (49.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+   108  1.0927e+00  4.4652e-03  4.1959e-04  9.9744e-04  2.7272e-07  2:56:43   92
+
+ Artificial walls on 39641 faces (43.1% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+   109  6.4664e-01  2.1103e-03  2.6686e-04  6.7160e-04  3.1296e-07  9:15:58   91
+
+ Artificial walls on 35080 faces (39.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   110  6.2321e-01  1.9159e-03  2.2466e-04  4.8486e-04  4.7189e-07  7:25:20   90
+
+ Artificial walls on 38146 faces (40.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+   111  7.8219e-01  2.3494e-03  2.6117e-04  5.7401e-04  7.0257e-07  5:57:38   89
+
+ Artificial walls on 52443 faces (58.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+   112  1.1250e+00  3.6968e-03  5.2141e-04  1.4015e-03  8.1795e-07  5:06:51   88
+
+ Artificial walls on 45613 faces (52.1% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   113  6.1279e-01  1.7846e-03  2.8393e-04  7.2514e-04  8.2685e-07  4:05:38   87
+
+ Artificial walls on 44553 faces (49.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   114  8.4551e-01  2.7294e-03  3.5798e-04  8.0842e-04  3.0488e-07  3:25:20   86
+
+ Artificial walls on 36159 faces (40.9% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+   115  5.0957e-01  1.2519e-03  1.9823e-04  4.6316e-04  3.0084e-07  9:10:52   85
+
+ Artificial walls on 29647 faces (32.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   116  4.6622e-01  9.2704e-04  1.5651e-04  3.2444e-04  4.0225e-07  7:19:27   84
+
+ Artificial walls on 35102 faces (39.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+   117  5.0761e-01  1.0292e-03  1.9547e-04  3.9733e-04  2.4218e-07 12:05:52   83
+
+ Artificial walls on 30158 faces (32.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   118  3.2419e-01  5.5894e-04  1.1798e-04  2.4336e-04  8.0649e-07  9:40:00   82
+
+ Artificial walls on 35258 faces (38.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   119  1.1015e+00  4.3338e-03  4.3631e-04  1.0572e-03  2.6986e-07  7:42:50   81
+
+ Artificial walls on 40941 faces (40.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   120  6.2859e-01  1.6826e-03  2.6395e-04  6.5328e-04  6.4744e-07  6:11:06   80
+
+ Artificial walls on 36966 faces (39.2% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+   121  1.1168e+00  5.2509e-03  4.8819e-04  1.0769e-03  2.9466e-07  5:12:57   79
+
+ Artificial walls on 30750 faces (32.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+   122  6.2170e-01  2.3331e-03  2.5414e-04  6.3241e-04  6.0713e-07  4:09:40   78
+
+ Artificial walls on 47119 faces (52.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   123  9.6549e-01  3.6640e-03  3.9272e-04  9.0100e-04  2.9185e-07  3:20:54   77
+
+ Artificial walls on 44393 faces (47.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   124  5.8594e-01  1.7826e-03  2.4362e-04  5.8178e-04  5.2983e-07  2:40:52   76
+
+ Artificial walls on 36718 faces (41.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   125  7.3603e-01  2.6202e-03  3.0187e-04  6.6935e-04  2.3511e-07  2:10:25   75
+
+ Artificial walls on 35894 faces (37.3% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+   126  5.0651e-01  1.1398e-03  1.8048e-04  3.8496e-04  2.4846e-07  7:15:20   74
+
+ Artificial walls on 32939 faces (35.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   127  4.4248e-01  8.2554e-04  1.3617e-04  2.7075e-04  3.5318e-07  5:47:46   73
+
+ Artificial walls on 32205 faces (33.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+   128  4.6433e-01  8.1560e-04  1.5671e-04  3.1886e-04  2.2221e-07  9:58:13   72
+
+ Artificial walls on 29920 faces (31.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+   129  3.2242e-01  4.4252e-04  9.6714e-05  1.9236e-04  1.7871e-07 13:14:32   71
+
+ Artificial walls on 21059 faces (21.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+   130  3.0283e-01  3.3764e-04  8.3664e-05  1.5479e-04  1.7238e-07 15:45:56   70
+
+ Artificial walls on 22058 faces (22.6% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   131  2.5507e-01  2.6148e-04  6.9374e-05  1.2954e-04  5.0472e-07 12:28:26   69
+
+ Artificial walls on 43344 faces (46.5% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   132  6.3461e-01  1.3751e-03  2.3485e-04  4.6101e-04  6.9760e-07  9:59:16   68
+
+ Artificial walls on 49625 faces (52.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+   133  9.2667e-01  4.9101e-03  3.7946e-04  1.0256e-03  3.2466e-07 13:07:01   67
+
+ Artificial walls on 43092 faces (49.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   134  6.3786e-01  2.2824e-03  2.8815e-04  7.6051e-04  3.5606e-07 10:25:04   66
+
+ Artificial walls on 40166 faces (46.6% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   135  7.2627e-01  4.5209e-03  3.6291e-04  9.4283e-04  3.2018e-07  8:25:08   65
+
+ Artificial walls on 45159 faces (51.7% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   136  6.4777e-01  2.3787e-03  2.6420e-04  7.0157e-04  4.7191e-07  6:40:39   64
+
+ Artificial walls on 38356 faces (43.0% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   137  7.9512e-01  2.8753e-03  3.4704e-04  8.3530e-04  3.0647e-07  5:18:52   63
+
+ Artificial walls on 32947 faces (35.4% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   138  5.4746e-01  1.3048e-03  2.2188e-04  5.1433e-04  7.9921e-07  4:14:32   62
+
+ Artificial walls on 39636 faces (43.8% area) of pressure-outlet 9 to prevent fluid from flowing into the boundary.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+   139  1.2262e+00  5.4324e-03  4.5405e-04  1.1480e-03  2.5726e-07  3:23:28   61
