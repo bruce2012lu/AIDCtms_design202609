@@ -1,0 +1,237 @@
+[
+  {
+    "bid": "BM-PROP-01",
+    "title": "水 40 °C 物性（1 atm）",
+    "stages": [3, 4, 5],
+    "geometry": "无",
+    "conditions": "20–80 °C，0.101325 MPa",
+    "measured": [
+      {"quantity": "rho", "value": 992.216, "unit": "kg/m3", "uncertainty": "IAPWS-95 量级 0.0001 %"},
+      {"quantity": "cp", "value": 4179.41, "unit": "J/(kg·K)", "uncertainty": "约 0.1 %"},
+      {"quantity": "mu", "value": 6.52729e-4, "unit": "Pa·s", "uncertainty": "约 1 %（IAPWS 2008 粘度式）"},
+      {"quantity": "k", "value": 0.628486, "unit": "W/(m·K)", "uncertainty": "约 1–2 %（IAPWS 2011 导热式）"}
+    ],
+    "sources": [{"entry_id": "dat-2023-nist-water-isobar-1atm", "locator": "表行 T=40.0000"}],
+    "applicability_to_project": "直接适用：水基线与 Fluent 材料设置。不确定度量级为 IAPWS 公式公开值的常识量级，未逐条摘录原始文献。",
+    "tool_targets": ["oned.py 物性模块", "zones.py", "Fluent 材料"],
+    "acceptance": "相对偏差 ≤ 0.5 %",
+    "status": "ready"
+  },
+  {
+    "bid": "BM-GCI-01",
+    "title": "Celik 2008 GCI 三列算例",
+    "stages": [5],
+    "geometry": "二维后台阶流（原文算例）",
+    "conditions": "三套网格 N1/N2/N3 见 CSV",
+    "measured": [{"quantity": "p / φ_ext / e_a / e_ext / GCI", "value": "见 cards/tables/pap-2008-celik-gci-procedure__table1.csv", "unit": "-", "uncertainty": "表值保留位数"}],
+    "sources": [{"entry_id": "pap-2008-celik-gci-procedure", "locator": "PDF p.9 Table 1"}],
+    "applicability_to_project": "方法基准：验证 tools/gci.py 本身。已通过（tests/test_gci.py）。",
+    "tool_targets": ["tools/gci.py"],
+    "acceptance": "与表值一致到保留位数",
+    "status": "ready"
+  },
+  {
+    "bid": "BM-JET-01",
+    "title": "交替进排液微射流 Nu–Re 关联式与验证样件",
+    "stages": [3, 4, 5],
+    "geometry": "N×N 进液孔与 (N+1)×(N+1) 排液孔交替；3×3/4×4/8×8 样件 d_i/L 0.36–0.38，H/L 0.33；硅冷却器 d 43 µm",
+    "conditions": "去离子水，Pr 7.56，32 ≤ Re ≤ 2048",
+    "measured": [
+      {"quantity": "Nu_f 关联式 Eq.(19)", "value": "见卡片", "unit": "-", "uncertainty": "±30 %"},
+      {"quantity": "样件 Nu_f–Re 实测曲线", "value": "Fig.14 / Fig.15", "unit": "-", "uncertainty": "热测量 ±1.8 %"}
+    ],
+    "sources": [{"entry_id": "pap-2021-wei-microjet-correlations-feed-drain", "locator": "Eq.(19) p.11；Table 3 p.12；Fig.14–15"}],
+    "applicability_to_project": "Re、d_i/L、H/d_i 在域内；H/L（0.745）与 Pr（PG25 约 10–13）在域外；出口拓扑不同（短槽 vs 排液孔）。只作量级交叉核对。",
+    "tool_targets": ["oned.py 射流模型", "Fluent UC-01b 单元胞（同几何外推时）"],
+    "acceptance": "一维结果落在 Eq.(19) ±30 % 带内则记“量级一致”；不作通过判据",
+    "status": "needs_digitizing"
+  },
+  {
+    "bid": "BM-JET-02",
+    "title": "大 die（23×23 mm²）封装级射流冷却器实测",
+    "stages": [4, 5, 7],
+    "geometry": "11×11 进液 / 12×12 排液，孔距 2 mm，d 0.6 mm，腔高 0.6 mm",
+    "conditions": "去离子水，3.25 L/min，250–285 W",
+    "measured": [
+      {"quantity": "芯片温升", "value": 17.5, "unit": "°C", "uncertainty": "未见"},
+      {"quantity": "压降", "value": 0.7, "unit": "bar", "uncertainty": "未见"},
+      {"quantity": "热阻 @ 1 L/min", "value": 0.14, "unit": "K/W", "uncertainty": "未见"}
+    ],
+    "sources": [{"entry_id": "pap-2020-wei-3d-printed-jet-large-die", "locator": "p.1–2（几何、温升已核）；p.3–4（压降、热阻待核）"}],
+    "applicability_to_project": "同类大 die 射流的量级基准；裸 die 直冲，无 TIM2 与铜底板，绝对热阻不可直接比。",
+    "tool_targets": ["oned.py（换成该几何复算）", "Fluent 同几何单元胞"],
+    "acceptance": "一维复算温升与实测偏差 ≤ 30 %",
+    "status": "needs_fulltext_check"
+  },
+  {
+    "bid": "BM-JET-03",
+    "title": "喷嘴缩放：8×8 阵列 d 0.3 mm 实测面积热阻",
+    "stages": [4, 7],
+    "geometry": "8×8，d 0.3 mm，单元 1 mm，H 0.6 mm（检索子任务摘录）",
+    "conditions": "去离子水，1000 mL/min",
+    "measured": [{"quantity": "面积归一化热阻", "value": 0.13, "unit": "cm²·K/W", "uncertainty": "±1.8 %"}],
+    "sources": [{"entry_id": "pap-2020-wei-nozzle-scaling-distributed-returns", "locator": "Table 1 p.4；p.1"}],
+    "applicability_to_project": "孔数缩放规律参照；尺度比本项目小一半。",
+    "tool_targets": ["oned.py"],
+    "acceptance": "趋势一致",
+    "status": "needs_fulltext_check"
+  },
+  {
+    "bid": "BM-JET-04",
+    "title": "芯片级 3D 打印微射流冷却器：热阻与压降分项",
+    "stages": [4, 5, 7],
+    "geometry": "4×4，d 575 µm（检索子任务摘录）",
+    "conditions": "去离子水，600 / 1000 mL/min",
+    "measured": [
+      {"quantity": "面积热阻", "value": "0.29 / 0.16", "unit": "cm²·K/W", "uncertainty": "CFD 偏差 4–12 %"},
+      {"quantity": "压降", "value": 0.3, "unit": "bar", "uncertainty": "未见"}
+    ],
+    "sources": [{"entry_id": "pap-2019-wei-chip-level-3d-microjet", "locator": "p.7–9"}],
+    "applicability_to_project": "CFD 与实测对比方法学参照（含分项压降）。",
+    "tool_targets": ["Fluent 流程", "oned.py 压降分项"],
+    "acceptance": "趋势一致",
+    "status": "needs_fulltext_check"
+  },
+  {
+    "bid": "BM-JET-05",
+    "title": "45 孔液体射流阵列 Nu–Re 与 f–Re（6 种喷嘴）",
+    "stages": [4, 6, 7],
+    "geometry": "45 孔，d 1 mm，S/d 5，受限淹没 H/d 2；自由射流 H/d 20",
+    "conditions": "水，800 ≤ Re ≤ 10000",
+    "measured": [{"quantity": "Nu–Re、f–Re 曲线", "value": "Fig.3/4", "unit": "-", "uncertainty": "Nu 5–7 %，f 10–20 %（待核）"}],
+    "sources": [{"entry_id": "pap-2009-whelan-nozzle-geometry-jet-array", "locator": "p.12 实验设置；Fig.3–4"}],
+    "applicability_to_project": "Re 下限 800 高于本项目；用于喷嘴倒角/圆滑入口对压降的影响方向。",
+    "tool_targets": ["oned.py 孔口损失系数 K"],
+    "acceptance": "孔口 K 的取值与直孔数据量级一致",
+    "status": "needs_digitizing"
+  },
+  {
+    "bid": "BM-JET-06",
+    "title": "低 Re 抽液口穿插射流阵列通用关联式（参数覆盖最好）",
+    "stages": [3, 4],
+    "geometry": "射流阵列 + 穿插抽液口，p/D 1.8–7.1，孔径/间隙比 0.1–4.0（摘要）",
+    "conditions": "Re 20–500，Pr 1–100（摘要）",
+    "measured": [{"quantity": "Nu 关联式", "value": "未获取", "unit": "-", "uncertainty": "未知"}],
+    "sources": [{"entry_id": "pap-2017-rattner-jet-array-extraction-ports", "locator": "摘要（DOI 10.1115/1.4036090）"}],
+    "applicability_to_project": "Re、Pr 与本项目几乎全部重合，p/D 7.5 略超。付费，待用户获取后可能成为一维射流模型的主关联式。",
+    "tool_targets": ["oned.py 射流模型"],
+    "acceptance": "待定",
+    "status": "needs_fulltext"
+  },
+  {
+    "bid": "BM-JET-07",
+    "title": "受限淹没液体射流阵列（Robinson & Schnitzler 2007）",
+    "stages": [3, 4],
+    "geometry": "d 1 mm，3 ≤ S/d ≤ 7，2 ≤ H/d ≤ 30",
+    "conditions": "水，650 ≤ Re ≤ 6500",
+    "measured": [{"quantity": "Nu_L 关联式（转引）", "value": "见 Whelan 卡片", "unit": "-", "uncertainty": "原文待取"}],
+    "sources": [
+      {"entry_id": "pap-2009-whelan-nozzle-geometry-jet-array", "locator": "Eq.(1)(2) p.10（转引）"},
+      {"entry_id": "pap-2007-robinson-schnitzler-jet-array", "locator": "原文付费"}
+    ],
+    "applicability_to_project": "Re、H/d 在域外。",
+    "tool_targets": ["tools/correlations.py rs"],
+    "acceptance": "仅趋势",
+    "status": "needs_fulltext"
+  },
+  {
+    "bid": "BM-MC-01",
+    "title": "单相矩形微通道压降与换热实验 + 数值（Qu & Mudawar 2002）",
+    "stages": [4, 5],
+    "geometry": "铜质矩形微通道散热器（尺寸待取得原文后填写）",
+    "conditions": "水，层流",
+    "measured": [{"quantity": "ΔP、壁温分布", "value": "未获取", "unit": "-", "uncertainty": "未知"}],
+    "sources": [{"entry_id": "pap-2002-qu-mudawar-microchannel", "locator": "付费"}],
+    "applicability_to_project": "HBM 直槽与 Grace 平行微通道一维模型（Shah–London fRe、热发展 Nu）的经典验证算例。",
+    "tool_targets": ["zones.py hbm_design / grace_design", "Fluent 微通道"],
+    "acceptance": "ΔP 与平均 Nu 偏差 ≤ 10 %",
+    "status": "needs_fulltext"
+  },
+  {
+    "bid": "BM-MC-02",
+    "title": "矩形微通道热发展区换热（Lee & Garimella 2005/2006）",
+    "stages": [4],
+    "geometry": "不同宽高比矩形微通道",
+    "conditions": "水，层流",
+    "measured": [{"quantity": "Nu(x*) 关联式与实测", "value": "未获取", "unit": "-", "uncertainty": "未知"}],
+    "sources": [
+      {"entry_id": "pap-2006-lee-garimella-developing-microchannel", "locator": "开放获取，脚本被拦，待用户浏览器下载"},
+      {"entry_id": "pap-2005-lee-garimella-rect-microchannel-ht", "locator": "同上"}
+    ],
+    "applicability_to_project": "替代 HBM 一维里的 Nu = max(4, 1.86 Gz^1/3)。",
+    "tool_targets": ["zones.py hbm_design"],
+    "acceptance": "待定",
+    "status": "needs_fulltext"
+  },
+  {
+    "bid": "BM-HYD-01",
+    "title": "GB300 NVL72 整柜供液温度–流量–压降（Lenovo 表 27）",
+    "stages": [1, 4, 8],
+    "geometry": "整柜（18 计算托盘 + 9 交换托盘）",
+    "conditions": "供液 25–45 °C，工质未注明",
+    "measured": [{"quantity": "流量 / 压降", "value": "见 cards/tables/ven-2025-lenovo-gb300-nvl72-product-guide__table27.csv", "unit": "L/min / psi", "uncertainty": "厂商未给"}],
+    "sources": [{"entry_id": "ven-2025-lenovo-gb300-nvl72-product-guide", "locator": "p.38 Table 27"}],
+    "applicability_to_project": "⑧ 机柜级孪生的边界条件和量级核对；不是单板基准。",
+    "tool_targets": ["⑧ 机柜水力模型"],
+    "acceptance": "孪生模型在 5 个温度点复现流量与压降 ≤ 10 %",
+    "status": "ready"
+  },
+  {
+    "bid": "BM-HYD-02",
+    "title": "SC777 V4（GB200 NVL4）每托盘流量与机箱压降表",
+    "stages": [4, 8],
+    "geometry": "托盘级",
+    "conditions": "供液 27 / 32 / 40 / 45 °C",
+    "measured": [{"quantity": "每托盘流量", "value": "4.4 / 4.8 / 6.0 / 7.0", "unit": "L/min", "uncertainty": "厂商未给"}],
+    "sources": [{"entry_id": "ven-2024-lenovo-sc777-v4-product-guide", "locator": "p.53；压降 p.52 Table 27–30（检索子任务摘录）"}],
+    "applicability_to_project": "上一代托盘级流量的量级参照。",
+    "tool_targets": ["⑧ 托盘水力模型"],
+    "acceptance": "量级一致",
+    "status": "needs_fulltext_check"
+  },
+  {
+    "bid": "BM-DT-01",
+    "title": "Frontier 超算全年液冷运行数据（10 min）",
+    "stages": [8, 9],
+    "geometry": "设施级",
+    "conditions": "2023 全年，50 % 乙二醇",
+    "measured": [{"quantity": "供回水温度、流量、功率", "value": "figshare XLSX", "unit": "-", "uncertainty": "见数据论文"}],
+    "sources": [
+      {"entry_id": "pap-2024-sun-frontier-energy-dataset", "locator": "数据说明论文"},
+      {"entry_id": "dat-2024-grant-frontier-hpc-facility-data", "locator": "figshare，待用户获取"}
+    ],
+    "applicability_to_project": "⑧⑨ 唯一公开的大规模液冷运行数据；Jadhav 2026 用它做 ASHRAE Guideline 14 验证（CV-RMSE < 2.7 %）。",
+    "tool_targets": ["⑧ CDU/设施孪生", "⑨ MPC 辨识"],
+    "acceptance": "CV-RMSE 按 ASHRAE Guideline 14",
+    "status": "needs_fulltext"
+  },
+  {
+    "bid": "BM-DT-02",
+    "title": "NREL 冷板系统热捕获率实测（Asetek RackCDU、Aquila Aquarius）",
+    "stages": [7, 8],
+    "geometry": "机柜级",
+    "conditions": "不同回水温度",
+    "measured": [{"quantity": "液冷热捕获率", "value": "见报告", "unit": "%", "uncertainty": "见报告"}],
+    "sources": [
+      {"entry_id": "pap-2014-sickinger-asetek-rackcdu-nrel", "locator": "全文"},
+      {"entry_id": "pap-2019-sickinger-aquila-coldplate-nrel", "locator": "全文"}
+    ],
+    "applicability_to_project": "⑧ 液/风分担模型（Lenovo 写 90 % 液冷）的实测参照。",
+    "tool_targets": ["⑧ 机柜热平衡"],
+    "acceptance": "量级一致",
+    "status": "needs_fulltext_check"
+  },
+  {
+    "bid": "BM-CN-01",
+    "title": "歧管式射流微通道液冷散热实验（化工学报 2024）",
+    "stages": [3, 5, 7],
+    "geometry": "歧管 + 射流 + 微通道（检索子任务称与 B300 结构最接近的中文实验）",
+    "conditions": "待核",
+    "measured": [{"quantity": "热阻、压降", "value": "待核", "unit": "-", "uncertainty": "待核"}],
+    "sources": [{"entry_id": "pap-2024-liu-manifold-jet-microchannel", "locator": "全文已下载，未逐页核对"}],
+    "applicability_to_project": "国内同类结构实验，待核对几何与工况后定级。",
+    "tool_targets": ["oned.py", "Fluent"],
+    "acceptance": "待定",
+    "status": "needs_fulltext_check"
+  }
+]
