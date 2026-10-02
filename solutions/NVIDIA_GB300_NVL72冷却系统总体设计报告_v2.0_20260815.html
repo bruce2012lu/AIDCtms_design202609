@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NVIDIA GB300 NVL72 冷却系统总体设计报告 v2.0 架构与尺度修订版</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}.page{max-width:1180px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:48px 58px 34px;background:var(--navy);color:#fff}header h1{font-size:34px;line-height:1.25;margin:8px 0}.sub{font-size:17px;color:#d7e6f5}.meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.pill{border:1px solid #ffffff55;border-radius:16px;padding:4px 10px;font-size:12px}
+nav{padding:20px 58px;background:var(--soft);border-bottom:1px solid var(--line)}nav a{color:var(--blue);text-decoration:none;margin-right:18px;display:inline-block}main{padding:30px 58px 58px}
+h2{font-size:22px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:7px;margin:34px 0 14px}h3{font-size:17px;color:#174f83;margin:22px 0 8px}.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:14px 17px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:12px;background:var(--soft)}.card b{display:block;font-size:23px;color:var(--navy)}
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13px}th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top;text-align:left}th{background:var(--navy);color:#fff}tr:nth-child(even) td{background:#f8fafc}
+.diagram{border:1px solid var(--line);border-radius:9px;padding:14px;background:#fbfcfe;overflow-x:auto;box-shadow:inset 0 0 0 1px #fff}.diagram svg{display:block;margin:0 auto}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}.shots.one{grid-template-columns:1fr}.shot{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fbfcfe}.shot img{width:100%;display:block;background:#fff}.shot .cap{padding:9px 12px;font-size:12px;color:var(--muted);line-height:1.55;border-top:1px solid var(--line)}.shot .cap b{color:var(--navy);display:block;margin-bottom:2px}@media(max-width:800px){.shots{grid-template-columns:1fr}}
+.figcap{margin:7px 2px 18px;color:var(--muted);font-size:12px;line-height:1.55}.figcap strong{color:var(--navy)}.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 15px;border-radius:7px}.risk{border-color:#efb5b2;background:#fff5f4}.small{color:var(--muted);font-size:12px}.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+footer{padding:18px 58px;background:var(--navy);color:#d5e1ec;font-size:12px}@media(max-width:800px){header,nav,main,footer{padding-left:22px;padding-right:22px}.grid{grid-template-columns:1fr 1fr}}@media print{body{background:#fff}.page{box-shadow:none}header,nav,main,footer{padding-left:22px;padding-right:22px}section,.diagram,table{break-inside:avoid}nav{display:none}@page{size:A4;margin:12mm}}
+</style></head>
+<body><div class="page">
+<header>
+  <div>ENGINEERING DESIGN BASIS · CONCEPT / FEED</div>
+  <h1>NVIDIA GB300 NVL72<br>冷却系统总体设计报告</h1>
+  <div class="sub">芯片冷板、机柜 Manifold、CDU、一次侧冷却水、闭式冷却塔/绝热干冷器及残余空气冷却完整系统</div>
+  <div class="meta"><span class="pill">版本 v2.0 · 架构与尺度修订版</span><span class="pill">更新日期 2026-08-15</span><span class="pill">155 kW峰值包络</span><span class="pill">2×200kW CDU</span><span class="pill">逆流板换</span><span class="pill">OEM/FAT工况分离</span></div>
+</header>
+<nav><a href="#overview">概述</a><a href="#basis">客户需求/设计输入</a><a href="#architecture">系统原理</a><a href="#sizing">热工水力</a><a href="#equipment">设备规格</a><a href="#control">控制联锁</a><a href="#operations">使用运维</a><a href="#implementation">实施验证</a></nav>
+<main>
+<section id="overview">
+<h2>1. 概述</h2>
+<p class="lead">本报告面向NVIDIA GB300 NVL72液冷机柜的项目业主、设计院、系统集成商、设备供应商和运维团队，给出从芯片冷板/OEM机柜液路、CDU、设施高温水回路、室外冷源到残余空气冷却的完整总体设计基线。</p>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>设计目标</td><td>在具体OEM接口约束下安全排出最高155kW整柜峰值热量，兼顾可用性、能效、可维护性和后续扩容。</td></tr>
+<tr><td>报告范围</td><td>客户需求转化、系统架构、热工水力、关键设备、控制联锁、产品使用运维以及FAT/SAT验收。</td></tr>
+<tr><td>设计层级</td><td>概念/FEED级总体设计；用于方案比选和技术规格输入，不代替OEM受控文件、施工图或设备制造图。</td></tr>
+<tr><td>核心原则</td><td>OEM工况表优先；TCS与FWS物理隔离；消除单点故障；按露点防凝露；所有安全动作可验证、可追溯。</td></tr>
+<tr><td>使用限制</td><td>具体机柜流量、压降、工质、UQD和入口压力须以订单对应的OEM Interface Control Document冻结。</td></tr>
+</table>
+<h3>1.1 关键设计结果</h3>
+<table>
+<tr><th>设计主题</th><th>关键结果</th><th>设计含义</th><th>状态</th></tr>
+<tr><td>负荷边界</td><td>单柜142kW公开参考；155kW客户产品峰值包络；液冷设备按150kW、残余空气侧按25kW分别选型</td><td>两侧裕量不得相加宣称175kW实际负荷；最终以订单OEM EDP及液/气热分配冻结</td><td><span class="tag">FEED基线</span></td></tr>
+<tr><td>OEM水力包络</td><td>入口25–45℃对应3.54–10.62m³/h、机柜压降16–127kPa</td><td>正式运行按OEM温度—流量—压降表控制，禁止用固定10K温升替代</td><td><span class="tag">待ICD冻结</span></td></tr>
+<tr><td>总体架构</td><td>同源高温水：冷板/Manifold → TCS → L2L CDU → FWS → 闭式塔或绝热干冷器；残余热由CRAH/RDHx处理</td><td>优先液-液隔离；L2A仅作无一次水的试点/改造备选，不作为GB300生产基线</td><td><span class="tag">推荐方案</span></td></tr>
+<tr><td>液/气热分配</td><td>GB300 OEM约90%液冷/10%空气；行业混合基线常见70%–72%液冷</td><td>本项目按OEM 90%选型；集群扩容可按72/28校核风侧，不得把两种比例混成同一保证点</td><td><span class="tag">OEM优先</span></td></tr>
+<tr><td>比流量标尺</td><td>行业初筛1.0–1.5 L/min·kW；本平台FAT约1.44 L/min·kW；OEM表0.39–1.18 L/min·kW</td><td>1.0–1.5仅用于10K温升初算；正式运行必须服从OEM温度—流量表</td><td><span class="tag">校核用</span></td></tr>
+<tr><td>中断耐受</td><td>GPU液冷中断窗口约90s；泵停/断流30–60s；气阻30–90s；供液超温60–120s；漏液立即停机</td><td>泵切换、旁通和安全链必须在窗口内自动完成，不能按传统机房30min恢复设计</td><td><span class="tag">控制硬约束</span></td></tr>
+<tr><td>可用性</td><td>项目2套完整CDU工艺列1用1备；单机双泵1用1备；冷源N+1；关键泵与控制UPS续冷不少于5min</td><td>设备、母管、阀门及控制均须支持故障切换和在线隔离维护</td><td><span class="tag">需SPOF验证</span></td></tr>
+<tr><td>平台保证点</td><td>FAT-A：32/42↔27/37℃、5K端温差；FAT-B：40/50↔37/47℃、3K端温差</td><td>FAT点用于验证CDU平台，不直接等同于GB300机柜运行点</td><td><span class="tag">采购保证点</span></td></tr>
+<tr><td>关键设备初选</td><td>CDU平台最大19m³/h、候选泵总差压250kPa、板换污堵UA≥66.7kW/K；室外散热设备250kW/台初选</td><td>泵、板换和冷源均须由厂家依据工质、气象、压降及公差复核</td><td><span class="tag">初选/TBD</span></td></tr>
+<tr><td>实施前闸门</td><td>OEM ICD、项目气象与水质、压力法规、HAZOP、厂家选型、FAT/SAT</td><td>未完成上述冻结和验证，不得据本报告直接采购、施工或连接正式机柜</td><td><span class="tag">强制闸门</span></td></tr>
+</table>
+<h3>1.2 关键术语说明</h3>
+<p class="small"><strong>FEED：</strong>前端工程设计，用于冻结主要边界和设备规格。　<strong>OEM：</strong>提供完整GB300机柜产品及受控接口数据的原始设备制造商。　<strong>ICD：</strong>接口控制文件，规定机柜与设施之间的温度、流量、压力、工质、电气及通信边界。　<strong>设计基线：</strong>后续变更必须受控追踪的批准输入集合。</p>
+</section>
+
+<section id="basis">
+<h2>2. 客户产品需求、设计输入与边界</h2>
+<p class="lead"><strong>结论：</strong>整柜兼容NVIDIA 142kW公开参考值及Lenovo 135kW TDP/155kW EDP峰值。150kW液冷和25kW空气侧是分别带裕量的设备选型值，不代表175kW同时发生的机柜实际热量。项目基线采用2×200kW L2L CDU（1用1备）；32/42↔27/37℃和40/50↔37/47℃仅作为CDU平台FAT工况，不直接等同于Lenovo机柜运行点。具体机柜运行必须由OEM入口温度—流量—压降表及受控回水温度共同冻结。</p>
+<div class="grid">
+  <div class="card"><b>155 kW</b>客户产品峰值包络</div>
+  <div class="card"><b>150 kW</b>液冷设计负荷</div>
+  <div class="card"><b>200 kW</b>CDU 额定能力</div>
+  <div class="card"><b>25 kW</b>残余空气侧设计</div>
+</div>
+<h3>2.1 客户产品调研与需求转化</h3>
+<table>
+<tr><th>客户/产品证据</th><th>公开需求</th><th>本设计转化</th></tr>
+<tr><td>NVIDIA GB300 NVL72参考架构</td><td>72×B300、36×Grace、18 Compute Tray、9 NVSwitch Tray；最高142 kW；混合液冷；Tray和Rack集成漏液检测</td><td>保留完整残余风冷；漏液信号接入CDU/BMS；不得按“全液冷、零风量”设计</td></tr>
+<tr><td>Lenovo GB300 NVL72产品指南</td><td>135 kW TDP、最高155 kW峰值；约90%液冷/10%空气；DI水推荐或PG25；顶部/底部进水；ASHRAE W45</td><td>155 kW峰值包络；液冷设计150 kW、空气侧25 kW；工质/进水方向做订单配置</td></tr>
+<tr><td>Lenovo机柜水力表</td><td>入口25/30/35/40/45℃对应59/71/89/119/177 L/min；机柜压降2.3/3.2/4.9/8.5/18.4 psi</td><td>CDU需覆盖3.54–10.62 m³/h及16–127 kPa机柜压降，不以固定10 K温差反推值替代OEM流量表</td></tr>
+<tr><td>Schneider GB300 Reference Design 110</td><td>142 kW/柜；L2L CDU N+1；TCS 40/50℃、CDU FWS 37/47℃；高温水回路；冷却续航5 min；CDU和FWS泵由UPS供电</td><td>增加暖水工况和5 min热惯性/UPS要求；项目级CDU采用N+1并支持并机群控</td></tr>
+<tr><td>数据中心运维客户</td><td>并发可维护、在线过滤、漏液定位、DCIM接入、备件与服务可得、维护不影响IT</td><td>双联过滤、泵可隔离更换、双电源、本地自治、趋势/审计、关键备件包和SLA</td></tr>
+</table>
+<h3>2.2 可冻结的设计输入矩阵</h3>
+<table>
+<tr><th>输入类别</th><th>FEED包络/默认值</th><th>客户必须提供</th><th>冻结输出</th></tr>
+<tr><td>IT热负荷</td><td>142kW参考；155kW峰值；150kW液冷和25kW空气侧为独立设备选型值，裕量不叠加为实际热量</td><td>OEM/配置号、TDP/EDP曲线、液/气侧同时热分配、功率封顶策略</td><td>持续/峰值/设备选型三张负荷表</td></tr>
+<tr><td>TCS接口</td><td>DI水或PG25；25–45℃；3.54–10.62m³/h；压降16–127kPa</td><td>OEM冷却液规范、最低/额定/峰值流量、最大入口压力、UQD和顶/底进水</td><td>签字版ICD和OEM流量—温度—压降表</td></tr>
+<tr><td>温度工况</td><td>A/B为CDU平台换热保证点；Lenovo机柜按25–45℃OEM表运行，回温不得先验固定10K</td><td>全年FWS温度、OEM回水温度/最大温升、机房露点、热回收需求</td><td>平台FAT工况表+OEM运行工况表，禁止混用</td></tr>
+<tr><td>可用性</td><td>设备内双泵；项目2×200kW CDU 1用1备；冷源N+1；关键泵/控制UPS≥5min</td><td>Tier/EN50600目标、允许停机窗口、业务迁移时间、UPS自治时间</td><td>单点故障分析、维护旁路和Cause &amp; Effect</td></tr>
+<tr><td>场地接口</td><td>DN65初选；双路电源；BMS/DCIM接口</td><td>气象、海拔、水质、电源制式、承重、尺寸、噪声、排水、网络安全</td><td>Site Data Sheet、接口图和点表</td></tr>
+</table>
+<div class="note"><strong>输入控制原则：</strong>Lenovo流量表是具体OEM公开值，优先级高于按热平衡得到的估算流量；NVIDIA 142 kW与Lenovo 155 kW属于不同产品/配置口径，不应互相覆盖。本报告采用155 kW作设备包络，但采购保证点必须绑定具体OEM、冷却液和温度工况。</div>
+<h3>2.3 分层保证工况（不得交叉拼接）</h3>
+<table>
+<tr><th>工况层级</th><th>用途</th><th>绑定参数</th><th>严谨性边界</th></tr>
+<tr><td>OEM机柜运行点</td><td>正式连接GB300机柜</td><td>入口25/30/35/40/45℃；对应59/71/89/119/177L/min及2.3/3.2/4.9/8.5/18.4psi；工质和回温由OEM ICD给定</td><td>不得再强加固定10K温升；公开表对应工质仍须OEM确认</td></tr>
+<tr><td>项目液冷设计点</td><td>项目设备容量与冗余</td><td>150kW选型负荷；具体四温、两侧流量和压降由OEM/项目联合冻结</td><td>未冻结前不能宣称150kW可在OEM任一公开流量点实现</td></tr>
+<tr><td>CDU平台FAT-A</td><td>低端温差5K性能验证</td><td>DI水200kW；TCS 32/42℃；FWS 27/37℃；TCS约17.3m³/h</td><td>独立试验环路，不直接施加至机柜</td></tr>
+<tr><td>CDU平台FAT-B</td><td>暖水3K端温差验证</td><td>DI水200kW；TCS 40/50℃；FWS 37/47℃；换热器污堵UA≥66.7kW/K</td><td>属于Schneider设施参考工况，不替代OEM ICD</td></tr>
+<tr><td>PG25平台点</td><td>工质兼容与降额</td><td>按ρ≈1025kg/m³、cp≈3.78kJ/(kg·K)估算，200kW/10K需约18.6m³/h</td><td>产品平台按19m³/h校核；最终物性取冷却液厂家曲线</td></tr>
+</table>
+<div class="note"><strong>“5 K端温差”释义：</strong>端温差是板式换热器<strong>同一端</strong>TCS与FWS之间的接近温差。FAT-A逆流工况的热端为42−37=5 K，冷端为32−27=5 K；它不是TCS的42−32=10 K或FWS的37−27=10 K供回液温升。温差数值上1 K等于1℃。端温差越小，要求的板换UA和换热面积通常越大。</div>
+<h3>2.4 关键术语说明</h3>
+<p class="small"><strong>TDP：</strong>持续热设计功率。　<strong>EDP峰值：</strong>特定工作负载下可能出现的电气/热峰值。　<strong>工况包：</strong>绑定温度、流量、压降、工质和容量的成套保证条件。　<strong>包络：</strong>产品必须覆盖的参数范围，而非单一连续运行点。　<strong>W45：</strong>ASHRAE液冷水温等级，允许设备进水温度最高至45℃等级边界。　<strong>端温差/ATD：</strong>板换同一端两种流体之间的接近温差；FAT-A热端42−37=5 K、冷端32−27=5 K，不等于单回路10 K供回液温差。　<strong>FAT-A：</strong>CDU常规5K端温差工厂验收点，DI水条件下TCS 32/42℃、FWS 27/37℃。　<strong>FAT-B：</strong>CDU暖水3K端温差工厂验收点，DI水条件下TCS 40/50℃、FWS 37/47℃；用于验证更高的板换UA能力。FAT-A/B均为CDU平台试验工况，不是GB300机柜固定运行参数。</p>
+</section>
+
+<section id="architecture">
+<h2>3. 完整冷却系统架构与系统原理图</h2>
+<p>系统分为三条热传递链：① 芯片至 TCS 二次侧；② CDU 板换至 FWS 一次侧；③ FWS 至室外环境。残余空气热量由机柜风扇和近端 CRAH/RDHx 处理，可最终并入同一 FWS 冷源。架构先按“同源/非同源、高温/低温、L2L/L2A”三轴选型，再进入单柜P&amp;ID；多部件图按真实外形尺度绘制，避免把冷板、机柜、CDU和室外冷源画成同一尺寸。</p>
+<h3>3.0 液冷架构选择</h3>
+<table>
+<tr><th>决策轴</th><th>可选路径</th><th>适用条件</th><th>本项目结论</th></tr>
+<tr><td>风/液</td><td>全风冷；风液混合；近全液冷</td><td>长期建设规模、服务器类型、液气比、水温</td><td>GB300必须液冷；按OEM约90%液冷+10%空气补冷</td></tr>
+<tr><td>冷源同源性</td><td>同源：液冷与补冷共用一次水；非同源：风冷+液冷自由组合</td><td>机房是否已有冷冻水、是否允许两套冷源</td><td>推荐同源高温水，补冷优先接同一FWS或独立低温支路</td></tr>
+<tr><td>水温</td><td>高温：干冷器/冷却塔；兼容低温：冷机+冷冻水/水冷末端；氟液：风冷冷凝器+氟液CDU</td><td>冷源条件、PUE、节水、分期部署</td><td>基线走高温L2L；仅当全年无法维持FWS目标时增加峰值冷机</td></tr>
+<tr><td>CDU形式</td><td>L2A风液型；L2L液液型</td><td>有无一次水、单柜功率、出柜率</td><td>生产部署用L2L；L2A仅用于无一次水的实验室/改造试点</td></tr>
+</table>
+<div class="diagram">
+<svg viewBox="0 0 1120 520" width="100%" xmlns="http://www.w3.org/2000/svg" style="min-width:900px;font-family:'Microsoft YaHei';font-size:12px">
+<text x="560" y="24" text-anchor="middle" font-size="16" font-weight="700" fill="#0b2748">图 3-0 · 冷板液冷架构选择（同源 / 非同源）</text>
+<rect x="20" y="48" width="160" height="70" rx="8" fill="#102a46"/><text x="100" y="78" text-anchor="middle" fill="#fff" font-weight="700">液冷架构</text><text x="100" y="98" text-anchor="middle" fill="#d6e4f0">先定同源性</text>
+<rect x="230" y="40" width="200" height="86" rx="8" fill="#e8f6f3" stroke="#087f70"/><text x="330" y="68" text-anchor="middle" font-weight="700" fill="#087f70">同源</text><text x="330" y="90" text-anchor="middle">液冷与补冷共用一次冷源</text><text x="330" y="110" text-anchor="middle">本项目推荐</text>
+<rect x="230" y="160" width="200" height="86" rx="8" fill="#fff8ed" stroke="#a65b00"/><text x="330" y="188" text-anchor="middle" font-weight="700" fill="#a65b00">非同源</text><text x="330" y="210" text-anchor="middle">风冷 + 液冷自由组合</text><text x="330" y="230" text-anchor="middle">旧站改造备选</text>
+<path d="M180 83H230" stroke="#102a46" stroke-width="2"/><path d="M180 83V203H230" stroke="#102a46" stroke-width="2"/>
+<rect x="480" y="28" width="280" height="58" rx="6" fill="#fff" stroke="#087f70"/><text x="620" y="52" text-anchor="middle">高温 · 干冷器 + 双冷源 + L2L CDU</text><text x="620" y="72" text-anchor="middle">自然冷优先，节水中等</text>
+<rect x="480" y="96" width="280" height="58" rx="6" fill="#fff" stroke="#087f70"/><text x="620" y="120" text-anchor="middle">高温 · 冷却塔 + 双冷源 + L2L CDU</text><text x="620" y="140" text-anchor="middle">逼近度更好，需补水管理</text>
+<rect x="480" y="164" width="280" height="58" rx="6" fill="#fff" stroke="#1d63c6"/><text x="620" y="188" text-anchor="middle">兼容低温 · 冷机 + 冷冻水20–28℃ / 水冷30–38℃</text><text x="620" y="208" text-anchor="middle">+ L2L CDU；PUE较差，水温可控</text>
+<rect x="480" y="232" width="280" height="58" rx="6" fill="#fff" stroke="#a65b00"/><text x="620" y="256" text-anchor="middle">无水室外 · 风冷冷凝器 + 氟液CDU</text><text x="620" y="276" text-anchor="middle">无一次水、无冷却塔；适合试点</text>
+<rect x="800" y="48" width="300" height="242" rx="8" fill="#f7f9fc" stroke="#d5dfeb"/>
+<text x="950" y="78" text-anchor="middle" font-weight="700">GB300 单柜冻结</text>
+<text x="950" y="108" text-anchor="middle">形式：L2L 柜式 CDU</text>
+<text x="950" y="132" text-anchor="middle">冷源：闭式塔 / 绝热干冷器</text>
+<text x="950" y="156" text-anchor="middle">补冷：CRAH / RDHx</text>
+<text x="950" y="180" text-anchor="middle">水温：TCS 25–45℃ OEM表</text>
+<text x="950" y="204" text-anchor="middle">过滤：TCS &lt;25μm（严于50μm）</text>
+<text x="950" y="228" text-anchor="middle">比流量：FAT≈1.44 L/min·kW</text>
+<text x="950" y="252" text-anchor="middle">中断：泵切换 ≤30s</text>
+<text x="950" y="276" text-anchor="middle">扩容：可复制为行级母管</text>
+<rect x="20" y="320" width="1080" height="180" rx="8" fill="#fbfcfe" stroke="#d5dfeb"/>
+<text x="560" y="348" text-anchor="middle" font-weight="700">集群扩容参考（非本单柜保证点）</text>
+<text x="560" y="378" text-anchor="middle">公开SuperPod级方案常见：单柜约130kW、液冷约72% / 空气约28%、冷却N+1、冷却回路UPS 2N</text>
+<text x="560" y="406" text-anchor="middle">6×约1.2MW计算舱、总IT约7MW时，行级CDU能力可到1000kW以上；二次侧采用不锈钢预制环管，按机柜隔离故障半径</text>
+<text x="560" y="434" text-anchor="middle">本项目单柜仍按155kW峰值、90%液冷、2×200kW CDU设计；上表仅用于判断后续从单柜到行/舱时的冷源和母管预留</text>
+<text x="560" y="470" text-anchor="middle" fill="#647386" font-size="11">图中“同源/非同源、高温/低温、氟液”为行业通用架构分类，不绑定任何厂商型号。</text>
+</svg></div>
+<p class="figcap"><strong>图 3-0 说明：</strong>架构选择先定冷源同源性和水温，再定CDU形式。GB300生产部署冻结为同源高温L2L；氟液/L2A只作为无一次水场景的备选，不得把试点柜能力外推为155kW生产柜保证点。</p>
+<h3>3.0.1 多部件外形尺度（按真实比例）</h3>
+<p class="small">下列简图按常见外形尺寸缩放到同一坐标系：IT机柜约600×2200mm，柜式L2L CDU约600×2000mm，4U机架式小CDU高约175mm，室外干冷器宽度约为机柜的3–4倍。图中高度按1mm≈0.22px，仅表达相对尺度，不是布置图。</p>
+<div class="diagram">
+<svg viewBox="0 0 1120 420" width="100%" xmlns="http://www.w3.org/2000/svg" style="min-width:900px;font-family:'Microsoft YaHei';font-size:11px">
+<text x="560" y="22" text-anchor="middle" font-size="16" font-weight="700" fill="#0b2748">图 3-0a · 机柜 / CDU / 冷源外形尺度关系</text>
+<text x="40" y="52" fill="#647386">地面</text>
+<line x1="20" y1="380" x2="1100" y2="380" stroke="#102a46" stroke-width="3"/>
+<!-- IT rack 600x2200 -> 132 x 484, but canvas height limited; use 0.155 px/mm: 600=93, 2200=341 -->
+<rect x="50" y="39" width="93" height="341" fill="#1a1a1a" stroke="#333"/>
+<rect x="58" y="55" width="77" height="18" fill="#c9a227"/>
+<rect x="58" y="78" width="77" height="18" fill="#c9a227"/>
+<rect x="58" y="101" width="77" height="18" fill="#c9a227"/>
+<rect x="58" y="124" width="77" height="18" fill="#c9a227"/>
+<rect x="58" y="147" width="77" height="12" fill="#444"/>
+<rect x="58" y="164" width="77" height="18" fill="#c9a227"/>
+<rect x="58" y="187" width="77" height="18" fill="#c9a227"/>
+<rect x="58" y="210" width="77" height="18" fill="#c9a227"/>
+<rect x="58" y="280" width="77" height="70" fill="#222" stroke="#087f70"/>
+<text x="96" y="318" text-anchor="middle" fill="#9fd" font-size="9">歧管</text>
+<text x="96" y="400" text-anchor="middle" font-weight="700">IT机柜</text>
+<text x="96" y="414" text-anchor="middle" fill="#647386">600×2200</text>
+<!-- CDU 600x2000 -> 93 x 310, top at 380-310=70 -->
+<rect x="190" y="70" width="93" height="310" fill="#2b2f36" stroke="#087f70" stroke-width="2"/>
+<rect x="200" y="88" width="73" height="42" fill="#111" stroke="#4ad"/>
+<text x="236" y="114" text-anchor="middle" fill="#8cf" font-size="9">HMI</text>
+<rect x="200" y="150" width="30" height="90" fill="#555"/>
+<rect x="243" y="150" width="30" height="90" fill="#555"/>
+<text x="236" y="200" text-anchor="middle" fill="#ddd" font-size="9">双泵</text>
+<rect x="205" y="260" width="63" height="70" fill="#cfd6de" stroke="#087f70"/>
+<text x="236" y="300" text-anchor="middle" font-size="9">板换</text>
+<text x="236" y="400" text-anchor="middle" font-weight="700">柜式L2L CDU</text>
+<text x="236" y="414" text-anchor="middle" fill="#647386">600×2000 · 200kW</text>
+<!-- 4U CDU 534x173 -> 83 x 27, sitting in a rack outline -->
+<rect x="330" y="70" width="93" height="310" fill="none" stroke="#d5dfeb" stroke-dasharray="4 3"/>
+<rect x="338" y="330" width="77" height="27" fill="#4a4f57" stroke="#1d63c6"/>
+<text x="376" y="348" text-anchor="middle" fill="#fff" font-size="8">4U CDU</text>
+<text x="376" y="400" text-anchor="middle" font-weight="700">机架式小CDU</text>
+<text x="376" y="414" text-anchor="middle" fill="#647386">约175mm高 · 30–120kW</text>
+<!-- CRAH similar height, slightly wider 900x2000 -> 140 x 310 -->
+<rect x="470" y="70" width="120" height="310" fill="#3a4654" stroke="#1d63c6"/>
+<circle cx="500" cy="160" r="22" fill="#222" stroke="#9cf"/>
+<circle cx="530" cy="160" r="22" fill="#222" stroke="#9cf"/>
+<circle cx="560" cy="160" r="22" fill="#222" stroke="#9cf"/>
+<circle cx="500" cy="230" r="22" fill="#222" stroke="#9cf"/>
+<circle cx="530" cy="230" r="22" fill="#222" stroke="#9cf"/>
+<circle cx="560" cy="230" r="22" fill="#222" stroke="#9cf"/>
+<text x="530" y="400" text-anchor="middle" font-weight="700">CRAH/补冷</text>
+<text x="530" y="414" text-anchor="middle" fill="#647386">约900×2000</text>
+<!-- dry cooler 2400x2200 but outdoor lower: 372 x 200 sitting on pad -->
+<rect x="640" y="180" width="372" height="200" fill="#6b7280" stroke="#a65b00" stroke-width="2"/>
+<rect x="660" y="198" width="80" height="80" fill="#9ca3af"/>
+<rect x="760" y="198" width="80" height="80" fill="#9ca3af"/>
+<rect x="860" y="198" width="80" height="80" fill="#9ca3af"/>
+<circle cx="700" cy="238" r="28" fill="#374151"/>
+<circle cx="800" cy="238" r="28" fill="#374151"/>
+<circle cx="900" cy="238" r="28" fill="#374151"/>
+<text x="826" y="360" text-anchor="middle" fill="#fff" font-weight="700">室外干冷器 / 闭式塔</text>
+<text x="826" y="400" text-anchor="middle" font-weight="700">室外冷源</text>
+<text x="826" y="414" text-anchor="middle" fill="#647386">宽约2400 · 远大于单柜</text>
+<text x="1055" y="200" text-anchor="middle" fill="#647386" font-size="10">比例尺</text>
+<line x1="1020" y1="220" x2="1020" y2="375" stroke="#102a46" stroke-width="2"/>
+<text x="1055" y="300" fill="#102a46">2200mm</text>
+</svg></div>
+<p class="figcap"><strong>图 3-0a 说明：</strong>柜式200kW CDU与IT机柜同为600mm宽、高度接近，不应画成“机柜旁边一个小盒子”；4U机架式CDU只覆盖30–120kW级，不能替代本项目柜式平台；室外冷源平面尺寸显著大于单柜，行级扩容时按冷源模块而不是按CDU外形放大。</p>
+<div class="diagram">
+<svg viewBox="0 0 1120 610" width="100%" xmlns="http://www.w3.org/2000/svg" style="min-width:900px;font-family:'Microsoft YaHei';font-size:12px">
+<defs><marker id="ab" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#1769e0"/></marker><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#b42318"/></marker><marker id="ag" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#008b7a"/></marker></defs>
+<text x="560" y="24" text-anchor="middle" font-size="16" font-weight="700" fill="#0b2748">图 3-1 · GB300 NVL72 单柜完整冷却系统功能架构</text>
+<text x="1088" y="24" text-anchor="end" font-size="10" fill="#607086">CONCEPT / 非 P&amp;ID</text>
+<rect x="25" y="60" width="295" height="430" rx="10" fill="#eef5ff" stroke="#1769e0"/><text x="172" y="84" text-anchor="middle" font-weight="700" fill="#1769e0">IT / TCS 二次侧（闭式洁净回路）</text>
+<rect x="48" y="110" width="250" height="62" rx="6" fill="#fff" stroke="#1769e0"/><text x="173" y="134" text-anchor="middle" font-weight="700">GB300 NVL72 · 单柜负荷边界</text><text x="173" y="154" text-anchor="middle">NVIDIA参考142 kW；Lenovo峰值155 kW</text>
+<rect x="48" y="200" width="115" height="58" rx="6" fill="#fff" stroke="#1769e0"/><text x="105" y="223" text-anchor="middle">GPU/CPU/HBM</text><text x="105" y="241" text-anchor="middle">微通道冷板</text>
+<rect x="183" y="200" width="115" height="58" rx="6" fill="#fff" stroke="#1769e0"/><text x="240" y="223" text-anchor="middle">NVSwitch/NIC</text><text x="240" y="241" text-anchor="middle">冷板/混合冷却</text>
+<rect x="48" y="292" width="250" height="54" rx="6" fill="#fff" stroke="#1769e0"/><text x="173" y="316" text-anchor="middle">OEM Manifold + UQD + 漏液检测</text><text x="173" y="334" text-anchor="middle">150 kW包络 · 流量按OEM工况表</text>
+<rect x="48" y="382" width="110" height="54" rx="6" fill="#fff" stroke="#607086"/><text x="103" y="405" text-anchor="middle">残余风冷</text><text x="103" y="423" text-anchor="middle">17 / 25 kW</text>
+<rect x="188" y="382" width="110" height="54" rx="6" fill="#fff" stroke="#607086"/><text x="243" y="405" text-anchor="middle">CRAH / RDHx</text><text x="243" y="423" text-anchor="middle">2×25 kW</text>
+<path d="M105 172V200M240 172V200M105 258V292M240 258V292" stroke="#b42318" stroke-width="3" marker-end="url(#ar)"/><path d="M158 409H188" stroke="#607086" stroke-width="3" marker-end="url(#ab)"/>
+
+<rect x="360" y="60" width="330" height="430" rx="10" fill="#f2fbf8" stroke="#008b7a"/><text x="525" y="84" text-anchor="middle" font-weight="700" fill="#008b7a">CDU · 热隔离与水力控制</text>
+<rect x="390" y="112" width="270" height="62" rx="6" fill="#fff" stroke="#008b7a"/><text x="525" y="137" text-anchor="middle" font-weight="700">200 kW L2L CDU</text><text x="525" y="157" text-anchor="middle">图示FAT-A；FAT-B/OEM模式见工况表</text>
+<rect x="390" y="204" width="120" height="55" rx="6" fill="#fff" stroke="#008b7a"/><text x="450" y="228" text-anchor="middle">板式换热器</text><text x="450" y="246" text-anchor="middle">200kW · UA污堵≥66.7</text>
+<rect x="540" y="204" width="120" height="55" rx="6" fill="#fff" stroke="#008b7a"/><text x="600" y="228" text-anchor="middle">双磁力/屏蔽泵</text><text x="600" y="246" text-anchor="middle">2×100%</text>
+<rect x="390" y="293" width="120" height="55" rx="6" fill="#fff" stroke="#008b7a"/><text x="450" y="317" text-anchor="middle">过滤/脱气/补液</text><text x="450" y="335" text-anchor="middle">25μm · 容积待计算</text>
+<rect x="540" y="293" width="120" height="55" rx="6" fill="#fff" stroke="#008b7a"/><text x="600" y="317" text-anchor="middle">PLC + HMI</text><text x="600" y="335" text-anchor="middle">温度/压差控制</text>
+<rect x="390" y="382" width="270" height="55" rx="6" fill="#fff" stroke="#008b7a"/><text x="525" y="405" text-anchor="middle">安全：双路电源 · 漏液联锁 · BMS/DCIM</text><text x="525" y="423" text-anchor="middle">Modbus TCP · SNMPv3 · Redfish（选配）</text>
+<path d="M320 305H360" stroke="#b42318" stroke-width="4" marker-end="url(#ar)"/><text x="340" y="294" text-anchor="middle" fill="#b42318">TCS-R 42℃</text><path d="M360 340H320" stroke="#1769e0" stroke-width="4" marker-end="url(#ab)"/><text x="340" y="360" text-anchor="middle" fill="#1769e0">TCS-S 32℃</text>
+
+<rect x="730" y="60" width="365" height="430" rx="10" fill="#fff8ed" stroke="#a65b00"/><text x="912" y="84" text-anchor="middle" font-weight="700" fill="#a65b00">FWS 一次侧与室外散热</text>
+<rect x="760" y="112" width="305" height="55" rx="6" fill="#fff" stroke="#a65b00"/><text x="912" y="136" text-anchor="middle">一次侧循环泵组 2×100%</text><text x="912" y="154" text-anchor="middle">18 m³/h · 约 20 mH₂O</text>
+<rect x="760" y="204" width="140" height="65" rx="6" fill="#fff" stroke="#a65b00"/><text x="830" y="228" text-anchor="middle">闭式冷却塔/</text><text x="830" y="246" text-anchor="middle">绝热干冷器 A</text><text x="830" y="261" text-anchor="middle">250 kW · 工作</text>
+<rect x="925" y="204" width="140" height="65" rx="6" fill="#fff" stroke="#a65b00"/><text x="995" y="228" text-anchor="middle">闭式冷却塔/</text><text x="995" y="246" text-anchor="middle">绝热干冷器 B</text><text x="995" y="261" text-anchor="middle">250 kW · 备用</text>
+<rect x="760" y="303" width="140" height="55" rx="6" fill="#fff" stroke="#a65b00"/><text x="830" y="327" text-anchor="middle">水处理/膨胀罐</text><text x="830" y="345" text-anchor="middle">旁滤 · 补水 · 排气</text>
+<rect x="925" y="303" width="140" height="55" rx="6" fill="#fff" stroke="#a65b00"/><text x="995" y="327" text-anchor="middle">峰值冷源（选配）</text><text x="995" y="345" text-anchor="middle">200 kW Chiller</text>
+<rect x="760" y="393" width="305" height="44" rx="6" fill="#fff" stroke="#a65b00"/><text x="912" y="420" text-anchor="middle">FWS图示FAT-A · 支路/环网形式由项目P&amp;ID冻结</text>
+<path d="M690 286H730" stroke="#b42318" stroke-width="4" marker-end="url(#ar)"/><text x="710" y="276" text-anchor="middle" fill="#b42318">FWS-R 37℃</text><path d="M730 330H690" stroke="#1769e0" stroke-width="4" marker-end="url(#ab)"/><text x="710" y="350" text-anchor="middle" fill="#1769e0">FWS-S 27℃</text>
+<path d="M912 167V204M830 269V303M995 269V303M830 358V393M995 358V393" stroke="#a65b00" stroke-width="2.5" stroke-dasharray="5 4" fill="none"/>
+<rect x="25" y="520" width="1070" height="60" rx="8" fill="#fff" stroke="#607086"/><text x="560" y="544" text-anchor="middle" font-weight="700">热流方向：芯片 → 冷板 → TCS → CDU 板换 → FWS → 闭式冷却塔/绝热干冷器 → 室外空气</text><text x="560" y="565" text-anchor="middle" fill="#607086">控制边界：CDU 保证 TCS 温度/压差；冷源控制 FWS 温度；BMS/DCIM 统一协调供电、冷却与服务器降载</text>
+</svg></div>
+<p class="figcap"><strong>图 3-1 说明：</strong>用于表达热传递链、三类系统边界和控制责任，不代表设备串联顺序。红/蓝箭头仅表示 FAT-A 示例工况的热回液/冷供液；实际运行温度必须按 OEM 模式或 FAT-B 模式成套采用，不得交叉拼接。</p>
+<h3>3.1 工程化系统 P&amp;ID（设计基线）</h3>
+<div class="diagram">
+<svg viewBox="0 0 1180 790" width="100%" xmlns="http://www.w3.org/2000/svg" style="min-width:980px;font-family:'Microsoft YaHei';font-size:10px">
+<defs><marker id="paB" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#1769e0"/></marker><marker id="paR" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#b42318"/></marker><marker id="paS" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#087f70"/></marker></defs>
+<text x="590" y="20" text-anchor="middle" font-size="15" font-weight="700" fill="#0b2748">图 3-2 · GB300 NVL72 单柜冷却系统 P&amp;ID（FEED 基线）</text>
+<text x="20" y="42" fill="#607086">设计线号：TCS-S/R-065-PN10-316L；FWS-S/R-065-PN10；设计压力10 bar；试验压力15 bar；箭头为正常流向</text>
+
+<!-- IT rack -->
+<rect x="20" y="65" width="350" height="520" rx="8" fill="#eef5ff" stroke="#1769e0"/><text x="195" y="88" text-anchor="middle" font-weight="700" fill="#1769e0">GB300 NVL72 机柜边界</text>
+<path d="M55 505V125H330" stroke="#1769e0" stroke-width="6" fill="none"/><path d="M330 105H80V485" stroke="#b42318" stroke-width="6" fill="none"/>
+<text x="64" y="550" fill="#1769e0">TCS-S DN65 · OEM入口温度与流量必须成对查表</text><text x="82" y="98" fill="#b42318">TCS-R · 回温由OEM ICD/实测负荷决定</text>
+<!-- rack instruments -->
+<g fill="#fff" stroke="#102a46"><circle cx="105" cy="505" r="12"/><circle cx="140" cy="505" r="12"/><circle cx="175" cy="505" r="12"/><circle cx="330" cy="105" r="12"/></g>
+<text x="105" y="509" text-anchor="middle">PT</text><text x="140" y="509" text-anchor="middle">TT</text><text x="175" y="509" text-anchor="middle">FT</text><text x="330" y="109" text-anchor="middle">TT</text>
+<!-- 3 zones -->
+<g fill="#fff" stroke="#1769e0"><rect x="105" y="145" width="205" height="80" rx="5"/><rect x="105" y="250" width="205" height="80" rx="5"/><rect x="105" y="355" width="205" height="80" rx="5"/></g>
+<text x="207" y="165" text-anchor="middle" font-weight="700">逻辑ZONE-A · OEM内部</text><text x="207" y="183" text-anchor="middle">6 Compute Tray + 3 NVSwitch</text><text x="207" y="202" text-anchor="middle">监测/诊断 · 接口待OEM确认</text>
+<text x="207" y="270" text-anchor="middle" font-weight="700">逻辑ZONE-B · OEM内部</text><text x="207" y="288" text-anchor="middle">6 Compute Tray + 3 NVSwitch</text><text x="207" y="307" text-anchor="middle">监测/诊断 · 接口待OEM确认</text>
+<text x="207" y="375" text-anchor="middle" font-weight="700">逻辑ZONE-C · OEM内部</text><text x="207" y="393" text-anchor="middle">6 Compute Tray + 3 NVSwitch</text><text x="207" y="412" text-anchor="middle">监测/诊断 · 接口待OEM确认</text>
+<path d="M80 185H105M80 290H105M80 395H105" stroke="#1769e0" stroke-width="3" marker-end="url(#paB)"/><path d="M310 170H330M310 275H330M310 380H330" stroke="#b42318" stroke-width="3" marker-end="url(#paR)"/>
+<!-- zone valve symbols -->
+<g fill="#fff" stroke="#087f70" stroke-width="2" stroke-dasharray="3 2"><path d="M87 178l12 7-12 7 12 7v-28z"/><path d="M87 283l12 7-12 7 12 7v-28z"/><path d="M87 388l12 7-12 7 12 7v-28z"/></g><text x="105" y="446" fill="#087f70">虚线阀：仅 OEM ICD 批准后配置</text>
+<g fill="#fff" stroke="#102a46"><circle cx="323" cy="435" r="12"/><circle cx="288" cy="435" r="12"/></g><text x="323" y="439" text-anchor="middle">PT</text><text x="288" y="439" text-anchor="middle">PT</text><text x="305" y="460" text-anchor="middle">PDIT-301远端</text>
+<rect x="115" y="465" width="155" height="28" rx="4" fill="#fff" stroke="#a65b00" stroke-dasharray="4 3"/><text x="192" y="484" text-anchor="middle">BV-301 概念占位 · 不默认连接</text>
+<path d="M115 479H80M270 479H330" stroke="#a65b00" stroke-width="2" stroke-dasharray="4 3"/>
+
+<!-- CDU -->
+<rect x="405" y="65" width="350" height="520" rx="8" fill="#f0faf7" stroke="#087f70"/><text x="580" y="88" text-anchor="middle" font-weight="700" fill="#087f70">CDU-200-GB300 边界</text>
+<!-- return to filter -->
+<path d="M370 105H440V150" stroke="#b42318" stroke-width="5" fill="none" marker-end="url(#paR)"/>
+<path d="M440 205H560V340H445V365M560 340H525V365" stroke="#b42318" stroke-width="4" fill="none" marker-end="url(#paR)"/>
+<rect x="420" y="150" width="120" height="55" rx="5" fill="#fff" stroke="#087f70"/><text x="480" y="172" text-anchor="middle">F-201A/B 双联过滤</text><text x="480" y="190" text-anchor="middle">25μm · PDIT-204</text>
+<path d="M480 205V235" stroke="#b42318" stroke-width="2" marker-end="url(#paR)"/><rect x="420" y="235" width="120" height="72" rx="5" fill="#fff" stroke="#087f70"/><text x="480" y="257" text-anchor="middle">TK-201 · 容积TBD</text><text x="480" y="275" text-anchor="middle">吸入侧支路：膨胀/补液/脱气</text><text x="480" y="293" text-anchor="middle">LT/LSLL/PSV</text>
+<!-- pumps parallel -->
+<g fill="#fff" stroke="#087f70" stroke-width="2"><circle cx="445" cy="395" r="24"/><circle cx="525" cy="395" r="24"/></g><path d="M434 395l18-11v22zM514 395l18-11v22z" fill="#087f70"/><text x="445" y="430" text-anchor="middle">P-201A</text><text x="525" y="430" text-anchor="middle">P-201B</text>
+<path d="M445 419V450H485M525 419V450H485V475" stroke="#b42318" stroke-width="4" fill="none" marker-end="url(#paR)"/>
+<rect x="425" y="475" width="120" height="55" rx="5" fill="#fff" stroke="#087f70"/><text x="485" y="497" text-anchor="middle">HX-201 · TCS热液↓ / FWS冷液↑</text><text x="485" y="515" text-anchor="middle">200kW · 逆流 · UA≥66.7</text>
+<path d="M425 510H390V545H370" stroke="#1769e0" stroke-width="5" fill="none" marker-end="url(#paB)"/>
+<!-- isolation/check valves -->
+<g fill="#fff" stroke="#102a46"><path d="M415 98l10 7-10 7 10 7v-28z"/><path d="M385 538l10 7-10 7 10 7v-28z"/></g>
+<g fill="#fff" stroke="#102a46"><circle cx="570" cy="165" r="12"/><circle cx="605" cy="165" r="12"/><circle cx="640" cy="165" r="12"/><circle cx="575" cy="520" r="12"/><circle cx="610" cy="520" r="12"/></g>
+<text x="570" y="169" text-anchor="middle">PT</text><text x="605" y="169" text-anchor="middle">TT</text><text x="640" y="169" text-anchor="middle">FT</text><text x="575" y="524" text-anchor="middle">PT</text><text x="610" y="524" text-anchor="middle">TT</text>
+<rect x="565" y="235" width="155" height="92" rx="5" fill="#fff" stroke="#087f70"/><text x="642" y="255" text-anchor="middle" font-weight="700">CP-201 控制器</text><text x="642" y="274" text-anchor="middle">TIC-201 → TCV-101</text><text x="642" y="292" text-anchor="middle">DPIC-201 → VFD-A/B</text><text x="642" y="310" text-anchor="middle">Leak/LSLL/PSHH联锁</text>
+<path d="M642 327V395H550M565 281H540M720 281H790" stroke="#087f70" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#paS)"/>
+
+<!-- FWS -->
+<rect x="790" y="65" width="370" height="520" rx="8" fill="#fff8ed" stroke="#a65b00"/><text x="975" y="88" text-anchor="middle" font-weight="700" fill="#a65b00">FWS / 室外冷源边界</text>
+<rect x="835" y="115" width="125" height="65" rx="5" fill="#fff" stroke="#a65b00"/><text x="897" y="137" text-anchor="middle">CT-101A</text><text x="897" y="155" text-anchor="middle">闭式塔/绝热干冷器</text><text x="897" y="172" text-anchor="middle">250kW · Duty</text>
+<rect x="990" y="115" width="125" height="65" rx="5" fill="#fff" stroke="#a65b00"/><text x="1052" y="137" text-anchor="middle">CT-101B</text><text x="1052" y="155" text-anchor="middle">闭式塔/绝热干冷器</text><text x="1052" y="172" text-anchor="middle">250kW · Standby</text>
+<path d="M897 180V215H930M1052 180V215H1015" stroke="#1769e0" stroke-width="4" fill="none"/>
+<g fill="#fff" stroke="#a65b00" stroke-width="2"><circle cx="930" cy="245" r="23"/><circle cx="1015" cy="245" r="23"/></g><path d="M919 245l18-11v22zM1004 245l18-11v22z" fill="#a65b00"/><text x="930" y="279" text-anchor="middle">P-101A</text><text x="1015" y="279" text-anchor="middle">P-101B</text>
+<path d="M930 268V310H970M1015 268V310H970V345" stroke="#1769e0" stroke-width="4" fill="none" marker-end="url(#paB)"/>
+<rect x="900" y="345" width="140" height="42" rx="5" fill="#fff" stroke="#a65b00"/><text x="970" y="362" text-anchor="middle">YS-101 + FT/PT/TT</text><text x="970" y="379" text-anchor="middle">FAT-A：27℃ · DI约17.3m³/h</text>
+<path d="M900 366H755V505H545" stroke="#1769e0" stroke-width="5" fill="none" marker-end="url(#paB)"/>
+<path d="M545 485H760V435H1110V180" stroke="#b42318" stroke-width="5" fill="none" marker-end="url(#paR)"/>
+<rect x="835" y="420" width="125" height="55" rx="5" fill="#fff" stroke="#a65b00"/><text x="897" y="441" text-anchor="middle">ET-101膨胀罐</text><text x="897" y="459" text-anchor="middle">补水/旁滤/脱气</text>
+<rect x="990" y="420" width="125" height="55" rx="5" fill="#fff" stroke="#a65b00"/><text x="1052" y="441" text-anchor="middle">CH-101 峰值Chiller</text><text x="1052" y="459" text-anchor="middle">气象判定 · 若必需则N+1</text>
+<path d="M897 420V387M1052 420V387" stroke="#a65b00" stroke-width="2"/>
+<path d="M775 345l12 7-12 7 12 7v-28z" fill="#fff" stroke="#087f70" stroke-width="2"/><text x="785" y="334" text-anchor="middle">TCV-101 · 失效位待HAZOP</text>
+
+<!-- air side -->
+<rect x="20" y="615" width="350" height="90" rx="7" fill="#f7f9fc" stroke="#607086"/><text x="195" y="638" text-anchor="middle" font-weight="700">残余空气冷却回路</text><text x="195" y="658" text-anchor="middle">GB300风扇 → 封闭热通道 → CRAH/RDHx-401A/B（2×25kW）</text><text x="195" y="678" text-anchor="middle">TIT-401机柜进风控制 · DPT-401通道压差 · 风机N+1</text><text x="195" y="696" text-anchor="middle">可接FWS或独立冷冻水；不得与TCS洁净水直接连通</text>
+
+<!-- legend -->
+<rect x="405" y="615" width="755" height="135" rx="7" fill="#fff" stroke="#607086"/><text x="425" y="638" font-weight="700">图例与设计状态</text>
+<text x="425" y="660">实线蓝：冷供液　实线红：热回液　绿虚线：控制信号　橙虚线：未冻结/可选连接　箭头：正常运行流向</text>
+<text x="425" y="682">手动隔离阀：全通径、常开、可上锁；止回阀：每台并联泵出口；高点AV自动排气；低点DV排污；PSV排至封闭收集箱</text>
+<text x="425" y="704">联锁边界：严重漏液→隔离整柜接口；仅有OEM独立Zone接口时才局部隔离；双泵失败/LSLL/PSHH→请求IT迁移/停机</text>
+<text x="425" y="726" fill="#b42318">注意：OEM机柜内部冷板、UQD与支路压降属于受控接口；本图不得用于改变OEM内部液路，只定义设施侧接口与保护。</text>
+</svg></div>
+<p class="figcap"><strong>图 3-2 说明：</strong>正常流向为：机柜热回液 → 双联过滤器 → 泵吸入总管 → 工作泵 → 板换 → 机柜冷供液；FWS 冷供液自下部进入板换、热回液由上部离开，形成逆流换热。橙色虚线项目不得在 OEM ICD 与 HAZOP 冻结前采购或施工。</p>
+<table>
+<tr><th>图纸项</th><th>详细设计要求</th><th>冻结条件</th></tr>
+<tr><td>管线编号</td><td>TCS/FWS供回水分别独立编号，标注DN、PN、材质、保温、坡度、设计/操作温压</td><td>管道等级表和材料兼容性报告批准</td></tr>
+<tr><td>阀门状态</td><td>每只自动阀定义正常位、失电位、失信号位、手动操作及锁定要求</td><td>Cause &amp; Effect与HAZOP批准</td></tr>
+<tr><td>仪表</td><td>测点需有位号、量程、精度、安装位置、隔离/排气方式和校准要求</td><td>I/O清单和仪表数据表批准</td></tr>
+<tr><td>排气/排污/泄压</td><td>所有局部高点设AV，低点设DV；PSV及排污接封闭收集，不得排向IT设备</td><td>3D管综、维护空间及排放路径审查</td></tr>
+</table>
+<div class="note"><strong>N+1图纸边界：</strong>本章P&amp;ID仅展开一套CDU工艺列。项目实施时复制为CDU-A/B两套完整独立列，每套含板换、双泵、过滤、控制和压力保护，并通过可隔离/止回公共母管实现1用1备；任何一套退出不得中断机柜冷却。</div>
+<h3>3.2 系统三维效果图（按行业实物照片建模）</h3>
+<p class="small">下列效果图按算力液冷行业在售产品实物照片建模，用于向非工程读者说明各热传递链在物理空间中的落位与界面归属；不作为制造图、布置图或采购依据，实际排布以机房平面、管综和厂家外形图为准。参照实物见 3.4 节来源清单。</p>
+<div class="shots one">
+<div class="shot"><img src="assets/3d/system_3d_overview.png" alt="整体冷却系统三维效果图"><div class="cap"><b>图 3-3 · 单柜完整冷却系统空间关系（TCS→CDU→FWS→室外）</b>左侧为GB300 NVL72液冷机柜，计算托盘与NVLink交换托盘经柜后歧管汇流；右侧紧邻Sidecar柜，下部为与机柜同宽的柜式L2L CDU（带触摸屏），上部为风侧末端风机阵列，处理未被液冷捕获的约10%空气热量；粗黑色编织软管由机柜后歧管接入CDU二次侧；CDU一次侧经灰色/不锈钢FWS供回主管、隔离阀与压力表沿支吊架接出；窗外为室外干冷器/闭式塔阵列，构成最终排热端。</div></div>
+</div>
+<div class="shots">
+<div class="shot"><img src="assets/3d/coldplate_tray_3d.png" alt="计算托盘冷板效果图"><div class="cap"><b>图 3-4 · 液冷计算托盘冷板与盲插界面（OEM供货范围）</b>1U托盘内两块大尺寸GPU微通道铜冷板与两块CPU冷板串并联，短硬管与压紧接头连接；托盘后端两只盲插快接（蓝供红回）随托盘插入自动对接机柜歧管。托盘内水力阻力、冷板热阻和流量分配属OEM责任，本设计只在机柜歧管界面上负责温度—流量—压降。</div></div>
+<div class="shot"><img src="assets/3d/manifold_uqd_3d.png" alt="机柜歧管与UQD效果图"><div class="cap"><b>图 3-5 · 机柜歧管与UQD界面（设计界面点）</b>柜后竖直双歧管，蓝环供液、红环回液，快接分层引出并配防尘帽。该处即为CDU与IT设备的合同与责任分界：界面以上（含冷板、托盘软管、歧管）由OEM机柜供货，界面以下（TCS软管、CDU、FWS）由本方案负责。</div></div>
+</div>
+<h3>3.3 关键术语说明</h3>
+<p class="small"><strong>P&amp;ID：</strong>表达设备、管线、阀门、仪表和控制关系的管道仪表流程图。　<strong>TCS：</strong>Technology Cooling System，直接服务IT冷板的洁净二次液路。　<strong>FWS：</strong>Facility Water System，向CDU排热的设施一次水系统。　<strong>Manifold：</strong>将总流量分配至多个机柜/Tray支路的供回液歧管。　<strong>UQD：</strong>防滴漏快速接头。　<strong>FO/NC：</strong>阀门失效开/正常关闭状态。　<strong>Sidecar：</strong>紧贴机柜侧面布置、承载CDU或风侧换热盘管的辅助柜。　<strong>同源/非同源：</strong>液冷一次侧与空气补冷是否共用同一冷源。　<strong>L2A：</strong>风液型CDU，二次侧热量排向机房空气。　<strong>SFN：</strong>Secondary Fluid Network，行级二次侧分配管路。　<strong>比流量：</strong>单位换热量所需体积流量，常用L/min·kW。</p>
+<h3>3.4 效果图参照的行业实物来源</h3>
+<p class="small">效果图建模前已逐张比对下列算力液冷行业实物照片，形体比例、接口位置、色标约定与实物一致；本地留存于 <code>assets/ref/</code> 以便复核。</p>
+<table>
+<tr><th>参照实物</th><th>来源</th><th>用于校核的特征</th><th>对应效果图</th></tr>
+<tr><td>NVIDIA GB300 NVL72 液冷机柜整柜</td><td><a href="https://www.nvidia.com/en-us/data-center/gb300-nvl72/">NVIDIA GB300 NVL72 产品页</a></td><td>整柜高度与分区、计算托盘与NVLink交换托盘堆叠关系、金色托盘面板与线缆盒</td><td>图 3-3</td></tr>
+<tr><td>NVIDIA MGX Blackwell 计算托盘内部（含冷板）</td><td><a href="https://www.servethehome.com/this-is-the-nvidia-dgx-gb200-nvl72/">ServeTheHome GB200 NVL72 实拍</a></td><td>1U托盘内冷板数量与排布、串并联硬管走向、后端盲插接口位置</td><td>图 3-4</td></tr>
+<tr><td>LITEON 140kW In-Row Sidecar 与 GB200 NVL72 机柜</td><td><a href="https://www.servethehome.com/liteon-shows-nvidia-gb200-nvl72-rack-at-ocp-summit-2024/">ServeTheHome OCP 2024 实拍</a></td><td>Sidecar风机阵列形态、机柜与Sidecar贴靠关系、柜后大口径软管与歧管接入方式</td><td>图 3-3、3-5</td></tr>
+<tr><td>Supermicro 液冷实验室 FWS 设施水管路</td><td><a href="https://www.servethehome.com/supermicro-custom-liquid-cooling-rack-a-look-at-the-cooling-distribution/">ServeTheHome 液冷机柜实拍</a></td><td>一次侧主管材质与色泽、弯头与支吊架形式、阀门与压力表安装位置</td><td>图 3-3</td></tr>
+<tr><td>Supermicro 机柜立式歧管与UQD快接</td><td><a href="https://www.servethehome.com/supermicro-custom-liquid-cooling-rack-a-look-at-the-cooling-distribution/">ServeTheHome 歧管实拍</a></td><td>双歧管红/蓝色环标识、快接分层引出、编织软管与防尘帽</td><td>图 3-5</td></tr>
+</table>
+<div class="note"><strong>使用限制：</strong>效果图为示意渲染，不得用于机房布置定位、尺寸标注、净距校核或对外外观承诺。参照来源为第三方媒体实拍与厂商产品页，仅用于形体校核，不代表本方案与上述品牌存在技术或商业关联。</div>
+</section>
+
+<section id="sizing">
+<h2>4. 热工与水力计算</h2>
+<h3>4.1 热平衡</h3>
+<table>
+<tr><th>计算项</th><th>公式/依据</th><th>结果</th><th>设计取值</th></tr>
+<tr><td>整柜实际发热包络</td><td>最大输入功率近似全部转热</td><td>NVIDIA参考142kW；Lenovo TDP135kW/峰值155kW</td><td>热源峰值不得超过具体OEM EDP；不同口径不相加</td></tr>
+<tr><td>液冷实际负荷参考</td><td>NVIDIA参考估算142×88%≈125kW；Lenovo公开155×约90%≈139.5kW</td><td>约125–139.5kW，取决于产品/工作负载</td><td>液冷设备按150kW选型；裕量约7.5%相对Lenovo峰值液冷参考</td></tr>
+<tr><td>TCS 流量</td><td>热平衡仅用于CDU平台校核；机柜运行服从OEM工况表</td><td>Lenovo公开值3.54–10.62m³/h @25–45℃</td><td>平台最大19m³/h（覆盖PG25 FAT）；OEM模式按流量和入口绝压双限幅</td></tr>
+<tr><td>残余空气实际负荷参考</td><td>NVIDIA参考约17kW；Lenovo峰值155×约10%≈15.5kW</td><td>约15.5–17kW</td><td>空气设备按25kW选型；不得与150kW液冷裕量相加宣称实际175kW</td></tr>
+<tr><td>室外散热设备</td><td>以155kW实际峰值+泵热+项目气象/污垢折减计算</td><td>净需求由厂家选型和逐时气象确定</td><td>250kW/台初选，2台1用1备；必须在设计日证明净能力</td></tr>
+</table>
+<h3>4.2 设计工况</h3>
+<table>
+<tr><th>回路</th><th>供/回温度</th><th>设计流量</th><th>设计压力/压差</th><th>主管</th></tr>
+<tr><td>TCS 二次侧</td><td>FAT-A 32/42℃；FAT-B 40/50℃</td><td>OEM运行3.54–10.62m³/h；平台最大19m³/h</td><td>泵总差压候选250kPa；机柜入口绝压、流量和压降均按OEM限幅</td><td>DN65初选，316L</td></tr>
+<tr><td>FWS 一次侧</td><td>FAT-A 27/37℃；FAT-B 37/47℃</td><td>DI水约17.3m³/h@200kW/10K；最终按工质物性</td><td>10bar设计；系统ΔP由项目水力计算冻结</td><td>DN65初选，碳钢防腐或316L</td></tr>
+<tr><td>空气侧</td><td>进风按服务器 OEM 环境要求</td><td>由 CRAH/RDHx 厂家确定</td><td>保持冷热通道压差</td><td>封闭热通道优先</td></tr>
+</table>
+<h3>4.3 基于 GB300 内部架构的接口与诊断分区</h3>
+<p>GB300 NVL72含18个计算Tray和9个液冷NVSwitch Tray。具体机柜由OEM提供内置Manifold、QuickConnect和支路节流，设施侧不得自行改变其内部水力结构。下图三区仅作为传感器汇总、能量平衡和故障定位的逻辑分区；只有OEM提供独立Zone接口并书面批准时，才配置Zone隔离阀。</p>
+<div class="diagram">
+<svg viewBox="0 0 1080 390" width="100%" xmlns="http://www.w3.org/2000/svg" style="min-width:860px;font-family:'Microsoft YaHei';font-size:11px">
+<defs><marker id="ma1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#1769e0"/></marker><marker id="ma2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#b42318"/></marker></defs>
+<text x="540" y="22" text-anchor="middle" font-size="15" font-weight="700" fill="#0b2748">图 4-1 · GB300 NVL72 OEM 内部逻辑诊断分区（非配管图）</text>
+<rect x="25" y="55" width="160" height="260" rx="7" fill="#f0faf7" stroke="#008b7a"/><text x="105" y="80" text-anchor="middle" font-weight="700">CDU-200</text><text x="105" y="103" text-anchor="middle">OEM入口25–45℃</text><text x="105" y="124" text-anchor="middle">FAT-A/B独立</text><text x="105" y="156" text-anchor="middle">平台最大19m³/h</text><text x="105" y="177" text-anchor="middle">OEM 3.54–10.62m³/h</text><text x="105" y="211" text-anchor="middle">查表+ΔP+绝压限幅</text><text x="105" y="232" text-anchor="middle">远端传感</text><text x="105" y="265" text-anchor="middle">双泵1用1备</text>
+<path d="M185 110H265V335" stroke="#1769e0" stroke-width="9" fill="none"/><path d="M265 75H185" stroke="#b42318" stroke-width="9" fill="none" marker-end="url(#ma2)"/><text x="225" y="101" text-anchor="middle" fill="#1769e0">DN65供</text><text x="225" y="67" text-anchor="middle" fill="#b42318">DN65回</text>
+<g>
+<rect x="315" y="48" width="220" height="90" rx="6" fill="#eef5ff" stroke="#1769e0"/><text x="425" y="69" text-anchor="middle" font-weight="700">逻辑Zone A · Tray 1–6 + SW 1–3</text><text x="425" y="91" text-anchor="middle">仅监测/诊断，不改变OEM流路</text><text x="425" y="112" text-anchor="middle">流量按OEM分配 · 接口待ICD</text>
+<rect x="315" y="153" width="220" height="90" rx="6" fill="#eef5ff" stroke="#1769e0"/><text x="425" y="174" text-anchor="middle" font-weight="700">逻辑Zone B · Tray 7–12 + SW 4–6</text><text x="425" y="196" text-anchor="middle">仅监测/诊断，不改变OEM流路</text><text x="425" y="217" text-anchor="middle">流量按OEM分配 · 接口待ICD</text>
+<rect x="315" y="258" width="220" height="90" rx="6" fill="#eef5ff" stroke="#1769e0"/><text x="425" y="279" text-anchor="middle" font-weight="700">逻辑Zone C · Tray 13–18 + SW 7–9</text><text x="425" y="301" text-anchor="middle">仅监测/诊断，不改变OEM流路</text><text x="425" y="322" text-anchor="middle">流量按OEM分配 · 接口待ICD</text>
+</g>
+<path d="M265 93H315M265 198H315M265 303H315" stroke="#1769e0" stroke-width="5" marker-end="url(#ma1)"/><path d="M315 75H285M315 180H285M315 285H285" stroke="#b42318" stroke-width="5" marker-end="url(#ma2)"/>
+<rect x="580" y="48" width="475" height="300" rx="7" fill="#fff8ed" stroke="#a65b00"/><text x="817" y="70" text-anchor="middle" font-weight="700">每个Zone的支路构成（相同模块复制）</text>
+<g fill="#fff" stroke="#008b7a"><rect x="610" y="95" width="125" height="52" rx="5"/><rect x="755" y="95" width="125" height="52" rx="5"/><rect x="900" y="95" width="125" height="52" rx="5"/><rect x="610" y="175" width="125" height="52" rx="5"/><rect x="755" y="175" width="125" height="52" rx="5"/><rect x="900" y="175" width="125" height="52" rx="5"/></g>
+<text x="672" y="116" text-anchor="middle">Compute Tray</text><text x="672" y="135" text-anchor="middle">OEM内置回路</text><text x="817" y="116" text-anchor="middle">Compute Tray</text><text x="817" y="135" text-anchor="middle">OEM内置回路</text><text x="962" y="116" text-anchor="middle">Compute Tray</text><text x="962" y="135" text-anchor="middle">OEM内置回路</text><text x="672" y="196" text-anchor="middle">Compute Tray</text><text x="672" y="215" text-anchor="middle">OEM内置回路</text><text x="817" y="196" text-anchor="middle">Compute Tray</text><text x="817" y="215" text-anchor="middle">OEM内置回路</text><text x="962" y="196" text-anchor="middle">Compute Tray</text><text x="962" y="215" text-anchor="middle">OEM内置回路</text>
+<g fill="#fff" stroke="#a65b00"><rect x="650" y="258" width="100" height="45" rx="5"/><rect x="767" y="258" width="100" height="45" rx="5"/><rect x="884" y="258" width="100" height="45" rx="5"/></g><text x="700" y="277" text-anchor="middle">NVSwitch</text><text x="700" y="294" text-anchor="middle">OEM配流</text><text x="817" y="277" text-anchor="middle">NVSwitch</text><text x="817" y="294" text-anchor="middle">OEM配流</text><text x="934" y="277" text-anchor="middle">NVSwitch</text><text x="934" y="294" text-anchor="middle">OEM配流</text>
+<text x="540" y="375" text-anchor="middle" fill="#607086">逻辑 Zone 不等于物理歧管支路；公开资料不足以反算各 Tray 流量，详细分流必须使用 OEM 受控水力数据</text>
+</svg></div>
+<p class="figcap"><strong>图 4-1 说明：</strong>本图只用于能量核算、告警归属和故障定位。Zone A/B/C 为逻辑对象，不构成设施侧三支路设计；Tray 数量表示架构组成，不表示等流量分配。</p>
+<table>
+<tr><th>层级</th><th>数量</th><th>设计流量</th><th>管径/接口初选</th><th>均流与监测</th></tr>
+<tr><td>机柜供回接口</td><td>供/回各1</td><td>Lenovo公开工况3.54–10.62m³/h；19m³/h仅CDU独立FAT</td><td>DN65初选；顶部/底部进水按订单</td><td>入口FT/PT/TT；机柜流量/压降/绝压三重限制</td></tr>
+<tr><td>逻辑Zone</td><td>3组监测分区</td><td>不预设固定流量</td><td>不改变OEM内置Manifold</td><td>仅在OEM提供测点时做分区能量平衡</td></tr>
+<tr><td>计算Tray支路</td><td>18 Tray内部回路</td><td>OEM受控数据</td><td>OEM提供UQD/软管/节流</td><td>设施方不增加孔板、平衡阀或主动阀</td></tr>
+<tr><td>NVSwitch支路</td><td>9</td><td>OEM受控数据</td><td>OEM提供UQD/软管/节流</td><td>设施方仅监测整柜接口，不改变内部配流</td></tr>
+</table>
+<h3>4.4 水阀与水泵系统优化</h3>
+<table>
+<tr><th>对象</th><th>基础方案</th><th>优化设计</th><th>预期效果</th></tr>
+<tr><td>总隔离阀</td><td>CDU/机柜进出口各1</td><td>DN65全通径手动阀+状态反馈；关键项目增加UPS供电电动阀</td><td>低压损、可维护，避免失电误关造成整柜失冷</td></tr>
+<tr><td>OEM Zone隔离</td><td>公开资料未证明独立接口</td><td>基础方案不配置设施侧Zone阀；若OEM ICD提供独立供回接口，再成对设置供/回隔离并定义失效位</td><td>避免越过OEM内部Manifold边界或形成单侧隔离回流</td></tr>
+<tr><td>Tray支路阀</td><td>每支路主动调节</td><td>改用OEM UQD自闭+固定孔板/可锁定平衡阀；主动阀仅用于诊断选配</td><td>减少约45个潜在执行器故障点和控制复杂度</td></tr>
+<tr><td>最小流量旁通</td><td>固定旁通</td><td>远端差压旁通阀，正常近闭；仅在大量支路关闭时保护泵</td><td>避免持续旁通浪费泵功并抬高回水温度</td></tr>
+<tr><td>二次泵</td><td>2×100%，固定压差</td><td>候选平台点19m³/h@250kPa泵总差压；OEM点按入口温度查表+机柜PDIT闭环+入口绝压硬限幅</td><td>最终泵头须由OEM最大入口压力、CDU内损失和关死点压力共同冻结</td></tr>
+<tr><td>泵前馈</td><td>仅PID</td><td>以机柜功率和在线Tray数前馈流量，远端PDIT闭环修正；转速设斜坡和最小值</td><td>快速响应训练负荷阶跃，减少温度/压差超调</td></tr>
+<tr><td>泵轮换</td><td>故障才切换</td><td>每周或累计100 h轮换；备用泵每日低速防卡转；按振动/电流预测维护</td><td>均衡寿命，提前发现备用泵不可用</td></tr>
+</table>
+<div class="note"><strong>冷凝控制：</strong>TCS 供液温度必须高于机房实时露点至少 2 K；建议以露点+3 K 为动态下限。32℃供液通常可大幅降低冷凝风险，并支持多数地区自然冷却，但最终温度窗口须经 OEM 确认。</div>
+<h3>4.5 关键术语说明</h3>
+<p class="small"><strong>ΔT：</strong>供回液温差。　<strong>压降：</strong>流体通过冷板、管路和阀件损失的压力。　<strong>远端差压：</strong>在最不利机柜接口测得并用于泵控制的供回压差。　<strong>阀权度：</strong>调节阀压降占受控支路总压降的比例。　<strong>NPSH：</strong>泵避免汽蚀所需/可用的净正吸入压头。　<strong>露点裕量：</strong>供液温度高于环境露点的安全温差。</p>
+</section>
+
+<section id="equipment">
+<h2>5. 关键设备总体参数与规格书</h2>
+<table>
+<tr><th>设备/部件</th><th>数量</th><th>核心规格</th><th>材料/接口</th><th>冗余与验收</th></tr>
+<tr><td>GPU/CPU/NVSwitch 冷板</td><td>随 OEM 整柜</td><td>总液冷能力≥150 kW；适配 OEM 流量/压降窗口</td><td>铜/镀镍铜；UQD；与工质兼容</td><td>100%气密/水压/热阻测试；不得自行替换 OEM 冷板</td></tr>
+<tr><td>OEM机柜 Manifold</td><td>随整柜</td><td>流量、压降、材料、UQD和支路均流由OEM负责</td><td>设施侧仅连接整柜供回接口</td><td>不得将逻辑Zone转化为基础供货阀组；可选接口须有OEM ICD</td></tr>
+<tr><td>L2L CDU</td><td>2（1用1备）</td><td>每台200kW；FAT-A/B；DI 17.3m³/h、PG25约18.6m³/h；污堵UA≥66.7kW/K</td><td>TCS/FWS DN65初选；双电源；Modbus/SNMP</td><td>每台双泵；完整设备N+1；任一台可隔离维护</td></tr>
+<tr><td>闭式冷却塔/绝热干冷器</td><td>2（1+1）</td><td>250kW/台仅初选；须按设计日干球/湿球、逼近度、海拔、污垢和喷淋限制证明净能力</td><td>闭式盘管；EC风机；防冻排空</td><td>单台在最不利设计日承担实际峰值+辅机热；提供厂家选型曲线</td></tr>
+<tr><td>峰值冷水机组</td><td>由逐时气象决定</td><td>若维持27℃FWS必须依赖Chiller，则按关键冷源纳入N+1，不得作为单台“可选”设备</td><td>并联旁路；电动阀切换；与热缓冲协调</td><td>全年逐时模拟明确启用小时、失效工况和备用容量</td></tr>
+<tr><td>FWS 循环泵</td><td>2（1用1备）</td><td>18 m³/h @ 20–25 mH₂O；电机约3 kW；VFD</td><td>机械密封双端面或屏蔽泵</td><td>自动无扰切换；NPSH复核</td></tr>
+<tr><td>CRAH / RDHx</td><td>2（1用1备）</td><td>每台≥25kW显冷；须绑定盘管进出水、送回风温度和风量保证</td><td>优先独立低温水；仅经厂家证明时接27/37℃FWS</td><td>处理残余风冷热量；高温水不能自动等同满足机柜进风要求</td></tr>
+<tr><td>行级二次侧环管 SFN</td><td>1套/行（扩容时）</td><td>304不锈钢预制环管；流量均分；定位漏检；单机柜故障半径；下接管</td><td>与柜内歧管在整柜供回接口处分界</td><td>模块化组装；冲洗、排气、在线换液工装可移动接入</td></tr>
+<tr><td>柜内歧管</td><td>随OEM整柜</td><td>行业常见40×40/50×50mm方管、UQD04/08或盲插UQDB；6/12/18口</td><td>手插或盲插由OEM机柜决定</td><td>本方案不采购柜内歧管，只校核接口流量/压降</td></tr>
+<tr><td>水处理/旁滤</td><td>1套/回路</td><td>TCS 25 μm（严于行业&lt;50μm门槛）；FWS 50–100 μm；电导率/pH/颗粒监测</td><td>工质和阈值服从 OEM 材料规范</td><td>双过滤器或旁通，支持在线维护</td></tr>
+<tr><td>膨胀/补液/脱气</td><td>各CDU 1套</td><td>容积按总液量、DI/PG25膨胀率、温区、接受容积和预充计算；不得先验固定100L</td><td>闭式；补液防倒流；自动补液；真空脱气可选</td><td>低低液位停泵；频繁补液泄漏报警；不得承担蓄冷功能</td></tr>
+<tr><td>冷却续航/热缓冲</td><td>1套项目设施</td><td>若冷源完全中断，暂按155kW机柜峰值+5kW泵热=160kW、10K、5min估算需≥1.15m³有效水量；初选≥1.3m³</td><td>与膨胀补液箱功能分开；关键TCS/FWS泵、PLC和阀由UPS供电</td><td>以实际降载曲线、允许温升和管网固有水量做瞬态计算并执行5min测试</td></tr>
+<tr><td>漏液检测</td><td>全路径</td><td>机柜底盘、CDU、管路接头、冷源设备分区检测</td><td>点式+定位线缆</td><td>两级报警；联动区域关阀和服务器降载</td></tr>
+</table>
+<h3>5.1 关键术语说明</h3>
+<p class="small"><strong>L2L CDU：</strong>液-液式冷却液分配单元，以板换隔离TCS与FWS。　<strong>N+1：</strong>在满足需求的N套设备之外增加一套备用能力。　<strong>PN10：</strong>公称压力等级，具体允许压力随材料和温度确定。　<strong>双联过滤：</strong>两只可切换过滤器，支持不停系统维护。　<strong>接液材料：</strong>所有与冷却液直接接触的金属、密封件和涂层。</p>
+</section>
+
+<section id="control">
+<h2>6. 总体控制、报警与联锁</h2>
+<table>
+<tr><th>控制对象</th><th>主控变量</th><th>执行机构</th><th>正常策略</th><th>故障策略</th></tr>
+<tr><td>CDU TCS</td><td>OEM/FAT-A/FAT-B当前配方的供液温度、流量、差压和入口绝压</td><td>一次侧调节阀、二次侧变频泵</td><td>IT功率前馈+温度PID；OEM查表流量前馈；差压闭环和绝压硬限幅</td><td>泵故障重叠切备用；超温/超压请求服务器降载</td></tr>
+<tr><td>FWS 冷源</td><td>当前配方FWS目标（FAT-A 27℃、FAT-B 37℃；项目运行值另冻结）</td><td>塔风机、喷淋泵、旁通阀、峰值Chiller</td><td>自然冷却优先，按气象和能效级联</td><td>冷源不足时提高TCS设定并请求功率封顶</td></tr>
+<tr><td>残余风冷</td><td>机柜进风温度、冷热通道压差</td><td>CRAH/RDHx风机及水阀</td><td>按进风温度与压差调速</td><td>双机切换；高温联动IT降载</td></tr>
+<tr><td>漏液安全</td><td>定位线、压力突降、低低液位、流量失配、补液异常</td><td>整柜接口阀、泵、PDU/服务器接口</td><td>慢漏趋势预警；严重泄漏高可信硬条件即时动作</td><td>先降载/隔离整柜，阀位确认后受控停泵；仅OEM批准时局部Zone隔离</td></tr>
+</table>
+<h3>6.1 液冷中断耐受与自动恢复窗口</h3>
+<p class="small">传统机房按“发现+定位+恢复约30分钟”组织运维；GPU冷板回路的可中断窗口约90秒。控制与冗余必须按秒级自动完成，不能把人工到场当作第一道保护。</p>
+<table>
+<tr><th>异常类型</th><th>可耐受窗口</th><th>本设计自动动作</th><th>禁止事项</th></tr>
+<tr><td>工作泵停转 / TCS断流</td><td>30–60s</td><td>备用泵预充后重叠切换，目标≤15s建立流量；超时请求IT降载</td><td>等待现场换泵或手动启备泵</td></tr>
+<tr><td>严重气阻 / 夹气</td><td>30–90s</td><td>脱气支路投入、低流量保护、超限停机</td><td>继续升速“冲气”</td></tr>
+<tr><td>供液温度异常升高</td><td>60–120s</td><td>开大一次侧阀、冷源加速、超限降载</td><td>只靠HMI告警等人确认</td></tr>
+<tr><td>过滤器瞬时污堵</td><td>30–60s</td><td>双联自动/一键切换；差压高报警</td><td>打开未过滤直通旁路</td></tr>
+<tr><td>漏液触发联锁</td><td>立即</td><td>硬接线安全链撤泵/阀使能，再按Cause &amp; Effect隔离</td><td>把应用软件作为唯一切断手段</td></tr>
+</table>
+<h3>6.2 关键报警设定建议</h3>
+<table>
+<tr><th>变量</th><th>预警</th><th>高高/联锁</th><th>动作</th></tr>
+<tr><td>TCS 供液温度</td><td>当前模式设定值+2K持续60s</td><td>OEM最高入口温度−安全裕量，或设定值+5K（二者取严）</td><td>冷源全开、告警、功率封顶/降载；A/B模式独立参数</td></tr>
+<tr><td>TCS 压差</td><td>低于设定−15%</td><td>低于设定−30%</td><td>切泵、查过滤器/阀位；请求降载</td></tr>
+<tr><td>机柜入口绝对压力</td><td>OEM上限−10%裕量</td><td>OEM PSHH整定值</td><td>VFD硬限幅、停升速、请求降载；不得仅依赖PLC软件</td></tr>
+<tr><td>机柜入口流量</td><td>OEM当前温度目标±10%</td><td>低于OEM最低或高于OEM最大持续超限</td><td>查泵/阀/过滤器，限制泵速并请求降载</td></tr>
+<tr><td>过滤器压差</td><td>洁净基线增量或20kPa（二者取严）</td><td>25kPa或滤芯厂家终阻（二者取严）</td><td>切换备用过滤器并维护；DI/PG25分别建基线</td></tr>
+<tr><td>慢速/可疑漏液</td><td>单点动作、补液频率升高</td><td>第二证据确认</td><td>限补液、业务迁移、隔离整柜接口</td></tr>
+<tr><td>严重漏液</td><td>定位线高可信动作、压力快速下降、低低液位或显著流量失配</td><td>任一经验证硬条件</td><td>立即降载并隔离整柜；不得等待普通双证据扩大泄漏</td></tr>
+<tr><td>露点裕量</td><td>&lt;3 K</td><td>&lt;2 K</td><td>提高供液设定，禁止低温运行</td></tr>
+</table>
+<h3>6.3 关键术语说明</h3>
+<p class="small"><strong>PID：</strong>比例—积分—微分闭环控制。　<strong>前馈：</strong>根据IT功率等扰动提前调整泵/阀输出。　<strong>Cause &amp; Effect：</strong>异常原因、检测证据、自动动作和复位条件矩阵。　<strong>2ooN：</strong>N个检测信号中至少两个一致才确认事件。　<strong>功率封顶：</strong>限制IT最大输入功率以匹配可用冷却能力。　<strong>本地自治：</strong>上位通信中断时控制器仍独立维持安全冷却。</p>
+</section>
+
+<section id="operations">
+<h2>7. 产品使用、运行与维护</h2>
+<h3>7.1 正常使用流程</h3>
+<table>
+<tr><th>阶段</th><th>操作要求</th><th>放行判据</th></tr>
+<tr><td>班前/开机检查</td><td>确认A/B电源、FWS可用、液位/压力正常、阀位正确、过滤器差压正常、无漏液报警；核对机房露点</td><td>TCS供液设定≥露点+3K；至少1台CDU泵和1条冷源路径可用</td></tr>
+<tr><td>注液与排气</td><td>机柜断电；低点注液、低速循环、高点排气；仅使用OEM批准的新液，废液进入有标签回收桶</td><td>液位稳定、无连续气泡、静压/保压合格、水质在OEM窗口</td></tr>
+<tr><td>分级上电</td><td>25%→50%→75%→100%分级加载，每级保持并检查供回温、流量、压差、漏液和热点</td><td>温度/压差无持续漂移，Zone能量平衡偏差在调试限值内</td></tr>
+<tr><td>自动运行</td><td>按OEM入口温度调用流量设定；远端压差闭环；冷源按自然冷却→绝热辅助→Chiller顺序</td><td>机柜入口温度/流量/压力始终落在OEM工况图内</td></tr>
+<tr><td>计划停机</td><td>先迁移业务并卸载IT，再停CDU；仅维修时关闭隔离阀和排液；保持漏液监控</td><td>IT功率安全、设备温度回落、LOTO执行并记录</td></tr>
+</table>
+<h3>7.2 运维周期与状态维护</h3>
+<table>
+<tr><th>周期</th><th>维护项目</th><th>触发阈值/记录</th></tr>
+<tr><td>每班/每日</td><td>巡检泄漏、异常噪声/振动、液位、补液次数、泵电流、供回温、流量、压差和告警</td><td>自动趋势留存≥13个月；异常补液不得仅复位告警</td></tr>
+<tr><td>每周</td><td>备用泵低速防卡转并验证切换；检查定位漏液线、排水路径、冷源风机/喷淋</td><td>切换期间流量/压差不越OEM下限；形成切换记录</td></tr>
+<tr><td>每月</td><td>检查UQD、软管、法兰和阀杆；检查过滤器差压；抽查传感器与阀门反馈</td><td>渗漏零容忍；压差达到报警值时切换过滤器并维护</td></tr>
+<tr><td>每季度</td><td>采样检测pH、电导率、浊度/颗粒、缓蚀剂和微生物；核对露点传感器；清洁冷源换热面</td><td>以OEM/冷却液供应商限值为准；禁止用汽车防冻液或未批准添加剂</td></tr>
+<tr><td>每半年</td><td>演练单泵/单电源/单冷源/通信故障；校验关键TT/PT/FT/PDIT/LT/Leak；检查膨胀预充</td><td>故障不中断冷却或在约定时间内降载；Cause &amp; Effect全部闭环</td></tr>
+<tr><td>每年/状态触发</td><td>板换性能评估、泵振动与绝缘、阀门全行程、热成像、UPS带载、压力边界检查</td><td>UA/流量能力下降&gt;10%、振动趋势异常或腐蚀指标超限即检修</td></tr>
+</table>
+<h3>7.3 典型异常处置</h3>
+<table>
+<tr><th>异常</th><th>立即动作</th><th>禁止事项/恢复条件</th></tr>
+<tr><td>确认漏液</td><td>限制补液、业务迁移；慢漏按复核流程，严重漏液立即隔离整柜接口</td><td>禁止盲目持续补液；修复、干燥、保压和漏液回路测试后方可复位</td></tr>
+<tr><td>低流量/低压差</td><td>验证阀位和过滤器差压，切备用泵，必要时功率封顶</td><td>禁止仅提高泵速掩盖堵塞/气阻；查明根因后恢复</td></tr>
+<tr><td>高供液温度</td><td>一次阀全开、投入备用冷源/蓄冷，请求IT降载</td><td>超过OEM极限不得继续满载；温度稳定且冷源冗余恢复后解除</td></tr>
+<tr><td>水质超限</td><td>隔离取样复核，检查补液来源、材料腐蚀和微生物，按批准工艺处理</td><td>禁止现场任意混液；换液前完成兼容性和废液处置评审</td></tr>
+</table>
+<div class="note"><strong>备件与工具：</strong>现场建议配置泵/驱动器关键件、过滤芯、阀执行器、TT/PT/Leak传感器、UQD密封件及OEM服务工具；另备新液/废液各30 L标识桶、吸液设备、接液盘、spill kit和经批准冷却液。所有液路维修执行LOTO、双人复核和洁净封堵。</div>
+<h3>7.4 关键术语说明</h3>
+<p class="small"><strong>LOTO：</strong>上锁挂牌，防止维修期间能量意外释放。　<strong>预测性维护：</strong>依据振动、电流、温差等趋势安排维护。　<strong>水质窗口：</strong>OEM允许的pH、电导率、颗粒、缓蚀剂和微生物范围。　<strong>保压：</strong>在规定压力和时间内验证系统密封性。　<strong>Spill kit：</strong>用于围堵、吸收和安全收集泄漏液的应急套件。</p>
+</section>
+
+<section id="implementation">
+<h2>8. 实施、验证与验收计划</h2>
+<table>
+<tr><th>阶段</th><th>必须完成的工作</th><th>输出物/通过标准</th></tr>
+<tr><td>OEM 数据冻结</td><td>取得具体整柜 OEM 的液冷负荷、流量、压差、水质、UQD和温度窗口</td><td>经 OEM 签字的 Interface Control Document；替换本报告估算值</td></tr>
+<tr><td>详细设计</td><td>P&ID、管路应力、逐支路水力平衡、NPSH、水锤、露点、全年能耗和气象模拟</td><td>施工图、设备数据表、控制 Cause & Effect、HAZOP</td></tr>
+<tr><td>CDU FAT</td><td>0/25/50/75/100%热负荷、泵切换、断电恢复、传感器故障、漏液联锁</td><td>稳态温控±0.5℃；流量/压差达标；无泄漏；通信完整</td></tr>
+<tr><td>现场 SAT</td><td>冲洗、颗粒度/水质、气密、注液排气、单机调试、故障演练</td><td>72 h连续运行；设计负荷下温度/压差稳定；告警闭环</td></tr>
+<tr><td>可靠性爬坡</td><td>分阶段上电25%→50%→75%→100%，趋势记录与热成像</td><td>无热点、无气阻、无异常补液；形成运行基线</td></tr>
+</table>
+<div class="note risk"><strong>高风险项：</strong>① OEM公开流量表未给出可直接与固定10K组合的回水温度，正式保证点必须由ICD闭合；② 27℃ FWS在高温高湿地区可能需要绝热辅助或Chiller，净能力须经逐时气象计算；③ UQD、冷板与工质材料兼容性必须按OEM规范；④ 2×200kW CDU公共母管、止回、隔离和群控仍须做单点故障审查。</div>
+<h3>8.1 参考来源</h3>
+<ul class="small">
+<li><a href="https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/components.html">NVIDIA, System Hardware &amp; Components — NVL72 AI Factory</a>：GB300 NVL72液冷架构、72 GPU、36 Grace CPU、9 NVSwitch Tray、最高142kW；访问日期2026-08-08。</li>
+<li><a href="https://docs.nvidia.com/pdf/dgx-spod-gb300-ra.pdf">NVIDIA, DGX SuperPOD GB300 Reference Architecture</a>：混合液冷、Tier 3/并发可维护与基础设施边界；访问日期2026-08-08。</li>
+<li><a href="https://lenovopress.lenovo.com/lp2357.pdf">Lenovo, NVIDIA GB300 NVL72 Rack Scale AI Product Guide, LP2357</a>：135kW TDP/155kW峰值、约90%液冷、DI水/PG25、W45及Table 27温度—流量—压降表；访问日期2026-08-08。</li>
+<li><a href="https://download.schneider-electric.com/files?p_Doc_Ref=RD110DSR0&amp;p_File_Name=RD110DSR3-GB300.pdf&amp;p_enDocType=Other+technical+guide">Schneider Electric, Reference Design 110 — GB300</a>：设施参考工况TCS 40/50℃、FWS 37/47℃、CDU N+1和5min续冷；非OEM机柜ICD。</li>
+<li>主流600kW级L2L CDU公开运维手册：水质、漏液检测、过滤维护、泵轮换及LOTO；访问日期2026-08-08。</li>
+<li>2025–2026年行业液冷架构公开材料：同源/非同源与高温/低温路径、L2A/L2L分工、比流量1.0–1.5 L/min·kW、过滤&lt;50μm、GPU液冷中断约90s、行级不锈钢二次侧环管及柜式/机架式CDU外形尺度。</li>
+<li>ASHRAE TC 9.9 / Liquid Cooling Guidelines、OCP Cooling Environments：温度等级、设施水/TCS边界与互操作原则。</li>
+</ul>
+<h3>8.2 版本更新记录</h3>
+<table>
+<tr><th>版本</th><th>日期</th><th>更新内容</th></tr>
+<tr><td>v1.0</td><td>2026-08-08</td><td>完成GB300单柜完整冷却系统、CDU、FWS、室外冷源和控制联锁初步设计。</td></tr>
+<tr><td><strong>v1.1</strong></td><td>2026-08-08</td><td>根据GB300内部芯片与Tray架构，新增18个计算Tray双液冷回路、9个NVSwitch支路、三级分区歧管、流量分配、压降预算以及阀泵优化。</td></tr>
+<tr><td><strong>v1.2</strong></td><td>2026-08-08</td><td>引入Lenovo具体产品水力表及Schneider客户参考架构，重构设计输入为OEM工况包；新增产品使用、巡检维护、异常处置及备件工具章节。</td></tr>
+<tr><td><strong>v1.3</strong></td><td>2026-08-08</td><td>在报告首页增加概述章节并整体重排章节编号；在每章末尾增加与本章内容对应的关键术语说明。</td></tr>
+<tr><td><strong>v1.4</strong></td><td>2026-08-08</td><td>完成数据、逻辑和系统性复审：分离OEM/FAT工况，增加PG25流量、3K板换UA、完整CDU N+1、5min热缓冲、模式化报警及OEM边界约束。</td></tr>
+<tr><td><strong>v1.5</strong></td><td>2026-08-08</td><td>同步修正总体P&amp;ID：TCS过滤后直接进入泵吸入母管，膨胀补液箱改为吸入侧支路，泵出口热液进入板换后再转为冷供液，并确认FWS逆流方向。</td></tr>
+<tr><td><strong>v1.6</strong></td><td>2026-08-08</td><td>统一图号、颜色、线型、边界和图注；纠正系统架构图TCS回液颜色；将OEM Zone明确为逻辑诊断分区；对未冻结Zone阀和旁通采用橙色虚线并增加设计状态说明。</td></tr>
+<tr><td><strong>v1.7</strong></td><td>2026-08-08</td><td>增加“5K端温差/ATD”专门注释及热端、冷端算例，明确端温差是板换两种流体在同一端的接近温差，不是TCS或FWS单回路的10K供回液温差。</td></tr>
+<tr><td><strong>v2.0</strong></td><td>2026-08-15</td><td>吸收行业液冷架构材料：增加同源/非同源与L2A/L2L选型、比流量标尺、90s中断耐受、行级SFN/歧管尺度，并按真实外形比例重绘机柜—CDU—冷源多部件图；正文不引用特定厂商中文品牌名。</td></tr>
+<tr><td><strong>v1.9</strong></td><td>2026-08-08</td><td>新增3.2节系统三维效果图（整体系统空间关系、计算托盘冷板与盲插界面、机柜歧管UQD界面）及3.4节效果图参照的行业实物来源清单，明确效果图使用限制与设计界面归属。</td></tr>
+<tr><td><strong>v1.8</strong></td><td>2026-08-08</td><td>在首页概述增加关键设计结果表，集中呈现负荷与OEM水力边界、总体架构、可用性、FAT保证点、关键设备初选及实施前强制闸门。</td></tr>
+</table>
+<h3>8.3 关键术语说明</h3>
+<p class="small"><strong>FAT：</strong>设备出厂前在制造商场地进行的工厂验收测试。　<strong>SAT：</strong>设备安装后在项目现场进行的验收测试。　<strong>HAZOP：</strong>系统化识别工艺偏差、原因和后果的危险与可操作性分析。　<strong>可靠性爬坡：</strong>分级提高负荷并建立正常运行基线。　<strong>可追溯性：</strong>需求、设计、测试结果和变更之间可双向核查。</p>
+</section>
+</main>
+<footer>文档编号 AIDC-GB300-SYS-001 · NVIDIA GB300 NVL72 冷却系统总体设计报告 v2.0 架构与尺度修订版 · 概念/FEED级。未经 OEM 数据冻结、厂家复核和详细工程设计，不得直接用于采购或施工。</footer>
+</div></body></html>

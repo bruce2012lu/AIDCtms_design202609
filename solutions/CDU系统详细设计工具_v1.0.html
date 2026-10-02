@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CDU 系统详细设计工具 v1.1</title>
+  <style>
+    :root{--navy:#102a46;--blue:#1d63c6;--teal:#087f70;--gold:#b67a12;--ink:#182536;--muted:#647386;--line:#d5dfeb;--bg:#edf2f7;--soft:#f7f9fc;--bad:#b42318}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+    .app{max-width:1500px;margin:auto;background:#fff;min-height:100vh;box-shadow:0 8px 30px #1232}
+    header{padding:28px 34px;color:#fff;background:linear-gradient(135deg,#091f36,#174f83 62%,#087f70)}
+    h1{font-size:28px;margin:5px 0}.sub{opacity:.88}.badge{display:inline-block;border:1px solid #ffffff66;border-radius:14px;padding:3px 9px;margin-right:5px;font-size:12px}
+    .toolbar{padding:12px 24px;display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fffffff0;backdrop-filter:blur(8px);z-index:4}
+    button,.filebtn{border:0;border-radius:6px;background:var(--blue);color:#fff;padding:9px 14px;font:inherit;font-weight:700;cursor:pointer}.secondary{background:#e7edf5!important;color:var(--navy)!important}.teal{background:var(--teal)!important}input[type=file]{display:none}
+    .layout{display:grid;grid-template-columns:430px 1fr;gap:18px;padding:18px 24px 34px}.panel{border:1px solid var(--line);border-radius:10px;overflow:hidden}.panel>h2{font-size:17px;margin:0;padding:12px 15px;background:var(--navy);color:#fff}
+    .group{padding:11px 14px;border-bottom:1px solid var(--line)}.group h3{font-size:14px;color:var(--blue);margin:0 0 8px}.formgrid{display:grid;grid-template-columns:1fr 122px;gap:7px 10px;align-items:center}
+    label{color:#35465b}input,select{width:100%;border:1px solid #bdcad9;border-radius:5px;padding:7px 8px;background:#fff}input:focus,select:focus{outline:2px solid #1d63c633;border-color:var(--blue)}
+    .hint{grid-column:1/-1;color:var(--muted);font-size:11px}.cards{display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:9px;margin-bottom:13px}.card{border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:8px;background:var(--soft);padding:10px}.card:nth-child(even){border-top-color:var(--teal)}.card .v{font-size:20px;font-weight:800;color:var(--navy)}.card .k{font-size:11px;color:var(--muted)}
+    section{border:1px solid var(--line);border-radius:9px;overflow:hidden;margin-bottom:13px}section h3{font-size:15px;margin:0;padding:10px 13px;background:#edf4fb;color:var(--navy)}
+    table{width:100%;border-collapse:collapse;font-size:13px}th,td{border-bottom:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top}th{background:#f7f9fc;color:#405166}tr:last-child td{border-bottom:0}
+    .ok{color:var(--teal);font-weight:700}.warn{color:var(--gold);font-weight:700}.bad{color:var(--bad);font-weight:700}.notes{padding:9px 14px}.notes li{margin:4px 0}.foot{background:#f5f7fa;padding:13px 24px;color:var(--muted);font-size:12px}
+    @media(max-width:1100px){.layout{grid-template-columns:1fr}.toolbar{position:static}.cards{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){header{padding:22px}.layout{padding:12px}.cards{grid-template-columns:1fr 1fr}.formgrid{grid-template-columns:1fr 110px}}
+    @media print{body{background:#fff}.app{box-shadow:none}.toolbar,.inputs{display:none}.layout{display:block;padding:0 18px}.cards{grid-template-columns:repeat(5,1fr)}section{break-inside:avoid}header{padding:16px 20px}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div><span class="badge">Detailed Sizing</span><span class="badge">L2L CDU</span><span class="badge">单相水基回路</span><span class="badge">GB300 预设</span><span class="badge">v1.1 溯源校核</span></div>
+    <h1>CDU 系统详细设计工具</h1>
+    <div class="sub">完成板式换热器、循环泵、管路、定压/膨胀、过滤、阀件、仪表、电控及接口的参数计算与规格书输出。GB300 单柜请先选平台预设；10 K 温升仅初算，正式运行服从 OEM 温度—流量表（Lenovo LP2357 Table 27）。</div>
+  </header>
+  <div class="toolbar">
+    <button onclick="calculate()">重新计算</button>
+    <label class="filebtn teal">导入总体设计 JSON<input id="overallFile" type="file" accept=".json"></label>
+    <button onclick="exportSpec()">导出 CDU 规格 JSON</button>
+    <button class="secondary" onclick="window.print()">打印 / PDF</button>
+    <button class="secondary" onclick="resetDefaults()">恢复默认值</button>
+  </div>
+  <div class="layout">
+    <aside class="panel inputs">
+      <h2>单台 CDU 设计输入</h2>
+      <div class="group">
+        <h3>A. 设计任务</h3>
+        <div class="formgrid">
+          <label for="preset">平台预设</label>
+          <select id="preset"><option value="generic">通用 L2L CDU（默认）</option><option value="gb300">GB300 NVL72 · CDU-200-GB300</option></select>
+          <label for="project">项目/型号</label><input id="project" value="CDU-450-L2L">
+          <label for="duty">额定换热量（kW）</label><input id="duty" type="number" min="10" value="450">
+          <label for="margin">换热设计裕量（%）</label><input id="margin" type="number" min="0" value="10">
+          <label for="units">整机冗余（台）</label>
+          <select id="units"><option value="n1">N+1（1用1备）</option><option value="n">N（无整机备用）</option><option value="2n">2N</option></select>
+          <label for="redundancy">单机泵冗余</label>
+          <select id="redundancy"><option value="2x100">2×100%（1用1备）</option><option value="3x50">3×50%（2用1备）</option><option value="none">1×100%（无冗余）</option></select>
+          <label for="installation">安装形态</label>
+          <select id="installation"><option>Row / In-Row</option><option>In-Rack</option><option>Side-Car</option><option>柜式 600×1200（单柜/小Pod）</option><option>机房级</option></select>
+          <div class="hint" id="presetHint">通用默认 450 kW 为行级柜式档位。GB300 单柜请选平台预设：液冷选型负荷 150 kW、单台 CDU 200 kW、2 台 N+1；峰值包络 155 kW（Lenovo EDP），NVIDIA RA 公开参考 142 kW，液/气约 90/10，不得按“全液冷”取消风侧。</div>
+        </div>
+      </div>
+      <div class="group">
+        <h3>B. 二次侧 TCS</h3>
+        <div class="formgrid">
+          <label for="fluid">工质</label><select id="fluid"><option value="water">去离子水</option><option value="pg25">25% 丙二醇</option><option value="eg30">30% 乙二醇</option></select>
+          <label for="ts2">CDU 供液（℃）</label><input id="ts2" type="number" value="32">
+          <label for="tr2">CDU 回液（℃）</label><input id="tr2" type="number" value="42">
+          <label for="terminalDp">服务器+Manifold 压降（kPa）</label><input id="terminalDp" type="number" min="0" value="90">
+          <label for="pipeDp">TCS 管路压降（kPa）</label><input id="pipeDp" type="number" min="0" value="35">
+          <label for="filterDp">过滤器终阻（kPa）</label><input id="filterDp" type="number" min="0" value="25">
+          <label for="valveDp">阀件/控制余量（kPa）</label><input id="valveDp" type="number" min="0" value="30">
+          <label for="velocity2">目标流速（m/s）</label><input id="velocity2" type="number" min=".3" step=".1" value="1.8">
+          <label for="tMaxFluid">接液件许用最高液温（℃）</label><input id="tMaxFluid" type="number" min="40" value="60">
+        </div>
+      </div>
+      <div class="group">
+        <h3>B2. OEM 机柜工况对照（Table 27）</h3>
+        <div class="formgrid">
+          <label for="oemMode">对照工况点</label>
+          <select id="oemMode"><option value="auto">自动匹配最接近供液温度</option><option value="off">关闭对照</option><option value="25">25℃ / 59 L/min</option><option value="30">30℃ / 71 L/min</option><option value="35">35℃ / 89 L/min</option><option value="40">40℃ / 119 L/min</option><option value="45">45℃ / 177 L/min</option></select>
+          <label for="rackLoad">机柜液冷负荷（kW）</label><input id="rackLoad" type="number" min="0" value="150">
+          <label for="minApproach">最小允许端温差（K）</label><input id="minApproach" type="number" min="0.5" step=".5" value="3">
+          <div class="hint">Lenovo LP2357 Table 27（2026-08-21 复核，置信度高）：入口 25/30/35/40/45℃ 对应 59/71/89/119/177 L/min、机柜压降 2.3/3.2/4.9/8.5/18.4 psi。流量必须成对查表，禁止用固定 10 K 温升反算。</div>
+        </div>
+      </div>
+      <div class="group">
+        <h3>C. 一次侧 FWS / 板换</h3>
+        <div class="formgrid">
+          <label for="ts1">FWS 供水（℃）</label><input id="ts1" type="number" value="27">
+          <label for="tr1">FWS 回水（℃）</label><input id="tr1" type="number" value="37">
+          <label for="fouling">污垢修正（%）</label><input id="fouling" type="number" min="0" max="50" value="15">
+          <label for="uValue">板换 U 值（W/m²K）</label><input id="uValue" type="number" min="500" value="3500">
+          <label for="pheDp1">板换一次侧允许压降（kPa）</label><input id="pheDp1" type="number" min="1" value="50">
+          <label for="pheDp2">板换二次侧允许压降（kPa）</label><input id="pheDp2" type="number" min="1" value="50">
+          <label for="designPressure">设计压力（bar）</label><input id="designPressure" type="number" min="1" value="10">
+        </div>
+      </div>
+      <div class="group">
+        <h3>D. 泵、电气与结构</h3>
+        <div class="formgrid">
+          <label for="pumpEff">泵效率（%）</label><input id="pumpEff" type="number" min="20" max="90" value="65">
+          <label for="motorEff">电机效率（%）</label><input id="motorEff" type="number" min="50" max="98" value="90">
+          <label for="npshMargin">NPSH 安全裕量（m）</label><input id="npshMargin" type="number" min=".5" step=".1" value="1.0">
+          <label for="systemVolume">外部 TCS 容积（L）</label><input id="systemVolume" type="number" min="0" value="800">
+          <label for="expansionPct">热膨胀/补液比例（%）</label><input id="expansionPct" type="number" min="1" value="8">
+          <label for="voltage">供电制式</label><select id="voltage"><option>AC 380V 3P+N+PE 50Hz</option><option>AC 400V 3P+N+PE 50Hz</option><option>AC 480V 3P+PE 60Hz</option></select>
+          <label for="controlRedundancy">控制冗余</label><select id="controlRedundancy"><option value="single">单 PLC + 双电源</option><option value="dual">双 PLC 热备 + 双电源</option></select>
+        </div>
+      </div>
+      <div class="group">
+        <h3>E. 材料、过滤与旁流</h3>
+        <div class="formgrid">
+          <label for="material">接液材质</label><select id="material"><option>316L 不锈钢 + 铜板换</option><option>全 316L 不锈钢</option><option>铜/黄铜体系</option></select>
+          <label for="filterMicron">主过滤精度（μm）</label><input id="filterMicron" type="number" min="1" value="25">
+          <label for="sideStream">旁流处理比例（% 主流量）</label><input id="sideStream" type="number" min="0" max="20" step=".5" value="2">
+          <label for="sideMicron">旁流精滤精度（μm）</label><input id="sideMicron" type="number" min="0.5" step=".5" value="5">
+          <label for="noise">噪声目标 dB(A)</label><input id="noise" type="number" min="30" value="72">
+          <div class="hint">本项目 TCS 主过滤取 25 μm（严于行业 &lt;50 μm 门槛）；OCP 液冷文献另有“投运 ≤25 μm、稳态 ≤10 μm”表述，稳态精滤由旁流回路承担。限值低于 OEM 规范时以 OEM 为准。</div>
+        </div>
+      </div>
+      <div class="group">
+        <h3>F. 机房环境与露点</h3>
+        <div class="formgrid">
+          <label for="dewMode">露点取值方式</label>
+          <select id="dewMode"><option value="calc">由干球 + 相对湿度计算</option><option value="direct">直接输入露点</option></select>
+          <label for="roomDb">机房干球（℃）</label><input id="roomDb" type="number" step=".1" value="24">
+          <label for="roomRh">相对湿度（%）</label><input id="roomRh" type="number" min="1" max="100" step="1" value="60">
+          <label for="dewpoint">露点（℃，直接输入）</label><input id="dewpoint" type="number" step=".1" value="18">
+          <div class="hint">露点按 Magnus/Sonntag 式计算：γ=ln(RH/100)+bT/(c+T)，Td=cγ/(b−γ)，b=17.62、c=243.12℃。要求 TCS 供液 ≥ 露点+2 K（联锁），建议 ≥ 露点+3 K（动态下限）。</div>
+        </div>
+      </div>
+      <div class="group">
+        <h3>G. 定压、膨胀与断电续冷</h3>
+        <div class="formgrid">
+          <label for="tMinFluid">最低液温（℃）</label><input id="tMinFluid" type="number" value="10">
+          <label for="prechargeBar">膨胀罐预充表压（bar）</label><input id="prechargeBar" type="number" min=".5" step=".1" value="2.0">
+          <label for="maxOpBar">最高运行表压（bar）</label><input id="maxOpBar" type="number" min="1" step=".1" value="4.0">
+          <label for="reserveL">最低水封/储备液量（L）</label><input id="reserveL" type="number" min="0" value="15">
+          <label for="rideMin">断电续冷时间（min）</label><input id="rideMin" type="number" min="0" step=".5" value="5">
+          <label for="ridePower">续冷期间热负荷（kW）</label><input id="ridePower" type="number" min="0" value="160">
+          <label for="rideDt">续冷允许温升（K）</label><input id="rideDt" type="number" min="1" value="10">
+          <div class="hint">Schneider RD110（GB300 设施参考设计）写明热存储 5 min、CDU 与设施水泵由 UPS 供电、冷却 UPS 为 2N。续冷水量为工程估算，最终须做瞬态计算并执行 5 min 断电试验。</div>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="cards">
+        <div class="card"><div class="v" id="rDuty">—</div><div class="k">设计换热量</div></div>
+        <div class="card"><div class="v" id="rFlow">—</div><div class="k">TCS 额定流量</div></div>
+        <div class="card"><div class="v" id="rUa">—</div><div class="k">换热器 UA</div></div>
+        <div class="card"><div class="v" id="rPump">—</div><div class="k">单工作泵电功率</div></div>
+        <div class="card"><div class="v" id="rDn">—</div><div class="k">二次侧主管</div></div>
+      </div>
+      <section><h3>1. 设计工况与热平衡</h3><table><tbody id="thermalRows"></tbody></table></section>
+      <section><h3>2. OEM 机柜工况对照与换热能力校核（Lenovo Table 27）</h3><table><thead><tr><th>入口温度</th><th>OEM 流量</th><th>机柜压降</th><th>负荷下温升 / 回液温度</th><th>3 K 端温差所需 FWS 供水</th><th>当前 FWS 可行性 / 所需 UA</th></tr></thead><tbody id="oemRows"></tbody></table><div class="notes" id="oemNote"></div></section>
+      <section><h3>3. 板式换热器详细规格</h3><table><thead><tr><th>项目</th><th>计算/选型值</th><th>采购规格建议</th></tr></thead><tbody id="pheRows"></tbody></table></section>
+      <section><h3>4. 二次侧循环泵与水力参数</h3><table><thead><tr><th>项目</th><th>计算/选型值</th><th>规格建议</th></tr></thead><tbody id="pumpRows"></tbody></table></section>
+      <section><h3>5. 定压、膨胀、补液、排气与断电续冷</h3><table><thead><tr><th>项目</th><th>计算值</th><th>设计要求</th></tr></thead><tbody id="pressRows"></tbody></table></section>
+      <section><h3>6. 露点与凝露校核</h3><table><thead><tr><th>项目</th><th>计算值</th><th>判定依据</th></tr></thead><tbody id="dewRows"></tbody></table></section>
+      <section><h3>7. 管路、过滤、旁流与阀件</h3><table><thead><tr><th>部件</th><th>数量</th><th>关键参数及规格</th><th>设计要求</th></tr></thead><tbody id="mechRows"></tbody></table></section>
+      <section><h3>8. 仪表与控制 I/O 清单</h3><table><thead><tr><th>测点/设备</th><th>数量</th><th>量程/精度</th><th>接口/联锁</th></tr></thead><tbody id="ioRows"></tbody></table></section>
+      <section><h3>9. 电气、控制与整机规格汇总</h3><table><tbody id="systemRows"></tbody></table></section>
+      <section><h3>10. 校核结论与工程风险</h3><div class="notes"><ul id="warnings"></ul></div></section>
+      <section><h3>11. 官方数据来源与置信度</h3><table><thead><tr><th>参数</th><th>本工具取值/口径</th><th>来源 URL</th><th>访问日期</th><th>置信度</th></tr></thead><tbody id="srcRows"></tbody></table></section>
+    </main>
+  </div>
+  <div class="foot">适用范围：液-液式、单相水基 CDU 的方案/初步设计。计算不包含厂家专有板片型式修正、完整泵曲线、NPSHa 现场标高、瞬态水锤、结构应力与控制软件功能安全验证。采购前必须由换热器/泵厂家复核工作点，并完成 FAT/SAT。<br>版本 v1.1 · 2026-08-21。数据来源：<a href="https://lenovopress.lenovo.com/lp2357.pdf">Lenovo LP2357</a>（135 kW TDP / 155 kW 峰值、约 90% 液冷、Table 27 温度—流量—压降）、<a href="https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/components.html">NVIDIA NVL72 AI Factory</a>（整柜最高 142 kW、Tray 级与 Rack 级漏液检测）、<a href="https://download.schneider-electric.com/files?p_Doc_Ref=RD110DSR0&amp;p_File_Name=RD110DSR3-GB300.pdf&amp;p_enDocType=Other+technical+guide">Schneider RD110</a>（TCS 40/50℃、FWS 37/47℃、CDU N+1、续冷 5 min、冷却 UPS 2N）、<a href="https://www.ashrae.org/File%20Library/Technical%20Resources/Bookstore/WhitePaper_TC099-WaterCooledServers.pdf">ASHRAE TC 9.9</a>（TCS/FWS 水质分表、W 类水温等级）、<a href="https://www.opencompute.org/documents/ocp-acs-liquid-cooling-cold-plate-requirements-pdf">OCP ACS Cold Plate Requirements</a>（TCS/FWS 隔离、TCS 典型 140–450 kPa、过滤与漏检、试压倍数）。90 s 液冷中断窗口为行业经验值，非 NVIDIA/OEM 官方秒级指标。无法核实项一律标“待核实/待订单 ICD 冻结”，不得当作采购保证值。</div>
+</div>
+<script>
+  const $=id=>document.getElementById(id);
+  const fields=["project","duty","margin","units","redundancy","installation","fluid","ts2","tr2","terminalDp","pipeDp","filterDp","valveDp","velocity2","tMaxFluid","oemMode","rackLoad","minApproach","ts1","tr1","fouling","uValue","pheDp1","pheDp2","designPressure","pumpEff","motorEff","npshMargin","systemVolume","expansionPct","voltage","controlRedundancy","material","filterMicron","sideStream","sideMicron","noise","dewMode","roomDb","roomRh","dewpoint","tMinFluid","prechargeBar","maxOpBar","reserveL","rideMin","ridePower","rideDt"];
+  const defaults={};fields.forEach(id=>defaults[id]=$(id).value);defaults.preset="generic";
+  const fluids={water:{name:"去离子水",rho:995,cp:4.18,exp:1.7},pg25:{name:"25% 丙二醇",rho:1025,cp:3.78,exp:2.8},eg30:{name:"30% 乙二醇",rho:1040,cp:3.72,exp:3.0}};
+  const num=id=>Number($(id).value)||0;
+  const fmt=(v,d=1)=>Number(v).toLocaleString("zh-CN",{maximumFractionDigits:d,minimumFractionDigits:d});
+  const flow=(q,dt,f)=>q*3600/(f.rho*f.cp*dt);
+  const diameter=(m3h,v)=>Math.sqrt(4*(m3h/3600)/(Math.PI*v))*1000;
+  const dn=d=>[15,20,25,32,40,50,65,80,100,125,150,200,250,300,350,400,450,500,600].find(x=>x>=d)||Math.ceil(d/100)*100;
+  const motorSize=p=>[.37,.55,.75,1.1,1.5,2.2,3,4,5.5,7.5,11,15,18.5,22,30,37,45,55,75,90,110,132,160,200,250].find(x=>x>=p*1.1)||Math.ceil(p/50)*50;
+  function row(a,b,c=""){return `<tr><td>${a}</td><td><strong>${b}</strong></td><td>${c}</td></tr>`}
+  const PSI2KPA=6.894757;
+  // Lenovo LP2357 Table 27（整柜入口温度—流量—压降，成对查表；2026-08-21 复核，置信度高）
+  const OEM=[{t:25,lpm:59,psi:2.3},{t:30,lpm:71,psi:3.2},{t:35,lpm:89,psi:4.9},{t:40,lpm:119,psi:8.5},{t:45,lpm:177,psi:18.4}];
+  function oemPick(){const m=$("oemMode").value;if(m==="off")return null;if(m==="auto")return OEM.reduce((a,b)=>Math.abs(b.t-num("ts2"))<Math.abs(a.t-num("ts2"))?b:a);return OEM.find(x=>x.t===Number(m))||null}
+  // Magnus/Sonntag 露点
+  function dewPoint(t,rh){const b=17.62,c=243.12,g=Math.log(Math.max(1,Math.min(100,rh))/100)+b*t/(c+t);return c*g/(b-g)}
+  function roomDew(){return $("dewMode").value==="calc"?dewPoint(num("roomDb"),num("roomRh")):num("dewpoint")}
+  function lmtdOf(a,b){return a>0&&b>0?(Math.abs(a-b)<.001?a:(a-b)/Math.log(a/b)):0}
+  function applyPreset(){
+    const p=$("preset").value;
+    if(p==="gb300"){
+      $("project").value="CDU-200-GB300";$("duty").value=200;$("margin").value=10;$("units").value="n1";$("redundancy").value="2x100";
+      $("installation").value="柜式 600×1200（单柜/小Pod）";$("fluid").value="water";
+      $("ts2").value=32;$("tr2").value=42;$("ts1").value=27;$("tr1").value=37;
+      $("terminalDp").value=127;$("pipeDp").value=20;$("filterDp").value=25;$("valveDp").value=15;
+      $("pheDp1").value=40;$("pheDp2").value=40;$("velocity2").value=1.6;$("tMaxFluid").value=60;
+      $("oemMode").value="auto";$("rackLoad").value=150;$("minApproach").value=3;
+      $("fouling").value=15;$("uValue").value=3500;$("designPressure").value=10;
+      $("filterMicron").value=25;$("sideStream").value=2;$("sideMicron").value=5;
+      $("dewMode").value="calc";$("roomDb").value=24;$("roomRh").value=60;$("dewpoint").value=18;
+      $("ridePower").value=160;$("rideMin").value=5;$("rideDt").value=10;$("systemVolume").value=400;
+      $("presetHint").textContent="GB300 预设：单台 200 kW、2 台 N+1、液冷选型负荷 150 kW；FAT-A 为 TCS 32/42℃ ↔ FWS 27/37℃（5 K 端温差），FAT-B 为 40/50 ↔ 37/47℃（3 K 端温差、污堵 UA≥66.7 kW/K）。机柜压降默认取 Table 27 最不利 45℃ 点 18.4 psi≈127 kPa。FAT-A/B 是 CDU 平台工况，不等同于机柜运行点。";
+    }else{
+      ["project","duty","margin","units","redundancy","installation","fluid","ts2","tr2","ts1","tr1","terminalDp","pipeDp","filterDp","valveDp","pheDp1","pheDp2","velocity2","tMaxFluid","oemMode","rackLoad","minApproach","filterMicron","sideStream","sideMicron","systemVolume","ridePower","rideMin","rideDt"].forEach(id=>$(id).value=defaults[id]);
+      $("presetHint").textContent="通用默认 450 kW 为行级柜式档位。GB300 单柜请选平台预设：液冷选型负荷 150 kW、单台 CDU 200 kW、2 台 N+1；峰值包络 155 kW（Lenovo EDP），NVIDIA RA 公开参考 142 kW，液/气约 90/10，不得按“全液冷”取消风侧。";
+    }
+    calculate();
+  }
+  function calculate(){
+    const f=fluids[$("fluid").value], qRated=num("duty"), qDesign=qRated*(1+num("margin")/100);
+    const dt2=num("tr2")-num("ts2"),dt1=num("tr1")-num("ts1"),safeDt2=Math.max(dt2,.1),safeDt1=Math.max(dt1,.1);
+    const flow2=flow(qRated,safeDt2,f),flow2Design=flow(qDesign,safeDt2,f),flow1=flow(qRated,safeDt1,fluids.water),flow1Design=flow(qDesign,safeDt1,fluids.water);
+    const d2=diameter(flow2Design,num("velocity2")),dn2=dn(d2),d1=diameter(flow1Design,2),dn1=dn(d1);
+    const deltaA=num("tr2")-num("tr1"),deltaB=num("ts2")-num("ts1");
+    const lmtd=deltaA>0&&deltaB>0?(Math.abs(deltaA-deltaB)<.001?deltaA:(deltaA-deltaB)/Math.log(deltaA/deltaB)):0;
+    const ua=lmtd>0?qDesign/lmtd:0,area=ua*1000/Math.max(num("uValue"),1)*(1+num("fouling")/100);
+    const dpTotal=num("terminalDp")+num("pipeDp")+num("filterDp")+num("valveDp")+num("pheDp2");
+    const head=dpTotal*1000/(f.rho*9.80665),hydraulic=flow2Design/3600*dpTotal*1000/1000;
+    let pumpCount=1,share=1,pumpText="1×100%";
+    if($("redundancy").value==="2x100"){pumpCount=2;share=1;pumpText="2×100%（1用1备）"}
+    if($("redundancy").value==="3x50"){pumpCount=3;share=.5;pumpText="3×50%（2用1备）"}
+    const eachFlow=flow2Design*share,eachHyd=hydraulic*share,shaft=eachHyd/(num("pumpEff")/100),electric=shaft/(num("motorEff")/100),motor=motorSize(electric);
+    const totalVolume=num("systemVolume")+Math.max(80,qRated*.25),tank=Math.max(50,totalVolume*num("expansionPct")/100*1.25);
+    const pipePressure=Math.max(num("designPressure")*1.5,num("designPressure")+5);
+    const filterAreaFlow=flow2Design*1.25;
+    const current=motor*1000/(Math.sqrt(3)*380*.88);
+    const controls=$("controlRedundancy").value==="dual"?"双 PLC 热备 + 双 24VDC 电源":"单 PLC + 双 24VDC 电源";
+    const fit=lmtd>0&&deltaA>0&&deltaB>0;
+    // ── 定压 / 膨胀 / 补液 ──
+    const expPct=f.exp*Math.max(0,num("tMaxFluid")-num("tMinFluid"))/50;
+    const expVol=totalVolume*expPct/100;
+    const pAbsPre=num("prechargeBar")+1.013,pAbsMax=num("maxOpBar")+1.013;
+    const accFactor=pAbsMax>pAbsPre?1-pAbsPre/pAbsMax:0;
+    const tankCalc=accFactor>0?(expVol+num("reserveL"))/accFactor:0;
+    const tankSel=[25,35,50,80,100,150,200,300,400,500,600,800,1000].find(x=>x>=tankCalc)||Math.ceil(tankCalc/100)*100;
+    // ── 断电续冷有效水量 ──
+    const rideVol=num("rideDt")>0?num("ridePower")*num("rideMin")*60/(fluids.water.rho*fluids.water.cp*num("rideDt"))*1000:0;
+    // ── 旁流处理 ──
+    const sideFlow=flow2Design*num("sideStream")/100;
+    // ── 露点 ──
+    const dp=roomDew(),dewMargin=num("ts2")-dp;
+    // ── OEM Table 27 对照 ──
+    const pick=oemPick(),minAp=Math.max(.1,num("minApproach")),rackQ=num("rackLoad");
+    const oemCalc=OEM.map(p=>{
+      const v=p.lpm*.06,kpa=p.psi*PSI2KPA,dtImp=rackQ>0?rackQ*3600/(v*f.rho*f.cp):0,trImp=p.t+dtImp;
+      const minFws=p.t-minAp,cold=p.t-num("ts1"),hot=trImp-num("tr1"),lm=lmtdOf(hot,cold),ua=lm>0?rackQ/lm:0;
+      return{...p,v,kpa,dtImp,trImp,minFws,cold,hot,lm,ua,ok:num("ts1")<=minFws+1e-9};
+    });
+    const dpFixed=num("pipeDp")+num("filterDp")+num("valveDp")+num("pheDp2");
+    const worst=oemCalc.reduce((a,b)=>b.kpa>a.kpa?b:a),dpWorst=worst.kpa+dpFixed;
+    const oemFlowRef=pick?pick.lpm*.06:0;
+    // 对照必须同口径：用“机柜液冷负荷 + 当前温升”反算的单柜流量，而不是整台 CDU 流量
+    const rackFlow10K=rackQ>0&&dt2>0?flow(rackQ,safeDt2,f):0;
+    const oemDev=oemFlowRef>0&&rackFlow10K>0?Math.abs(rackFlow10K-oemFlowRef)/oemFlowRef:0;
+    const trMax=Math.max(...oemCalc.map(x=>x.trImp));
+
+    $("rDuty").textContent=fmt(qDesign,0)+" kW";
+    $("rFlow").textContent=fmt(flow2Design,1)+" m³/h";
+    $("rUa").textContent=fit?fmt(ua,1)+" kW/K":"不成立";
+    $("rPump").textContent=fmt(electric,1)+" kW";
+    $("rDn").textContent="DN"+dn2;
+    $("thermalRows").innerHTML=
+      row("额定 / 设计换热量",`${fmt(qRated,0)} / ${fmt(qDesign,0)} kW`,`已计 ${fmt(num("margin"),0)}% 裕量`)+
+      row("TCS 工况",`${fmt(num("ts2"),1)} → ${fmt(num("tr2"),1)}℃；ΔT=${fmt(dt2,1)} K`,`${f.name}；设计流量 ${fmt(flow2Design,1)} m³/h`)+
+      row("FWS 工况",`${fmt(num("ts1"),1)} → ${fmt(num("tr1"),1)}℃；ΔT=${fmt(dt1,1)} K`,`设计流量 ${fmt(flow1Design,1)} m³/h`)+
+      row("端温差",`热端 ${fmt(deltaA,1)} K / 冷端 ${fmt(deltaB,1)} K`,fit?"温度链成立":"温度交叉，工况不可实现")+
+      row("对数平均温差 LMTD",fit?fmt(lmtd,2)+" K":"—","逆流板式换热器初算")+
+      row("整机冗余",`${$("units").options[$("units").selectedIndex].text}`,`单机 ${pumpText}；任一整机退出不得中断机柜冷却`);
+    // ── 第 2 节：OEM 工况对照 ──
+    $("oemRows").innerHTML=oemCalc.map(x=>{
+      const sel=pick&&pick.t===x.t;
+      const cls=x.ok?"ok":"bad";
+      const uaTxt=x.lm>0?`${fmt(x.ua,1)} kW/K`:"温度交叉，不可行";
+      const trCls=x.trImp>num("tMaxFluid")?"bad":"";
+      return `<tr${sel?' style="background:#eef4fb"':''}><td>${sel?"<strong>▶ ":""}${x.t}℃${sel?"</strong>":""}</td><td>${x.lpm} L/min<br>${fmt(x.v,2)} m³/h</td><td>${x.psi} psi<br>${fmt(x.kpa,1)} kPa</td><td>ΔT=${fmt(x.dtImp,1)} K<br><span class="${trCls}">回液 ${fmt(x.trImp,1)}℃</span></td><td>≤${fmt(x.minFws,1)}℃</td><td class="${cls}">${x.ok?"可行":"需降低 FWS 供水"}<br><span style="font-weight:400;color:#647386">所需 UA ${uaTxt}</span></td></tr>`;
+    }).join("");
+    $("oemNote").innerHTML=`<ul><li class="warn">上表流量与压降为 <strong>Lenovo LP2357 Table 27</strong> 公开成对值（置信度高），必须成对查表；ΔT 与回液温度是按“机柜液冷负荷 ${fmt(rackQ,0)} kW + ${f.name}”反算的<strong>推断值</strong>，用于一致性校核，<strong>不是 OEM 声明的回水温度</strong>，须由订单 ICD 冻结。</li>`
+      +`<li class="${trMax>num("tMaxFluid")?"bad":"ok"}">按 ${fmt(rackQ,0)} kW 反算，Table 27 五个工况点的回液温度落在 ${fmt(Math.min(...oemCalc.map(x=>x.trImp)),1)}–${fmt(trMax,1)}℃，接近恒定，说明该表更像“限定机柜出液温度”的曲线，而非固定 ΔT；${trMax>num("tMaxFluid")?`最高回液 ${fmt(trMax,1)}℃ <strong>超过</strong>接液件许用 ${fmt(num("tMaxFluid"),0)}℃，泵、垫片与板换必须按更高液温选型，或由 ICD 给出实际同时负荷。`:`最高回液 ${fmt(trMax,1)}℃ 未超过接液件许用 ${fmt(num("tMaxFluid"),0)}℃。`}</li>`
+      +`<li class="warn">端温差可行性按“FWS 供水 ≤ 机柜入口温度 − ${fmt(minAp,1)} K”判定。当前 FWS 供水 ${fmt(num("ts1"),1)}℃ 可支持的最低机柜入口温度为 ${fmt(num("ts1")+minAp,1)}℃；更低的入口温度点必须另配低温冷源，不得靠提高板换面积解决温度交叉。</li></ul>`;
+    $("pheRows").innerHTML=
+      row("额定能力",`≥${fmt(qDesign,0)} kW`,`在 FWS ${fmt(num("ts1"),1)}/${fmt(num("tr1"),1)}℃、TCS ${fmt(num("ts2"),1)}/${fmt(num("tr2"),1)}℃工况保证`)+
+      row("换热器 UA",fit?`≥${fmt(ua,1)} kW/K`:"工况无解","厂家选型须按板片型式修正")+
+      row("估算有效换热面积",fit?`≥${fmt(area,1)} m²`:"—",`U=${fmt(num("uValue"),0)} W/m²K；含 ${fmt(num("fouling"),0)}% 污垢修正`)+
+      row("一次/二次侧流量",`${fmt(flow1Design,1)} / ${fmt(flow2Design,1)} m³/h`,`喷嘴初选 DN${dn1} / DN${dn2}`)+
+      row("允许压降",`${fmt(num("pheDp1"),0)} / ${fmt(num("pheDp2"),0)} kPa`,`一次/二次侧，终值以厂家计算书为准`)+
+      row("材质与结构",$("material").value,`设计压力 ${fmt(num("designPressure"),1)} bar；试验压力 ≥${fmt(pipePressure,1)} bar`)+
+      row("配置建议","1 台可拆式/钎焊式 PHE","要求排气、排液、旁通、隔离阀；关键场景可 2×50% 或 2×100%");
+    $("pumpRows").innerHTML=
+      row("泵配置",pumpText,`单泵设计流量 ${fmt(eachFlow,1)} m³/h`)+
+      row("设计压差 / 扬程",`${fmt(dpTotal,0)} kPa / ${fmt(head,1)} mH₂O`,`含服务器、管路、脏过滤器、阀件和板换`)+
+      row("单泵水力 / 轴功率",`${fmt(eachHyd,1)} / ${fmt(shaft,1)} kW`,`泵效率 ${fmt(num("pumpEff"),0)}%`)+
+      row("单泵输入功率",`${fmt(electric,1)} kW`,`建议电机 ${fmt(motor,1)} kW，IE4 + VFD`)+
+      row("泵型","屏蔽泵或磁力驱动离心泵","无机械密封；变频；工作点位于高效区 80%–110%")+
+      row("NPSH 采购要求",`NPSHa ≥ NPSHr + ${fmt(num("npshMargin"),1)} m`,`NPSHa 需结合储液箱液位、温度、海拔和吸入管损失复核`)+
+      row("OEM 对照点水力",pick?`${fmt(pick.psi*PSI2KPA+dpFixed,0)} kPa @ ${fmt(oemFlowRef,2)} m³/h（${pick.t}℃ 点）`:"未启用对照",pick?`机柜 ${fmt(pick.psi*PSI2KPA,1)} + 管路 ${fmt(num("pipeDp"),0)} + 过滤终阻 ${fmt(num("filterDp"),0)} + 阀件 ${fmt(num("valveDp"),0)} + 板换 ${fmt(num("pheDp2"),0)} kPa`:"选择 Table 27 工况点后计算")+
+      row("OEM 最不利点水力",`${fmt(dpWorst,0)} kPa @ ${fmt(worst.v,2)} m³/h（${worst.t}℃ 点）`,`Table 27 全表扫描，机柜压降最大 ${fmt(worst.kpa,1)} kPa。<strong>机外可用余压 = 泵总差压 − CDU 内部损失</strong>，须另行水力闭合；同时校核泵关死点压力与机柜入口最大绝压`)+
+      row("控制模式","供液温度 + 远端差压闭环；OEM 入口温度查表前馈","入口流量、差压与绝对压力三重限幅；不得以盲目升速掩盖堵塞或气阻")+
+      row("变频控制","VFD 调速；转速设斜坡与最小值","最低转速须保证泵最小流量与板换最低流速；避免长期低流速结垢")+
+      row("泵冗余与切换",`${pumpText}；重叠切换目标 ≤15 s，硬限 30 s`,"GPU 冷板可中断窗口约 90 s（行业经验值，非官方秒级指标）；切换期间流量不得低于 OEM 下限；不预设 &lt;1 s")+
+      row("泵轮换与防卡转","每周或累计 100 h 先到者轮换；备用泵每日低速防卡转","按振动、电流与效率趋势做预测性维护；均衡两台寿命并提前发现备用泵不可用");
+    // ── 第 5 节：定压 / 膨胀 / 补液 / 续冷 ──
+    $("pressRows").innerHTML=
+      row("系统估算总容积",`${fmt(totalVolume,0)} L`,`外部 TCS ${fmt(num("systemVolume"),0)} L + CDU 本体估算 ${fmt(Math.max(80,qRated*.25),0)} L；机柜侧实际容积属 OEM 数据，<strong>待 ICD 冻结</strong>`)+
+      row("工质热膨胀量",`${fmt(expVol,1)} L（约 ${fmt(expPct,2)}%）`,`${f.name}，${fmt(num("tMinFluid"),0)}→${fmt(num("tMaxFluid"),0)}℃；膨胀率取工程近似，最终按冷却液厂家密度曲线`)+
+      row("膨胀罐接受系数",`${fmt(accFactor,3)}`,`1 − p预充abs/p最高abs = 1 − ${fmt(pAbsPre,2)}/${fmt(pAbsMax,2)}（绝压，bar）`)+
+      row("膨胀罐有效容积",accFactor>0?`计算 ≥${fmt(tankCalc,0)} L；选型 ${fmt(tankSel,0)} L`:"参数不成立",`= (膨胀量 + 储备 ${fmt(num("reserveL"),0)} L) ÷ 接受系数；闭式隔膜式，<strong>不得承担蓄冷功能</strong>`)+
+      row("定压策略",`静态充液压力 ${fmt(num("prechargeBar"),1)} bar(g)；最高运行 ${fmt(num("maxOpBar"),1)} bar(g)`,"膨胀罐接泵吸入侧低压稳定点；保证最高点正压且不超机柜入口 MAWP；PSV 整定低于最弱部件 MAWP")+
+      row("补液",`自动补液 + 防倒流；LT/LSLL/LSH`,"仅使用 OEM 批准新液；补液频次作为泄漏诊断指标，频繁补液报警，不得仅复位告警")+
+      row("排气/脱气","高点自动排气阀 + 吸入侧脱气支路","注液后低速循环分区排气；禁止靠猛升速“冲气”；气阻可耐受窗口约 30–90 s")+
+      row("断电续冷有效水量",`≥${fmt(rideVol,0)} L`,`= ${fmt(num("ridePower"),0)} kW × ${fmt(num("rideMin"),1)} min ÷ (ρ·cp·${fmt(num("rideDt"),0)} K)；RD110 参考热存储 5 min、CDU 与设施泵上 UPS、冷却 UPS 2N；须做瞬态校核并执行断电试验`)+
+      row("UPS 供电范围","至少 1 台 TCS 泵、主控与安全继电器、关键 TT/PT/FT/PDIT/Leak、HMI/通信及必要阀执行器","按实际输入功率、VFD 效率、重叠切泵冲击与电池末端电压计算 kVA/kWh，不以电机铭牌简单相加");
+    // ── 第 6 节：露点校核 ──
+    const dewCls=dewMargin<2?"bad":dewMargin<3?"warn":"ok";
+    $("dewRows").innerHTML=
+      row("露点取值方式",$("dewMode").value==="calc"?`由干球 ${fmt(num("roomDb"),1)}℃ / RH ${fmt(num("roomRh"),0)}% 计算`:"直接输入","Magnus/Sonntag：γ=ln(RH/100)+bT/(c+T)，Td=cγ/(b−γ)，b=17.62、c=243.12℃")+
+      row("机房露点",`${fmt(dp,1)}℃`,$("dewMode").value==="calc"?"建议同时接入 BMS 实时露点作为控制输入":"应由机房实测或 BMS 提供，不得沿用设计值")+
+      row("TCS 供液露点裕量",`<span class="${dewCls}">${fmt(dewMargin,1)} K</span>`,"要求 ≥2 K（联锁限幅），建议 ≥3 K（动态下限）")+
+      row("允许的最低供液温度",`${fmt(dp+3,1)}℃（建议）／ ${fmt(dp+2,1)}℃（联锁）`,"控制器须以露点+3 K 作为供液设定动态下限；低裕量时自动提高设定并报警")+
+      row("凝露风险部位","CDU 内低温管段、板换一次侧接管、FWS 供水管、机柜供液软管与歧管","低于露点的一次侧管段必须保温并设凝水收集；CDU 底盘接液盘与漏液检测不得与凝水误报混淆")+
+      row("OEM 温度窗约束",`Lenovo datasheet 暖水 18–45℃；Switch Tray 声明 2–50℃（W45）`,"18℃ 与 2℃ 均须先做露点校核，不是推荐运行点；W 类是水温等级，不是水质等级");
+    $("mechRows").innerHTML=
+      `<tr><td>TCS 主供/回管</td><td>各 1</td><td>DN${dn2}；PN${Math.ceil(num("designPressure"))}；设计流速 ${fmt(flow2Design/3600/(Math.PI*Math.pow(dn2/1000,2)/4),2)} m/s</td><td>${$("material").value}；高点排气、低点排液</td></tr>`+
+      `<tr><td>FWS 接管</td><td>各 1</td><td>DN${dn1}；${fmt(flow1Design,1)} m³/h；PN${Math.ceil(num("designPressure"))}</td><td>配置隔离阀、Y 型过滤器及调节阀</td></tr>`+
+      `<tr><td>膨胀/补液/脱气箱</td><td>1</td><td>有效容积 ≥${fmt(Math.max(tank,tankCalc),0)} L（选型 ${fmt(tankSel,0)} L）；LT + LSLL/LSL/LSH</td><td>系统估算总容积 ${fmt(totalVolume,0)} L；闭式隔膜；接泵吸入侧支路；不得承担蓄冷</td></tr>`+
+      `<tr><td>主过滤器（双联）</td><td>2 腔（在线切换）</td><td>${fmt(num("filterMicron"),0)} μm 绝对精度；额定流量 ≥${fmt(filterAreaFlow,1)} m³/h；洁净 ΔP ≤5 kPa、报警 20 kPa、切换/终阻 ${fmt(num("filterDp"),0)} kPa</td><td>PDIT 监测污堵；<strong>禁止设置绕过滤芯直通负载的未过滤旁路</strong>；Beta 比/纳污量按 ISO 16889 或等效</td></tr>`+
+      `<tr><td>旁流精处理回路</td><td>1</td><td>旁流量 ${fmt(sideFlow,2)} m³/h（主流量 ${fmt(num("sideStream"),1)}%）；精滤 ${fmt(num("sideMicron"),1)} μm；DI 回路可加混床树脂罐</td><td>从泵出口取、回吸入侧；承担 OCP“稳态 ≤10 μm”与电导率控制；树脂/滤芯更换不影响主回路</td></tr>`+
+      `<tr><td>水质在线监测</td><td>1 套</td><td>电导率（DI 回路 0.2–20 μS/cm 窗）、pH 8.0–9.5、浊度/颗粒；可选 ORP</td><td>ASHRAE TCS 表；限值低于 OEM 规范时以 OEM 为准；季度取样化验复核，超限先复核再处理</td></tr>`+
+      `<tr><td>安全泄压阀</td><td>1</td><td>整定约 ${fmt(num("designPressure")*.9,1)} bar；排量由堵转/热膨胀工况核定</td><td>排至安全收集箱，不得直接排向 IT 设备</td></tr>`+
+      `<tr><td>电动调节阀</td><td>1+1 旁通</td><td>一次侧二通阀；等百分比；压差等级 ≥${fmt(num("designPressure"),0)} bar</td><td>温度 PID；建议阀权度 0.3–0.5</td></tr>`+
+      `<tr><td>止回/隔离/排气阀</td><td>按 P&ID</td><td>泵出口止回；泵/PHE/过滤器双侧隔离；自动排气</td><td>所有维护件可在线隔离更换</td></tr>`+
+      `<tr><td>接液软管/UQD</td><td>按机柜接口</td><td>流量与 DN 按支路；零滴漏；耐压 ≥${fmt(pipePressure,1)} bar</td><td>材料与工质兼容；优先 OCP UQD 对齐</td></tr>`;
+    $("ioRows").innerHTML=
+      `<tr><td>温度变送器</td><td>4+2 备用</td><td>0–80℃；Pt100 A 级；系统精度 ≤±0.3℃</td><td>FWS/TCS 进出口；4–20mA/RTD</td></tr>`+
+      `<tr><td>压力变送器</td><td>4</td><td>0–${Math.max(10,Math.ceil(num("designPressure")*1.25))} bar；≤±0.5%FS</td><td>泵前后、TCS 供回；4–20mA</td></tr>`+
+      `<tr><td>差压变送器</td><td>2</td><td>0–${Math.ceil(Math.max(dpTotal,num("filterDp")*2)/50)*50} kPa；≤±0.5%FS</td><td>系统 ΔP + 过滤器 ΔP；高高联锁</td></tr>`+
+      `<tr><td>电磁/超声流量计</td><td>2</td><td>TCS 0–${fmt(flow2Design*1.3,0)}；FWS 0–${fmt(flow1Design*1.3,0)} m³/h；≤±1%</td><td>4–20mA + Modbus</td></tr>`+
+      `<tr><td>液位变送/开关</td><td>1+3 点</td><td>0–${fmt(tank*1.25,0)} L；低低/低/高</td><td>低低停泵；低报警补液；高停止补液</td></tr>`+
+      `<tr><td>漏液检测</td><td>≥3 区</td><td>底盘点式 + 管路绳式；定位型优先</td><td>报警→关区域阀→降载/停泵按 Cause & Effect</td></tr>`+
+      `<tr><td>水质传感器</td><td>3 类</td><td>电导率 0–200 μS/cm；pH 4–10；浊度/颗粒</td><td>趋势报警；阈值按 OEM 工质规范设定</td></tr>`;
+    const installedMotor=pumpCount*motor,heatLoss=Math.max(2,qRated*.01);
+    $("systemRows").innerHTML=
+      row("整机形式",`${$("installation").value} · L2L CDU`,`型号：${$("project").value}`)+
+      row("额定换热量",`${fmt(qRated,0)} kW（设计 ${fmt(qDesign,0)} kW）`,`TCS ${fmt(num("ts2"),1)}/${fmt(num("tr2"),1)}℃；FWS ${fmt(num("ts1"),1)}/${fmt(num("tr1"),1)}℃`)+
+      row("整机泵电机装机",`${fmt(installedMotor,1)} kW`,`正常运行约 ${fmt(electric*(pumpText.includes("3×50")?2:1),1)} kW`)+
+      row("供电",$("voltage").value,`建议上游容量 ≥${fmt(installedMotor+8,1)} kVA；单 ${fmt(motor,1)} kW 电机额定电流约 ${fmt(current,1)} A @380V`)+
+      row("控制系统",controls,"HMI ≥10英寸；本地/远程/维护三模式；事件与趋势记录")+
+      row("通信","Modbus TCP/RTU、SNMP v3、MQTT；选配 OPC UA/Redfish","双网口；与 BMS/DCIM 时间同步；远程访问需权限与审计")+
+      row("防护/噪声","柜体 IP54；目标 ≤"+fmt(num("noise"),0)+" dB(A)","泵/管路减振，凝露盘与全底盘泄漏收集")+
+      row("内部散热/环境",`内部损耗散热约 ${fmt(heatLoss,1)} kW`,`环境 5–45℃；RH 5%–95% 无凝露，具体按项目修订`)+
+      row("试验压力",`设计 ${fmt(num("designPressure"),1)} bar；水压试验 ≥${fmt(pipePressure,1)} bar`,"设施管道按 ASME B31.3 约 1.5×设计压力；IT 侧冷板/UQD 按 IEC 62368-1 Annex G.15（OCP 转述：正常 3×、单故障 2×），二者取严，且不超过任一接入组件许用值")+
+      row("漏液检测","底盘点式 + 管路定位线缆，≥3 区","NVIDIA RA 要求 Tray 级与 Rack 级漏检；严重漏液由硬接线安全链立即撤泵/阀使能，不以应用软件作为唯一切断手段")+
+      row("FAT 最低项目","100% 额定热负荷、流量/压差、泵切换、断电续冷、泄漏联锁、传感器故障、通信中断自治","建议 8 h 稳态 + 负荷阶跃；关键型式试验延长至 72–168 h；稳态温控 ±0.5℃");
+    // ── 第 11 节：数据来源 ──
+    const S=(p,v,u,n,d,c)=>`<tr><td>${p}</td><td><strong>${v}</strong></td><td><a href="${u}">${n}</a></td><td>${d}</td><td>${c}</td></tr>`;
+    $("srcRows").innerHTML=
+      S("机柜入口温度—流量—压降","25/30/35/40/45℃ → 59/71/89/119/177 L/min；2.3/3.2/4.9/8.5/18.4 psi","https://lenovopress.lenovo.com/lp2357.pdf","Lenovo LP2357 Table 27","2026-08-21","高")
+      +S("整柜功率口径","135 kW TDP；workload/EDP 最高 155 kW；约 90% 液冷 / 10% 空气","https://lenovopress.lenovo.com/lp2357.pdf","Lenovo LP2357","2026-08-21","高")
+      +S("整柜公开参考功率","Full rack requiring up to 142 kW；Tray 级与 Rack 级漏液检测","https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/components.html","NVIDIA NVL72 AI Factory — Components","2026-08-21","高")
+      +S("工质与暖水温度窗","DI 水（推荐）或 PG25；暖水运行 18–45℃","https://lenovopress.lenovo.com/datasheet/en-us/ds0207-lenovo-nvidia-gb300-nvl72","Lenovo DS0207 Datasheet","2026-08-21","高")
+      +S("设施参考工况与冗余","TCS 40/50℃；CDU 侧设施水 37/47℃；CDU N+1；热存储 5 min；CDU 与设施泵上 UPS；冷却 UPS 2N","https://download.schneider-electric.com/files?p_Doc_Ref=RD110DSR0&amp;p_File_Name=RD110DSR3-GB300.pdf&amp;p_enDocType=Other+technical+guide","Schneider Reference Design 110 — GB300","2026-08-21","高（设施 RA，非机柜 ICD）")
+      +S("TCS / FWS 水质分表","pH、电导率、氯离子、硫酸根、硬度、细菌、浊度分两表；缓蚀剂必需","https://www.ashrae.org/File%20Library/Technical%20Resources/Bookstore/WhitePaper_TC099-WaterCooledServers.pdf","ASHRAE TC 9.9 Water-Cooled Servers WP","2026-08-21","中–高（2014 版表）")
+      +S("W 类水温等级","W17/W27/W32/W40/W45/W+，下限 2℃；合规=全温度范围内满性能不节流","https://www.ashrae.org/File%20Library/Technical%20Resources/Bookstore/Emergence-and-Expansion-of-Liquid-Cooling-in-Mainstream-Data-Centers_WP.pdf","ASHRAE TC 9.9 液冷白皮书","2026-08-21","高")
+      +S("CDU 隔离/压力/过滤/漏检","CDU 隔离 TCS 与 FWS；TCS 典型 140–450 kPa；试压倍数取严；需漏检与干预层级","https://www.opencompute.org/documents/ocp-acs-liquid-cooling-cold-plate-requirements-pdf","OCP ACS Liquid Cooling Cold Plate Requirements","2026-08-21","高")
+      +S("L2L CDU 性能测试方法","CDU 额定能力与性能测试/报告方法","https://www.opencompute.org/documents/ocp-wp-l-lcdu-test-methodology-performance-rating-r1-pdf","OCP L2L CDU Test Methodology &amp; Performance Rating","2026-08-21","高")
+      +S("可用性目标","达到或超过 Uptime Tier 3 / TIA-942-B Rated 3 / EN 50600 Availability Class 3；并发可维护、无单点故障","https://docs.nvidia.com/pdf/dgx-spod-gb300-ra.pdf","NVIDIA DGX SuperPOD GB300 RA","2026-08-21","高")
+      +`<tr><td>GPU 液冷中断窗口</td><td><strong>约 90 s</strong></td><td>行业经验值汇总，未见 NVIDIA/Lenovo 对 GB300 的秒级官方指标</td><td>—</td><td class="warn">待核实（不得写成官方保证）</td></tr>`
+      +`<tr><td>机柜回液温度 / 同时液冷负荷</td><td><strong>本工具按负荷反算的推断值</strong></td><td>公开资料未给出与 Table 27 配套的回水温度</td><td>—</td><td class="warn">待订单 ICD 冻结</td></tr>`;
+    const w=[];
+    if(dt2<=0||dt1<=0)w.push(["bad","供回液温差必须为正，当前流量结果不可用于选型。"]);
+    if(!fit)w.push(["bad","换热器两端出现温度交叉；降低 FWS 供水温度、提高 TCS 供液温度或调整回水温差。"]);else w.push(["ok",`换热温度链成立，LMTD=${fmt(lmtd,2)} K。`]);
+    if(Math.min(deltaA,deltaB)<2)w.push(["warn","最小端温差小于 2 K，板换面积、成本和控制敏感性会显著增加。"]);
+    if(dpTotal>250)w.push(["warn",`TCS 总压降 ${fmt(dpTotal,0)} kPa 偏高，应优化冷板/Manifold、过滤器和管径，避免泵功耗过大。`]);
+    const actualV=flow2Design/3600/(Math.PI*Math.pow(dn2/1000,2)/4);
+    if(actualV>2.5)w.push(["warn",`DN${dn2} 下流速 ${fmt(actualV,2)} m/s 偏高，建议放大一级或校核侵蚀/噪声。`]);else w.push(["ok",`二次侧主管初选 DN${dn2}，流速 ${fmt(actualV,2)} m/s。`]);
+    if($("material").value.includes("铜")&&$("fluid").value!=="water")w.push(["warn","含铜体系与添加剂/乙二醇长期兼容性须由工质供应商出具材料兼容报告。"]);
+    // ── 露点校核 ──
+    if(dewMargin<2)w.push(["bad",`TCS 供液仅高于机房露点 ${fmt(dewMargin,1)} K，冷凝风险不可接受（要求 ≥2 K，建议 ≥3 K）。供液设定必须提高到 ${fmt(dp+3,1)}℃ 以上。`]);
+    else if(dewMargin<3)w.push(["warn",`露点裕量 ${fmt(dewMargin,1)} K，低于建议的 3 K 动态下限。`]);
+    else w.push(["ok",`露点裕量 ${fmt(dewMargin,1)} K（机房露点 ${fmt(dp,1)}℃）。`]);
+    // ── OEM Table 27 偏差 ──
+    if(pick){
+      const devTxt=`按 ${fmt(rackQ,0)} kW / ΔT=${fmt(dt2,1)} K 反算的单柜流量 ${fmt(rackFlow10K,2)} m³/h 与 Table 27 ${pick.t}℃ 点 ${fmt(oemFlowRef,2)} m³/h`;
+      if(oemDev>0.25)w.push(["bad",`${devTxt} 偏差 ${fmt(oemDev*100,0)}%，超过 25% 阈值。热平衡反算不成立，正式运行必须成对查表，禁止用固定温升替代 OEM 表。`]);
+      else if(oemDev>0.1)w.push(["warn",`${devTxt} 偏差 ${fmt(oemDev*100,0)}%（阈值 25%），仍以 OEM 表为准。`]);
+      else w.push(["ok",`${devTxt} 偏差 ${fmt(oemDev*100,0)}%，在阈值内；正式保证点仍以 OEM 表为准。`]);
+      if(!oemCalc.find(x=>x.t===pick.t).ok)w.push(["bad",`当前 FWS 供水 ${fmt(num("ts1"),1)}℃ 无法在 ${fmt(minAp,1)} K 端温差下产生 ${pick.t}℃ 的 TCS 供液（需 ≤${fmt(pick.t-minAp,1)}℃）。这是温度链问题，增加板换面积无法解决。`]);
+    }
+    const infeasible=oemCalc.filter(x=>!x.ok).map(x=>x.t+"℃");
+    if(infeasible.length)w.push(["warn",`当前 FWS 供水 ${fmt(num("ts1"),1)}℃ 下，Table 27 的 ${infeasible.join("、")} 入口工况点不可达（端温差 &lt;${fmt(minAp,1)} K）。若项目需要覆盖这些点，必须配置更低温的一次侧冷源，并单独评估凝露风险。`]);
+    if(trMax>num("tMaxFluid"))w.push(["bad",`按机柜液冷负荷 ${fmt(rackQ,0)} kW 反算，Table 27 工况点的最高回液温度约 ${fmt(trMax,1)}℃，超过接液件许用 ${fmt(num("tMaxFluid"),0)}℃。须由 OEM ICD 给出各入口温度对应的实际同时负荷与回水温度，或按更高液温重新选泵、垫片与板换。`]);
+    // ── 定压/膨胀 ──
+    if(accFactor<=0)w.push(["bad","膨胀罐预充压力不低于最高运行压力，接受系数无效，无法确定容积。"]);
+    else if(accFactor<0.3)w.push(["warn",`膨胀罐接受系数仅 ${fmt(accFactor,2)}，容积需求被放大到 ${fmt(tankCalc,0)} L；建议降低预充压力或提高允许最高运行压力（不得超过最弱部件 MAWP）。`]);
+    else w.push(["ok",`膨胀罐接受系数 ${fmt(accFactor,2)}，有效容积需求 ≥${fmt(tankCalc,0)} L，选型 ${fmt(tankSel,0)} L。`]);
+    w.push(["warn",`断电续冷需有效水量 ≥${fmt(rideVol,0)} L（${fmt(num("ridePower"),0)} kW / ${fmt(num("rideMin"),1)} min / ${fmt(num("rideDt"),0)} K）。此水量由项目热缓冲承担，<strong>不得由膨胀/补液箱兼任</strong>；最终须做瞬态计算并执行断电试验。`]);
+    // ── 过滤与水质 ──
+    if(num("filterMicron")>25)w.push(["warn",`主过滤精度 ${fmt(num("filterMicron"),0)} μm 宽于本项目 25 μm 基线；OCP 文献另有“投运 ≤25 μm、稳态 ≤10 μm”表述，须由旁流精滤补足并取得 OEM 认可。`]);
+    if(num("sideStream")<=0)w.push(["warn","未配置旁流精处理回路：DI 回路的电导率控制与稳态颗粒度要求难以长期保持，建议按主流量 1%–3% 设置旁流精滤（必要时加混床树脂）。"]);
+    w.push(["warn","TCS 与 FWS 水质必须分表：不得把冷板 DI 指标强加给园区一次水，也不得把 FWS 水质送入微通道冷板。限值低于 OEM 规范时以 OEM 为准。"]);
+    w.push(["warn","电导率目标不能一概设为越低越好；应服从服务器 OEM 的材料体系、缓蚀剂和水质规范。"]);
+    // ── 冗余与可用性 ──
+    if($("units").value==="n")w.push(["warn","当前为 N 配置（无整机备用）。GB300 单柜液冷不可中断，Schneider RD110 与本项目基线均要求 CDU N+1；单机双泵不能替代整机冗余。"]);
+    if($("redundancy").value==="none")w.push(["bad","单泵无冗余：泵停或断流的可耐受窗口仅 30–60 s，无法在窗口内完成切换，不满足 GB300 可用性要求。"]);
+    w.push(["warn","泵重叠切换目标 ≤15 s、硬限 30 s；GPU 液冷中断窗口约 90 s 属行业经验值，未见 NVIDIA/Lenovo 官方秒级指标，不得写入合同保证。"]);
+    w.push(["warn","NPSHa 尚未计算：必须输入现场标高、最低液位、海拔、最高液温及吸入管损失后，与厂家 NPSHr 曲线校核。"]);
+    w.push(["warn","所有安全阀排量、压力容器属性、CE/UL/GB 安规及 EMC 等级须由法规与认证工程师最终确认。"]);
+    w.push(["warn","本工具所有未标注来源的数值均为 FEED 级估算；机柜回水温度、最大入口压力、UQD 详细规格、满配液量与功率封顶接口一律“待订单 ICD 冻结”，不得写成采购保证。"]);
+    $("warnings").innerHTML=w.map(x=>`<li class="${x[0]}">${x[1]}</li>`).join("");
+    window.lastSpec={schema:"aidctms-cdu-v1",version:"1.1",createdAt:new Date().toISOString(),inputs:Object.fromEntries(fields.map(id=>[id,$(id).value]).concat([["preset",$("preset").value]])),results:{ratedDutyKw:qRated,designDutyKw:qDesign,tcsFlowM3h:flow2Design,fwsFlowM3h:flow1Design,tcsDn:dn2,fwsDn:dn1,lmtdK:lmtd,uaKwK:ua,estimatedAreaM2:area,totalDpKpa:dpTotal,pumpHeadM:head,pumpCount,pumpEachFlowM3h:eachFlow,pumpMotorKw:motor,tankEffectiveL:tank,designPressureBar:num("designPressure"),testPressureBar:pipePressure,
+      unitRedundancy:$("units").value,dewPointC:dp,dewMarginK:dewMargin,expansionVolumeL:expVol,expansionTankCalcL:tankCalc,expansionTankSelectedL:tankSel,acceptanceFactor:accFactor,rideThroughVolumeL:rideVol,sideStreamFlowM3h:sideFlow,
+      oemRefC:pick?pick.t:null,oemRefLpm:pick?pick.lpm:null,oemRefDpKpa:pick?pick.psi*PSI2KPA:null,oemFlowDeviation:oemDev,oemMaxReturnC:trMax,
+      oemCheck:oemCalc.map(x=>({inletC:x.t,lpm:x.lpm,flowM3h:x.v,rackDpKpa:x.kpa,impliedDtK:x.dtImp,impliedReturnC:x.trImp,minFwsSupplyC:x.minFws,feasible:x.ok,requiredUaKwK:x.ua}))}};
+  }
+  $("overallFile").addEventListener("change",e=>{
+    const file=e.target.files[0];if(!file)return;const r=new FileReader();
+    r.onload=()=>{try{const d=JSON.parse(r.result);if(d.schema!=="aidctms-overall-v1")throw Error("请选择总体设计工具导出的 JSON");const x=d.results||{},i=d.inputs||{};$("project").value=(x.project||"项目")+" · CDU";$("duty").value=x.cduUnitKw||x.liquidLoadKw||450;$("fluid").value=x.fluid||"water";$("ts2").value=x.tcsSupplyC??32;$("tr2").value=x.tcsReturnC??42;$("ts1").value=x.fwsSupplyC??27;$("tr1").value=x.fwsReturnC??37;const base=x.tcsDpKpa||180;$("terminalDp").value=Math.round(base*.5);$("pipeDp").value=Math.round(base*.2);$("filterDp").value=Math.round(base*.14);$("valveDp").value=Math.round(base*.16);
+      if(i.dewpoint!==undefined){$("dewMode").value="direct";$("dewpoint").value=i.dewpoint}
+      if(x.cduInstalledCount&&x.cduDutyCount)$("units").value=x.cduInstalledCount>x.cduDutyCount*1.5?"2n":x.cduInstalledCount>x.cduDutyCount?"n1":"n";
+      if(x.liquidLoadKw&&x.cduDutyCount)$("rackLoad").value=Math.round(x.liquidLoadKw/Math.max(1,x.cduDutyCount));
+      if(i.preset==="gb300"||/GB300/i.test(x.project||"")){$("preset").value="gb300";$("presetHint").textContent="已由总体设计工具导入 GB300 口径。机柜正式流量必须按 Lenovo Table 27 成对查表；FAT-A/B 为 CDU 平台工况，不等同于机柜运行点。"}
+      calculate();alert("已导入总体设计关键工况（含露点与冗余口径），请继续补充并复核单台 CDU 详细参数。")}catch(err){alert("导入失败："+err.message)}};r.readAsText(file);e.target.value="";
+  });
+  function exportSpec(){
+    calculate();const blob=new Blob([JSON.stringify(window.lastSpec,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=($("project").value||"CDU").replace(/[\\/:*?"<>|]/g,"_")+"_spec.json";a.click();URL.revokeObjectURL(a.href);
+  }
+  function resetDefaults(){fields.forEach(id=>$(id).value=defaults[id]);$("preset").value=defaults.preset;applyPreset()}
+  $("preset").addEventListener("change",applyPreset);
+  fields.forEach(id=>$(id).addEventListener("input",calculate));calculate();
+</script>
+</body>
+</html>
