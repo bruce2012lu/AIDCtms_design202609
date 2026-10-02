@@ -1,0 +1,22 @@
+start
+ViewHelper RotateSectionPlaneAboutAxis, TransformSectionPlaneAlongAxis
+import ov_pkg.stp
+import ov_die.stp
+import ov_mem.stp
+import ov_base.stp
+import ov_cpu.stp
+import ov_memrib.stp
+import ov_supply.stp
+import ov_return.stp
+import ov_lid.stp
+exported D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\out\grace\fig_grace_iso_raw.png
+import pl_base.stp
+import pl_cpu.stp
+import pl_memrib.stp
+import pl_supply.stp
+import pl_return.stp
+exported D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\out\grace\fig_grace_top_raw.png
+import cu_floor.stp
+import cu_fins.stp
+exported D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\out\grace\fig_grace_channels_raw.png
+done

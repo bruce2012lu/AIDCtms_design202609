@@ -1,0 +1,24 @@
+# Counterflow pair skeleton, millimetres.
+# Local y=0 is plate Y=44. Even channel +Y. Odd channel -Y.
+# Y-blocked ends, Z turn into the gallery.
+set OUTDIR {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_grace_cpu}
+file mkdir [file join $OUTDIR icem]
+puts "GRACE counterflow replay start"
+catch { ic_geo_delete_all }
+foreach fam {FLUID SOLID_CU INLET OUTLET WALL_HEAT SYM GEOM} {
+    catch { ic_geo_new_family $fam }
+}
+catch { ic_point {} POINT o0 0.800,-8.000,4.300 }
+catch { ic_point {} POINT o1 0.800,-4.000,4.300 }
+catch { ic_point {} POINT e0 0.400,-4.000,4.300 }
+catch { ic_point {} POINT e1 0.400,-1.000,4.300 }
+catch { ic_point {} POINT c0 0.400,-2.500,2.000 }
+catch { ic_point {} POINT c1 0.400,37.500,2.000 }
+catch { ic_point {} POINT d0 1.200,-5.500,2.000 }
+catch { ic_point {} POINT d1 1.200,34.500,2.000 }
+catch { ic_point {} POINT r0 1.200,36.000,4.300 }
+catch { ic_point {} POINT r1 0.400,40.000,4.300 }
+catch { ic_curve point CRV even_chan [list c0 c1] }
+catch { ic_curve point CRV odd_chan [list d0 d1] }
+catch { ic_save_tetin [file join $OUTDIR icem grace_cpu_counterflow.tin] }
+puts "GRACE counterflow replay done"

@@ -1,0 +1,17 @@
+file D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_grace_LLDDRM\mesh\lpddr_channel_cht.msh
+cells 693770
+fluid 125664
+solid 568106
+nodes 720792
+faces 2108021
+nx 70 ny 187 nz 53
+zone interior 2035151
+zone wall_cu_fluid 19448
+zone inlet 672
+zone outlet 672
+zone wall_heat 13090
+zone wall_cap 13090
+zone wall_end 6076
+zone sym 19822
+units metres
+hex axis-aligned; orthogonal quality 1; not ICEM-GUI signed

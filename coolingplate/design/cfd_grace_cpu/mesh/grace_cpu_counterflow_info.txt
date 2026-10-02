@@ -1,0 +1,30 @@
+CP-GRACE-MC-01 CPU counterflow pair
+even channel +Y (front to rear), odd channel -Y (rear to front)
+pitch pair 1.60 mm in X, 24 pairs are the 48-channel field
+local y=0 is plate Y=44, local y=32 is plate Y=76
+channel 0.40 x 1.20 mm, heated length 32 mm
+Y ends blocked; horizontal gallery then Z riser
+cells_total 2487936
+cells_fluid 718464
+cells_cu 1741312
+cells_tim 28160
+nx 88 ny 304 nz 96
+mdot_each_inlet_kg_s 1.61888889e-04
+q_flux_W_m2 203125.000000
+pair_power_W 10.4000
+shorts 0
+area_inlet_even_m2 1.04000000e-06
+area_inlet_odd_m2 1.04000000e-06
+area_outlet_even_m2 1.04000000e-06
+area_outlet_odd_m2 1.04000000e-06
+area_wall_heat_m2 5.12000000e-05
+zone inlet_even 704
+zone inlet_odd 704
+zone interior 7305416
+zone outlet_even 704
+zone outlet_odd 704
+zone sym 56544
+zone wall_adi 63568
+zone wall_cu_fluid 86368
+zone wall_heat 7040
+zone wall_tim_cu 7040

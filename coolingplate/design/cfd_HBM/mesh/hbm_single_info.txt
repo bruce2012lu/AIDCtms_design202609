@@ -1,0 +1,32 @@
+case single
+nx 64
+ny 136
+nz 113
+cells_fluid 459136
+cells_cu 472192
+cells_tim 34560
+cells_total 965888
+ratio_x 1.1914
+ratio_y 1.2000
+ratio_z 2.0000
+yplus_DP-A 0.656 Re 603.0 tau 2.889
+yplus_DP-B 0.719 Re 724.1 tau 3.469
+first_fluid_mm 0.008
+first_solid_mm 0.016
+Le_mm 8.5714
+heated_cells_y 90
+nodes 1015170
+faces 2929844
+msh D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM\mesh\hbm_single.msh
+mdot_kg_s 4.13416667e-04
+q_Wm2 205000.0
+k_tim 8.818342
+width_mm 1.3
+zone interior 2833068
+zone wall_cu_fluid 26656
+zone wall_tim_cu 5760
+zone inlet 3376
+zone outlet 3376
+zone wall_heat 5760
+zone wall_adiabat 21664
+zone sym 30184

@@ -1,0 +1,694 @@
+// tetin file version 1.1
+// written by ICEM CFD - version 26.1 on Sat Sep 26 15:07:18 2026
+
+set_triangulation_tolerance 0.001
+# In ICEM CFD 4.2 the family_boco file is no longer tied to tetin
+# read_family_boco family_boco
+define_family FLUID color 12109107
+define_family SOLID color 3403389
+define_family INLET color 16663101
+define_family OUTLET color 3387852
+define_family WALL_HEAT color 11978803
+define_family WALL_CAP color 15020942
+define_family WALL_END color 15044147
+define_family WALL_SIDE color 12696883
+define_family SYM color 15434803
+define_family WALL_CU_FLUID color 14234528
+define_family POINT color 14392627
+define_family CRV color 3362046
+define_family TMP_BSP_FAM color 14132019
+define_family SRFS color 4210430
+
+prescribed_point 0 0 0 family POINT name o000
+prescribed_point 8.333333 0 0 family POINT name o100
+prescribed_point 8.333333 70 0 family POINT name o110
+prescribed_point 0 70 0 family POINT name o010
+prescribed_point 0 0 3.2 family POINT name o001
+prescribed_point 8.333333 0 3.2 family POINT name o101
+prescribed_point 8.333333 70 3.2 family POINT name o111
+prescribed_point 0 70 3.2 family POINT name o011
+prescribed_point 8.333333 70 0 family SRFS name SRFS.18
+prescribed_point 0 70 0 family SRFS name SRFS.19
+prescribed_point 0 0 0 family SRFS name SRFS.20
+prescribed_point 8.333333 0 0 family SRFS name SRFS.21
+prescribed_point 0 70 3.2 family SRFS name SRFS.28
+prescribed_point 0 0 3.2 family SRFS name SRFS.29
+prescribed_point 8.333333 0 3.2 family SRFS name SRFS.30
+prescribed_point 8.333333 70 3.2 family SRFS name SRFS.31
+prescribed_point 3.566667 0 2 family POINT name f000
+prescribed_point 4.766667 0 2 family POINT name f100
+prescribed_point 4.766667 70 2 family POINT name f110
+prescribed_point 3.566667 70 2 family POINT name f010
+prescribed_point 3.566667 0 2.8 family POINT name f001
+prescribed_point 4.766667 0 2.8 family POINT name f101
+prescribed_point 4.766667 70 2.8 family POINT name f111
+prescribed_point 3.566667 70 2.8 family POINT name f011
+prescribed_point 4.766667 0 2 family SRFS name SRFS.22
+prescribed_point 4.766667 70 2 family SRFS name SRFS.23
+prescribed_point 3.566667 70 2 family SRFS name SRFS.24
+prescribed_point 3.566667 0 2 family SRFS name SRFS.25
+prescribed_point 4.766667 70 2.8 family SRFS name SRFS.32
+prescribed_point 3.566667 70 2.8 family SRFS name SRFS.33
+prescribed_point 3.566667 0 2.8 family SRFS name SRFS.34
+prescribed_point 4.766667 0 2.8 family SRFS name SRFS.35
+prescribed_point 4.166667 35 2.4 family FLUID name p_fluid
+prescribed_point 4.166667 35 1 family SOLID name p_solid
+define_curve family CRV tetra_size 1e+10 name oc1 vertex1 SRFS.20 vertex2 SRFS.21
+bspline
+2,2,0
+0,0,1,1
+0,0,0
+8.333333,0,0
+define_curve family CRV tetra_size 1e+10 name oc2 vertex1 SRFS.21 vertex2 SRFS.18
+bspline
+2,2,0
+0,0,1,1
+8.333333,0,0
+8.333333,70,0
+define_curve family CRV tetra_size 1e+10 name oc3 vertex1 SRFS.18 vertex2 SRFS.19
+bspline
+2,2,0
+0,0,1,1
+8.333333,70,0
+0,70,0
+define_curve family CRV tetra_size 1e+10 name oc4 vertex1 SRFS.19 vertex2 SRFS.20
+bspline
+2,2,0
+0,0,1,1
+0,70,0
+0,0,0
+define_curve family CRV tetra_size 1e+10 name oc5 vertex1 SRFS.29 vertex2 SRFS.30
+bspline
+2,2,0
+0,0,1,1
+0,0,3.2
+8.333333,0,3.2
+define_curve family CRV tetra_size 1e+10 name oc6 vertex1 SRFS.30 vertex2 SRFS.31
+bspline
+2,2,0
+0,0,1,1
+8.333333,0,3.2
+8.333333,70,3.2
+define_curve family CRV tetra_size 1e+10 name oc7 vertex1 SRFS.31 vertex2 SRFS.28
+bspline
+2,2,0
+0,0,1,1
+8.333333,70,3.2
+0,70,3.2
+define_curve family CRV tetra_size 1e+10 name oc8 vertex1 SRFS.28 vertex2 SRFS.29
+bspline
+2,2,0
+0,0,1,1
+0,70,3.2
+0,0,3.2
+define_curve family CRV tetra_size 1e+10 name oc9 vertex1 SRFS.20 vertex2 SRFS.29
+bspline
+2,2,0
+0,0,1,1
+0,0,0
+0,0,3.2
+define_curve family CRV tetra_size 1e+10 name oc10 vertex1 SRFS.21 vertex2 SRFS.30
+bspline
+2,2,0
+0,0,1,1
+8.333333,0,0
+8.333333,0,3.2
+define_curve family CRV tetra_size 1e+10 name oc11 vertex1 SRFS.18 vertex2 SRFS.31
+bspline
+2,2,0
+0,0,1,1
+8.333333,70,0
+8.333333,70,3.2
+define_curve family CRV tetra_size 1e+10 name oc12 vertex1 SRFS.19 vertex2 SRFS.28
+bspline
+2,2,0
+0,0,1,1
+0,70,0
+0,70,3.2
+define_curve family CRV tetra_size 1e+10 name fc1 vertex1 SRFS.25 vertex2 SRFS.22
+bspline
+2,2,0
+0,0,1,1
+3.566667,0,2
+4.766667,0,2
+define_curve family CRV tetra_size 1e+10 name fc2 vertex1 SRFS.22 vertex2 SRFS.23
+bspline
+2,2,0
+0,0,1,1
+4.766667,0,2
+4.766667,70,2
+define_curve family CRV tetra_size 1e+10 name fc3 vertex1 SRFS.23 vertex2 SRFS.24
+bspline
+2,2,0
+0,0,1,1
+4.766667,70,2
+3.566667,70,2
+define_curve family CRV tetra_size 1e+10 name fc4 vertex1 SRFS.24 vertex2 SRFS.25
+bspline
+2,2,0
+0,0,1,1
+3.566667,70,2
+3.566667,0,2
+define_curve family CRV tetra_size 1e+10 name fc5 vertex1 SRFS.34 vertex2 SRFS.35
+bspline
+2,2,0
+0,0,1,1
+3.566667,0,2.8
+4.766667,0,2.8
+define_curve family CRV tetra_size 1e+10 name fc6 vertex1 SRFS.35 vertex2 SRFS.32
+bspline
+2,2,0
+0,0,1,1
+4.766667,0,2.8
+4.766667,70,2.8
+define_curve family CRV tetra_size 1e+10 name fc7 vertex1 SRFS.32 vertex2 SRFS.33
+bspline
+2,2,0
+0,0,1,1
+4.766667,70,2.8
+3.566667,70,2.8
+define_curve family CRV tetra_size 1e+10 name fc8 vertex1 SRFS.33 vertex2 SRFS.34
+bspline
+2,2,0
+0,0,1,1
+3.566667,70,2.8
+3.566667,0,2.8
+define_curve family CRV tetra_size 1e+10 name fc9 vertex1 SRFS.25 vertex2 SRFS.34
+bspline
+2,2,0
+0,0,1,1
+3.566667,0,2
+3.566667,0,2.8
+define_curve family CRV tetra_size 1e+10 name fc10 vertex1 SRFS.22 vertex2 SRFS.35
+bspline
+2,2,0
+0,0,1,1
+4.766667,0,2
+4.766667,0,2.8
+define_curve family CRV tetra_size 1e+10 name fc11 vertex1 SRFS.23 vertex2 SRFS.32
+bspline
+2,2,0
+0,0,1,1
+4.766667,70,2
+4.766667,70,2.8
+define_curve family CRV tetra_size 1e+10 name fc12 vertex1 SRFS.24 vertex2 SRFS.33
+bspline
+2,2,0
+0,0,1,1
+3.566667,70,2
+3.566667,70,2.8
+define_surface name osbot family WALL_HEAT tetra_size 1e+10
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   oc3
+polyline n_points 2
+0,0
+1,0
+coedge 3dcurve   oc4
+polyline n_points 2
+1,0
+1,1
+coedge 3dcurve   oc1
+polyline n_points 2
+1,1
+0,1
+coedge 3dcurve   oc2
+polyline n_points 2
+0,1
+0,0
+bspline
+4,4,4,4,0
+0,0,0,0,1
+1,1,1
+0,0,0,0,1
+1,1,1
+8.333333,70,0
+5.5555553333333,70,0
+2.7777776666667,70,0
+0,70,0
+8.333333,46.666666666667,0
+5.5555553333334,46.666666666667,0
+2.7777776666667,46.666666666667,0
+0,46.666666666667,0
+8.333333,23.333333333333,0
+5.5555553333334,23.333333333333,0
+2.7777776666666,23.333333333333,0
+0,23.333333333333,0
+8.333333,0,0
+5.5555553333334,0,0
+2.7777776666666,0,0
+0,0,0
+define_surface name ostop family WALL_CAP tetra_size 1e+10
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   oc8
+polyline n_points 2
+0,0
+1,0
+coedge 3dcurve   oc5
+polyline n_points 2
+1,0
+1,1
+coedge 3dcurve   oc6
+polyline n_points 2
+1,1
+0,1
+coedge 3dcurve   oc7
+polyline n_points 2
+0,1
+0,0
+bspline
+4,4,4,4,0
+0,0,0,0,1
+1,1,1
+0,0,0,0,1
+1,1,1
+0,70,3.2
+0,46.666666666667,3.2
+0,23.333333333333,3.2
+0,0,3.2
+2.7777776666667,70,3.2
+2.7777776666667,46.666666666667,3.2
+2.7777776666667,23.333333333333,3.2
+2.7777776666667,0,3.2
+5.5555553333334,70,3.2
+5.5555553333334,46.666666666667,3.2
+5.5555553333334,23.333333333333,3.2
+5.5555553333334,0,3.2
+8.333333,70,3.2
+8.333333,46.666666666667,3.2
+8.333333,23.333333333333,3.2
+8.333333,0,3.2
+define_surface name osx0 family SYM tetra_size 1e+10
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   oc9
+polyline n_points 2
+0,0
+1,0
+coedge 3dcurve - oc8
+polyline n_points 2
+1,0
+1,1
+coedge 3dcurve - oc12
+polyline n_points 2
+1,1
+0,1
+coedge 3dcurve   oc4
+polyline n_points 2
+0,1
+0,0
+bspline
+4,4,4,4,0
+0,0,0,0,1
+1,1,1
+0,0,0,0,1
+1,1,1
+0,0,0
+0,0,1.0666666666667
+0,0,2.1333333333333
+0,0,3.2
+0,23.333333333333,0
+0,23.333333333333,1.0666666666667
+0,23.333333333333,2.1333333333333
+0,23.333333333333,3.2
+0,46.666666666667,0
+0,46.666666666667,1.0666666666667
+0,46.666666666667,2.1333333333333
+0,46.666666666667,3.2
+0,70,0
+0,70,1.0666666666667
+0,70,2.1333333333333
+0,70,3.2
+define_surface name osx1 family SYM tetra_size 1e+10
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   oc11
+polyline n_points 2
+0,0
+1,0
+coedge 3dcurve - oc6
+polyline n_points 2
+1,0
+1,1
+coedge 3dcurve - oc10
+polyline n_points 2
+1,1
+0,1
+coedge 3dcurve   oc2
+polyline n_points 2
+0,1
+0,0
+bspline
+4,4,4,4,0
+0,0,0,0,1
+1,1,1
+0,0,0,0,1
+1,1,1
+8.333333,70,0
+8.333333,70,1.0666666666667
+8.333333,70,2.1333333333333
+8.333333,70,3.2
+8.333333,46.666666666667,0
+8.333333,46.666666666667,1.0666666666667
+8.333333,46.666666666667,2.1333333333333
+8.333333,46.666666666667,3.2
+8.333333,23.333333333333,0
+8.333333,23.333333333333,1.0666666666667
+8.333333,23.333333333333,2.1333333333333
+8.333333,23.333333333333,3.2
+8.333333,0,0
+8.333333,0,1.0666666666667
+8.333333,0,2.1333333333333
+8.333333,0,3.2
+define_surface name osy0 family WALL_END tetra_size 1e+10
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   oc10
+polyline n_points 2
+0,0
+1,0
+coedge 3dcurve - oc5
+polyline n_points 2
+1,0
+1,1
+coedge 3dcurve - oc9
+polyline n_points 2
+1,1
+0,1
+coedge 3dcurve   oc1
+polyline n_points 2
+0,1
+0,0
+bspline
+4,4,4,4,0
+0,0,0,0,1
+1,1,1
+0,0,0,0,1
+1,1,1
+8.333333,0,0
+8.333333,0,1.0666666666667
+8.333333,0,2.1333333333333
+8.333333,0,3.2
+5.5555553333334,0,0
+5.5555553333334,0,1.0666666666667
+5.5555553333334,0,2.1333333333333
+5.5555553333334,0,3.2
+2.7777776666666,0,0
+2.7777776666666,0,1.0666666666667
+2.7777776666666,0,2.1333333333333
+2.7777776666666,0,3.2
+0,0,0
+0,0,1.0666666666667
+0,0,2.1333333333333
+0,0,3.2
+define_surface name osy1 family WALL_END tetra_size 1e+10
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   oc3
+polyline n_points 2
+0,0
+1,0
+coedge 3dcurve   oc12
+polyline n_points 2
+1,0
+1,1
+coedge 3dcurve - oc7
+polyline n_points 2
+1,1
+0,1
+coedge 3dcurve - oc11
+polyline n_points 2
+0,1
+0,0
+bspline
+4,4,4,4,0
+0,0,0,0,1
+1,1,1
+0,0,0,0,1
+1,1,1
+8.333333,70,0
+5.5555553333333,70,0
+2.7777776666667,70,0
+0,70,0
+8.333333,70,1.0666666666667
+5.5555553333333,70,1.0666666666667
+2.7777776666667,70,1.0666666666667
+0,70,1.0666666666667
+8.333333,70,2.1333333333333
+5.5555553333333,70,2.1333333333333
+2.7777776666667,70,2.1333333333333
+0,70,2.1333333333333
+8.333333,70,3.2
+5.5555553333333,70,3.2
+2.7777776666667,70,3.2
+0,70,3.2
+define_surface name fsbot family WALL_CU_FLUID tetra_size 1e+10
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   fc2
+polyline n_points 2
+0,0
+1,0
+coedge 3dcurve   fc3
+polyline n_points 2
+1,0
+1,1
+coedge 3dcurve   fc4
+polyline n_points 2
+1,1
+0,1
+coedge 3dcurve   fc1
+polyline n_points 2
+0,1
+0,0
+bspline
+4,4,4,4,0
+0,0,0,0,1
+1,1,1
+0,0,0,0,1
+1,1,1
+4.766667,0,2
+4.766667,23.333333333333,2
+4.766667,46.666666666667,2
+4.766667,70,2
+4.366667,0,2
+4.366667,23.333333333333,2
+4.366667,46.666666666667,2
+4.366667,70,2
+3.966667,0,2
+3.966667,23.333333333333,2
+3.966667,46.666666666667,2
+3.966667,70,2
+3.566667,0,2
+3.566667,23.333333333333,2
+3.566667,46.666666666667,2
+3.566667,70,2
+define_surface name fstop family WALL_CU_FLUID tetra_size 1e+10
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   fc7
+polyline n_points 2
+0,0
+1,0
+coedge 3dcurve   fc8
+polyline n_points 2
+1,0
+1,1
+coedge 3dcurve   fc5
+polyline n_points 2
+1,1
+0,1
+coedge 3dcurve   fc6
+polyline n_points 2
+0,1
+0,0
+bspline
+4,4,4,4,0
+0,0,0,0,1
+1,1,1
+0,0,0,0,1
+1,1,1
+4.766667,70,2.8
+4.366667,70,2.8
+3.966667,70,2.8
+3.566667,70,2.8
+4.766667,46.666666666667,2.8
+4.366667,46.666666666667,2.8
+3.966667,46.666666666667,2.8
+3.566667,46.666666666667,2.8
+4.766667,23.333333333333,2.8
+4.366667,23.333333333333,2.8
+3.966667,23.333333333333,2.8
+3.566667,23.333333333333,2.8
+4.766667,0,2.8
+4.366667,0,2.8
+3.966667,0,2.8
+3.566667,0,2.8
+define_surface name fsx0 family WALL_CU_FLUID tetra_size 1e+10
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   fc8
+polyline n_points 2
+0,0
+1,0
+coedge 3dcurve - fc9
+polyline n_points 2
+1,0
+1,1
+coedge 3dcurve - fc4
+polyline n_points 2
+1,1
+0,1
+coedge 3dcurve   fc12
+polyline n_points 2
+0,1
+0,0
+bspline
+4,4,4,4,0
+0,0,0,0,1
+1,1,1
+0,0,0,0,1
+1,1,1
+3.566667,70,2.8
+3.566667,46.666666666667,2.8
+3.566667,23.333333333333,2.8
+3.566667,0,2.8
+3.566667,70,2.5333333333333
+3.566667,46.666666666667,2.5333333333333
+3.566667,23.333333333333,2.5333333333333
+3.566667,0,2.5333333333333
+3.566667,70,2.2666666666667
+3.566667,46.666666666667,2.2666666666667
+3.566667,23.333333333333,2.2666666666667
+3.566667,0,2.2666666666667
+3.566667,70,2
+3.566667,46.666666666667,2
+3.566667,23.333333333333,2
+3.566667,0,2
+define_surface name fsx1 family WALL_CU_FLUID tetra_size 1e+10
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   fc6
+polyline n_points 2
+0,0
+1,0
+coedge 3dcurve - fc11
+polyline n_points 2
+1,0
+1,1
+coedge 3dcurve - fc2
+polyline n_points 2
+1,1
+0,1
+coedge 3dcurve   fc10
+polyline n_points 2
+0,1
+0,0
+bspline
+4,4,4,4,0
+0,0,0,0,1
+1,1,1
+0,0,0,0,1
+1,1,1
+4.766667,0,2.8
+4.766667,23.333333333333,2.8
+4.766667,46.666666666667,2.8
+4.766667,70,2.8
+4.766667,0,2.5333333333333
+4.766667,23.333333333333,2.5333333333333
+4.766667,46.666666666667,2.5333333333333
+4.766667,70,2.5333333333333
+4.766667,0,2.2666666666667
+4.766667,23.333333333333,2.2666666666667
+4.766667,46.666666666667,2.2666666666667
+4.766667,70,2.2666666666667
+4.766667,0,2
+4.766667,23.333333333333,2
+4.766667,46.666666666667,2
+4.766667,70,2
+define_surface name fsy0 family OUTLET tetra_size 1e+10
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   fc9
+polyline n_points 2
+0,0
+1,0
+coedge 3dcurve   fc5
+polyline n_points 2
+1,0
+1,1
+coedge 3dcurve - fc10
+polyline n_points 2
+1,1
+0,1
+coedge 3dcurve - fc1
+polyline n_points 2
+0,1
+0,0
+bspline
+4,4,4,4,0
+0,0,0,0,1
+1,1,1
+0,0,0,0,1
+1,1,1
+3.566667,0,2
+3.566667,0,2.2666666666667
+3.566667,0,2.5333333333333
+3.566667,0,2.8
+3.966667,0,2
+3.966667,0,2.2666666666667
+3.966667,0,2.5333333333333
+3.966667,0,2.8
+4.366667,0,2
+4.366667,0,2.2666666666667
+4.366667,0,2.5333333333333
+4.366667,0,2.8
+4.766667,0,2
+4.766667,0,2.2666666666667
+4.766667,0,2.5333333333333
+4.766667,0,2.8
+define_surface name fsy1 family INLET tetra_size 1e+10
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   fc7
+polyline n_points 2
+0,0
+1,0
+coedge 3dcurve - fc12
+polyline n_points 2
+1,0
+1,1
+coedge 3dcurve - fc3
+polyline n_points 2
+1,1
+0,1
+coedge 3dcurve   fc11
+polyline n_points 2
+0,1
+0,0
+bspline
+4,4,4,4,0
+0,0,0,0,1
+1,1,1
+0,0,0,0,1
+1,1,1
+4.766667,70,2.8
+4.366667,70,2.8
+3.966667,70,2.8
+3.566667,70,2.8
+4.766667,70,2.5333333333333
+4.366667,70,2.5333333333333
+3.966667,70,2.5333333333333
+3.566667,70,2.5333333333333
+4.766667,70,2.2666666666667
+4.366667,70,2.2666666666667
+3.966667,70,2.2666666666667
+3.566667,70,2.2666666666667
+4.766667,70,2
+4.366667,70,2
+3.966667,70,2
+3.566667,70,2
+affix 0
+define_model 1e+10 reference_size 1
+return

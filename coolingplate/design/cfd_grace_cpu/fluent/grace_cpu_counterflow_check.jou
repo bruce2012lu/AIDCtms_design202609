@@ -1,0 +1,7 @@
+; CP-GRACE-MC-01 CPU counterflow pair. Read the hex mesh and check it. No iterate.
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_grace_cpu/mesh/grace_cpu_counterflow_pair.msh"
+/mesh/check
+/define/boundary-conditions/list-zones
+/exit yes

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NVIDIA Grace GB300 冷板详细设计报告 v1.0 · 2026-09-26</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1180px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:48px 58px 34px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.12em;color:#9db6d4}
+header h1{font-size:30px;line-height:1.25;margin:8px 0 10px}
+.sub{font-size:16px;color:#d7e6f5}
+.meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:4px 10px;font-size:12px}
+nav{padding:16px 58px;background:var(--soft);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav a{color:var(--blue);text-decoration:none;margin-right:12px;display:inline-block;font-size:13px}
+nav a:hover{text-decoration:underline}
+main{padding:30px 58px 58px}
+h2{font-size:22px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:7px;margin:34px 0 14px}
+h3{font-size:17px;color:#174f83;margin:22px 0 8px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:14px 17px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:12px;background:var(--soft)}
+.card b{display:block;font-size:22px;color:var(--navy)}
+.card.blue{border-top-color:var(--blue)}
+.card.warn{border-top-color:var(--warn)}
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13px}
+th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 15px;border-radius:7px;margin:12px 0}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+.svgbox{border:1px dashed var(--line);border-radius:9px;padding:12px 12px 4px;background:#fff;margin:14px 0 4px}
+.svgbox svg{display:block;width:100%;height:auto}
+figure{margin:14px 0 18px}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+figcaption{margin:8px 2px 0;color:var(--muted);font-size:12px;line-height:1.55}
+figcaption strong{color:var(--navy)}
+.figcap{margin:0 2px 18px;color:var(--muted);font-size:12px;line-height:1.55}
+.figcap strong{color:var(--navy)}
+.svglabel{display:inline-block;font-size:11px;font-weight:700;color:var(--teal);border:1px solid #b7e0d4;background:#f3fbf8;border-radius:4px;padding:1px 6px;margin-right:6px}
+footer{padding:18px 58px;background:var(--navy);color:#d5e1ec;font-size:12px}
+code{font-family:Consolas,monospace;font-size:12px}
+@media(max-width:800px){
+  header,nav,main,footer{padding-left:22px;padding-right:22px}
+  .grid{grid-template-columns:1fr}
+  nav a{margin-bottom:6px}
+}
+@media print{body{background:#fff}.page{box-shadow:none}nav{display:none}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">COLD PLATE DETAILED DESIGN · GRACE ON GB300 NVL2</div>
+  <h1>NVIDIA Grace GB300<br>冷板详细设计报告</h1>
+  <div class="sub">一颗 Grace 一块铜。平行微通道覆盖 CPU 裸片，宽槽覆盖两侧 LPDDR5X。型号 CP-GRACE-MC-01。</div>
+  <div class="meta">
+    <span class="pill">AIDC-GRACE-CP-MC-001</span>
+    <span class="pill">v1.0 · 2026-09-26</span>
+    <span class="pill">单相水 · 紫铜 · 两层</span>
+    <span class="pill">300 W 含内存</span>
+    <span class="pill">候选外形 · 待盖板图</span>
+  </div>
+</header>
+<nav>
+  <a href="#s0">0 结论</a>
+  <a href="#s1">1 范围</a>
+  <a href="#s2">2 热源</a>
+  <a href="#s3">3 方案</a>
+  <a href="#s4">4 几何</a>
+  <a href="#s5">5 热工水力</a>
+  <a href="#s6">6 工艺装配</a>
+  <a href="#s7">7 托盘接口</a>
+  <a href="#s8">8 待确认</a>
+</nav>
+<main>
+
+<section id="s0">
+<h2>0.　结论</h2>
+<p class="lead">GB300 计算托盘上的 Grace 用一块独立的两层铜冷板，型号 <strong>CP-GRACE-MC-01</strong>。热设计点 <strong>300 W，已经包含 LPDDR5X</strong>。CPU 区走平行微通道，内存区走低速宽槽，板上不设微射流。进液口在板的左侧，出液口在右侧，从后面板沿 PCB 两侧绕过来，不穿过 B300 冷板。</p>
+<div class="grid">
+  <div class="card"><b>300 W</b>单颗 Grace，含内存</div>
+  <div class="card blue"><b>0.55 L/min</b>设计流量 · 温升约 8 K</div>
+  <div class="card warn"><b>10 kPa</b>支路压降目标，靠入口孔板配平</div>
+  <div class="card"><b>2 块 / 托盘</b>每块 NVL2 一颗 Grace</div>
+</div>
+<div class="note"><strong>这一版能冻结的，和还不能冻结的：</strong>功率、工质、流路拓扑、和 B300 冷板的水力关系可以冻结。平面外形、裸片窗口、螺孔还没有官方盖板图，下文尺寸凡是标「候选」的，等 ICD 替换，不作为加工发放尺寸。</div>
+</section>
+
+<section id="s1">
+<h2>1.　范围与口径</h2>
+<table>
+<thead><tr><th>项</th><th>口径</th></tr></thead>
+<tbody>
+<tr><td>对象</td><td>Lenovo GB300 NVL72 计算托盘上的一颗 NVIDIA Grace。一块冷板盖住该颗 CPU 及其板载 LPDDR5X。</td></tr>
+<tr><td>数量</td><td>每块 GB300 NVL2（一块 HPM）一颗 Grace、一块冷板。一个计算托盘两块。不覆盖 B300、CX-8、NVSwitch。</td></tr>
+<tr><td>来源底账</td><td><a href="参考_GB300_Grace_CPU与液冷边界_20260926.html">参考摘录</a>。功率以 Lenovo Press LP2357 为准。</td></tr>
+<tr><td>不用的口径</td><td>Grace CPU Superchip 的约 500 W 模块；Grace C1 的 140–250 W 档；宣传材料里的内存约 16 W；B300 冷板的 1100 W / 2.0 L/min / 128 孔。</td></tr>
+<tr><td>核算</td><td>一维水力，脚本 <code>CP-GRACE-MC-01_calc.py</code>。对流用充分发展矩形槽 Nu = 4.8 的假设。这是方案筛选用的数量级，不是 CFD 证明。</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="s2">
+<h2>2.　热源</h2>
+<table>
+<thead><tr><th>项</th><th>设计采用</th><th>置信度</th></tr></thead>
+<tbody>
+<tr><td>整板功率</td><td><strong>300 W</strong>，Lenovo 写明含内存功耗</td><td><span class="tag">高</span></td></tr>
+<tr><td>形态</td><td>72 核 Arm Neoverse V2，BGA 焊在 HPM 上。内存是板载 LPDDR5X，最高 480 GB / 颗，峰值带宽最高 384 GB/s</td><td><span class="tag">高</span></td></tr>
+<tr><td>功率分工</td><td>CPU 裸片按 <strong>260 W</strong> 设计通道，两侧内存合计按 <strong>40 W</strong> 设计通道。两项相加仍是 300 W，不另加</td><td><span class="tagw">中低</span> 无官方功率地图。40 W 高于宣传材料里的约 16 W，用来给内存区留裕量</td></tr>
+<tr><td>热图形状</td><td>一颗 CPU 裸片在中部，LPDDR5X 在两侧。公开模组是这个格局；GB300 盖板图未公布，窗口尺寸是候选</td><td><span class="tagw">中</span></td></tr>
+<tr><td>面热流（候选窗口）</td><td>CPU 窗口 40 × 32 mm 上 260 W → <strong>20 W/cm²</strong>。一侧内存 50 × 70 mm 上 20 W → <strong>0.6 W/cm²</strong>。裸片若缩到 25 × 25 mm，CPU 热流约 42 W/cm²，仍由微通道承担</td><td><span class="tagw">随窗口变</span></td></tr>
+</tbody>
+</table>
+<p>进液按与 B300 冷板相同的计算温度 <strong>40 °C</strong>。结温上限公开页没有给死，本版不写保证结温，只给冷板侧的壳–进液目标。</p>
+</section>
+
+<section id="s3">
+<h2>3.　方案</h2>
+<p>B300 冷板用三层铜和 128 个微射流，是为了双 die 上大约 57 W/cm² 的平均热流和更高的热点。Grace 的整板只有 300 W，CPU 窗口上大约 20 W/cm²。这个热流用平行微通道就够，再做一层射流静压箱会多一道 0.5 mm 孔的堵塞风险，对这块板没有对应的热收益。</p>
+<table>
+<thead><tr><th></th><th>CP-B300-JM-01</th><th>CP-GRACE-MC-01</th></tr></thead>
+<tbody>
+<tr><td>热设计点</td><td>1100 W（不含 Grace）</td><td>300 W（含内存）</td></tr>
+<tr><td>结构</td><td>三层：底板、喷嘴板、静压箱盖。总厚 12.5 mm</td><td>两层：槽底板、带分流腔的盖板。总厚 8.0 mm</td></tr>
+<tr><td>CPU / GPU 区</td><td>128 孔射流 + 短槽</td><td>48 条平行微通道，没有喷嘴</td></tr>
+<tr><td>内存区</td><td>HBM 无喷嘴、限速</td><td>两侧宽槽，近壁速度约 0.1 m/s</td></tr>
+<tr><td>设计流量</td><td>2.0 L/min</td><td>0.55 L/min</td></tr>
+<tr><td>接头方向</td><td>进液边朝后面板，回液沿盖顶折返</td><td>左进右出，管子沿 PCB 两侧接到后面板</td></tr>
+<tr><td>材料</td><td>三件都是 C11000 / TU1</td><td>两件都是 C11000 / TU1，与 GPU 冷板同材</td></tr>
+</tbody>
+</table>
+<p>两块冷板在托盘歧管上并联。Grace 的通道本身只有大约 0.7 kPa，若直接并到约 10 kPa 的 GPU 支路，Grace 会把流量吸走。所以在 Grace 入口设孔板，把<strong>整条 Grace 支路</strong>配到 10 kPa。孔板负责配平，通道负责换热，两件事分开。</p>
+</section>
+
+<section id="s4">
+<h2>4.　几何</h2>
+<p>坐标：原点在冷板左下角，X 沿托盘宽度，Y 沿托盘进深、朝向后面板和 GPU。芯片面是 z = 0，朝下贴 Grace 模组。</p>
+<h3>4.1　外形与厚度（候选平面，厚度按本方案）</h3>
+<table>
+<thead><tr><th>特征</th><th>尺寸</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>冷板外形</td><td>200 × 120 × 8.0 mm</td><td><span class="tagw">平面候选</span> 宽度对齐两块并排的 B300 冷板，待盖板图</td></tr>
+<tr><td>CPU 通道窗</td><td>X 80–120，Y 44–76，即 40 × 32 mm，居中</td><td><span class="tagw">候选</span></td></tr>
+<tr><td>左 / 右内存窗</td><td>各 50 × 70 mm，X 14–64 与 X 136–186，Y 25–95</td><td><span class="tagw">候选</span></td></tr>
+<tr><td>密封边</td><td>四周 6 mm 实铜</td><td>方案</td></tr>
+<tr><td>z 0–2.0</td><td>底板剩余铜</td><td>方案</td></tr>
+<tr><td>z 2.0–3.2</td><td>通道，深 1.2 mm</td><td>方案</td></tr>
+<tr><td>z 3.2–3.5</td><td>分型密封面</td><td>方案</td></tr>
+<tr><td>z 3.5–6.0</td><td>盖板内腔，深 2.5 mm。后侧为进液腔，前侧为出液腔</td><td>方案</td></tr>
+<tr><td>z 6.0–8.0</td><td>盖板顶</td><td>方案</td></tr>
+</tbody>
+</table>
+
+<div class="svgbox">
+<svg viewBox="0 0 760 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grace cold plate plan">
+  <rect x="40" y="40" width="600" height="360" fill="#f4e0cf" stroke="#5c3a17" stroke-width="2"/>
+  <rect x="82" y="115" width="150" height="210" fill="#efe6c9" stroke="#8a6a12" stroke-width="1.2"/>
+  <rect x="448" y="115" width="150" height="210" fill="#efe6c9" stroke="#8a6a12" stroke-width="1.2"/>
+  <rect x="280" y="172" width="120" height="96" fill="#f0c2b4" stroke="#b42318" stroke-width="1.4"/>
+  <g stroke="#c0392b" stroke-width="1.2" fill="none">
+    <path d="M292 176 v88 M304 176 v88 M316 176 v88 M328 176 v88 M340 176 v88 M352 176 v88 M364 176 v88 M376 176 v88 M388 176 v88"/>
+  </g>
+  <rect x="40" y="40" width="600" height="48" fill="#d9e9f7" stroke="#1f6fb2" stroke-width="1.2"/>
+  <rect x="40" y="352" width="600" height="48" fill="#f6dcd8" stroke="#c0392b" stroke-width="1.2"/>
+  <rect x="8" y="196" width="32" height="48" fill="#1f6fb2"/>
+  <rect x="640" y="196" width="32" height="48" fill="#c0392b"/>
+  <text x="24" y="188" font-size="13" fill="#1f6fb2" font-family="Microsoft YaHei,Arial">进液</text>
+  <text x="648" y="188" font-size="13" fill="#c0392b" font-family="Microsoft YaHei,Arial">出液</text>
+  <text x="340" y="228" text-anchor="middle" font-size="14" fill="#b42318" font-family="Microsoft YaHei,Arial">CPU 48 槽</text>
+  <text x="157" y="230" text-anchor="middle" font-size="13" fill="#8a6a12" font-family="Microsoft YaHei,Arial">LPDDR 左</text>
+  <text x="523" y="230" text-anchor="middle" font-size="13" fill="#8a6a12" font-family="Microsoft YaHei,Arial">LPDDR 右</text>
+  <text x="340" y="70" text-anchor="middle" font-size="13" fill="#1f6fb2" font-family="Microsoft YaHei,Arial">进液腔 · 朝后面板 / GPU</text>
+  <text x="340" y="382" text-anchor="middle" font-size="13" fill="#c0392b" font-family="Microsoft YaHei,Arial">出液腔 · 朝托盘前侧</text>
+  <text x="340" y="430" text-anchor="middle" font-size="13" fill="#33404d" font-family="Microsoft YaHei,Arial">X 200 mm 沿托盘宽度 →</text>
+  <text x="20" y="230" font-size="13" fill="#33404d" font-family="Microsoft YaHei,Arial" transform="rotate(-90 20 230)">Y 朝后</text>
+</svg>
+</div>
+<p class="figcap"><span class="svglabel">自绘</span><strong>图 1 · 俯视，芯片面朝下。</strong>冷液从左侧进入后侧进液腔，同时喂给 CPU 槽和两侧内存槽，再汇入前侧出液腔，从右侧离开。内存因此和 CPU 吃到同一股进液，而不是先流过一侧内存再进 CPU。</p>
+
+<div class="svgbox">
+<svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grace cold plate section">
+  <rect x="80" y="40" width="600" height="40" fill="#e7c8a4" stroke="#5c3a17"/>
+  <rect x="80" y="80" width="600" height="50" fill="#d9e9f7" stroke="#1f6fb2"/>
+  <rect x="80" y="130" width="600" height="24" fill="#f6dcd8" stroke="#c0392b"/>
+  <rect x="80" y="154" width="600" height="40" fill="#e7c8a4" stroke="#5c3a17"/>
+  <text x="90" y="66" font-size="13" fill="#5c3a17" font-family="Microsoft YaHei,Arial">盖板顶 z 6.0–8.0</text>
+  <text x="90" y="110" font-size="13" fill="#1f6fb2" font-family="Microsoft YaHei,Arial">进液腔 z 3.5–6.0（本剖面的后侧；前侧对称为出液腔）</text>
+  <text x="90" y="148" font-size="13" fill="#c0392b" font-family="Microsoft YaHei,Arial">通道 z 2.0–3.2</text>
+  <text x="90" y="178" font-size="13" fill="#5c3a17" font-family="Microsoft YaHei,Arial">底板剩余铜 z 0–2.0 · 芯片面</text>
+</svg>
+</div>
+<p class="figcap"><span class="svglabel">自绘</span><strong>图 2 · 厚度方向。</strong>两件铜。通道开在底板上，腔开在盖板上。总厚 8.0 mm，低于 B300 冷板的 12.5 mm。</p>
+
+<figure>
+  <img src="out/grace/fig_grace_iso.png" alt="SpaceClaim 爆炸概念图">
+  <figcaption><strong>图 3 · Ansys SpaceClaim 概念图。</strong>
+  自下而上：模组足迹（CPU 与两侧 LPDDR）、槽底板、进液腔与出液腔、盖板。左蓝右红是接头。图中小坐标轴是软件原点，不是流道。</figcaption>
+</figure>
+<figure>
+  <img src="out/grace/fig_grace_top.png" alt="SpaceClaim 揭盖俯视">
+  <figcaption><strong>图 4 · 揭盖俯视。</strong>
+  上方蓝条是进液腔，朝后面板；下方红条是出液腔。冷液从左接头进入进液腔，穿过中部 CPU 槽和两侧内存槽，从右接头离开。为了在整板尺度上看得见，CPU 肋在这张图里加粗了，真实槽距见图 5。</figcaption>
+</figure>
+<figure>
+  <img src="out/grace/fig_grace_channels.png" alt="SpaceClaim CPU 微通道局部">
+  <figcaption><strong>图 5 · CPU 区局部，按报告尺寸建模。</strong>
+  48 条通道，槽宽 0.40 mm，节距 0.80 mm，深 1.20 mm，流向沿 Y，长 32 mm。</figcaption>
+</figure>
+
+<h3>4.2　通道</h3>
+<table>
+<thead><tr><th></th><th>CPU 区</th><th>每一侧内存区</th></tr></thead>
+<tbody>
+<tr><td>条数</td><td>48</td><td>6</td></tr>
+<tr><td>槽宽 × 深</td><td>0.40 × 1.20 mm</td><td>1.20 × 0.80 mm</td></tr>
+<tr><td>节距</td><td>0.80 mm</td><td>约 8 mm，铺在 50 mm 窗内</td></tr>
+<tr><td>流向长度</td><td>32 mm，沿 Y</td><td>70 mm，沿 Y</td></tr>
+<tr><td>水力直径</td><td>0.60 mm</td><td>0.96 mm</td></tr>
+<tr><td>入口限流</td><td>无。流量由整板入口孔板和通道自身阻力决定</td><td>每侧一条 0.80 × 1.20 mm 缝，把该侧压降补到与 CPU 通道同一量级</td></tr>
+</tbody>
+</table>
+<p>内存缝是为了分流比。若两侧宽槽直接并在同一对腔上，按层流阻力估算，内存会分走大约四成流量，而它只占大约 13% 的功率。缝把每侧在设计流量下的压降补到与 CPU 通道接近，使内存合计约 0.08 L/min、CPU 约 0.47 L/min。</p>
+<h3>4.3　接头与孔板</h3>
+<p>左右两侧各一个管接头，外径 8 mm、内径 6 mm，与 B300 冷板建议的管子同一规格。0.55 L/min 时管内流速约 0.32 m/s。接头钎在盖板侧面，落在腔的高度上。</p>
+<p>入口孔板做在进液接头里，送样用可换镶件。<strong>4 个直径 1.04 mm 的孔</strong>，等效于一个直径 2.07 mm 的锐边孔（流量系数按 0.62）。四孔是为了避免单孔堵塞把整板切断。孔板在 0.55 L/min 下大约承担 9.3 kPa，加上 CPU 通道约 0.7 kPa，支路合计约 10 kPa。直径在托盘实测后冻结，本数是配平计算值。</p>
+</section>
+
+<section id="s5">
+<h2>5.　热工水力</h2>
+<p>水按 40 °C：密度 992 kg/m³，比热 4179 J/kg·K，粘度 6.53×10⁻⁴ Pa·s，导热系数 0.632 W/m·K。300 W、流体温升 8 K 时，体积流量为 0.543 L/min，设计取 <strong>0.55 L/min</strong>。包络流量 <strong>0.70 L/min</strong>，留给 PG25 或内存占比高于 40 W 的情况。B300 冷板在 2.0 L/min、1100 W 下的流体温升也是大约 8 K，两块板的温升口径一致。</p>
+<table>
+<thead><tr><th>量</th><th>CPU 通道</th><th>单侧内存通道</th></tr></thead>
+<tbody>
+<tr><td>分配流量</td><td>0.47 L/min</td><td>0.036 L/min</td></tr>
+<tr><td>槽内流速</td><td>0.34 m/s</td><td>0.11 m/s</td></tr>
+<tr><td>雷诺数</td><td>310</td><td>153</td></tr>
+<tr><td>通道压降</td><td>0.71 kPa</td><td>0.17 kPa（缝另外补约 0.5 kPa）</td></tr>
+<tr><td>对流系数</td><td>约 5100 W/m²·K</td><td>约 3200 W/m²·K</td></tr>
+<tr><td>对流温升</td><td>260 W 下约 12 K</td><td>20 W 下约 5 K</td></tr>
+</tbody>
+</table>
+<p>压降用充分发展层流 f = 64/Re，再加入口 0.5、出口 0.81 的局部损失。没有计入发展段的额外摩阻，所以 0.71 kPa 是通道压降的下限量级。即便发展段把它抬高一两倍，仍然远低于 10 kPa 的支路目标，差额继续由孔板承担。</p>
+<p>对流用 Nu = 4.8（三边受热、深宽比 3 的充分发展矩形槽的量级假设）。发展段的真实 Nu 更高，所以 12 K 偏保守。换热面积按槽的两侧壁加槽底。这个 12 K 只是铜–流体，不含硅、TIM 和盖板内的梯度。</p>
+<p><strong>冷板侧目标：</strong>CPU 区壳–进液热阻 &lt; 0.080 °C/W（260 W 下小于 21 K）。一维对流约占 0.046 °C/W，剩下留给 TIM2 和扩热。这是目标，要等共轭仿真和热测试件闭合。内存区 0.6 W/cm²，5 K 量级的对流温升不是设计驱动项，驱动项是速度和分流。</p>
+<div class="note ok"><strong>和托盘的水力关系：</strong>Grace 支路目标压降 10 kPa，窗口 8–12 kPa，与 B300 冷板的设计压降同一档。送样上限沿用 GPU 冷板的 18 kPa，极限 20 kPa。这样孔板可以把两路配平，而不是靠把 Grace 通道刻得很细去“制造”压降。</div>
+</section>
+
+<section id="s6">
+<h2>6.　材料、工艺与装配</h2>
+<table>
+<thead><tr><th>项</th><th>推荐</th><th>原因</th></tr></thead>
+<tbody>
+<tr><td>材料</td><td>底板、盖板都用 C11000 / TU1</td><td>与 B300 冷板同材，避免电偶、钎料和膨胀不一致</td></tr>
+<tr><td>底板</td><td>送样 CNC。直槽在量产可以铲齿</td><td>Grace 的槽是平行直槽，铲齿一次能成形。B300 的分区短槽做不到这一点</td></tr>
+<tr><td>盖板</td><td>CNC 铣腔</td><td>腔深 2.5 mm，没有微孔</td></tr>
+<tr><td>送样装配</td><td>螺钉 + 密封圈，孔板镶件可换</td><td>配平孔的直径要在托盘上改，先不要焊死</td></tr>
+<tr><td>量产装配</td><td>真空钎焊，焊后精铣贴芯片面</td><td>与 B300 冷板同一条产线逻辑。钎料槽躲开 0.40 mm 通道和内存缝</td></tr>
+<tr><td>贴芯片面</td><td>平面度 ≤ 0.05 mm，Ra ≤ 0.8 μm</td><td>与 B300 冷板同一进厂要求</td></tr>
+<tr><td>过滤</td><td>回路仍按 ≤ 25 μm</td><td>限制孔是 B300 的 0.50 mm 射流孔。Grace 的 1.04 mm 孔板不是回路里最小的孔</td></tr>
+</tbody>
+</table>
+<p>去离子水和 PG25 都要做流量–压降曲线。孔板若只在水上配平，换成 PG25 后支路压降会升高，托盘分流要重看。</p>
+</section>
+
+<section id="s7">
+<h2>7.　在托盘上的放法</h2>
+<p>芯片面朝下。冷板放在每块 NVL2 的前侧，两块 B300 冷板靠后面板。进液管沿 PCB 左缘从后面板供液歧管下来，接入左接头；出液管沿 PCB 右缘回到后面板回液歧管。管子在 GPU 冷板外侧，不从 GPU 冷板上面跨过。</p>
+<p>零件只做一种手性。若两块 NVL2 在托盘上镜像，由管子对调左右，不另做一块镜像铜板。</p>
+<p>单板 0.55 L/min 是冷板设计流量。托盘实际分到 Grace 的流量由歧管和孔板共同决定，要以托盘水力 ICD 为准。若四块 GPU 冷板实际是串联或半串联，Grace 仍应从供液歧管单独取水，避免吃到 GPU 的预热。</p>
+</section>
+
+<section id="s8">
+<h2>8.　待确认</h2>
+<table>
+<thead><tr><th>#</th><th>事项</th><th>现在的处理</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>盖板图、裸片与 LPDDR 坐标、螺孔</td><td>200 × 120 外形和两个窗口都是候选。通道数按窗口裁，节距不变</td></tr>
+<tr><td>2</td><td>CPU / 内存功率地图</td><td>260 / 40 是设计分工，总和锁在 300 W</td></tr>
+<tr><td>3</td><td>结温与 TIM2</td><td>只给壳–进液目标 0.080 °C/W。TIM 品牌按整机</td></tr>
+<tr><td>4</td><td>托盘串并联与单板实分流量</td><td>冷板按并联、0.55 L/min、支路 10 kPa 设计。ICD 若不同，只改孔板，不改槽</td></tr>
+<tr><td>5</td><td>堆高</td><td>8.0 mm 低于 GPU 冷板。仍要核对 Grace 模组的压装高度</td></tr>
+<tr><td>6</td><td>共轭仿真与热测试件</td><td>本报告的 12 K 是一维估算。发放前用 CFD 核对 Nu，并用热测试件核对壳温</td></tr>
+</tbody>
+</table>
+<p class="small">核算脚本：<code>CP-GRACE-MC-01_calc.py</code>。记忆：<code>memory/semantic/cp-grace-mc01.md</code>。来源：<code>参考_GB300_Grace_CPU与液冷边界_20260926.html</code>。</p>
+</section>
+
+</main>
+<footer>
+  CP-GRACE-MC-01 详细设计报告 v1.0 · 2026-09-26 · AIDCtms / coolingplate / design<br>
+  功率来自 Lenovo GB300 公开规格。平面尺寸为候选。热阻与压降是一维估算，未经 CFD 与实件验证。
+</footer>
+</div>
+</body>
+</html>

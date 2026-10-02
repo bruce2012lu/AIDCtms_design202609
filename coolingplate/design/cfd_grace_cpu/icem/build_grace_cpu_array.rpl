@@ -1,0 +1,324 @@
+# CP-GRACE-MC-01 CPU channel array. Units: MILLIMETRES.
+# 48 channels, 49 ribs, finned width 38.8 mm, centered in the 40 mm window.
+# Local x=0 is plate X=78.0. Channel walls are the curves named wall_*.
+# Fluid wall-normal law matches the single-pitch mesh: first 0.0025 mm, growth <= 1.20.
+# Cell budget is icem/array_budget.txt. This replay does not mesh the 34.88 M cells.
+set OUTDIR {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_grace_cpu}
+set ICEMDIR [file join $OUTDIR icem]
+file mkdir $ICEMDIR
+puts "GRACE-CPU array replay (mm): start"
+catch { ic_geo_delete_all }
+foreach fam {FLUID SOLID_CU SOLID_TIM INLET OUTLET WALL_HEAT WALL_ADI GEOM} {
+    catch { ic_geo_new_family $fam }
+}
+catch { ic_point {} POINT a000 0.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b000 0.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_000 [list a000 b000] }
+catch { ic_point {} POINT a001 2.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b001 2.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_001 [list a001 b001] }
+catch { ic_point {} POINT a002 2.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b002 2.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_002 [list a002 b002] }
+catch { ic_point {} POINT a003 3.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b003 3.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_003 [list a003 b003] }
+catch { ic_point {} POINT a004 3.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b004 3.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_004 [list a004 b004] }
+catch { ic_point {} POINT a005 3.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b005 3.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_005 [list a005 b005] }
+catch { ic_point {} POINT a006 4.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b006 4.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_006 [list a006 b006] }
+catch { ic_point {} POINT a007 4.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b007 4.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_007 [list a007 b007] }
+catch { ic_point {} POINT a008 5.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b008 5.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_008 [list a008 b008] }
+catch { ic_point {} POINT a009 5.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b009 5.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_009 [list a009 b009] }
+catch { ic_point {} POINT a010 5.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b010 5.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_010 [list a010 b010] }
+catch { ic_point {} POINT a011 6.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b011 6.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_011 [list a011 b011] }
+catch { ic_point {} POINT a012 6.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b012 6.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_012 [list a012 b012] }
+catch { ic_point {} POINT a013 7.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b013 7.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_013 [list a013 b013] }
+catch { ic_point {} POINT a014 7.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b014 7.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_014 [list a014 b014] }
+catch { ic_point {} POINT a015 7.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b015 7.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_015 [list a015 b015] }
+catch { ic_point {} POINT a016 8.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b016 8.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_016 [list a016 b016] }
+catch { ic_point {} POINT a017 8.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b017 8.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_017 [list a017 b017] }
+catch { ic_point {} POINT a018 9.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b018 9.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_018 [list a018 b018] }
+catch { ic_point {} POINT a019 9.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b019 9.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_019 [list a019 b019] }
+catch { ic_point {} POINT a020 9.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b020 9.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_020 [list a020 b020] }
+catch { ic_point {} POINT a021 10.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b021 10.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_021 [list a021 b021] }
+catch { ic_point {} POINT a022 10.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b022 10.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_022 [list a022 b022] }
+catch { ic_point {} POINT a023 11.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b023 11.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_023 [list a023 b023] }
+catch { ic_point {} POINT a024 11.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b024 11.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_024 [list a024 b024] }
+catch { ic_point {} POINT a025 11.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b025 11.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_025 [list a025 b025] }
+catch { ic_point {} POINT a026 12.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b026 12.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_026 [list a026 b026] }
+catch { ic_point {} POINT a027 12.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b027 12.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_027 [list a027 b027] }
+catch { ic_point {} POINT a028 13.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b028 13.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_028 [list a028 b028] }
+catch { ic_point {} POINT a029 13.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b029 13.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_029 [list a029 b029] }
+catch { ic_point {} POINT a030 13.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b030 13.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_030 [list a030 b030] }
+catch { ic_point {} POINT a031 14.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b031 14.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_031 [list a031 b031] }
+catch { ic_point {} POINT a032 14.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b032 14.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_032 [list a032 b032] }
+catch { ic_point {} POINT a033 15.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b033 15.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_033 [list a033 b033] }
+catch { ic_point {} POINT a034 15.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b034 15.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_034 [list a034 b034] }
+catch { ic_point {} POINT a035 15.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b035 15.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_035 [list a035 b035] }
+catch { ic_point {} POINT a036 16.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b036 16.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_036 [list a036 b036] }
+catch { ic_point {} POINT a037 16.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b037 16.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_037 [list a037 b037] }
+catch { ic_point {} POINT a038 17.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b038 17.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_038 [list a038 b038] }
+catch { ic_point {} POINT a039 17.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b039 17.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_039 [list a039 b039] }
+catch { ic_point {} POINT a040 17.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b040 17.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_040 [list a040 b040] }
+catch { ic_point {} POINT a041 18.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b041 18.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_041 [list a041 b041] }
+catch { ic_point {} POINT a042 18.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b042 18.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_042 [list a042 b042] }
+catch { ic_point {} POINT a043 19.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b043 19.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_043 [list a043 b043] }
+catch { ic_point {} POINT a044 19.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b044 19.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_044 [list a044 b044] }
+catch { ic_point {} POINT a045 19.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b045 19.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_045 [list a045 b045] }
+catch { ic_point {} POINT a046 20.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b046 20.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_046 [list a046 b046] }
+catch { ic_point {} POINT a047 20.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b047 20.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_047 [list a047 b047] }
+catch { ic_point {} POINT a048 21.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b048 21.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_048 [list a048 b048] }
+catch { ic_point {} POINT a049 21.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b049 21.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_049 [list a049 b049] }
+catch { ic_point {} POINT a050 21.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b050 21.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_050 [list a050 b050] }
+catch { ic_point {} POINT a051 22.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b051 22.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_051 [list a051 b051] }
+catch { ic_point {} POINT a052 22.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b052 22.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_052 [list a052 b052] }
+catch { ic_point {} POINT a053 23.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b053 23.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_053 [list a053 b053] }
+catch { ic_point {} POINT a054 23.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b054 23.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_054 [list a054 b054] }
+catch { ic_point {} POINT a055 23.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b055 23.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_055 [list a055 b055] }
+catch { ic_point {} POINT a056 24.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b056 24.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_056 [list a056 b056] }
+catch { ic_point {} POINT a057 24.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b057 24.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_057 [list a057 b057] }
+catch { ic_point {} POINT a058 25.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b058 25.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_058 [list a058 b058] }
+catch { ic_point {} POINT a059 25.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b059 25.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_059 [list a059 b059] }
+catch { ic_point {} POINT a060 25.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b060 25.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_060 [list a060 b060] }
+catch { ic_point {} POINT a061 26.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b061 26.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_061 [list a061 b061] }
+catch { ic_point {} POINT a062 26.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b062 26.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_062 [list a062 b062] }
+catch { ic_point {} POINT a063 27.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b063 27.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_063 [list a063 b063] }
+catch { ic_point {} POINT a064 27.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b064 27.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_064 [list a064 b064] }
+catch { ic_point {} POINT a065 27.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b065 27.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_065 [list a065 b065] }
+catch { ic_point {} POINT a066 28.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b066 28.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_066 [list a066 b066] }
+catch { ic_point {} POINT a067 28.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b067 28.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_067 [list a067 b067] }
+catch { ic_point {} POINT a068 29.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b068 29.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_068 [list a068 b068] }
+catch { ic_point {} POINT a069 29.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b069 29.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_069 [list a069 b069] }
+catch { ic_point {} POINT a070 29.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b070 29.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_070 [list a070 b070] }
+catch { ic_point {} POINT a071 30.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b071 30.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_071 [list a071 b071] }
+catch { ic_point {} POINT a072 30.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b072 30.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_072 [list a072 b072] }
+catch { ic_point {} POINT a073 31.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b073 31.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_073 [list a073 b073] }
+catch { ic_point {} POINT a074 31.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b074 31.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_074 [list a074 b074] }
+catch { ic_point {} POINT a075 31.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b075 31.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_075 [list a075 b075] }
+catch { ic_point {} POINT a076 32.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b076 32.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_076 [list a076 b076] }
+catch { ic_point {} POINT a077 32.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b077 32.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_077 [list a077 b077] }
+catch { ic_point {} POINT a078 33.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b078 33.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_078 [list a078 b078] }
+catch { ic_point {} POINT a079 33.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b079 33.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_079 [list a079 b079] }
+catch { ic_point {} POINT a080 33.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b080 33.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_080 [list a080 b080] }
+catch { ic_point {} POINT a081 34.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b081 34.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_081 [list a081 b081] }
+catch { ic_point {} POINT a082 34.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b082 34.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_082 [list a082 b082] }
+catch { ic_point {} POINT a083 35.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b083 35.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_083 [list a083 b083] }
+catch { ic_point {} POINT a084 35.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b084 35.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_084 [list a084 b084] }
+catch { ic_point {} POINT a085 35.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b085 35.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_085 [list a085 b085] }
+catch { ic_point {} POINT a086 36.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b086 36.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_086 [list a086 b086] }
+catch { ic_point {} POINT a087 36.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b087 36.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_087 [list a087 b087] }
+catch { ic_point {} POINT a088 37.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b088 37.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_088 [list a088 b088] }
+catch { ic_point {} POINT a089 37.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b089 37.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_089 [list a089 b089] }
+catch { ic_point {} POINT a090 37.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b090 37.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_090 [list a090 b090] }
+catch { ic_point {} POINT a091 38.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b091 38.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_091 [list a091 b091] }
+catch { ic_point {} POINT a092 38.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b092 38.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_092 [list a092 b092] }
+catch { ic_point {} POINT a093 39.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b093 39.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_093 [list a093 b093] }
+catch { ic_point {} POINT a094 39.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b094 39.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_094 [list a094 b094] }
+catch { ic_point {} POINT a095 39.800000,0.000000,2.000000 }
+catch { ic_point {} POINT b095 39.800000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_095 [list a095 b095] }
+catch { ic_point {} POINT a096 40.200000,0.000000,2.000000 }
+catch { ic_point {} POINT b096 40.200000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_096 [list a096 b096] }
+catch { ic_point {} POINT a097 40.600000,0.000000,2.000000 }
+catch { ic_point {} POINT b097 40.600000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_097 [list a097 b097] }
+catch { ic_point {} POINT a098 41.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b098 41.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_098 [list a098 b098] }
+catch { ic_point {} POINT a099 41.400000,0.000000,2.000000 }
+catch { ic_point {} POINT b099 41.400000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_099 [list a099 b099] }
+catch { ic_point {} POINT a100 42.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b100 42.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_100 [list a100 b100] }
+catch { ic_point {} POINT a101 44.000000,0.000000,2.000000 }
+catch { ic_point {} POINT b101 44.000000,44.000000,2.000000 }
+catch { ic_curve point CRV wall_101 [list a101 b101] }
+puts "channel-wall curves 102  width_mm 44.000  cells 34881160"
+set tin [file join $ICEMDIR grace_cpu_array.tin]
+catch { ic_save_tetin $tin }
+puts "saved $tin"
+puts "GRACE-CPU array replay: done"

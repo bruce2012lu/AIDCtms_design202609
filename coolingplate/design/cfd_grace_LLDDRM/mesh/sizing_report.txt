@@ -1,0 +1,20 @@
+CP-GRACE-MC-01 LPDDR cooling region — ICEM blocking budget
+pitch_mm 8.333333  channels 6  window 50.0 x 70.0 mm
+channel_mm 1.2 x 0.8 x 70.0  floor 2.0  cap 0.40000000000000036
+z 0 / 2.0 / 2.8 / 3.2
+Dh_mm 0.9600  fRe_Fanning 14.715  fRe_Darcy 58.859
+qflux_W_m2 5714.2857
+mdot_channel_kg_s 9.920000e-05  mdot_side_kg_s 5.952000e-04
+yplus split V 0.1042 Re 151.91 y1_um 28.72 y+_h1 0.418 y+_max_est 0.627
+yplus table V 0.1100 Re 160.42 y1_um 27.94 y+_h1 0.429 y+_max_est 0.644
+yplus envelope V 0.1400 Re 204.17 y1_um 24.77 y+_h1 0.484 y+_max_est 0.727
+SINGLE cells 693770 fluid 125664 solid 568106 nx 70 ny 187 nz 53
+SINGLE growth fluid_x 1.1779 fluid_z 1.1725 all_x 1.2500 y 1.1000 z 1.2459 aspect_fluid 33.16 aspect_solid 35.53 min_edge_um 12.00
+SINGLE first_um fluid_x 12.00 fluid_z 12.00 land 12.00 floor 12.00 cap 12.00 y_in 80.00 y_out 200.00
+ratio_x 1.1779 ratio_z 1.1725
+land_cells_half 21 chan_x 28 floor 17 chan_z 24 cap 12
+ARRAY cells 4162620 fluid 753984 solid 3408636 nx 420 ny 187 nz 53 aspect_fluid 33.16 aspect_solid 35.53
+gates: fluid wall-normal growth <= 1.20, first layer 12 um, y+_max_est(envelope) < 1,
+      >= 10 cells wall-to-center, conformal hex, single pitch < 1e6
+GATES PASSED
+array designed because single pitch is under 1e6 cells

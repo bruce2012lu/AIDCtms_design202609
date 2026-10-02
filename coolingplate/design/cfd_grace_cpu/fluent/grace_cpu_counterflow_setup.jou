@@ -1,0 +1,137 @@
+; CP-GRACE-MC-01 CPU counterflow pair, conjugate, laminar.
+; Does not iterate. Water at the Grace report 40 C properties.
+; Each inlet is one channel: 0.47 L/min / 48 * 992 kg/m3.
+; q'' = 260 W / (40 mm x 32 mm). TIM k=8.818 W/mK is the B300 coupon value.
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_grace_cpu/mesh/grace_cpu_counterflow_pair.msh"
+/mesh/check
+/define/models/energy yes
+no
+no
+no
+no
+/define/models/viscous/laminar yes
+/define/materials/copy fluid water-liquid
+/define/materials/copy solid copper
+/define/materials/copy solid aluminum
+/define/materials/change-create
+water-liquid
+water-liquid
+yes
+constant
+992
+yes
+constant
+4179
+yes
+constant
+0.632
+no
+no
+no
+yes
+constant
+6.53e-4
+no
+no
+no
+no
+/define/materials/change-create
+copper
+copper
+yes
+constant
+8960
+yes
+constant
+385
+yes
+constant
+390
+no
+no
+no
+/define/materials/change-create
+aluminum
+tim2
+yes
+constant
+2800
+yes
+constant
+1000
+yes
+constant
+8.818
+no
+no
+no
+/define/boundary-conditions/fluid
+fluid
+yes
+water-liquid
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+no
+/define/boundary-conditions/solid
+solid_cu
+yes
+copper
+no
+no
+no
+no
+/define/boundary-conditions/solid
+solid_tim2
+yes
+tim2
+no
+no
+no
+no
+/define/boundary-conditions/zone-type inlet_even mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_odd mass-flow-inlet
+/define/boundary-conditions/zone-type outlet_even pressure-outlet
+/define/boundary-conditions/zone-type outlet_odd pressure-outlet
+/define/boundary-conditions/zone-type sym symmetry
+/define/boundary-conditions/set/mass-flow-inlet inlet_even () mass-flow no 0.000161888889 t no 313.15 quit
+/define/boundary-conditions/set/mass-flow-inlet inlet_odd () mass-flow no 0.000161888889 t no 313.15 quit
+/define/boundary-conditions/set/pressure-outlet outlet_even () t no 313.15 quit
+/define/boundary-conditions/set/pressure-outlet outlet_odd () t no 313.15 quit
+/define/boundary-conditions/wall
+wall_heat
+no
+0
+no
+0
+no
+yes
+heat-flux
+no
+203125
+no
+no
+no
+no
+1
+/define/operating-conditions/operating-pressure 101325
+/report/reference-values/temperature 313.15
+/define/boundary-conditions/list-zones
+/exit yes

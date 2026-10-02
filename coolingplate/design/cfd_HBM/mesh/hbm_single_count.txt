@@ -1,0 +1,18 @@
+case single
+nx 68
+ny 143
+nz 84
+cells_fluid 160160
+cells_cu 598312
+cells_tim 36720
+cells_total 795192
+ratio_x 1.1924
+ratio_y 1.2000
+ratio_z 2.0000
+yplus_DP-A 0.455 Re 516.8 tau 1.392
+yplus_DP-B 0.499 Re 620.2 tau 1.671
+first_fluid_mm 0.008
+first_solid_mm 0.016
+Le_mm 11.4286
+heated_cells_y 90
+width_mm 1.6

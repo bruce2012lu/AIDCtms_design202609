@@ -1,0 +1,62 @@
+CP-GRACE-MC-01 CPU cooling region, single interior pitch
+basis: Grace cold-plate report v1.0, section 4. CPU window X 80-120, Y 44-76
+channel 0.40 x 1.20 mm, pitch 0.80 mm, heated length 32 mm along Y
+local frame: x=0 and x=0.80 rib mid-planes; y=0 upstream end; flow +y
+plate map: channel inlet (local y=6) is plate Y=76; outlet (local y=38) is plate Y=44
+plate map: local y_plate = 82 - y_local
+extensions 6.000 mm each end = 10 Dh, Dh=0.60 mm, same 0.40 x 1.20 section
+solids: floor z 0-2.0, ribs, lid cap z 3.2-4.200 (parting skin 0.30 mm included)
+TIM z -0.080-0 on the heated 32 mm only. Thickness is not in the Grace ICD.
+k_tim 8.818 W/mK is the B300 coupon number, not a Grace measurement.
+lid above z=4.200 is omitted; cut face is adiabatic.
+
+cells_total 715440
+cells_fluid 309760
+cells_rib 116160
+cells_floor 174240
+cells_lid 87120
+cells_tim 28160
+nx 44 nx_fluid 32 nx_rib 12
+ny 220 ny_heat 160
+nz_floor 18 nz_chan 44 nz_lid 9 nz_tim 4
+fluid_x_first_mm 0.002500 fluid_x_ratio 1.1902 fluid_x_cells 32 max_ratio 1.1902
+fluid_z_first_mm 0.002500 fluid_z_ratio 1.1911 fluid_z_cells 44 max_ratio 1.1911
+rib_half_first_mm 0.020000 rib_ratio 1.2028 rib_cells 6
+floor_first_mm 0.020000 floor_ratio 1.4040 floor_cells 18
+lid_first_mm 0.020000 lid_ratio 1.4040 lid_cells 9
+dy_mm 0.200
+Re_Dh 309.91
+yplus_fd 0.2144
+yplus_if_tau_x5 0.4795
+yplus_note fully developed Shah-London rectangular duct; x5 is an entrance bound, not a Fluent print
+q_flux_W_m2 203125.000000
+mdot_channel_kg_s 1.61888889e-04
+V_m_s 0.3400
+pitch_power_W 5.2000
+
+msh_nodes 745020
+msh_faces 2175560
+msh_cells 715440
+inlet_area_m2 4.80000000e-07
+inlet_area_expect_m2 4.80000000e-07
+inlet_area_rel_err 6.617e-16
+zone inlet 1408
+zone interior 2076600
+zone outlet 1408
+zone sym 32520
+zone wall_adi 16104
+zone wall_cu_fluid 33440
+zone wall_heat 7040
+zone wall_tim_cu 7040
+
+ARRAY 48 channels, 49 ribs, finned width 38.8 mm centered in X 80-120
+ARRAY shoulders 2.00 mm unheated copper outside the window, each side
+ARRAY same fluid first layer, same growth, same dy
+ARRAY cells_fluid 14868480
+ARRAY cells_cu 18652040
+ARRAY cells_tim 1360640
+ARRAY cells_total 34881160
+ARRAY nx 2146 ny 220 width_mm 44.000 plate_x0 78.000
+ARRAY file not written; total is above a single-workstation ASCII msh
+
+problems 0

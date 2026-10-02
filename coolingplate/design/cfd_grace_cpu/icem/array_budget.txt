@@ -1,0 +1,14 @@
+width_mm 43.99999999999992
+plate_x0 78.0
+nx 2146
+ny 220
+nx_fluid 1536
+nx_rib 576
+nx_side 34
+nz_chan 44
+nz_floor 18
+nz_lid 9
+fluid 14868480
+cu 18652040
+tim 1360640
+total 34881160

@@ -1,0 +1,290 @@
+# CP-GRACE-MC-01 CPU single pitch. Units: MILLIMETRES.
+# File -> Replay Scripts -> Replay. Do not start a second icemcfd.
+# This builds the block corners and saves a tetin. Edge node counts
+# are printed for Hexa blocking. The Fluent msh written beside this
+# replay uses these same distributions.
+set OUTDIR {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_grace_cpu}
+set ICEMDIR [file join $OUTDIR icem]
+file mkdir $ICEMDIR
+puts "GRACE-CPU channel replay (mm): start"
+catch { ic_uns_new }
+catch { ic_geo_delete_all }
+catch { ic_hex_unload_blocking }
+foreach fam {FLUID SOLID_CU SOLID_TIM INLET OUTLET WALL_HEAT WALL_ADI SYM GEOM} {
+    catch { ic_geo_new_family $fam }
+}
+catch { ic_point {} POINT p000 0.000000,0.000000,-0.080000 }
+catch { ic_point {} POINT p001 0.200000,0.000000,-0.080000 }
+catch { ic_point {} POINT p002 0.600000,0.000000,-0.080000 }
+catch { ic_point {} POINT p003 0.800000,0.000000,-0.080000 }
+catch { ic_point {} POINT p004 0.000000,6.000000,-0.080000 }
+catch { ic_point {} POINT p005 0.200000,6.000000,-0.080000 }
+catch { ic_point {} POINT p006 0.600000,6.000000,-0.080000 }
+catch { ic_point {} POINT p007 0.800000,6.000000,-0.080000 }
+catch { ic_point {} POINT p008 0.000000,38.000000,-0.080000 }
+catch { ic_point {} POINT p009 0.200000,38.000000,-0.080000 }
+catch { ic_point {} POINT p010 0.600000,38.000000,-0.080000 }
+catch { ic_point {} POINT p011 0.800000,38.000000,-0.080000 }
+catch { ic_point {} POINT p012 0.000000,44.000000,-0.080000 }
+catch { ic_point {} POINT p013 0.200000,44.000000,-0.080000 }
+catch { ic_point {} POINT p014 0.600000,44.000000,-0.080000 }
+catch { ic_point {} POINT p015 0.800000,44.000000,-0.080000 }
+catch { ic_point {} POINT p016 0.000000,0.000000,0.000000 }
+catch { ic_point {} POINT p017 0.200000,0.000000,0.000000 }
+catch { ic_point {} POINT p018 0.600000,0.000000,0.000000 }
+catch { ic_point {} POINT p019 0.800000,0.000000,0.000000 }
+catch { ic_point {} POINT p020 0.000000,6.000000,0.000000 }
+catch { ic_point {} POINT p021 0.200000,6.000000,0.000000 }
+catch { ic_point {} POINT p022 0.600000,6.000000,0.000000 }
+catch { ic_point {} POINT p023 0.800000,6.000000,0.000000 }
+catch { ic_point {} POINT p024 0.000000,38.000000,0.000000 }
+catch { ic_point {} POINT p025 0.200000,38.000000,0.000000 }
+catch { ic_point {} POINT p026 0.600000,38.000000,0.000000 }
+catch { ic_point {} POINT p027 0.800000,38.000000,0.000000 }
+catch { ic_point {} POINT p028 0.000000,44.000000,0.000000 }
+catch { ic_point {} POINT p029 0.200000,44.000000,0.000000 }
+catch { ic_point {} POINT p030 0.600000,44.000000,0.000000 }
+catch { ic_point {} POINT p031 0.800000,44.000000,0.000000 }
+catch { ic_point {} POINT p032 0.000000,0.000000,2.000000 }
+catch { ic_point {} POINT p033 0.200000,0.000000,2.000000 }
+catch { ic_point {} POINT p034 0.600000,0.000000,2.000000 }
+catch { ic_point {} POINT p035 0.800000,0.000000,2.000000 }
+catch { ic_point {} POINT p036 0.000000,6.000000,2.000000 }
+catch { ic_point {} POINT p037 0.200000,6.000000,2.000000 }
+catch { ic_point {} POINT p038 0.600000,6.000000,2.000000 }
+catch { ic_point {} POINT p039 0.800000,6.000000,2.000000 }
+catch { ic_point {} POINT p040 0.000000,38.000000,2.000000 }
+catch { ic_point {} POINT p041 0.200000,38.000000,2.000000 }
+catch { ic_point {} POINT p042 0.600000,38.000000,2.000000 }
+catch { ic_point {} POINT p043 0.800000,38.000000,2.000000 }
+catch { ic_point {} POINT p044 0.000000,44.000000,2.000000 }
+catch { ic_point {} POINT p045 0.200000,44.000000,2.000000 }
+catch { ic_point {} POINT p046 0.600000,44.000000,2.000000 }
+catch { ic_point {} POINT p047 0.800000,44.000000,2.000000 }
+catch { ic_point {} POINT p048 0.000000,0.000000,3.200000 }
+catch { ic_point {} POINT p049 0.200000,0.000000,3.200000 }
+catch { ic_point {} POINT p050 0.600000,0.000000,3.200000 }
+catch { ic_point {} POINT p051 0.800000,0.000000,3.200000 }
+catch { ic_point {} POINT p052 0.000000,6.000000,3.200000 }
+catch { ic_point {} POINT p053 0.200000,6.000000,3.200000 }
+catch { ic_point {} POINT p054 0.600000,6.000000,3.200000 }
+catch { ic_point {} POINT p055 0.800000,6.000000,3.200000 }
+catch { ic_point {} POINT p056 0.000000,38.000000,3.200000 }
+catch { ic_point {} POINT p057 0.200000,38.000000,3.200000 }
+catch { ic_point {} POINT p058 0.600000,38.000000,3.200000 }
+catch { ic_point {} POINT p059 0.800000,38.000000,3.200000 }
+catch { ic_point {} POINT p060 0.000000,44.000000,3.200000 }
+catch { ic_point {} POINT p061 0.200000,44.000000,3.200000 }
+catch { ic_point {} POINT p062 0.600000,44.000000,3.200000 }
+catch { ic_point {} POINT p063 0.800000,44.000000,3.200000 }
+catch { ic_point {} POINT p064 0.000000,0.000000,4.200000 }
+catch { ic_point {} POINT p065 0.200000,0.000000,4.200000 }
+catch { ic_point {} POINT p066 0.600000,0.000000,4.200000 }
+catch { ic_point {} POINT p067 0.800000,0.000000,4.200000 }
+catch { ic_point {} POINT p068 0.000000,6.000000,4.200000 }
+catch { ic_point {} POINT p069 0.200000,6.000000,4.200000 }
+catch { ic_point {} POINT p070 0.600000,6.000000,4.200000 }
+catch { ic_point {} POINT p071 0.800000,6.000000,4.200000 }
+catch { ic_point {} POINT p072 0.000000,38.000000,4.200000 }
+catch { ic_point {} POINT p073 0.200000,38.000000,4.200000 }
+catch { ic_point {} POINT p074 0.600000,38.000000,4.200000 }
+catch { ic_point {} POINT p075 0.800000,38.000000,4.200000 }
+catch { ic_point {} POINT p076 0.000000,44.000000,4.200000 }
+catch { ic_point {} POINT p077 0.200000,44.000000,4.200000 }
+catch { ic_point {} POINT p078 0.600000,44.000000,4.200000 }
+catch { ic_point {} POINT p079 0.800000,44.000000,4.200000 }
+catch { ic_curve point CRV e000 [list p000 p001] }
+catch { ic_curve point CRV e001 [list p000 p004] }
+catch { ic_curve point CRV e002 [list p000 p016] }
+catch { ic_curve point CRV e003 [list p001 p002] }
+catch { ic_curve point CRV e004 [list p001 p005] }
+catch { ic_curve point CRV e005 [list p001 p017] }
+catch { ic_curve point CRV e006 [list p002 p003] }
+catch { ic_curve point CRV e007 [list p002 p006] }
+catch { ic_curve point CRV e008 [list p002 p018] }
+catch { ic_curve point CRV e009 [list p003 p007] }
+catch { ic_curve point CRV e010 [list p003 p019] }
+catch { ic_curve point CRV e011 [list p004 p005] }
+catch { ic_curve point CRV e012 [list p004 p008] }
+catch { ic_curve point CRV e013 [list p004 p020] }
+catch { ic_curve point CRV e014 [list p005 p006] }
+catch { ic_curve point CRV e015 [list p005 p009] }
+catch { ic_curve point CRV e016 [list p005 p021] }
+catch { ic_curve point CRV e017 [list p006 p007] }
+catch { ic_curve point CRV e018 [list p006 p010] }
+catch { ic_curve point CRV e019 [list p006 p022] }
+catch { ic_curve point CRV e020 [list p007 p011] }
+catch { ic_curve point CRV e021 [list p007 p023] }
+catch { ic_curve point CRV e022 [list p008 p009] }
+catch { ic_curve point CRV e023 [list p008 p012] }
+catch { ic_curve point CRV e024 [list p008 p024] }
+catch { ic_curve point CRV e025 [list p009 p010] }
+catch { ic_curve point CRV e026 [list p009 p013] }
+catch { ic_curve point CRV e027 [list p009 p025] }
+catch { ic_curve point CRV e028 [list p010 p011] }
+catch { ic_curve point CRV e029 [list p010 p014] }
+catch { ic_curve point CRV e030 [list p010 p026] }
+catch { ic_curve point CRV e031 [list p011 p015] }
+catch { ic_curve point CRV e032 [list p011 p027] }
+catch { ic_curve point CRV e033 [list p012 p013] }
+catch { ic_curve point CRV e034 [list p012 p028] }
+catch { ic_curve point CRV e035 [list p013 p014] }
+catch { ic_curve point CRV e036 [list p013 p029] }
+catch { ic_curve point CRV e037 [list p014 p015] }
+catch { ic_curve point CRV e038 [list p014 p030] }
+catch { ic_curve point CRV e039 [list p015 p031] }
+catch { ic_curve point CRV e040 [list p016 p017] }
+catch { ic_curve point CRV e041 [list p016 p020] }
+catch { ic_curve point CRV e042 [list p016 p032] }
+catch { ic_curve point CRV e043 [list p017 p018] }
+catch { ic_curve point CRV e044 [list p017 p021] }
+catch { ic_curve point CRV e045 [list p017 p033] }
+catch { ic_curve point CRV e046 [list p018 p019] }
+catch { ic_curve point CRV e047 [list p018 p022] }
+catch { ic_curve point CRV e048 [list p018 p034] }
+catch { ic_curve point CRV e049 [list p019 p023] }
+catch { ic_curve point CRV e050 [list p019 p035] }
+catch { ic_curve point CRV e051 [list p020 p021] }
+catch { ic_curve point CRV e052 [list p020 p024] }
+catch { ic_curve point CRV e053 [list p020 p036] }
+catch { ic_curve point CRV e054 [list p021 p022] }
+catch { ic_curve point CRV e055 [list p021 p025] }
+catch { ic_curve point CRV e056 [list p021 p037] }
+catch { ic_curve point CRV e057 [list p022 p023] }
+catch { ic_curve point CRV e058 [list p022 p026] }
+catch { ic_curve point CRV e059 [list p022 p038] }
+catch { ic_curve point CRV e060 [list p023 p027] }
+catch { ic_curve point CRV e061 [list p023 p039] }
+catch { ic_curve point CRV e062 [list p024 p025] }
+catch { ic_curve point CRV e063 [list p024 p028] }
+catch { ic_curve point CRV e064 [list p024 p040] }
+catch { ic_curve point CRV e065 [list p025 p026] }
+catch { ic_curve point CRV e066 [list p025 p029] }
+catch { ic_curve point CRV e067 [list p025 p041] }
+catch { ic_curve point CRV e068 [list p026 p027] }
+catch { ic_curve point CRV e069 [list p026 p030] }
+catch { ic_curve point CRV e070 [list p026 p042] }
+catch { ic_curve point CRV e071 [list p027 p031] }
+catch { ic_curve point CRV e072 [list p027 p043] }
+catch { ic_curve point CRV e073 [list p028 p029] }
+catch { ic_curve point CRV e074 [list p028 p044] }
+catch { ic_curve point CRV e075 [list p029 p030] }
+catch { ic_curve point CRV e076 [list p029 p045] }
+catch { ic_curve point CRV e077 [list p030 p031] }
+catch { ic_curve point CRV e078 [list p030 p046] }
+catch { ic_curve point CRV e079 [list p031 p047] }
+catch { ic_curve point CRV e080 [list p032 p033] }
+catch { ic_curve point CRV e081 [list p032 p036] }
+catch { ic_curve point CRV e082 [list p032 p048] }
+catch { ic_curve point CRV e083 [list p033 p034] }
+catch { ic_curve point CRV e084 [list p033 p037] }
+catch { ic_curve point CRV e085 [list p033 p049] }
+catch { ic_curve point CRV e086 [list p034 p035] }
+catch { ic_curve point CRV e087 [list p034 p038] }
+catch { ic_curve point CRV e088 [list p034 p050] }
+catch { ic_curve point CRV e089 [list p035 p039] }
+catch { ic_curve point CRV e090 [list p035 p051] }
+catch { ic_curve point CRV e091 [list p036 p037] }
+catch { ic_curve point CRV e092 [list p036 p040] }
+catch { ic_curve point CRV e093 [list p036 p052] }
+catch { ic_curve point CRV e094 [list p037 p038] }
+catch { ic_curve point CRV e095 [list p037 p041] }
+catch { ic_curve point CRV e096 [list p037 p053] }
+catch { ic_curve point CRV e097 [list p038 p039] }
+catch { ic_curve point CRV e098 [list p038 p042] }
+catch { ic_curve point CRV e099 [list p038 p054] }
+catch { ic_curve point CRV e100 [list p039 p043] }
+catch { ic_curve point CRV e101 [list p039 p055] }
+catch { ic_curve point CRV e102 [list p040 p041] }
+catch { ic_curve point CRV e103 [list p040 p044] }
+catch { ic_curve point CRV e104 [list p040 p056] }
+catch { ic_curve point CRV e105 [list p041 p042] }
+catch { ic_curve point CRV e106 [list p041 p045] }
+catch { ic_curve point CRV e107 [list p041 p057] }
+catch { ic_curve point CRV e108 [list p042 p043] }
+catch { ic_curve point CRV e109 [list p042 p046] }
+catch { ic_curve point CRV e110 [list p042 p058] }
+catch { ic_curve point CRV e111 [list p043 p047] }
+catch { ic_curve point CRV e112 [list p043 p059] }
+catch { ic_curve point CRV e113 [list p044 p045] }
+catch { ic_curve point CRV e114 [list p044 p060] }
+catch { ic_curve point CRV e115 [list p045 p046] }
+catch { ic_curve point CRV e116 [list p045 p061] }
+catch { ic_curve point CRV e117 [list p046 p047] }
+catch { ic_curve point CRV e118 [list p046 p062] }
+catch { ic_curve point CRV e119 [list p047 p063] }
+catch { ic_curve point CRV e120 [list p048 p049] }
+catch { ic_curve point CRV e121 [list p048 p052] }
+catch { ic_curve point CRV e122 [list p048 p064] }
+catch { ic_curve point CRV e123 [list p049 p050] }
+catch { ic_curve point CRV e124 [list p049 p053] }
+catch { ic_curve point CRV e125 [list p049 p065] }
+catch { ic_curve point CRV e126 [list p050 p051] }
+catch { ic_curve point CRV e127 [list p050 p054] }
+catch { ic_curve point CRV e128 [list p050 p066] }
+catch { ic_curve point CRV e129 [list p051 p055] }
+catch { ic_curve point CRV e130 [list p051 p067] }
+catch { ic_curve point CRV e131 [list p052 p053] }
+catch { ic_curve point CRV e132 [list p052 p056] }
+catch { ic_curve point CRV e133 [list p052 p068] }
+catch { ic_curve point CRV e134 [list p053 p054] }
+catch { ic_curve point CRV e135 [list p053 p057] }
+catch { ic_curve point CRV e136 [list p053 p069] }
+catch { ic_curve point CRV e137 [list p054 p055] }
+catch { ic_curve point CRV e138 [list p054 p058] }
+catch { ic_curve point CRV e139 [list p054 p070] }
+catch { ic_curve point CRV e140 [list p055 p059] }
+catch { ic_curve point CRV e141 [list p055 p071] }
+catch { ic_curve point CRV e142 [list p056 p057] }
+catch { ic_curve point CRV e143 [list p056 p060] }
+catch { ic_curve point CRV e144 [list p056 p072] }
+catch { ic_curve point CRV e145 [list p057 p058] }
+catch { ic_curve point CRV e146 [list p057 p061] }
+catch { ic_curve point CRV e147 [list p057 p073] }
+catch { ic_curve point CRV e148 [list p058 p059] }
+catch { ic_curve point CRV e149 [list p058 p062] }
+catch { ic_curve point CRV e150 [list p058 p074] }
+catch { ic_curve point CRV e151 [list p059 p063] }
+catch { ic_curve point CRV e152 [list p059 p075] }
+catch { ic_curve point CRV e153 [list p060 p061] }
+catch { ic_curve point CRV e154 [list p060 p076] }
+catch { ic_curve point CRV e155 [list p061 p062] }
+catch { ic_curve point CRV e156 [list p061 p077] }
+catch { ic_curve point CRV e157 [list p062 p063] }
+catch { ic_curve point CRV e158 [list p062 p078] }
+catch { ic_curve point CRV e159 [list p063 p079] }
+catch { ic_curve point CRV e160 [list p064 p065] }
+catch { ic_curve point CRV e161 [list p064 p068] }
+catch { ic_curve point CRV e162 [list p065 p066] }
+catch { ic_curve point CRV e163 [list p065 p069] }
+catch { ic_curve point CRV e164 [list p066 p067] }
+catch { ic_curve point CRV e165 [list p066 p070] }
+catch { ic_curve point CRV e166 [list p067 p071] }
+catch { ic_curve point CRV e167 [list p068 p069] }
+catch { ic_curve point CRV e168 [list p068 p072] }
+catch { ic_curve point CRV e169 [list p069 p070] }
+catch { ic_curve point CRV e170 [list p069 p073] }
+catch { ic_curve point CRV e171 [list p070 p071] }
+catch { ic_curve point CRV e172 [list p070 p074] }
+catch { ic_curve point CRV e173 [list p071 p075] }
+catch { ic_curve point CRV e174 [list p072 p073] }
+catch { ic_curve point CRV e175 [list p072 p076] }
+catch { ic_curve point CRV e176 [list p073 p074] }
+catch { ic_curve point CRV e177 [list p073 p077] }
+catch { ic_curve point CRV e178 [list p074 p075] }
+catch { ic_curve point CRV e179 [list p074 p078] }
+catch { ic_curve point CRV e180 [list p075 p079] }
+catch { ic_curve point CRV e181 [list p076 p077] }
+catch { ic_curve point CRV e182 [list p077 p078] }
+catch { ic_curve point CRV e183 [list p078 p079] }
+puts "points 80 curves 184"
+puts "EDGE fluid-x cells 32 first_mm 0.002500 ratio 1.1902"
+puts "EDGE fluid-z cells 44 first_mm 0.002500 ratio 1.1911"
+puts "EDGE half-rib-x cells 6 first_mm 0.020000 ratio 1.2028 (fine at the fluid wall)"
+puts "EDGE floor-z cells 18 first_mm 0.020000 ratio 1.4040"
+puts "EDGE lid-z cells 9 first_mm 0.020000 ratio 1.4040"
+puts "EDGE streamwise dy_mm 0.200 n_ext 30 n_heat 160"
+set tin [file join $ICEMDIR grace_cpu_channel.tin]
+catch { ic_save_tetin $tin }
+puts "saved $tin"
+puts "GRACE-CPU channel replay: done"

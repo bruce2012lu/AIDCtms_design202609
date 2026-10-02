@@ -1,0 +1,93 @@
+# LPDDR six-channel array
+# Units: millimetres. Replay builds the tin. It does not claim a meshed blocking.
+# Edge bunching that the Fluent hex already uses is listed at the bottom.
+# Plate map, left window: X = 14.0 + x, Y = 25.0 + y, z = z.
+# Inlet is y = 70 (plate Y = 95). Outlet is y = 0 (plate Y = 25).
+set OUTDIR {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_grace_LLDDRM}
+set ICEMDIR [file join $OUTDIR icem]
+file mkdir $ICEMDIR
+puts "LPDDR six-channel array: start"
+catch { ic_uns_new }
+catch { ic_geo_delete_all }
+catch { ic_hex_unload_blocking }
+foreach fam {FLUID SOLID INLET OUTLET WALL_HEAT WALL_CAP WALL_END WALL_SIDE SYM WALL_CU_FLUID} {
+    catch { ic_geo_new_family $fam }
+}
+catch { ic_point {} POINT o000 0.000000,0.000000,0.000000 }
+catch { ic_point {} POINT o100 50.000000,0.000000,0.000000 }
+catch { ic_point {} POINT o110 50.000000,70.000000,0.000000 }
+catch { ic_point {} POINT o010 0.000000,70.000000,0.000000 }
+catch { ic_point {} POINT o001 0.000000,0.000000,3.200000 }
+catch { ic_point {} POINT o101 50.000000,0.000000,3.200000 }
+catch { ic_point {} POINT o111 50.000000,70.000000,3.200000 }
+catch { ic_point {} POINT o011 0.000000,70.000000,3.200000 }
+catch { ic_curve point CRV oc1 [list o000 o100] }
+catch { ic_curve point CRV oc2 [list o100 o110] }
+catch { ic_curve point CRV oc3 [list o110 o010] }
+catch { ic_curve point CRV oc4 [list o010 o000] }
+catch { ic_curve point CRV oc5 [list o001 o101] }
+catch { ic_curve point CRV oc6 [list o101 o111] }
+catch { ic_curve point CRV oc7 [list o111 o011] }
+catch { ic_curve point CRV oc8 [list o011 o001] }
+catch { ic_curve point CRV oc9 [list o000 o001] }
+catch { ic_curve point CRV oc10 [list o100 o101] }
+catch { ic_curve point CRV oc11 [list o110 o111] }
+catch { ic_curve point CRV oc12 [list o010 o011] }
+catch { ic_surface 4-pt SRFS osbot [list oc1 oc2 oc3 oc4] }
+catch { ic_geo_set_part surface osbot WALL_HEAT 0 }
+catch { ic_surface 4-pt SRFS ostop [list oc5 oc6 oc7 oc8] }
+catch { ic_geo_set_part surface ostop WALL_CAP 0 }
+catch { ic_surface 4-pt SRFS osx0 [list oc4 oc12 oc8 oc9] }
+catch { ic_geo_set_part surface osx0 WALL_SIDE 0 }
+catch { ic_surface 4-pt SRFS osx1 [list oc2 oc10 oc6 oc11] }
+catch { ic_geo_set_part surface osx1 WALL_SIDE 0 }
+catch { ic_surface 4-pt SRFS osy0 [list oc1 oc10 oc5 oc9] }
+catch { ic_geo_set_part surface osy0 WALL_END 0 }
+catch { ic_surface 4-pt SRFS osy1 [list oc3 oc11 oc7 oc12] }
+catch { ic_geo_set_part surface osy1 WALL_END 0 }
+catch { ic_point {} POINT f000 3.566667,0.000000,2.000000 }
+catch { ic_point {} POINT f100 46.433333,0.000000,2.000000 }
+catch { ic_point {} POINT f110 46.433333,70.000000,2.000000 }
+catch { ic_point {} POINT f010 3.566667,70.000000,2.000000 }
+catch { ic_point {} POINT f001 3.566667,0.000000,2.800000 }
+catch { ic_point {} POINT f101 46.433333,0.000000,2.800000 }
+catch { ic_point {} POINT f111 46.433333,70.000000,2.800000 }
+catch { ic_point {} POINT f011 3.566667,70.000000,2.800000 }
+catch { ic_curve point CRV fc1 [list f000 f100] }
+catch { ic_curve point CRV fc2 [list f100 f110] }
+catch { ic_curve point CRV fc3 [list f110 f010] }
+catch { ic_curve point CRV fc4 [list f010 f000] }
+catch { ic_curve point CRV fc5 [list f001 f101] }
+catch { ic_curve point CRV fc6 [list f101 f111] }
+catch { ic_curve point CRV fc7 [list f111 f011] }
+catch { ic_curve point CRV fc8 [list f011 f001] }
+catch { ic_curve point CRV fc9 [list f000 f001] }
+catch { ic_curve point CRV fc10 [list f100 f101] }
+catch { ic_curve point CRV fc11 [list f110 f111] }
+catch { ic_curve point CRV fc12 [list f010 f011] }
+catch { ic_surface 4-pt SRFS fsbot [list fc1 fc2 fc3 fc4] }
+catch { ic_geo_set_part surface fsbot WALL_CU_FLUID 0 }
+catch { ic_surface 4-pt SRFS fstop [list fc5 fc6 fc7 fc8] }
+catch { ic_geo_set_part surface fstop WALL_CU_FLUID 0 }
+catch { ic_surface 4-pt SRFS fsx0 [list fc4 fc12 fc8 fc9] }
+catch { ic_geo_set_part surface fsx0 WALL_CU_FLUID 0 }
+catch { ic_surface 4-pt SRFS fsx1 [list fc2 fc10 fc6 fc11] }
+catch { ic_geo_set_part surface fsx1 WALL_CU_FLUID 0 }
+catch { ic_surface 4-pt SRFS fsy0 [list fc1 fc10 fc5 fc9] }
+catch { ic_geo_set_part surface fsy0 OUTLET 0 }
+catch { ic_surface 4-pt SRFS fsy1 [list fc3 fc11 fc7 fc12] }
+catch { ic_geo_set_part surface fsy1 INLET 0 }
+catch { ic_point {} POINT p_fluid 25.000000,35.000000,2.400000 }
+catch { ic_geo_set_part point p_fluid FLUID 0 }
+catch { ic_point {} POINT p_solid 25.000000,35.000000,1.000000 }
+catch { ic_geo_set_part point p_solid SOLID 0 }
+catch { ic_save_tetin [file join $ICEMDIR lpddr_array.tin] }
+puts "saved [file join $ICEMDIR lpddr_array.tin]"
+# --- edge params the hex writer already applied (mm) ---
+# fluid width 1.2: nodes 29, spacing1 0.012, ratio1 1.1779, spacing2 0.012, ratio2 1.1779
+# fluid depth 0.8: nodes 25, spacing1 0.012, ratio1 1.1725, spacing2 0.012, ratio2 1.1725
+# half land 3.5667: nodes 22, wall spacing 0.012, ratio 1.2500
+# floor 2.0: nodes 18, wall spacing 0.012 at z=2, ratio 1.2459
+# cap 0.40: nodes 13, wall spacing 0.012 at z=2.8, ratio 1.1725
+# streamwise 70.0: nodes 188, outlet spacing 0.2, inlet spacing 0.08, ratio 1.1, max 0.4
+puts "LPDDR six-channel array: geometry done"
