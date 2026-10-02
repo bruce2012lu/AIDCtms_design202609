@@ -1,0 +1,17 @@
+# NASTRAN Parameter File -- IcedNastran
+
+begin EXEC
+    Create 1
+end EXEC
+
+begin Isotropic_Material "IsotropicMat1"
+    Material_ID 1
+    Youngs_Modulus 1
+    Shear_Modulus 0.3
+    Poissons_Ratio 1000
+    Mass_Density ""  
+    Thermal_Expansion_Coefficient ""  
+    Reference_Temperature ""  
+    Structural_Damping_Coefficient ""  
+end Isotropic_Material "IsotropicMat1"
+
