@@ -1,0 +1,11 @@
+{
+  "id": "pap-2022-mohaghegh-nepcm-jet",
+  "sha256": "48c98753bf8546f1632fc5206ead34d8f9f418788b2724913f8d28ecec2d5c59",
+  "source": "repo:agents/AIDCtms/coolingplate/papers/pdfs/14_MDPI_2022_NEPCM_JetImpingement.pdf",
+  "extracted_at": "2026-10-02T23:31:37",
+  "pages": 18,
+  "chars": 41114,
+  "chunks": 36,
+  "tables": 1,
+  "figures": 4
+}

@@ -1,0 +1,11 @@
+{
+  "id": "pap-2024-brewer-exadigit",
+  "sha256": "487b59aac6271bc9e78419b6a82e5db3f7be62750e421c6a06567187c8f87ddd",
+  "source": "files/papers/pap-2024-brewer-exadigit.pdf",
+  "extracted_at": "2026-10-02T23:32:38",
+  "pages": 14,
+  "chars": 73620,
+  "chunks": 54,
+  "tables": 0,
+  "figures": 12
+}

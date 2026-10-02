@@ -1,0 +1,11 @@
+{
+  "id": "pap-2023-tang-mgo-multijet",
+  "sha256": "596a0fd8ae459180aaaff5f21f6c9e2088073afb5b80462a15c9cc5d6f841007",
+  "source": "repo:agents/AIDCtms/coolingplate/papers/pdfs/15_MDPI_2023_MgO_MultiJet_Nanofluid.pdf",
+  "extracted_at": "2026-10-02T23:31:39",
+  "pages": 26,
+  "chars": 70520,
+  "chunks": 60,
+  "tables": 6,
+  "figures": 15
+}

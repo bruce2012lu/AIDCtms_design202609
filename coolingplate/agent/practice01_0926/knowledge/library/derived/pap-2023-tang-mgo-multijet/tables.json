@@ -1,0 +1,44 @@
+[
+  {
+    "file": "tables/p007_t0.csv",
+    "page": 7,
+    "rows": 7,
+    "cols": 7,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p010_t0.csv",
+    "page": 10,
+    "rows": 8,
+    "cols": 16,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p010_t1.csv",
+    "page": 10,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p010_t2.csv",
+    "page": 10,
+    "rows": 3,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p019_t0.csv",
+    "page": 19,
+    "rows": 5,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p020_t0.csv",
+    "page": 20,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": []
+  }
+]

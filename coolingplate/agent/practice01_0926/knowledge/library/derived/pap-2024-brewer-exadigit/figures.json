@@ -1,0 +1,122 @@
+[
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 1164,
+    "h": 522,
+    "captions_on_page": [
+      "Fig. 1. ExaDigiT architectural overview."
+    ]
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 1144,
+    "h": 566,
+    "captions_on_page": [
+      "Fig. 2. Relationships between DT levels."
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 1765,
+    "h": 764,
+    "captions_on_page": [
+      "Fig. 3. Frontier rack-level power distribution and voltage conversion."
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 1860,
+    "h": 1150,
+    "captions_on_page": [
+      "Fig. 4. Frontier power utilization breakdown based on peak CPU/GPU utilization of its 9472 nodes."
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 1838,
+    "h": 618,
+    "captions_on_page": [
+      "Fig. 5. Simplified schematic of Frontier cooling system with enumerated locations where the cooling model predicts pressures, temperatures, and flow rates."
+    ]
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 3654,
+    "h": 1300,
+    "captions_on_page": [
+      "Fig. 6. ExaDigiT interfaces: AR model as projected in meeting room (left), terminal interface (top-right), and web-based dashboard (bottom-right)."
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 979,
+    "h": 953,
+    "captions_on_page": [
+      "Fig. 7. Cooling model validation tests. Modelica model predictions (exported as an FMU) vs. telemetry data for the CDU and the CEP.",
+      "Fig. 8. Synthetic benchmark verification test. Total system power predicted by RAPS and the transient temperature response predicted by the cooling model.",
+      "Fig. 9. Telemetry replay validation test of 24-hour period on 2024-01-18 for Frontier containing an HPL run."
+    ]
+  },
+  {
+    "file": "figures/p011_i1.jpg",
+    "page": 11,
+    "w": 1122,
+    "h": 561,
+    "captions_on_page": [
+      "Fig. 7. Cooling model validation tests. Modelica model predictions (exported as an FMU) vs. telemetry data for the CDU and the CEP.",
+      "Fig. 8. Synthetic benchmark verification test. Total system power predicted by RAPS and the transient temperature response predicted by the cooling model.",
+      "Fig. 9. Telemetry replay validation test of 24-hour period on 2024-01-18 for Frontier containing an HPL run."
+    ]
+  },
+  {
+    "file": "figures/p011_i2.jpg",
+    "page": 11,
+    "w": 1326,
+    "h": 653,
+    "captions_on_page": [
+      "Fig. 7. Cooling model validation tests. Modelica model predictions (exported as an FMU) vs. telemetry data for the CDU and the CEP.",
+      "Fig. 8. Synthetic benchmark verification test. Total system power predicted by RAPS and the transient temperature response predicted by the cooling model.",
+      "Fig. 9. Telemetry replay validation test of 24-hour period on 2024-01-18 for Frontier containing an HPL run."
+    ]
+  },
+  {
+    "file": "figures/p011_i3.jpg",
+    "page": 11,
+    "w": 993,
+    "h": 970,
+    "captions_on_page": [
+      "Fig. 7. Cooling model validation tests. Modelica model predictions (exported as an FMU) vs. telemetry data for the CDU and the CEP.",
+      "Fig. 8. Synthetic benchmark verification test. Total system power predicted by RAPS and the transient temperature response predicted by the cooling model.",
+      "Fig. 9. Telemetry replay validation test of 24-hour period on 2024-01-18 for Frontier containing an HPL run."
+    ]
+  },
+  {
+    "file": "figures/p011_i4.jpg",
+    "page": 11,
+    "w": 968,
+    "h": 970,
+    "captions_on_page": [
+      "Fig. 7. Cooling model validation tests. Modelica model predictions (exported as an FMU) vs. telemetry data for the CDU and the CEP.",
+      "Fig. 8. Synthetic benchmark verification test. Total system power predicted by RAPS and the transient temperature response predicted by the cooling model.",
+      "Fig. 9. Telemetry replay validation test of 24-hour period on 2024-01-18 for Frontier containing an HPL run."
+    ]
+  },
+  {
+    "file": "figures/p011_i5.jpg",
+    "page": 11,
+    "w": 1006,
+    "h": 954,
+    "captions_on_page": [
+      "Fig. 7. Cooling model validation tests. Modelica model predictions (exported as an FMU) vs. telemetry data for the CDU and the CEP.",
+      "Fig. 8. Synthetic benchmark verification test. Total system power predicted by RAPS and the transient temperature response predicted by the cooling model.",
+      "Fig. 9. Telemetry replay validation test of 24-hour period on 2024-01-18 for Frontier containing an HPL run."
+    ]
+  }
+]

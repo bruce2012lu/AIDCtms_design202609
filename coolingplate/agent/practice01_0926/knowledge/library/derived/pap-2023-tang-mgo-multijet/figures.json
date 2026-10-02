@@ -1,0 +1,138 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 500,
+    "h": 175,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 911,
+    "h": 733,
+    "captions_on_page": [
+      "Figure 1. Arrangement of nozzles studied by (a) Senkal and Torri [22]; (b) Senkal and Torri [24]; (c) Zhou et al. [9]; (d) Tie et al. [20]; (e) Darwish et al. [26] (inline); (f) Darwish et al. [26] (staggered)."
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 680,
+    "h": 638,
+    "captions_on_page": [
+      "Figure 2. (a) Schematic Diagram of the Test Rig. (b) Test rig photograph."
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 683,
+    "h": 542,
+    "captions_on_page": [
+      "Figure 3. Average Nu vs. Re for Single Impingement Jet using Water at H/d = 1 [49]."
+    ]
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 472,
+    "h": 460,
+    "captions_on_page": [
+      "Figure 4. Physical Condition of Multiple Jet Impingement.",
+      "Figure 5. Top View and Side View of the Selected Computational Domain for Numerical Simulation."
+    ]
+  },
+  {
+    "file": "figures/p010_i1.jpg",
+    "page": 10,
+    "w": 472,
+    "h": 460,
+    "captions_on_page": [
+      "Figure 4. Physical Condition of Multiple Jet Impingement.",
+      "Figure 5. Top View and Side View of the Selected Computational Domain for Numerical Simulation."
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 538,
+    "h": 311,
+    "captions_on_page": [
+      "Figure 6. Quarter Part of the Computational Domain with Naming of Boundary Condition."
+    ]
+  },
+  {
+    "file": "figures/p013_i0.jpg",
+    "page": 13,
+    "w": 730,
+    "h": 670,
+    "captions_on_page": [
+      "Figure 7. The meshing models for s/d = 4, 3, and 2 at H/d = 2."
+    ]
+  },
+  {
+    "file": "figures/p015_i0.jpg",
+    "page": 15,
+    "w": 560,
+    "h": 421,
+    "captions_on_page": [
+      "Figure 8. Comparison between experimental and numerical results for multiple jet impingement with s/d = 4, 3, and 2 using water as coolant.",
+      "Figure 9 illustrates the experimental and numerical Nusselt number versus Reynolds number results of multiple jet impingement with various s/d dimension ratios using nanoﬂuids with 0, 0.05, 0.1, and 0.15 vol%, respectively. As observed, the numerical result using the single-phase model is in good ag"
+    ]
+  },
+  {
+    "file": "figures/p016_i0.jpg",
+    "page": 16,
+    "w": 976,
+    "h": 725,
+    "captions_on_page": [
+      "Figure 9. Comparison between Experimental and Numerical Results for Multiple Jet Impingement with s/d = 4, 3, and 2 using Nanoﬂuids with (a) 0 vol% (b) 0.05 vol% (c) 0.1 vol% (d) 0.15 vol%."
+    ]
+  },
+  {
+    "file": "figures/p017_i0.jpg",
+    "page": 17,
+    "w": 649,
+    "h": 699,
+    "captions_on_page": [
+      "Figure 10. Overall View, Side View, and Focused View between Impinging Jets of Flow Fields for Multiple Jet Impingement s/d = 4, s/d = 3, and s/d = 2."
+    ]
+  },
+  {
+    "file": "figures/p018_i0.jpg",
+    "page": 18,
+    "w": 858,
+    "h": 705,
+    "captions_on_page": [
+      "Figure 11. Distribution Temperature of Target Surface for Multiple Jet Impingement s/d = 4, s/d = 3, and s/d = 2 with Jet Speeds of 5.3 m/s and 0.7 m/s."
+    ]
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 715,
+    "h": 572,
+    "captions_on_page": [
+      "Figure 12. Cont."
+    ]
+  },
+  {
+    "file": "figures/p019_i1.jpg",
+    "page": 19,
+    "w": 715,
+    "h": 572,
+    "captions_on_page": [
+      "Figure 12. Cont."
+    ]
+  },
+  {
+    "file": "figures/p020_i0.jpg",
+    "page": 20,
+    "w": 715,
+    "h": 572,
+    "captions_on_page": [
+      "Figure 12. Nusselt Number Enhancement Ratio of MgO-Water Nanoﬂuid versus Jet-to-Jet Spacing with Different Re at (a) φ = 0.05 vol%; (b) φ = 0.1 vol%; (c) φ = 0.15 vol%."
+    ]
+  }
+]
