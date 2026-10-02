@@ -1,0 +1,54 @@
+{
+  "rule": "改任何几何之前先选定一条轨道。四条轨道不能互相覆盖。",
+  "tracks": [
+    {
+      "id": "parametric-v1",
+      "name": "参数化冷板内核",
+      "agentized": true,
+      "status": "可调用：cad_inspect / cad_build",
+      "path": "cad/",
+      "source": "cad/params/cp_b300_jm01.yaml",
+      "locked_to": "设计报告 v1.0（2026-09-13）",
+      "geometry": "95×75×8.5 mm，两层腔 + 钎缝。底板 / 喷嘴板 / 密封框。每 die 8×8、合计 128 孔、D0.50、节距 3.0、喷距 2.0。",
+      "chain": "yaml → model.derive → rules.validate → geometry.build → backends（STEP/STL、DXF、PNG、SOLIDWORKS 宏）",
+      "tools": ["cad_inspect", "cad_build"],
+      "do": "候选参数先 inspect。ERROR 禁止建模。WARN 需 allow_warn。导出写到 agent/practice01_0926/runs/，不改冻结 yaml。"
+    },
+    {
+      "id": "measured-asm0921",
+      "name": "实测三层铜冷板",
+      "agentized": "只读解释，禁止用 yaml 重生成",
+      "status": "证据几何，落后于 v2 喷嘴口径",
+      "path": "cad/asm_0921.stp",
+      "source": "NX 12 AP203，2026-09-21",
+      "geometry": "95×75×12.5 mm。PLATE 5.50 + COVER1 4.00 + COVER2 5.00。128×D0.50，节距 3.0。独立静压箱。无水嘴。",
+      "chain": "STEP 实测 → 结构说明报告。SpaceClaim 只负责上色和托盘示意。",
+      "tools": [],
+      "do": "用它核对封装足迹、流路 8 环和厚度栈。不要把它的 12.5 mm 写进 v1 yaml。"
+    },
+    {
+      "id": "grace-concept",
+      "name": "Grace 平行微通道概念",
+      "agentized": "脚本可复跑，尚未接入 rules 门",
+      "status": "概念几何，壳–进液热阻是一维估算",
+      "path": "design/make_grace_concept.py",
+      "source": "design/memory/semantic/cp-grace-mc01.md",
+      "geometry": "CP-GRACE-MC-01。200×120×8 候选。CPU 48×0.40×1.20、节距 0.80、长 32 mm。无微射流。流量 0.55 L/min。",
+      "chain": "make_grace_concept.py 出 STEP → sc_grace_concept.py 交 SpaceClaim 上色。俯视肋是加粗示意，局部图才是 0.40/0.80。",
+      "tools": [],
+      "do": "和 B300 冷板分开迭代。不要套用 128 孔射流参数。"
+    },
+    {
+      "id": "tray-schematic",
+      "name": "托盘布置示意",
+      "agentized": "可复跑渲染，GPU 实体来自实测，其余是示意",
+      "status": "装机建议，未进冷板本体 STEP",
+      "path": "cad/make_layout_geometry.py",
+      "source": "cad/memory/semantic/asm_0921-三层铜冷板结构.md",
+      "geometry": "GPU 冷板是 asm_0921 实体。Grace、PCB、歧管是示意。进液边朝后面板，回液沿盖顶中线折返。",
+      "chain": "make_layout_geometry.py → sc_layout_render.py",
+      "tools": [],
+      "do": "只讨论摆放和接管。串并联未由照片证实，不能写成已冻结 ICD。"
+    }
+  ]
+}

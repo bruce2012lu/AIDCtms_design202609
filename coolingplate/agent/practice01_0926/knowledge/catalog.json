@@ -1,0 +1,57 @@
+{
+  "updated": "2026-09-26",
+  "root": "agents/AIDCtms/coolingplate",
+  "groups": [
+    {
+      "id": "design",
+      "title": "B300 冷板设计",
+      "items": [
+        {"title": "设计报告 v2.0", "date": "2026-09-14", "path": "design/NVIDIA_B300_微通道冲击换热冷板设计报告_v2.0_20260914.html", "note": "当前文字口径：216 孔，方案通过、性能待证"},
+        {"title": "设计报告 v1.0", "date": "2026-09-13", "path": "design/NVIDIA_B300_微通道冲击换热冷板设计报告_v1.0_20260913.html", "note": "参数化 CAD 与 rules.py 仍锁定这一版 128 孔"},
+        {"title": "一维模型", "path": "design/calc/model.py", "note": "solve('DP-A') 与 v2 报告 §9 对齐"},
+        {"title": "壁面射流与三槽", "path": "design/UC01_壁面射流与三槽流路说明.html"}
+      ]
+    },
+    {
+      "id": "cad",
+      "title": "CAD",
+      "items": [
+        {"title": "参数化内核", "path": "cad/build.py", "note": "check / build / macro / sw。AI 入口是 agent/practice01_0926/mcp/server.py"},
+        {"title": "冻结参数", "path": "cad/params/cp_b300_jm01.yaml"},
+        {"title": "规则", "path": "cad/coldplate/rules.py"},
+        {"title": "实体", "path": "cad/coldplate/geometry.py"},
+        {"title": "asm_0921 结构说明", "date": "2026-09-26", "path": "cad/asm_0921_结构说明报告_v1.0_20260926.html"},
+        {"title": "内核缺口", "path": "agent/practice01_0926/knowledge/cad-kernel-gap.md"}
+      ]
+    },
+    {
+      "id": "cfd",
+      "title": "CFD",
+      "items": [
+        {"title": "CFD-AI 能力边界", "date": "2026-09-20", "path": "design/CFD-AI_Agent_能力评估与工作计划_v1.0_20260920.html", "note": "写 journal、读文件；求解必须本机 ANSYS"},
+        {"title": "UC-01b 工作方案", "path": "design/cfd/uc01b_2.4x3.0/UC01b_ICEM_Fluent_工作方案_v1.0.html"},
+        {"title": "UC-01b 结果", "path": "design/cfd/uc01b_2.4x3.0/UC01b_ICEM_Fluent_结果报告_v1.0.html"},
+        {"title": "lessmesh 216 孔场", "path": "design/cfd/uc01b_2.4x3.0lessmesh/memory/semantic/uc01b-lessmesh-bc216.md"},
+        {"title": "12 层网格续算", "path": "design/cfd/uc01b_2.4x3.0lessmesh12cells/", "note": "2026-09-26 仍在迭代，引用前先读最新日志"}
+      ]
+    },
+    {
+      "id": "grace",
+      "title": "Grace",
+      "items": [
+        {"title": "Grace 冷板详细设计", "date": "2026-09-26", "path": "design/NVIDIA_Grace_GB300_冷板详细设计报告_v1.0_20260926.html"},
+        {"title": "边界摘录", "path": "design/参考_GB300_Grace_CPU与液冷边界_20260926.html"},
+        {"title": "水力核算", "path": "design/CP-GRACE-MC-01_calc.py"}
+      ]
+    },
+    {
+      "id": "corpus",
+      "title": "文献与专利",
+      "items": [
+        {"title": "技术调查 v1.3", "date": "2026-09-07", "path": "papers/AI算力芯片液冷冷板技术调查分析报告_v1.3_20260907.html"},
+        {"title": "文献索引", "path": "papers/文献清单与下载索引.md"},
+        {"title": "专利分析 v1.4", "date": "2026-09-07", "path": "patent/AI算力芯片液冷冷板专利分析报告_v1.4_20260907.html"}
+      ]
+    }
+  ]
+}

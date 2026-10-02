@@ -1,0 +1,874 @@
+[
+  {
+    "id": "pap-2021-hussain-jet-impingement-review",
+    "type": "paper",
+    "title": "Heat Transfer Augmentation through Different Jet Impingement Techniques: A State-of-the-Art Review",
+    "authors": [
+      "L. Hussain",
+      "M.M. Khan",
+      "M. Masud",
+      "F. Ahmed",
+      "Z. Rehman",
+      "Ł. Amanowicz",
+      "K. Rajski"
+    ],
+    "year": 2021,
+    "venue": "Energies 14(20):6458",
+    "identifiers": {
+      "doi": "10.3390/en14206458"
+    },
+    "url": "https://doi.org/10.3390/en14206458",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "CC-BY-4.0（MDPI 开放获取）",
+      "redistributable": true
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/papers/pdfs/01_MDPI_2021_Hussain_JetImpingement_Review.pdf",
+      "sha256": "5ab088380c6f0772464c84aa33510da03e2554c4e01ac8a30b48d957986831e4",
+      "bytes": 3631128,
+      "downloaded_at": "2026-09-07",
+      "pages": 42
+    },
+    "trust_level": "L2",
+    "trust_reason": "MDPI/期刊同行评审",
+    "stages": [
+      2,
+      3,
+      4
+    ],
+    "topics": [
+      "jet impingement",
+      "review",
+      "H/D",
+      "nozzle geometry"
+    ],
+    "summary_zh": "射流强化换热综述：自由射流/驻点/壁面射流三区、H/D 与 S/D 影响、靶面强化、纳米流体与 PCM。v2.0 报告图 5-3/5-4 的 H/D 窗即引自本文 Fig.1/Fig.7。综述性质，不直接给本项目可复现的基准数据。",
+    "benchmark_candidate": false,
+    "related_internal": [
+      "int-2026-cpdesign-tech-survey-v1-3"
+    ],
+    "retrieved_by": "existing-corpus-2026-09-07",
+    "last_verified": "2026-10-02",
+    "valid_until": "2028-12-31",
+    "status": "active"
+  },
+  {
+    "id": "pap-2024-xu-special-shaped-hole-jet-review",
+    "type": "paper",
+    "title": "A Review of Flow Field and Heat Transfer Characteristics of Jet Impingement from Special-Shaped Holes",
+    "authors": [
+      "L. Xu",
+      "N. Hu",
+      "H. Lin",
+      "L. Xi",
+      "Y. Li",
+      "J. Gao"
+    ],
+    "year": 2024,
+    "venue": "Energies 17(17):4510",
+    "identifiers": {
+      "doi": "10.3390/en17174510"
+    },
+    "url": "https://doi.org/10.3390/en17174510",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "CC-BY-4.0（MDPI 开放获取）",
+      "redistributable": true
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/papers/pdfs/02_MDPI_2024_SSH_JetImpingement_Review.pdf",
+      "sha256": "e6384a82bbaddec108f71d9bdcca75cd4f19825858fda64fb16621756febdc15",
+      "bytes": 3223202,
+      "downloaded_at": "2026-09-07",
+      "pages": 25
+    },
+    "trust_level": "L2",
+    "trust_reason": "MDPI/期刊同行评审",
+    "stages": [
+      2,
+      3
+    ],
+    "topics": [
+      "jet impingement",
+      "nozzle shape",
+      "review"
+    ],
+    "summary_zh": "异形孔（椭圆、十字、旋流、V 形等）射流流场与换热综述，用于孔形选型参考。",
+    "benchmark_candidate": false,
+    "related_internal": [
+      "int-2026-cpdesign-tech-survey-v1-3"
+    ],
+    "retrieved_by": "existing-corpus-2026-09-07",
+    "last_verified": "2026-10-02",
+    "valid_until": "2028-12-31",
+    "status": "active"
+  },
+  {
+    "id": "pap-2024-sun-nanofluids-datacenter-review",
+    "type": "paper",
+    "title": "The Applications and Challenges of Nanofluids as Coolants in Data Centers: A Review",
+    "authors": [
+      "L. Sun",
+      "J. Geng",
+      "K. Dong",
+      "Q. Sun"
+    ],
+    "year": 2024,
+    "venue": "Energies 17(13):3151",
+    "identifiers": {
+      "doi": "10.3390/en17133151"
+    },
+    "url": "https://doi.org/10.3390/en17133151",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "CC-BY-4.0（MDPI 开放获取）",
+      "redistributable": true
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/papers/pdfs/03_MDPI_2024_Nanofluids_DataCenter_Review.pdf",
+      "sha256": "0f831726a7004a090bebd48d9020a3b073ab1db36a0f6fa2b0ea7f67cdd72ea2",
+      "bytes": 12477970,
+      "downloaded_at": "2026-09-07",
+      "pages": 29
+    },
+    "trust_level": "L2",
+    "trust_reason": "MDPI/期刊同行评审",
+    "stages": [
+      2
+    ],
+    "topics": [
+      "nanofluid",
+      "coolant",
+      "data center"
+    ],
+    "summary_zh": "纳米流体在数据中心的稳定性、污垢、磨损与电导率问题。支持“工质不采用纳米流体、采用 PG25”的选型判断。",
+    "benchmark_candidate": false,
+    "related_internal": [
+      "int-2026-cpdesign-tech-survey-v1-3"
+    ],
+    "retrieved_by": "existing-corpus-2026-09-07",
+    "last_verified": "2026-10-02",
+    "valid_until": "2028-12-31",
+    "status": "active"
+  },
+  {
+    "id": "ven-0000-elementsix-diamond-heat-spreader",
+    "type": "vendor_doc",
+    "title": "Diamond heat spreaders for high power density semiconductor chips (case study)",
+    "authors": [],
+    "year": 0,
+    "venue": "Element Six 案例",
+    "identifiers": {},
+    "url": "https://www.e6.com/",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "厂商公开资料，版权保留",
+      "redistributable": false
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/papers/pdfs/05_ElementSix_Diamond_HeatSpreader_CaseStudy.pdf",
+      "sha256": "7a04e174d08de4f327c365651db273f91a5cf2c9109656f5a20200dea65b39be",
+      "bytes": 1907196,
+      "downloaded_at": "2026-09-07",
+      "pages": 4
+    },
+    "trust_level": "L4",
+    "trust_reason": "预印本/会议或厂商资料",
+    "stages": [
+      2
+    ],
+    "topics": [
+      "diamond",
+      "heat spreader",
+      "hotspot"
+    ],
+    "summary_zh": "厂商案例：金属化金刚石均热片降低热点温度。营销性质，数值不作基准。",
+    "benchmark_candidate": false,
+    "related_internal": [
+      "int-2026-cpdesign-tech-survey-v1-3"
+    ],
+    "retrieved_by": "existing-corpus-2026-09-07",
+    "last_verified": "2026-10-02",
+    "valid_until": "2028-12-31",
+    "status": "active"
+  },
+  {
+    "id": "pap-2025-liu-microchannel-enhancement-review",
+    "type": "paper",
+    "title": "微通道散热器传热增强研究进展",
+    "authors": [
+      "刘雨薇",
+      "陈昌辉",
+      "刘金涛"
+    ],
+    "year": 2025,
+    "venue": "实验技术与管理 42(10)",
+    "identifiers": {
+      "doi": "10.16791/j.cnki.sjg.2025.10.009"
+    },
+    "url": "https://doi.org/10.16791/j.cnki.sjg.2025.10.009",
+    "language": "zh",
+    "access": {
+      "status": "downloaded",
+      "license": "期刊开放获取页面下载，版权归期刊",
+      "redistributable": false
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/papers/pdfs/07_SciOpen_2025_Microchannel_HT_Enhancement.pdf",
+      "sha256": "7514c2ed7c5de54f453205891f23eed177da6b3d02c96f43ba4f678d455de82d",
+      "bytes": 3400278,
+      "downloaded_at": "2026-09-07",
+      "pages": 14
+    },
+    "trust_level": "L2",
+    "trust_reason": "MDPI/期刊同行评审",
+    "stages": [
+      2,
+      3
+    ],
+    "topics": [
+      "microchannel",
+      "review",
+      "中文"
+    ],
+    "summary_zh": "中文微通道强化换热综述（结构强化、基材、两相）。v2.0 图 6-2 盖板 + 微通道封合结构引自本文 Fig.8。",
+    "benchmark_candidate": false,
+    "related_internal": [
+      "int-2026-cpdesign-tech-survey-v1-3"
+    ],
+    "retrieved_by": "existing-corpus-2026-09-07",
+    "last_verified": "2026-10-02",
+    "valid_until": "2028-12-31",
+    "status": "active"
+  },
+  {
+    "id": "pap-2026-liu-generative-design-d2c",
+    "type": "paper",
+    "title": "Generative Design for Direct-to-Chip Liquid Cooling for Data Centers",
+    "authors": [
+      "Z. Liu"
+    ],
+    "year": 2026,
+    "venue": "IISE Annual Conference 2026 / arXiv",
+    "identifiers": {
+      "arxiv": "2604.10941"
+    },
+    "url": "https://arxiv.org/abs/2604.10941",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "arXiv 非独占分发许可（版权归作者）",
+      "redistributable": false
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/papers/pdfs/08_arXiv_2604.10941_GenerativeDesign_D2C.pdf",
+      "sha256": "5774d907ef25706c3c1e944a8c8be0eb3d6ec8e92d31e2c50e3ca77011bde490",
+      "bytes": 1528442,
+      "downloaded_at": "2026-09-07",
+      "pages": 5
+    },
+    "trust_level": "L4",
+    "trust_reason": "预印本/会议或厂商资料",
+    "stages": [
+      3,
+      5
+    ],
+    "topics": [
+      "generative design",
+      "D2C",
+      "GB200 power map"
+    ],
+    "summary_zh": "非均匀热图下的冷板流道生成式设计。v2.0 图 2-2 GB200 模组热流分布引自本文 Fig.1。",
+    "benchmark_candidate": false,
+    "related_internal": [
+      "int-2026-cpdesign-tech-survey-v1-3"
+    ],
+    "retrieved_by": "existing-corpus-2026-09-07",
+    "last_verified": "2026-10-02",
+    "valid_until": "2028-12-31",
+    "status": "active"
+  },
+  {
+    "id": "pap-2026-acquah-generative-2p5d-3d",
+    "type": "paper",
+    "title": "Generative Design of Liquid-Cooling Channels for Thermal Management of 2.5D and 3D Integrated Advanced Packaging",
+    "authors": [
+      "M. Acquah",
+      "Z. Liu"
+    ],
+    "year": 2026,
+    "venue": "arXiv",
+    "identifiers": {
+      "arxiv": "2608.22787"
+    },
+    "url": "https://arxiv.org/abs/2608.22787",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "arXiv 非独占分发许可（版权归作者）",
+      "redistributable": false
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/papers/pdfs/09_arXiv_2608.22787_Generative_2p5D3D.pdf",
+      "sha256": "70665d68cf3b93f443507b91736e16d488a00fa1c55d6819cb80ce4da5c6180f",
+      "bytes": 3576617,
+      "downloaded_at": "2026-09-07",
+      "pages": 22
+    },
+    "trust_level": "L4",
+    "trust_reason": "预印本/会议或厂商资料",
+    "stages": [
+      3,
+      5
+    ],
+    "topics": [
+      "generative design",
+      "2.5D",
+      "3D packaging"
+    ],
+    "summary_zh": "2.5D/3D 封装液冷流道生成式设计，2 GPU + 1 CPU 热源布局。",
+    "benchmark_candidate": false,
+    "related_internal": [
+      "int-2026-cpdesign-tech-survey-v1-3"
+    ],
+    "retrieved_by": "existing-corpus-2026-09-07",
+    "last_verified": "2026-10-02",
+    "valid_until": "2028-12-31",
+    "status": "active"
+  },
+  {
+    "id": "pap-2026-acquah-cooling-channel-multichip",
+    "type": "paper",
+    "title": "Cooling Channel Design Optimization for High Power Multi-Chip Packages",
+    "authors": [
+      "M. Acquah",
+      "Z. Liu"
+    ],
+    "year": 2026,
+    "venue": "ASME IDETC/CIE 2026 DETC2026-195024 / arXiv",
+    "identifiers": {
+      "arxiv": "2605.20657"
+    },
+    "url": "https://arxiv.org/abs/2605.20657",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "arXiv 非独占分发许可（版权归作者）",
+      "redistributable": false
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/papers/pdfs/10_arXiv_2605.20657_CoolingChannel_Multichip.pdf",
+      "sha256": "e9632e08dd2a0ab9238bf09cc6c7c73138cc88eda06364dfc2683c1cd6a75048",
+      "bytes": 3539948,
+      "downloaded_at": "2026-09-07",
+      "pages": 9
+    },
+    "trust_level": "L4",
+    "trust_reason": "预印本/会议或厂商资料",
+    "stages": [
+      3,
+      5
+    ],
+    "topics": [
+      "channel optimization",
+      "multi-chip"
+    ],
+    "summary_zh": "高功率多芯片封装流道优化：歧管/树状/平行通道对比框架。",
+    "benchmark_candidate": false,
+    "related_internal": [
+      "int-2026-cpdesign-tech-survey-v1-3"
+    ],
+    "retrieved_by": "existing-corpus-2026-09-07",
+    "last_verified": "2026-10-02",
+    "valid_until": "2028-12-31",
+    "status": "active"
+  },
+  {
+    "id": "pap-2026-energies-chip-level-thermal-review",
+    "type": "paper",
+    "title": "Advanced Chip-Level Thermal Management Technologies for High-Power Integrated Processors: A Review",
+    "authors": [],
+    "year": 2026,
+    "venue": "Energies 19(14):3304",
+    "identifiers": {
+      "doi": "10.3390/en19143304"
+    },
+    "url": "https://doi.org/10.3390/en19143304",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "CC-BY-4.0（MDPI 开放获取）",
+      "redistributable": true
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/papers/pdfs/13_MDPI_2026_ChipLevel_ThermalMgmt_Review.pdf",
+      "sha256": "9a1d82e734993d484a22b9a636e3c34b8ec9531d08704021a3296c1bbf877eef",
+      "bytes": 7966702,
+      "downloaded_at": "2026-09-07",
+      "pages": 56
+    },
+    "trust_level": "L2",
+    "trust_reason": "MDPI/期刊同行评审",
+    "stages": [
+      2,
+      3
+    ],
+    "topics": [
+      "chip-level cooling",
+      "embedded microchannel",
+      "review"
+    ],
+    "summary_zh": "高功率处理器芯片级热管理综述：近结冷却、嵌入式微通道、歧管微通道（MMC）、3D 封装。",
+    "benchmark_candidate": false,
+    "related_internal": [
+      "int-2026-cpdesign-tech-survey-v1-3"
+    ],
+    "retrieved_by": "existing-corpus-2026-09-07",
+    "last_verified": "2026-10-02",
+    "valid_until": "2028-12-31",
+    "status": "active"
+  },
+  {
+    "id": "pap-2022-mohaghegh-nepcm-jet",
+    "type": "paper",
+    "title": "Jet Impingement Cooling Enhanced with Nano-Encapsulated PCM",
+    "authors": [
+      "M.R. Mohaghegh",
+      "S.H. Tasnim",
+      "A.A. Aliabadi",
+      "S. Mahmud"
+    ],
+    "year": 2022,
+    "venue": "Energies 15(3):1034",
+    "identifiers": {
+      "doi": "10.3390/en15031034"
+    },
+    "url": "https://doi.org/10.3390/en15031034",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "CC-BY-4.0（MDPI 开放获取）",
+      "redistributable": true
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/papers/pdfs/14_MDPI_2022_NEPCM_JetImpingement.pdf",
+      "sha256": "48c98753bf8546f1632fc5206ead34d8f9f418788b2724913f8d28ecec2d5c59",
+      "bytes": 2678615,
+      "downloaded_at": "2026-09-07",
+      "pages": 18
+    },
+    "trust_level": "L2",
+    "trust_reason": "MDPI/期刊同行评审",
+    "stages": [
+      3
+    ],
+    "topics": [
+      "jet impingement",
+      "NEPCM"
+    ],
+    "summary_zh": "纳米胶囊 PCM 浆料单射流冲击数值研究，含驻点区物理描述。工质路线不同，仅作机理参考。",
+    "benchmark_candidate": false,
+    "related_internal": [
+      "int-2026-cpdesign-tech-survey-v1-3"
+    ],
+    "retrieved_by": "existing-corpus-2026-09-07",
+    "last_verified": "2026-10-02",
+    "valid_until": "2028-12-31",
+    "status": "active"
+  },
+  {
+    "id": "pap-2023-tang-mgo-multijet",
+    "type": "paper",
+    "title": "Experimental and Numerical Investigation of Flow Structure and Heat Transfer Behavior of Multiple Jet Impingement Using MgO-Water Nanofluids",
+    "authors": [
+      "T.L. Tang",
+      "H. Salleh",
+      "M.I. Sadiq",
+      "M.A. Mohd Sabri",
+      "M.I.M. Ahmad",
+      "W.A.W. Ghopa"
+    ],
+    "year": 2023,
+    "venue": "Materials 16(11):3942",
+    "identifiers": {
+      "doi": "10.3390/ma16113942"
+    },
+    "url": "https://doi.org/10.3390/ma16113942",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "CC-BY-4.0（MDPI 开放获取）",
+      "redistributable": true
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/papers/pdfs/15_MDPI_2023_MgO_MultiJet_Nanofluid.pdf",
+      "sha256": "596a0fd8ae459180aaaff5f21f6c9e2088073afb5b80462a15c9cc5d6f841007",
+      "bytes": 4496344,
+      "downloaded_at": "2026-09-07",
+      "pages": 26
+    },
+    "trust_level": "L2",
+    "trust_reason": "MDPI/期刊同行评审",
+    "stages": [
+      3,
+      5,
+      7
+    ],
+    "topics": [
+      "multi-jet",
+      "experiment",
+      "CFD validation",
+      "nanofluid"
+    ],
+    "summary_zh": "多孔射流实验 + CFD 对比（含水基线），可作 CFD 方法学参考；几何为毫米级多孔，与本项目尺度不同。",
+    "benchmark_candidate": false,
+    "related_internal": [
+      "int-2026-cpdesign-tech-survey-v1-3"
+    ],
+    "retrieved_by": "existing-corpus-2026-09-07",
+    "last_verified": "2026-10-02",
+    "valid_until": "2028-12-31",
+    "status": "active"
+  },
+  {
+    "id": "int-2026-cpdesign-b300-report-v2-0",
+    "type": "internal",
+    "title": "NVIDIA B300 微通道+冲击换热冷板设计报告 v2.0",
+    "org": "cp-design 项目组",
+    "year": 2026,
+    "venue": "内部报告 2026-09-14",
+    "url": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/NVIDIA_B300_微通道冲击换热冷板设计报告_v2.0_20260914new.html",
+    "language": "zh",
+    "access": {
+      "status": "downloaded",
+      "license": "内部文件",
+      "redistributable": false,
+      "copyright_note": "内部设计评审文档，非 NVIDIA/Lenovo ICD"
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/NVIDIA_B300_微通道冲击换热冷板设计报告_v2.0_20260914new.html",
+      "sha256": "fe1ee879b9951c1abf2a1228d53d00d3d5bb70042b01349698c4a367a8c44205",
+      "bytes": 388365,
+      "downloaded_at": "2026-09-14"
+    },
+    "trust_level": "L5",
+    "trust_reason": "内部报告/算例，未经外部权威来源全面核对（见 reports/内部数值对照）",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "topics": [
+      "internal",
+      "B300"
+    ],
+    "summary_zh": "水基线：DP-A 1100 W / DP-B 1400 W，216 孔 D0.50，Sx×Sy = 3.0×2.4 mm，H = 2.0 mm，整板 2.0 L/min，Re_D = 478，壳–进液 0.0326–0.0366 °C/W，板内 3.5–5.5 kPa（含 3–5 kPa 静压箱估值）。",
+    "benchmark_candidate": false,
+    "retrieved_by": "existing-corpus",
+    "last_verified": "2026-10-02",
+    "valid_until": "2027-03-31",
+    "status": "active"
+  },
+  {
+    "id": "int-2026-cpdesign-b300-report-v2-1-pg25",
+    "type": "internal",
+    "title": "NVIDIA B300 微通道冲击换热冷板设计报告 v2.1 · PG25",
+    "org": "cp-design 项目组",
+    "year": 2026,
+    "venue": "内部报告 2026-09-29",
+    "url": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/NVIDIA_B300_微通道冲击换热冷板设计报告_v2.1_PG25_20260929.html",
+    "language": "zh",
+    "access": {
+      "status": "downloaded",
+      "license": "内部文件",
+      "redistributable": false,
+      "copyright_note": "内部设计评审文档，非 NVIDIA/Lenovo ICD"
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/NVIDIA_B300_微通道冲击换热冷板设计报告_v2.1_PG25_20260929.html",
+      "sha256": "8315a09f7712bc88ecda0ed0e5d4153ccbbe9a76cbb0a078b0ea6327f31a6a58",
+      "bytes": 29024,
+      "downloaded_at": "2026-09-29"
+    },
+    "trust_level": "L5",
+    "trust_reason": "内部报告/算例，未经外部权威来源全面核对（见 reports/内部数值对照）",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "topics": [
+      "internal",
+      "B300"
+    ],
+    "summary_zh": "PG25 40 °C，1400 W，冷却液温升 6 °C → 模组 3.512 L/min；PG25 物性 ρ 1022、cp 3900、μ 1.15e-3、k 0.452、Pr 9.92（未附手册页码）；孔口 K = 1.8；HBM Nu = max(4, 1.86 Gz^1/3)。",
+    "benchmark_candidate": false,
+    "retrieved_by": "existing-corpus",
+    "last_verified": "2026-10-02",
+    "valid_until": "2027-03-31",
+    "status": "active"
+  },
+  {
+    "id": "int-2026-cpdesign-grace-report-v1-0",
+    "type": "internal",
+    "title": "NVIDIA Grace GB300 冷板详细设计报告 v1.0",
+    "org": "cp-design 项目组",
+    "year": 2026,
+    "venue": "内部报告 2026-09-26",
+    "url": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/NVIDIA_Grace_GB300_冷板详细设计报告_v1.0_20260926.html",
+    "language": "zh",
+    "access": {
+      "status": "downloaded",
+      "license": "内部文件",
+      "redistributable": false,
+      "copyright_note": "内部设计评审文档，非 NVIDIA/Lenovo ICD"
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/NVIDIA_Grace_GB300_冷板详细设计报告_v1.0_20260926.html",
+      "sha256": "986a24e653074f95ebda9c9c53eaaffc877666fa3b0bc37646cd08909f6c9327",
+      "bytes": 36041,
+      "downloaded_at": "2026-09-26"
+    },
+    "trust_level": "L5",
+    "trust_reason": "内部报告/算例，未经外部权威来源全面核对（见 reports/内部数值对照）",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "topics": [
+      "internal",
+      "Grace"
+    ],
+    "summary_zh": "Grace 300 W（含内存），水 0.55 L/min，平行微通道 48×0.40×1.20 mm。",
+    "benchmark_candidate": false,
+    "retrieved_by": "existing-corpus",
+    "last_verified": "2026-10-02",
+    "valid_until": "2027-03-31",
+    "status": "active"
+  },
+  {
+    "id": "int-2026-cpdesign-grace-report-v1-1-pg25",
+    "type": "internal",
+    "title": "NVIDIA Grace GB300 冷板详细设计报告 v1.1 · PG25",
+    "org": "cp-design 项目组",
+    "year": 2026,
+    "venue": "内部报告 2026-09-29",
+    "url": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/NVIDIA_Grace_GB300_冷板详细设计报告_v1.1_PG25_20260929.html",
+    "language": "zh",
+    "access": {
+      "status": "downloaded",
+      "license": "内部文件",
+      "redistributable": false,
+      "copyright_note": "内部设计评审文档，非 NVIDIA/Lenovo ICD"
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/NVIDIA_Grace_GB300_冷板详细设计报告_v1.1_PG25_20260929.html",
+      "sha256": "61316ea9c51a46de3df03b3a36a31d683f0fdde7405e5d4ace58ee6ea79982ae",
+      "bytes": 14768,
+      "downloaded_at": "2026-09-29"
+    },
+    "trust_level": "L5",
+    "trust_reason": "内部报告/算例，未经外部权威来源全面核对（见 reports/内部数值对照）",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "topics": [
+      "internal",
+      "Grace"
+    ],
+    "summary_zh": "Grace PG25 0.8 L/min 原分配表，6 °C 设计流量 0.753 L/min。",
+    "benchmark_candidate": false,
+    "retrieved_by": "existing-corpus",
+    "last_verified": "2026-10-02",
+    "valid_until": "2027-03-31",
+    "status": "active"
+  },
+  {
+    "id": "int-2026-cpdesign-grace-boundary-ref",
+    "type": "internal",
+    "title": "参考 · GB300 Grace CPU 与液冷边界",
+    "org": "cp-design 项目组",
+    "year": 2026,
+    "venue": "内部报告 2026-09-26",
+    "url": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/参考_GB300_Grace_CPU与液冷边界_20260926.html",
+    "language": "zh",
+    "access": {
+      "status": "downloaded",
+      "license": "内部文件",
+      "redistributable": false,
+      "copyright_note": "内部设计评审文档，非 NVIDIA/Lenovo ICD"
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/参考_GB300_Grace_CPU与液冷边界_20260926.html",
+      "sha256": "fb75ad5777fa9bf13654ad5b955655317bbaadcd2589a0b75768fe70ec8605f1",
+      "bytes": 7133,
+      "downloaded_at": "2026-09-26"
+    },
+    "trust_level": "L5",
+    "trust_reason": "内部报告/算例，未经外部权威来源全面核对（见 reports/内部数值对照）",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "topics": [
+      "internal",
+      "Grace"
+    ],
+    "summary_zh": "Lenovo LP2357 摘录：Grace TDP 300 W 含内存，LPDDR5X 480 GB/颗。",
+    "benchmark_candidate": false,
+    "retrieved_by": "existing-corpus",
+    "last_verified": "2026-10-02",
+    "valid_until": "2027-03-31",
+    "status": "active"
+  },
+  {
+    "id": "int-2026-cpdesign-uc01-wall-jet",
+    "type": "internal",
+    "title": "UC01 壁面射流与三槽流路说明",
+    "org": "cp-design 项目组",
+    "year": 2026,
+    "venue": "内部报告 2026-09-26",
+    "url": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/UC01_壁面射流与三槽流路说明.html",
+    "language": "zh",
+    "access": {
+      "status": "downloaded",
+      "license": "内部文件",
+      "redistributable": false,
+      "copyright_note": "内部设计评审文档，非 NVIDIA/Lenovo ICD"
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/UC01_壁面射流与三槽流路说明.html",
+      "sha256": "697e221f84b6f47745829cc47f844f0dc61d72bdaff1bb3c4e6add15a000b598",
+      "bytes": 42692,
+      "downloaded_at": "2026-09-26"
+    },
+    "trust_level": "L5",
+    "trust_reason": "内部报告/算例，未经外部权威来源全面核对（见 reports/内部数值对照）",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "topics": [
+      "internal",
+      "Grace"
+    ],
+    "summary_zh": "UC-01 单元胞壁面射流与三槽流路说明。",
+    "benchmark_candidate": false,
+    "retrieved_by": "existing-corpus",
+    "last_verified": "2026-10-02",
+    "valid_until": "2027-03-31",
+    "status": "active"
+  },
+  {
+    "id": "int-2026-cpdesign-tech-survey-v1-3",
+    "type": "internal",
+    "title": "AI 算力芯片液冷冷板技术调查分析报告 v1.3",
+    "org": "cp-design 项目组",
+    "year": 2026,
+    "venue": "内部报告 2026-09-07",
+    "url": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/AI算力芯片液冷冷板技术调查分析报告_v1.3_20260907.html",
+    "language": "zh",
+    "access": {
+      "status": "downloaded",
+      "license": "内部文件",
+      "redistributable": false,
+      "copyright_note": "内部设计评审文档，非 NVIDIA/Lenovo ICD"
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/AI算力芯片液冷冷板技术调查分析报告_v1.3_20260907.html",
+      "sha256": "77f1a1bd5316ba02eeab8e61c1fa0414967971ed2d4f359b46685594a24ecbed",
+      "bytes": 175306,
+      "downloaded_at": "2026-09-07"
+    },
+    "trust_level": "L5",
+    "trust_reason": "内部报告/算例，未经外部权威来源全面核对（见 reports/内部数值对照）",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "topics": [
+      "internal",
+      "Grace"
+    ],
+    "summary_zh": "技术调查：射流三区、H/D 与 S/D 设计窗、微通道强化、行业热阻标尺。",
+    "benchmark_candidate": false,
+    "retrieved_by": "existing-corpus",
+    "last_verified": "2026-10-02",
+    "valid_until": "2027-03-31",
+    "status": "active"
+  },
+  {
+    "id": "int-2026-cpdesign-patent-analysis-v1-4",
+    "type": "internal",
+    "title": "AI 算力芯片液冷冷板专利分析报告 v1.4",
+    "org": "cp-design 项目组",
+    "year": 2026,
+    "venue": "内部报告 2026-09-07",
+    "url": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/AI算力芯片液冷冷板专利分析报告_v1.4_20260907.html",
+    "language": "zh",
+    "access": {
+      "status": "downloaded",
+      "license": "内部文件",
+      "redistributable": false,
+      "copyright_note": "内部设计评审文档，非 NVIDIA/Lenovo ICD"
+    },
+    "file": {
+      "path": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/AI算力芯片液冷冷板专利分析报告_v1.4_20260907.html",
+      "sha256": "e43f24ea2fc05e43ca041c99c10bde07f34fc23ae40600a238cef34e9334b3fa",
+      "bytes": 121444,
+      "downloaded_at": "2026-09-07"
+    },
+    "trust_level": "L5",
+    "trust_reason": "内部报告/算例，未经外部权威来源全面核对（见 reports/内部数值对照）",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "topics": [
+      "internal",
+      "Grace"
+    ],
+    "summary_zh": "专利分析：方案 A 权项结构、已公开杂交架构、规避要点。",
+    "benchmark_candidate": false,
+    "retrieved_by": "existing-corpus",
+    "last_verified": "2026-10-02",
+    "valid_until": "2027-03-31",
+    "status": "active"
+  }
+]
