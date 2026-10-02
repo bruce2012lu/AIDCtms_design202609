@@ -1,0 +1,11 @@
+{
+  "id": "pap-2020-chen-dempc-direct-liquid-cooling",
+  "sha256": "ab90f85feab8850cfa5cb65f17b8e9c74d0c43ae7be4e7aa7e4fc9875938092f",
+  "source": "files/papers/pap-2020-chen-dempc-direct-liquid-cooling.pdf",
+  "extracted_at": "2026-10-02T23:31:28",
+  "pages": 8,
+  "chars": 41514,
+  "chunks": 36,
+  "tables": 0,
+  "figures": 25
+}

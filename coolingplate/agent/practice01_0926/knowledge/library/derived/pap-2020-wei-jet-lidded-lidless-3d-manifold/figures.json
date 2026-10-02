@@ -1,0 +1,257 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 248,
+    "h": 272,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p001_i1.jpg",
+    "page": 1,
+    "w": 236,
+    "h": 298,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p001_i2.jpg",
+    "page": 1,
+    "w": 120,
+    "h": 120,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 1445,
+    "h": 589,
+    "captions_on_page": [
+      "Fig. 1. Scalable impingement jet cooling system with 3D liquid distributed manifold: (a) cross section view of the cooler on single chip; (b) top view of the nozzle plate with scalable nozzle array."
+    ]
+  },
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 1773,
+    "h": 428,
+    "captions_on_page": [
+      "Fig. 2. Bare die package and lidded package: (a) two thermal test chips on Si interposer without lid; (b) thermal test chips on Si interposer with lid.",
+      "Fig. 3. Details of the single PTCQ thermal test chip: (a) overview of single thermal test die; (b) layout of the thermal test die; (c) heater cell overview."
+    ]
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 1536,
+    "h": 833,
+    "captions_on_page": [
+      "Fig. 4. Cooler schematics for the dual-chip module: (a) vertical feeding design; b) lateral feeding design."
+    ]
+  },
+  {
+    "file": "figures/p005_i0.jpg",
+    "page": 5,
+    "w": 1536,
+    "h": 837,
+    "captions_on_page": [
+      "Fig. 7 shows the cross-sections of the inside delivery manifold for the 2 cooler conﬁgurations. In the case of the vertical feeding conﬁg- uration with an inlet and an outlet plenum above each other (Fig. 7a and b), the overall cooler thickness is 12.6 mm including the tube connection. In the case o",
+      "Fig. 5. Cooler geometry parameters for vertical feeding design: 1-nozzle array; 2-inlet chamber; 3-Outlet chamber; 4-Cavity height; 5-Nozzle plate; 6-O-ring.",
+      "Fig. 6. CAD design of the two diﬀerent coolers: (a) vertical feeding design; (b) lateral feeding design."
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 1655,
+    "h": 1025,
+    "captions_on_page": [
+      "Fig. 7. Cross-section schematics of the two impingement jet cooler conﬁgurations: (a) vertical feeding design with cross section A-A; (b) vertical feeding design with cross section B-B; (c) full CAD model of vertical feeding design; (b) cross section of lateral feeding design; (e) enlarged view of t",
+      "Fig. 8. Details of the CFD model for vertical and lateral cooler design with (a) vertical feeding manifold and (b) lateral feeding manifold."
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 987,
+    "h": 811,
+    "captions_on_page": [
+      "Fig. 11 shows the experimental set-up for the two diﬀerent coolers, where the assembled dual-chip module cooler packages are placed in a socket to perform the thermal measurements. A known amount of power is generated in a chosen distribution, in this case all the heating elements on the chip are ac",
+      "Fig. 9. Dual-chip module cooler demonstrators: sideview (a) and bottom view (b) of vertical feeding cooler; sideview (c) and bottom view (d) of lateral feeding cooler.",
+      "Fig. 10. Design ﬂow for the dual-chip module cooler: lateral feeding design."
+    ]
+  },
+  {
+    "file": "figures/p007_i1.jpg",
+    "page": 7,
+    "w": 1536,
+    "h": 657,
+    "captions_on_page": [
+      "Fig. 11 shows the experimental set-up for the two diﬀerent coolers, where the assembled dual-chip module cooler packages are placed in a socket to perform the thermal measurements. A known amount of power is generated in a chosen distribution, in this case all the heating elements on the chip are ac",
+      "Fig. 9. Dual-chip module cooler demonstrators: sideview (a) and bottom view (b) of vertical feeding cooler; sideview (c) and bottom view (d) of lateral feeding cooler.",
+      "Fig. 10. Design ﬂow for the dual-chip module cooler: lateral feeding design."
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 1442,
+    "h": 776,
+    "captions_on_page": [
+      "Fig. 11. Experimental set-up for (a) vertical and (b) lateral feeding cooler.",
+      "Fig. 12. Reference temperature measurement with thermal insulation: (a) schematic view of the measurement setup with thermal isolation on top of the die surface; (b) thermal resistance network of the thermal path of the interposer package; (c) temperature increase map of the interposer package with "
+    ]
+  },
+  {
+    "file": "figures/p008_i1.jpg",
+    "page": 8,
+    "w": 1442,
+    "h": 1180,
+    "captions_on_page": [
+      "Fig. 11. Experimental set-up for (a) vertical and (b) lateral feeding cooler.",
+      "Fig. 12. Reference temperature measurement with thermal insulation: (a) schematic view of the measurement setup with thermal isolation on top of the die surface; (b) thermal resistance network of the thermal path of the interposer package; (c) temperature increase map of the interposer package with "
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 987,
+    "h": 864,
+    "captions_on_page": [
+      "Fig. 13. Temperature distribution on two heated die with (a) lidless cooling and (b) lidded package cooling (left chip power = 50 W, right chip power = 50 W, ﬂow rate = 1000 ml/min, vertical feeding cooler).",
+      "Fig. 14. Thermal measurement comparison between the lidless package cooling and lidded package cooling (single chip power = 50 W, ﬂow rate = 1000 ml/ min, vertical feeding cooler).",
+      "Fig. 15. Experimental comparison with dual-chip cooling and single chip cooling at ﬂow rate of 600 ml/min (Vertical feeing manifold)."
+    ]
+  },
+  {
+    "file": "figures/p009_i1.jpg",
+    "page": 9,
+    "w": 986,
+    "h": 810,
+    "captions_on_page": [
+      "Fig. 13. Temperature distribution on two heated die with (a) lidless cooling and (b) lidded package cooling (left chip power = 50 W, right chip power = 50 W, ﬂow rate = 1000 ml/min, vertical feeding cooler).",
+      "Fig. 14. Thermal measurement comparison between the lidless package cooling and lidded package cooling (single chip power = 50 W, ﬂow rate = 1000 ml/ min, vertical feeding cooler).",
+      "Fig. 15. Experimental comparison with dual-chip cooling and single chip cooling at ﬂow rate of 600 ml/min (Vertical feeing manifold)."
+    ]
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 987,
+    "h": 851,
+    "captions_on_page": [
+      "Fig. 16. Normalized thermal resistance measurements (cm2 K/W) for the (a) lidless cooling and (b) lidded package cooling on the interposer package (active die = 50 W, passive die = 0 W, ﬂow rate = 1000 ml/min).",
+      "Fig. 17. Normalized thermal resistance (cm2 K/W) measurements proﬁle comparison between lidless cooling and lidded package cooling under diﬀerent ﬂow rate (active die = 50 W, passive die = 0 W, ﬂow rate = 1000 ml/min).",
+      "Fig. 18. Normalized thermal resistance and thermal coupling as function of the total ﬂow rate for lidded package and lidless package."
+    ]
+  },
+  {
+    "file": "figures/p010_i1.jpg",
+    "page": 10,
+    "w": 987,
+    "h": 791,
+    "captions_on_page": [
+      "Fig. 16. Normalized thermal resistance measurements (cm2 K/W) for the (a) lidless cooling and (b) lidded package cooling on the interposer package (active die = 50 W, passive die = 0 W, ﬂow rate = 1000 ml/min).",
+      "Fig. 17. Normalized thermal resistance (cm2 K/W) measurements proﬁle comparison between lidless cooling and lidded package cooling under diﬀerent ﬂow rate (active die = 50 W, passive die = 0 W, ﬂow rate = 1000 ml/min).",
+      "Fig. 18. Normalized thermal resistance and thermal coupling as function of the total ﬂow rate for lidded package and lidless package."
+    ]
+  },
+  {
+    "file": "figures/p010_i2.jpg",
+    "page": 10,
+    "w": 986,
+    "h": 769,
+    "captions_on_page": [
+      "Fig. 16. Normalized thermal resistance measurements (cm2 K/W) for the (a) lidless cooling and (b) lidded package cooling on the interposer package (active die = 50 W, passive die = 0 W, ﬂow rate = 1000 ml/min).",
+      "Fig. 17. Normalized thermal resistance (cm2 K/W) measurements proﬁle comparison between lidless cooling and lidded package cooling under diﬀerent ﬂow rate (active die = 50 W, passive die = 0 W, ﬂow rate = 1000 ml/min).",
+      "Fig. 18. Normalized thermal resistance and thermal coupling as function of the total ﬂow rate for lidded package and lidless package."
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 987,
+    "h": 731,
+    "captions_on_page": [
+      "Fig. 21 shows the comparison of the thermal performance for the vertical feeding design and the lateral feeding design on both the bare die and lidded packages with a power dissipation of 50 W in one active chip and a ﬂow rate of 1000 ml/min. Fig. 21(a) and (b) show the full temperature maps for the",
+      "Fig. 19. Experimental validation of CFD modeling for bare die cooling under diﬀerent ﬂow rates (logic power = 50 W; memory power = 0 W).",
+      "Fig. 20. Normalized thermal resistance (cm2 K/W) distribution comparisons between the measurements and CFD modeling for bare die liquid cooling (logic power = 50 W; memory power = 0 W; ﬂow rate = 300 ml/min).",
+      "Fig. 21. Thermal measurement comparison in active die between the vertical feeding (a) and lateral feeding (b) design (logic power = 50 W, memory power = 0 W, ﬂow rate = 1000 ml/min)."
+    ]
+  },
+  {
+    "file": "figures/p011_i1.jpg",
+    "page": 11,
+    "w": 987,
+    "h": 807,
+    "captions_on_page": [
+      "Fig. 21 shows the comparison of the thermal performance for the vertical feeding design and the lateral feeding design on both the bare die and lidded packages with a power dissipation of 50 W in one active chip and a ﬂow rate of 1000 ml/min. Fig. 21(a) and (b) show the full temperature maps for the",
+      "Fig. 19. Experimental validation of CFD modeling for bare die cooling under diﬀerent ﬂow rates (logic power = 50 W; memory power = 0 W).",
+      "Fig. 20. Normalized thermal resistance (cm2 K/W) distribution comparisons between the measurements and CFD modeling for bare die liquid cooling (logic power = 50 W; memory power = 0 W; ﬂow rate = 300 ml/min).",
+      "Fig. 21. Thermal measurement comparison in active die between the vertical feeding (a) and lateral feeding (b) design (logic power = 50 W, memory power = 0 W, ﬂow rate = 1000 ml/min)."
+    ]
+  },
+  {
+    "file": "figures/p011_i2.jpg",
+    "page": 11,
+    "w": 987,
+    "h": 1179,
+    "captions_on_page": [
+      "Fig. 21 shows the comparison of the thermal performance for the vertical feeding design and the lateral feeding design on both the bare die and lidded packages with a power dissipation of 50 W in one active chip and a ﬂow rate of 1000 ml/min. Fig. 21(a) and (b) show the full temperature maps for the",
+      "Fig. 19. Experimental validation of CFD modeling for bare die cooling under diﬀerent ﬂow rates (logic power = 50 W; memory power = 0 W).",
+      "Fig. 20. Normalized thermal resistance (cm2 K/W) distribution comparisons between the measurements and CFD modeling for bare die liquid cooling (logic power = 50 W; memory power = 0 W; ﬂow rate = 300 ml/min).",
+      "Fig. 21. Thermal measurement comparison in active die between the vertical feeding (a) and lateral feeding (b) design (logic power = 50 W, memory power = 0 W, ﬂow rate = 1000 ml/min)."
+    ]
+  },
+  {
+    "file": "figures/p012_i0.jpg",
+    "page": 12,
+    "w": 1891,
+    "h": 1293,
+    "captions_on_page": [
+      "Fig. 24 shows the detailed chip temperature distribution map comparison between the vertical and lateral design. For both coolers, the inlet liquid temperature is set as 10 ˚C, and the chip power for the active die is set as 50 W. The simulated average thermal resistance is 0.28 cm2 K/W for vertical",
+      "Fig. 22. CFD modeling results comparison between the vertical feeding and lateral feeding design with (a) and (b) ﬂow streamline inside the cooler and (c) d) cross- section of the velocity ﬁeld."
+    ]
+  },
+  {
+    "file": "figures/p013_i0.jpg",
+    "page": 13,
+    "w": 987,
+    "h": 1512,
+    "captions_on_page": [
+      "Fig. 23. CFD modeling results with (a) inlet velocity proﬁle and (b) global level pressure drop comparison for the vertical and lateral feeding design.",
+      "Fig. 24. CFD modeling results with chip temperature distribution comparison between the (a) vertical feeding and (b) lateral feeding design: R-vertical = 0.28 cm2 K/ W, R-lateral = 0.26 cm2 K/W. (bare die cooling with ﬂow rate of 1000 ml/min).",
+      "Fig. 25. Comparison of the CFD modeling results and experimental measure- ments between the vertical feeding and lateral feeding design: (a) Normalized thermal resistance as function of ﬂow rate; (b) Nusselt number as function of Reynolds number."
+    ]
+  },
+  {
+    "file": "figures/p013_i1.jpg",
+    "page": 13,
+    "w": 1442,
+    "h": 716,
+    "captions_on_page": [
+      "Fig. 23. CFD modeling results with (a) inlet velocity proﬁle and (b) global level pressure drop comparison for the vertical and lateral feeding design.",
+      "Fig. 24. CFD modeling results with chip temperature distribution comparison between the (a) vertical feeding and (b) lateral feeding design: R-vertical = 0.28 cm2 K/ W, R-lateral = 0.26 cm2 K/W. (bare die cooling with ﬂow rate of 1000 ml/min).",
+      "Fig. 25. Comparison of the CFD modeling results and experimental measure- ments between the vertical feeding and lateral feeding design: (a) Normalized thermal resistance as function of ﬂow rate; (b) Nusselt number as function of Reynolds number."
+    ]
+  },
+  {
+    "file": "figures/p013_i2.jpg",
+    "page": 13,
+    "w": 987,
+    "h": 1706,
+    "captions_on_page": [
+      "Fig. 23. CFD modeling results with (a) inlet velocity proﬁle and (b) global level pressure drop comparison for the vertical and lateral feeding design.",
+      "Fig. 24. CFD modeling results with chip temperature distribution comparison between the (a) vertical feeding and (b) lateral feeding design: R-vertical = 0.28 cm2 K/ W, R-lateral = 0.26 cm2 K/W. (bare die cooling with ﬂow rate of 1000 ml/min).",
+      "Fig. 25. Comparison of the CFD modeling results and experimental measure- ments between the vertical feeding and lateral feeding design: (a) Normalized thermal resistance as function of ﬂow rate; (b) Nusselt number as function of Reynolds number."
+    ]
+  },
+  {
+    "file": "figures/p014_i0.jpg",
+    "page": 14,
+    "w": 986,
+    "h": 770,
+    "captions_on_page": [
+      "Fig. 26. CFD modeling comparison of the thermal and hydraulic performance for vertical and lateral feeding conﬁgurations (lidless cooling)."
+    ]
+  }
+]

@@ -1,0 +1,201 @@
+[
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 544,
+    "h": 446,
+    "captions_on_page": [
+      "Fig. 1.  System diagram of the experimental platform",
+      "Fig. 2.  Si-based liquid cooling package prototype"
+    ]
+  },
+  {
+    "file": "figures/p002_i1.jpg",
+    "page": 2,
+    "w": 692,
+    "h": 490,
+    "captions_on_page": [
+      "Fig. 1.  System diagram of the experimental platform",
+      "Fig. 2.  Si-based liquid cooling package prototype"
+    ]
+  },
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 689,
+    "h": 368,
+    "captions_on_page": [
+      "Fig. 3.  Control system structure and data flow"
+    ]
+  },
+  {
+    "file": "figures/p003_i1.jpg",
+    "page": 3,
+    "w": 661,
+    "h": 171,
+    "captions_on_page": [
+      "Fig. 3.  Control system structure and data flow"
+    ]
+  },
+  {
+    "file": "figures/p003_i2.jpg",
+    "page": 3,
+    "w": 536,
+    "h": 134,
+    "captions_on_page": [
+      "Fig. 3.  Control system structure and data flow"
+    ]
+  },
+  {
+    "file": "figures/p003_i3.jpg",
+    "page": 3,
+    "w": 609,
+    "h": 166,
+    "captions_on_page": [
+      "Fig. 3.  Control system structure and data flow"
+    ]
+  },
+  {
+    "file": "figures/p003_i4.jpg",
+    "page": 3,
+    "w": 338,
+    "h": 227,
+    "captions_on_page": [
+      "Fig. 3.  Control system structure and data flow"
+    ]
+  },
+  {
+    "file": "figures/p003_i5.jpg",
+    "page": 3,
+    "w": 338,
+    "h": 232,
+    "captions_on_page": [
+      "Fig. 3.  Control system structure and data flow"
+    ]
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 608,
+    "h": 416,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p004_i1.jpg",
+    "page": 4,
+    "w": 873,
+    "h": 335,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p005_i0.jpg",
+    "page": 5,
+    "w": 804,
+    "h": 592,
+    "captions_on_page": [
+      "Fig. 7. Block diagram of deep explicit control algorithm.",
+      "Fig. 8. Processor load schedule in experiment."
+    ]
+  },
+  {
+    "file": "figures/p005_i1.jpg",
+    "page": 5,
+    "w": 392,
+    "h": 252,
+    "captions_on_page": [
+      "Fig. 7. Block diagram of deep explicit control algorithm.",
+      "Fig. 8. Processor load schedule in experiment."
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 430,
+    "h": 252,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p006_i1.jpg",
+    "page": 6,
+    "w": 389,
+    "h": 266,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p006_i2.jpg",
+    "page": 6,
+    "w": 395,
+    "h": 266,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p006_i3.jpg",
+    "page": 6,
+    "w": 430,
+    "h": 252,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p006_i4.jpg",
+    "page": 6,
+    "w": 389,
+    "h": 266,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p006_i5.jpg",
+    "page": 6,
+    "w": 395,
+    "h": 266,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p006_i6.jpg",
+    "page": 6,
+    "w": 430,
+    "h": 252,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p006_i7.jpg",
+    "page": 6,
+    "w": 389,
+    "h": 266,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p006_i8.jpg",
+    "page": 6,
+    "w": 395,
+    "h": 266,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 678,
+    "h": 375,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p008_i1.jpg",
+    "page": 8,
+    "w": 166,
+    "h": 223,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p008_i2.jpg",
+    "page": 8,
+    "w": 175,
+    "h": 212,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p008_i3.jpg",
+    "page": 8,
+    "w": 120,
+    "h": 161,
+    "captions_on_page": []
+  }
+]

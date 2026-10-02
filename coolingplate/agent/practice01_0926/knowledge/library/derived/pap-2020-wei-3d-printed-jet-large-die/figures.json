@@ -1,0 +1,310 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 488,
+    "h": 495,
+    "captions_on_page": [
+      "Figure 1: Schematic concept of the package level 3D  microfluidic heatsink with microscale inlet/outlet nozzles and  3D manifold liquid delivery systems.",
+      "Figure 2: Demonstration of the single die cooler [10] and  interposer package cooler [11] with two thermal test dies."
+    ]
+  },
+  {
+    "file": "figures/p001_i1.jpg",
+    "page": 1,
+    "w": 617,
+    "h": 318,
+    "captions_on_page": [
+      "Figure 1: Schematic concept of the package level 3D  microfluidic heatsink with microscale inlet/outlet nozzles and  3D manifold liquid delivery systems.",
+      "Figure 2: Demonstration of the single die cooler [10] and  interposer package cooler [11] with two thermal test dies."
+    ]
+  },
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 465,
+    "h": 464,
+    "captions_on_page": [
+      "Figure 3: 23 mm × 23 mm thermal test chip with 16 heater  zones and 25 temperature sensors. The 55×55 mm2 package is  assembled to the test board (lidded package version shown).",
+      "Figure 4: Cross-section view of the microfluidic cooler  configurations with nozzle array below coolant entrance  connection.",
+      "Figure 5: Images of the demonstrated cooler: the cooler size is  matched to the large die/package size."
+    ]
+  },
+  {
+    "file": "figures/p002_i1.jpg",
+    "page": 2,
+    "w": 552,
+    "h": 241,
+    "captions_on_page": [
+      "Figure 3: 23 mm × 23 mm thermal test chip with 16 heater  zones and 25 temperature sensors. The 55×55 mm2 package is  assembled to the test board (lidded package version shown).",
+      "Figure 4: Cross-section view of the microfluidic cooler  configurations with nozzle array below coolant entrance  connection.",
+      "Figure 5: Images of the demonstrated cooler: the cooler size is  matched to the large die/package size."
+    ]
+  },
+  {
+    "file": "figures/p002_i2.jpg",
+    "page": 2,
+    "w": 231,
+    "h": 251,
+    "captions_on_page": [
+      "Figure 3: 23 mm × 23 mm thermal test chip with 16 heater  zones and 25 temperature sensors. The 55×55 mm2 package is  assembled to the test board (lidded package version shown).",
+      "Figure 4: Cross-section view of the microfluidic cooler  configurations with nozzle array below coolant entrance  connection.",
+      "Figure 5: Images of the demonstrated cooler: the cooler size is  matched to the large die/package size."
+    ]
+  },
+  {
+    "file": "figures/p002_i3.jpg",
+    "page": 2,
+    "w": 314,
+    "h": 253,
+    "captions_on_page": [
+      "Figure 3: 23 mm × 23 mm thermal test chip with 16 heater  zones and 25 temperature sensors. The 55×55 mm2 package is  assembled to the test board (lidded package version shown).",
+      "Figure 4: Cross-section view of the microfluidic cooler  configurations with nozzle array below coolant entrance  connection.",
+      "Figure 5: Images of the demonstrated cooler: the cooler size is  matched to the large die/package size."
+    ]
+  },
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 788,
+    "h": 426,
+    "captions_on_page": [
+      "Figure 6: Nozzle geometry and nozzle diameter evaluation  with 2D and reconstructed 3D microscope image: 5% deviation  from the nominal design value of 600 μm.",
+      "Figure 7: Microscope image of the cooler bottom showing the  inlet and outlet nozzle array.",
+      "Figure 8: Measurements set-up: (a) Details of the fluidic and  electrical connections to the test vehicle in the flow loop; (b)  schematic of the 16 heaters in the large die.",
+      "Figure 9: Calibration of the TSRs in the large die thermal test  vehicle: (a) TSR calibration setup; (b) Sensor resistance as  function of temperature for 25 sensors.",
+      "Figure 10: Temperature measurement on the test chip for a total  applied voltage of 50V using the large die cooler: (a)  Temperature distribution map for a constant flow rate of 3.25  LPM; (b) Temperature profile along the large die diagonal with  total applied voltage of 50V."
+    ]
+  },
+  {
+    "file": "figures/p003_i1.jpg",
+    "page": 3,
+    "w": 278,
+    "h": 253,
+    "captions_on_page": [
+      "Figure 6: Nozzle geometry and nozzle diameter evaluation  with 2D and reconstructed 3D microscope image: 5% deviation  from the nominal design value of 600 μm.",
+      "Figure 7: Microscope image of the cooler bottom showing the  inlet and outlet nozzle array.",
+      "Figure 8: Measurements set-up: (a) Details of the fluidic and  electrical connections to the test vehicle in the flow loop; (b)  schematic of the 16 heaters in the large die.",
+      "Figure 9: Calibration of the TSRs in the large die thermal test  vehicle: (a) TSR calibration setup; (b) Sensor resistance as  function of temperature for 25 sensors.",
+      "Figure 10: Temperature measurement on the test chip for a total  applied voltage of 50V using the large die cooler: (a)  Temperature distribution map for a constant flow rate of 3.25  LPM; (b) Temperature profile along the large die diagonal with  total applied voltage of 50V."
+    ]
+  },
+  {
+    "file": "figures/p003_i2.jpg",
+    "page": 3,
+    "w": 681,
+    "h": 384,
+    "captions_on_page": [
+      "Figure 6: Nozzle geometry and nozzle diameter evaluation  with 2D and reconstructed 3D microscope image: 5% deviation  from the nominal design value of 600 μm.",
+      "Figure 7: Microscope image of the cooler bottom showing the  inlet and outlet nozzle array.",
+      "Figure 8: Measurements set-up: (a) Details of the fluidic and  electrical connections to the test vehicle in the flow loop; (b)  schematic of the 16 heaters in the large die.",
+      "Figure 9: Calibration of the TSRs in the large die thermal test  vehicle: (a) TSR calibration setup; (b) Sensor resistance as  function of temperature for 25 sensors.",
+      "Figure 10: Temperature measurement on the test chip for a total  applied voltage of 50V using the large die cooler: (a)  Temperature distribution map for a constant flow rate of 3.25  LPM; (b) Temperature profile along the large die diagonal with  total applied voltage of 50V."
+    ]
+  },
+  {
+    "file": "figures/p003_i3.jpg",
+    "page": 3,
+    "w": 701,
+    "h": 396,
+    "captions_on_page": [
+      "Figure 6: Nozzle geometry and nozzle diameter evaluation  with 2D and reconstructed 3D microscope image: 5% deviation  from the nominal design value of 600 μm.",
+      "Figure 7: Microscope image of the cooler bottom showing the  inlet and outlet nozzle array.",
+      "Figure 8: Measurements set-up: (a) Details of the fluidic and  electrical connections to the test vehicle in the flow loop; (b)  schematic of the 16 heaters in the large die.",
+      "Figure 9: Calibration of the TSRs in the large die thermal test  vehicle: (a) TSR calibration setup; (b) Sensor resistance as  function of temperature for 25 sensors.",
+      "Figure 10: Temperature measurement on the test chip for a total  applied voltage of 50V using the large die cooler: (a)  Temperature distribution map for a constant flow rate of 3.25  LPM; (b) Temperature profile along the large die diagonal with  total applied voltage of 50V."
+    ]
+  },
+  {
+    "file": "figures/p003_i4.jpg",
+    "page": 3,
+    "w": 699,
+    "h": 355,
+    "captions_on_page": [
+      "Figure 6: Nozzle geometry and nozzle diameter evaluation  with 2D and reconstructed 3D microscope image: 5% deviation  from the nominal design value of 600 μm.",
+      "Figure 7: Microscope image of the cooler bottom showing the  inlet and outlet nozzle array.",
+      "Figure 8: Measurements set-up: (a) Details of the fluidic and  electrical connections to the test vehicle in the flow loop; (b)  schematic of the 16 heaters in the large die.",
+      "Figure 9: Calibration of the TSRs in the large die thermal test  vehicle: (a) TSR calibration setup; (b) Sensor resistance as  function of temperature for 25 sensors.",
+      "Figure 10: Temperature measurement on the test chip for a total  applied voltage of 50V using the large die cooler: (a)  Temperature distribution map for a constant flow rate of 3.25  LPM; (b) Temperature profile along the large die diagonal with  total applied voltage of 50V."
+    ]
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 489,
+    "h": 449,
+    "captions_on_page": [
+      "Figure 11: Temperature measurements of the cooling on the bare die package at (a) different chip power values and (b)  different flow rates at total heater voltage of 50V.",
+      "Figure 12: Scaled large die cooler shows the same thermal  performance as the 4x4 array cooler on the 8×8 mm2 PTCQ  with the same nozzle geometry in terms of the normalized  thermal resistance.",
+      "Figure 13: Temperature increase with respect to the inlet  temperature comparison with the lidded and bare die package"
+    ]
+  },
+  {
+    "file": "figures/p004_i1.jpg",
+    "page": 4,
+    "w": 500,
+    "h": 457,
+    "captions_on_page": [
+      "Figure 11: Temperature measurements of the cooling on the bare die package at (a) different chip power values and (b)  different flow rates at total heater voltage of 50V.",
+      "Figure 12: Scaled large die cooler shows the same thermal  performance as the 4x4 array cooler on the 8×8 mm2 PTCQ  with the same nozzle geometry in terms of the normalized  thermal resistance.",
+      "Figure 13: Temperature increase with respect to the inlet  temperature comparison with the lidded and bare die package"
+    ]
+  },
+  {
+    "file": "figures/p004_i2.jpg",
+    "page": 4,
+    "w": 518,
+    "h": 420,
+    "captions_on_page": [
+      "Figure 11: Temperature measurements of the cooling on the bare die package at (a) different chip power values and (b)  different flow rates at total heater voltage of 50V.",
+      "Figure 12: Scaled large die cooler shows the same thermal  performance as the 4x4 array cooler on the 8×8 mm2 PTCQ  with the same nozzle geometry in terms of the normalized  thermal resistance.",
+      "Figure 13: Temperature increase with respect to the inlet  temperature comparison with the lidded and bare die package"
+    ]
+  },
+  {
+    "file": "figures/p004_i3.jpg",
+    "page": 4,
+    "w": 407,
+    "h": 371,
+    "captions_on_page": [
+      "Figure 11: Temperature measurements of the cooling on the bare die package at (a) different chip power values and (b)  different flow rates at total heater voltage of 50V.",
+      "Figure 12: Scaled large die cooler shows the same thermal  performance as the 4x4 array cooler on the 8×8 mm2 PTCQ  with the same nozzle geometry in terms of the normalized  thermal resistance.",
+      "Figure 13: Temperature increase with respect to the inlet  temperature comparison with the lidded and bare die package"
+    ]
+  },
+  {
+    "file": "figures/p005_i0.jpg",
+    "page": 5,
+    "w": 573,
+    "h": 466,
+    "captions_on_page": [
+      "Figure 14: Temperature increase with respect to the inlet  temperature comparison with the lidded and bare die package  for a total applied voltage of 50V: averaged temperature  comparison as function of the coolant flow rate.",
+      "Figure 15: Temperature difference between the bare die  cooling compared with the lidded package cooling.",
+      "Figure 16: Temperature increase variations for different  temperature sensors at a flow rate of 3.25 LPM for a total heater  voltage of 50V.",
+      "Figure 17: Maximal temperature difference over the chip area as function of the flow rate for bare die cooling and lidded  package cooling."
+    ]
+  },
+  {
+    "file": "figures/p005_i1.jpg",
+    "page": 5,
+    "w": 581,
+    "h": 454,
+    "captions_on_page": [
+      "Figure 14: Temperature increase with respect to the inlet  temperature comparison with the lidded and bare die package  for a total applied voltage of 50V: averaged temperature  comparison as function of the coolant flow rate.",
+      "Figure 15: Temperature difference between the bare die  cooling compared with the lidded package cooling.",
+      "Figure 16: Temperature increase variations for different  temperature sensors at a flow rate of 3.25 LPM for a total heater  voltage of 50V.",
+      "Figure 17: Maximal temperature difference over the chip area as function of the flow rate for bare die cooling and lidded  package cooling."
+    ]
+  },
+  {
+    "file": "figures/p005_i2.jpg",
+    "page": 5,
+    "w": 749,
+    "h": 392,
+    "captions_on_page": [
+      "Figure 14: Temperature increase with respect to the inlet  temperature comparison with the lidded and bare die package  for a total applied voltage of 50V: averaged temperature  comparison as function of the coolant flow rate.",
+      "Figure 15: Temperature difference between the bare die  cooling compared with the lidded package cooling.",
+      "Figure 16: Temperature increase variations for different  temperature sensors at a flow rate of 3.25 LPM for a total heater  voltage of 50V.",
+      "Figure 17: Maximal temperature difference over the chip area as function of the flow rate for bare die cooling and lidded  package cooling."
+    ]
+  },
+  {
+    "file": "figures/p005_i3.jpg",
+    "page": 5,
+    "w": 503,
+    "h": 446,
+    "captions_on_page": [
+      "Figure 14: Temperature increase with respect to the inlet  temperature comparison with the lidded and bare die package  for a total applied voltage of 50V: averaged temperature  comparison as function of the coolant flow rate.",
+      "Figure 15: Temperature difference between the bare die  cooling compared with the lidded package cooling.",
+      "Figure 16: Temperature increase variations for different  temperature sensors at a flow rate of 3.25 LPM for a total heater  voltage of 50V.",
+      "Figure 17: Maximal temperature difference over the chip area as function of the flow rate for bare die cooling and lidded  package cooling."
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 676,
+    "h": 417,
+    "captions_on_page": [
+      "Figure 18: Simplified set-up developed for thermal and flow  measurement.",
+      "Figure 19: Trend for all temperature sensors and the ambient  temperature during the long-term measurements, compared  with the ambient temperature.",
+      "Figure 20: Long term temperature measurement (50 days): Evolution of the average chip temperature increase with respect  to the actual ambient temperature.",
+      "Figure 21: Cross section analysis after long term measurement  with DI water for the 3D printed plastic cooler.",
+      "Figure 22: No significant difference for the nozzle diameters  before and after the measurements."
+    ]
+  },
+  {
+    "file": "figures/p006_i1.jpg",
+    "page": 6,
+    "w": 693,
+    "h": 368,
+    "captions_on_page": [
+      "Figure 18: Simplified set-up developed for thermal and flow  measurement.",
+      "Figure 19: Trend for all temperature sensors and the ambient  temperature during the long-term measurements, compared  with the ambient temperature.",
+      "Figure 20: Long term temperature measurement (50 days): Evolution of the average chip temperature increase with respect  to the actual ambient temperature.",
+      "Figure 21: Cross section analysis after long term measurement  with DI water for the 3D printed plastic cooler.",
+      "Figure 22: No significant difference for the nozzle diameters  before and after the measurements."
+    ]
+  },
+  {
+    "file": "figures/p006_i2.jpg",
+    "page": 6,
+    "w": 528,
+    "h": 418,
+    "captions_on_page": [
+      "Figure 18: Simplified set-up developed for thermal and flow  measurement.",
+      "Figure 19: Trend for all temperature sensors and the ambient  temperature during the long-term measurements, compared  with the ambient temperature.",
+      "Figure 20: Long term temperature measurement (50 days): Evolution of the average chip temperature increase with respect  to the actual ambient temperature.",
+      "Figure 21: Cross section analysis after long term measurement  with DI water for the 3D printed plastic cooler.",
+      "Figure 22: No significant difference for the nozzle diameters  before and after the measurements."
+    ]
+  },
+  {
+    "file": "figures/p006_i3.jpg",
+    "page": 6,
+    "w": 641,
+    "h": 314,
+    "captions_on_page": [
+      "Figure 18: Simplified set-up developed for thermal and flow  measurement.",
+      "Figure 19: Trend for all temperature sensors and the ambient  temperature during the long-term measurements, compared  with the ambient temperature.",
+      "Figure 20: Long term temperature measurement (50 days): Evolution of the average chip temperature increase with respect  to the actual ambient temperature.",
+      "Figure 21: Cross section analysis after long term measurement  with DI water for the 3D printed plastic cooler.",
+      "Figure 22: No significant difference for the nozzle diameters  before and after the measurements."
+    ]
+  },
+  {
+    "file": "figures/p006_i4.jpg",
+    "page": 6,
+    "w": 569,
+    "h": 397,
+    "captions_on_page": [
+      "Figure 18: Simplified set-up developed for thermal and flow  measurement.",
+      "Figure 19: Trend for all temperature sensors and the ambient  temperature during the long-term measurements, compared  with the ambient temperature.",
+      "Figure 20: Long term temperature measurement (50 days): Evolution of the average chip temperature increase with respect  to the actual ambient temperature.",
+      "Figure 21: Cross section analysis after long term measurement  with DI water for the 3D printed plastic cooler.",
+      "Figure 22: No significant difference for the nozzle diameters  before and after the measurements."
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 694,
+    "h": 430,
+    "captions_on_page": [
+      "Fig.23 shows the performance benchmarking of the  measurement data of the present work with a reference air  cooling solution consisting of a heat sink and fan for a power of  90 W dissipated in the test vehicle. The comparison is reported  for the chip temperature increase with respect to the ambie",
+      "Figure 23: Cooler benchmarking for 90W chip power: the 3D  printed microfluidic heatsink on the bare chip improves the  cooling performance by a factor of 5 compared to a standard  air-cooled heat sink.",
+      "Figure 24: Benchmarking study: size comparison of the  standard  air-cooling solution  and  the  package-size  impingement cooling solution."
+    ]
+  },
+  {
+    "file": "figures/p007_i1.jpg",
+    "page": 7,
+    "w": 598,
+    "h": 245,
+    "captions_on_page": [
+      "Fig.23 shows the performance benchmarking of the  measurement data of the present work with a reference air  cooling solution consisting of a heat sink and fan for a power of  90 W dissipated in the test vehicle. The comparison is reported  for the chip temperature increase with respect to the ambie",
+      "Figure 23: Cooler benchmarking for 90W chip power: the 3D  printed microfluidic heatsink on the bare chip improves the  cooling performance by a factor of 5 compared to a standard  air-cooled heat sink.",
+      "Figure 24: Benchmarking study: size comparison of the  standard  air-cooling solution  and  the  package-size  impingement cooling solution."
+    ]
+  }
+]
