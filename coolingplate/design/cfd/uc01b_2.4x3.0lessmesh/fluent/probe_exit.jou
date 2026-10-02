@@ -1,0 +1,3 @@
+/file/set-batch-options yes yes no
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/logs/fluent_gpu_probe3.log"
+/exit yes

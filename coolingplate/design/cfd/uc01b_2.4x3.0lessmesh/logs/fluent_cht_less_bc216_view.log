@@ -1,0 +1,110 @@
+Transcript Start Time:  10:24:26, 25 Sep 2026 中国标准时间 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0lessmesh"
+
+Build Time: Feb  2 2026 16:32:00 EST  Build Id: 10262 
+Executable Path: E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/ntbin/win64/fluent.exe
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  11128  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  39000  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  41960  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  18672  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  34608  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+Cortex Process ID: 27388 
+License Server Path: 1055@localhost 
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/fluent/uc01b_cht_less_bc216.cas.h5"Fast-loading "E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\fluent26.1.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/fluent/uc01b_cht_less_bc216.cas.h5" in NODE0 mode ...
+  Reading mesh ...
+     2115436 cells,     3 cell zones ...
+        1449063 hexahedral cells,  zone id: 2
+         585737 hexahedral cells,  zone id: 3
+          80636 hexahedral cells,  zone id: 4
+     6475033 faces,    15 face zones ...
+           1920 quadrilateral symmetry faces,  zone id: 17
+          12510 quadrilateral symmetry faces,  zone id: 16
+          10110 quadrilateral wall faces,  zone id: 15
+         220789 quadrilateral interior faces,  zone id: 14
+        1704278 quadrilateral interior faces,  zone id: 13
+        4292516 quadrilateral interior faces,  zone id: 5
+           4725 quadrilateral mass-flow-inlet faces,  zone id: 6
+           5324 quadrilateral pressure-outlet faces,  zone id: 7
+          20159 quadrilateral wall faces,  zone id: 8
+            720 quadrilateral wall faces,  zone id: 9
+          63087 quadrilateral wall faces,  zone id: 10
+          63087 quadrilateral wall faces,  zone id: 19
+          20159 quadrilateral wall faces,  zone id: 11
+          20159 quadrilateral wall faces,  zone id: 18
+          35490 quadrilateral symmetry faces,  zone id: 12
+     2243624 nodes,     1 node zone  ...
+  Done.
+
+
+Building...
+     mesh
+	auto partitioning mesh by Metis (fast, Laplace, model-weighted),
+	distributing mesh
+		pairs....,
+		parts....,
+		faces....,
+		nodes....,
+		shadow nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 358557/4319 = 83.0185
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	sym:017
+	sym:016
+	interior:014
+	interior:013
+	wall_tim_cu
+	wall_cu_fluid
+	wall_orifice
+	wall_heat
+	interior
+	return_slot:015
+	inlet_jet
+	return_slot
+	sym
+	solid_tim2
+	solid_cu
+	fluid
+     parallel,
+Done.
+
+Preparing mesh for display...
+Done.
+
+Warning: Detected partition interface ratio exceeded 10%. This may lead to performance issues in GPU solver.
+           It is recommeneded to repartition and use stored partition to decrease the partition interface cells and faces counts.
+
+
+> /file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/fluent/uc01b_cht_less_bc216.dat.h5"
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/fluent/uc01b_cht_less_bc216.dat.h5" in NODE0 mode ...
+
+
+  Reading results.
+Parallel variables...
+Done.
+
+
+> ; GUI stays open
+
+> /exit y
+Transcript Stop Time:  11:39:37, 25 Sep 2026 中国标准时间 
+Total Transcript Time: 1 Hour 15 Minute 11 Second.

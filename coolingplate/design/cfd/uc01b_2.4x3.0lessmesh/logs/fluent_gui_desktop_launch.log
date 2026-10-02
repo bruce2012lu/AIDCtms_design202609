@@ -1,0 +1,6 @@
+FLUENT_INC=E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent
+CWD=D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0lessmesh
+CMD="E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\ntbin\win64\fluent.exe" 3ddp -r26.1.0 -t4 -gpu -i "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0lessmesh\fluent\uc01b_cht_less_t4_gpu.jou"
+NO -g NO -gu
+FLUENT_PID=27272 SESSION=1
+ICEM_ALREADY pid=28648 session=1 title=ICEM CFD 2026 R1 : 

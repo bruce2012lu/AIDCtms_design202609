@@ -1,0 +1,250 @@
+; BC216: 108 holes/die, 216 holes/two dies. Slot-span cell stays 2.4 mm.
+; inlet_jet is ONE hole: mass-flow 1.225e-4 kg/s. wall_heat flux 579282 W/m2.
+; Fresh init. Do not continue the 430/547 field.
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/logs/fluent_cht_less_bc216.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/mesh/uc01b_cht_less.msh"
+/mesh/check
+/define/boundary-conditions/list-zones
+/define/boundary-conditions/zone-type return_slot:015 wall
+/define/models/energy yes
+no
+no
+no
+no
+/define/models/viscous/kw-sst yes
+/define/materials/copy fluid water-liquid
+/define/materials/copy solid copper
+/define/materials/change-create
+water-liquid
+water-liquid
+yes
+constant
+992.2
+yes
+constant
+4179
+yes
+constant
+0.631
+yes
+constant
+6.53e-4
+no
+no
+no
+/define/materials/change-create
+copper
+copper
+yes
+constant
+8960
+yes
+constant
+385
+yes
+constant
+390
+/define/materials/change-create
+aluminum
+tim2
+yes
+constant
+2800
+yes
+constant
+1000
+yes
+constant
+8.818342
+yes
+/define/boundary-conditions/fluid
+fluid
+yes
+water-liquid
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+no
+no
+/define/boundary-conditions/solid
+solid_cu
+yes
+copper
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+/define/boundary-conditions/solid
+solid_tim2
+yes
+tim2
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+/define/boundary-conditions/zone-type inlet_jet mass-flow-inlet
+/define/boundary-conditions/zone-type return_slot pressure-outlet
+/define/boundary-conditions/zone-type SYM symmetry
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/pressure-outlet return_slot () t no 313.15 q
+/define/boundary-conditions/wall
+wall_heat
+no
+0
+no
+0
+no
+yes
+heat-flux
+no
+579282
+no
+no
+1
+/report/reference-values/temperature 313.15
+/define/operating-conditions/operating-pressure 101325
+; --- solver: coupled + pseudo-transient (fix for SIMPLE continuity stall) ---
+/solve/set/p-v-coupling 24
+/solve/set/pseudo-transient yes
+yes
+1
+1
+0
+yes
+1
+/solve/set/discretization-scheme/pressure 10
+/solve/set/discretization-scheme/mom 0
+/solve/set/discretization-scheme/k 0
+/solve/set/discretization-scheme/omega 0
+/solve/set/discretization-scheme/temperature 0
+/solve/monitors/residual/print? yes
+/solve/monitors/residual/plot? yes
+/solve/monitors/residual/criterion-type 0
+/solve/monitors/residual/check-convergence? no
+no
+no
+no
+no
+no
+no
+/solve/initialize/set-defaults/temperature 313.15
+/solve/initialize/hyb-initialization
+; startup first-order, no early stop
+/solve/iterate 300
+; second-order + required residual criteria
+/solve/set/discretization-scheme/pressure 12
+/solve/set/discretization-scheme/mom 1
+/solve/set/discretization-scheme/k 1
+/solve/set/discretization-scheme/omega 1
+/solve/set/discretization-scheme/temperature 1
+/solve/monitors/residual/check-convergence? yes
+yes
+yes
+yes
+yes
+yes
+yes
+/solve/monitors/residual/convergence-criteria
+1e-4
+1e-4
+1e-4
+1e-4
+1e-6
+1e-3
+1e-3
+/solve/iterate 4000
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/fluent/uc01b_cht_less_bc216"
+/define/boundary-conditions/list-zones
+/report/surface-integrals/area-weighted-avg inlet_jet () temperature no
+/report/surface-integrals/area-weighted-avg return_slot () temperature no
+/report/surface-integrals/area-weighted-avg wall_heat () temperature no
+/report/surface-integrals/area-weighted-avg wall_heat () heat-flux no
+/report/surface-integrals/area-weighted-avg wall_cu_fluid () temperature no
+/report/surface-integrals/area-weighted-avg wall_tim_cu () temperature no
+/report/surface-integrals/area-weighted-avg inlet_jet () pressure no
+/report/surface-integrals/area-weighted-avg return_slot () pressure no
+; removed: mass-flow yes inlet_jet  put a zone name where Fluent asks y/n and exit-on-error closed the GUI
+; /report/fluxes/mass-flow yes no
+; removed: heat-transfer line used the same yes-then-zone pattern
+; /report/fluxes/heat-transfer yes no
+; planes for post only - real profiles, not hardcopy
+/surface/iso-surface
+x-coordinate
+cht_pl_x0
+,
+,
+0
+()
+/surface/iso-surface
+y-coordinate
+cht_pl_y0
+,
+,
+0
+()
+/surface/iso-surface
+z-coordinate
+cht_pl_z075
+,
+,
+0.00075
+()
+/surface/iso-surface
+z-coordinate
+cht_pl_z005
+,
+,
+0.00005
+()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/figs/cht_bc216_pl_x0.prof" cht_pl_x0 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/figs/cht_bc216_pl_y0.prof" cht_pl_y0 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/figs/cht_bc216_pl_z075.prof" cht_pl_z075 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/figs/cht_bc216_pl_z005.prof" cht_pl_z005 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/figs/cht_bc216_wall_heat.prof" wall_heat () temperature heat-flux ()
+/file/stop-transcript
+; GUI stays open. No /exit.

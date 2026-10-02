@@ -1,0 +1,37 @@
+; Continue from iter 430. Do not read the msh. Do not initialize.
+; Criteria unchanged. Check is off for this block so iterate does not stop
+; on the first step (the saved field already meets 1e-4 / 1e-6 / 1e-3).
+; GUI stays open. No /exit.
+;
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/logs/fluent_cht_less_gui_continue.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/fluent/uc01b_cht_less_t4_gpu.cas.h5"
+/file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/fluent/uc01b_cht_less_t4_gpu.dat.h5"
+/solve/monitors/residual/criterion-type 0
+/solve/monitors/residual/convergence-criteria
+1e-4
+1e-4
+1e-4
+1e-4
+1e-6
+1e-3
+1e-3
+/solve/monitors/residual/check-convergence? no
+no
+no
+no
+no
+no
+no
+/solve/iterate 1000
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/fluent/uc01b_cht_less_t4_gpu_cont"
+/report/surface-integrals/area-weighted-avg inlet_jet () temperature no
+/report/surface-integrals/area-weighted-avg return_slot () temperature no
+/report/surface-integrals/area-weighted-avg wall_heat () temperature no
+/report/surface-integrals/area-weighted-avg wall_heat () heat-flux no
+/report/surface-integrals/area-weighted-avg wall_cu_fluid () temperature no
+/report/surface-integrals/area-weighted-avg inlet_jet () pressure no
+/report/surface-integrals/area-weighted-avg return_slot () pressure no
+/file/stop-transcript
+; GUI stays open. No /exit.

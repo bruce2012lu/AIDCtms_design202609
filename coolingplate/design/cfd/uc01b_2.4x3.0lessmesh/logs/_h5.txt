@@ -1,0 +1,170 @@
+c0 int32 (15,) array([4, 3, 3], dtype=int32)
+c1 int32 (15,) array([0, 0, 0], dtype=int32)
+childZoneId int32 (15,) array([0, 0, 0], dtype=int32)
+dimension uint64 (15,) array([3, 3, 3], dtype=uint64)
+faceType int32 (15,) array([4, 4, 4], dtype=int32)
+fields |S60 (1,) array([b'c0;c1;childZoneId;faceType;flags;shadowZoneId;zoneType;name'],
+      dtype='|S60')
+flags int32 (15,) array([0, 0, 0], dtype=int32)
+id int32 (15,) array([17, 16, 15], dtype=int32)
+maxId uint64 (15,) array([ 2464, 41640, 58764], dtype=uint64)
+minId uint64 (15,) array([    1,  2465, 41641], dtype=uint64)
+name |S182 (1,) array([b'sym:017;sym:016;return_slot:015;interior:014;interior:013;interior;inlet_jet;return_slot;wall_heat;wall_orifice;wall_cu_fluid;wall_cu_fluid-shadow;wall_tim_cu;wall_tim_cu-shadow;sym'],
+      dtype='|S182')
+shadowZoneId int32 (15,) array([0, 0, 0], dtype=int32)
+zoneType int32 (15,) array([7, 7, 3], dtype=int32)
+NAME type <class 'numpy.ndarray'> array([b'sym:017;sym:016;return_slot:015;interior:014;interior:013;interior;inlet_jet;return_slot;wall_heat;wall_orifice;wall_cu_fluid;wall_cu_fluid-shadow;wall_tim_cu;wall_tim_cu-shadow;sym'],
+      dtype='|S182')
+CELL name array([b'fluid;solid_cu;solid_tim2'], dtype='|S26')
+CELL min [      1 2055517 4139233]
+CELL max [2055516 4139232 4259680]
+CELL id [2 3 4]
+G /results
+G /results/1
+G /results/1/phase-1
+G /results/1/phase-1/cells
+G /results/1/phase-1/cells/SV_BF_V
+D /results/1/phase-1/cells/SV_BF_V/1 (2055516, 3)
+G /results/1/phase-1/cells/SV_DENSITY
+D /results/1/phase-1/cells/SV_DENSITY/1 (4259680,)
+G /results/1/phase-1/cells/SV_GPU_ETOT
+D /results/1/phase-1/cells/SV_GPU_ETOT/1 (4259680,)
+G /results/1/phase-1/cells/SV_GPU_SH
+D /results/1/phase-1/cells/SV_GPU_SH/1 (4259680,)
+G /results/1/phase-1/cells/SV_H
+D /results/1/phase-1/cells/SV_H/1 (4259680,)
+G /results/1/phase-1/cells/SV_K
+D /results/1/phase-1/cells/SV_K/1 (2055516,)
+G /results/1/phase-1/cells/SV_MU_LAM
+D /results/1/phase-1/cells/SV_MU_LAM/1 (2055516,)
+G /results/1/phase-1/cells/SV_MU_T
+D /results/1/phase-1/cells/SV_MU_T/1 (2055516,)
+G /results/1/phase-1/cells/SV_O
+D /results/1/phase-1/cells/SV_O/1 (2055516,)
+G /results/1/phase-1/cells/SV_P
+D /results/1/phase-1/cells/SV_P/1 (2055516,)
+G /results/1/phase-1/cells/SV_T
+D /results/1/phase-1/cells/SV_T/1 (4259680,)
+G /results/1/phase-1/cells/SV_U
+D /results/1/phase-1/cells/SV_U/1 (2055516,)
+G /results/1/phase-1/cells/SV_V
+D /results/1/phase-1/cells/SV_V/1 (2055516,)
+G /results/1/phase-1/cells/SV_W
+D /results/1/phase-1/cells/SV_W/1 (2055516,)
+G /results/1/phase-1/cells/SV_WALL_DIST
+D /results/1/phase-1/cells/SV_WALL_DIST/1 (4259680,)
+D /results/1/phase-1/cells/fields (1,)
+G /results/1/phase-1/faces
+G /results/1/phase-1/faces/SV_ARTIFICIAL_WALL_FLAG
+D /results/1/phase-1/faces/SV_ARTIFICIAL_WALL_FLAG/1 (7488,)
+G /results/1/phase-1/faces/SV_DENSITY
+D /results/1/phase-1/faces/SV_DENSITY/1 (58764,)
+D /results/1/phase-1/faces/SV_DENSITY/2 (328732,)
+G /results/1/phase-1/faces/SV_DT_BC_SOURCE
+D /results/1/phase-1/faces/SV_DT_BC_SOURCE/1 (17124,)
+D /results/1/phase-1/faces/SV_DT_BC_SOURCE/2 (164416,)
+D /results/1/phase-1/faces/SV_DT_BC_SOURCE/3 (119716,)
+G /results/1/phase-1/faces/SV_FLUX
+D /results/1/phase-1/faces/SV_FLUX/1 (6105140,)
+D /results/1/phase-1/faces/SV_FLUX/2 (91204,)
+D /results/1/phase-1/faces/SV_FLUX/3 (44600,)
+D /results/1/phase-1/faces/SV_FLUX/4 (89604,)
+G /results/1/phase-1/faces/SV_GPU_ETOT
+D /results/1/phase-1/faces/SV_GPU_ETOT/1 (12972788,)
+G /results/1/phase-1/faces/SV_GPU_SH
+D /results/1/phase-1/faces/SV_GPU_SH/1 (12972788,)
+G /results/1/phase-1/faces/SV_H
+D /results/1/phase-1/faces/SV_H/1 (17124,)
+D /results/1/phase-1/faces/SV_H/2 (164416,)
+D /results/1/phase-1/faces/SV_H/3 (119716,)
+G /results/1/phase-1/faces/SV_HEAT_FLUX
+D /results/1/phase-1/faces/SV_HEAT_FLUX/1 (17124,)
+D /results/1/phase-1/faces/SV_HEAT_FLUX/2 (164416,)
+D /results/1/phase-1/faces/SV_HEAT_FLUX/3 (119716,)
+G /results/1/phase-1/faces/SV_HEAT_FLUX_SENSIBLE
+D /results/1/phase-1/faces/SV_HEAT_FLUX_SENSIBLE/1 (12988,)
+G /results/1/phase-1/faces/SV_K
+D /results/1/phase-1/faces/SV_K/1 (12988,)
+D /results/1/phase-1/faces/SV_K/2 (91204,)
+D /results/1/phase-1/faces/SV_K/3 (44600,)
+G /results/1/phase-1/faces/SV_MACH
+D /results/1/phase-1/faces/SV_MACH/1 (12988,)
+G /results/1/phase-1/faces/SV_O
+D /results/1/phase-1/faces/SV_O/1 (12988,)
+D /results/1/phase-1/faces/SV_O/2 (91204,)
+D /results/1/phase-1/faces/SV_O/3 (44600,)
+G /results/1/phase-1/faces/SV_P
+D /results/1/phase-1/faces/SV_P/1 (6105140,)
+D /results/1/phase-1/faces/SV_P/2 (91204,)
+D /results/1/phase-1/faces/SV_P/3 (44600,)
+G /results/1/phase-1/faces/SV_RAD_HEAT_FLUX
+D /results/1/phase-1/faces/SV_RAD_HEAT_FLUX/1 (17124,)
+D /results/1/phase-1/faces/SV_RAD_HEAT_FLUX/2 (164416,)
+D /results/1/phase-1/faces/SV_RAD_HEAT_FLUX/3 (119716,)
+G /results/1/phase-1/faces/SV_RAD_HEAT_FLUX_EXTERIOR
+D /results/1/phase-1/faces/SV_RAD_HEAT_FLUX_EXTERIOR/1 (17124,)
+D /results/1/phase-1/faces/SV_RAD_HEAT_FLUX_EXTERIOR/2 (164416,)
+D /results/1/phase-1/faces/SV_RAD_HEAT_FLUX_EXTERIOR/3 (119716,)
+G /results/1/phase-1/faces/SV_T
+D /results/1/phase-1/faces/SV_T/1 (58764,)
+D /results/1/phase-1/faces/SV_T/2 (328732,)
+G /results/1/phase-1/faces/SV_U
+D /results/1/phase-1/faces/SV_U/1 (12988,)
+D /results/1/phase-1/faces/SV_U/2 (91204,)
+D /results/1/phase-1/faces/SV_U/3 (44600,)
+G /results/1/phase-1/faces/SV_V
+D /results/1/phase-1/faces/SV_V/1 (12988,)
+D /results/1/phase-1/faces/SV_V/2 (91204,)
+D /results/1/phase-1/faces/SV_V/3 (44600,)
+G /results/1/phase-1/faces/SV_W
+D /results/1/phase-1/faces/SV_W/1 (12988,)
+D /results/1/phase-1/faces/SV_W/2 (91204,)
+D /results/1/phase-1/faces/SV_W/3 (44600,)
+G /results/1/phase-1/faces/SV_WALL_DIFFUSIVE_BC_MFLUX
+D /results/1/phase-1/faces/SV_WALL_DIFFUSIVE_BC_MFLUX/1 (17124,)
+D /results/1/phase-1/faces/SV_WALL_DIFFUSIVE_BC_MFLUX/2 (151428,)
+D /results/1/phase-1/faces/SV_WALL_DIFFUSIVE_BC_MFLUX/3 (119716,)
+G /results/1/phase-1/faces/SV_WALL_SHEAR
+D /results/1/phase-1/faces/SV_WALL_SHEAR/1 (91204, 3)
+G /results/1/phase-1/faces/SV_WALL_T_INNER
+D /results/1/phase-1/faces/SV_WALL_T_INNER/1 (17124,)
+D /results/1/phase-1/faces/SV_WALL_T_INNER/2 (151428,)
+D /results/1/phase-1/faces/SV_WALL_T_INNER/3 (119716,)
+G /results/1/phase-1/faces/SV_WALL_V
+D /results/1/phase-1/faces/SV_WALL_V/1 (91204, 3)
+G /results/1/phase-1/faces/SV_WALL_VV
+D /results/1/phase-1/faces/SV_WALL_VV/1 (91204, 3)
+G /results/1/phase-1/faces/SV_WALL_YPLUS
+D /results/1/phase-1/faces/SV_WALL_YPLUS/1 (91204,)
+G /results/1/phase-1/faces/SV_WALL_YPLUS_UTAU
+D /results/1/phase-1/faces/SV_WALL_YPLUS_UTAU/1 (91204,)
+D /results/1/phase-1/faces/fields (1,)
+G /results/residuals
+G /results/residuals/phase-1
+G /results/residuals/phase-1/continuity
+D /results/residuals/phase-1/continuity/data (380, 4)
+D /results/residuals/phase-1/continuity/iterations (380,)
+G /results/residuals/phase-1/energy
+D /results/residuals/phase-1/energy/data (380, 4)
+D /results/residuals/phase-1/energy/iterations (380,)
+G /results/residuals/phase-1/k
+D /results/residuals/phase-1/k/data (380, 4)
+D /results/residuals/phase-1/k/iterations (380,)
+G /results/residuals/phase-1/omega
+D /results/residuals/phase-1/omega/data (380, 4)
+D /results/residuals/phase-1/omega/iterations (380,)
+G /results/residuals/phase-1/x-velocity
+D /results/residuals/phase-1/x-velocity/data (380, 4)
+D /results/residuals/phase-1/x-velocity/iterations (380,)
+G /results/residuals/phase-1/y-velocity
+D /results/residuals/phase-1/y-velocity/data (380, 4)
+D /results/residuals/phase-1/y-velocity/iterations (380,)
+G /results/residuals/phase-1/z-velocity
+D /results/residuals/phase-1/z-velocity/data (380, 4)
+D /results/residuals/phase-1/z-velocity/iterations (380,)
+G /settings
+D /settings/Case File (1,)
+D /settings/Data Variables (1,)
+D /settings/Origin (1,)
+D /settings/Solver (1,)
+D /settings/Version (1,)

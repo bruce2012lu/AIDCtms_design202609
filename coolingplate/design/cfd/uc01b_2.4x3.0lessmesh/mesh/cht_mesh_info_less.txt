@@ -1,0 +1,73 @@
+orifice CIRCLE D=0.40 mm (O-grid). NOT square 0.3545, NOT D=0.50
+level less
+cells_total 4259680
+cells_fluid 2055516
+cells_solid_cu 2083716
+cells_solid_tim2 120448
+nodes 4334169
+faces 12853072
+xy_nodes 30421
+xy_quads 30112
+nz 148
+first_imp_mm 0.0025
+h_orif_mm 0.003
+n_bl 10
+growth_max 1.2
+n_ri 14
+n_side 12
+nz_tim 4
+nz_cu 7
+jet_core_dx_mm 0.0028000000000000004
+slot_dy_mm 0.044444444444444446
+delta_orif_est_mm 0.17758776968232953
+slot_slit_first_mm 0.0025
+slot_slit_n_bl 10
+slot_slit_bl  two-sided on ALL three 0.40 mm slots and return slits
+center_slot_ym20_first_mm 0.0025000000000000022
+center_slot_ym20_n_bl 10
+center_slot_yp20_first_mm 0.0025000000000000022
+center_slot_yp20_n_bl 10
+south_slot_ym100_first_mm 0.0024999999999999467
+south_slot_ym100_n_bl 10
+north_slot_yp100_first_mm 0.0024999999999999467
+north_slot_yp100_n_bl 10
+center_slot_floor_first_mm 0.0025
+center_slot_floor_n_bl 10
+center_slot_ceil_first_mm 0.0024999999999999467
+center_slot_ceil_n_bl 10
+S_FR_mm 0.38
+T_ANN_mm 0.85
+lid_solid 1  (orifice plate = solid_cu, hole+slits = fluid)
+yplus_est is laminar theory only; not a Fluent u_tau print
+yplus_est_laminar 0.645
+circle_R_mm 0.2
+circle_nodes 200
+circle_r_err_max_mm 2.775558e-17
+t_tim_um 80
+k_eff_R006 8.818342
+q_flux_Wm2 567460.317460
+P_cell_W 4.085714
+msh D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0lessmesh\mesh\uc01b_cht_less.msh
+zone interior 12585292
+zone inlet_jet 5500
+zone return_slot 24612
+zone wall_heat 30112
+zone wall_orifice 1600
+zone wall_cu_fluid 89604
+zone wall_tim_cu 30112
+zone SYM 86240
+
+xy_sparse_fix doubled coarse cartesian edges; middle stays uniform
+x_stream_max_before_mm 0.3543
+x_stream_max_after_mm 0.0804
+x_near_slit_before_mm 0.1351
+x_near_slit_after_mm 0.0675
+y_slot_core_before_mm 0.090
+y_slot_core_after_mm 0.045
+y_rib_core_before_mm 0.135
+y_rib_core_after_mm 0.0676
+cells_before_xy_fix 3226580
+cells_total_now 4259680
+bl_first_mm 0.0025
+bl_n 10
+y_cell_mm 2.4

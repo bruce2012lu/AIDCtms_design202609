@@ -1,0 +1,7 @@
+; Open the converged bc216 field. Do not initialize. Do not iterate. Do not exit.
+; Do not set exit-on-error before the case is on screen.
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/logs/fluent_cht_less_bc216_view.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/fluent/uc01b_cht_less_bc216.cas.h5"
+/file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/fluent/uc01b_cht_less_bc216.dat.h5"
+; GUI stays open

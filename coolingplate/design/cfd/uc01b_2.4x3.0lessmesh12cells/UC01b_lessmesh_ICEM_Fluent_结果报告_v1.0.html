@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UC-01b lessmesh ICEM / Fluent 结果报告 v1.0</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#5d6b80;--line:#d7e0ec;--bg:#eef3f8;--soft:#f7fafd;--warn:#a65b00;--red:#b42318;--good:#1f7a4d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:14.5px/1.72 "Microsoft YaHei","PingFang SC","Segoe UI",Arial,sans-serif}
+.page{max-width:1240px;margin:auto;background:#fff;box-shadow:0 8px 34px #102a4c1f}
+header{padding:52px 62px 36px;background:linear-gradient(145deg,#0b2748,#123a68);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.16em;color:#93b2d6;text-transform:uppercase}
+header h1{font-size:31px;line-height:1.28;margin:12px 0;font-weight:700}
+header .sub{font-size:15.5px;color:#d7e6f5;max-width:980px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.pill{border:1px solid #ffffff4d;border-radius:14px;padding:4px 11px;font-size:12px;background:#ffffff12}
+.pill.ok2{background:#008b7a33;border-color:#7fd8cb80;color:#d3f5ef}
+.docbar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:26px;border-top:1px solid #ffffff2e;padding-top:16px}
+.docbar div{font-size:12px;color:#9db6d4}
+.docbar div b{display:block;font-size:14px;color:#fff;margin-top:3px}
+nav{padding:11px 62px;background:var(--soft);border-bottom:1px solid var(--line);position:sticky;top:0;display:flex;flex-wrap:wrap;gap:4px}
+nav a{color:#17518f;text-decoration:none;font-size:12.5px;padding:3px 8px;border-radius:5px}
+main{padding:26px 62px 60px}
+h2{font-size:23px;color:var(--navy);border-bottom:2.5px solid var(--navy);padding-bottom:8px;margin:44px 0 16px}
+p{margin:9px 0}
+.lead{border-left:5px solid var(--blue);background:#eff6ff;padding:15px 19px;border-radius:8px}
+.note{border:1px solid #e3ca8d;background:#fffcf2;padding:13px 17px;border-radius:8px;margin:14px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:13px}
+th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tbody tr:nth-child(even) td{background:#fafcfe}
+code{background:#eef2f7;padding:1px 5px;border-radius:4px;font-family:Consolas,monospace;font-size:12.5px;color:#1f3a5f}
+footer{padding:24px 62px;background:var(--navy);color:#c9d8e8;font-size:12.5px;line-height:1.8}
+footer b{color:#fff}
+figure{margin:18px 0 22px;border:1px solid var(--line);border-radius:8px;background:var(--soft);padding:10px 12px 12px}
+figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.55}
+@media(max-width:1000px){header,nav,main,footer{padding-left:24px;padding-right:24px}.docbar{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">AIDC-B300-CFD-UC01b-LESS-RES-002 · iter 380 · m425_bc216</div>
+  <h1>UC-01b lessmesh ICEM / Fluent<br>结果报告 v1.0</h1>
+  <div class="sub">当前场只有 iter <strong>380</strong>，<code>fluent/uc01b_cht_less_m425_bc216</code>（cas 140055032 字节，13:37:13；dat 443504689 字节，13:37:24）。网格 <strong>4259680</strong> HEXA。TIM 底 <strong>341.38529 K（68.24 °C）</strong>。静压差 1087.0927 Pa。残差已收敛。面速度积分入口、出口都是 1.22500×10⁻⁴ kg/s。质量加权能量比 1.0015。</div>
+  <div class="meta">
+    <span class="pill">2026-09-25</span>
+    <span class="pill ok2">iter 380 已收敛</span>
+    <span class="pill ok2">216 孔 · q'' 57.928 W/cm²</span>
+    <span class="pill ok2">Re_D = 597</span>
+  </div>
+  <div class="docbar">
+    <div>TIM 底<b>341.38529 K</b></div>
+    <div>静压 ΔP<b>1087.0927 Pa</b></div>
+    <div>R(T_TIM−T_in)<b>0.031341 K/W</b></div>
+    <div>能量比（质量加权）<b>1.0015</b></div>
+  </div>
+</header>
+<nav>
+  <a href="#bc">1 边界</a><a href="#t">2 温度</a><a href="#r">3 热阻</a><a href="#v">4 速度</a><a href="#fig">5 云图</a><a href="#msh">6 网格</a>
+</nav>
+<main>
+<div class="note">温度、压差和热阻来自 <code>logs/fluent_cht_less_m425_gpu.log</code>。进出口流量和出口质量加权温度由同一 cas/dat 的面速度积分得到，Fluent 日志里没有这条积分。不是细网格 iter 8587（TIM 底 341.9327 K，ΔP 1088.1265 Pa）。也不是更稀的 2115436 单元 iter 421（ΔP 1091.51 Pa，TIM 底 342.096 K）。热流云图、总压差、GCI、y+ 本场未导出。</div>
+
+<section id="bc">
+<h2>1.　边界与收敛</h2>
+<table>
+<thead><tr><th>量</th><th>iter 380</th></tr></thead>
+<tbody>
+<tr><td>场</td><td><code>uc01b_cht_less_m425_bc216.cas.h5</code> / <code>.dat.h5</code></td></tr>
+<tr><td>阵列</td><td>9×12 / die，两 die <strong>216</strong>。单孔 D=0.40 mm。进口区只有 <code>inlet_jet</code> 一个孔</td></tr>
+<tr><td>网格</td><td><code>mesh/uc01b_cht_less.msh</code>，11:42。<strong>2055516 + 2083716 + 120448 = 4259680</strong> HEXA。Y 向胞宽 2.4 mm，孔心未移动</td></tr>
+<tr><td>施加 q''</td><td><strong>579282 W/m²（57.928 W/cm²）</strong>，216 胞合计 900.899 W</td></tr>
+<tr><td>ṁ</td><td>期刊设定 <strong>1.225×10⁻⁴ kg/s</strong>。面速度积分：入口 <strong>1.22500×10⁻⁴</strong> kg/s，出口 <strong>1.22500×10⁻⁴</strong> kg/s（比入口 +0.00033%）。不是 ×108，也不是 ×216</td></tr>
+<tr><td>入口 / 回流</td><td>313.15 K。出口 <code>return_slot</code> 表压 0。<code>return_slot:015</code> 为邻铜壁面</td></tr>
+<tr><td>求解</td><td>SST k-ω，能量，共轭。3ddp <strong>-t4 -gpu</strong>，4 进程共用 RTX 4090</td></tr>
+<tr><td>残差</td><td><code>6.2412e-07  6.2793e-07  1.9747e-06  2.6352e-06  9.9059e-07  1.1046e-06  1.6245e-04</code>，solution is converged</td></tr>
+<tr><td>静压差</td><td>入口 1087.0927 Pa，出口 0，ΔP = <strong>1087.0927 Pa</strong></td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="t">
+<h2>2.　温度</h2>
+<p class="lead">TIM 底 <code>wall_heat</code> 面积加权 <strong>341.38529 K（68.24 °C）</strong>。68.24 °C = 341.38529 − 273.15。</p>
+<table>
+<thead><tr><th>面</th><th>iter 380</th></tr></thead>
+<tbody>
+<tr><td>TIM 底 <code>wall_heat</code></td><td>面积加权 <strong>341.38529 K</strong>；本面 341.375–341.394 K</td></tr>
+<tr><td>TIM 中面，z=−2.0364 mm</td><td>338.991–339.010 K，低于底面</td></tr>
+<tr><td>TIM–Cu <code>wall_tim_cu</code></td><td>面积加权 <strong>336.13005 K</strong>；切面 336.120–336.139 K</td></tr>
+<tr><td>铜座中面，z=−1.0284 mm</td><td>334.638–334.725 K</td></tr>
+<tr><td>铜–水整个界面 <code>wall_cu_fluid</code></td><td>面积加权 <strong>326.59968 K（53.45 °C）</strong></td></tr>
+<tr><td>铜–水底面 z=0（界面的一部分）</td><td>332.485–333.538 K</td></tr>
+<tr><td>出口 <code>return_slot</code></td><td>面积加权 <strong>320.90984 K（47.76 °C）</strong>；质量加权 <strong>321.309 K</strong>；面上 318.693–322.009 K</td></tr>
+<tr><td>入口</td><td><strong>313.15 K（40 °C）</strong>。面速度均匀 0.98265 m/s</td></tr>
+<tr><td>出口温升 / 能量温升</td><td>质量加权 8.159 K / 8.147 K = <strong>1.0015</strong>。面积加权 7.760 K / 8.147 K = 0.952，是加权偏低，不是能量缺口</td></tr>
+</tbody>
+</table>
+<figure><img src="figs/m425_wall_heat_T.png" alt="TIM bottom 380"><figcaption>图 2-1　iter 380，TIM 底面 wall_heat。面积加权 341.38529 K（68.24 °C）。本面 341.375–341.394 K。场 uc01b_cht_less_m425_bc216。</figcaption></figure>
+<figure><img src="figs/m425_ztim_mid_T.png" alt="TIM mid 380"><figcaption>图 2-2　iter 380，TIM 中面 z=−2.0364 mm。338.991–339.010 K，低于底面 341.38529 K。</figcaption></figure>
+</section>
+
+<section id="r">
+<h2>3.　热阻</h2>
+<p>R(T_TIM−T_in) = (341.38529 − 313.15) / 900.899 = <strong>0.031341 K/W</strong>。已含 TIM、铜和对流，不再加 R_TIM2 与 R_wall。单胞 (341.38529 − 313.15) / 4.17083 = 6.770 K/W。</p>
+<table>
+<thead><tr><th>定义</th><th>两 die</th></tr></thead>
+<tbody>
+<tr><td>R(T_TIM−T_in)，除以 900.899 W</td><td><strong>0.031341 K/W</strong></td></tr>
+<tr><td>R_conv = (326.59968 − 313.15) / 900.899</td><td><strong>0.014929 K/W</strong></td></tr>
+<tr><td>R_c-in = R_TIM2(0.004–0.008) + R_wall(0.003392) + R_conv</td><td><strong>0.022321–0.026321 K/W</strong></td></tr>
+<tr><td>q''/(T_TIM−T_in)</td><td>2.052×10⁴ W/(m²·K)。不是湿面局部对流系数</td></tr>
+<tr><td>q''/(T_cu−water−T_in)</td><td>4.307×10⁴ W/(m²·K)。同一施加 q''，不是局部对流系数</td></tr>
+</tbody>
+</table>
+<p>0.031341 与 0.022321–0.026321 不能相加。质量加权能量比 1.0015。Re_D=597 &lt; 2000，不引用 Martin，不把目标热阻写成已经关闭。</p>
+</section>
+
+<section id="v">
+<h2>4.　速度与 Re</h2>
+<p>U = ṁ / (ρ·π·D²/4) = <strong>0.9825 m/s</strong>。ρ=992.2 kg/m³，D=0.40 mm，μ=6.53×10⁻⁴ Pa·s，ṁ=1.225×10⁻⁴ kg/s。Re_D = ρUD/μ = <strong>597.1</strong>。入口面上速度是均匀的 0.98265 m/s。下表 |V|max 来自各切面，不要把 0.9825 m/s 当成切面极值。</p>
+<table>
+<thead><tr><th>切面</th><th>水温度</th><th>|V|max</th></tr></thead>
+<tbody>
+<tr><td>槽中水，最近平面 z=0.674 mm（网格上没有正好 0.750 mm 的面）</td><td>313.45–331.91 K</td><td>1.374 m/s</td></tr>
+<tr><td>z=2.500 mm 间隙</td><td>313.15–324.28 K</td><td>1.658 m/s</td></tr>
+<tr><td>圆孔水，最近平面 z=4.750 mm（没有正好 4.711 mm 的面）</td><td>313.15–322.05 K</td><td>1.624 m/s（Vz 向下）</td></tr>
+<tr><td>Y=0</td><td>313.15–332.68 K</td><td>1.699 m/s</td></tr>
+<tr><td>Y=0.800 mm</td><td>317.50–333.44 K</td><td>0.491 m/s</td></tr>
+<tr><td>X=0</td><td>313.15–333.33 K</td><td>1.699 m/s</td></tr>
+<tr><td>X=0.566 mm</td><td>315.74–333.36 K</td><td>0.762 m/s</td></tr>
+<tr><td>X=1.300 mm</td><td>316.99–333.36 K；固体 333.33–339.96 K，与水同一温度色标</td><td>0.510 m/s</td></tr>
+<tr><td>X=0.400 mm 孔外槽内</td><td>315.42–333.34 K；固体 318.59–339.95 K</td><td>0.754 m/s</td></tr>
+<tr><td>X=1.100 mm 回液缝唇</td><td>316.69–333.44 K；固体 318.67–339.96 K</td><td>0.621 m/s</td></tr>
+<tr><td>Y=0.400 mm 肋中</td><td>317.32–333.32 K；固体 318.59–339.96 K</td><td>0.527 m/s</td></tr>
+<tr><td>Y=1.000 mm 侧槽中心</td><td>317.76–333.32 K；固体 318.65–339.96 K</td><td>0.436 m/s</td></tr>
+<tr><td>z=0.217 mm 驻点上方（没有正好 0.150 mm 的面）</td><td>313.90–332.72 K；固体 331.83–332.78 K</td><td>0.966 m/s</td></tr>
+<tr><td>z=3.500 mm 间隙顶全平面</td><td>313.15–322.35 K；固体 318.71–318.88 K</td><td>1.699 m/s（轴向，平面内箭头低于作图阈值）</td></tr>
+<tr><td>z=7.000 mm 上腔孔断面</td><td>313.15 K（入口水温）</td><td>1.368 m/s（轴向）</td></tr>
+<tr><td>回液缝入口</td><td>319.28–322.35 K</td><td>0.137 m/s</td></tr>
+<tr><td>回液缝中段 z=4.750 mm</td><td>318.74–322.05 K</td><td>0.118 m/s</td></tr>
+<tr><td>出口 return_slot</td><td>面积加权 320.90984 K；面上 318.69–322.01 K</td><td>0.110 m/s</td></tr>
+</tbody>
+</table>
+<p>总压差、GCI、y+ 这场没有导出，本页不写。</p>
+</section>
+
+<section id="fig">
+<h2>5.　云图（iter 380）</h2>
+<p>下列图从 <code>uc01b_cht_less_m425_bc216</code> 的 cas/dat 切出，不是细网格的 <code>n216_i8587_*.png</code>。槽中水用网格上最近的 z=0.674 mm，圆孔用 z=4.750 mm。每张温度云图只有一把色标，流体和固体温度用这一把。速度是另一幅分图，用自己的速度色标。</p>
+<figure><img src="figs/m425_ztimcu_T.png" alt="TIM copper"><figcaption>图 5-1　TIM–Cu。336.120–336.139 K。面积加权仍是 336.13005 K。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_zcu_mid_T.png" alt="copper mid"><figcaption>图 5-2　铜座中面 z=−1.028 mm。334.638–334.725 K。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_z0_T.png" alt="copper floor"><figcaption>图 5-3　铜–水底面 z=0。332.485–333.538 K。整个铜–水界面面积加权仍是 326.59968 K。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_zrib_mid_T.png" alt="rib mid"><figcaption>图 5-4　肋中固体，z=0.674 mm。331.124–332.010 K。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_zrib_solid_T.png" alt="rib top"><figcaption>图 5-5　肋顶固体，z=1.500 mm。329.729–331.224 K。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_zorif_slot_vel.png" alt="orifice and slots"><figcaption>图 5-6　z=4.750 mm。喷孔与出流导流槽。填色是速度，黑线是温度等值线。喷孔水 |V| 最大 1.624 m/s，水温 313.15–322.05 K。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_zmid_TV.png" alt="mid slot"><figcaption>图 5-7　槽中水 z=0.674 mm。313.45–331.91 K，|V|max 1.374 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_zgap_TV.png" alt="gap"><figcaption>图 5-8　z=2.500 mm 间隙水。313.15–324.28 K，|V|max 1.658 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_zorif_TV.png" alt="orifice fluid"><figcaption>图 5-9　z=4.750 mm 圆孔水。313.15–322.05 K，|Vz|max 1.624 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_slitin_TV.png" alt="slit inlet"><figcaption>图 5-10　回液缝入口。319.28–322.35 K，|V|max 0.137 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_zreturn_mid_TV.png" alt="return mid"><figcaption>图 5-11　回液缝中段 z=4.750 mm。318.74–322.05 K，|V|max 0.118 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_return_TV.png" alt="outlet"><figcaption>图 5-12　return_slot。面积加权 320.90984 K，面上 318.69–322.01 K，|V|max 0.110 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_y0_TV.png" alt="Y0"><figcaption>图 5-13　Y=0。水 313.15–332.68 K，|V|max 1.699 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_yside_TV.png" alt="side"><figcaption>图 5-14　Y=0.800 mm。水 317.50–333.44 K，|V|max 0.491 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_x0_TV.png" alt="X0"><figcaption>图 5-15　X=0。水 313.15–333.33 K，|V|max 1.699 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_xmid_TV.png" alt="X mid"><figcaption>图 5-16　X=0.566 mm。水 315.74–333.36 K，|V|max 0.762 m/s。左图流体与固体共用一把温度色标，右图是速度。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_x13_TV.png" alt="X 1.3"><figcaption>图 5-17　X=1.300 mm。水 316.99–333.36 K，固体 333.33–339.96 K，左图共用一把温度色标，箭头是平面内速度。右图 |V|max 0.510 m/s，单独速度色标。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_x04_TV.png" alt="X 0.4"><figcaption>图 5-18　X=0.400 mm，孔外、槽内。X=0.200 mm 与圆孔相切，云图破碎，这张改到孔外。水 315.42–333.34 K，固体 318.59–339.95 K，|V|max 0.754 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_x11_TV.png" alt="X 1.1"><figcaption>图 5-19　X=1.100 mm，回液缝唇。水 316.69–333.44 K，固体 318.67–339.96 K，|V|max 0.621 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_y04_TV.png" alt="Y 0.4"><figcaption>图 5-20　Y=0.400 mm，肋中。Y=0.200 mm 是槽壁且与圆孔相切，云图破碎，这张改到肋内。水 317.32–333.32 K，固体 318.59–339.96 K，|V|max 0.527 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_y10_TV.png" alt="Y 1.0"><figcaption>图 5-21　Y=1.000 mm，侧槽中心。水 317.76–333.32 K，固体 318.65–339.96 K，|V|max 0.436 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_z015_TV.png" alt="z impingement"><figcaption>图 5-22　z=0.217 mm，驻点上方槽内（网格上没有正好 0.150 mm 的面）。水 313.90–332.72 K，固体 331.83–332.78 K，|V|max 0.966 m/s。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_z35_TV.png" alt="z 3.5 full"><figcaption>图 5-23　z=3.500 mm，间隙顶全平面。水 313.15–322.35 K，固体 318.71–318.88 K，|V|max 1.699 m/s。主速度沿轴向，平面内分量低于箭头阈值。iter 380。</figcaption></figure>
+<figure><img src="figs/m425_z70_TV.png" alt="z 7 plenum"><figcaption>图 5-24　z=7.000 mm，上腔孔断面。只有圆孔里的水，313.15 K，|V|max 1.368 m/s，方向沿孔轴。iter 380。</figcaption></figure>
+</section>
+
+<section id="msh">
+<h2>6.　网格剖面（不是温度）</h2>
+<p>来源 <code>mesh/uc01b_cht_less.msh</code>，与 iter 380 同一套网格。4259680 HEXA，底面四边形 30112。首层 0.0025 mm，n_BL=10，增长 1.2。孔外过渡 0.080 mm，缝唇外 0.0675 mm，槽芯 Y 0.045 mm，肋芯 0.068 mm。图上只有单元面。</p>
+<figure><img src="figs/m425_mesh_wall_heat.png" alt="mesh TIM bottom"><figcaption>图 6-1　网格。TIM 底面 wall_heat。30112 个四边形。不是温度云图。</figcaption></figure>
+<figure><img src="figs/m425_mesh_z_floor.png" alt="mesh floor"><figcaption>图 6-2　网格。铜–水底面，z=0。</figcaption></figure>
+<figure><img src="figs/m425_mesh_z_rib.png" alt="mesh rib"><figcaption>图 6-3　网格。肋顶平面，z=1.500 mm。</figcaption></figure>
+<figure><img src="figs/m425_mesh_z_orifice.png" alt="mesh orifice"><figcaption>图 6-4　网格。孔板，z=4.750 mm。喷孔是圆。</figcaption></figure>
+<figure><img src="figs/m425_mesh_x0.png" alt="mesh X0"><figcaption>图 6-5　网格。X=0 竖直切面。</figcaption></figure>
+<figure><img src="figs/m425_mesh_y0.png" alt="mesh Y0"><figcaption>图 6-6　网格。Y=0 中槽竖直切面。</figcaption></figure>
+<figure><img src="figs/m425_mesh_y0_bl.png" alt="mesh boundary layer"><figcaption>图 6-7　网格。Y=0，放大铜–水底面附近。水侧有边界层加密。</figcaption></figure>
+</section>
+</main>
+<footer>
+  <b>AIDC-B300-CFD-UC01b-LESS-RES-002 · 2026-09-25</b><br>
+  只收录 iter 380，场 uc01b_cht_less_m425_bc216。网格 4259680 HEXA。TIM 底 341.38529 K（68.24 °C）。静压差 1087.0927 Pa。入口、出口质量流量积分都是 1.22500×10⁻⁴ kg/s。质量加权能量比 1.0015。云图与网格剖面在 figs/m425_*.png。未导出的量：热流云图、总压差、GCI、y+。
+</footer>
+</div>
+</body>
+</html>

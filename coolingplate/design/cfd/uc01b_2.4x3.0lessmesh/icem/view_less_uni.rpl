@@ -1,0 +1,22 @@
+# GUI: show the regenerated less mesh. No -batch.
+set msh {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/mesh/uc01b_cht_less.msh}
+set uns {D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/icem/uc01b_cht_less.uns}
+set rf {E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/icemcfd/win64_amd/icemcfd/result-interfaces/readfluent.exe}
+puts "LESS-VIEW msh=$msh exists=[file exists $msh]"
+catch { ic_unload_mesh }
+set ok 0
+if {[file exists $rf] && [file exists $msh]} {
+    if {![catch { ic_read_external $rf $msh 1 2 0 "" } err]} {
+        set ok 1
+        puts "LESS-VIEW readfluent ok"
+    } else {
+        puts "LESS-VIEW readfluent FAILED: $err"
+    }
+}
+if {$ok} {
+    catch { ic_save_unstruct $uns }
+    catch { ic_uns_set_display_mode solid_and_wire }
+    catch { ic_fit_view }
+    catch { ic_redraw }
+}
+puts "LESS-VIEW done ok=$ok"

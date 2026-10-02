@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>UC-01b lessmesh 1D与CFD契合性</title><style>body{font-family:Segoe UI,Microsoft YaHei,sans-serif;max-width:980px;margin:2rem auto;line-height:1.5;padding:0 1rem}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #ccc;padding:.4rem .5rem;text-align:left}th{background:#f4f4f4}pre{background:#f6f6f6;padding:1rem;overflow:auto}</style></head><body>
+<h1>UC-01b lessmesh 一维与 CFD 契合性分析报告</h1>
+
+<p>**文档编号：** AIDC-B300-CFD-UC01b-LESS-CMP-001  </p>
+<p>**日期：** 2026-09-25  </p>
+<p>**性质：** 对照记录。当前设计点是 216 孔、q''=579282 W/m²、单孔 ṁ=1.225×10⁻⁴ kg/s。CFD 是加密网格 iter 380（4,259,680 HEXA，`-t4 -gpu`）。上一份 2,115,436 单元 iter 421 只作对照，不作为当前结果。</p>
+
+<p>相对差 = (CFD − 1D) / 1D。定义相同且约在 ±20% 内 → **接近**。定义不同 → **不可比**。Re&lt;2000、面积加权出口，标为 **限制**。</p>
+
+<hr>
+
+<h2>1. 口径</h2>
+
+<table>
+<tr><th>项</th><th>一维 / 设定</th><th>写入 Fluent 的值</th></tr>
+<tr><td>孔数</td><td>每颗 108，两颗 216</td><td>网格是单孔单元胞。进口区名 `inlet_jet`，面积约 1.26×10⁻⁷ m²，等于 D=0.40 mm 一个圆孔</td></tr>
+<tr><td>单孔流量</td><td>0.007407 L/min = **1.225×10⁻⁴ kg/s**</td><td>**1.225×10⁻⁴ kg/s** 写在 `inlet_jet`。总流量就是这个数，没有乘 108 或 216</td></tr>
+<tr><td>热流</td><td>216 孔名义值加 5%，**579282 W/m²**</td><td>`wall_heat` 打印 **579282 W/m²**</td></tr>
+<tr><td>槽向胞</td><td>Y = **2.4 mm**，不压缩孔距</td><td>网格 Y 从 −1.20 mm 到 +1.20 mm。X 沿槽 3.0 mm。孔心未移动</td></tr>
+<tr><td>入口温度</td><td>313.15 K</td><td>313.15 K</td></tr>
+<tr><td>出口</td><td>压力出口表压 0，回流 313.15 K</td><td>`return_slot` 打印静压 **0 Pa**。`return_slot:015` 为邻铜壁面</td></tr>
+<tr><td>网格</td><td>—</td><td>**4259680** HEXA。孔外过渡 0.080 mm，缝唇外 0.0675 mm，槽芯 0.045 mm×6，肋芯 0.068 mm。边界层首层 2.5 μm、10 层、增长 1.2</td></tr>
+</table>
+
+<p>P_cell = 579282×7.20×10⁻⁶ = **4.17083 W**。两 die 按 216 孔：P_2die = **900.899 W**。</p>
+
+<p>一维孔口静压用与旧对比相同的 K=1.8：ΔP = 1.8×½ρU²。本流量 U=**0.9825 m/s**，Re_D=**597**，ΔP_1D=**862.0 Pa**。</p>
+
+<hr>
+
+<h2>2. 对照</h2>
+
+<table>
+<tr><th>项目</th><th>1D / 设定</th><th>CFD iter 380</th><th>相对差</th><th>判断</th></tr>
+<tr><td>入口温度</td><td>313.15 K</td><td>313.15 K</td><td>0</td><td>契合</td></tr>
+<tr><td>单孔 ṁ</td><td>1.225×10⁻⁴ kg/s</td><td>面速度积分：入口 <strong>1.22500×10⁻⁴</strong> kg/s，出口 <strong>1.22500×10⁻⁴</strong> kg/s</td><td>入口 0；出口比入口 <strong>+0.00033%</strong></td><td>契合。质量守恒，不再只靠期刊设定值</td></tr>
+<tr><td>热流</td><td>579282 W/m²</td><td>`wall_heat` 579282 W/m²</td><td>0</td><td>契合</td></tr>
+<tr><td>孔径</td><td>D=0.40 mm</td><td>圆孔 D=0.40 mm，4259680 HEXA，边界层保留</td><td>0</td><td>契合</td></tr>
+<tr><td>U</td><td>0.9825 m/s</td><td>入口面速度均匀 <strong>0.98265 m/s</strong>（孔面积 1.25643×10⁻⁷ m²）</td><td><strong>+0.015%</strong></td><td>契合</td></tr>
+<tr><td>Re_D</td><td>597</td><td>597</td><td>0</td><td>契合。**限制：** &lt;2000，不用 Martin h</td></tr>
+<tr><td>静压 ΔP</td><td>孔口 K=1.8：**862 Pa**</td><td>1087.09−0 = **1087.09 Pa**</td><td>**+26.1%**</td><td>超出约 ±20%。一维几乎只有孔口；CFD 含射流、槽和回液缝</td></tr>
+<tr><td>能量温升</td><td>P_cell/(ṁ cp)=<strong>8.147 K</strong>，出口 bulk <strong>321.297 K</strong></td><td>质量加权出口 <strong>321.309 K</strong>，温升 <strong>8.159 K</strong>。面积加权仍是 320.910 K</td><td>bulk 温升 <strong>+0.15%</strong>；面积加权 −4.8%</td><td>接近。ṁ_out·cp·ΔT_bulk / P_cell = <strong>1.0015</strong>。0.952 只是面积加权，不是能量缺口</td></tr>
+<tr><td>R(T_TIM−T_in)</td><td>一维不从共轭场取 TIM 底</td><td>341.385 K。两 die **0.03134 K/W**</td><td>不可比</td><td>已含固体，不加 R_TIM2、R_wall</td></tr>
+<tr><td>R_conv</td><td>Martin 在 Re=597 不适用</td><td>(326.600−313.15)/900.899 = **0.01493 K/W**</td><td>不可比</td><td>不是湿面局部 h</td></tr>
+<tr><td>R_c-in</td><td>R_TIM2+R_wall 仍是假设</td><td>0.02232–0.02632 K/W（叠在本次 R_conv 上）</td><td>不可与旧流量的 Martin 带比</td><td>假设叠加</td></tr>
+<tr><td>R_j-in</td><td>再加 R_pkg 0.008–0.012</td><td>**0.03032–0.03832 K/W**</td><td>假设叠加</td><td>设计未关闭</td></tr>
+</table>
+
+<hr>
+
+<h2>3. 差从哪里来</h2>
+
+<p>压降 CFD 比孔口一维高 225 Pa（+26.1%）。流量对应的孔口损失是 862 Pa，CFD 仍有槽道和回液缝，所以孔口公式偏低。这是路径不同，不是残差没收敛。</p>
+
+<p>和上一份同边界、2,115,436 单元的 iter 421 相比：ΔP 1091.51 → **1087.09 Pa**，TIM 底 342.096 → **341.385 K**。平面加密把这两个量各改了不到 1 K 和 5 Pa。</p>
+
+<p>质量加权出口温度 321.309 K 来自 return_slot 面速度和面温度：Σ(ρ V_n T A) / Σ(ρ V_n A)，ρ=992.2 kg/m³。入口积分流量 1.22500×10⁻⁴ kg/s，出口 1.22500×10⁻⁴ kg/s，相对差 +0.00033%。ṁ_out cp ΔT_bulk = 4.1769 W，P_cell = 4.1708 W，比值 1.0015。</p>
+<p>面积加权 320.910 K 仍给出温升比 0.952。慢速热区占的面积大、带的质量少，所以面积加权偏低。能量闭合看质量加权。热阻目标仍未关闭：Re_D=597，R_c-in 和 R_j-in 还叠着假设的 R_TIM2、R_wall、R_pkg。</p>
+
+<hr>
+
+<h2>4. 不用的数</h2>
+
+<p>不用 iter 430 / 547 的 2237.64 Pa、335.404 K，也不用 i7900 的 2227.11 Pa、335.428 K 当作本次设计结果。那些场的热流是 567460.32 W/m²，单孔流量是 2.067×10⁻⁴ kg/s。上一份同边界 iter 421 的 1091.51 Pa、342.096 K 是更稀网格上的结果，只留在第 3 节作对照。</p>
+</body></html>

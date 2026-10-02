@@ -1,0 +1,64 @@
+Auto-Transcript Start Time:  09:31:34, 25 Sep 2026 中国标准时间 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0lessmesh"
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:32:00 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:59271 
+
+Node 0 connecting to the Host ... connection established.
+GPU Solver enabled
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  42596  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  44152  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  38480  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  37632  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  38448  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd\\uc01b_2.4x3.0lessmesh\\cleanup-fluent-DESKTOP-JHEHF28-38448.bat
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0lessmesh\fluent\probe_exit.jou...
+
+> /file/set-batch-options yes yes no
+
+> /file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/logs/fluent_gpu_probe3.log"
+Opening input/output transcript to file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh/logs/fluent_gpu_probe3.log".
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  42596  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  44152  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  38480  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  37632  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  38448  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+
+> /exit 
+Transcript closed.
+Auto-Transcript Stop Time:  09:32:06, 25 Sep 2026 中国标准时间 
+Total Transcript Time: 0 Minute 31 Second.

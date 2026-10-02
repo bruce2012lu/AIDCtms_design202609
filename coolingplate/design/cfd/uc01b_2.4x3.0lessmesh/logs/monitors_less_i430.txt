@@ -1,0 +1,26 @@
+source log: logs/fluent_cht_less_gui.log
+case: fluent/uc01b_cht_less_t4_gpu.cas.h5
+data: fluent/uc01b_cht_less_t4_gpu.dat.h5
+iter 430
+converged yes
+continuity 2.4161e-07
+x-velocity 7.1705e-07
+y-velocity 1.5239e-06
+z-velocity 2.5158e-06
+energy 9.9455e-07
+k 3.0940e-07
+omega 1.5813e-04
+criteria continuity/xyz-mom 1e-4 energy 1e-6 k/omega 1e-3
+T_in_K 313.15
+T_out_K 317.7222
+T_wall_heat_K 335.40366
+q_wall_heat_Wm2 567460.32
+T_wall_cu_fluid_K 321.99482
+T_wall_tim_cu_K 330.25566
+P_in_Pa 2237.6405
+P_out_Pa 0
+dP_Pa 2237.6405
+outlet return_slot pressure-outlet gauge 0 backflow 313.15 K
+return_slot:015 wall
+parallel 3ddp -t4
+gpu RTX 4090 x4 ranks device 0

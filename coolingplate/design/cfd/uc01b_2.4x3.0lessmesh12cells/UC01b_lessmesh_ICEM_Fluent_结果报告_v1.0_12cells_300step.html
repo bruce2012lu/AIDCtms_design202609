@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UC-01b 12cells lessmesh 结果报告 iter 300</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--ink:#182536;--muted:#5d6b80;--line:#d7e0ec;--bg:#eef3f8;--soft:#f7fafd}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:14.5px/1.72 "Microsoft YaHei","PingFang SC","Segoe UI",Arial,sans-serif}
+.page{max-width:1240px;margin:auto;background:#fff;box-shadow:0 8px 34px #102a4c1f}
+header{padding:52px 62px 36px;background:linear-gradient(145deg,#0b2748,#123a68);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.16em;color:#93b2d6;text-transform:uppercase}
+header h1{font-size:31px;line-height:1.28;margin:12px 0;font-weight:700}
+header .sub{font-size:15.5px;color:#d7e6f5;max-width:980px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.pill{border:1px solid #ffffff4d;border-radius:14px;padding:4px 11px;font-size:12px;background:#ffffff12}
+.pill.ok2{background:#008b7a33;border-color:#7fd8cb80;color:#d3f5ef}
+.docbar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:26px;border-top:1px solid #ffffff2e;padding-top:16px}
+.docbar div{font-size:12px;color:#9db6d4}
+.docbar div b{display:block;font-size:14px;color:#fff;margin-top:3px}
+nav{padding:11px 62px;background:var(--soft);border-bottom:1px solid var(--line);position:sticky;top:0;display:flex;flex-wrap:wrap;gap:4px}
+nav a{color:#17518f;text-decoration:none;font-size:12.5px;padding:3px 8px;border-radius:5px}
+main{padding:26px 62px 60px}
+h2{font-size:23px;color:var(--navy);border-bottom:2.5px solid var(--navy);padding-bottom:8px;margin:44px 0 16px}
+p{margin:9px 0}
+.lead{border-left:5px solid var(--blue);background:#eff6ff;padding:15px 19px;border-radius:8px}
+.note{border:1px solid #e3ca8d;background:#fffcf2;padding:13px 17px;border-radius:8px;margin:14px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:13px}
+th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tbody tr:nth-child(even) td{background:#fafcfe}
+code{background:#eef2f7;padding:1px 5px;border-radius:4px;font-family:Consolas,monospace;font-size:12.5px;color:#1f3a5f}
+footer{padding:24px 62px;background:var(--navy);color:#c9d8e8;font-size:12.5px;line-height:1.8}
+footer b{color:#fff}
+figure{margin:18px 0 22px;border:1px solid var(--line);border-radius:8px;background:var(--soft);padding:10px 12px 12px}
+figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.55}
+img{max-width:100%;height:auto;display:block;margin:auto}
+@media(max-width:1000px){header,nav,main,footer{padding-left:24px;padding-right:24px}.docbar{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">AIDC-B300-CFD-UC01b-12Y-RES-300 · iter 300 · 一阶迎风</div>
+  <h1>UC-01b 12 格 lessmesh<br>ICEM / Fluent 结果报告</h1>
+  <div class="sub">场 <code>fluent/uc01b_cht_less_12y_i300</code>。网格 <strong>28,005,504</strong> HEXA（流体 12,679,440，铜 14,441,328，TIM 884,736）。Y 向 12 格，每格 2.4 mm，Y 从 −14.4 mm 到 14.4 mm。TIM 底面积加权 <strong>342.20375 K（69.05 °C）</strong>。12 个入口静压平均 <strong>1103.04 Pa</strong>。格式是 <strong>一阶迎风</strong>。单精度，<code>3d -t4 -gpgpu=1</code>，能量和固体导热在 CPU。</div>
+  <div class="meta">
+    <span class="pill">2026-09-27</span>
+    <span class="pill ok2">iter 300</span>
+    <span class="pill ok2">一阶迎风</span>
+    <span class="pill ok2">12 孔 · q'' 57.928 W/cm²</span>
+  </div>
+  <div class="docbar">
+    <div>TIM 底<b>342.20375 K</b></div>
+    <div>入口静压平均<b>1103.04 Pa</b></div>
+    <div>R(T_TIM−T_in)<b>0.03225 K/W</b></div>
+    <div>能量比（质量加权）<b>1.0361</b></div>
+  </div>
+</header>
+<nav>
+  <a href="#bc">1 边界</a><a href="#t">2 温度</a><a href="#r">3 热阻</a><a href="#v">4 速度</a><a href="#fig">5 云图</a><a href="#msh">6 网格</a>
+</nav>
+<main>
+<div class="note">温度、压差、流量来自 <code>logs/fluent_12y_report_i300.log</code> 的面积加权、质量加权和面质量流量。云图从同一 cas/dat 切出，着色用邻接单元温度，所以云图上的 TIM 底比面温度低约 1 K。不是单胞 iter 380（TIM 底 341.38529 K，ΔP 1087.09 Pa）。热流云图、总压差、GCI、y+ 这场没有导出。</div>
+<section id="bc">
+<h2>1.　边界与收敛</h2>
+<table>
+<thead><tr><th>量</th><th>iter 300</th></tr></thead>
+<tbody>
+<tr><td>场</td><td><code>uc01b_cht_less_12y_i300.cas.h5</code> / <code>.dat.h5</code></td></tr>
+<tr><td>阵列</td><td>沿 Y 拼接 <strong>12</strong> 个单孔单元。单孔 D=0.40 mm。进口是 <code>inlet_jet_01</code> … <code>inlet_jet_12</code>，每孔设定 1.225×10⁻⁴ kg/s。两颗 die 共 216 孔，这条带是其中沿 Y 的 12 孔</td></tr>
+<tr><td>网格</td><td><code>mesh/uc01b_cht_less_12y.msh</code>。<strong>12,679,440 + 14,441,328 + 884,736 = 28,005,504</strong> HEXA。孔外过渡保留 less 网格，交界处半肋的边界层改成 4 层 0.05 mm 均匀网格。水侧边界层首层 2.5 μm、<strong>7</strong> 层。单元之间 <code>ifl</code> / <code>icu</code> / <code>itm</code> 为 interface</td></tr>
+<tr><td>施加 q''</td><td><strong>579282 W/m²（57.928 W/cm²）</strong>，打印值 579282。12 格足迹功率 50.04996 W。按 216 孔折到两 die 仍是 900.899 W</td></tr>
+<tr><td>ṁ</td><td>每孔设定 1.225×10⁻⁴ kg/s。面积分：12 孔入口合计 <strong>0.00147002</strong> kg/s，两个 Y 出口合计 <strong>0.00147002</strong> kg/s（出口比入口 +0.00019%）</td></tr>
+<tr><td>入口 / 出口</td><td>入口 313.15 K。压力出口只有 <code>outlet_y_front</code> 和 <code>outlet_y_back</code>，表压 0，回流 313.15 K。<code>return_slot</code> 和固体侧 <code>return_slot:096</code> 都是壁面，热流 0。Y 向固体端面 <code>wall_y_front</code> / <code>wall_y_back</code> 绝热。X 向为对称</td></tr>
+<tr><td>求解</td><td>SST k-ω，能量，共轭，coupled pseudo-transient。单精度 <code>3d -t4 -gpgpu=1</code>。GPU 只承担耦合 AMG，能量和固体在 CPU。iter 300 写盘时仍是一阶：压力 standard，动量 / k / ω / 温度均为一阶迎风。</td></tr>
+<tr><td>残差</td><td><code>3.3711e-07  4.6391e-07  4.6784e-07  8.4844e-07  5.8266e-08  8.1003e-06  1.0913e-06</code>。收敛检查当时是关掉的，所以没有在判据满足时停。iter 300 时连续性约 3×10⁻⁷，能量约 6×10⁻⁸</td></tr>
+<tr><td>静压</td><td>12 个入口面积加权的算术平均 <strong>1103.0355 Pa</strong>。两端入口约 1093 Pa，中间约 1109 Pa。两个出口面积加权静压约为 0。ΔP 取这个平均</td></tr>
+<tr><td>回流</td><td>iter 300 写盘前，两个压力出口各有约 2.3% 面积回流（236 个面）</td></tr>
+</tbody>
+</table>
+<table>
+<thead><tr><th>入口</th><th>静压</th></tr></thead>
+<tbody>
+<tr><td>inlet_jet_01</td><td>1093.4869 Pa</td></tr>
+<tr><td>inlet_jet_02</td><td>1098.4526 Pa</td></tr>
+<tr><td>inlet_jet_03</td><td>1103.7972 Pa</td></tr>
+<tr><td>inlet_jet_04</td><td>1105.6416 Pa</td></tr>
+<tr><td>inlet_jet_05</td><td>1107.8195 Pa</td></tr>
+<tr><td>inlet_jet_06</td><td>1109.0380 Pa</td></tr>
+<tr><td>inlet_jet_07</td><td>1109.0115 Pa</td></tr>
+<tr><td>inlet_jet_08</td><td>1107.8528 Pa</td></tr>
+<tr><td>inlet_jet_09</td><td>1105.5902 Pa</td></tr>
+<tr><td>inlet_jet_10</td><td>1103.7860 Pa</td></tr>
+<tr><td>inlet_jet_11</td><td>1098.4671 Pa</td></tr>
+<tr><td>inlet_jet_12</td><td>1093.4826 Pa</td></tr>
+<tr><td>平均</td><td><strong>1103.0355 Pa</strong></td></tr>
+</tbody>
+</table>
+</section>
+<section id="t">
+<h2>2.　温度</h2>
+<p class="lead">TIM 底 <code>wall_heat</code> 面积加权 <strong>342.20375 K（69.05 °C）</strong>。69.05 °C = 342.20375 − 273.15。面值 342.09656–342.33212 K。</p>
+<table>
+<thead><tr><th>面</th><th>iter 300</th></tr></thead>
+<tbody>
+<tr><td>TIM 底 <code>wall_heat</code></td><td>面积加权 <strong>342.20375 K</strong>；面值 342.09656–342.33212 K。云图着色是邻接单元 340.66–340.90 K</td></tr>
+<tr><td>TIM 中面，z=−2.036 mm</td><td>337.17–340.90 K</td></tr>
+<tr><td>TIM–Cu <code>wall_tim_cu</code></td><td>面积加权 <strong>336.94850 K</strong>。切面 317.94–337.41 K</td></tr>
+<tr><td>铜座中面，z=−1.028 mm</td><td>317.94–337.06 K</td></tr>
+<tr><td>铜–水整个界面 <code>wall_cu_fluid</code></td><td>面积加权 <strong>326.77230 K（53.62 °C）</strong></td></tr>
+<tr><td>铜–水底面 z=0（固体）</td><td>317.94–337.06 K</td></tr>
+<tr><td>Y 出口</td><td>面积加权净 <strong>321.60808 K</strong>；质量加权净 <strong>321.59094 K</strong>。front / back 质量加权见流量节</td></tr>
+<tr><td>入口</td><td><strong>313.14999 K</strong>。入口 1 的面积加权速度 0.98278 m/s</td></tr>
+<tr><td>出口温升 / 能量温升</td><td>质量加权 8.441 K / 8.147 K = <strong>1.0361</strong>。面积加权净温升 8.458 K</td></tr>
+</tbody>
+</table>
+<figure><img src="figs12cells/i300/wall_heat_T.png" alt=""><figcaption>图 2-1　iter 300，TIM 底面 wall_heat，12 格全长。Fluent 面积加权 <strong>342.20375 K（69.05 °C）</strong>，面值 342.09656–342.33212 K。着色是邻接 TIM 单元，340.66–340.90 K，比面温度低约 1 K。</figcaption></figure>
+<figure><img src="figs12cells/i300/wall_heat_T_center.png" alt=""><figcaption>图 2-2　同一底面的中部单元 Y=0–2.4 mm。温度色标与全场相同，固定 313–343 K。340.68–340.90 K</figcaption></figure>
+<figure><img src="figs12cells/i300/ztim_mid_T.png" alt=""><figcaption>图 2-3　TIM 中面，网格 z=−2.036 mm（单胞报告写 −2.0364 mm）。12 格全长。337.17–340.90 K</figcaption></figure>
+<figure><img src="figs12cells/i300/ztim_mid_T_center.png" alt=""><figcaption>图 2-4　TIM 中面，中部单元。337.18–340.74 K</figcaption></figure>
+</section>
+<section id="r">
+<h2>3.　热阻</h2>
+<p>R(T_TIM−T_in) = (342.20375 − 313.15) / 900.899 = <strong>0.03225 K/W</strong>。除数是两 die、216 孔的功率，用来和单胞报告的 0.031341 K/W 对照。这条 12 格带自己的功率是 50.04996 W，对应的温升热阻是 0.5805 K/W，口径不同，不拿去和 0.03 K/W 的封装目标比。</p>
+<p>CFD 的 TIM 底已经含 TIM2、铜和对流。下面的 R_c-in、R_j-in 仍把设计假设里的 R_TIM2、R_wall、R_pkg 叠在对流项上，只作对照，不和上一行的 R(T_TIM−T_in) 相加。R_pkg 给出的是封装平均结温，不是芯片几何中心的热点。</p>
+<table>
+<thead><tr><th>定义</th><th>按两 die 900.899 W</th></tr></thead>
+<tbody>
+<tr><td>R(T_TIM−T_in)</td><td><strong>0.03225 K/W</strong></td></tr>
+<tr><td>R_conv = (T_cu−water − 313.15) / 900.899</td><td><strong>0.01512 K/W</strong></td></tr>
+<tr><td>R_c-in = R_TIM2(0.004–0.008) + R_wall(0.003392) + R_conv</td><td><strong>0.02251–0.02651 K/W</strong></td></tr>
+<tr><td>R_j-in = R_c-in + R_pkg(0.008–0.012)</td><td><strong>0.03051–0.03851 K/W</strong>。封装平均结温约 67.5–74.7 °C，不是芯片中心最高温度</td></tr>
+<tr><td>q''/(T_TIM−T_in)</td><td>1.994e+04 W/(m²·K)。不是湿面局部对流系数</td></tr>
+<tr><td>q''/(T_cu−water−T_in)</td><td>4.252e+04 W/(m²·K)。同一施加 q''，不是局部对流系数</td></tr>
+</tbody>
+</table>
+<p>质量加权能量比 1.0361。Re_D=597.3 &lt; 2000，不引用 Martin，不把目标热阻写成已经关闭。</p>
+</section>
+<section id="v">
+<h2>4.　速度与 Re</h2>
+<p>U = ṁ / (ρ·π·D²/4) = <strong>0.9825 m/s</strong>。ρ=992.2 kg/m³，D=0.40 mm，μ=6.53×10⁻⁴ Pa·s，ṁ=1.225×10⁻⁴ kg/s。Re_D = ρUD/μ，用入口 1 的面积加权速度 0.98278 m/s，得 <strong>597.3</strong>。下表来自切面，|V|max 不是入口速度。单胞报告里的每一站都在，另外加了单元交界和两个 Y 出口。</p>
+<table>
+<thead><tr><th>切面</th><th>温度与 |V|max</th></tr></thead>
+<tbody>
+<tr><td>槽中水，网格面 z=0.670 mm（单胞用 0.674 mm）</td><td>313.15–334.35 K；固体 318.00–337.05 K；|V|max 1.694 m/s</td></tr>
+<tr><td>间隙水，网格面 z=2.426 mm（单胞用 2.500 mm）</td><td>313.15–334.45 K；固体 317.94–318.27 K；|V|max 1.692 m/s</td></tr>
+<tr><td>圆孔水 z=4.750 mm</td><td>313.15–334.38 K；固体 317.94–337.05 K；|V|max 1.690 m/s</td></tr>
+<tr><td>中槽，全局 Y=1.200 mm（对应单胞 Y=0）</td><td>313.15–334.12 K；固体 317.95–340.74 K；|V|max 1.690 m/s</td></tr>
+<tr><td>侧槽，全局 Y=2.000 mm（对应单胞 Y=0.800 mm）</td><td>313.15–334.10 K；固体 317.95–340.74 K；|V|max 1.691 m/s</td></tr>
+<tr><td>X=0</td><td>313.15–334.45 K；固体 317.94–340.90 K；|V|max 1.693 m/s</td></tr>
+<tr><td>X=0.566 mm</td><td>313.15–334.32 K；固体 317.94–340.90 K；|V|max 1.691 m/s</td></tr>
+<tr><td>X=1.300 mm</td><td>313.15–334.26 K；固体 317.94–340.90 K；|V|max 1.689 m/s</td></tr>
+<tr><td>X=0.400 mm 孔外槽内</td><td>313.15–334.40 K；固体 317.94–340.90 K；|V|max 1.691 m/s</td></tr>
+<tr><td>X=1.100 mm 回液缝唇</td><td>313.15–334.47 K；固体 317.94–340.90 K；|V|max 1.691 m/s</td></tr>
+<tr><td>肋中，全局 Y=1.600 mm（对应单胞 Y=0.400 mm）</td><td>313.15–334.11 K；固体 317.95–340.74 K；|V|max 1.689 m/s</td></tr>
+<tr><td>侧槽中心，全局 Y=2.200 mm（对应单胞 Y=1.000 mm）</td><td>313.15–334.24 K；固体 317.94–340.73 K；|V|max 1.686 m/s</td></tr>
+<tr><td>驻点上方，网格面 z=0.192 mm（单胞用 0.217 / 0.150 mm）</td><td>313.15–334.40 K；固体 318.08–340.72 K；|V|max 1.691 m/s</td></tr>
+<tr><td>z=3.500 mm 间隙顶全平面</td><td>313.15–334.46 K；固体 317.94–340.90 K；|V|max 1.690 m/s</td></tr>
+<tr><td>z=7.000 mm 上腔孔断面</td><td>313.15–334.26 K；|V|max 1.691 m/s</td></tr>
+<tr><td>回液缝入口 z=3.500 mm，|X|≥1.10 mm</td><td>313.15–334.40 K；|V|max 1.690 m/s</td></tr>
+<tr><td>回液缝中段 z=4.750 mm，|X|≥1.10 mm</td><td>313.15–334.38 K；|V|max 1.685 m/s</td></tr>
+<tr><td>return_slot（本算例为绝热壁，不是出口）</td><td>318.09–321.02 K；|V|max 0.001 m/s</td></tr>
+<tr><td>全局 Y=0 单元交界</td><td>313.15–334.16 K；固体 318.38–337.06 K；|V|max 1.136 m/s</td></tr>
+<tr><td>全局 Y=0.400 mm</td><td>313.15–334.09 K；固体 317.96–340.74 K；|V|max 1.687 m/s</td></tr>
+<tr><td>全局 Y=0.800 mm</td><td>313.15–334.11 K；固体 317.96–340.74 K；|V|max 1.684 m/s</td></tr>
+<tr><td>全局 Y=1.000 mm</td><td>313.15–334.19 K；固体 317.95–340.90 K；|V|max 1.691 m/s</td></tr>
+<tr><td>Y 正端压力出口 outlet_y_front</td><td>316.57–334.47 K；|V|max 0.373 m/s</td></tr>
+<tr><td>Y 负端压力出口 outlet_y_back</td><td>316.55–334.39 K；|V|max 0.373 m/s</td></tr>
+</tbody>
+</table>
+<p>总压差、GCI、y+ 这场没有导出，本页不写。</p>
+</section>
+<section id="fig">
+<h2>5.　云图（iter 300）</h2>
+<p>每张温度图的流体和固体共用一把色标，固定为 313–343 K，本面实际范围写在图注里。速度是另一幅，用本面 0 到最大。切面只取一个网格站，按这个面上的四边形着色，节点取相邻面的平均，不再把不相邻的格子连成新的三角网。单胞是一张小图；这里每站先给 12 格全长，再给中部单元 Y=0–2.4 mm，所以图比单胞报告多。</p>
+<figure><img src="figs12cells/i300/ztimcu_T.png" alt=""><figcaption>TIM–Cu，z=−2.000 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。317.94–337.41 K</figcaption></figure>
+<figure><img src="figs12cells/i300/ztimcu_T_center.png" alt=""><figcaption>TIM–Cu，z=−2.000 mm，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。面积加权仍是 336.94850 K。 336.84–337.40 K</figcaption></figure>
+<figure><img src="figs12cells/i300/zcu_mid_T.png" alt=""><figcaption>铜座中面，z=−1.028 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。317.94–337.06 K</figcaption></figure>
+<figure><img src="figs12cells/i300/zcu_mid_T_center.png" alt=""><figcaption>铜座中面，z=−1.028 mm，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。固体铜。 318.01–336.88 K</figcaption></figure>
+<figure><img src="figs12cells/i300/z0_T.png" alt=""><figcaption>铜–水底面固体，z=0。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。317.94–337.06 K</figcaption></figure>
+<figure><img src="figs12cells/i300/z0_T_center.png" alt=""><figcaption>铜–水底面固体，z=0，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。只画铜。整个铜–水界面面积加权仍是 326.77230 K。 318.11–336.88 K</figcaption></figure>
+<figure><img src="figs12cells/i300/zrib_mid_T.png" alt=""><figcaption>肋中固体，z=0.670 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。318.00–337.05 K</figcaption></figure>
+<figure><img src="figs12cells/i300/zrib_mid_T_center.png" alt=""><figcaption>肋中固体，z=0.670 mm，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。只画铜肋，槽里的水不在这张图上。 330.02–336.88 K</figcaption></figure>
+<figure><img src="figs12cells/i300/zrib_solid_T.png" alt=""><figcaption>肋顶固体，z=1.500 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。317.94–334.60 K</figcaption></figure>
+<figure><img src="figs12cells/i300/zrib_solid_T_center.png" alt=""><figcaption>肋顶固体，z=1.500 mm，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。只画铜。 318.11–334.45 K</figcaption></figure>
+<figure><img src="figs12cells/i300/zorif_slot_vel.png" alt=""><figcaption>z=4.750 mm 喷孔与出流导流槽。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.38 K；固体 317.94–337.05 K；|V|max 1.690 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/zorif_slot_vel_center.png" alt=""><figcaption>z=4.750 mm 喷孔与出流导流槽，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。左图温度，右图速度。对应单胞图 5-6。 313.15–334.11 K；固体 317.94–336.86 K；|V|max 1.690 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/zmid_TV.png" alt=""><figcaption>槽中水 z=0.670 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.35 K；固体 318.00–337.05 K；|V|max 1.694 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/zmid_TV_center.png" alt=""><figcaption>槽中水 z=0.670 mm，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。左图流体与固体共用一把温度色标，右图是速度。 313.15–334.10 K；固体 330.02–336.88 K；|V|max 1.694 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/zgap_TV.png" alt=""><figcaption>间隙水，网格 z=2.426 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.45 K；固体 317.94–318.27 K；|V|max 1.692 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/zgap_TV_center.png" alt=""><figcaption>间隙水，网格 z=2.426 mm，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。单胞报告的站是 2.500 mm，本网格最近的面是 2.426 mm。 313.15–334.15 K；|V|max 1.691 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/zorif_TV.png" alt=""><figcaption>圆孔水 z=4.750 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.38 K；固体 317.94–337.05 K；|V|max 1.690 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/zorif_TV_center.png" alt=""><figcaption>圆孔水 z=4.750 mm，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。喷孔与导流槽。 313.15–334.11 K；固体 317.94–336.86 K；|V|max 1.690 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/slitin_TV.png" alt=""><figcaption>回液缝入口 z=3.500 mm，|X|≥1.10 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.40 K；|V|max 1.690 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/slitin_TV_center.png" alt=""><figcaption>回液缝入口 z=3.500 mm，|X|≥1.10 mm，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。间隙顶进入两侧回液缝的水。 313.15–334.11 K；|V|max 1.690 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/zreturn_mid_TV.png" alt=""><figcaption>回液缝中段 z=4.750 mm，|X|≥1.10 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.38 K；|V|max 1.685 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/zreturn_mid_TV_center.png" alt=""><figcaption>回液缝中段 z=4.750 mm，|X|≥1.10 mm，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。只保留缝内的水。 313.15–334.08 K；|V|max 1.685 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/y0_TV.png" alt=""><figcaption>中槽竖直切面，全局 Y=1.200 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.12 K；固体 317.95–340.74 K；|V|max 1.690 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/yside_TV.png" alt=""><figcaption>侧槽竖直切面，全局 Y=2.000 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.10 K；固体 317.95–340.74 K；|V|max 1.691 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/x0_TV.png" alt=""><figcaption>X=0 竖直切面。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.45 K；固体 317.94–340.90 K；|V|max 1.693 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/x0_TV_center.png" alt=""><figcaption>X=0 竖直切面，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。12 格沿 Y 排开。中部单元另附一张。 313.15–334.12 K；固体 317.94–340.74 K；|V|max 1.693 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/xmid_TV.png" alt=""><figcaption>X=0.566 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.32 K；固体 317.94–340.90 K；|V|max 1.691 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/xmid_TV_center.png" alt=""><figcaption>X=0.566 mm，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。离开射流、朝回液缝。 313.15–334.08 K；固体 317.95–340.74 K；|V|max 1.691 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/x13_TV.png" alt=""><figcaption>X=1.300 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.26 K；固体 317.94–340.90 K；|V|max 1.689 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/x13_TV_center.png" alt=""><figcaption>X=1.300 mm，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。左图流体与固体共用温度色标。 313.15–334.10 K；固体 330.06–340.72 K；|V|max 1.689 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/x04_TV.png" alt=""><figcaption>X=0.400 mm，孔外槽内。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.40 K；固体 317.94–340.90 K；|V|max 1.691 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/x04_TV_center.png" alt=""><figcaption>X=0.400 mm，孔外槽内，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。X=0.200 mm 与圆孔相切，改到孔外，与单胞报告相同。 313.15–334.09 K；固体 317.95–340.74 K；|V|max 1.691 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/x11_TV.png" alt=""><figcaption>X=1.100 mm，回液缝唇。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.47 K；固体 317.94–340.90 K；|V|max 1.691 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/x11_TV_center.png" alt=""><figcaption>X=1.100 mm，回液缝唇，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。 313.15–334.18 K；固体 318.11–340.73 K；|V|max 1.691 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/y04_TV.png" alt=""><figcaption>肋中，全局 Y=1.600 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.11 K；固体 317.95–340.74 K；|V|max 1.689 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/y10_TV.png" alt=""><figcaption>侧槽中心，全局 Y=2.200 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.24 K；固体 317.94–340.73 K；|V|max 1.686 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/z015_TV.png" alt=""><figcaption>驻点上方，网格 z=0.192 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.40 K；固体 318.08–340.72 K；|V|max 1.691 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/z015_TV_center.png" alt=""><figcaption>驻点上方，网格 z=0.192 mm，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。单胞报告用 0.217 mm，本网格最近的面是 0.192 mm。 313.15–334.16 K；固体 318.15–336.88 K；|V|max 1.691 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/z35_TV.png" alt=""><figcaption>z=3.500 mm 间隙顶全平面。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.46 K；固体 317.94–340.90 K；|V|max 1.690 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/z35_TV_center.png" alt=""><figcaption>z=3.500 mm 间隙顶全平面，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。 313.15–334.32 K；固体 318.11–334.45 K；|V|max 1.690 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/z70_TV.png" alt=""><figcaption>z=7.000 mm 上腔断面。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.26 K；|V|max 1.691 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/z70_TV_center.png" alt=""><figcaption>z=7.000 mm 上腔断面，中部单元 Y=0–2.4 mm，用来对照单胞那张图的尺度。这一高度上的流体。单胞报告在这里只看到圆孔里的入口水。 313.15–334.10 K；|V|max 1.691 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/y0_global_TV.png" alt=""><figcaption>全局 Y=0，单元交界。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.16 K；固体 318.38–337.06 K；|V|max 1.136 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/y04_global_TV.png" alt=""><figcaption>全局 Y=0.400 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.09 K；固体 317.96–340.74 K；|V|max 1.687 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/yside_global_TV.png" alt=""><figcaption>全局 Y=0.800 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.11 K；固体 317.96–340.74 K；|V|max 1.684 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/y10_global_TV.png" alt=""><figcaption>全局 Y=1.000 mm。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。313.15–334.19 K；固体 317.95–340.90 K；|V|max 1.691 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/outlet_y_front_TV.png" alt=""><figcaption>压力出口 outlet_y_front。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。316.57–334.47 K；|V|max 0.373 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/outlet_y_back_TV.png" alt=""><figcaption>压力出口 outlet_y_back。全长 12 格，Y 从 −14.4 mm 到 +14.4 mm。316.55–334.39 K；|V|max 0.373 m/s</figcaption></figure>
+<figure><img src="figs12cells/i300/return_TV.png" alt=""><figcaption>return_slot。本算例 Z 顶面已改为绝热壁，不是压力出口，面上速度应接近 0。318.09–321.02 K；|V|max 0.001 m/s</figcaption></figure>
+</section>
+<section id="msh">
+<h2>6.　网格剖面（不是温度）</h2>
+<p>网格与步数无关，300 步和 600 步共用这组图。单胞的 7 张都在，并且多了全长和 Y=0 交界。</p>
+<figure><img src="figs12cells/mesh/mesh_wall_heat.png" alt=""><figcaption>图 6-1　网格。TIM 底面 wall_heat，中部单元。不是温度云图。</figcaption></figure>
+<figure><img src="figs12cells/mesh/mesh_wall_heat_full.png" alt=""><figcaption>图 6-2　网格。TIM 底面，12 格全长。</figcaption></figure>
+<figure><img src="figs12cells/mesh/mesh_z_floor.png" alt=""><figcaption>图 6-3　网格。铜–水底面 z=0，中部单元。</figcaption></figure>
+<figure><img src="figs12cells/mesh/mesh_z_rib.png" alt=""><figcaption>图 6-4　网格。肋顶平面 z=1.500 mm，中部单元。</figcaption></figure>
+<figure><img src="figs12cells/mesh/mesh_z_orifice.png" alt=""><figcaption>图 6-5　网格。孔板 z=4.750 mm，中部单元。喷孔是圆。</figcaption></figure>
+<figure><img src="figs12cells/mesh/mesh_x0.png" alt=""><figcaption>图 6-6　网格。X=0 竖直切面，中部单元。</figcaption></figure>
+<figure><img src="figs12cells/mesh/mesh_x0_full.png" alt=""><figcaption>图 6-7　网格。X=0，12 格全长。</figcaption></figure>
+<figure><img src="figs12cells/mesh/mesh_y0.png" alt=""><figcaption>图 6-8　网格。中槽竖直切面，全局 Y=1.200 mm，对应单胞 Y=0。</figcaption></figure>
+<figure><img src="figs12cells/mesh/mesh_y0_bl.png" alt=""><figcaption>图 6-9　网格。同一中槽，放大铜–水底面附近。水侧有边界层加密。</figcaption></figure>
+<figure><img src="figs12cells/mesh/mesh_y_join.png" alt=""><figcaption>图 6-10　网格。全局 Y=0 单元交界。单胞报告没有这张。</figcaption></figure>
+<figure><img src="figs12cells/mesh/mesh_y_join_bl.png" alt=""><figcaption>图 6-11　网格。交界底面附近。原来的半肋边界层在这里改成了均匀网格。</figcaption></figure>
+</section>
+</main>
+<footer>
+  只收录 iter 300，场 uc01b_cht_less_12y_i300。网格 28,005,504 HEXA。TIM 底 342.20375 K（69.05 °C）。12 孔入口静压平均 1103.04 Pa。入口质量流量合计 0.00147002 kg/s，Y 出口合计 0.00147002 kg/s。质量加权能量比 1.0361。格式：一阶迎风。
+</footer>
+</div>
+</body>
+</html>

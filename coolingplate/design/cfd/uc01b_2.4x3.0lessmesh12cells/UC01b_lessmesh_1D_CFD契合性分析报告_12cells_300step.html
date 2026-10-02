@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>UC-01b 12cells 1D与CFD契合性 iter 300</title><style>
+body{font-family:"Microsoft YaHei",Segoe UI,sans-serif;max-width:1080px;margin:2rem auto;line-height:1.55;padding:0 1rem;color:#182536}
+h1{font-size:28px} h2{border-bottom:2px solid #0b2748;padding-bottom:6px;color:#0b2748}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:13.5px}
+th,td{border:1px solid #d7e0ec;padding:.45rem .55rem;text-align:left;vertical-align:top}
+th{background:#0b2748;color:#fff}
+code{background:#eef2f7;padding:1px 4px;border-radius:3px}
+.note{border:1px solid #e3ca8d;background:#fffcf2;padding:12px 16px;border-radius:8px}
+</style></head><body>
+<h1>UC-01b 12 格 lessmesh 一维与 CFD 契合性分析</h1>
+<p>文档编号：AIDC-B300-CFD-UC01b-12Y-CMP-300。日期：2026-09-27。对照记录。设计点仍是 216 孔、q''=579282 W/m²、单孔 ṁ=1.225×10⁻⁴ kg/s。本页 CFD 是 Y 向 12 格、28,005,504 HEXA、iter 300、一阶格式。</p>
+<p>相对差 = (CFD − 1D) / 1D。定义相同且约在 ±20% 内，记为接近。定义不同，记为不可比。Re&lt;2000、以及和单胞不是同一条出口路径的量，标为限制。</p>
+<div class="note">iter 300 是一阶迎风。iter 300 写盘之后，当时已经缓冲的 journal 把格式改成了二阶，所以 iter 600 是二阶。。单胞 iter 380 的 TIM 底 341.38529 K、ΔP 1087.09 Pa、能量比 1.0015 只作参照，不作为本场结果。return_slot 在本场是绝热壁，出口是 <code>outlet_y_front</code> 和 <code>outlet_y_back</code>。</div>
+<h2>1. 口径</h2>
+<table>
+<tr><th>项</th><th>一维 / 设定</th><th>写入 Fluent 的值</th></tr>
+<tr><td>孔数</td><td>每颗 108，两颗 216</td><td>网格是沿 Y 的 12 个单孔单元。进口 <code>inlet_jet_01</code>…<code>12</code>，每孔面积约 1.26×10⁻⁷ m²，D=0.40 mm</td></tr>
+<tr><td>单孔流量</td><td>0.007407 L/min = <strong>1.225×10⁻⁴ kg/s</strong></td><td>每个 <code>inlet_jet_*</code> 都是这个值。12 孔合计 1.470×10⁻³ kg/s，没有乘 216</td></tr>
+<tr><td>热流</td><td>216 孔名义值加 5%，<strong>579282 W/m²</strong></td><td><code>wall_heat</code> 面积加权 <strong>579282 W/m²</strong></td></tr>
+<tr><td>槽向</td><td>单胞 Y=2.4 mm</td><td>12×2.4 mm，Y 从 −14.4 mm 到 +14.4 mm。X 仍是 3.0 mm。孔心在每一格的局部中心</td></tr>
+<tr><td>入口温度</td><td>313.15 K</td><td>面积加权 313.14999 K</td></tr>
+<tr><td>出口</td><td>压力出口表压 0，回流 313.15 K</td><td>压力出口是 Y 两端。<code>return_slot</code> 与 <code>return_slot:096</code> 为壁面，热流 0。单胞报告里的出口是 return_slot，路径不同</td></tr>
+<tr><td>网格</td><td>—</td><td><strong>28005504</strong> HEXA。边界层首层 2.5 μm、7 层。格与格之间为 interface。交界半肋改为 0.05 mm 均匀网格</td></tr>
+<tr><td>格式</td><td>—</td><td>一阶迎风。压力 standard，动量、k、ω、温度均为一阶。。单精度，4 进程，<code>-gpgpu=1</code> 只加速耦合 AMG</td></tr>
+</table>
+<p>P_cell = 579282×7.20×10⁻⁶ = <strong>4.17083 W</strong>。12 格 P_12 = <strong>50.04996 W</strong>。两 die 按 216 孔：P_2die = <strong>900.899 W</strong>。</p>
+<p>一维孔口静压用 K=1.8：ΔP = 1.8×½ρU²。U=<strong>0.9825 m/s</strong>，Re_D=<strong>597</strong>，ΔP_1D=<strong>862.0 Pa</strong>。这条公式不含槽和 Y 向汇流。</p>
+<h2>2. 对照</h2>
+<table>
+<tr><th>项目</th><th>1D / 设定</th><th>CFD iter 300</th><th>相对差</th><th>判断</th></tr>
+<tr><td>入口温度</td><td>313.15 K</td><td>313.14999 K</td><td>-0.000%</td><td>契合</td></tr>
+<tr><td>单孔 ṁ</td><td>1.225×10⁻⁴ kg/s</td><td>12 孔入口合计 0.00147002 kg/s，平均每孔 0.00012250 kg/s；Y 出口合计 0.00147002 kg/s</td><td>每孔 +0.0013%；出口比入口 +0.00019%</td><td>契合。质量守恒</td></tr>
+<tr><td>热流</td><td>579282 W/m²</td><td>wall_heat 579282 W/m²</td><td>0</td><td>契合</td></tr>
+<tr><td>孔径</td><td>D=0.40 mm</td><td>圆孔 D=0.40 mm，28,005,504 HEXA</td><td>0</td><td>契合</td></tr>
+<tr><td>U</td><td>0.9825 m/s</td><td>入口 1 面积加权 <strong>0.98278 m/s</strong></td><td><strong>+0.029%</strong></td><td>契合</td></tr>
+<tr><td>Re_D</td><td>597</td><td>597.3</td><td>+0.05%</td><td>契合。<strong>限制：</strong> &lt;2000，不用 Martin h</td></tr>
+<tr><td>静压 ΔP</td><td>孔口 K=1.8：<strong>862 Pa</strong></td><td>12 孔入口静压平均 1103.04 Pa，出口约 0，ΔP = <strong>1103.04 Pa</strong>。单胞 iter 380 是 1087.09 Pa</td><td><strong>+28.0%</strong></td><td>超出约 ±20%。一维几乎只有孔口；这条 12 格带还有槽、回液缝，以及沿 Y 汇到两端出口的沿程</td></tr>
+<tr><td>能量温升</td><td>P_cell/(ṁ cp)=<strong>8.147 K</strong>，出口 bulk <strong>321.297 K</strong></td><td>两个 Y 出口按质量加权 <strong>321.591 K</strong>，温升 <strong>8.441 K</strong>。面积加权净 321.608 K</td><td>bulk 温升 <strong>+3.61%</strong></td><td>接近。ṁ_out·cp·ΔT / P_12 = <strong>1.0361</strong>。出口面积小，面积加权和质量加权几乎相同</td></tr>
+<tr><td>R(T_TIM−T_in)</td><td>一维不从共轭场取 TIM 底</td><td>342.204 K。按 216 孔 <strong>0.03225 K/W</strong>。单胞 iter 380 是 0.031341 K/W</td><td>不可比</td><td>已含固体，不加 R_TIM2、R_wall</td></tr>
+<tr><td>R_conv</td><td>Martin 在 Re≈597 不适用</td><td>(326.772−313.15)/900.899 = <strong>0.01512 K/W</strong></td><td>不可比</td><td>不是湿面局部 h</td></tr>
+<tr><td>R_c-in</td><td>R_TIM2+R_wall 仍是假设</td><td>0.02251–0.02651 K/W（叠在本次 R_conv 上）</td><td>不可与 Martin 带比</td><td>假设叠加</td></tr>
+<tr><td>R_j-in</td><td>再加 R_pkg 0.008–0.012</td><td><strong>0.03051–0.03851 K/W</strong></td><td>假设叠加</td><td>这是封装平均结温，不是芯片几何中心。设计未关闭</td></tr>
+</table>
+<h2>3. 差从哪里来</h2>
+<p>压降 CFD 比孔口一维高 241 Pa（+28.0%）。流量对应的孔口损失是 862 Pa。本场流体还要经过冲击、槽、回液缝，再沿 Y 汇到两端压力出口，所以孔口公式偏低。单胞 iter 380 的出口在 return_slot，ΔP 是 1087.09 Pa；本场 12 个入口平均 1103.04 Pa，两端孔低于中间孔，因为中间孔到 Y 出口的沿程更长。这是路径不同，不是残差没收敛。</p>
+<p>质量加权出口温度 321.591 K。入口合计 0.00147002 kg/s，出口合计 0.00147002 kg/s，相对差 +0.00019%。ṁ_out·cp·ΔT = 51.8546 W，P_12 = 50.0500 W，比值 1.0361。单胞同一口径是 1.0015。本场比值离开 1 更多，写盘时两个出口仍有约 2.3% 面积回流，回流温度按 313.15 K 计，会改变质量加权。</p>
+<p>TIM 底 342.204 K，单胞 iter 380 是 341.385 K。12 格不是周期单胞：Y 两端是出口和绝热固体端面，铜可以沿 Y 导热，所以底面不再像单胞那样只有 0.02 K 的面内温差。热阻仍按 216 孔功率来写，才能和单胞的 0.031341 K/W 放在一起看。Re_D&lt;2000，R_c-in 和 R_j-in 还叠着假设的 R_TIM2、R_wall、R_pkg。</p>
+<h2>4. 不用的数</h2>
+<p>不用 iter 601–645。主计算在 645 步附近被停下，那一段没有写 case data。不用 i400、i500 当作本页结果；它们和 i600 一样是二阶场，本页只收 iter 300。不用把 <code>return_slot</code> 再当成压力出口。不用 Martin 关联式。单胞 iter 380 的 341.385 K 和 1087.09 Pa 留在第 3 节作参照。R_pkg 不能推出芯片几何中心的最高温度，只能给封装平均结温。</p>
+</body></html>
