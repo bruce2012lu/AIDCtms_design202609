@@ -1,0 +1,11 @@
+{
+  "id": "pap-2025-liu-microchannel-enhancement-review",
+  "sha256": "7514c2ed7c5de54f453205891f23eed177da6b3d02c96f43ba4f678d455de82d",
+  "source": "repo:agents/AIDCtms/coolingplate/papers/pdfs/07_SciOpen_2025_Microchannel_HT_Enhancement.pdf",
+  "extracted_at": "2026-10-02T23:31:46",
+  "pages": 14,
+  "chars": 38639,
+  "chunks": 34,
+  "tables": 7,
+  "figures": 10
+}

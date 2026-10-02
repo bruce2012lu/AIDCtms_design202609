@@ -1,0 +1,373 @@
+[
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 1229,
+    "h": 545,
+    "captions_on_page": [
+      "Figure 1. PRISMA flow diagram illustrating the literature retrieval and screening process of this review."
+    ]
+  },
+  {
+    "file": "figures/p006_i1.jpg",
+    "page": 6,
+    "w": 1229,
+    "h": 545,
+    "captions_on_page": [
+      "Figure 1. PRISMA flow diagram illustrating the literature retrieval and screening process of this review."
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 1004,
+    "h": 644,
+    "captions_on_page": [
+      "Figure 2. Steady-state thermal distribution of traditional 2D SoC, 2.5D and 3D chiplet packaging (reproduced with permission) [14]."
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 541,
+    "h": 275,
+    "captions_on_page": [
+      "Figure 3. Temperature contour of NPU+HBM multi-chiplet packaging (obvious local hotspots formed in the NPU region) (reproduced with permission) [13]."
+    ]
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 1418,
+    "h": 696,
+    "captions_on_page": [
+      "Figure 4. Energy consumption comparison between traditional air cooling and liquid cooling."
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 1156,
+    "h": 793,
+    "captions_on_page": [
+      "Figure 5. Temperature comparison of GPU chips under air cooling and liquid cooling schemes."
+    ]
+  },
+  {
+    "file": "figures/p013_i0.jpg",
+    "page": 13,
+    "w": 932,
+    "h": 712,
+    "captions_on_page": [
+      "Figure 6. Schematic diagram of embedded straight microchannel (reproduced with permission) [23]."
+    ]
+  },
+  {
+    "file": "figures/p014_i0.jpg",
+    "page": 14,
+    "w": 1248,
+    "h": 547,
+    "captions_on_page": [
+      "Figure 7. Schematic diagram of periodically ribbed microchannel structure.",
+      "Figure 8. Three-dimensional structural schematic of additively manufactured MMCHS. The blue arrows indicate the incoming low-temperature coolant, while the red arrows represent the heated coolant after heat absorption. (reproduced with permission) [26]."
+    ]
+  },
+  {
+    "file": "figures/p014_i1.jpg",
+    "page": 14,
+    "w": 1299,
+    "h": 459,
+    "captions_on_page": [
+      "Figure 7. Schematic diagram of periodically ribbed microchannel structure.",
+      "Figure 8. Three-dimensional structural schematic of additively manufactured MMCHS. The blue arrows indicate the incoming low-temperature coolant, while the red arrows represent the heated coolant after heat absorption. (reproduced with permission) [26]."
+    ]
+  },
+  {
+    "file": "figures/p015_i0.jpg",
+    "page": 15,
+    "w": 972,
+    "h": 734,
+    "captions_on_page": [
+      "Figure 9. Schematic cross-section of microchannel cooler integrated in a single chip module. Different colors represent ceramic substrate, silicon chip, and microchannel cooling layer, respectively.",
+      "Figure 10. Composite diamond-porous copper microgroove two-phase cooling structure for hotspot thermal management (reproduced with permission) [30]. (a) Schematic diagram of microfluidic liquid supply, capillary replenishment and vapor escape inside the microgroove unit with a heat flux of 1.3 kW/cm"
+    ]
+  },
+  {
+    "file": "figures/p015_i1.jpg",
+    "page": 15,
+    "w": 1602,
+    "h": 692,
+    "captions_on_page": [
+      "Figure 9. Schematic cross-section of microchannel cooler integrated in a single chip module. Different colors represent ceramic substrate, silicon chip, and microchannel cooling layer, respectively.",
+      "Figure 10. Composite diamond-porous copper microgroove two-phase cooling structure for hotspot thermal management (reproduced with permission) [30]. (a) Schematic diagram of microfluidic liquid supply, capillary replenishment and vapor escape inside the microgroove unit with a heat flux of 1.3 kW/cm"
+    ]
+  },
+  {
+    "file": "figures/p016_i0.jpg",
+    "page": 16,
+    "w": 486,
+    "h": 378,
+    "captions_on_page": [
+      "Figure 11. (a) Schematic cross-section of the membrane-based heat sink (not to scale) and (b) visualiza- tion of an air bubble extraction process from a pool of water constrained by a hydrophobic membrane in an adiabatic test. Reprinted/adapted from Fazeli and Moghaddam under CC BY 4.0. [31].",
+      "Figure 12. Schematic diagram of manifold microchannel heat sink structure."
+    ]
+  },
+  {
+    "file": "figures/p016_i1.jpg",
+    "page": 16,
+    "w": 752,
+    "h": 372,
+    "captions_on_page": [
+      "Figure 11. (a) Schematic cross-section of the membrane-based heat sink (not to scale) and (b) visualiza- tion of an air bubble extraction process from a pool of water constrained by a hydrophobic membrane in an adiabatic test. Reprinted/adapted from Fazeli and Moghaddam under CC BY 4.0. [31].",
+      "Figure 12. Schematic diagram of manifold microchannel heat sink structure."
+    ]
+  },
+  {
+    "file": "figures/p017_i0.jpg",
+    "page": 17,
+    "w": 1074,
+    "h": 486,
+    "captions_on_page": [
+      "Figure 13. Cross-sectional schematic diagram of the hierarchical manifold microchannel heat sink array design concept (reproduced with permission) [33].",
+      "Figure 14. Evolution schematic of microchannel cooling architectures. (a) Conventional parallel microchannel cold plate under bottom heat load; (b) 3D manifold integrated microchannel cooling configuration with distributed inlet/outlet manifolds; (c) Cross-sectional micrograph of the manifold- micro"
+    ]
+  },
+  {
+    "file": "figures/p017_i1.jpg",
+    "page": 17,
+    "w": 921,
+    "h": 417,
+    "captions_on_page": [
+      "Figure 13. Cross-sectional schematic diagram of the hierarchical manifold microchannel heat sink array design concept (reproduced with permission) [33].",
+      "Figure 14. Evolution schematic of microchannel cooling architectures. (a) Conventional parallel microchannel cold plate under bottom heat load; (b) 3D manifold integrated microchannel cooling configuration with distributed inlet/outlet manifolds; (c) Cross-sectional micrograph of the manifold- micro"
+    ]
+  },
+  {
+    "file": "figures/p017_i2.jpg",
+    "page": 17,
+    "w": 577,
+    "h": 419,
+    "captions_on_page": [
+      "Figure 13. Cross-sectional schematic diagram of the hierarchical manifold microchannel heat sink array design concept (reproduced with permission) [33].",
+      "Figure 14. Evolution schematic of microchannel cooling architectures. (a) Conventional parallel microchannel cold plate under bottom heat load; (b) 3D manifold integrated microchannel cooling configuration with distributed inlet/outlet manifolds; (c) Cross-sectional micrograph of the manifold- micro"
+    ]
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 871,
+    "h": 658,
+    "captions_on_page": [
+      "Figure 15. Schematic cross-section of the microjet impingement cooling structure, with marked structural dimensions including liquid collection chamber, micro-nozzle array, jet impingement zone and heated chip substrate."
+    ]
+  },
+  {
+    "file": "figures/p020_i0.jpg",
+    "page": 20,
+    "w": 366,
+    "h": 366,
+    "captions_on_page": [
+      "Figure 16. The array jet impingement cooling structure (under the Creative Commons Attribution- NonCommercial-NoDerivatives 4.0 International License) [40].",
+      "Figure 17. Impingement jet cooling configurations. (a) Configuration A: common outlets; (b) configu- ration B: distributed outlets (reproduced with permission) [41]."
+    ]
+  },
+  {
+    "file": "figures/p020_i1.jpg",
+    "page": 20,
+    "w": 667,
+    "h": 703,
+    "captions_on_page": [
+      "Figure 16. The array jet impingement cooling structure (under the Creative Commons Attribution- NonCommercial-NoDerivatives 4.0 International License) [40].",
+      "Figure 17. Impingement jet cooling configurations. (a) Configuration A: common outlets; (b) configu- ration B: distributed outlets (reproduced with permission) [41]."
+    ]
+  },
+  {
+    "file": "figures/p020_i2.jpg",
+    "page": 20,
+    "w": 573,
+    "h": 710,
+    "captions_on_page": [
+      "Figure 16. The array jet impingement cooling structure (under the Creative Commons Attribution- NonCommercial-NoDerivatives 4.0 International License) [40].",
+      "Figure 17. Impingement jet cooling configurations. (a) Configuration A: common outlets; (b) configu- ration B: distributed outlets (reproduced with permission) [41]."
+    ]
+  },
+  {
+    "file": "figures/p022_i0.jpg",
+    "page": 22,
+    "w": 980,
+    "h": 739,
+    "captions_on_page": [
+      "Figure 18. Schematic diagram of basic structure of serpentine flow channel cold plate (reproduced with permission) [42]."
+    ]
+  },
+  {
+    "file": "figures/p023_i0.jpg",
+    "page": 23,
+    "w": 483,
+    "h": 225,
+    "captions_on_page": [
+      "Figure 19. Schematic diagram of cold plate liquid cooling system for data centers (under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License) [45].",
+      "Figure 20. Microstructure close-up of topology-optimized pure copper cold plate fabricated via electrochemical 3D printing. Reprinted from Bazmi et al. (under the Creative Commons Attribution- NonCommercial-NoDerivatives 4.0 International License) [46]."
+    ]
+  },
+  {
+    "file": "figures/p023_i1.jpg",
+    "page": 23,
+    "w": 1288,
+    "h": 804,
+    "captions_on_page": [
+      "Figure 19. Schematic diagram of cold plate liquid cooling system for data centers (under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License) [45].",
+      "Figure 20. Microstructure close-up of topology-optimized pure copper cold plate fabricated via electrochemical 3D printing. Reprinted from Bazmi et al. (under the Creative Commons Attribution- NonCommercial-NoDerivatives 4.0 International License) [46]."
+    ]
+  },
+  {
+    "file": "figures/p025_i0.jpg",
+    "page": 25,
+    "w": 675,
+    "h": 513,
+    "captions_on_page": [
+      "Figure 21. Schematic diagrams of (a) straight channel and (b) two types of serrated microchannels. Adapted from Fu et al. (under a Creative Commons Attribution 4.0 License) [48].",
+      "Figure 22. Schematic diagram of the working principle of the two-phase immersion liquid cooling system for data centers (under a Creative Commons Attribution 4.0 License) [49]."
+    ]
+  },
+  {
+    "file": "figures/p025_i1.jpg",
+    "page": 25,
+    "w": 961,
+    "h": 779,
+    "captions_on_page": [
+      "Figure 21. Schematic diagrams of (a) straight channel and (b) two types of serrated microchannels. Adapted from Fu et al. (under a Creative Commons Attribution 4.0 License) [48].",
+      "Figure 22. Schematic diagram of the working principle of the two-phase immersion liquid cooling system for data centers (under a Creative Commons Attribution 4.0 License) [49]."
+    ]
+  },
+  {
+    "file": "figures/p026_i0.jpg",
+    "page": 26,
+    "w": 917,
+    "h": 704,
+    "captions_on_page": [
+      "Figure 23. Schematic Diagram of structure and morphology of double-layer porous composite flat heat pipe (under a Creative Commons Attribution 4.0 License) [50]."
+    ]
+  },
+  {
+    "file": "figures/p026_i1.jpg",
+    "page": 26,
+    "w": 917,
+    "h": 704,
+    "captions_on_page": [
+      "Figure 23. Schematic Diagram of structure and morphology of double-layer porous composite flat heat pipe (under a Creative Commons Attribution 4.0 License) [50]."
+    ]
+  },
+  {
+    "file": "figures/p029_i0.jpg",
+    "page": 29,
+    "w": 1246,
+    "h": 654,
+    "captions_on_page": [
+      "Figure 25. Packaging structure of the hybrid liquid metal TIM. Adapted from Lofgreen et al. (US Patent 11,551,994 B2) [58]."
+    ]
+  },
+  {
+    "file": "figures/p031_i0.jpg",
+    "page": 31,
+    "w": 1302,
+    "h": 507,
+    "captions_on_page": [
+      "Figure 26. Schematic diagram of the structure and working principle of a vapor chamber (reproduced with permission) [63]."
+    ]
+  },
+  {
+    "file": "figures/p032_i0.jpg",
+    "page": 32,
+    "w": 1302,
+    "h": 696,
+    "captions_on_page": [
+      "Figure 27. Schematic diagram of the integration scheme of PCM-based composite materials in 3D IC packaging under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License [64]."
+    ]
+  },
+  {
+    "file": "figures/p033_i0.jpg",
+    "page": 33,
+    "w": 1302,
+    "h": 733,
+    "captions_on_page": [
+      "Figure 28. Schematic diagram of the single-sided packaging structure of a SiC power device integrated with PCM (reproduced with permission) [65].",
+      "Figure 29. Comparison of thermal regulation mechanisms between droplet-type and porous- type gallium-based PCM. Adapted from Ki et al. [66] under the Creative Commons Attribution- NonCommercial-NoDerivatives 4.0 International License. (a) Heating working mode of droplet- shaped Ga/PDMS composite whe"
+    ]
+  },
+  {
+    "file": "figures/p033_i1.jpg",
+    "page": 33,
+    "w": 1175,
+    "h": 483,
+    "captions_on_page": [
+      "Figure 28. Schematic diagram of the single-sided packaging structure of a SiC power device integrated with PCM (reproduced with permission) [65].",
+      "Figure 29. Comparison of thermal regulation mechanisms between droplet-type and porous- type gallium-based PCM. Adapted from Ki et al. [66] under the Creative Commons Attribution- NonCommercial-NoDerivatives 4.0 International License. (a) Heating working mode of droplet- shaped Ga/PDMS composite whe"
+    ]
+  },
+  {
+    "file": "figures/p035_i0.jpg",
+    "page": 35,
+    "w": 514,
+    "h": 342,
+    "captions_on_page": [
+      "Figure 30. Schematic cross-sectional structures of two generations of GaN–diamond composite substrates (reproduced with permission) [70]. (a) Layer structure diagram of the first-generation GaN- on-diamond substrate with a 100 µm thick diamond base, including a 600 nm AlN nucleation layer, 600 nm Al",
+      "Figure 31. Schematic diagram of a 3D integrated circuit stacked structure with integrated thermal through-silicon vias (TTSVs) (reproduced with permission) [72]."
+    ]
+  },
+  {
+    "file": "figures/p035_i1.jpg",
+    "page": 35,
+    "w": 917,
+    "h": 772,
+    "captions_on_page": [
+      "Figure 30. Schematic cross-sectional structures of two generations of GaN–diamond composite substrates (reproduced with permission) [70]. (a) Layer structure diagram of the first-generation GaN- on-diamond substrate with a 100 µm thick diamond base, including a 600 nm AlN nucleation layer, 600 nm Al",
+      "Figure 31. Schematic diagram of a 3D integrated circuit stacked structure with integrated thermal through-silicon vias (TTSVs) (reproduced with permission) [72]."
+    ]
+  },
+  {
+    "file": "figures/p039_i0.jpg",
+    "page": 39,
+    "w": 1626,
+    "h": 329,
+    "captions_on_page": [
+      "Figure 32. Chip temperature distribution without coupling and with coupling (reproduced with permission) [85]. (a) Lateral temperature profile of single heat source chip along the horizontal distance from 0 to 10,000 µm; four groups of curves are plotted to compare results of FEM with coupling, DCM "
+    ]
+  },
+  {
+    "file": "figures/p039_i1.jpg",
+    "page": 39,
+    "w": 1626,
+    "h": 329,
+    "captions_on_page": [
+      "Figure 32. Chip temperature distribution without coupling and with coupling (reproduced with permission) [85]. (a) Lateral temperature profile of single heat source chip along the horizontal distance from 0 to 10,000 µm; four groups of curves are plotted to compare results of FEM with coupling, DCM "
+    ]
+  },
+  {
+    "file": "figures/p040_i0.jpg",
+    "page": 40,
+    "w": 1577,
+    "h": 905,
+    "captions_on_page": [
+      "Figure 33. Schematic diagram of the architecture-package co-design methodology."
+    ]
+  },
+  {
+    "file": "figures/p045_i0.jpg",
+    "page": 45,
+    "w": 691,
+    "h": 1333,
+    "captions_on_page": [
+      "Figure 34. Comparison of temperature contours measured simultaneously by infrared thermogra- phy and micro-Raman spectroscopy for AlGaN/GaN power devices: (a) IR temperature map of AlGaN/GaN HFET at Vsd = 40 V and I = 25 mA. Numbers denote (I) hot spot, (II) area covered by metal contacts, and (III)"
+    ]
+  },
+  {
+    "file": "figures/p047_i0.jpg",
+    "page": 47,
+    "w": 663,
+    "h": 397,
+    "captions_on_page": [
+      "Figure 35. Schematic three-layer structure of NiCr–NiSi thin-film thermocouple (under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License) [94]."
+    ]
+  }
+]

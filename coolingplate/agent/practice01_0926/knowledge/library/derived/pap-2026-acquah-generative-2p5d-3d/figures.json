@@ -1,0 +1,48 @@
+[
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 4159,
+    "h": 6198,
+    "captions_on_page": [
+      "Figure 1: Comparison of reduced-order model and CFD junction-temperature predictions for representative cases V1-V4. Each row corresponds to one channel topology. The first two columns show the ROM and CFD temperature fields using a common temperature scale, while the third column shows the signed l"
+    ]
+  },
+  {
+    "file": "figures/p014_i0.jpg",
+    "page": 14,
+    "w": 4200,
+    "h": 2819,
+    "captions_on_page": [
+      "Figure 2: Conditional diffusion framework for symmetric cooling-channel topology generation. The diffusion model operates in the 200 × 100 half-domain, Ω1/2. A clean half-domain sample x0 is progressively corrupted through the forward diffusion process to obtain noisy states xt and xT . During gener"
+    ]
+  },
+  {
+    "file": "figures/p017_i0.jpg",
+    "page": 17,
+    "w": 1899,
+    "h": 1638,
+    "captions_on_page": [
+      "Figure 3: Thermal-hydraulic performance of the 229 feasible generated channel layouts. Maximum GPU temperature is plotted against pressure drop, marker color represents GPU temperature spread, the solid line identifies the Pareto front in the displayed Tmax,GPU–∆P projection, and G1016 denotes the s"
+    ]
+  },
+  {
+    "file": "figures/p018_i0.jpg",
+    "page": 18,
+    "w": 4381,
+    "h": 2137,
+    "captions_on_page": [
+      "Figure 4: ROM-predicted temperature distributions for (a) the conventional S1 reference topology and (b) the selected generated topology G1016 under identical operating conditions. Both temperature fields use the same color scale to enable direct comparison of the thermal distributions."
+    ]
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 5470,
+    "h": 1960,
+    "captions_on_page": [
+      "Figure 5: Comparison of the selected G1016 topology using (a) the full-order CFD temperature field, (b) the reduced- order model prediction, and (c) the signed local temperature difference TROM −TCFD. The CFD and ROM temperature fields are displayed using identical temperature limits to allow direct",
+      "Figure 5 compares the full-order CFD temperature field with the corresponding reduced-order prediction and the local signed temperature difference. Both models reproduce the same dominant thermal structure, including the principal hot regions over the two GPU footprints and the substantially cooler "
+    ]
+  }
+]

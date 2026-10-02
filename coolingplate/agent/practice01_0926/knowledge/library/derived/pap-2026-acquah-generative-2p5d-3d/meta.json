@@ -1,0 +1,11 @@
+{
+  "id": "pap-2026-acquah-generative-2p5d-3d",
+  "sha256": "70665d68cf3b93f443507b91736e16d488a00fa1c55d6819cb80ce4da5c6180f",
+  "source": "repo:agents/AIDCtms/coolingplate/papers/pdfs/09_arXiv_2608.22787_Generative_2p5D3D.pdf",
+  "extracted_at": "2026-10-02T23:32:43",
+  "pages": 22,
+  "chars": 70868,
+  "chunks": 58,
+  "tables": 0,
+  "figures": 5
+}

@@ -1,0 +1,11 @@
+{
+  "id": "pap-2026-acquah-cooling-channel-multichip",
+  "sha256": "e9632e08dd2a0ab9238bf09cc6c7c73138cc88eda06364dfc2683c1cd6a75048",
+  "source": "repo:agents/AIDCtms/coolingplate/papers/pdfs/10_arXiv_2605.20657_CoolingChannel_Multichip.pdf",
+  "extracted_at": "2026-10-02T23:32:42",
+  "pages": 9,
+  "chars": 36647,
+  "chunks": 29,
+  "tables": 0,
+  "figures": 8
+}

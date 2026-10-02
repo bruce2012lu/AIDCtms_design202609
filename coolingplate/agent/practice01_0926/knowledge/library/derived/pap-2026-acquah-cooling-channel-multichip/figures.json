@@ -1,0 +1,78 @@
+[
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 3699,
+    "h": 3235,
+    "captions_on_page": [
+      "FIGURE 1: Power density distribution within the computational do- main showing the spatial arrangement of two GPUs and one CPU."
+    ]
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 4000,
+    "h": 2250,
+    "captions_on_page": [
+      "FIGURE 2: Definition of the geometric design variables for the cooling manifold.",
+      "FIGURE 3: (a) Schematic representation of the reduced-order ther- mal framework. (b) The substrate domain is modeled using two- dimensional heat conduction coupled with localized convective heat removal, while coolant heating is modeled using a row-wise energy transport approximation along the flow "
+    ]
+  },
+  {
+    "file": "figures/p004_i1.jpg",
+    "page": 4,
+    "w": 7161,
+    "h": 3276,
+    "captions_on_page": [
+      "FIGURE 2: Definition of the geometric design variables for the cooling manifold.",
+      "FIGURE 3: (a) Schematic representation of the reduced-order ther- mal framework. (b) The substrate domain is modeled using two- dimensional heat conduction coupled with localized convective heat removal, while coolant heating is modeled using a row-wise energy transport approximation along the flow "
+    ]
+  },
+  {
+    "file": "figures/p005_i0.jpg",
+    "page": 5,
+    "w": 7817,
+    "h": 3789,
+    "captions_on_page": [
+      "FIGURE 4: Comparison between the baseline manifold-fed configuration (a) and the optimized cooling-channel layout; (b) The optimized design increases cooling coverage over the GPU and CPU regions through localized channel expansion while maintaining a symmetric coolant distribution throughout the pa"
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 4496,
+    "h": 3808,
+    "captions_on_page": [
+      "FIGURE 5: Temperature contour field for the optimized cooling- channel configuration. The optimized design substantially reduces hotspot intensity while maintaining a more uniform thermal distri- bution across the multi-chip package."
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 8442,
+    "h": 3759,
+    "captions_on_page": [
+      "FIGURE 6: Temperature contour comparison between the baseline configuration (a) and the optimized configuration (b). The optimized design significantly reduces hotspot intensity and produces a more uniform temperature field across the multi-chip package."
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 9369,
+    "h": 2950,
+    "captions_on_page": [
+      "FIGURE 7: Comparison of representative cooling-channel configurations showing (a) maximum chip temperature, (b) average chip temper- ature, and (c) normalized objective function value. The optimized design achieves the lowest objective value while simultaneously reducing both peak and average chip t",
+      "FIGURE 8: Coolant temperature evolution along the flow direction for the optimized configuration. The increase in coolant tempera- ture reflects heat absorption from the substrate and chip regions."
+    ]
+  },
+  {
+    "file": "figures/p008_i1.jpg",
+    "page": 8,
+    "w": 4317,
+    "h": 3127,
+    "captions_on_page": [
+      "FIGURE 7: Comparison of representative cooling-channel configurations showing (a) maximum chip temperature, (b) average chip temper- ature, and (c) normalized objective function value. The optimized design achieves the lowest objective value while simultaneously reducing both peak and average chip t",
+      "FIGURE 8: Coolant temperature evolution along the flow direction for the optimized configuration. The increase in coolant tempera- ture reflects heat absorption from the substrate and chip regions."
+    ]
+  }
+]
