@@ -1,0 +1,161 @@
+
+begin family ET3D1
+   begin solver Nastran
+      begin bctype IVOL
+         PID  1 4
+         MID  1 1
+         CORDM  0 2
+         IN  0 3
+         STRESS  "" 5
+         ISOP  "" 6
+         FCTN  "" 7
+      end bctype IVOL
+   end solver Nastran
+end family ET3D1
+
+begin family ET2D2
+   begin solver Nastran
+      begin bctype ISHE
+         PID  2 1
+         MID1  1 2
+         MID2  "" 3
+         MID3  "" 4
+         NSM  "" 5
+         MID4  "" 6
+         T1  0.000000 7
+         I12_3  1 8
+         TS_T  0.833333 9
+         Z1  "" 10
+         Z2  "" 11
+         T2  0.000000 12
+         T3  0.000000 13
+         T4  0.000000 14
+      end bctype ISHE
+   end solver Nastran
+end family ET2D2
+
+begin family ET2D3
+   begin solver Nastran
+      begin bctype ISHE
+         PID  3 1
+         MID1  1 2
+         MID2  "" 3
+         MID3  "" 4
+         NSM  "" 5
+         MID4  "" 6
+         T1  0.000000 7
+         I12_3  1 8
+         TS_T  0.833333 9
+         Z1  "" 10
+         Z2  "" 11
+         T2  0.000000 12
+         T3  0.000000 13
+         T4  0.000000 14
+      end bctype ISHE
+   end solver Nastran
+end family ET2D3
+
+begin family ET2D4
+   begin solver Nastran
+      begin bctype ISHE
+         PID  4 1
+         MID1  1 2
+         MID2  "" 3
+         MID3  "" 4
+         NSM  "" 5
+         MID4  "" 6
+         T1  0.000000 7
+         I12_3  1 8
+         TS_T  0.833333 9
+         Z1  "" 10
+         Z2  "" 11
+         T2  0.000000 12
+         T3  0.000000 13
+         T4  0.000000 14
+      end bctype ISHE
+   end solver Nastran
+end family ET2D4
+
+begin family ET2D5
+   begin solver Nastran
+      begin bctype ISHE
+         PID  5 1
+         MID1  1 2
+         MID2  "" 3
+         MID3  "" 4
+         NSM  "" 5
+         MID4  "" 6
+         T1  0.000000 7
+         I12_3  1 8
+         TS_T  0.833333 9
+         Z1  "" 10
+         Z2  "" 11
+         T2  0.000000 12
+         T3  0.000000 13
+         T4  0.000000 14
+      end bctype ISHE
+   end solver Nastran
+end family ET2D5
+
+begin family ET2D6
+   begin solver Nastran
+      begin bctype ISHE
+         PID  6 1
+         MID1  1 2
+         MID2  "" 3
+         MID3  "" 4
+         NSM  "" 5
+         MID4  "" 6
+         T1  0.000000 7
+         I12_3  1 8
+         TS_T  0.833333 9
+         Z1  "" 10
+         Z2  "" 11
+         T2  0.000000 12
+         T3  0.000000 13
+         T4  0.000000 14
+      end bctype ISHE
+   end solver Nastran
+end family ET2D6
+
+begin family ET2D7
+   begin solver Nastran
+      begin bctype ISHE
+         PID  7 1
+         MID1  1 2
+         MID2  "" 3
+         MID3  "" 4
+         NSM  "" 5
+         MID4  "" 6
+         T1  0.000000 7
+         I12_3  1 8
+         TS_T  0.833333 9
+         Z1  "" 10
+         Z2  "" 11
+         T2  0.000000 12
+         T3  0.000000 13
+         T4  0.000000 14
+      end bctype ISHE
+   end solver Nastran
+end family ET2D7
+
+begin family ET2D8
+   begin solver Nastran
+      begin bctype ISHE
+         PID  8 1
+         MID1  1 2
+         MID2  "" 3
+         MID3  "" 4
+         NSM  "" 5
+         MID4  "" 6
+         T1  0.000000 7
+         I12_3  1 8
+         TS_T  0.833333 9
+         Z1  "" 10
+         Z2  "" 11
+         T2  0.000000 12
+         T3  0.000000 13
+         T4  0.000000 14
+      end bctype ISHE
+   end solver Nastran
+end family ET2D8
