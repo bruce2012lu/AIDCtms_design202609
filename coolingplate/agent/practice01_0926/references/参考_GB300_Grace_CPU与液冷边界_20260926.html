@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>参考 · GB300 Grace CPU 与液冷边界 · 2026-09-26</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1180px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:40px 58px 28px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.12em;color:#9db6d4}
+header h1{font-size:28px;line-height:1.3;margin:8px 0 8px}
+.sub{font-size:15px;color:#d7e6f5}
+.meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:4px 10px;font-size:12px}
+main{padding:28px 58px 48px}
+h2{font-size:22px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:7px;margin:28px 0 12px}
+h3{font-size:17px;color:#174f83;margin:18px 0 8px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:14px 17px;border-radius:7px}
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13px}
+th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 15px;border-radius:7px;margin:12px 0}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+footer{padding:16px 58px;background:var(--navy);color:#d5e1ec;font-size:12px}
+@media(max-width:800px){header,main,footer{padding-left:22px;padding-right:22px}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">REFERENCE · GB300 GRACE · NOT A DESIGN FREEZE</div>
+  <h1>GB300 Grace CPU 与液冷边界<br>参考摘录</h1>
+  <div class="sub">给《NVIDIA Grace GB300 冷板详细设计报告》用的来源底账。只收录能指回原文的事实，以及明确不能当成设计输入的数字。</div>
+  <div class="meta">
+    <span class="pill">AIDC-GRACE-REF-001</span>
+    <span class="pill">2026-09-26</span>
+    <span class="pill">配合 CP-GRACE-MC-01</span>
+  </div>
+</header>
+<main>
+
+<h2>1. 本项目要冷却的是哪一颗 Grace</h2>
+<p class="lead">计算托盘上是 <strong>两颗独立的 Grace</strong>，各带自己的 LPDDR5X，各需要一块冷板。这不是 Grace CPU Superchip（一模块两颗 Grace、整模块约 500 W）。</p>
+<table>
+<thead><tr><th>事实</th><th>出处</th><th>设计里怎么用</th></tr></thead>
+<tbody>
+<tr><td>GB300 NVL72：72 颗 Blackwell Ultra GPU + 36 颗 Grace CPU</td><td>NVIDIA GB300 NVL72 产品页</td><td>整柜数量。本冷板只对一颗 Grace。</td></tr>
+<tr><td>Lenovo 计算托盘：两颗 Grace，每颗 72 个 Arm Neoverse V2 核，基频最高 3.1 GHz，<strong>TDP 300 W，含内存功耗</strong></td><td>Lenovo Press，LP2357</td><td><span class="tag">采用</span> 单板热设计点 300 W，内存不再另加。</td></tr>
+<tr><td>每颗处理器最高 480 GB LPDDR5X ECC，固定配置下托盘 960 GB，即每颗 480 GB；单 CPU 峰值带宽最高 384 GB/s；内存 4266 MHz</td><td>Lenovo Press，LP2357</td><td><span class="tag">采用</span> 冷板必须盖住 CPU 和板载内存。</td></tr>
+<tr><td>Grace 以 BGA 焊在 HPM 上。换 CPU 就是换整块模组。</td><td>Lenovo Press，LP2357</td><td>冷板是可拆的直触件，不做成封装内冷板。</td></tr>
+<tr><td>每块 HPM 含一颗 Grace，并与两颗 GPU 以 NVLink 相连（Lenovo 写法：到两颗 GPU 各 450 GB/s 双向；处理器之间 NVLink-C2C 300 GB/s 双向）</td><td>Lenovo Press，LP2357</td><td>与托盘照片一致：一块 NVL2 = 1 Grace + 2 B300。冷板按这个拓扑放。</td></tr>
+<tr><td>液冷冷板接触 GPU、CPU 和内存。工质可选去离子水或 PG25。CX-8 与 NVSwitch 另有冷板。</td><td>Lenovo Press，LP2357</td><td>本冷板只覆盖一颗 Grace 及其 LPDDR5X。回路过滤跟着 GPU 射流孔走。</td></tr>
+</tbody>
+</table>
+
+<h2>2. 容易混进来、本设计不用的数字</h2>
+<table>
+<thead><tr><th>数字</th><th>它实际指什么</th><th>为什么不用</th></tr></thead>
+<tbody>
+<tr><td>Grace CPU Superchip 约 500 W，144 核，最高约 960 GB</td><td>NVIDIA Grace CPU Superchip 产品页：一个模块里两颗 Grace</td><td>GB300 计算托盘是两颗分开的 300 W Grace，不是这一颗 500 W 模块。</td></tr>
+<tr><td>Grace C1 可配置到约 140–250 W 档</td><td>单路 Grace C1 的产品档</td><td>Lenovo GB300 写的是 300 W，且含内存。以托盘规格为准。</td></tr>
+<tr><td>LPDDR5X 子系统大约 16 W</td><td>NVIDIA Grace Performance Tuning Guide：用来对比传统 DDR 的内存功耗量级</td><td>这是带宽能效宣传口径，不是 GB300 480 GB 配置的热设计分工。设计报告把内存区按 40 W 留裕量，总功率仍锁在 300 W。</td></tr>
+<tr><td>B300 冷板 95 × 75 mm、128 孔、2.0 L/min、1100 W</td><td>本项目 GPU 冷板</td><td>热流、封装和流阻都不在一个量级。Grace 冷板单独编号 CP-GRACE-MC-01。</td></tr>
+</tbody>
+</table>
+
+<div class="note"><strong>公开资料没有的东西：</strong>Grace 裸片外形、盖板图、螺孔、LPDDR5X 颗粒排布、CPU 与内存的官方功率地图、结温上限、冷板允许堆高。设计报告里的平面尺寸都标成候选，等模组盖板图替换。来源页没有给出这些图。</div>
+
+<h2>3. 来源</h2>
+<ul>
+<li>Lenovo Press，<a href="https://lenovopress.lenovo.com/lp2357-lenovo-nvidia-gb300-nvl72-rack-scale-ai">ThinkSystem / NVIDIA GB300 NVL72 Rack Scale AI</a>（LP2357，2026-09-26 查阅）</li>
+<li>NVIDIA，<a href="https://www.nvidia.com/en-us/data-center/gb300-nvl72/">GB300 NVL72</a></li>
+<li>NVIDIA，<a href="https://www.nvidia.com/en-eu/data-center/grace-cpu-superchip/">Grace CPU Superchip</a>（只用于排除 500 W 模块）</li>
+<li>NVIDIA，<a href="https://docs.nvidia.com/dccpu/grace-perf-tuning-guide/index.html">Grace Performance Tuning Guide</a>（只用于标明 16 W 不能当热设计分工）</li>
+<li>本项目《NVIDIA B300 微通道冲击换热冷板设计报告》v1.0：已写明 Grace 300 W 单独冷板，不与 B300 共一块铜</li>
+<li>本项目 asm_0921 结构说明：一块 NVL2 上 Grace 在前、两颗 B300 靠后面板；Grace 供液走板侧，不穿过 GPU 冷板</li>
+</ul>
+<p class="small">摘录日期 2026-09-26。Lenovo 页面若改版，以当时页面为准，并回改设计报告的功率锁。</p>
+</main>
+<footer>参考摘录 · GB300 Grace · 2026-09-26 · 不是冷板图纸，也不是验收口径。</footer>
+</div>
+</body>
+</html>

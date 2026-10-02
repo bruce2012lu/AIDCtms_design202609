@@ -1,0 +1,34 @@
+{
+  "note": "对 knowledge/catalog.json 的追加建议，未修改原文件。采纳时把 add_group 追加到 groups 数组末尾，并把 updated 改为采纳日期。路径沿用 catalog.json 的口径（相对 agents/AIDCtms/coolingplate）。",
+  "target": "agent/practice01_0926/knowledge/catalog.json",
+  "change": "append_group",
+  "add_group": {
+    "id": "library",
+    "title": "外部知识库 v0.1",
+    "items": [
+      {"title": "知识库架构", "date": "2026-10-02", "path": "agent/practice01_0926/knowledge/library/知识库架构_v0.1.md", "note": "分类、命名、schema、L1–L6 分级、多模态方案、MCP 接口与闸门"},
+      {"title": "登记册", "path": "agent/practice01_0926/knowledge/library/registry/entries.json", "note": "196 条；110 条本地全文（含 8 份内部报告 L5）；sha256 可复核"},
+      {"title": "引用登记册", "path": "agent/practice01_0926/knowledge/library/registry/citations.json", "note": "22 条，内部数值 → 外部条目 + 页码/表号"},
+      {"title": "验证基准", "path": "agent/practice01_0926/knowledge/library/reports/验证基准清单_v0.1.md", "note": "16 条，3 条 ready"},
+      {"title": "内部数值对照", "date": "2026-10-02", "path": "agent/practice01_0926/knowledge/library/reports/内部数值对照_v0.1.md", "note": "v2.0/v2.1/Grace/UC-01b 37 项，支持/部分支持/存疑/无外部来源"},
+      {"title": "待用户获取", "path": "agent/practice01_0926/knowledge/library/reports/待用户获取清单.md", "note": "86 条未下载，前 15 条按影响排序"},
+      {"title": "知识卡片", "path": "agent/practice01_0926/knowledge/library/cards/", "note": "9 张试点卡片 + 4 张 CSV 关键表"},
+      {"title": "检索与工具", "path": "agent/practice01_0926/knowledge/library/tools/", "note": "kb.py（检索/入库/引用/校验）、fetch.py（合法下载+sha256）、gci.py（Celik 2008）、correlations.py（Wei 2021、Robinson & Schnitzler）"}
+    ]
+  },
+  "also_suggest": [
+    {
+      "file": "knowledge/catalog.json",
+      "item_id": "corpus",
+      "suggestion": "在“文献与专利”组的“文献索引”条目 note 里补一句：外部来源以 knowledge/library/registry/entries.json 为准，papers/文献清单与下载索引.md 冻结为 2026-09-07 快照。"
+    },
+    {
+      "file": "mcp/server.py",
+      "suggestion": "v0.2 增加 kb_search / kb_get / kb_cite / kb_benchmark / kb_verify 五个工具，直接 import knowledge/library/tools/kb.py；写操作（kb_cite、kb_ingest、kb_fetch）沿用 cad_build 的 confirm=true 约定。本轮未改 server.py。"
+    },
+    {
+      "file": "memory/index.json",
+      "suggestion": "若采纳 reports/候选_skills_memories.md 的 A–C 三条 semantic，把路径加入 semantic 列表。"
+    }
+  ]
+}

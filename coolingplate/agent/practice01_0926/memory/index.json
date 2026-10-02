@@ -1,0 +1,18 @@
+{
+  "agent": "cp-design",
+  "updated": "2026-09-27",
+  "semantic": [
+    "agent/practice01_0926/memory/semantic/fluent-gui-capture.md",
+    "agent/practice01_0926/memory/semantic/cad-tracks.md",
+    "agent/practice01_0926/memory/semantic/b300-design-lock.md",
+    "agent/practice01_0926/memory/semantic/cfd-uc01b.md",
+    "agent/practice01_0926/memory/semantic/grace-and-tray.md",
+    "agent/practice01_0926/memory/semantic/environment.md"
+  ],
+  "inherit_from": [
+    "design/memory/semantic/cp-grace-mc01.md",
+    "cad/memory/semantic/asm_0921-三层铜冷板结构.md",
+    "design/cfd/uc01b_2.4x3.0lessmesh/memory/semantic/uc01b-lessmesh-bc216.md"
+  ],
+  "note": "继承时核对 confidence、valid_until、last_verified。中文已损坏的 uc01b-lessmesh.md 不整篇继承。"
+}

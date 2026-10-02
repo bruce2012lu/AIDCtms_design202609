@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-26",
+  "task": "建立 cp-design 智能体并把参数化 CAD 接成可调用工具",
+  "confidence": 0.85,
+  "valid_until": "2027-03-31",
+  "last_verified": "2026-09-26",
+  "expired": false,
+  "done": [
+    "汇总 B300 v1/v2、asm_0921、Grace、UC-01b、文献与专利的入口",
+    "写明四条 CAD 轨道，参数化内核单独接 cad_inspect 与 cad_build",
+    "设计台 HTML 由本地服务提供，导出不覆盖冻结 yaml"
+  ],
+  "open": [
+    "内核增加 pitch_x / pitch_y 后才能建 v2 的 216 孔几何",
+    "Grace 概念脚本尚未接入同一套 rules 门",
+    "asm_0921 仍无水嘴特征",
+    "12 层网格续算需读最新日志后再写结论"
+  ]
+}

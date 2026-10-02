@@ -1,0 +1,2461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 驱动算力液冷系统设计平台 · 实施计划 v1.0</title>
+<style>
+:root{--side:310px;--ink:#1f2d3d;--muted:#5b6b7f;--line:#dde3ea;--accent:#1a6fb5;--bg:#f7f9fb;--hl:#e8f1fb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;color:var(--ink);background:#fff;line-height:1.75;font-size:15px}
+#side{position:fixed;top:0;left:0;bottom:0;width:var(--side);background:var(--bg);border-right:1px solid var(--line);display:flex;flex-direction:column;z-index:20;transition:transform .2s}
+#side header{padding:14px 14px 8px;border-bottom:1px solid var(--line)}
+#side header .t{font-weight:bold;font-size:14px;line-height:1.4}
+#side header .tools{display:flex;gap:6px;margin-top:8px}
+#side header button{flex:1;font-size:12px;padding:3px 0;border:1px solid var(--line);background:#fff;border-radius:4px;cursor:pointer;color:var(--muted)}
+#side header button:hover{color:var(--accent);border-color:var(--accent)}
+#side header input{width:100%;margin-top:8px;padding:4px 8px;font-size:12px;border:1px solid var(--line);border-radius:4px}
+#toc{overflow-y:auto;padding:8px 6px 40px;flex:1;font-size:13px}
+#toc ul{list-style:none;margin:0;padding-left:12px}
+#toc>ul{padding-left:0}
+#toc li{margin:1px 0}
+#toc .row{display:flex;align-items:flex-start}
+#toc .tg{width:18px;flex:0 0 18px;cursor:pointer;color:var(--muted);user-select:none;text-align:center;line-height:22px;font-size:11px}
+#toc .tg.empty{cursor:default;visibility:hidden}
+#toc a{display:block;flex:1;padding:1px 6px;border-radius:4px;color:var(--ink);text-decoration:none;line-height:22px}
+#toc a:hover{background:#eef2f6}
+#toc a.active{background:var(--hl);color:var(--accent);font-weight:bold}
+#toc li.collapsed>ul{display:none}
+#toc li.hide{display:none}
+#toc .lv2>.row a{font-weight:600}
+#main{margin-left:var(--side);padding:28px 48px 80px;max-width:calc(var(--side) + 1180px)}
+#main h1{font-size:26px;border-bottom:3px solid var(--accent);padding-bottom:8px}
+#main h2{font-size:21px;margin-top:42px;border-bottom:1px solid var(--line);padding-bottom:6px;color:#16324f}
+#main h3{font-size:17px;margin-top:28px;color:#1d4a73}
+#main h4{font-size:15px;margin-top:20px}
+#main h2,#main h3,#main h4{scroll-margin-top:12px}
+blockquote{margin:12px 0;padding:8px 14px;background:#f4f7fa;border-left:4px solid var(--accent);color:var(--muted)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 9px;vertical-align:top;text-align:left}
+th{background:#eef3f8;white-space:nowrap}
+tr:nth-child(even) td{background:#fafbfc}
+code{background:#f1f3f5;padding:1px 5px;border-radius:3px;font-family:Consolas,"Courier New",monospace;font-size:.9em}
+pre{background:#f6f8fa;border:1px solid var(--line);padding:12px 14px;overflow-x:auto;border-radius:6px;line-height:1.5}
+pre code{background:none;padding:0}
+figure.flow{margin:16px 0;padding:10px;border:1px solid var(--line);border-radius:8px;background:#fff;overflow-x:auto}
+figure.flow svg{width:100%;min-width:900px;height:auto;display:block}
+figcaption{font-size:12.5px;color:var(--muted);margin-top:6px;text-align:center}
+#fab{display:none;position:fixed;left:10px;top:10px;z-index:30;border:1px solid var(--line);background:#fff;border-radius:6px;padding:4px 10px;cursor:pointer}
+footer{margin-top:60px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+@media (max-width:980px){#side{transform:translateX(-100%)}body.open #side{transform:none}#main{margin-left:0;padding:48px 18px}#fab{display:block}}
+@media print{#side,#fab{display:none}#main{margin-left:0}}
+</style>
+</head>
+<body>
+<button id="fab">目录</button>
+<nav id="side">
+<header>
+<div class="t">AI 驱动算力液冷系统设计平台 · 实施计划 v1.0</div>
+<div class="tools"><button id="bx">全部展开</button><button id="bc">全部折叠</button></div>
+<input id="q" type="search" placeholder="筛选目录…">
+</header>
+<div id="toc"><ul><li class="lv2 has"><div class="row"><span class="tg">▾</span><a href="#0-执行规则">0 执行规则</a></div><ul><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#01-单步执行循环">0.1 单步执行循环</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#02-步骤卡字段说明">0.2 步骤卡字段说明</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#03-阶段总览">0.3 阶段总览</a></div></li></ul></li><li class="lv2 has"><div class="row"><span class="tg">▾</span><a href="#1-p0-平台基线与治理">1 P0 平台基线与治理</a></div><ul><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s01-资产盘点与口径对账表首步可立即执行">S0.1 资产盘点与口径对账表（首步，可立即执行）</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s02-设计点登记表与-designspec-schema">S0.2 设计点登记表与 DesignSpec schema</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s03-记忆健康检查">S0.3 记忆健康检查</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s04-目录run-规范与提交草案">S0.4 目录、run 规范与提交草案</a></div></li></ul></li><li class="lv2 has"><div class="row"><span class="tg">▾</span><a href="#2-p1-需求与输入">2 P1 需求与输入</a></div><ul><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s11-需求规格书-srs">S1.1 需求规格书 SRS</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s12-输入追溯矩阵与开放项看板">S1.2 输入追溯矩阵与开放项看板</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s13-dr0-复核包">S1.3 DR0 复核包</a></div></li></ul></li><li class="lv2 has"><div class="row"><span class="tg">▾</span><a href="#3-p2-一维设计计算平台化">3 P2 一维设计计算平台化</a></div><ul><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s21-关联式与元件库重构">S2.1 关联式与元件库重构</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s22-板级网络求解器">S2.2 板级网络求解器</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s23-主设计点一维重算">S2.3 主设计点一维重算</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s24-托盘级水力网络">S2.4 托盘级水力网络</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s25-simulinksimscape-对照模型">S2.5 Simulink/Simscape 对照模型</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s26-一维回归与设计台集成">S2.6 一维回归与设计台集成</a></div></li></ul></li><li class="lv2 has"><div class="row"><span class="tg">▾</span><a href="#4-p3-cad-概念设计aicad">4 P3 CAD 概念设计（AI+CAD）</a></div><ul><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s31-内核增加-pitch_x-pitch_y-与-v2-对账表">S3.1 内核增加 pitch_x / pitch_y 与 v2 对账表</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s32-hbm-方案-d-与静压仓特征">S3.2 HBM 方案 D 与静压仓特征</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s33-水嘴uqd-与安装接口">S3.3 水嘴、UQD 与安装接口</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s34-cfd-流体域抽取与命名选择">S3.4 CFD 流体域抽取与命名选择</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s35-grace-接入规则门">S3.5 Grace 接入规则门</a></div></li></ul></li><li class="lv2 has"><div class="row"><span class="tg">▾</span><a href="#5-p4-三维-cfdcaeaiansys">5 P4 三维 CFD/CAE（AI+Ansys）</a></div><ul><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s41-v1-代码验证与-v4-martin-锚定算例">S4.1 V1 代码验证与 V4 Martin 锚定算例</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s42-单胞网格无关性与模型对照">S4.2 单胞网格无关性与模型对照</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s43-12-整板共轭-cfd">S4.3 1/2 整板共轭 CFD</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s44-工况矩阵批处理">S4.4 工况矩阵批处理</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s45-r1-回路结果回灌一维">S4.5 R1 回路：结果回灌一维</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s46-结构-fea承压压装热变形">S4.6 结构 FEA：承压、压装、热变形</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s47-dr3仿真评审包">S4.7 DR3（仿真）评审包</a></div></li></ul></li><li class="lv2 has"><div class="row"><span class="tg">▾</span><a href="#6-p5-工程图aicad">6 P5 工程图（AI+CAD）</a></div><ul><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s51-出图后端扩展">S5.1 出图后端扩展</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s52-gdt技术要求与-bom">S5.2 GD&amp;T、技术要求与 BOM</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s53-ai-审图">S5.3 AI 审图</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s54-dr3图纸评审与发放准备">S5.4 DR3（图纸）评审与发放准备</a></div></li></ul></li><li class="lv2 has"><div class="row"><span class="tg">▾</span><a href="#7-p6-试验验证">7 P6 试验验证</a></div><ul><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s61-试验大纲">S6.1 试验大纲</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s62-数据采集-schema-与摄入脚本">S6.2 数据采集 schema 与摄入脚本</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s63-vv-偏差分析与-r2-回路">S6.3 V&amp;V 偏差分析与 R2 回路</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s64-dr4-送样放行包">S6.4 DR4 送样放行包</a></div></li></ul></li><li class="lv2 has"><div class="row"><span class="tg">▾</span><a href="#8-p7-数字孪生">8 P7 数字孪生</a></div><ul><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s71-doe-设计与数据集">S7.1 DOE 设计与数据集</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s72-代理模型训练与验证">S7.2 代理模型训练与验证</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s73-系统级孪生与-fmu">S7.3 系统级孪生与 FMU</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s74-在线校准与孪生看板">S7.4 在线校准与孪生看板</a></div></li></ul></li><li class="lv2 has"><div class="row"><span class="tg">▾</span><a href="#9-p8-ai-在环控制">9 P8 AI 在环控制</a></div><ul><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s81-控制需求与安全约束">S8.1 控制需求与安全约束</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s82-场景库">S8.2 场景库</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s83-pid-基线mil">S8.3 PID 基线（MIL）</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s84-mpc">S8.4 MPC</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s85-安全-rl">S8.5 安全 RL</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s86-sil-与-hil-方案dr6">S8.6 SIL 与 HIL 方案、DR6</a></div></li></ul></li><li class="lv2 has"><div class="row"><span class="tg">▾</span><a href="#10-p9-平台集成与发布">10 P9 平台集成与发布</a></div><ul><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s91-mcp-工具与设计台迭代">S9.1 MCP 工具与设计台迭代</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s92-报告流水线">S9.2 报告流水线</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#s93-里程碑发布">S9.3 里程碑发布</a></div></li></ul></li><li class="lv2 has"><div class="row"><span class="tg">▾</span><a href="#11-skill-与-memory-沉淀流程">11 Skill 与 Memory 沉淀流程</a></div><ul><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#111-流程">11.1 流程</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#112-skill-模板">11.2 Skill 模板</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#113-semantic-记忆模板">11.3 Semantic 记忆模板</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#114-episodic-记忆模板">11.4 Episodic 记忆模板</a></div></li><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#115-index-更新规则">11.5 Index 更新规则</a></div></li></ul></li><li class="lv2 has"><div class="row"><span class="tg">▾</span><a href="#12-近期排程第一周">12 近期排程（第一周）</a></div><ul><li class="lv3"><div class="row"><span class="tg empty"></span><a href="#121-首步执行说明s01">12.1 首步执行说明（S0.1）</a></div></li></ul></li><li class="lv2"><div class="row"><span class="tg empty"></span><a href="#13-工时汇总">13 工时汇总</a></div></li></ul></div>
+</nav>
+<main id="main">
+<h1 id="ai-驱动算力液冷系统设计平台-实施计划-v10">AI 驱动算力液冷系统设计平台 · 实施计划 v1.0</h1>
+<blockquote>
+<p>文档编号 AIDC-CP-PLAT-IMPL-001 · 版本 v1.0 · 2026-10-02 · 配套《项目规划_v1.0》</p>
+<p>用法：你每次下一条指令（如"执行 S0.1"），智能体只做这一步，交付后等你验收；验收通过的方法与数字再沉淀为 skill 与 memory。Markdown 是唯一源文件，HTML 版由 <code>plan/build_html.py</code> 生成。</p>
+</blockquote>
+<h2 id="0-执行规则">0 执行规则</h2>
+<h3 id="01-单步执行循环">0.1 单步执行循环</h3>
+<p>每一步都按同一个循环走：</p>
+<ol>
+<li><strong>接指令</strong>：你说"执行 S0.1"这类步骤编号，可附带修改意见。</li>
+<li><strong>启动引导</strong>：智能体读 <code>platform/CLAUDE.md</code>、<code>agent.md</code>、<code>memory/index.json</code> 中未过期且 <code>confidence ≥ 0.6</code> 的 semantic，以及该步骤列出的输入。</li>
+<li><strong>执行</strong>：只做本步骤；产物进 <code>runs/&lt;时间戳&gt;-&lt;设计点&gt;-&lt;步骤&gt;/</code> 或本步指定目录；不碰冻结 yaml 与已发放 STEP。</li>
+<li><strong>交付</strong>：给出"结论 + 证据等级 + 数字与来源 + 未冻结项 + 产物路径"，并自检验收标准。</li>
+<li><strong>你验收</strong>：通过 / 修改 / 否决。</li>
+<li><strong>沉淀</strong>：通过后写 episodic；新口径写 semantic 草案；新方法写 skill 草案。semantic 与 skill 在你确认后才定稿（见 §11）。</li>
+<li><strong>提交提示</strong>：关键步骤后生成 git 提交信息草案（<code>&lt;type&gt;(cp-design): &lt;summary&gt;</code>），真实 commit/push 由你在 GitKraken 中执行。</li>
+</ol>
+<h3 id="02-步骤卡字段说明">0.2 步骤卡字段说明</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>这一步要回答的问题或交付的能力</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>必须读取的文件、数据或前置步骤产物</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>智能体用什么工具、技能、外部软件</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>文件路径与格式</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>你据此判定通过；含闸门</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 执行 / 你审核（小时），求解机时另计</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>前置步骤</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>预计产生的 skill / memory</td>
+</tr>
+</tbody>
+</table>
+<h3 id="03-阶段总览">0.3 阶段总览</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>名称</th>
+<th>步骤数</th>
+<th>计划周期</th>
+<th>里程碑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>平台基线与治理</td>
+<td>4</td>
+<td>10-02 至 10-09</td>
+<td>M0</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>需求与输入</td>
+<td>3</td>
+<td>10-08 至 10-14</td>
+<td>M0/M1</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>一维设计计算平台化</td>
+<td>6</td>
+<td>10-12 至 10-23</td>
+<td>M1</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>CAD 概念设计（AI+CAD）</td>
+<td>5</td>
+<td>10-24 至 11-06</td>
+<td>M2</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>三维 CFD/CAE（AI+Ansys）</td>
+<td>7</td>
+<td>11-07 至 12-04</td>
+<td>M3</td>
+</tr>
+<tr>
+<td>P5</td>
+<td>工程图（AI+CAD）</td>
+<td>4</td>
+<td>12-05 至 12-18</td>
+<td>M4</td>
+</tr>
+<tr>
+<td>P6</td>
+<td>试验验证</td>
+<td>4</td>
+<td>12-10 至 2027-01-15</td>
+<td>M5</td>
+</tr>
+<tr>
+<td>P7</td>
+<td>数字孪生</td>
+<td>4</td>
+<td>2027-01-04 至 02-26</td>
+<td>M6</td>
+</tr>
+<tr>
+<td>P8</td>
+<td>AI 在环控制</td>
+<td>6</td>
+<td>2027-02-01 至 03-31</td>
+<td>M7</td>
+</tr>
+<tr>
+<td>P9</td>
+<td>平台集成与发布</td>
+<td>3</td>
+<td>贯穿，每里程碑一次</td>
+<td>各 M</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-p0-平台基线与治理">1 P0 平台基线与治理</h2>
+<h3 id="s01-资产盘点与口径对账表首步可立即执行">S0.1 资产盘点与口径对账表（首步，可立即执行）</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>把散落在报告、记忆、脚本、yaml 中的关键数字收成一张对账表，标出每个数字的设计点、证据等级、来源与冲突</td>
+</tr>
+<tr>
+<td>输入</td>
+<td><code>references/</code> 全部报告；<code>memory/semantic/*.md</code>；<code>cad/params/cp_b300_jm01.yaml</code>；<code>runs/20260926-140511/params.yaml</code>；<code>design/calc/model.py</code>（GEO、DESIGN_POINTS）；<code>cycle-20260926/out/cycle.json</code></td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>Python 脚本抽取 HTML 表格与 model.py 常量；MCP <code>oned_design</code>/<code>hbm_design</code>/<code>grace_design</code> 复算 DP-A、DP-B；人工可读的差异标注</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>plan/S0.1_口径对账表.md</code> 与 <code>.html</code>；<code>spec/ledger.json</code>（机器可读：参数、值、单位、设计点、证据等级、来源、日期）</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>① 覆盖功率拆分、工质、流量、孔径/孔数/节距、热阻、压降、HBM 方案、Grace 共 ≥ 40 个参数；② 每个冲突都列出（至少包含 D0.50 vs D0.40、水 vs PG25、1100 vs 1400 W、HBM 横流 vs 方案 D、Grace 孔板压降超限）；③ 复算值与报告值偏差 &lt; 0.5% 或已解释</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 3 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>无</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>memory：<code>semantic/design-point-ledger.md</code>（草案）；skill：<code>design-point</code>（草案）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s02-设计点登记表与-designspec-schema">S0.2 设计点登记表与 DesignSpec schema</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>依据 S0.1 和你对 Q-01/Q-02 的决定，建立设计点登记表与 DesignSpec schema v0.1</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S0.1 对账表；你的 Q-01（主设计点）、Q-02（孔径）决定；现有 <code>cad/params/cp_b300_jm01.yaml</code> 结构</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>JSON Schema / pydantic 模型；<code>spec_validate</code> 原型（Python）</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>spec/design_points.yaml</code>（至少 <code>B300-W-DPA</code>、<code>B300-W-DPB</code>、<code>B300-PG25-6K</code>、<code>GRACE-W</code>、<code>GRACE-PG25-6K</code>）；<code>spec/designspec.schema.json</code>；<code>spec/validate.py</code>；单元测试</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>① 现有 v1 yaml 能被 schema 读入（v1 字段映射，不改原文件）；② 每个设计点标明状态（候选/锁定/废弃）与证据等级上限；③ 测试通过</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 4 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S0.1；Q-01、Q-02</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>memory：<code>semantic/design-points.md</code>；skill：<code>design-point</code> 定稿</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s03-记忆健康检查">S0.3 记忆健康检查</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>检查本模块与继承记忆的过期、损坏与冲突；补齐 <code>evidence</code>、<code>design_point</code> 字段</td>
+</tr>
+<tr>
+<td>输入</td>
+<td><code>memory/index.json</code>；<code>inherit_from</code> 三份上游记忆；<code>design/cfd/uc01b_2.4x3.0lessmesh/memory/semantic/uc01b-lessmesh.md</code>（中文损坏）</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>Python 扫描 frontmatter；与 HTML 结果报告比对</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>plan/S0.3_记忆健康报告.md</code>；更新后的 semantic 草案（差异列表，等你确认再写入）</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>列出所有过期/低置信/损坏/冲突条目及处理建议；不物理删除任何记忆</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 2 / 你 0.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S0.1</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>memory：index 更新；episodic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s04-目录run-规范与提交草案">S0.4 目录、run 规范与提交草案</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>建立平台目录骨架与 run 目录规范，更新 README 与 agent.md 中的工作流引用</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>《项目规划》§5.5；现有 <code>runs/.gitignore</code></td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>文件操作；<code>runs/</code> 命名规范 <code>&lt;时间戳&gt;-&lt;设计点&gt;-&lt;步骤&gt;/</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>spec/</code>、<code>oned/</code>、<code>cfd/</code> 目录与 README；<code>runs/README.md</code>；<code>agent.md</code> 增补"规划与实施计划"引用（草案）；git 提交信息草案</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>目录与规划一致；<code>agent.md</code> 改动经你确认；大文件不入库</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 1.5 / 你 0.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S0.2</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic；M0 发布留痕</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-p1-需求与输入">2 P1 需求与输入</h2>
+<h3 id="s11-需求规格书-srs">S1.1 需求规格书 SRS</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>把《项目规划》§3 的 FR/NFR/接口/标准细化为可验收条目，并映射到阶段与闸门</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>《项目规划》§3；v2.0 §1–§3、§11；v2.1 §1、§7；技术调查 v1.3 §3</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>req-intake</code> 技能草案；librarian 检索 OCP/ASHRAE/GB 标准原文条款（检索内容当数据）</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>plan/S1.1_需求规格书_v0.1.md/.html</code>；<code>spec/requirements.yaml</code>（ID、描述、验收方法、阶段、闸门、来源）</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>每条需求可验证（有方法与阈值）；标准引用标明版本与条款；与 v2.0 指标表无矛盾</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 4 / 你 1.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S0.2</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>req-intake</code>；memory：<code>semantic/requirements-baseline.md</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s12-输入追溯矩阵与开放项看板">S1.2 输入追溯矩阵与开放项看板</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>合并 v2.0 的 IN-<em>、AS-</em>、C-* 与 v2.1/Grace v1.1 的新开放项，形成机器可读的追溯矩阵与看板</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>v2.0 §3.1、§3.3、§13；v2.1 §7；Grace v1.1 §4</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>表格抽取脚本；<code>trace_matrix</code> MCP 工具原型</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>spec/inputs.yaml</code>、<code>spec/open_items.yaml</code>；<code>plan/S1.2_开放项看板.html</code>（按闸门分组、按状态着色）</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>每个缺失输入有影响章节、责任人占位与计划日期；新旧口径的开放项不重复不遗漏</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 3 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S1.1</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s13-dr0-复核包">S1.3 DR0 复核包</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>以新设计点重新生成 DR0 评审包，确认主设计点下的输入冻结状态</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S0.2、S1.1、S1.2</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>gate_review</code> 原型（读 yaml，输出检查表）</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>plan/S1.3_DR0评审包.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>你在评审包上签署"通过 / 有条件通过"；未通过项转入开放项</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 2 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S1.2</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>gate-review</code>（草案）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-p2-一维设计计算平台化">3 P2 一维设计计算平台化</h2>
+<h3 id="s21-关联式与元件库重构">S2.1 关联式与元件库重构</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>把 <code>model.py</code>、<code>oned.py</code>、<code>zones.py</code> 中的关联式与元件抽成带有效域检查的库，不改变任何现有结果</td>
+</tr>
+<tr>
+<td>输入</td>
+<td><code>design/calc/model.py</code>、<code>oned.py</code>、<code>zones.py</code>、<code>CP-GRACE-MC-01_calc.py</code></td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>Python 重构；pytest 回归（以 v2.0 §9 与 v2.1 表格为基准值）</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>oned/correlations.py</code>（Martin、短槽发展段、Shah–London、驻点核、PG25 物性）、<code>oned/elements.py</code>（射流阵、短槽、HBM 槽、静压仓、孔板、UQD、管段）、<code>oned/tests/</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>回归测试对 v2.0 DP-A/DP-B 全部关键数字误差为 0（或 &lt; 1e-6 相对）；越出有效域时返回 warn 而不是静默外推</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 5 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S0.2</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>oned-network</code>（草案）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s22-板级网络求解器">S2.2 板级网络求解器</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>实现板级"热阻网络 + 水力网络"求解：分区流量分配由各支路阻力自洽求出，而不是固定 80/20</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S2.1 元件库；DesignSpec</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>Python（scipy.optimize / Newton）；MCP 新工具 <code>net_solve</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>oned/network.py</code>；<code>mcp/server.py</code> 增加 <code>net_solve</code>；计算书模板</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>① 固定分流模式下与 S2.1 结果一致；② 自洽分流模式给出 GPU/HBM 分配与压降分段；③ 能量平衡误差 &lt; 0.1%</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 5 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S2.1</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>memory：<code>semantic/oned-network.md</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s23-主设计点一维重算">S2.3 主设计点一维重算</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>按 Q-01 选定的主设计点（如 PG25、1400 W、温升 6 °C）重算 B300 与 Grace：热阻区间、压降、流速、孔速、差距闭合矩阵</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S2.2；<code>design_points.yaml</code></td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>net_solve</code>、<code>oned_sweep</code>；报告流水线</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>runs/&lt;ts&gt;-B300-PG25-6K-S2.3/</code> 与计算书 <code>plan/S2.3_一维计算书.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>每个数字标设计点与 E1；结论明确"通过 / 不判定 / 不通过"；压降是否超 20 kPa 给出带假设的判断；Grace 孔板重配给出候选孔径区间</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 3 / 你 1.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S2.2</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>memory：更新 <code>b300-design-lock.md</code>、<code>grace-and-tray.md</code>（经确认）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s24-托盘级水力网络">S2.4 托盘级水力网络</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>建立 4 块 GPU 冷板 + 2 块 Grace 并联、后面板单进单出的托盘网络，评估分流均匀性与总压降</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S2.2；<code>grace-and-tray.md</code>；GB/T 48023 均流判据（支路差 ≤ 平均 10%）</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>net_solve</code>（托盘拓扑）；敏感性扫描（UQD、管径、孔板）</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>oned/tray.py</code>；<code>plan/S2.4_托盘水力.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>给出各支路流量与偏差；不满足均流时给出孔板/管径调整建议；标注 ICD 未到的假设</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 4 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S2.2</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s25-simulinksimscape-对照模型">S2.5 Simulink/Simscape 对照模型</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>由 <code>ai-matlab</code> 按同一 DesignSpec 搭建托盘级 Simscape 模型，做稳态交叉验证与瞬态响应，为 ⑧⑨ 准备</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S2.4；Q-04（MATLAB 许可）</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>ai-matlab</code> 智能体 + <code>user-matlab</code> MCP；Simscape Fluids（Thermal Liquid）；冷板用自定义热阻/压降查表块</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>twin/simscape/tray_model.slx</code>（或 <code>.m</code> 生成脚本）；对照报告 <code>plan/S2.5_Simscape对照.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>同工况下流量、压降、出口温度与 Python 网络偏差 &lt; 2%；给出一次负载阶跃的瞬态曲线</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 6 / 你 1.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S2.4；Q-04</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>simscape-bridge</code>（与 ai-matlab 共用，需评估是否上升为共享技能）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s26-一维回归与设计台集成">S2.6 一维回归与设计台集成</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>把一维网络接入设计台"一维"页，加入回归测试与 DR2 复核包</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S2.1–S2.4</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>ui/</code> 前端；<code>gate_review</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>设计台一维页更新；<code>plan/S2.6_DR2复核包.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>设计台改参数后 1 s 内出结果与判据；DR2 复核包经你签署</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 3 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S2.3</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic；M1 发布留痕</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-p3-cad-概念设计aicad">4 P3 CAD 概念设计（AI+CAD）</h2>
+<h3 id="s31-内核增加-pitch_x-pitch_y-与-v2-对账表">S3.1 内核增加 pitch_x / pitch_y 与 v2 对账表</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>参数化内核支持双节距，新增 v2 规则对账表（216 孔、9×12、Sx 3.0、Sy 2.4），v1 对账表保留不改</td>
+</tr>
+<tr>
+<td>输入</td>
+<td><code>cad/coldplate/</code>（model、rules、geometry）；<code>knowledge/cad-kernel-gap.md</code>；S0.2 schema</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>build123d/OCP（<code>cad/.venv</code>）；pytest；<code>cad_inspect</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>内核补丁（新文件优先，避免改冻结件）；<code>cad/params/</code> 下新增 v2 候选 yaml（不覆盖 <code>cp_b300_jm01.yaml</code>）；测试</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>v1 yaml 结果不变；v2 候选 yaml <code>gate=pass</code>；STEP 回读孔数 216、包围盒 95×75×8.5；<strong>G-A 闸门：你确认后才把 v2 设为锁定</strong></td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 5 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S0.2</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>cad-loop</code> 升级到 v2；memory：<code>cad-tracks.md</code> 更新</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s32-hbm-方案-d-与静压仓特征">S3.2 HBM 方案 D 与静压仓特征</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>内核表达 HBM 方案 D（十一条槽并联、中间进水两侧出水、静压仓 z=3–7 mm、11 条 0.40×1.00 mm 中缝）</td>
+</tr>
+<tr>
+<td>输入</td>
+<td><code>memory/semantic/b300-design-lock.md</code>；S3.1</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>build123d；规则门新增：齿壁 ≥ 0.30、槽宽 ≥ 0.40、深宽比 ≤ 5、缝速</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>内核特征模块与参数；预览 PNG；STEP</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>几何与记忆中的尺寸一致；规则门全通过；与 CFD 网格 <code>hbm_d_slit_lt9m.msh</code> 的几何对照说明</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 4 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S3.1</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s33-水嘴uqd-与安装接口">S3.3 水嘴、UQD 与安装接口</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>增加进出水嘴、UQD 接口占位、四角沉孔、静压箱进液口等接口特征（ICD 未到前为候选）</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>v2.0 §6.6、§8.1；<code>grace-and-tray.md</code>（芯片朝下、进液边朝后面板）</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>build123d；规则门</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>接口特征与参数；装配预览</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>特征全部标"候选，待 ICD"；不影响已有尺寸链闭合</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 3 / 你 0.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S3.1</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s34-cfd-流体域抽取与命名选择">S3.4 CFD 流体域抽取与命名选择</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>从实体自动生成流体域（单胞、1/2 整板），并输出命名选择（入口、出口、热源面、对称面、交界面）</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S3.1–S3.3</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>build123d 布尔（过切规避共面）；SpaceClaim 脚本做清理与共享拓扑（可选）；MCP <code>cad_fluid_extract</code>、<code>cad_named_selections</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>runs/&lt;ts&gt;/fluid_cell.step</code>、<code>fluid_half.step</code>、<code>named_selections.json</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>流体体积与理论值偏差 &lt; 0.5%；命名选择在 Fluent Meshing 读入后完整</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 5 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S3.1</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>mesh-loop</code>（前半段草案）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s35-grace-接入规则门">S3.5 Grace 接入规则门</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>把 <code>design/make_grace_concept.py</code> 接入共用 Spec 与规则门，形成 <code>grace-parametric</code> 轨道</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>Grace v1.0/v1.1；<code>make_grace_concept.py</code>；<code>cad-tracks.json</code></td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>build123d；规则门</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>Grace 轨道参数与规则；STEP；<code>cad-tracks.json</code> 更新草案</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>与 v1.1 几何一致（48×0.40×1.20、节距 0.80、200×120×8）；B300 参数不被混用</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 4 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S3.1</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>memory：<code>cad-tracks.md</code> 更新；M2 发布留痕</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-p4-三维-cfdcaeaiansys">5 P4 三维 CFD/CAE（AI+Ansys）</h2>
+<h3 id="s41-v1-代码验证与-v4-martin-锚定算例">S4.1 V1 代码验证与 V4 Martin 锚定算例</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>先证明 CFD 设置可信：解析算例（层流圆管 f·Re、层流平板）误差 &lt; 2%；Re≈3000 的单胞复现 Martin 关联式误差 &lt; 15%</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>v2.0 §10.9；<code>cfd-loop</code> 技能；单胞网格模板</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>Fluent 2026 R1 批处理 journal / PyFluent；<code>cfd_journal</code>、<code>cfd_submit</code>、<code>cfd_monitor</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>cfd/vv/</code> 算例与 journal；<code>plan/S4.1_VV报告.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>V1 &lt; 2%；V4 &lt; 15%；不达标则停止并分析设置，不进入后续步骤</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 6 / 你 1.5（求解约 4–8 h）</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S3.4（或沿用现有单胞网格）</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>cfd-vv</code>（草案）；memory：<code>semantic/cfd-vv-anchor.md</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s42-单胞网格无关性与模型对照">S4.2 单胞网格无关性与模型对照</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>主设计点单胞三套网格（1 : 1.5 : 2.25），转捩 SST 与层流对照，收敛判据按 v2.0 §10.8</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S4.1；现有 m425、bc216、12 层网格日志</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>ICEM 或 Fluent Meshing；PyFluent；GPU 显存规则（≤ 900 万单元才开 <code>-t1 -gpu</code>）</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>plan/S4.2_单胞网格无关性.md/.html</code>；更新 <code>cfd-uc01b.md</code> 草案</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>相邻网格 R、ΔP 差 &lt; 3%；两模型差异报告（&gt; 20% 则结论给区间）；能量守恒 &lt; 1%</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 5 / 你 1（求解约 8–16 h）</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S4.1</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>memory：<code>cfd-uc01b.md</code> 升级</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s43-12-整板共轭-cfd">S4.3 1/2 整板共轭 CFD</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>沿 X 中线 1/2 对称整板 CHT，回答 v2.0 §10.1 的 Q1–Q6（热阻真值、逐孔流量、两 die 温差、静压箱压降、驻点偏移、HBM 近壁速度）</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S3.4 <code>fluid_half.step</code>；S4.2 网格参数</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>Fluent Meshing（poly-hexcore）；Fluent CPU 并行（网格超 900 万不开 GPU）；<code>cfd_post</code> 逐孔统计</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>runs/&lt;ts&gt;-B300-*-S4.3/</code>；<code>plan/S4.3_整板CFD报告.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>收敛与守恒判据满足；六类后处理齐全；证据等级 E3；<strong>G-C 闸门：启动前你确认网格规模与预计机时</strong></td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 8 / 你 2（求解 1–3 天）</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S4.2；Q-03、Q-06</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>memory：<code>semantic/b300-fullplate-cfd.md</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s44-工况矩阵批处理">S4.4 工况矩阵批处理</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>按 v2.0 §10.7（并按主设计点改写）跑 C01–C12，含孔径 D0.40/D0.50 与槽深 0.8/1.0/1.5 变体</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S4.3 模板</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>批量 journal；队列调度（夜间运行）；自动汇总表</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>全工况汇总 <code>plan/S4.4_工况矩阵.md/.html</code>；<code>summary.csv</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>每个工况收敛；汇总表含 R、ΔP、ΔTf、两 die 温差、HBM 最大近壁速度</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 6 / 你 1.5（求解按工况数）</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S4.3</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic；为 P7 提供 DOE 数据</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s45-r1-回路结果回灌一维">S4.5 R1 回路：结果回灌一维</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>用整板 CFD 反标定一维（静压箱 K 值、短槽强化系数、驻点核面积），并决定是否触发 R1 改几何</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S4.3、S4.4；S2.2 网络</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>参数拟合；<code>calibrate</code>；杠杆排序</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>plan/S4.5_一维反标定.md/.html</code>；一维模型修正建议</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>修正后一维与 CFD 的 R、ΔP 偏差 &lt; 10%；若不达标，列出 R1 候选几何并经一维预筛</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 4 / 你 1.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S4.4</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>memory：<code>oned-network.md</code> 更新；skill：<code>cfd-vv</code> 定稿</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s46-结构-fea承压压装热变形">S4.6 结构 FEA：承压、压装、热变形</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>用 Mechanical 校核 3 bar 承压、300–500 N 压装下接触面平面度、CFD 温度场映射后的热变形</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S3.1–S3.3 实体；S4.3 温度场；v2.0 §6.3–§6.5</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>PyMechanical / Mechanical 脚本；<code>fea_run</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>plan/S4.6_结构分析.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>应力安全系数、平面度变化 ≤ 0.05 mm 判定；与解析板条结果对照</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 6 / 你 1.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S4.3；Q-03</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>fea-loop</code>（草案）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s47-dr3仿真评审包">S4.7 DR3（仿真）评审包</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>汇总 V&amp;V、整板 CFD、工况矩阵、结构分析，生成 DR3 仿真评审包</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S4.1–S4.6</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>gate_review</code>；报告流水线</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>plan/S4.7_DR3仿真评审包.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>逐条对照 v2.0 §10.10 交付物清单；你签署</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 3 / 你 2</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S4.5、S4.6</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic；M3 发布留痕</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-p5-工程图aicad">6 P5 工程图（AI+CAD）</h2>
+<h3 id="s51-出图后端扩展">S5.1 出图后端扩展</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>在内核 DXF 后端基础上生成三视图、剖面 A-A/B-B、射流单元详图、孔位图，按 GB/T 14689 图幅与标题栏</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>锁定的 v2 几何；v2.0 §8.2 图纸清单</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>build123d 投影 + ezdxf；或 SolidWorks 宏后端（Q-05）</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>runs/&lt;ts&gt;/drawings/*.dxf</code> 与 PDF</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>图号与 v2.0 §8.2 一致；尺寸与 Spec 一致</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 6 / 你 1.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S3.3；Q-05</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>drawing-gen</code>（草案）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s52-gdt技术要求与-bom">S5.2 GD&amp;T、技术要求与 BOM</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>按 v2.0 §6.5 加注形位公差与技术要求，生成 BOM 与检验要求表</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S5.1；v2.0 §6.5、§8.11</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>GD&amp;T 规则表（GB/T 1182）；BOM 生成</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>带标注的 DXF/PDF；<code>bom.csv</code>；检验要求表</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>接触面平面度 0.05、Ra 0.8、孔径 ⌀0.50 +0.03/0、阵列位置度 ⌀0.4 MMC、H 2.0±0.10 等全部标注</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 4 / 你 1.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S5.1</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>memory：<code>semantic/drawing-standards.md</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s53-ai-审图">S5.3 AI 审图</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>自动检查尺寸链闭合、Spec 一致性、公差可加工性、焊接符号与检验项完整性</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S5.2</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>drawing_review</code>（读 DXF 实体 + Spec + 规则表）</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>审图记录 <code>plan/S5.3_审图记录.md</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>审图问题清单逐条关闭或说明</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 3 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S5.2</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>drawing-gen</code> 定稿</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s54-dr3图纸评审与发放准备">S5.4 DR3（图纸）评审与发放准备</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>形成可打样询价的图纸包</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S5.1–S5.3；S4.7</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>gate_review</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>图纸包（PDF + DXF + STEP + BOM + 技术要求）</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td><strong>G-B 闸门：你确认后才对外发放</strong></td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 2 / 你 2</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S5.3</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic；M4 发布留痕</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-p6-试验验证">7 P6 试验验证</h2>
+<h3 id="s61-试验大纲">S6.1 试验大纲</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>依据 v2.0 §11 生成型式试验 T1–T8 与透明样 PIV、流阻、红外的试验大纲，含工况矩阵、传感器布置、不确定度预算</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>v2.0 §11；S4.4 工况；Q-07</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>test_plan</code>；不确定度分析（ASME PTC 19.1 方法）</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>plan/S6.1_试验大纲.md/.html</code>；加热块与透明样件图（由 P5 后端出图）</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>每项试验有判据、方法、仪器精度与扩展不确定度；热阻测量不确定度 &lt; 10%</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 4 / 你 2</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S4.4</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>test-vv</code>（草案）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s62-数据采集-schema-与摄入脚本">S6.2 数据采集 schema 与摄入脚本</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>定义试验数据格式（CSV + 元数据 YAML），实现清洗、稳态段识别、物理量换算</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S6.1</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>Python（pandas）；<code>test_ingest</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>test/schema.yaml</code>、<code>test/ingest.py</code>、示例数据（合成）与测试</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>合成数据端到端处理正确；稳态识别规则可配置</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 4 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S6.1</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s63-vv-偏差分析与-r2-回路">S6.3 V&amp;V 偏差分析与 R2 回路</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>样件试验数据到位后，自动对比 CFD/一维，偏差 &gt; 15% 触发 R2 反标定建议</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S6.2；S4.4；试验数据</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>test_vv</code>、<code>calibrate</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>plan/S6.3_VV偏差报告.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>偏差表、不确定度带、反标定建议；模型修改经你确认后执行</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 4 / 你 2</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S6.2；<strong>G-D 闸门：样件下单与通电试验由你确认</strong></td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>test-vv</code> 定稿；memory：<code>semantic/vv-calibration.md</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s64-dr4-送样放行包">S6.4 DR4 送样放行包</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>汇总出厂检验、型式试验、V&amp;V 结果，形成 DR4 评审包</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S6.3</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>gate_review</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>plan/S6.4_DR4评审包.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>你签署</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 2 / 你 2</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S6.3</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic；M5 发布留痕</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-p7-数字孪生">8 P7 数字孪生</h2>
+<h3 id="s71-doe-设计与数据集">S7.1 DOE 设计与数据集</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>设计 ROM 训练用的 DOE（流量、进液温度、功率拆分、工质、孔径、TIM2），复用 S4.4 结果并补点</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S4.4 <code>summary.csv</code>；S4.5 反标定后一维</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>拉丁超立方 / 自适应采样；一维先行填充，CFD 只补关键点；<code>rom_doe</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>twin/doe.yaml</code>、<code>twin/dataset.parquet</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>训练域覆盖主设计点 ±20% 流量、25–45 °C 进液、水与 PG25</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 4 / 你 1（CFD 补点另计）</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S4.5</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>rom-build</code>（草案）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s72-代理模型训练与验证">S7.2 代理模型训练与验证</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>训练冷板 ROM：R、ΔP、最高壁温、两 die 温差；必要时 POD 温度场</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S7.1</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>scikit-learn GPR / PyTorch MLP；或 optiSLang（Q-03）；<code>rom_train</code>、<code>rom_eval</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>twin/rom/</code> 模型文件与验证报告 <code>plan/S7.2_ROM验证.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>留出集误差 &lt; 5%；训练域边界检查，越域报警</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 6 / 你 1.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S7.1</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>rom-build</code> 定稿</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s73-系统级孪生与-fmu">S7.3 系统级孪生与 FMU</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>托盘→CDU 系统模型（Simscape 或 Python 网络），冷板用 ROM 替换，导出 FMU</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S2.4/S2.5；S7.2</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>Simscape → FMU（<code>ai-matlab</code>）或 PythonFMU；FMPy 回放验证</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>twin/fmu/tray_twin.fmu</code>；<code>plan/S7.3_系统孪生.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>FMU 在 FMPy 中运行；与原模型同工况偏差 &lt; 2%</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 8 / 你 2</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S7.2</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>twin-calib</code>（草案）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s74-在线校准与孪生看板">S7.4 在线校准与孪生看板</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>实现基于台架/运行数据的参数辨识（h 系数、TIM2、K 值），设计台新增孪生页</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S7.3；S6.2 数据格式</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>卡尔曼滤波 / 贝叶斯辨识；<code>twin_calibrate</code>；<code>ui/</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>twin/calibrate.py</code>；设计台孪生页；DR5 评审包</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>合成数据下参数辨识误差 &lt; 5%；有台架数据时偏差 &lt; 10%；DR5 你签署</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 6 / 你 2</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S7.3</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>twin-calib</code> 定稿；M6 发布留痕</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-p8-ai-在环控制">9 P8 AI 在环控制</h2>
+<h3 id="s81-控制需求与安全约束">S8.1 控制需求与安全约束</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>定义被控量、执行器、约束、扰动（AI 训练/推理负载曲线）、性能指标与故障场景</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>《项目规划》§6.7；S7.3</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>ctrl-design</code> 技能草案；thermal-management 协作</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>plan/S8.1_控制需求.md/.html</code>；<code>ctrl/constraints.yaml</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>约束可机检（Tj ≤ 90 °C、ΔP 上限、露点 +3 K、泵速/阀位范围）</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 3 / 你 1.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S7.3</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>ctrl-design</code>（草案）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s82-场景库">S8.2 场景库</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>生成 MIL/SIL 场景库：负载阶跃、周期性训练负载、泵故障、单板堵塞 20%、进液 45 °C、传感器漂移</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S8.1</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>ctrl_scenarios</code>；FMU 驱动</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>ctrl/scenarios/</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>≥ 20 个场景，可在 FMU 上批量回放</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 3 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S8.1</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s83-pid-基线mil">S8.3 PID 基线（MIL）</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>供液温度 + 压差双环 PID，整定后在场景库上建立基线指标</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S8.2</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>python-control 或 Simulink；<code>ctrl_eval</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>ctrl/pid/</code>；基线报告</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>场景库零越限（或明确列出越限场景）；记录泵功、超调、调节时间</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 3 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S8.2</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s84-mpc">S8.4 MPC</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>基于 ROM/一维的 MPC，目标泵功最小，约束硬保证</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S8.3</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>do-mpc / CasADi 或 MATLAB MPC Toolbox</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>ctrl/mpc/</code>；对比报告</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>相对 PID 泵功下降、零越限；求解时间满足控制周期</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 5 / 你 1.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S8.3</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>ctrl-design</code> 更新</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s85-安全-rl">S8.5 安全 RL</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>在孪生中训练 PPO/SAC 策略，配约束屏蔽层（越限切回 PID）</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S8.3、S8.4</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>Gymnasium 包装 FMU；Stable-Baselines3</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>ctrl/rl/</code>；训练曲线与评估报告</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>场景库零越限；与 MPC、PID 三方对比；未见场景泛化测试</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 8 / 你 2</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S8.4</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>memory：<code>semantic/ctrl-benchmark.md</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s86-sil-与-hil-方案dr6">S8.6 SIL 与 HIL 方案、DR6</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>控制器代码化（Python/C 或 PLC 结构化文本）在 SIL 中运行；输出 HIL 台架方案；DR6 评审</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>S8.3–S8.5</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>SIL 框架；<code>gate_review</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>SIL 报告、HIL 方案、<code>plan/S8.6_DR6评审包.md/.html</code></td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>KPI-6 达成；<strong>G-E 闸门：任何写入实物控制器的动作由你确认</strong>；DR6 你签署</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 5 / 你 2</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S8.5</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>ctrl-design</code> 定稿；M7 发布留痕</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-p9-平台集成与发布">10 P9 平台集成与发布</h2>
+<h3 id="s91-mcp-工具与设计台迭代">S9.1 MCP 工具与设计台迭代</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>每个里程碑把新工具接入 <code>mcp/server.py</code> 与设计台，保持"界面只是 API 的壳"</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>各阶段新增脚本</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>MCP stdio/HTTP；<code>ui/</code></td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>工具清单更新、<code>README.md</code> 更新</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>对话与设计台调用同一工具得到同一结果</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>每里程碑 AI 2 / 你 0.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>各阶段</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s92-报告流水线">S9.2 报告流水线</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>统一的报告生成器：数字从 run <code>summary.json</code> 读取，输出 MD + HTML（左侧可折叠目录，与本计划同一模板）</td>
+</tr>
+<tr>
+<td>输入</td>
+<td><code>plan/build_html.py</code>；各阶段 summary</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td>Python markdown + 模板</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td><code>report-build</code> 技能与脚本</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>报告中无手抄数字；重新运行可再生成</td>
+</tr>
+<tr>
+<td>工时</td>
+<td>AI 4 / 你 1</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>S0.4</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>skill：<code>report-build</code>（评估上升为共享技能，走第①道闸门）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s93-里程碑发布">S9.3 里程碑发布</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>每个里程碑：记忆复核、索引更新、提交信息草案、发布留痕</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>本里程碑全部 episodic</td>
+</tr>
+<tr>
+<td>AI 与工具</td>
+<td><code>memory_list</code>；git diff 摘要</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>发布 episodic；提交信息草案</td>
+</tr>
+<tr>
+<td>验收标准</td>
+<td>你在 GitKraken 中 commit 并 push 到 <code>origin/main</code></td>
+</tr>
+<tr>
+<td>工时</td>
+<td>每里程碑 AI 1 / 你 0.5</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>各里程碑</td>
+</tr>
+<tr>
+<td>沉淀</td>
+<td>episodic（发布留痕）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="11-skill-与-memory-沉淀流程">11 Skill 与 Memory 沉淀流程</h2>
+<h3 id="111-流程">11.1 流程</h3>
+<ol>
+<li>步骤交付并经你验收通过。</li>
+<li>智能体写 <code>memory/episodic/&lt;date&gt;-&lt;step&gt;.json</code>（自动，无需确认）。</li>
+<li>若本步产生了新的或修正的<strong>口径、数字、环境事实</strong>，智能体起草 semantic 差异（新文件或对已有文件的修改），列出 <code>confidence</code>、<code>valid_until</code>、<code>evidence</code>、<code>design_point</code>。</li>
+<li>若本步形成了<strong>可复用的做法</strong>（被你认可，且至少成功执行一次），智能体起草 <code>skills/&lt;name&gt;/SKILL.md</code>，状态 <code>draft</code>。</li>
+<li>你确认后：semantic 写入并更新 <code>memory/index.json</code>；skill 状态改为 <code>verified</code>。被否决的草案不写入，只在 episodic 的 <code>rejected</code> 里留一句原因。</li>
+<li>需要跨模块共享的 skill：复制到 <code>platform/shared/skills/_staging/&lt;name&gt;/</code>，你确认后登记 <code>platform/shared/skills/_meta/skill-registry.json</code>（第①道闸门）。</li>
+<li>过期记忆不删除，由 <code>platform/hooks/memory_gc.py</code> 标记 <code>expired</code>。</li>
+</ol>
+<h3 id="112-skill-模板">11.2 Skill 模板</h3>
+<pre><code class="language-markdown">---
+name: &lt;skill-name&gt;
+description: &lt;一句话：做什么、何时用；触发词&gt;
+status: draft            # draft → verified → deprecated
+version: 0.1
+owner: cp-design
+verified_by: &lt;你的名字或&quot;待确认&quot;&gt;
+last_verified: 2026-10-02
+valid_until: 2027-03-31
+evidence: E1             # E1 一维 / E2 单胞 CFD / E3 整板 CFD / E4 实测
+---
+
+# &lt;技能名&gt;
+
+## 何时使用
+- 触发条件……
+
+## 输入
+- 文件 / 参数 / 前置步骤……
+
+## 步骤
+1. ……
+2. 规则门：……（block / warn / pass 的处理）
+3. ……
+
+## 验收
+- 判据与阈值……
+
+## 禁令
+- 不要……（来自踩坑）
+
+## 已知坑与修正
+- 日期：现象 → 修正命令（报错改过的命令写回这里）
+
+## 产物
+- 路径与命名规范……
+</code></pre>
+<h3 id="113-semantic-记忆模板">11.3 Semantic 记忆模板</h3>
+<pre><code class="language-markdown">---
+confidence: 0.8
+valid_until: 2027-03-31
+last_verified: 2026-10-02
+expired: false
+evidence: E2
+design_point: B300-PG25-6K
+source: runs/20261002-xxxx/summary.json; 报告 v2.1 §3
+---
+
+# &lt;主题&gt;
+
+一句话结论（带数字与单位）。
+
+适用范围与前提：……
+
+不要这样用：……（例如：单胞热阻不得写成整板保证值）
+
+冲突与待定：……
+</code></pre>
+<h3 id="114-episodic-记忆模板">11.4 Episodic 记忆模板</h3>
+<pre><code class="language-json">{
+  &quot;date&quot;: &quot;2026-10-02&quot;,
+  &quot;step&quot;: &quot;S0.1&quot;,
+  &quot;task&quot;: &quot;资产盘点与口径对账表&quot;,
+  &quot;design_point&quot;: &quot;B300-PG25-6K&quot;,
+  &quot;evidence&quot;: &quot;E1&quot;,
+  &quot;confidence&quot;: 0.8,
+  &quot;valid_until&quot;: &quot;2027-03-31&quot;,
+  &quot;last_verified&quot;: &quot;2026-10-02&quot;,
+  &quot;expired&quot;: false,
+  &quot;accepted_by_user&quot;: true,
+  &quot;done&quot;: [&quot;……&quot;],
+  &quot;outputs&quot;: [&quot;plan/S0.1_口径对账表.md&quot;],
+  &quot;open&quot;: [&quot;……&quot;],
+  &quot;rejected&quot;: [],
+  &quot;skills_drafted&quot;: [&quot;design-point&quot;],
+  &quot;semantic_drafted&quot;: [&quot;design-point-ledger.md&quot;]
+}
+</code></pre>
+<h3 id="115-index-更新规则">11.5 Index 更新规则</h3>
+<p><code>memory/index.json</code> 的 <code>semantic</code> 列表只列未过期条目；<code>inherit_from</code> 只列经第②道闸门筛过的上游记忆；每次增删在 <code>updated</code> 写日期，并在 <code>note</code> 中写变更原因。</p>
+<h2 id="12-近期排程第一周">12 近期排程（第一周）</h2>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>步骤</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10-02（今天）</td>
+<td>S0.1</td>
+<td>资产盘点与口径对账表，可立即开始</td>
+</tr>
+<tr>
+<td>10-03</td>
+<td>你决策 Q-01、Q-02（主设计点、孔径）与 Q-03–Q-05（许可、CAD 平台）</td>
+<td>S0.2 的前提</td>
+</tr>
+<tr>
+<td>10-04 至 10-05</td>
+<td>S0.2、S0.3</td>
+<td>设计点登记表、schema、记忆健康检查</td>
+</tr>
+<tr>
+<td>10-06 至 10-08</td>
+<td>S0.4、S1.1</td>
+<td>目录规范、需求规格书</td>
+</tr>
+<tr>
+<td>10-09</td>
+<td>M0 评审</td>
+<td>你确认后提交并推送</td>
+</tr>
+</tbody>
+</table>
+<h3 id="121-首步执行说明s01">12.1 首步执行说明（S0.1）</h3>
+<p>你只需回复"执行 S0.1"。智能体将：</p>
+<ol>
+<li>用脚本从 8 份参考报告抽取所有参数表（已验证可以从 HTML 抽成文本）。</li>
+<li>读 <code>design/calc/model.py</code> 的 <code>GEO</code>、<code>DESIGN_POINTS</code>、物性常量，以及两份 yaml。</li>
+<li>调 <code>oned_design</code>、<code>hbm_design</code>、<code>grace_design</code> 复算 DP-A、DP-B，与报告逐项比对。</li>
+<li>生成对账表（参数 × 设计点 × 证据等级 × 来源 × 冲突标记），并列出需要你裁决的冲突。</li>
+<li>写 episodic；起草 <code>design-point</code> 技能与 <code>design-point-ledger.md</code> 语义记忆，等你确认。</li>
+</ol>
+<h2 id="13-工时汇总">13 工时汇总</h2>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>AI 执行（小时）</th>
+<th>你审核（小时）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>10.5</td>
+<td>3</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>9</td>
+<td>3.5</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>26</td>
+<td>7</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>21</td>
+<td>4.5</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>38</td>
+<td>11</td>
+</tr>
+<tr>
+<td>P5</td>
+<td>15</td>
+<td>6</td>
+</tr>
+<tr>
+<td>P6</td>
+<td>14</td>
+<td>7</td>
+</tr>
+<tr>
+<td>P7</td>
+<td>24</td>
+<td>6.5</td>
+</tr>
+<tr>
+<td>P8</td>
+<td>27</td>
+<td>9</td>
+</tr>
+<tr>
+<td>P9</td>
+<td>约 12（分摊）</td>
+<td>约 4</td>
+</tr>
+<tr>
+<td>合计</td>
+<td>约 197</td>
+<td>约 62</td>
+</tr>
+</tbody>
+</table>
+<p>求解机时、样件制造与台架准备时间另计。</p>
+<footer>由 <code>实施计划_v1.0.md</code> 经 <code>plan/build_html.py</code> 生成 · 2026-10-02 22:36。Markdown 为唯一源文件，请改 MD 后重新生成。</footer>
+</main>
+<script>
+(function(){
+  var toc=document.getElementById('toc');
+  toc.addEventListener('click',function(e){
+    var t=e.target;
+    if(t.classList.contains('tg')&&!t.classList.contains('empty')){
+      var li=t.closest('li');li.classList.toggle('collapsed');
+      t.textContent=li.classList.contains('collapsed')?'\u25B8':'\u25BE';
+    }
+    if(t.tagName==='A'&&window.innerWidth<=980){document.body.classList.remove('open');}
+  });
+  function setAll(collapse){
+    toc.querySelectorAll('li.has').forEach(function(li){
+      li.classList.toggle('collapsed',collapse);
+      li.querySelector(':scope>.row>.tg').textContent=collapse?'\u25B8':'\u25BE';
+    });
+  }
+  document.getElementById('bx').onclick=function(){setAll(false)};
+  document.getElementById('bc').onclick=function(){setAll(true)};
+  document.getElementById('fab').onclick=function(){document.body.classList.toggle('open')};
+  var q=document.getElementById('q');
+  q.addEventListener('input',function(){
+    var v=q.value.trim().toLowerCase();
+    toc.querySelectorAll('li').forEach(function(li){li.classList.remove('hide')});
+    if(!v)return;
+    toc.querySelectorAll('li').forEach(function(li){
+      var hit=li.textContent.toLowerCase().indexOf(v)>=0;
+      if(!hit)li.classList.add('hide');
+      else if(li.classList.contains('has')){li.classList.remove('collapsed');li.querySelector(':scope>.row>.tg').textContent='\u25BE';}
+    });
+  });
+  var links={};toc.querySelectorAll('a').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a});
+  var heads=Array.prototype.filter.call(document.querySelectorAll('#main h2[id],#main h3[id],#main h4[id]'),function(h){return links[h.id]});
+  var cur=null;
+  function activate(id){
+    if(cur===id)return;cur=id;
+    toc.querySelectorAll('a.active').forEach(function(a){a.classList.remove('active')});
+    var a=links[id];if(!a)return;a.classList.add('active');
+    var li=a.closest('li');
+    while(li){if(li.classList.contains('has')&&li.classList.contains('collapsed')){li.classList.remove('collapsed');li.querySelector(':scope>.row>.tg').textContent='\u25BE';}
+      li=li.parentElement.closest('li');}
+    var r=a.getBoundingClientRect(),tr=toc.getBoundingClientRect();
+    if(r.top<tr.top+40||r.bottom>tr.bottom-40){toc.scrollTop+=r.top-tr.top-tr.height/3;}
+  }
+  function spy(){
+    var y=window.scrollY+80,id=heads.length?heads[0].id:null;
+    for(var i=0;i<heads.length;i++){if(heads[i].offsetTop<=y)id=heads[i].id;else break;}
+    if(id)activate(id);
+  }
+  var tick=false;
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(function(){spy();tick=false;});}});
+  spy();
+})();
+</script>
+</body>
+</html>

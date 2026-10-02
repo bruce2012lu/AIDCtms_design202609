@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-26",
+  "task": "从一维走到单孔 CFD 分析与结构工艺装配",
+  "confidence": 0.8,
+  "valid_until": "2027-03-31",
+  "last_verified": "2026-09-26",
+  "expired": false,
+  "design_point": "DP-A 1100 W, 2.0 L/min, 216 holes, model.py D=0.50, Sx=3.0, Sy=2.4",
+  "outputs": "agent/practice01_0926/cycle-20260926/",
+  "cad_check": "plate assembly bbox 95 x 75 x 8.5 mm; nozzle void matches 216 x D0.50",
+  "cfd": "used converged m425 field, 4259680 HEXA, iter 380, dP 1087.09 Pa, T_TIM 341.385 K. Did not start a second Fluent because 4 MPI ranks were already solving the 12-layer case.",
+  "open": "model.py orifice is 0.50 mm; the converged mesh orifice is 0.40 mm. 12-layer solve still running."
+}

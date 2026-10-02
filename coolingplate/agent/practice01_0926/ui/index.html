@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cp-design · 冷板设计台</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>cp-design 冷板设计台</h1>
+    <p>B300 冲击微通道与 Grace 平行微通道。参数化 CAD 先过规则门，再导出。</p>
+  </div>
+  <div id="health">正在连接本地服务…</div>
+</header>
+<div class="layout">
+  <nav>
+    <button class="active" data-page="home">总览</button>
+    <button data-page="oned">1D 设计</button>
+    <button data-page="hbm">HBM 区</button>
+    <button data-page="grace">Grace CPU</button>
+    <button data-page="cad">CAD 工作台</button>
+    <button data-page="cfd">CAE / CFD</button>
+    <button data-page="kb">知识库</button>
+    <button data-page="mem">记忆</button>
+    <button data-page="soft">工具与界面</button>
+  </nav>
+  <main>
+    <section id="home" class="on">
+      <h2>当前可以接着改的事</h2>
+      <p class="lead">文字设计点在 v2.0 的 216 孔。能直接建模的仍是 v1.0 的 128 孔参数化内核。实测 asm_0921 是 12.5 mm 三层板。Grace 单独一条平行槽方案。</p>
+      <div class="grid g4">
+        <div class="card"><b>v2 文字</b><span>1100 W 保证 / 1400 W 包络，216 孔，性能待证</span></div>
+        <div class="card"><b>CAD 内核</b><span>128 × D0.50，8.5 mm，规则门已可调用</span></div>
+        <div class="card"><b>asm_0921</b><span>12.5 mm 三层，128 孔，无水嘴</span></div>
+        <div class="card"><b>Grace</b><span>300 W，0.55 L/min，无微射流</span></div>
+      </div>
+      <h2 style="margin-top:22px">下一刀</h2>
+      <div class="card"><p>要建 v2 整板，先给内核增加 <code>pitch_x</code> / <code>pitch_y</code>。在那之前用 CAD 页校验候选孔径，不要把 9×12 与节距 3.0 同时写入。CFD 继续读 12 层目录的最新日志，再决定是否改热阻句子。</p></div>
+    </section>
+
+    <section id="oned">
+      <h2>1D 设计</h2>
+      <p class="lead">换热保证值看工况落在哪一档。Re、开孔率 f、H/D 都在 Martin 1977 域内，下限才用阵列面平均。只要 Re 低于 2000，就改用低雷诺数准则：短槽层流发展段加驻点核。Martin 仍会算出一个外推数，不写入保证值。</p>
+      <div class="row">
+        <button class="ghost" type="button" id="oned-dpa">DP-A · D0.50</button>
+        <button class="ghost" type="button" id="oned-dpb">DP-B · D0.50</button>
+        <button class="ghost" type="button" id="oned-d40">DP-A · 孔径 0.40</button>
+      </div>
+      <form id="oned-form" class="grid g4">
+        <label>设计点
+          <select id="oned-point">
+            <option value="DP-A">DP-A 1100 W</option>
+            <option value="DP-B">DP-B 1400 W</option>
+          </select>
+        </label>
+        <label>孔径 D mm<input id="oned-D" type="number" step="0.01" value="0.50"></label>
+        <label>整板流量 L/min<input id="oned-Q" type="number" step="0.1" value="2.0"></label>
+        <label>孔数 N<input id="oned-N" type="number" step="1" value="216"></label>
+        <label>喷距 H mm<input id="oned-H" type="number" step="0.1" value="2.0"></label>
+        <label>节距 Sx mm<input id="oned-Sx" type="number" step="0.1" value="3.0"></label>
+        <label>节距 Sy mm<input id="oned-Sy" type="number" step="0.1" value="2.4"></label>
+      </form>
+      <div class="row"><button class="act" type="button" id="btn-oned">计算一维</button></div>
+      <div class="card">
+        <b id="oned-regime">尚未计算</b>
+        <p id="oned-head">默认是 model.py 的 DP-A：216 孔，D=0.50 mm。</p>
+        <div id="oned-numbers"></div>
+      </div>
+      <table id="oned-criteria"></table>
+    </section>
+
+    <section id="hbm">
+      <h2>HBM 区</h2>
+      <p class="lead">八颗 12-Hi HBM 在冷板两侧，不设喷嘴。流量跟着 20% 分流走，近壁流速压在 0.80 m/s 以下。换热用低雷诺数平槽，不用 Martin。</p>
+      <div class="row">
+        <button class="ghost" type="button" id="hbm-dpa">DP-A</button>
+        <button class="ghost" type="button" id="hbm-dpb">DP-B</button>
+      </div>
+      <form id="hbm-form" class="grid g4">
+        <label>设计点
+          <select id="hbm-point"><option>DP-A</option><option>DP-B</option></select>
+        </label>
+        <label>HBM 流量 L/min<input id="hbm-Q" type="number" step="0.01" value="0.40"></label>
+        <label>每侧槽数<input id="hbm-n" type="number" step="1" value="8"></label>
+        <label>槽宽 mm<input id="hbm-w" type="number" step="0.05" value="0.60"></label>
+        <label>槽深 mm<input id="hbm-d" type="number" step="0.05" value="1.50"></label>
+        <label>节距 mm<input id="hbm-p" type="number" step="0.05" value="1.30"></label>
+        <label>槽长 mm<input id="hbm-L" type="number" step="1" value="50"></label>
+      </form>
+      <div class="row"><button class="act" type="button" id="btn-hbm">计算 HBM</button></div>
+      <div class="card"><b id="hbm-title">尚未计算</b><p id="hbm-head"></p><div id="hbm-numbers"></div></div>
+      <table id="hbm-criteria"></table>
+    </section>
+
+    <section id="grace">
+      <h2>Grace CPU</h2>
+      <p class="lead">CP-GRACE-MC-01。300 W 含内存，分工 CPU 260 W、内存合计 40 W。平行微通道，无微射流。Nu = 4.8 是三面受热假设。默认流量由 8 K 温升闭合。</p>
+      <div class="row">
+        <button class="ghost" type="button" id="grace-base">能量闭合 0.543 L/min</button>
+        <button class="ghost" type="button" id="grace-env">包络 0.70 L/min</button>
+      </div>
+      <form id="grace-form" class="grid g4">
+        <label>流量 L/min<input id="grace-Q" type="number" step="0.01" value="0.5427"></label>
+        <label>CPU 槽数<input id="grace-n" type="number" step="1" value="48"></label>
+        <label>槽宽 mm<input id="grace-w" type="number" step="0.05" value="0.40"></label>
+        <label>槽深 mm<input id="grace-d" type="number" step="0.05" value="1.20"></label>
+        <label>槽长 mm<input id="grace-L" type="number" step="1" value="32"></label>
+        <label>节距 mm<input id="grace-p" type="number" step="0.05" value="0.80"></label>
+      </form>
+      <div class="row"><button class="act" type="button" id="btn-grace">计算 Grace</button></div>
+      <div class="card"><b id="grace-title">尚未计算</b><p id="grace-head"></p><div id="grace-numbers"></div></div>
+      <table id="grace-criteria"></table>
+    </section>
+
+    <section id="cad">
+      <h2>CAD 工作台</h2>
+      <p class="lead">这一页只驱动轨道 parametric-v1。覆盖值留在本次会话，写入 <code>agent/practice01_0926/runs/</code> 的是副本。</p>
+      <div id="tracks" class="grid g2"></div>
+      <h2 style="margin-top:18px">改参并校验</h2>
+      <div class="row">
+        <button class="ghost" id="preset-v1">v1.0 冻结</button>
+        <button class="ghost" id="preset-d40">只改孔径 0.40</button>
+        <button class="ghost" id="preset-bad">孔径 0.25（应拒绝）</button>
+        <button class="ghost" id="preset-v2">试 9×12 与单一节距（应拒绝）</button>
+      </div>
+      <form id="form" class="grid g4"></form>
+      <div class="row">
+        <button class="act" type="button" id="btn-inspect">校验规则</button>
+        <label style="display:flex;align-items:center;gap:8px;margin:0">
+          <input type="checkbox" id="allow-warn"> 接受偏离 v1.0 的 WARN
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;margin:0">
+          <input type="checkbox" id="confirm"> 确认导出到 agent/practice01_0926/runs
+        </label>
+        <button class="act" type="button" id="btn-build" disabled>导出预览 DXF/PNG</button>
+      </div>
+      <div class="card">
+        <b id="gate">尚未校验</b>
+        <p id="gate-note">服务连接后，结果来自 cad/coldplate/rules.py。</p>
+        <div id="derived"></div>
+        <pre id="findings"></pre>
+      </div>
+    </section>
+
+    <section id="cfd">
+      <h2>CAE / CFD</h2>
+      <p class="lead">单元胞 UC-01b 用来核对 216 孔边界。它的网格脚本不经过冷板 CAD 内核。</p>
+      <table>
+        <thead><tr><th>场</th><th>状态</th><th>可引用的数</th></tr></thead>
+        <tbody>
+          <tr><td>lessmesh bc216</td><td>iter 421 收敛</td><td>入口 1.225e-4 kg/s，热流 579282 W/m²，压降 1091.51 Pa，TIM 底 342.096 K</td></tr>
+          <tr><td>lessmesh 另一份记忆</td><td>中文已损坏，先对 HTML</td><td>iter 430，压降 2237.64 Pa，TIM 底 335.404 K</td></tr>
+          <tr><td>12 层续算</td><td>2026-09-26 日志仍在更新</td><td>引用前打开 lessmesh12cells/logs</td></tr>
+        </tbody>
+      </table>
+      <p class="lead" style="margin-top:14px">ANSYS 2026 R1：<code>E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261</code>。批处理 journal，工作目录放在算例目录。</p>
+    </section>
+
+    <section id="kb"><h2>知识库</h2><div id="catalog"></div></section>
+    <section id="mem"><h2>记忆</h2><div id="memory"></div></section>
+    <section id="soft">
+      <h2>工具与界面</h2>
+      <div class="grid g2">
+        <div class="card"><b>MCP cp-design</b><p>含 oned_design、hbm_design、grace_design、cad_inspect、cad_build。stdio 与这个页面共用 server.py。</p></div>
+        <div class="card"><b>独立软件</b><p>以后的桌面壳继续调这个 HTTP API。规则留在 rules.py。补上各向异性节距之前，不提供“生成 v2 整板”按钮。详见 agent/软件界面方案.md。</p></div>
+      </div>
+      <h2 style="margin-top:18px">CAD 调用顺序</h2>
+      <div class="card"><p>cad_tracks → cad_inspect → 人确认 → cad_build 且 confirm=true。ERROR 不建模。冻结 yaml 只读。OCC 段错误时重试同一命令。</p></div>
+    </section>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

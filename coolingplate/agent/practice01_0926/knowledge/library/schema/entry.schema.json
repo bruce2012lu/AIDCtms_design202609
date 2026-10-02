@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cp-design/kb/entry.schema.json",
+  "title": "知识库登记条目 v0.1",
+  "type": "object",
+  "required": ["id", "type", "title", "year", "url", "access", "trust_level", "stages", "last_verified"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(pap|hbk|std|ven|pat|dat|int)-[0-9]{4}-[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "<类型前缀>-<年份>-<第一作者姓或机构>-<短语>，全小写、连字符。与本地文件名（去扩展名）一致。年份未知写 0000。"
+    },
+    "type": {"enum": ["paper", "handbook", "standard", "vendor_doc", "patent", "dataset", "internal"]},
+    "title": {"type": "string", "description": "原文标题"},
+    "title_zh": {"type": "string"},
+    "authors": {"type": "array", "items": {"type": "string"}},
+    "org": {"type": "string", "description": "机构 / 厂商 / 标准组织 / 专利权人"},
+    "year": {"type": "integer"},
+    "venue": {"type": "string", "description": "期刊 / 会议 / 出版社 / 标准体系"},
+    "identifiers": {
+      "type": "object",
+      "properties": {
+        "doi": {"type": "string"},
+        "arxiv": {"type": "string"},
+        "std_no": {"type": "string"},
+        "patent_no": {"type": "string"},
+        "isbn": {"type": "string"},
+        "osti_id": {"type": "string"},
+        "ntrs_id": {"type": "string"},
+        "cnki": {"type": "string"}
+      }
+    },
+    "url": {"type": "string", "description": "官方落地页（出版方 / 标准组织 / 厂商 / 专利局）"},
+    "language": {"enum": ["en", "zh", "ja", "de", "other"]},
+    "access": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["downloaded", "metadata_only", "pending_user", "paywalled", "login_required", "not_found"]},
+        "license": {"type": "string", "description": "如 CC-BY-4.0、arXiv 非独占、厂商公开文档（版权保留）、US 政府作品、专利公开文本"},
+        "redistributable": {"type": "boolean", "description": "能否随仓库分发。不确定填 false"},
+        "copyright_note": {"type": "string"},
+        "how_to_get": {"type": "string", "description": "待用户获取时的合法途径（购买、会员登录、馆际互借）"}
+      }
+    },
+    "file": {
+      "type": "object",
+      "properties": {
+        "path": {"type": "string", "description": "相对 knowledge/library/ 的路径"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "bytes": {"type": "integer"},
+        "pages": {"type": "integer"},
+        "source_url": {"type": "string", "description": "实际下载地址"},
+        "downloaded_at": {"type": "string", "description": "ISO 日期"}
+      }
+    },
+    "trust_level": {"enum": ["L1", "L2", "L3", "L4", "L5", "L6"]},
+    "trust_reason": {"type": "string"},
+    "stages": {
+      "type": "array",
+      "items": {"type": "integer", "minimum": 1, "maximum": 9},
+      "description": "①需求 ②选型 ③性能设计 ④一维 ⑤三维CFD ⑥机械图纸 ⑦样件试验 ⑧数字孪生 ⑨孪生在环AI控制"
+    },
+    "topics": {"type": "array", "items": {"type": "string"}},
+    "summary_zh": {"type": "string"},
+    "key_data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["quantity", "value", "locator"],
+        "properties": {
+          "quantity": {"type": "string"},
+          "value": {"type": ["string", "number"]},
+          "unit": {"type": "string"},
+          "condition": {"type": "string"},
+          "locator": {"type": "string", "description": "p.12 / Table 3 / Eq.(7) / Fig.5 / §4.2"},
+          "verified_from": {"enum": ["fulltext", "abstract", "landing_page", "secondary"]}
+        }
+      }
+    },
+    "formulas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "latex": {"type": "string"},
+          "validity": {"type": "string"},
+          "locator": {"type": "string"}
+        }
+      }
+    },
+    "benchmark_candidate": {"type": "boolean"},
+    "benchmark_note": {"type": "string"},
+    "related_internal": {"type": "array", "items": {"type": "string"}},
+    "retrieved_by": {"type": "string"},
+    "last_verified": {"type": "string"},
+    "valid_until": {"type": "string"},
+    "status": {"enum": ["active", "superseded", "deprecated"], "default": "active"},
+    "supersedes": {"type": "string"},
+    "superseded_by": {"type": "string"},
+    "notes": {"type": "string"}
+  }
+}

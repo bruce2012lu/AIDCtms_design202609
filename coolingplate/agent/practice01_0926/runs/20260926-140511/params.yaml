@@ -1,0 +1,106 @@
+meta:
+  model: CP-B300-JM-01
+  title: NVIDIA B300 微通道 + 冲击换热冷板
+  source_report: ../design/NVIDIA_B300_微通道冲击换热冷板设计报告_v1.0_20260913.html
+  source_version: v1.0 / 2026-09-13
+  status: agent-candidate
+  confidence: 0.7
+material:
+  body: C110
+  coolant:
+    name: water
+    inlet_temp_c: 40.0
+    density_kg_m3: 992.2
+    viscosity_pa_s: 0.000653
+    cp_j_kgk: 4179.0
+plate:
+  width: 95.0
+  height: 75.0
+  thickness: 8.5
+  braze_seam: 0.5
+  nozzle_plate_t: 2.5
+  base_plate_t: 3.5
+  base_remaining: 2.0
+  jet_standoff: 2
+dies:
+  size:
+  - 27.0
+  - 28.0
+  hbi_gap: 3.0
+  items:
+  - id: Die-A
+    origin:
+    - 19.0
+    - 23.5
+  - id: Die-B
+    origin:
+    - 49.0
+    - 23.5
+jets:
+  diameter: 0.5
+  pitch: 3
+  count_x: 8
+  count_y: 8
+  array_origin:
+    Die-A:
+    - 22.0
+    - 27.0
+    Die-B:
+    - 52.0
+    - 27.0
+  suction_diameter: 0.8
+  suction_candidate: true
+gpu_grooves:
+  width: 0.4
+  depth: 1.5
+  pitch: 0.8
+  count_per_die: 30
+  max_length: 8.0
+  segment_land: 1.0
+hbm:
+  size:
+  - 11.0
+  - 11.0
+  columns_x:
+  - 5.0
+  - 79.0
+  rows_y:
+  - 12.5
+  - 25.5
+  - 38.5
+  - 51.5
+  channel_width: 0.6
+  channel_depth: 1.5
+  channel_pitch: 1.3
+  channels_per_side: 8
+  velocity_cap: 0.8
+rib:
+  width: 2.0
+hydraulics:
+  flow_total: 2.0
+  flow_envelope: 2.4
+  split:
+    gpu: 1.6
+    hbm: 0.4
+  dp_design:
+  - 8.0
+  - 12.0
+  dp_sample_target: 18.0
+  dp_limit: 20.0
+  filtration_um: 25.0
+thermal:
+  dp_a_guarantee_w: 1100.0
+  dp_b_envelope_w: 1400.0
+  power_split_dp_a:
+    die_each: 429.0
+    hbm_total: 198.0
+    io_other: 44.0
+  r_conv_target:
+  - 0.01
+  - 0.014
+  r_case_to_fluid:
+  - 0.023
+  - 0.028
+surface:
+  flatness: 0.05
+  roughness_ra_um: 0.8
