@@ -1,0 +1,157 @@
+[
+  {
+    "file": "figures/p001_i1.jpg",
+    "page": 1,
+    "w": 222,
+    "h": 297,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p001_i2.jpg",
+    "page": 1,
+    "w": 249,
+    "h": 273,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 1045,
+    "h": 650,
+    "captions_on_page": [
+      "Fig. 1. Impingement jet cooling conﬁgurations: (a) conﬁguration A: common out-  lets and (b) conﬁguration B distributed outlets conﬁgurations."
+    ]
+  },
+  {
+    "file": "figures/p005_i0.jpg",
+    "page": 5,
+    "w": 1750,
+    "h": 811,
+    "captions_on_page": [
+      "Fig. 3. Temperature distribution for different inlet diameter d i /L: (a) d i /L = 0.05; (b) d i /L = 0.1; (c) d i /L = 0.2; (d) d i /L = 0.25. ( d O /L = 0.3, t/L = 0.1, and H/L = 0.3,  R e d = 1024)"
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 950,
+    "h": 1645,
+    "captions_on_page": [
+      "Fig. 4. Effect of the chip thickness on Nu j based on junction temperature for N = 4,"
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 2100,
+    "h": 1790,
+    "captions_on_page": [
+      "Fig. 5. N scaling of the (a) average Nusselt number and (b) pressure drop k -factor as a function of Reynolds number, under different inlet/outlet diameter ratios. (c) and (d)  shows the collapse curve includes 6 selected values of N ( N = 1,2,4,8,16,64) for α = β = γ = ϕ = 0.1.",
+      "Fig. 8 shows the jet-to-target ratio H/L effects on heat transfer  and pressure drop varying from 0.01 to 2. For the general trend,  Nu f and f are both higher for very small cavity heights. For the"
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 1900,
+    "h": 812,
+    "captions_on_page": [
+      "Fig. 6. Impact of dimensionless t/L on the (a) Nusselt number Nu f and (b) Pressure coeﬃcient k under R e d = 1024. Flow distribution for different nozzle length: R e d = 1024,  d i / L = d o / L = 0.3, H/L = 0.3.",
+      "Fig. 7. Impact of outlet diameter ratio on the (a) Nu f and (b) pressure coeﬃcient factor k: d i /L = 0.05; 0 . 05 ≤d o / L ≤0 . 5 ; t/L = 0.4; d o / d i ≥1.",
+      "Fig. 8. Effects of cavity height H/L on the (a) Nu f and (b) Pressure coeﬃcient factor k , for a ﬁxed R e d = 1024 ( N = 4, t / d i = 1, Fl = 600 mL/min, R e d = 1024)."
+    ]
+  },
+  {
+    "file": "figures/p009_i1.jpg",
+    "page": 9,
+    "w": 1900,
+    "h": 846,
+    "captions_on_page": [
+      "Fig. 6. Impact of dimensionless t/L on the (a) Nusselt number Nu f and (b) Pressure coeﬃcient k under R e d = 1024. Flow distribution for different nozzle length: R e d = 1024,  d i / L = d o / L = 0.3, H/L = 0.3.",
+      "Fig. 7. Impact of outlet diameter ratio on the (a) Nu f and (b) pressure coeﬃcient factor k: d i /L = 0.05; 0 . 05 ≤d o / L ≤0 . 5 ; t/L = 0.4; d o / d i ≥1.",
+      "Fig. 8. Effects of cavity height H/L on the (a) Nu f and (b) Pressure coeﬃcient factor k , for a ﬁxed R e d = 1024 ( N = 4, t / d i = 1, Fl = 600 mL/min, R e d = 1024)."
+    ]
+  },
+  {
+    "file": "figures/p009_i2.jpg",
+    "page": 9,
+    "w": 2150,
+    "h": 897,
+    "captions_on_page": [
+      "Fig. 6. Impact of dimensionless t/L on the (a) Nusselt number Nu f and (b) Pressure coeﬃcient k under R e d = 1024. Flow distribution for different nozzle length: R e d = 1024,  d i / L = d o / L = 0.3, H/L = 0.3.",
+      "Fig. 7. Impact of outlet diameter ratio on the (a) Nu f and (b) pressure coeﬃcient factor k: d i /L = 0.05; 0 . 05 ≤d o / L ≤0 . 5 ; t/L = 0.4; d o / d i ≥1.",
+      "Fig. 8. Effects of cavity height H/L on the (a) Nu f and (b) Pressure coeﬃcient factor k , for a ﬁxed R e d = 1024 ( N = 4, t / d i = 1, Fl = 600 mL/min, R e d = 1024)."
+    ]
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 2150,
+    "h": 977,
+    "captions_on_page": [
+      "Fig. 9. Impact of the jet-to-target at constant ﬂow ratio: (a) H/L = 0.01; (b) H/L = 0.03; (c) H/L = 0.05; (d) H/L = 0.1; (e) H/L = 0.2; (f) H/L = 0.3. (Reynolds number  R e d = 1024, d i / L = d o / L = 0.3, t/L = 0.1)"
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 2150,
+    "h": 967,
+    "captions_on_page": [
+      "Fig. 10. Nusselt number Nu f (a) and pressure coeﬃcient factor k (b) as a function of dimensionless inlet nozzle diameter, where the t/L = 0.1 and H/L = 1, with larger cavity  height ratio ( d i /L = d O /L)."
+    ]
+  },
+  {
+    "file": "figures/p012_i0.jpg",
+    "page": 12,
+    "w": 1750,
+    "h": 849,
+    "captions_on_page": [
+      "Fig. 11. Correlations ﬁtting for heat transfer and ﬂow dynamics: (a) developed Nu f correlation versus CFD Nu f data (b) developed k factor correlation versus k_CFD.",
+      "Fig. 12. Experimental setup and cooler assembly with the thermal test vehicles.",
+      "Fig. 13. Demonstrations of the three different version 3D printed coolers with (a) 3 × 3; (b) 4 × 4 and (c) 8 × 8; and also (d) the silicon based jet cooler with 19,044  nozzles from Brunschwiler et al. [7] ."
+    ]
+  },
+  {
+    "file": "figures/p012_i1.jpg",
+    "page": 12,
+    "w": 988,
+    "h": 672,
+    "captions_on_page": [
+      "Fig. 11. Correlations ﬁtting for heat transfer and ﬂow dynamics: (a) developed Nu f correlation versus CFD Nu f data (b) developed k factor correlation versus k_CFD.",
+      "Fig. 12. Experimental setup and cooler assembly with the thermal test vehicles.",
+      "Fig. 13. Demonstrations of the three different version 3D printed coolers with (a) 3 × 3; (b) 4 × 4 and (c) 8 × 8; and also (d) the silicon based jet cooler with 19,044  nozzles from Brunschwiler et al. [7] ."
+    ]
+  },
+  {
+    "file": "figures/p012_i2.jpg",
+    "page": 12,
+    "w": 1635,
+    "h": 705,
+    "captions_on_page": [
+      "Fig. 11. Correlations ﬁtting for heat transfer and ﬂow dynamics: (a) developed Nu f correlation versus CFD Nu f data (b) developed k factor correlation versus k_CFD.",
+      "Fig. 12. Experimental setup and cooler assembly with the thermal test vehicles.",
+      "Fig. 13. Demonstrations of the three different version 3D printed coolers with (a) 3 × 3; (b) 4 × 4 and (c) 8 × 8; and also (d) the silicon based jet cooler with 19,044  nozzles from Brunschwiler et al. [7] ."
+    ]
+  },
+  {
+    "file": "figures/p013_i0.jpg",
+    "page": 13,
+    "w": 1000,
+    "h": 850,
+    "captions_on_page": [
+      "Fig. 14. Comparison of the measurements data and developed predictive model  Nu j - R e d for the 3D printed coolers with 3 × 3, 4 × 4 and 8 × 8 inlet nozzle ar-  rays.",
+      "Fig. 15. Comparison of the developed predictive model with literature experimental  data and correlations."
+    ]
+  },
+  {
+    "file": "figures/p013_i1.jpg",
+    "page": 13,
+    "w": 1025,
+    "h": 829,
+    "captions_on_page": [
+      "Fig. 14. Comparison of the measurements data and developed predictive model  Nu j - R e d for the 3D printed coolers with 3 × 3, 4 × 4 and 8 × 8 inlet nozzle ar-  rays.",
+      "Fig. 15. Comparison of the developed predictive model with literature experimental  data and correlations."
+    ]
+  }
+]

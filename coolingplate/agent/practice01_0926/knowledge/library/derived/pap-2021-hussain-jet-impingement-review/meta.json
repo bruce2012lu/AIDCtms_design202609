@@ -1,0 +1,11 @@
+{
+  "id": "pap-2021-hussain-jet-impingement-review",
+  "sha256": "5ab088380c6f0772464c84aa33510da03e2554c4e01ac8a30b48d957986831e4",
+  "source": "repo:agents/AIDCtms/coolingplate/papers/pdfs/01_MDPI_2021_Hussain_JetImpingement_Review.pdf",
+  "extracted_at": "2026-10-02T23:31:34",
+  "pages": 42,
+  "chars": 152010,
+  "chunks": 133,
+  "tables": 0,
+  "figures": 34
+}

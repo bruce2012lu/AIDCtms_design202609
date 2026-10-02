@@ -1,0 +1,294 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 557,
+    "h": 144,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 1608,
+    "h": 988,
+    "captions_on_page": [
+      "Figure 1. (a) Flow regions of the impinging jet and (b) main flow zones of the free jet. Reprinted  with permission [21], Copyright 1993, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 614,
+    "h": 659,
+    "captions_on_page": [
+      "Figure 2. Physical model of jet impingement. Reprinted with permission [45], Copyright 2018,  Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 1035,
+    "h": 329,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p007_i1.jpg",
+    "page": 7,
+    "w": 1053,
+    "h": 311,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 311,
+    "h": 246,
+    "captions_on_page": [
+      "Figure 3. (a,b) Contour plots of axial velocity on the XOY plane and the YOZ plane and (c) cloud  plots of the Nu/Nust ratio. Reprinted with permission [47], Copyright 2021, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p008_i1.jpg",
+    "page": 8,
+    "w": 287,
+    "h": 228,
+    "captions_on_page": [
+      "Figure 3. (a,b) Contour plots of axial velocity on the XOY plane and the YOZ plane and (c) cloud  plots of the Nu/Nust ratio. Reprinted with permission [47], Copyright 2021, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p008_i2.jpg",
+    "page": 8,
+    "w": 445,
+    "h": 383,
+    "captions_on_page": [
+      "Figure 3. (a,b) Contour plots of axial velocity on the XOY plane and the YOZ plane and (c) cloud  plots of the Nu/Nust ratio. Reprinted with permission [47], Copyright 2021, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p008_i3.jpg",
+    "page": 8,
+    "w": 841,
+    "h": 415,
+    "captions_on_page": [
+      "Figure 3. (a,b) Contour plots of axial velocity on the XOY plane and the YOZ plane and (c) cloud  plots of the Nu/Nust ratio. Reprinted with permission [47], Copyright 2021, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 305,
+    "h": 200,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p009_i1.jpg",
+    "page": 9,
+    "w": 305,
+    "h": 250,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p009_i2.jpg",
+    "page": 9,
+    "w": 302,
+    "h": 242,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p009_i3.jpg",
+    "page": 9,
+    "w": 174,
+    "h": 153,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p009_i4.jpg",
+    "page": 9,
+    "w": 460,
+    "h": 221,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p009_i5.jpg",
+    "page": 9,
+    "w": 339,
+    "h": 171,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 645,
+    "h": 352,
+    "captions_on_page": [
+      "Figure 4. Test section (a) 3D view and (b) cross-sectional view and (c) effect of Gj/Dj on the local Nu at rib  height Hr/Dj = 0.42. Reprinted with permission [59], Copyright 2020, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p010_i1.jpg",
+    "page": 10,
+    "w": 657,
+    "h": 330,
+    "captions_on_page": [
+      "Figure 4. Test section (a) 3D view and (b) cross-sectional view and (c) effect of Gj/Dj on the local Nu at rib  height Hr/Dj = 0.42. Reprinted with permission [59], Copyright 2020, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p010_i2.jpg",
+    "page": 10,
+    "w": 1383,
+    "h": 589,
+    "captions_on_page": [
+      "Figure 4. Test section (a) 3D view and (b) cross-sectional view and (c) effect of Gj/Dj on the local Nu at rib  height Hr/Dj = 0.42. Reprinted with permission [59], Copyright 2020, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p012_i15.jpg",
+    "page": 12,
+    "w": 629,
+    "h": 373,
+    "captions_on_page": [
+      "Figure 5. Various surface configurations: (a) squared pin fin, (b) smooth, (c) cambered rib, and (d) round pin fin. Adopted  from [60].",
+      "Figure 6. Schematic view of the physical model of the test section. Adopted from [64]."
+    ]
+  },
+  {
+    "file": "figures/p012_i45.jpg",
+    "page": 12,
+    "w": 679,
+    "h": 398,
+    "captions_on_page": [
+      "Figure 5. Various surface configurations: (a) squared pin fin, (b) smooth, (c) cambered rib, and (d) round pin fin. Adopted  from [60].",
+      "Figure 6. Schematic view of the physical model of the test section. Adopted from [64]."
+    ]
+  },
+  {
+    "file": "figures/p014_i0.jpg",
+    "page": 14,
+    "w": 1416,
+    "h": 398,
+    "captions_on_page": [
+      "Figure 7. Heat transfer performance at different values of jet nozzle–target plate spacing (H/D) and  Re. Reprinted with permission [76], Copyright 2021, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p014_i1.jpg",
+    "page": 14,
+    "w": 1416,
+    "h": 398,
+    "captions_on_page": [
+      "Figure 7. Heat transfer performance at different values of jet nozzle–target plate spacing (H/D) and  Re. Reprinted with permission [76], Copyright 2021, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p018_i0.jpg",
+    "page": 18,
+    "w": 1128,
+    "h": 643,
+    "captions_on_page": [
+      "Figure 8. (a) Schematic of the experimental setup and (b) twisted tetra-lobed nozzle. Reprinted  with permission [91], Copyright 2020, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p018_i1.jpg",
+    "page": 18,
+    "w": 678,
+    "h": 353,
+    "captions_on_page": [
+      "Figure 8. (a) Schematic of the experimental setup and (b) twisted tetra-lobed nozzle. Reprinted  with permission [91], Copyright 2020, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p020_i0.jpg",
+    "page": 20,
+    "w": 787,
+    "h": 409,
+    "captions_on_page": [
+      "Figure 9. Design of a master–slave oscillator (adopted from [101], 2020 Elsevier).",
+      "Figure 10. Average Nu profile against impingement of a feedback-free sweeping jet (FFSJ), normal-feedback sweeping jet  (FSJ), and steady square jet (SJ) for various jet-to-wall spacings and Reynolds numbers. Reprinted with permission [102],  Copyright 2020, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p020_i1.jpg",
+    "page": 20,
+    "w": 1201,
+    "h": 611,
+    "captions_on_page": [
+      "Figure 9. Design of a master–slave oscillator (adopted from [101], 2020 Elsevier).",
+      "Figure 10. Average Nu profile against impingement of a feedback-free sweeping jet (FFSJ), normal-feedback sweeping jet  (FSJ), and steady square jet (SJ) for various jet-to-wall spacings and Reynolds numbers. Reprinted with permission [102],  Copyright 2020, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p022_i0.jpg",
+    "page": 22,
+    "w": 553,
+    "h": 769,
+    "captions_on_page": [
+      "Figure 11. Schematic diagram of the experimental setup for piston-driven synthetic jet impinge- ment. Reprinted with permission [110], Copyright 2020, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p023_i0.jpg",
+    "page": 23,
+    "w": 846,
+    "h": 383,
+    "captions_on_page": [
+      "Figure 12. Schematic diagram of the experimental setup for synthetic jet impingement using a spe- cial actuator comprising a loudspeaker and a Plexiglass cavity. Adopted from [111].",
+      "Figure 13. Schematic diagram of the lobed orifices used. Reprinted with permission [113], Copy- right 2020, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p023_i1.jpg",
+    "page": 23,
+    "w": 771,
+    "h": 661,
+    "captions_on_page": [
+      "Figure 12. Schematic diagram of the experimental setup for synthetic jet impingement using a spe- cial actuator comprising a loudspeaker and a Plexiglass cavity. Adopted from [111].",
+      "Figure 13. Schematic diagram of the lobed orifices used. Reprinted with permission [113], Copy- right 2020, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p029_i0.jpg",
+    "page": 29,
+    "w": 1289,
+    "h": 976,
+    "captions_on_page": [
+      "Figure 14. Nu values for different percentages of SiO2 nanoparticles in water at (a) H/D = 2, (b) H/D  = 3 (c), H/D = 4, and (d) H/D = 5. Reprinted with permission [138], Copyright 2017, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p030_i0.jpg",
+    "page": 30,
+    "w": 1074,
+    "h": 529,
+    "captions_on_page": [
+      "Figure 15. Variations of the Nusselt number (a) along the impinging jet as a function of the volume  fraction (∅) and (b) variations of the average Nusselt number as a function of the volume fraction  (∅). Reprinted with permission [143], Copyright 2019, Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p032_i0.jpg",
+    "page": 32,
+    "w": 1090,
+    "h": 749,
+    "captions_on_page": [
+      "Figure 16. Images of encapsulated nanoparticles using (a) scanning electron microscopy and (b)  transmission electron microscopy; (c) particle size distribution of encapsulated nanoparticles; (d)  schematic diagram of the test chamber and heating element. Reprinted with permission [158], Cop- yright"
+    ]
+  },
+  {
+    "file": "figures/p033_i0.jpg",
+    "page": 33,
+    "w": 751,
+    "h": 403,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p034_i0.jpg",
+    "page": 34,
+    "w": 865,
+    "h": 575,
+    "captions_on_page": [
+      "Figure 17. Schematic diagram of the test chamber and heating element. Reprinted with permission  [164], Copyright 2021, Elsevier."
+    ]
+  }
+]
