@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="算力冷却商业调研报告 v3.3 Evidence-led，数据截止2026-09-05（市场序列口径仍为2026-08-22）">
+  <title>算力冷却商业调研报告 v3.3 Evidence-led / 20260906</title>
+  <style>
+    :root{--ink:#172033;--muted:#5d687a;--line:#d9e1ec;--blue:#175cd3;--navy:#0b1f3a;--bg:#f3f6fa;--ok:#087a55;--warn:#9a6700;--bad:#b42318;--purple:#6941c6}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.72 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+    .page{max-width:1220px;margin:auto;background:#fff;box-shadow:0 12px 42px rgba(10,31,68,.09)}
+    header{padding:58px 66px 40px;background:linear-gradient(135deg,#081b33,#143f78 64%,#175cd3);color:#fff}
+    .kicker{font-size:13px;letter-spacing:.15em;text-transform:uppercase;opacity:.86}.subtitle{max-width:920px;font-size:18px;opacity:.94}
+    h1{font-size:43px;line-height:1.18;margin:14px 0 11px}h2{font-size:25px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:9px;margin:0 0 16px}h3{font-size:18px;color:#173b70;margin:25px 0 10px}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.pill{border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.11);font-size:13px}
+    nav{padding:27px 66px;background:#fbfcfe;border-bottom:1px solid var(--line)}nav h2{font-size:18px}.toc{columns:2;column-gap:40px}.toc a{display:block;color:#18345f;text-decoration:none;margin:4px 0}.toc a:hover{text-decoration:underline}
+    main{padding:40px 66px 66px}section{margin:0 0 43px;scroll-margin-top:20px}.overview{min-height:880px;padding:42px 66px;border-bottom:1px solid var(--line);break-after:page}
+    .lead{font-size:17px;color:#21314e;background:#eff5ff;border-left:5px solid var(--blue);padding:16px 19px;border-radius:8px}
+    .decision{font-size:19px;font-weight:700;color:var(--navy);padding:16px 19px;background:#edf4ff;border-left:6px solid var(--blue);border-radius:8px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:14px 0}.card{border:1px solid var(--line);border-radius:11px;padding:15px;background:#fff}.card b{display:block;color:var(--blue);font-size:20px}
+    table{width:100%;border-collapse:collapse;margin:14px 0 23px;font-size:13.5px}th{background:#102a4c;color:#fff;text-align:left;font-weight:600}th,td{border:1px solid var(--line);padding:9px 10px;vertical-align:top}tbody tr:nth-child(odd) td{background:#f8fafc}
+    .tag{display:inline-block;border-radius:5px;padding:1px 6px;font-size:11px;font-weight:700;white-space:nowrap;cursor:help}
+    .a{background:#e8f7f0;color:var(--ok)}.e{background:#eaf1fd;color:#1149a8}.f{background:#fff2cc;color:var(--warn)}.m{background:#eee9fe;color:var(--purple)}.na{background:#feeceb;color:var(--bad)}
+    .callout{border:1px solid #c9d8ff;background:#f4f7ff;border-radius:11px;padding:15px 18px;margin:17px 0}.risk{border-color:#f6c8c5;background:#fff7f6}.ok{border-color:#b6e4d2;background:#f2fbf7}.warn{border-color:#ead69d;background:#fffaf0}
+    .tnote{border-left:4px solid var(--blue);background:#fbfcfe;padding:12px 15px;margin:-9px 0 24px;font-size:13px;line-height:1.7;color:#33415a;border-radius:0 8px 8px 0}
+    .tnote b{color:var(--navy)}.tnote ul{margin:6px 0 0;padding-left:20px}.tnote li{margin:3px 0}
+    .small{color:var(--muted);font-size:13px}.formula{font-family:Consolas,monospace;background:#101828;color:#f2f4f7;padding:12px 15px;border-radius:8px;overflow:auto}.nowrap{white-space:nowrap}
+    .page-break{break-before:page}.footer{border-top:1px solid var(--line);padding-top:18px;margin-top:31px;color:var(--muted);font-size:13px}
+    a{color:#175cd3;word-break:break-word}ul,ol{padding-left:22px}
+    @media(max-width:820px){header,nav,main,.overview{padding-left:22px;padding-right:22px}.grid{grid-template-columns:1fr}.toc{columns:1}h1{font-size:34px}table{display:block;overflow-x:auto}}
+    @media print{body{background:#fff}.page{box-shadow:none}header,nav,main,.overview{padding-left:28px;padding-right:28px}section{break-inside:auto}table,.card,.callout{break-inside:avoid}a{color:inherit}.toc{columns:1}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header id="top">
+    <div class="kicker">Commercial Research Report · v3.3 Evidence-led / 20260906</div>
+    <h1>算力冷却商业调研报告</h1>
+    <div class="subtitle">高密 AI 基础设施液冷：需求、算力基建投资、液冷占比、工程边界、竞争、准入、项目池与验证期权。v3.3 补入分部毛利实证、单位容量价格上限与验证路径</div>
+    <div class="meta">
+      <span class="pill">版本：v3.3 Evidence-led / 20260906</span>
+      <span class="pill">数据截止日：2026-09-05</span>
+      <span class="pill">市场序列口径截止：2026-08-22（未变）</span>
+      <span class="pill">研究范围：中国、东南亚、中东及全球对标</span>
+      <span class="pill">主边界：液冷设备制造商收入 / 项目级 CDU</span>
+      <span class="pill">配套 BP：v2.2_20260906</span>
+      <span class="pill">配套决策包：验证与决策包 v1.0_20260905</span>
+    </div>
+  </header>
+
+  <section class="overview" id="cover">
+    <h2>首页｜研究边界与决策结论</h2>
+    <div class="decision">结论：液冷需求方向成立。独立供应商的可得份额、价格、责任与现金回报<strong>仍无成交级数据，但已由《算力冷却_验证与决策包 v1.0 / 20260905》转化为条件、可行域、敞口与生存条件，验证路径与最小证据集已明确</strong>。当前仍只支持“受客户、工程、责任与现金门禁约束的小规模验证期权”，不支持按行业 CAGR 批准量产扩张。</div>
+    <div class="grid">
+      <div class="card"><b>接近 30 亿美元 → 约 70 亿美元</b>Dell’Oro 全球液冷设备制造商收入，2025 至 2029 机构端点；TAM 主锚</div>
+      <div class="card"><b>0.3%–0.9% ／ 5%–11%</b>液冷设备收入占算力基建总投资 ／ 占 DCPI 设备市场，2025–2032；分母不同则量级完全不同</div>
+      <div class="card"><b>10.36% ／ 684.75–715.00 元/kW</b>v3.3 新增两个可复算的实证锚：公开渠道唯一的纯冷板式液冷产品毛利率（曙光数创 2025 年报）；两个运营商采购样本折算的单位容量包价上限</div>
+    </div>
+    <div class="callout risk"><strong>v3.3 新增的实证边界（三项，均可独立复算）：</strong>①<strong>毛利</strong>——三家公司一手年报的分部毛利显示，已实现的较高毛利集中在<strong>海外</strong>与<strong>服务／解决方案</strong>，而非国内裸设备（第 5 章）；②<strong>价格</strong>——两个运营商包价样本折算后收敛在 <strong>684.75–715.00 元/kW</strong>（差 4.4%），构成 300–500 kW 档、国内运营商渠道的<strong>价格上限约束边界</strong>，不是价格预测（第 6.2 章）；③<strong>验证路径</strong>——四项前置证据的现金成本 &lt;5 万元、周期 6–8 周，保护 245 万元的样机与 NRE 支出，<strong>保护比 49:1</strong>（第 12.3 章）。<strong>SAM<sub>24m</sub> 与 SOM 仍为无数据，不是 0。</strong></div>
+    <h3>研究范围</h3>
+    <p>覆盖冷板式直接液冷的 CDU、芯片级/微通道冷板、Manifold、UQD、工质、二次管路、控制、安装调试与流体运维；浸没、两相和设施侧冷源作为相邻路线比较。市场侧以全球设备制造商收入为主边界；服务器整机、宽产业与总冷却只作旁证。v3.2 新增全球算力基建投资分层估算与液冷占比测算，两者同为外部锚定，不进入公司预算。</p>
+    <h3>核心口径</h3>
+    <table>
+        <thead>
+      <tr><th scope="col">口径</th><th scope="col">定义</th><th scope="col">用途</th><th scope="col">禁止事项</th></tr>
+        </thead>
+        <tbody>
+      <tr><td>设备 TAM</td><td>冷板、CDU、歧管、快接、浸没、RDHx等制造商收入</td><td>全球市场主锚</td><td>不得与服务器整机或宽产业相加</td></tr>
+      <tr><td>算力基建投资 L1／L2／L3</td><td>设施侧 CapEx／IT 设备投资／两者之和</td><td>液冷占比的分母分层</td><td>不得与设备 TAM 相加；不得换算为公司收入</td></tr>
+      <tr><td>项目池 SAM</td><td>24个月内、五道项目门均闭环且可服务的项目收入</td><td>公司可服务市场</td><td>不得以公告 MW 或服务器台数代替</td></tr>
+      <tr><td>SOM</td><td>合格项目中，经 qualification、订单、交付、服务和回款约束后的可获收入</td><td>公司预算</td><td>不得用 TAM×目标份额</td></tr>
+      <tr><td>单位经济</td><td>从净收入扣除完全项目成本并考虑现金占用</td><td>量产门禁</td><td>无报价、合同和试制数据时不得填点值</td></tr>
+        </tbody>
+      </table>
+    <h3>利益冲突、免责声明与有效期</h3>
+    <div class="callout">
+      <ul>
+        <li>本报告由内部研究流程生成，未接受被研究企业付费，不构成证券投资建议、产品认证或采购承诺。</li>
+        <li>公开来源可能包含预测、营销口径、滚动网页与受限附件；报告用中文<strong>数据性质标签</strong>（实绩／机构估计／机构预测／模型）、中文<strong>来源等级</strong>（一级／二级／三级）与<strong>无数据</strong>显式区分。<strong>L1／L2／L3 在 v3.2 起专指投资层级，不再表示来源等级。</strong></li>
+        <li>总体结论 <strong>valid_until：2026-11-30</strong>；并购方新季报、平台新 revision、正式招标合同、项目状态变化或重大可靠性事故将提前触发复核。投资与占比章节 <strong>valid_until：2027-02-28</strong>。<strong>v3.3 新增的价格与现金实证 valid_until：2026-12-31；责任结构 valid_until：2027-03-31。</strong></li>
+        <li>研究充分性：<strong>SUFFICIENT WITH LIMITATIONS</strong>——足以重写，不等于商业参数或量产可行性已验证。<strong>v3.3 未改变该裁决：新增内容是把「未验证」转化为可验证的约束与取证路径，不是把「未验证」改成「已验证」。</strong></li>
+        <li><strong>倒推纪律（v3.3 强制）：</strong>本报告与配套决策包中的一切倒推结论均回答「<strong>必须达到什么</strong>」，不回答「将会达到什么」。任何把倒推结果作为预测引用的行为均属误用。三级来源的百分比区间（责任上限 10%–20%、性能 LD 10%–15%、年降 5%–8%、海外 200–240 美元/kW、GPU 基板 3.5–5.0 万美元）必须保留等级标注与置信度，<strong>不得写成行业事实</strong>。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="overview" id="core-view-1">
+    <h2>两页核心观点①｜六条结论及证据强度</h2>
+    <table>
+        <thead>
+      <tr><th scope="col">核心结论</th><th scope="col">事实证据</th><th scope="col">研究推导</th><th scope="col">置信度 / valid_until</th><th scope="col">反证 / invalidate_if</th></tr>
+        </thead>
+        <tbody>
+      <tr><td><strong>1. 需求方向强，口径不可相加</strong></td><td>Dell’Oro 设备收入端点；IEA用电；IDC中国液冷服务器；CAICT宽产业</td><td>高密平台和设施投资支持液冷扩张，但设备、整机、宽产业是不同分母</td><td>0.92 / 2027-01-31</td><td>新预测改分母；高密整柜出货或已获电容量显著下修</td></tr>
+      <tr><td><strong>2. 工程壁垒是平台级适配</strong></td><td>Lenovo GB300/N1380、Dell、Huawei、OCP的功率、Q–ΔP、ATD和工质资料</td><td>铭牌冷量不能证明平台兼容；水力、材料、冗余和故障态共同决定可用性</td><td>0.94 / 2026-11-30</td><td>OEM新BOM或site-planning revision改变负荷、接口或工质</td></tr>
+      <tr><td><strong>3. 竞争全栈化，增长不保证高毛利；毛利集中在海外与服务侧</strong></td><td>Ecolab/CoolIT、Eaton/Boyd、Schneider/Motivair；<strong>三家公司 2025 年报分部毛利：英维克境外 52.64% vs 境内 23.83%；申菱解决方案及服务 31.63% vs 设备 21.46%；曙光服务 51.02% vs 冷板产品 10.36%</strong>；Modine 数据中心分部 20.2%</td><td>全球服务、流体管理和责任承担成为壁垒；扩产爬坡和标准化可压缩利润。<strong>三家公司互相独立的一手披露指向同一方向：已实现的较高毛利在海外与服务／解决方案，不在国内裸设备</strong>（方向性提示，非本公司结论）</td><td>0.90 / 2026-11-15<br><strong>分部毛利事实 0.93；方向可迁移性 0.70</strong></td><td>并购方披露独立液冷收入/利润显著优于当前可比证据；英维克或申菱首次披露液冷专项毛利；曙光披露 2026 冷板分项毛利率</td></tr>
+      <tr><td><strong>4. 公开招标不能验证单位经济，但已能约束价格可行域</strong></td><td>佛山/南京仅为含配套的限价或预估；浙江未取得价格附件；C-DAC显示长验收与质保。<strong>两个包价样本折算后收敛在 684.75–715.00 元/kW（差 4.4%）</strong></td><td>当前没有合格裸机成交价、四SKU BOM或故障成本，ASP、毛利、ROIC均应为无数据。<strong>但折算后的单位容量包价可作为 300–500 kW 档、国内运营商渠道的价格上限约束边界使用——是边界，不是价格预测</strong></td><td>0.96 / 正式合同发布即复核<br><strong>折算值 0.85 / 2026-12-31</strong></td><td>取得两个同边界分项合同价、书面BOM和试制数据；任一官方中选公示或单价限价附件公开</td></tr>
+      <tr><td><strong>5. 液冷在算力投资中的价值占比极低，且高度依赖分母</strong></td><td>McKinsey累计投资情景；JLL单位建设成本；IDC AI基础设施支出；Dell’Oro DCPI三版预测</td><td>液冷设备收入占总投资长期不到1%，占设施侧约1%–6%，占DCPI约5%–11%；引用不写分母即误导</td><td>相对量级0.80；任一点值0.35 / 2027-02-28</td><td>IDC连续两季下修AI支出；Dell’Oro再次重划DCPI边界；JLL单位建设成本转降</td></tr>
+      <tr><td><strong>6. 最优策略是验证期权，且取证必须先于样机支出</strong></td><td>电网、利用率、OEM指定、价格、漏液责任与现金周期反证。<strong>四项前置证据（四SKU报价、责任条款+保险报价、付款条款、客户平台包）现金成本 &lt;5 万元、周期 6–8 周，保护 245 万元样机与 NRE 支出</strong></td><td>只对已获电在建项目、付费PoC和可封顶责任释放资金，可限制下行损失。<strong>取证与支出的先后次序本身就是最高杠杆的现金保护动作，保护比 49:1</strong></td><td>0.88 / 2026-12-31</td><td>项目池、贡献毛利、可靠性和回款形成持续可复制证据；四项前置证据全部取得后重跑单位经济</td></tr>
+        </tbody>
+      </table>
+    <div class="callout risk"><strong>事实与推导分离：</strong>表中机构端点、原厂参数、交易状态和合同条款是外部事实；“验证期权”、项目闸门、内部阈值以及全部投资与占比序列是研究推导/管理门禁，不代表行业惯例，也不代表机构预测。</div>
+  </section>
+
+  <section class="overview" id="core-view-2">
+    <h2>两页核心观点②｜商业三步走：门禁约束验证期权</h2>
+    <p class="lead">2027 年启动不变；800/1,200/1,500 万元均为阶段上限。阶段二、三不是承诺额度，只有订单、贡献毛利、回款、可靠性和现金跑道同时达标才可解锁。</p>
+    <table>
+        <thead>
+      <tr><th scope="col">阶段</th><th scope="col">时间与上限</th><th scope="col">验证对象</th><th scope="col">资金释放门禁</th><th scope="col">No-Go</th></tr>
+        </thead>
+        <tbody>
+      <tr><td><strong>阶段1：产品—客户验证</strong></td><td>2027启动；上限800万元</td><td>100/200/300/450 kW容量档的性能矩阵、付费PoC、FAT/SAT、合同边界</td><td>客户书面平台包；至少两项付费验证；完整项目损益；回款节点可执行；无重大可靠性缺陷</td><td>无限停机/数据责任；无有效工况；无付费牵引；现金压力情景失守</td></tr>
+      <tr><td><strong>阶段2：资格—复制验证</strong></td><td>条件期权；最高1,200万元</td><td>项目级qualification、批量一致性、本地服务、供应链双源</td><td>不可撤销订单；正的完全成本贡献；验收回款闭环；可靠性批次通过；压力情景现金跑道达标</td><td>框架无订单；贡献持续为负；DSO/库存突破董事会阈值；重大质保事件</td></tr>
+      <tr><td><strong>阶段3：平台—产能验证</strong></td><td>条件期权；最高1,500万元</td><td>OEM/ODM联合开发、芯片级/微通道冷板、海外服务与专用产能</td><td>客户订单覆盖新增固定成本；量产良率稳定；责任可保可封顶；本地服务SLA通过；现金跑道充分</td><td>无客户NRE/订单建专线；代际变化导致专用BOM失效；单一客户风险过高</td></tr>
+        </tbody>
+      </table>
+    <div class="grid">
+      <div class="card"><b>订单门</b>PO、最低采购或等效信用保障；框架份额不等于收入</div>
+      <div class="card"><b>贡献门</b>硬件毛利、项目贡献、现金调整后贡献三层均可追踪</div>
+      <div class="card"><b>现金门</b>按周测峰值资金；纳入PBG、验收延期、质保与返修</div>
+    </div>
+    <p class="small">配套商业计划书自 v3.3 起对应《算力冷却系统新业务BP》<strong>v2.2_20260906</strong>；本报告不修改任何 BP 版本。BP v2.2 在 G0 与 G1 之间新增 <strong>G0.5 前置证据门</strong>，并把本报告第 5、6.2、8、12.3 章的新增实证转写为公司侧门禁；两份文件的关键数字一一对应。</p>
+  </section>
+
+  <nav aria-label="目录">
+    <h2>目录</h2>
+    <div class="toc">
+      <a href="#method">1. 研究方法与口径</a>
+      <a href="#demand">2. 需求驱动与市场规模</a>
+      <a href="#global-compute-liquid">2.5 2025–2032全球算力与液冷对比</a>
+      <a href="#capex">2.6 全球算力基建投资估算（2025–2032）</a>
+      <a href="#liquid-share">2.7 液冷占算力基建的比例（2025–2032）</a>
+      <a href="#engineering">3. 工程基线与技术路线</a>
+      <a href="#standards">4. 标准、可靠性与qualification</a>
+      <a href="#competition">5. 竞争、并购与产业链</a>
+      <a href="#procurement">6. 客户采购、合同与回款</a>
+      <a href="#sam">7. TAM / SAM / SOM</a>
+      <a href="#economics">8. 单位经济空模型</a>
+      <a href="#strategy">9. 战略与资金门禁</a>
+      <a href="#regions">10. 区域状态</a>
+      <a href="#risks">11. 风险、反命题与季度跟踪</a>
+      <a href="#appendix">12. 附录：证据、公式与取证待办</a>
+      <a href="#changelog">13. v3.1 → v3.2 变更说明</a>
+      <a href="#changelog33">14. v3.2 → v3.3 变更说明</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="method">
+      <h2>1. 研究方法与口径</h2>
+      <h3>1.1 数据性质标签：全文使用中文标签</h3>
+      <p>v3.2 起，表格单元格内<strong>不再使用紧跟数值的孤立英文字母后缀</strong>。此前用单个字母表示“模型／机构估计／机构预测”，紧贴数值时无法与单位区分：例如区间 235–290 后面跟一个字母，容易被读成“百万”这一数量级。数据性质改用中文小标签，并在每张关键表格下方用备注逐列逐年说明。鼠标悬停可见英文原义。</p>
+      <table>
+        <thead>
+        <tr><th scope="col">标签</th><th scope="col">含义</th><th scope="col">写作纪律</th></tr>
+        </thead>
+        <tbody>
+        <tr><td><span class="tag a" title="Actual">实绩</span></td><td>官方统计、公司已披露实绩、已发生交易或现行状态</td><td>仍须标地域、边界、版本和日期</td></tr>
+        <tr><td><span class="tag e" title="Estimate">机构估计</span></td><td>机构对已发生年份的估计</td><td>不得写成审计实绩</td></tr>
+        <tr><td><span class="tag f" title="Forecast">机构预测</span></td><td>机构预测、交易材料前瞻或未来目标</td><td>不得写成实绩或订单</td></tr>
+        <tr><td><span class="tag m" title="Model">模型</span></td><td>本报告透明推导或情景</td><td>须给公式、输入和失效条件；不得伪装成机构逐年预测</td></tr>
+        <tr><td><span class="tag na" title="Not Available / Not Disclosed">无数据</span></td><td>公开证据不足、未披露或口径不匹配</td><td>不得改成0，不得用二手区间填空</td></tr>
+        </tbody>
+      </table>
+      <h3>1.2 来源等级与投资层级：两套编号严格分开</h3>
+      <p><strong>来源等级（中文）：</strong><em>一级</em>为政府/监管/正式标准/交易所或SEC文件/采购人原件/原厂正式手册；<em>二级</em>为公司正式公告、原厂发布稿、OCP开放规范和研究机构官方摘要；<em>三级</em>为镜像、转录和二手研究，仅作线索；<em>本报告模型</em>为内部推导。</p>
+      <p><strong>投资层级（L1／L2／L3）：</strong>专用于第 2.6、2.7 章的算力基建投资分层，定义见 2.6.1。<strong>v3.1 曾用 L1/L2/L3 表示来源等级，v3.2 已停止该用法</strong>，以避免与投资层级混淆。</p>
+      <div class="formula">Claim record = ID + claim + geography + product/revenue boundary + original unit + data_nature + source_grade + title/URL + date + page/clause + version + status_as_of + confidence + valid_until + invalidate_if</div>
+    </section>
+
+    <section id="demand">
+      <h2>2. 需求驱动与市场规模</h2>
+      <p class="lead">TAM主锚只采用Dell’Oro液冷设备制造商收入。IDC、CAICT、IEA、McKinsey、JLL和Omdia分别验证整机、宽产业、用电、需求容量、供给容量和总冷却，任何两项均不得相加。</p>
+      <h3>2.1 市场口径桥</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">来源与端点</th><th scope="col">地域/边界</th><th scope="col">数据性质</th><th scope="col">报告用途</th><th scope="col">可否与主锚相加</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>Dell’Oro：2025接近30亿美元；2029约70亿美元</td><td>全球液冷设备制造商收入；DLC、浸没、RDHx</td><td>2025 机构估计；2029 机构预测</td><td><strong>TAM主锚</strong></td><td>否</td></tr>
+        <tr><td>Dell’Oro DLC：2024 11亿美元；2029 58亿美元；更新版2030超过80亿美元</td><td>全球直接液冷子集；前两项为July-2025版，后一项为January-2026版</td><td>机构估计 / 机构预测</td><td>路线与预测上调旁证</td><td>否；跨版本不得做精确差额</td></tr>
+        <tr><td>IDC：2024 23.7亿美元；2029 162亿美元</td><td>中国液冷服务器整机收入</td><td>机构估计 / 机构预测</td><td>中国需求旁证</td><td>否</td></tr>
+        <tr><td>CAICT：2024 184亿元；2029约1,300亿元</td><td>中国智算中心液冷宽产业</td><td>机构估计 / 机构预测</td><td>产业链旁证</td><td>否</td></tr>
+        <tr><td>Omdia：2028 168亿美元</td><td>全球数据中心总冷却/热管理</td><td>机构预测</td><td>总体冷却旁证</td><td>否</td></tr>
+        <tr><td>Dell’Oro DCPI：2030 1,200亿美元（August-2026版）</td><td>数据中心物理基础设施设备市场；仅制造商收入</td><td>机构预测</td><td>设施设备投资旁证；2.7章组③分母</td><td>否</td></tr>
+        </tbody>
+      </table>
+      <h3>2.2 需求端点：不同对象分列</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">指标</th><th scope="col">端点</th><th scope="col">数据性质</th><th scope="col">边界</th><th scope="col">来源</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>全球数据中心用电</td><td>2024 415 / 2025 485 / 2030 950 TWh</td><td>2024、2025 为机构估计；2030 为机构预测</td><td>总用电，包含IT与设施负荷</td><td><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary">IEA, Key Questions on Energy and AI, 2026-04-16, Executive Summary p.10</a></td></tr>
+        <tr><td>全球容量需求</td><td>2030 171–219 GW；较低概率高情景298 GW</td><td>机构预测（情景）</td><td>需求情景，不是已建供给</td><td><a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/ai-power-expanding-data-center-capacity-to-meet-growing-demand">McKinsey, AI power, 2024-10-29, Exhibit 1</a></td></tr>
+        <tr><td>全球容量/供给展望</td><td>2025 103 GW；2030 200 GW</td><td>2025 为机构估计；2030 为机构预测</td><td>设施容量/供给展望</td><td><a href="https://www.jll.com/content/dam/jllcom/en/global/documents/reports/research-reports/26-research-global-data-center-outlook-new.pdf">JLL, 2026 Global Data Center Outlook, Market sizing</a></td></tr>
+        </tbody>
+      </table>
+      <h3>2.3 2030/2032情景纪律</h3>
+      <p>2025/2029采用Dell’Oro全液冷公开端点；2026–2028为本报告透明桥接模型。2030须与Dell’Oro新版“DLC超过80亿美元”分版本对照；2031–2032只作Bear/Base/Bull。董事会外部TAM采用2032<strong>90亿–140亿美元（本报告模型），Base约115亿美元</strong>；不是机构预测、CDU SAM/SOM或公司可得收入。</p>
+      <div class="callout risk"><strong>反证：</strong>电网并接、变压器/电缆交期、GPU许可、利用率和OEM垂直整合会使“需求”晚于或不转化为独立CDU采购。项目预算必须跟随已获电、已开工和平台已冻结的批次。</div>
+    </section>
+
+    <section id="global-compute-liquid" class="page-break">
+      <h2>2.5 2025–2032全球算力建设与液冷市场对比</h2>
+      <p class="lead"><strong>结论先行：</strong>2029年全球液冷设备制造商收入约70亿美元合理（confidence 0.88；valid_until 2027-02-28），但它只是外部设备TAM预测锚，不是项目订单、DLC精确母项、CDU SAM/SOM或公司预算。McKinsey需求、JLL供给、C&amp;W在建、IEA用电与Dell’Oro制造商收入必须分列。</p>
+      <div class="grid">
+        <div class="card"><b>82→219 GW</b>McKinsey continued-momentum容量需求，2025 至 2030 机构端点；AI约44→156 GW</div>
+        <div class="card"><b>103→200 GW</b>JLL设施供给/市场容量，2025 至 2030 机构端点；2026–2030近100 GW上线</div>
+        <div class="card"><b>30→70→115亿美元</b>全液冷Base：2025 机构估计→2029 机构预测→2032 本报告模型；2032合理带90–140亿美元</div>
+      </div>
+      <h3>2.5.1 口径与机构端点</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">指标</th><th scope="col">机构端点</th><th scope="col">边界</th><th scope="col">报告处理</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>关键IT容量需求</td><td>McKinsey 82 GW(2025)→219 GW(2030)，AI 44→156 GW</td><td>全球continued-momentum需求情景</td><td>端点为机构估计/预测；中间年为本报告几何桥接</td></tr>
+        <tr><td>设施供给/市场容量</td><td>JLL 103 GW(2025)→200 GW(2030)</td><td>hyperscale、colo、on-prem供给展望</td><td>端点为机构估计/预测；中间年为本报告模型；不直接相减认定订单</td></tr>
+        <tr><td>建设状态</td><td>C&amp;W：2025年末全球在建约31.7 GW；JLL：2026–2030约97/近100 GW上线</td><td>在建存量 vs 累计投运</td><td>在建/规划pipeline不得计作当年投运</td></tr>
+        <tr><td>全球用电</td><td>IEA 485 TWh(2025)→950 TWh(2030)</td><td>IT与设施总用电</td><td>中间年为本报告模型；不以8760小时直接换关键IT GW</td></tr>
+        <tr><td>累计投资</td><td>McKinsey 2025–2030累计6.7万亿美元；JLL至2030最高3万亿美元</td><td>前者含硬件/设施/地产/电力；后者含地产价值、融资与租户IT fit-out，概念交叉</td><td>本节只列累计、不相加；年度化与分层估算见 2.6 章</td></tr>
+        </tbody>
+      </table>
+      <h3>2.5.2 年度主表</h3>
+      <p class="small">单位：GW、TWh、亿美元。显示值已按模型不确定性取整；区间优先。数据性质见表下备注。</p>
+      <table>
+        <thead>
+        <tr><th scope="col">年</th><th scope="col">关键IT需求GW</th><th scope="col">设施供给GW</th><th scope="col">新增投运GW</th><th scope="col">AI容量占比（存量口径）</th><th scope="col">用电TWh</th><th scope="col">全液冷收入亿美元</th><th scope="col">DLC收入亿美元</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>2025</td><td>82</td><td>103</td><td>10–14</td><td>24%–30%（JLL约25%）</td><td>485</td><td>25–35（Base 30）</td><td>20–28</td></tr>
+        <tr><td>2026</td><td>100</td><td>118</td><td>13–17</td><td>29%–35%</td><td>555</td><td>30–44（Base 37）</td><td>27–36</td></tr>
+        <tr><td>2027</td><td>121</td><td>134</td><td>14–19</td><td>34%–41%</td><td>635</td><td>37–55（Base 46）</td><td>34–46</td></tr>
+        <tr><td>2028</td><td>148</td><td>153</td><td>17–22</td><td>39%–46%</td><td>725</td><td>47–68（Base 57）</td><td>44–56</td></tr>
+        <tr><td>2029</td><td>180</td><td>175</td><td>20–25</td><td>44%–50%</td><td>830</td><td>60–80（Base 70）</td><td>55–65</td></tr>
+        <tr><td>2030</td><td>219</td><td>200</td><td>22–28</td><td>47%–53%（JLL约50%）</td><td>950</td><td>82–100（Base 88）</td><td>82–90</td></tr>
+        <tr><td>2031</td><td>225–255</td><td>215–235</td><td>18–30</td><td>49%–56%</td><td>980–1,090</td><td>86–120（Base 101）</td><td>82–105</td></tr>
+        <tr><td>2032</td><td>235–290</td><td>230–270</td><td>15–32</td><td>50%–60%</td><td>1,020–1,240</td><td>90–140（Base 115）</td><td>88–125</td></tr>
+        </tbody>
+      </table>
+      <div class="tnote">
+        <b>表 2.5.2 数据性质备注（逐列逐年，替代原来的字母后缀）</b>
+        <ul>
+          <li><b>2025 与 2030 两行是机构端点年：</b>「关键IT需求GW」的 82（2025，McKinsey 机构估计）与 219（2030，McKinsey 机构预测）；「设施供给GW」的 103（2025，JLL 机构估计）与 200（2030，JLL 机构预测）；「用电TWh」的 485（2025，IEA 机构估计）与 950（2030，IEA 机构预测）；「AI容量占比」的 2025 约 25% 与 2030 约 50%（JLL 机构估计/预测）。</li>
+          <li><b>2026–2029 这四行的需求、供给、用电、AI 占比全部是本报告模型：</b>按 2025 与 2030 机构端点几何桥接，公式 <code>X_t = X_2025 × (X_2030 / X_2025)^((t−2025)/5)</code>。它们<strong>不是机构发布的年度值</strong>，机构未公布这些年份的对应端点。</li>
+          <li><b>2031 与 2032 两行的全部单元格都是本报告情景模型，没有任何机构对应端点。</b>公开一手材料主要锚定 2029、2030 与 2035，无同质量的 2031/2032 端点，因此只给区间，不给单点。</li>
+          <li><b>「新增投运GW」全部年份都是本报告模型：</b>由 JLL「2026–2030 累计约 100 GW 上线」的累计端点桥接而来，机构未公布逐年投运量。在建（C&amp;W 2025 年末约 31.7 GW）与规划管线不计入当年投运。</li>
+          <li><b>「全液冷收入」：</b>2025 的 30 亿美元中枢来自 Dell’Oro「接近 30 亿美元」（机构估计），2029 的 70 亿美元中枢来自 Dell’Oro「约 70 亿美元」（机构预测）；<strong>这两年的区间边界（25–35、60–80）以及 2026–2028、2030–2032 的全部数值都是本报告模型</strong>。</li>
+          <li><b>「DLC收入」：</b>2029 的 58 亿美元是 Dell’Oro July-2025 版机构预测锚（落在本表 55–65 区间内），2030 的下界受 Dell’Oro January-2026 版「超过 80 亿美元」约束；<strong>其余全部年份与全部区间边界均为本报告模型</strong>。三个 Dell’Oro 版本不得拼成一条机构序列，见 2.5.3。</li>
+          <li><b>「AI容量占比」是存量口径</b>（AI 负载占当年全部数据中心容量的比例），<strong>不是 AI 占当年新增容量的比例</strong>。后者显著更高：若存量份额由约 25% 升至约 50%、总容量由 103 GW 增至 200 GW，则 AI 约占 2026–2030 新增容量的 76%。2.6 章的自下而上模型使用新增份额（65%–82%，本报告模型），两者不可互换。</li>
+        </ul>
+      </div>
+      <div class="callout risk"><strong>需求高于供给不等于订单缺口：</strong>2030的219 GW与200 GW首先反映定义、基准、时点、占用和可交付性差异。JLL称2025年57%项目延迟至少3个月、主要市场并网平均等待超过4年；C&amp;W披露全球大负荷平均供电周期4.4年。</div>
+      <h3>2.5.3 Dell’Oro版本隔离与情景</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">公开摘要</th><th scope="col">数字</th><th scope="col">边界</th><th scope="col">纪律</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>2025-08-15；July-2025 DCPI Forecast</td><td>DLC 2024年11亿→2029年58亿美元</td><td>全球DLC子集</td><td>底层逐年表和方法付费不可见</td></tr>
+        <tr><td>2026-01-08；Liquid Cooling Advanced Research</td><td>全液冷2025接近30亿→2029约70亿美元</td><td>DLC、浸没、RDHx制造商收入</td><td>独立研究；70−58不得精确视作其他路线</td></tr>
+        <tr><td>2026-02-10；January-2026 DCPI Forecast</td><td>2030 DLC超过80亿美元</td><td>全球DLC更新预测</td><td>预测上调/版本断点；不是前两组同版续表</td></tr>
+        <tr><td>2026-08-19；August-2026 DCPI Forecast</td><td>DCPI 2030 达1,200亿美元；2025–2030 CAGR 22%</td><td>DCPI设备市场，边界已扩展</td><td>2.7章组③的分母基准；不得与前三版拼接</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+        <tr><th scope="col">年</th><th scope="col">Bear</th><th scope="col">Base</th><th scope="col">Bull</th><th scope="col">数据性质与机构对应</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>2025</td><td>25</td><td>30</td><td>35</td><td>Base 对应 Dell’Oro「接近30」机构估计；区间边界为本报告模型</td></tr>
+        <tr><td>2026</td><td>30</td><td>37</td><td>44</td><td>全部为本报告模型；无机构端点</td></tr>
+        <tr><td>2027</td><td>37</td><td>46</td><td>55</td><td>全部为本报告模型；无机构端点</td></tr>
+        <tr><td>2028</td><td>47</td><td>57</td><td>68</td><td>全部为本报告模型；无机构端点</td></tr>
+        <tr><td>2029</td><td>60</td><td>70</td><td>80</td><td>Base 对应 Dell’Oro「约70」机构预测；区间边界为本报告模型</td></tr>
+        <tr><td>2030</td><td>82</td><td>88</td><td>100</td><td>本报告模型；下界受新版DLC「超过80」的口径约束</td></tr>
+        <tr><td>2031</td><td>86</td><td>101</td><td>120</td><td>全部为本报告情景；无机构端点</td></tr>
+        <tr><td>2032</td><td>90</td><td>115</td><td>140</td><td>全部为本报告情景；无机构端点</td></tr>
+        </tbody>
+      </table>
+      <p class="small">2030相对2029存在由新版DLC「超过80」造成的预测版本跳点，不解释为有机同比。2030以后，Bear约5%年增，Base约14%–15%，Bull约17%–20%；中间年桥接及2031–2032均非机构原始年度预测。单位：亿美元。</p>
+      <h3>2.5.4 三重合理性校验</h3>
+      <ol>
+        <li><strong>宏观占比：</strong>IDC公开更新称2025 AI基础设施3,180亿美元、2029达1.08万亿美元；2025全液冷25–35亿美元仅约0.8%–1.1%。液冷占各层投资的完整测算见 2.7 章，本处只作量级检查，不生成伪精确年度比例。</li>
+        <li><strong>容量强度：</strong><code>收入=(新增投运×AI占比×AI液冷采用率+非AI液冷+存量改造)×设备价值/MW</code>。2029假设新增20–25 GW、AI占44%–50%（存量口径）、AI液冷55%–75%、非AI新增3%–7%、改造1–3 GW，得液冷负荷约7–13 GW；按0.45–0.80百万美元/MW反推约32–104亿美元，70亿美元居中。全部参数为本报告模型，不是CDU ASP。</li>
+        <li><strong>机柜强度：</strong>若70亿美元对应每液冷柜4–10万美元，反推约7–17.5万柜；按100–150 kW/柜约7–26 GW。全球同口径柜数、平均功率、设备包和改造柜数缺失，只能做异常检查，不能独立闭环。</li>
+      </ol>
+      <div class="callout ok"><strong>70亿美元裁决：</strong>合理，confidence 0.88；valid_until 2027-02-28。invalidate_if：Dell’Oro新版偏离2029 60–80亿美元；2027–2028已获电投运/AI液冷采用显著落后；或设备价格年降幅&gt;15%且瓦数/配置不能抵消。该系列仅用于外部TAM和情景。</div>
+      <h3>2.5.5 风险与跟踪指标</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">风险</th><th scope="col">先行指标</th><th scope="col">频率</th><th scope="col">模型动作</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>投运晚于管线</td><td>获电、NTP、施工、延迟率、并网周期</td><td>季度</td><td>下调新增投运与改造；不把announced MW计入SAM</td></tr>
+        <tr><td>AI份额/密度偏低</td><td>AI服务器/整柜出货、平均液冷kW、推理占比</td><td>季度/平台代际</td><td>下调采用率和价值/MW</td></tr>
+        <tr><td>价格与垂直整合</td><td>同工况报价、OEM指定率、制造商收入/液冷MW</td><td>半年</td><td>区分瓦数增长与收入增长</td></tr>
+        <tr><td>来源边界漂移</td><td>Dell’Oro、JLL、IEA、IDC新版定义</td><td>新版即复核</td><td>禁止跨版本拼序列，重设端点</td></tr>
+        </tbody>
+      </table>
+      <p class="small">完整模型、证据原文、来源等级与限制见 <code>temp/research-compute-cooling-report/findings/angle-09-global-compute-liquid-2025-2032.md</code>。</p>
+    </section>
+
+    <section id="capex" class="page-break">
+      <h2>2.6 全球算力基建投资估算（2025–2032）</h2>
+      <p class="lead"><strong>结论先行：</strong>全球算力基建总投资（L3 = 设施侧 + IT 设备）2025 年约 <strong>6,500–8,050 亿美元</strong>，2030 年约 <strong>1.64–2.05 万亿美元</strong>，其中 AI 相关占比由约 55%–63% 升至约 76%–84%。两条独立路径交叉验证后的关键裁决是：<strong>McKinsey 2025-04 发布的 6.7 万亿美元基准情景已被 2025–2026 的实际投资超越，应改用其加速情景（合计 9.4 万亿美元）作为顶层比对锚</strong>。全部年度序列是本报告模型，机构只发布累计口径。confidence 0.72；valid_until 2027-02-28。</p>
+      <div class="callout risk"><strong>使用边界（强制）：</strong>本章与 2.7 章的投资与占比序列<strong>仅用于外部市场锚定与情景分析</strong>。不得直接换算为公司收入预算、SAM/SOM 点值、产能规划、ASP、部件价值占比或毛利率；不得乘以任何“目标份额”生成收入目标。SAM/SOM 的裁决仍见第 7 章（无数据）。</div>
+
+      <h3>2.6.1 投资层级定义：先分层，再谈占比</h3>
+      <p>不同机构所称的“数据中心投资”相差十倍以上，主要原因是层级不同而非数据冲突。本报告固定以下四层，并在全文使用。<strong>L1／L2／L3 自 v3.2 起专指投资层级，不再表示来源等级。</strong></p>
+      <table>
+        <thead>
+        <tr><th scope="col">层级</th><th scope="col">定义</th><th scope="col">包含</th><th scope="col">不包含</th><th scope="col">主要来源</th></tr>
+        </thead>
+        <tbody>
+        <tr><td><strong>L1</strong> 数据中心设施侧 CapEx</td><td>数据中心围墙内的建设投资</td><td>土地与场地工程、建筑结构与外壳、变配电与UPS、柴发、冷却系统（含液冷一次/二次侧）、机架与containment、消防安防、BMS/DCIM、安装与调试</td><td>IT 设备；围墙外发电与输电；运营费用；融资成本</td><td>JLL 单位建设成本；Epoch AI 设施侧 $/W；Turner &amp; Townsend AI 溢价</td></tr>
+        <tr><td><strong>L1+</strong> 扩展设施侧</td><td>L1 加可归属的围墙外电力投资</td><td>L1 + 专为数据中心新增的发电、并网、输配电与现场发电</td><td>IT 设备；一般电网升级中不可归属部分</td><td>IEA《World Energy Investment 2026》</td></tr>
+        <tr><td><strong>L2</strong> IT 设备投资</td><td>数据中心内 IT 硬件采购</td><td>服务器（含 GPU/加速器）、存储、数据中心网络（交换、路由、光模块、集群互联）</td><td>设施侧任何部分；软件与云服务；终端设备</td><td>IDC AI Infrastructure Tracker 与服务器/存储/网络跟踪</td></tr>
+        <tr><td><strong>L3</strong> 算力基建总投资</td><td>L1 + L2</td><td>通常媒体所称“AI／数据中心 CapEx”</td><td>围墙外电力（另列 L1+）；OpEx；融资</td><td>本报告模型</td></tr>
+        <tr><td><strong>DCPI</strong> 物理基础设施设备市场</td><td>Dell’Oro 口径的制造商收入，<strong>是 L1 的子集</strong></td><td>UPS、热管理、机柜配电与母线、机架配电、IT机架与containment、软件与服务</td><td>建筑、土地、安装人工、EPC 毛利、IT 设备</td><td>Dell’Oro DCPI 季报与 5 年预测</td></tr>
+        </tbody>
+      </table>
+      <p class="small"><strong>包含关系：</strong><code>液冷设备市场 ⊂ DCPI热管理 ⊂ DCPI ⊂ L1 ⊂ L3</code>；<code>L2 ⊂ L3</code>；<code>L1 ∩ L2 = ∅</code>。<strong>禁止事项：</strong>不得把 McKinsey 6.7 万亿与 JLL 3 万亿相加；不得把超大规模厂商 CapEx 与 L3 相加或相除得“份额”；不得把 DCPI 与 L1 相减推导“施工价值”。</p>
+
+      <h3>2.6.2 机构原始端点：全部是累计口径</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">机构 / 文件 / 日期</th><th scope="col">原文或近似原文</th><th scope="col">口径边界</th><th scope="col">数据性质 / 来源等级</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>McKinsey，<em>The cost of compute</em>，2025-04-28</td><td>“by 2030, data centers are projected to require $6.7 trillion worldwide… AI processing loads… $5.2 trillion… traditional IT applications… $1.5 trillion”</td><td>全球算力价值链累计 CapEx，含芯片与硬件、场地建设、发电与输电</td><td><span class="tag f" title="Forecast">机构预测</span> / 二级</td></tr>
+        <tr><td>McKinsey，同上，Exhibit 2 与 Methodology</td><td>AI 三情景：加速 205 GW 增量 → 7.9 万亿；基准 125 GW 增量 → 5.2 万亿；受限 78 GW 增量 → 3.7 万亿美元</td><td>全球 AI 数据中心累计 CapEx</td><td><span class="tag f" title="Forecast">机构预测</span> / 二级</td></tr>
+        <tr><td>McKinsey，同上（价值链分配）</td><td>5.2 万亿中约 15%（8,000亿）给建设方（土地、材料、场地开发）；25%（1.3万亿）给能源供应方（发电与输电、冷却、电气设备）；60%（3.1万亿）给技术开发商（芯片与计算硬件）</td><td>AI CapEx 价值链分配，含围墙外电力</td><td><span class="tag f" title="Forecast">机构预测</span> / 二级（分配比例经三级转述）</td></tr>
+        <tr><td>JLL，<em>2026 Global Data Center Outlook</em>，2026-01-06</td><td>“requiring up to $3 trillion by 2030… 100 GW of new capacity… equating to $1.2 trillion in real estate asset value creation… roughly $870 billion of new debt financing… tenants will spend an additional $1 to $2 trillion to fit out their space with GPUs and networking”</td><td>地产资产价值 + 债务融资 + 租户 IT fit-out，概念交叉，<strong>不可相加为 CapEx</strong></td><td><span class="tag f" title="Forecast">机构预测</span> / 二级</td></tr>
+        <tr><td>JLL，同上（建设成本）</td><td>“Between 2020 and 2025, the average global data center construction cost increased from $7.7 to $10.7 million per MW… For 2026, JLL is forecasting the average global cost will increase 6% to $11.3 million per MW”；AI 租户 fit-out 最高 2,500 万美元/MW</td><td>全球平均 shell-and-core 建设成本，不含 IT</td><td><span class="tag e" title="Estimate">机构估计</span>（2025）/ <span class="tag f" title="Forecast">机构预测</span>（2026）/ 二级</td></tr>
+        <tr><td>Dell’Oro，<em>DCPI Market Forecast to Reach $120 Billion by 2030</em>，2026-08-19</td><td>“DCPI manufacturer revenue is projected to grow at a 22 percent CAGR from 2025 to 2030, reaching $120 billion… Annual net capacity additions peak in year-over-year growth terms in 2026 and moderate steadily thereafter”</td><td>全球 DCPI 制造商收入；边界已扩展</td><td><span class="tag f" title="Forecast">机构预测</span> / 二级（方法付费不可见）</td></tr>
+        <tr><td>Dell’Oro，<em>DCPI Reaches $10.9 Billion in 4Q 2025</em>，2026-03-19</td><td>“reached $10.9 billion in manufacturer revenue in 4Q 2025, growing approximately 20 percent year-over-year”</td><td>DCPI 季度制造商收入（旧边界）</td><td><span class="tag e" title="Estimate">机构估计</span> / 二级</td></tr>
+        <tr><td>IDC，AI Infrastructure Tracker 公开更新，2026</td><td>“Full-year 2025 AI infrastructure spending totaled $318 billion, more than double the $153 billion recorded in 2024”；2026 上调至 4,970 亿；“surpass $1 trillion in 2029, reaching $1.08 trillion, before climbing to $1.21 trillion in 2030”；服务器占约 97.6%</td><td>全球 AI 用服务器 + 存储硬件支出</td><td><span class="tag e" title="Estimate">机构估计</span>（2024/2025）/ <span class="tag f" title="Forecast">机构预测</span>（2026 以后）/ 二级（方法付费不可见）</td></tr>
+        <tr><td>IEA，<em>World Energy Investment 2026</em>，2026-05</td><td>“Total energy sector investment for the buildout of data centre infrastructure globally in 2025 is estimated at over USD 100 billion, including power equipment and generation (both grid-connected and onsite) and grid upgrades”</td><td>数据中心相关能源侧投资，部分在围墙外</td><td><span class="tag e" title="Estimate">机构估计</span> / 一级</td></tr>
+        <tr><td>IEA，<em>Key Questions on Energy and AI</em>，2026-04-16</td><td>“capital expenditure [of the largest technology companies] exceeded USD 400 billion in 2025 – and is expected to jump by another 75% in 2026”</td><td>大型科技公司总 CapEx，含非数据中心支出</td><td><span class="tag e" title="Estimate">机构估计</span> / <span class="tag f" title="Forecast">机构预测</span> / 一级</td></tr>
+        <tr><td>Epoch AI，<em>Total cost of ownership of a one-gigawatt AI data center</em>，更新 2026-05-14</td><td>“A typical one-gigawatt AI data center requires $38 billion in up-front capital expenditure… Servers dominate this cost at $5 billion per year, or 60% of the total”；分项约 servers 21.2 $/W、facility 11.4 $/W、network 4.9 $/W、land + utility &lt; 0.3 $/W</td><td>美国超大规模自建自营、全部 GB200 NVL72 的<strong>典型化模型</strong>，非市场统计、非具体项目</td><td>第三方研究模型 / 二级（总额）、三级（分项转述）</td></tr>
+        </tbody>
+      </table>
+      <div class="callout risk"><strong>付费与转述限制：</strong>Dell’Oro 与 IDC 的完整逐年表、地区/产品拆分、价格与数量假设、收入确认规则均在付费报告内，<strong>方法不可见</strong>；本章只使用官方公开摘要，不能声称重建机构原始序列，也不能对公开摘要之间的差额做精确归因。McKinsey 的价值链分配比例、Turner &amp; Townsend 的 AI 建设溢价（7%–10%）与液冷冷却装置单价（约 450–520 万美元/MW，风冷约 180 万美元/MW）仅通过二级/三级转述取得，未取得原始文档，只作量级检查。已排除 SEO 型市场报告。</div>
+
+      <h3>2.6.3 年度化方法与假设（全部披露）</h3>
+      <p><strong>问题：</strong>机构全部只发布累计口径（McKinsey 至 2030 累计 6.7 万亿、JLL 至 2030 最高 3 万亿），没有任何机构发布可引用的全球年度 CapEx 序列。因此任何逐年数字必然是模型。</p>
+      <p><strong>路径 A（自上而下）：</strong>把机构累计总额按增长曲线分配到各年。</p>
+      <div class="formula">index = [1.000, 1.380, 1.739, 2.052, 2.298, 2.459]  (2025→2030，对应 YoY +38%/+26%/+18%/+12%/+7%)
+Σindex = 10.928
+Annual_t = CumulativeTotal × index_t / 10.928</div>
+      <p class="small">增速序列的选取依据（<strong>本报告假设</strong>）：2026 的 +38% 相对 IDC 把 2026 年 AI 基础设施预测上调至 4,970 亿美元（对 2025 年 3,180 亿的 +56%）与四大厂商指引 +77% 而言是<strong>保守值</strong>，因为 L3 含增速较慢的非 AI IT 与设施建设；2027–2030 逐年减速对应 Dell’Oro「净新增容量的同比增速在 2026 年见顶后稳步放缓」与 JLL 的并网 4 年以上等待期。不同曲线会显著改变逐年值，但不改变累计总额与量级结论。</p>
+      <p><strong>路径 B（自下而上）：</strong>年度新增投运 GW × 每 MW 投资强度，设施侧与 IT 侧<strong>分别</strong>建模。</p>
+      <div class="formula">L1_t = Throughput_t × FacilityIntensity_t
+Throughput_t = average(NewCommissioned_{t+1}, NewCommissioned_{t+2})   // 建设支出领先投运 18–30 个月
+L2_t = AI_IT_spend_t (IDC 直接测量) + NonAI_IT_and_Network_t (本报告模型)
+L3_t = L1_t + L2_t
+可比值_t = L3_t + 围墙外可归属电力投资_t   // 与 McKinsey 边界对齐</div>
+      <table>
+        <thead>
+        <tr><th scope="col">路径 B 输入</th><th scope="col">2025</th><th scope="col">2026</th><th scope="col">2027</th><th scope="col">2028</th><th scope="col">2029</th><th scope="col">2030</th><th scope="col">2031</th><th scope="col">2032</th><th scope="col">来源与数据性质</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>新增投运 GW（中值）</td><td>12.0</td><td>15.0</td><td>16.5</td><td>19.5</td><td>22.5</td><td>25.0</td><td>24.0</td><td>23.5</td><td>取自表 2.5.2；本报告模型，已与 JLL「2026–2030 约 100 GW」闭合</td></tr>
+        <tr><td>建设吞吐 Throughput GW</td><td>15.8</td><td>18.0</td><td>21.0</td><td>23.8</td><td>24.5</td><td>23.8</td><td>23.3</td><td>22.5</td><td>本报告模型；未来两年投运量的均值</td></tr>
+        <tr><td>设施侧强度（百万美元/MW）</td><td>10.7</td><td>11.3</td><td>11.9</td><td>12.5</td><td>13.0</td><td>13.5</td><td>14.0</td><td>14.4</td><td>2025 与 2026 为 JLL 机构估计/预测；2027 起按约 +5%/年为本报告模型</td></tr>
+        <tr><td>AI 占新增容量比例</td><td>65%</td><td>72%</td><td>76%</td><td>78%</td><td>80%</td><td>82%</td><td>82%</td><td>81%</td><td>本报告模型，由 JLL 存量份额端点反算；JLL 未公布新增份额</td></tr>
+        <tr><td>AI 侧 IT 强度（百万美元/MW）</td><td colspan="8">24–28（Epoch AI 模型 21.2 服务器 + 4.9 网络 = 26.1；McKinsey 隐含 25；JLL 租户 fit-out 最高 25）</td><td>第三方模型 + 机构隐含值；本报告取包络</td></tr>
+        <tr><td>围墙外可归属电力（十亿美元）</td><td>110</td><td>140</td><td>165</td><td>190</td><td>205</td><td>210</td><td>—</td><td>—</td><td>本报告模型，锚定 IEA 2025「超过 1,000 亿美元」并按容量增长缩放</td></tr>
+        </tbody>
+      </table>
+      <p class="small"><strong>设施侧强度的独立校验：</strong>Epoch AI 的 AI 设施侧 11.4 美元/W（约 1,140 万美元/MW）与 JLL 2025 年全球平均 1,070 万美元/MW 高度一致，两者方法完全独立（前者为工程成本模型，后者为建设成本指数）。Epoch 略高符合其对象是 AI 专用设施。2027 年起按约 +5%/年递增（低于 2020–2025 的 7% CAGR）：AI 密度与液冷推高机电成本，但标准化、预制模块与规模采购部分对冲。</p>
+
+      <h3>2.6.4 路径 B 的 IT 腿无法自下而上闭合（必须披露，不取平均）</h3>
+      <p>按容量法反推 2025 年：新增投运 12.0 GW × AI 占新增 65% = 7.8 GW，乘 IT 强度 26.1 百万美元/MW，得约 <strong>2,040 亿美元</strong>。IDC 直接测得 <strong>3,180 亿美元</strong>，容量法<strong>低估约 36%</strong>。原因按可解释力排序：</p>
+      <ol>
+        <li><strong>设备采购领先能源化。</strong>JLL 称主要市场并网平均等待超过 4 年、2025 年 57% 项目延迟至少 3 个月；C&amp;W 称大负荷平均供电周期 4.4 年。芯片先买、机房后到，当年支出对应未来数年的容量。</li>
+        <li><strong>存量机房 densification 与改造。</strong>新 AI 设备大量装入已计入 103 GW 存量的机房，不产生“新增投运 GW”。</li>
+        <li><strong>AI 占新增容量的比例远高于占存量的比例</strong>（见表 2.5.2 备注最后一条）。v3.1 表 2.5.2 的「AI容量占比」是存量份额，不能直接当作新增份额使用。</li>
+        <li><strong>刷新周期。</strong>5 年 IT 寿命假设下，存量 AI 容量每年产生可观替换性支出，与新增容量无关。</li>
+      </ol>
+      <p><strong>处置：</strong>IDC 是直接测量的支出序列，优于任何自下而上重建。因此 <strong>L1 以路径 B 为主锚</strong>（设施侧有 JLL、Epoch AI、Turner &amp; Townsend 三个独立的每 MW 证据，IDC 无对应口径），<strong>L2 以 IDC 为主锚</strong>，路径 B 的容量法只作下界包络与异常检查。<strong>不取平均值，差额原因逐条披露。</strong></p>
+
+      <h3>2.6.5 年度主表（2025–2032）</h3>
+      <p class="small">单位：<strong>十亿美元</strong>（1 十亿美元 = 10 亿美元）。全部为区间；括号内 Base 仅供内部复算，不作对外点值引用。数据性质见表下备注。</p>
+      <table>
+        <thead>
+        <tr><th scope="col">年</th><th scope="col">L1 设施侧 CapEx</th><th scope="col">L2 IT 设备投资</th><th scope="col">L3 算力基建总投资</th><th scope="col">其中 AI 相关占比</th><th scope="col">DCPI 设备市场（August-2026 版口径）</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>2025</td><td>150–190（Base 169）</td><td>500–615（Base 558）</td><td>650–805（Base 727）</td><td>55%–63%</td><td>40–48（Base 44）</td></tr>
+        <tr><td>2026</td><td>180–230（Base 203）</td><td>675–830（Base 751）</td><td>855–1,060（Base 955）</td><td>63%–70%</td><td>52–64（Base 59）</td></tr>
+        <tr><td>2027</td><td>220–280（Base 250）</td><td>820–1,010（Base 913）</td><td>1,040–1,290（Base 1,163）</td><td>68%–75%</td><td>67–82（Base 74）</td></tr>
+        <tr><td>2028</td><td>260–335（Base 297）</td><td>1,000–1,235（Base 1,120）</td><td>1,260–1,570（Base 1,417）</td><td>71%–78%</td><td>81–99（Base 91）</td></tr>
+        <tr><td>2029</td><td>280–360（Base 319）</td><td>1,235–1,525（Base 1,383）</td><td>1,515–1,885（Base 1,702）</td><td>75%–82%</td><td>95–117（Base 106）</td></tr>
+        <tr><td>2030</td><td>280–360（Base 321）</td><td>1,360–1,690（Base 1,531）</td><td>1,640–2,050（Base 1,852）</td><td>76%–84%</td><td>108–132（Base 120）</td></tr>
+        <tr><td>2031</td><td>265–385</td><td>1,380–1,760</td><td>1,645–2,145</td><td>75%–85%</td><td>118–145</td></tr>
+        <tr><td>2032</td><td>250–395</td><td>1,300–1,950</td><td>1,550–2,345</td><td>73%–85%</td><td>125–160</td></tr>
+        </tbody>
+      </table>
+      <div class="tnote">
+        <b>表 2.6.5 数据性质备注（逐列逐年）</b>
+        <ul>
+          <li><b>L1 设施侧 CapEx：全部八年都是本报告模型。</b>其中 2025 与 2026 使用的单位强度（1,070 万、1,130 万美元/MW）是 JLL 的机构估计/机构预测，2027–2032 的强度是本报告按约 +5%/年推导；新增投运 GW 全部来自表 2.5.2 的桥接模型。<strong>没有任何机构发布过全球年度设施侧 CapEx 序列。</strong></li>
+          <li><b>L2 IT 设备投资：AI 部分有机构端点，非 AI 部分与全部合计值是本报告模型。</b>具体：2025 的 3,180 亿美元 AI 支出是 IDC 机构估计；2026 的 4,970 亿、2029 的 1.08 万亿、2030 的 1.21 万亿是 IDC 机构预测；<strong>2027 与 2028 的 AI 支出（约 6,440 亿、8,340 亿）是本报告在 IDC 端点间的几何桥接</strong>；非 AI IT 与数据中心网络（2025 约 2,400 亿，按约 +6%/年）全部为本报告模型；2031–2032 全部为本报告情景。</li>
+          <li><b>L3 算力基建总投资：全部八年都是本报告模型</b>（L1 + L2 加总）。机构只发布累计口径，不发布年度值。</li>
+          <li><b>AI 相关占比：全部八年都是本报告模型。</b>分子为 IDC 的 AI IT 支出加按 AI 占新增容量比例折算的设施侧份额。累计校验：2025–2030 累计 AI 占 L3 约 74%，与 McKinsey 的 5.2÷6.7 ≈ 78% 同量级。</li>
+          <li><b>DCPI 设备市场：2030 的 1,200 亿美元是 Dell’Oro（2026-08-19）机构预测；2025 的约 440 亿是由该预测「22% CAGR」反推的隐含基年（本报告推导，Dell’Oro 未公布新边界下的 2025 数字）；2026–2029 是本报告按「净新增容量增速 2026 见顶后逐年减速」桥接（+32%/+27%/+22%/+17%/+13%）；2031–2032 为本报告情景。</b>Dell’Oro 已公布的 4Q2025 单季 109 亿美元、+20% 同比，按季度增速反推 FY2025 约 380–420 亿美元（<strong>旧边界</strong>），构成 2025 基年的下界。</li>
+          <li><b>没有机构对应端点的单元格：</b>L1 与 L3 的全部年份、AI 占比的全部年份、L2 的非 AI 部分、DCPI 的 2025–2029 与 2031–2032，以及 2031 与 2032 两整行。</li>
+        </ul>
+      </div>
+
+      <h3>2.6.6 两条路径的交叉验证与差异裁决</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">年（十亿美元）</th><th scope="col">路径 A · 受限情景</th><th scope="col">路径 A · 基准情景</th><th scope="col">路径 A · 加速情景</th><th scope="col">路径 B 可比值（L3 + 围墙外电力）</th><th scope="col">B 对 A-基准</th><th scope="col">B 对 A-加速</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>2025</td><td>476</td><td>613</td><td>860</td><td>837</td><td>+37%</td><td>−3%</td></tr>
+        <tr><td>2026</td><td>657</td><td>846</td><td>1,187</td><td>1,095</td><td>+29%</td><td>−8%</td></tr>
+        <tr><td>2027</td><td>827</td><td>1,066</td><td>1,496</td><td>1,328</td><td>+25%</td><td>−11%</td></tr>
+        <tr><td>2028</td><td>976</td><td>1,258</td><td>1,766</td><td>1,607</td><td>+28%</td><td>−9%</td></tr>
+        <tr><td>2029</td><td>1,093</td><td>1,409</td><td>1,978</td><td>1,907</td><td>+35%</td><td>−4%</td></tr>
+        <tr><td>2030</td><td>1,170</td><td>1,508</td><td>2,116</td><td>2,062</td><td>+37%</td><td>−3%</td></tr>
+        <tr><td><strong>2025–2030 累计</strong></td><td><strong>5,200</strong></td><td><strong>6,700</strong></td><td><strong>9,400</strong></td><td><strong>8,836</strong></td><td><strong>+32%</strong></td><td><strong>−6%</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="tnote">
+        <b>表 2.6.6 备注：</b>路径 A 的三列由 McKinsey 三情景的<strong>机构累计总额</strong>（AI 3.7／5.2／7.9 万亿 + 传统 IT 1.5 万亿）经 2.6.3 的指数向量年度化而来，<strong>年度分配是本报告模型，累计总额是机构预测</strong>。路径 B 一列全部为本报告模型。JLL 的 3 万亿美元不单独年度化：它由地产资产价值（1.2 万亿）、新增债务融资（0.87 万亿）和租户 IT fit-out（1–2 万亿）构成，含融资与资产价值概念，与 CapEx 不同层，只作 L1/L2 的分层校验（JLL 的 100 GW × 约 1,200 万美元/MW 资产价值与本报告 2026–2030 的 L1 累计约 1.39 万亿美元相差约 16%，差额来自强度逐年递增与 AI 溢价）。
+      </div>
+      <p><strong>差异裁决（不取平均、不掩盖）：</strong></p>
+      <ol>
+        <li><strong>路径 A-基准的 2025 年值 6,130 亿美元低于当年可核验的观测值。</strong>IDC 测得全球 AI 用服务器与存储支出即 3,180 亿美元；加本报告估算的非 AI IT 约 2,400 亿，仅 IT 一项已约 5,580 亿；再加 IEA 测得能源侧数据中心投资「超过 1,000 亿」，已逼近 6,130 亿，而设施侧的建筑、机电、机架等尚未计入。<strong>基准情景在 2025 年即被突破。</strong></li>
+        <li><strong>交叉旁证同向。</strong>IEA 称大型科技公司 2025 年 CapEx 超 4,000 亿美元、2026 年预计再增 75%。而 A-基准隐含的<strong>全球</strong> 2026 年总投资只有 8,460 亿美元——仅四家公司的公司级 CapEx 指引合计就已达 7,300–7,450 亿美元，占 86%–88%，在数学上不可持续。</li>
+        <li><strong>原因是版本年份，不是模型误差。</strong>McKinsey 文章发布于 2025-04-28，基年在 2025 年初；2025 全年与 2026 上半年的实际投资显著超出其基准假设。同期 IDC 已两次上调 AI 基础设施预测（2026 全年上调至 4,970 亿美元），Dell’Oro 已两次上调 DCPI（2030 由「超过 800 亿」改为 1,200 亿美元）。</li>
+        <li><strong>裁决：</strong>以 McKinsey <strong>加速情景</strong>（合计 9.4 万亿美元）作为顶层比对锚。路径 B 落在 A-加速下方 3%–11%，逐年吻合良好；A-基准应视为已过时的下界，<strong>不作为主锚，也不与路径 B 取平均</strong>。A-受限情景保留为融资收紧下的压力情景。</li>
+        <li><strong>反向风险。</strong>加速情景成立依赖 AI 投资回报持续被市场接受。IEA 明确指出数据中心投资「已大到无法仅靠公司资产负债表融资」，对市场情绪与融资条件高度敏感。若 2027 年出现融资收紧，实际路径可能快速回落到 A-基准甚至 A-受限。因此 <strong>2031–2032 只给情景区间，不做机械外推的单点</strong>。</li>
+      </ol>
+
+      <h3>2.6.7 超大规模厂商 CapEx：只作交叉验证旁证</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">年（十亿美元）</th><th scope="col">Alphabet</th><th scope="col">Amazon</th><th scope="col">Microsoft</th><th scope="col">Meta</th><th scope="col">四家合计</th><th scope="col">数据性质</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>2024</td><td>—</td><td>—</td><td>—</td><td>—</td><td>约 224</td><td><span class="tag a" title="Actual">实绩</span></td></tr>
+        <tr><td>2025</td><td>—</td><td>—</td><td>—</td><td>—</td><td>约 413</td><td><span class="tag a" title="Actual">实绩</span></td></tr>
+        <tr><td>2026</td><td>195–205</td><td>约 220</td><td>约 175（租赁会计基准）</td><td>130–145</td><td>约 730–745</td><td>公司指引（<span class="tag f" title="Forecast">机构预测</span>性质）</td></tr>
+        </tbody>
+      </table>
+      <div class="callout risk"><strong>不可比性必须同时声明，否则该表会被误用：</strong>（a）四家使用<strong>三种不同</strong>的 CapEx 定义（含/不含融资租赁本金、现金 vs 应计）；（b）包含办公、网络骨干、自研芯片预付等<strong>非数据中心支出</strong>，与全球 L3 口径不同；（c）部分指引来自财报电话会口头表述而非已披露文件；（d）Microsoft 的 2026 数字受租赁年限会计变更影响（15 年改 25 年），公司称经济意义上支出计划未变，约 1,750 亿与约 1,900 亿的差异是会计口径而非投资减少；（e）四家之外还有 Oracle、xAI、CoreWeave、字节、阿里、腾讯与主权 AI 项目等大量投资主体。<strong>因此该表不得除以 L3 得“份额”，也不得相加进 L3。</strong></div>
+      <p class="small">完整证据台账、原文引用、每 MW 强度推导与限制说明见 <code>temp/research-compute-cooling-report/findings/angle-10-capex-and-liquid-share.md</code>。</p>
+    </section>
+
+    <section id="liquid-share" class="page-break">
+      <h2>2.7 液冷占算力基建的比例（2025–2032）</h2>
+      <p class="lead"><strong>结论先行：</strong>同一个液冷设备收入分子，换三个分母会得到<strong>相差约 30 倍</strong>的比例——占算力基建总投资（L3）约 <strong>0.3%–0.9%</strong>，占设施侧 CapEx（L1）约 <strong>1.3%–5.6%</strong>，占 DCPI 设备市场约 <strong>5%–11%</strong>。任何引用必须同时写出分母层级与来源版本。占比高低<strong>不等于</strong>新进入者可获得的份额。相对量级 confidence 0.80；任一点值 confidence 0.35（禁止点值引用）；valid_until 2027-02-28。</p>
+
+      <h3>2.7.1 分子与计算规则</h3>
+      <p>分子固定采用 2.5.3 的液冷设备制造商收入序列（Dell’Oro 端点 + 本报告 Bear/Base/Bull 边界）。区间计算规则：<code>比例下界 = 分子下界 ÷ 分母上界</code>、<code>比例上界 = 分子上界 ÷ 分母下界</code>，即最保守的最宽区间，不假设分子分母相关。</p>
+      <table>
+        <thead>
+        <tr><th scope="col">年</th><th scope="col">2025</th><th scope="col">2026</th><th scope="col">2027</th><th scope="col">2028</th><th scope="col">2029</th><th scope="col">2030</th><th scope="col">2031</th><th scope="col">2032</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>液冷设备收入（十亿美元）</td><td>2.5–3.5</td><td>3.0–4.4</td><td>3.7–5.5</td><td>4.7–6.8</td><td>6.0–8.0</td><td>8.2–10.0</td><td>8.6–12.0</td><td>9.0–14.0</td></tr>
+        <tr><td>同上（亿美元，与 2.5 章一致）</td><td>25–35</td><td>30–44</td><td>37–55</td><td>47–68</td><td>60–80</td><td>82–100</td><td>86–120</td><td>90–140</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.7.2 三组比例逐年结果</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">年</th><th scope="col">组① 占 L3 算力基建总投资</th><th scope="col">组② 占 L1 设施侧 CapEx</th><th scope="col">组③ 占 DCPI 设备市场（August-2026 版）</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>2025</td><td>0.3%–0.5%</td><td>1.3%–2.3%</td><td>5%–9%</td></tr>
+        <tr><td>2026</td><td>0.3%–0.5%</td><td>1.3%–2.4%</td><td>5%–8%</td></tr>
+        <tr><td>2027</td><td>0.3%–0.5%</td><td>1.3%–2.5%</td><td>5%–8%</td></tr>
+        <tr><td>2028</td><td>0.3%–0.5%</td><td>1.4%–2.6%</td><td>5%–8%</td></tr>
+        <tr><td>2029</td><td>0.3%–0.5%</td><td>1.7%–2.9%</td><td>5%–8%</td></tr>
+        <tr><td>2030</td><td>0.4%–0.6%</td><td>2.3%–3.6%</td><td>6%–9%</td></tr>
+        <tr><td>2031</td><td>0.4%–0.7%</td><td>2.2%–4.5%</td><td>6%–10%</td></tr>
+        <tr><td>2032</td><td>0.4%–0.9%</td><td>2.3%–5.6%</td><td>6%–11%</td></tr>
+        </tbody>
+      </table>
+      <div class="tnote">
+        <b>表 2.7.2 数据性质备注：全部八年、全部三列都是本报告模型。</b>
+        <ul>
+          <li>分子的机构端点只有两个：2025 年约 30 亿美元（Dell’Oro 机构估计）与 2029 年约 70 亿美元（Dell’Oro 机构预测）。其余年份与全部区间边界为本报告模型。</li>
+          <li>组①、组②的分母（L3、L1）全部年份均为本报告模型，见表 2.6.5 备注。</li>
+          <li>组③的分母只有 2030 年的 1,200 亿美元是 Dell’Oro 机构预测，其余年份为本报告桥接/情景。</li>
+          <li><strong>没有任何机构发布过本表中的任何一个比例。</strong>三组比例均为本报告在明确分母定义下的推导结果。</li>
+        </ul>
+      </div>
+
+      <h3>2.7.3 三组比例各自的含义与适用场景</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">组</th><th scope="col">分母</th><th scope="col">结果</th><th scope="col">回答什么问题（适用）</th><th scope="col">不能回答什么（不适用）</th></tr>
+        </thead>
+        <tbody>
+        <tr><td><strong>①</strong></td><td>L3 算力基建总投资（最宽）</td><td>0.3%–0.9%</td><td>“在整个 AI 算力投资盘子里，独立液冷设备的价值占多少”。适用于向董事会解释“AI 投资巨大”与“液冷可得收入有限”之间的落差</td><td>不适用于评估液冷业务的相对增长性或竞争地位：分母中约 75%–85% 是 IT 设备，与液冷供应商无任何竞争或替代关系</td></tr>
+        <tr><td><strong>②</strong></td><td>L1 设施侧 CapEx（中等）</td><td>1.3%–5.6%</td><td>“在数据中心设施建设的每一元里，液冷设备制造商拿到多少”。适用于与 EPC、机电总包、配电、UPS 等设施侧品类做相对规模比较</td><td>不适用于推导单个项目的液冷成本占比：L1 是全球混合平均，含大量风冷与非 AI 项目；单个高密 AI 项目的液冷占比远高于此</td></tr>
+        <tr><td><strong>③</strong></td><td>DCPI 设备市场（最窄、最可比）</td><td>5%–11%</td><td>“液冷在物理基础设施设备制造商收入中的结构性权重与趋势”。<strong>两者都是 Dell’Oro 的制造商收入口径、同一机构、同一收入确认规则，液冷是 DCPI 热管理的子集</strong>，是三组中唯一可以谈“份额”的分母</td><td>不适用于推导公司可得份额：分母已被 Ecolab/CoolIT、Eaton/Boyd、Schneider/Motivair、Vertiv、Modine 及各 OEM 自供占据</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.7.4 强制警示：不写分母就是误导</h3>
+      <div class="callout risk">
+        <p><strong>三组比例的极差达约 30 倍。</strong>2032 年为 0.4%（组①下界）对 11%（组③上界）；2025 年为 0.3% 对 9%。如果引用时只写“液冷约占 10%”或“液冷不到 1%”而不说明分母，读者会把两者当成互相矛盾的数字，或用组③的量级去论证组①的商业空间——后者会把可得市场高估一个量级以上。</p>
+        <p><strong>版本敏感性同样极大（同一分子、同一年）：</strong></p>
+        <table>
+        <thead>
+          <tr><th scope="col">分母版本（Dell’Oro DCPI）</th><th scope="col">2029 年占比</th><th scope="col">2030 年占比</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>July-2025 版（2029 = 631 亿美元）</td><td>10%–13%</td><td>无端点</td></tr>
+          <tr><td>January-2026 版（2030 超过 800 亿美元）</td><td>无端点</td><td>10%–13%</td></tr>
+          <tr><td>August-2026 版（2030 = 1,200 亿美元）</td><td>5%–8%</td><td>6%–9%</td></tr>
+        </tbody>
+      </table>
+        <p>从 10%–13% 到 5%–8% 的变化<strong>几乎全部来自 Dell’Oro 扩大 DCPI 边界并上调预测，不是液冷竞争地位下降</strong>。v3.1 正文中「2029 液冷约占旧版 DCPI 631 亿美元的 10%–13%」仍然正确——但只在旧版口径下正确。<strong>三个版本不得拼成一条 DCPI 序列，也不得拼成一条占比序列。</strong>本章组③只基于 August-2026 版。</p>
+      </div>
+
+      <h3>2.7.5 比例随时间变化的驱动因素</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">方向</th><th scope="col">驱动因素</th><th scope="col">证据基础</th><th scope="col">对占比的作用</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>↑</td><td>液冷渗透率上升</td><td>TrendForce：AI 数据中心 14%(2024)→33%(2025)；AI 芯片口径 53%(2026)、接近 60%(2027)。两个版本分母不同，只证明方向</td><td>分子增速高于分母</td></tr>
+        <tr><td>↑</td><td>单柜功率提高</td><td>GB300 NVL72 峰值 155 kW；Dell IR7000 特定配置最高 264 kW；Dell’Oro 称「1 MW 机柜正在临近」</td><td>每 MW 液冷设备内容增加</td></tr>
+        <tr><td>↑</td><td>存量改造</td><td>高密推理扩散至 colocation 与区域节点</td><td>分子不依赖新增容量</td></tr>
+        <tr><td>↑</td><td>全液冷平台扩散</td><td>NVIDIA Rubin 路线称 100% 液冷；Vera Rubin 计算托盘取消风扇</td><td>液体带热比例趋近 100%</td></tr>
+        <tr><td>↓</td><td>ASP 下降</td><td>标准化、国产化与规模采购；2.5.3 的 Bear 情景假设年降 8%–12%</td><td>瓦数增长不完全转化为收入</td></tr>
+        <tr><td>↓</td><td>OEM/ODM 垂直整合</td><td>Lenovo、Dell、Supermicro、华为均自供 CDU/冷板；服务器整机厂的内部转移价格不计入独立液冷设备市场统计</td><td>部分价值离开统计口径</td></tr>
+        <tr><td>↓</td><td>设施侧 EPC 吃掉价值</td><td>液冷冷却装置约 450–520 万美元/MW（三级转述）vs 液冷设备制造商收入约 45–80 万美元/每液冷 MW（2.5.4 模型）——<strong>约相差 5–6 倍</strong></td><td>大部分“液冷投入”是一次侧、管路、安装与总包</td></tr>
+        <tr><td>↓</td><td>分母扩围</td><td>Dell’Oro 在 2026-08 扩大 DCPI 边界；McKinsey/IDC 上调 IT 支出</td><td>机械性压低占比</td></tr>
+        <tr><td>不确定</td><td>2030 后分母减速</td><td>Dell’Oro 称净新增容量增速 2026 见顶；IDC 2030 后无公开端点</td><td>若 IT 支出进入消化期，占比会被动上升</td></tr>
+        </tbody>
+      </table>
+      <p class="small">2030 年组①、组②同时出现台阶，主要来自 2.5.3 中 Dell’Oro 新版 DLC「超过 80 亿美元」造成的<strong>预测版本跳点</strong>，不解释为有机同比改善。</p>
+      <div class="callout risk"><strong>设施侧“液冷投入”与“液冷设备制造商收入”约相差 5–6 倍。</strong>按 2029 年约 8 GW 液冷新增容量、设施侧液冷冷却装置约 485 万美元/MW 计，设施侧液冷相关支出约 390 亿美元；而同年液冷设备制造商收入仅 60–80 亿美元。差额是一次侧冷源、二次管路、安装调试、EPC 与总承包毛利，<strong>不进入独立液冷设备供应商可争夺的池子</strong>。这解释了为什么“液冷在 AI 机房造价中占 15%–33%”一类工程口径数字与本章的 1%–6% 并不矛盾——前者是项目造价科目，后者是全球设备制造商收入占全球设施投资。</div>
+
+      <h3>2.7.6 对本业务的含义</h3>
+      <p><strong>这个比例说明什么</strong></p>
+      <ol>
+        <li>液冷是 AI 投资浪潮中一个<strong>结构性增长但绝对规模有限</strong>的设备品类。即使用最有利的分母（组③），全球盘子也只有个位数到十几个百分点的设备市场权重。</li>
+        <li>用最宽分母（组①）看，液冷设备收入在 AI 总投资中长期不到 1%。<strong>“AI 投资万亿美元”不能线性传导为液冷业务机会</strong>，中间被 IT 设备（占 L3 的 75%–85%）、建筑与电气、EPC 与安装、以及 OEM 内部整合层层截留。</li>
+        <li>组③（约 5%–11%）与 Dell’Oro 关于“热管理是 DCPI 增长最快分段、液冷是增长最快技术”的判断一致，方向可信。</li>
+      </ol>
+      <p><strong>这个比例不说明什么</strong></p>
+      <ol>
+        <li><strong>不说明新进入者能拿到的份额。</strong>分母是全球所有制造商的收入，占比高低与新进入者的可得份额<strong>无因果关系</strong>。见第 5 章：无一手分母的市场份额、集中度与部件价值占比已被删除，且公开证据不足以恢复。</li>
+        <li><strong>不说明单位经济。</strong>占比是收入口径，不含毛利、责任、营运资金与质保成本。第 8 章的裁决不变：无同边界报价、BOM 与试制数据时，ASP、毛利、ROIC 均为无数据。</li>
+        <li><strong>不说明可服务市场。</strong>这些比例是全球设备制造商收入，未经项目获电、融资、开工、平台冻结、地理可服务性五道门筛选。第 7 章 SAM<sub>24m</sub> 与 SOM 仍为无数据。</li>
+        <li><strong>不构成预算依据。</strong>本章任何数字不得乘以“目标份额”生成收入目标或产能计划。</li>
+      </ol>
+      <div class="callout ok"><strong>裁决：</strong>三组比例的<strong>相对量级</strong>与<strong>驱动方向</strong>可用于外部锚定与情景分析，confidence 0.80；<strong>任一年份的任一点值不可引用</strong>，confidence 0.35。valid_until 2027-02-28。invalidate_if：IDC 连续两季下修 AI 基础设施支出；四大超大规模厂商 2027 指引低于 2026 实际；Dell’Oro 再次重划 DCPI 边界；JLL 单位建设成本转为下降；液冷设备收入偏离 2.5.3 的 Bear/Bull 包络。</div>
+    </section>
+
+    <section id="engineering">
+      <h2>3. 工程基线与技术路线</h2>
+      <p class="lead">平台表只记录同一版本、同一回路可比较的数据。选型同时校核 IT功率、HCR/液体负荷、TCS/FWS、工质、Q–ΔP、ATD、冗余和故障态；公开未披露即写无数据。</p>
+      <h3>3.1 平台工程矩阵</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">平台/版本</th><th scope="col">IT功率</th><th scope="col">液体负荷/HCR</th><th scope="col">TCS温度/工质</th><th scope="col">Q–ΔP</th><th scope="col">工程裁决</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>Lenovo GB300 NVL72<br><span class="small">2026-08-13 update</span></td><td>135 kW TDP；155 kW peak</td><td>约90%；121.5–139.5 kW为本报告推导</td><td>供液25–45℃；DI water或PG25；回液无数据</td><td>25℃:59 LPM@2.3 psi；30℃:71@3.2；35℃:89@4.9；40℃:119@8.5；45℃:177@18.4</td><td>当前最完整的一柜曲线；项目须确认曲线对应工质</td></tr>
+        <tr><td>Lenovo N1380 / SC750 V4</td><td>54 kW DC/enclosure；三套162 kW DC</td><td>量热保证无数据；公开架构称接近全水冷</td><td>供液27/32/40/45℃；处理洁净水；回液无数据</td><td>45℃满配每enclosure 35.2 LPM@0.49 bar；三支路并联105.6 LPM，总管压降无数据</td><td>流量可加，支路压降不可相加；HCR保留条件</td></tr>
+        <tr><td>Huawei Atlas 900 A3</td><td>计算柜最大66 kW</td><td>约70%，随配置；46.2 kW仅为本报告粗算</td><td>液冷门供液5–32℃；纯水或EG50；回液无数据</td><td>32℃液冷门：纯水≥62 LPM/≥46 kPa；EG50≥74/≥81</td><td>液冷门回路与计算柜D2C回路不得拼接</td></tr>
+        <tr><td>NVIDIA DGX GB200</td><td>约120 kW/rack</td><td>CPU/GPU液冷，其余风冷；液体kW无数据</td><td>无数据</td><td>无数据</td><td>不得套用其他OEM流量或HCR</td></tr>
+        <tr><td>HPE GB200 NVL72 v4</td><td>132 kW/rack</td><td>115 kW liquid + 17 kW air</td><td>公开摘要无数据</td><td>无数据</td><td>液体负荷可用，水力须取site readiness包</td></tr>
+        <tr><td>Dell IR7000 + XE8712</td><td>特定配置最高264 kW/rack</td><td>HCR/液体kW无数据</td><td>28/32/36/40℃；Dell validated PG25</td><td>36 chassis in-rack 180 LPM@24.5 psi；in-row 270@28.0</td><td>504 kW是供电/busbar生态能力；约480 kW是未来部署冷却表述，均非本配置液体负荷</td></tr>
+        <tr><td>Supermicro DLC-2</td><td>服务器组合无数据</td><td>最高98% HCR；方案能力最高250 kW</td><td>最高45℃；PG25</td><td>公开PQ曲线无数据</td><td>250 kW是方案/in-rack CDU移热能力，不是固定IT铭牌</td></tr>
+        <tr><td>NVIDIA Rubin</td><td>固定rack kW未披露</td><td>原厂路线称100%液冷</td><td>PG25；最高45℃进、约55℃回</td><td>未披露</td><td>不承诺任何容量档覆盖柜数</td></tr>
+        </tbody>
+      </table>
+      <p class="small">主要来源：<a href="https://lenovopress.lenovo.com/lp2357.pdf">Lenovo GB300 Product Guide, Table 27</a>；<a href="https://pubs.lenovo.com/n1380/n1380_system_configuration_guide.pdf">N1380 Configuration Guide, Tables 1–4</a>；<a href="https://support.huawei.com/enterprise/zh/doc/EDOC1100401572/de187aa3">Atlas 900 A3技术规格</a>；<a href="https://www.delltechnologies.com/asset/en-us/products/servers/technical-support/rack-scale-dlc-specifications-and-guidelines-whitepaper.pdf">Dell Rack-Scale DLC Guidelines, pp.4–5, 18–19</a>。</p>
+      <h3>3.2 CDU有效能力矩阵：当前必须保留无数据</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">容量档</th><th scope="col">ATD 3/4/5/8℃</th><th scope="col">水/PG25/其他工质</th><th scope="col">泵N/N+1故障态</th><th scope="col">clean/dirty filter</th><th scope="col">状态</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>100 kW</td><td>无数据</td><td>无数据</td><td>无数据</td><td>无数据</td><td>待样机热性能与PQ矩阵</td></tr>
+        <tr><td>200 kW</td><td>无数据</td><td>无数据</td><td>无数据</td><td>无数据</td><td>待样机热性能与PQ矩阵</td></tr>
+        <tr><td>300 kW</td><td>无数据</td><td>无数据</td><td>无数据</td><td>无数据</td><td>待样机热性能与PQ矩阵</td></tr>
+        <tr><td>450 kW</td><td>无数据</td><td>无数据</td><td>无数据</td><td>无数据</td><td>待样机热性能与PQ矩阵</td></tr>
+        </tbody>
+      </table>
+      <div class="formula">C_effective = C_curve(ATD, TCS, FWS, fluid, pump_state) × D_altitude × D_fouling</div>
+      <h3>3.3 技术路线</h3>
+      <ul>
+        <li><strong>当前产品化：</strong>单相D2C、芯片级/封装级微通道冷板、CDU、Manifold与UQD；具体新结构仍需DVT/PVT。</li>
+        <li><strong>验证路线：</strong>喷射冲击、两相冷板与负压回路；只描述机理和测试门，不给通用性能点值。</li>
+        <li><strong>研究路线：</strong>封装内嵌/硅内嵌微流道与金刚石扩热；公开证据不足以支持量产时点、良率、寿命或专利壁垒点值。</li>
+        <li>“PCB冷板”仅在流道真正集成于印制电路板时使用；本报告其余统一称“芯片级/微通道冷板”。</li>
+      </ul>
+    </section>
+
+    <section id="standards">
+      <h2>4. 标准、可靠性与项目级 qualification</h2>
+      <h3>4.1 标准属性五分法</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">文件/项目</th><th scope="col">属性与状态</th><th scope="col">适用边界</th><th scope="col">是否等于产品认证</th><th scope="col">valid_until</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>YD/T 6049-2024</td><td>正式行业标准；已实施</td><td>冷板式液冷整机柜服务器</td><td>否；合同须明确采纳</td><td>至修订/废止</td></tr>
+        <tr><td>YD/T 6358-2025</td><td>正式行业标准；已实施</td><td>冷板式液冷数据中心</td><td>否</td><td>至修订/废止</td></tr>
+        <tr><td>GB/T 48023-2026</td><td>已发布；2027-02-01实施</td><td>数据中心冷板式液冷系统</td><td>否；截至日不是现行强制认证</td><td>2027-02-01强制复核</td></tr>
+        <tr><td>OCP coolant base spec v1.3</td><td>开放基础规范；2026-08-06生效</td><td>单相水基冷板工质</td><td>否；不替代OEM保修</td><td>新revision或2027-02-28</td></tr>
+        <tr><td>2025-1993T-YD</td><td>计划/征求意见稿</td><td>CDU冷板式草案</td><td>否；草案参数不可当现行要求</td><td>2026-11-30</td></tr>
+        <tr><td>内部MTBF、负压、切换目标</td><td>内部工程目标</td><td>仅限本产品版本</td><td>须经DVP和现场数据证明</td><td>按批次/版本</td></tr>
+        </tbody>
+      </table>
+      <p class="small">官方来源：<a href="https://std.samr.gov.cn/hb/search/stdHBDetailed?id=29962E7E060CA432E06397BE0A0A0BF0">YD/T 6049-2024</a>；<a href="https://std.samr.gov.cn/hb/search/stdHBDetailed?id=3833D6BFC08338C0E06397BE0A0A2BA5">YD/T 6358-2025</a>；<a href="https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=114934594976F57EA3F3683C13B13DB8">GB/T 48023-2026官方条目</a>；<a href="https://www.opencompute.org/documents/base-specification-for-single-phase-water-based-cold-plate-coolant-v1-3-final-pdf">OCP Coolant Base Spec v1.3</a>。</p>
+      <h3>4.2 关键纠错</h3>
+      <ul>
+        <li>ASHRAE W17/W27/W32/W40/W45/W+是设备供液温度能力等级，不是PUE等级；PUE取决于气候、负载、冷源和配电。</li>
+        <li>水质不采用跨厂商单一电导率阈值；按OEM coolant、全部wetted-material list、装桶/补水/运行基线和趋势控制。</li>
+        <li>负压可降低部分破口外泄概率，但会引入进气、气蚀、氧化、真空维持和大破口处置风险；不表述为“零泄漏”。</li>
+        <li>MTBF必须声明统计模型、置信水平、关键件数据、加速因子和现场回灌；当前仅为待验证内部目标。</li>
+      </ul>
+      <h3>4.3 不存在公开统一CDU认证：按项目qualification</h3>
+      <p>截至2026-08-22，公开证据不足以验证NVIDIA MGX/NPN统一CDU认证或公开AVL；NPN是伙伴计划，NVIDIA-Certified Systems面向整机。华为有公司级供应商体系认证和项目物料选型，但未公开Atlas CDU完整名录或统一认证包。</p>
+      <div class="formula">平台/BOM冻结 → TCS/FWS与Q–ΔP对齐 → 材料/压力/泄漏/遥测/冗余验证 → DVT/PVT或PoC → FAT → 安装联调 → SAT/ISAT → 最终验收 → 项目BOM/订单</div>
+      <p class="small">来源：<a href="https://www.nvidia.com/en-us/about-nvidia/partners/">NVIDIA Partner Network</a>；<a href="https://docs.nvidia.com/certification-programs/latest/nvidia-certified-systems.html">NVIDIA-Certified Systems</a>；<a href="https://supplier.huawei.com/supplier/statement-cooperativeGuide.html">华为采购供应商FAQ</a>；<a href="https://support.huawei.com/enterprise/zh/doc/EDOC1100401573/59a0895f">Atlas 900 A3 CDU巡检</a>。</p>
+    </section>
+
+    <section id="competition">
+      <h2>5. 竞争、并购与产业链</h2>
+      <p class="lead">可比原则：纯液冷、数据中心冷却、数据中心基础设施和集团收入四层分列；实绩、预测、backlog、capacity agreement分列；不以集团收入或集团毛利冒充液冷收入/毛利。</p>
+      <table>
+        <thead>
+        <tr><th scope="col">公司/资产</th><th scope="col">最接近液冷的披露</th><th scope="col">毛利口径</th><th scope="col">状态与战略含义</th><th scope="col">不可比项</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>Ecolab / CoolIT</td><td>未来12个月约5.5亿美元 <span class="tag f" title="Forecast">机构预测</span></td><td>仅称high-margin；无数值</td><td>2026-07-02交割；水处理、工质、DLC和全球服务整合</td><td>预测非实际；Ecolab利润目标不可套用</td></tr>
+        <tr><td>Eaton / Boyd Thermal</td><td>2026液冷15亿美元 <span class="tag f" title="Forecast">机构预测</span></td><td>未披露</td><td>2026-03-12交割；grid-to-chip与chip-to-ambient整合</td><td>交易预测非实际；分部增长贡献非Boyd收入增速</td></tr>
+        <tr><td>Schneider / Motivair</td><td>未拆Motivair/液冷收入</td><td>未披露</td><td>2025-02-28取得75%；电力、预制模块、CDU和冷水机全栈</td><td>Energy Management收入不可当液冷收入</td></tr>
+        <tr><td>Vertiv</td><td>仅有集团收入/backlog</td><td>未披露液冷毛利</td><td>电源、热管理、流体服务和全球网络</td><td>集团数据不可计算液冷份额</td></tr>
+        <tr><td>Modine / Airedale</td><td>数据中心分部收入，含设施侧冷却</td><td>2026年6月季度分部毛利20.2%</td><td>扩产与单一客户capacity agreement；爬坡期利润承压</td><td>不是纯液冷；协议非firm backlog</td></tr>
+        <tr><td>曙光数创</td><td>2025浸没4.579亿元、冷板2.986亿元 <span class="tag a" title="Actual">实绩</span></td><td>浸没36.49%；冷板10.36%</td><td>国内较纯历史可比；现金和价格竞争值得跟踪</td><td>产品/项目结构与CDU新进入者不同</td></tr>
+        <tr><td>英维克/申菱/高澜</td><td>集团、数据服务或混合板块披露</td><td>未拆纯液冷</td><td>国内全链条与工程服务能力强</td><td>不得反推液冷收入、份额或毛利</td></tr>
+        </tbody>
+      </table>
+      <p class="small">交易与财务来源：<a href="https://investor.ecolab.com/news/news-details/2026/Ecolab-Closes-CoolIT-Acquisition-and-Expands-AI-Cooling-Platform-as-Global-High-Tech-Business-Targets-4-Billion-by-2030/default.aspx">Ecolab closes CoolIT, 2026-07-02</a>；<a href="https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-completes-acquisition-of-leading-liquid-cooling-solutions-provider-boyd-thermal.html">Eaton completes Boyd Thermal, 2026-03-12</a>；<a href="https://www.se.com/ww/en/assets/564/document/506659/Schneider%20Electric-completes-acquisition-of-Motivair-Corporation.pdf">Schneider/Motivair, 2025-02-28</a>；<a href="http://static.cninfo.com.cn/finalpage/2026-04-14/1225104669.PDF">曙光数创2025年报，收入构成</a>。</p>
+      <div class="callout risk"><strong>已删除：</strong>无一手分母的市场份额、前五集中度、部件价值占比、客户独家、通用毛利与专利墙。公开证据不足以恢复这些点值。<strong>2.7 章的液冷占比不是市场份额</strong>，不得用来间接恢复本章已删除的份额类点值。</div>
+
+      <h3>5.1 三家公司一手披露的分部毛利对比（v3.3 新增）</h3>
+      <p class="lead">本节只列<strong>公司正式年度报告披露的分部毛利率</strong>。三家公司互相独立，口径各不相同，因此下表<strong>逐行标注期间、口径边界与是否纯液冷</strong>。集团整体毛利不得冒充液冷毛利；任何一行都不得跨公司直接比较大小，只能用于观察<strong>同一家公司内部两个分部之间的差</strong>。</p>
+      <table>
+        <thead>
+        <tr><th scope="col">公司</th><th scope="col">对比对（同一公司内部）</th><th scope="col">期间</th><th scope="col">毛利率</th><th scope="col">差值</th><th scope="col">口径边界</th><th scope="col">是否纯液冷</th><th scope="col">来源（一级）</th></tr>
+        </thead>
+        <tbody>
+        <tr><td><strong>英维克</strong></td><td>境外 vs 境内</td><td>2025 年度</td><td><strong>52.64%</strong> vs <strong>23.83%</strong></td><td>28.81pct</td><td><strong>分地区、全产品混合</strong>；含机房空调、列间、蒸发冷等风冷产品与机柜温控，液冷未单列</td><td><span class="tag na">否</span></td><td><a href="https://disc.static.szse.cn/disc/disk03/finalpage/2026-04-21/2f89a147-3bd6-43e1-9a24-b6d0fbac0641.PDF">2025 年年度报告，2026-04-21，分地区</a></td></tr>
+        <tr><td><strong>申菱环境</strong></td><td>解决方案及服务 vs 设备</td><td>2025 年度</td><td><strong>31.63%</strong> vs <strong>21.46%</strong></td><td>10.17pct</td><td><strong>分产品</strong>；数据服务行业含液冷、风冷、相变、主机四系列，行业整体毛利率 23.60%</td><td><span class="tag na">否</span></td><td><a href="https://disc.static.szse.cn/disc/disk03/finalpage/2026-04-27/66d8c358-5299-4978-a3a2-327bf46dc1bc.PDF">2025 年年度报告，2026-04-27，分产品</a></td></tr>
+        <tr><td><strong>曙光数创</strong></td><td>服务 vs 冷板液冷产品</td><td>2025 年度</td><td><strong>51.02%</strong> vs <strong>10.36%</strong></td><td>40.66pct</td><td><strong>分产品</strong>；服务口径收入<strong>仅 762 万元</strong>，样本极小。冷板液冷产品含冷板套件、液冷机柜、封闭通道、竖直分液单元、液冷换热单元、室外冷却设备、预制化管路，<strong>服务另列</strong></td><td>冷板产品行 <span class="tag a">是（冷板式）</span></td><td><a href="http://static.cninfo.com.cn/finalpage/2026-04-14/1225104669.PDF">2025 年年度报告，2026-04-14，按产品分类分析</a></td></tr>
+        <tr><td>曙光数创（补充）</td><td>境外 vs 西部</td><td>2025 年度</td><td>37.83% vs 10.38%</td><td>27.45pct</td><td><strong>分地区、全产品混合</strong>；北部 30.49%／东部 14.71%／南部 23.86%</td><td><span class="tag na">否</span></td><td>同上，按区域分类分析</td></tr>
+        <tr><td>Modine（海外对照）</td><td>Data Centers 分部</td><td>FY2027 Q1（2026-04-01 至 2026-06-30）</td><td>20.2%（同比 −960bp）</td><td>—</td><td>含 Airedale chiller、CRAH 等<strong>设施侧一次侧</strong>产品，与二次侧 CDU 不在同一价值链位置</td><td><span class="tag na">否</span></td><td><a href="https://investors.modine.com/news/news-details/2026/Modine-Reports-First-Quarter-Fiscal-2027-Results/default.aspx">Modine FY2027 Q1 业绩公告，2026-07-29（二级）</a></td></tr>
+        </tbody>
+      </table>
+      <div class="tnote">
+        <b>使用边界（强制随表引用）：</b>
+        <ul>
+          <li>英维克与申菱的对比对<strong>都不是纯液冷</strong>。英维克的 52.64% <strong>不能</strong>读成「液冷海外毛利 52.64%」；申菱的 31.63% <strong>不能</strong>读成「液冷服务毛利」。</li>
+          <li>曙光数创服务毛利率 51.02% 对应的收入仅 762 万元，<strong>样本极小，不具统计意义</strong>，只作方向参照。</li>
+          <li>Modine 与三家国内公司<strong>不可比</strong>：会计准则、产品结构、地域与价值链位置均不同。</li>
+          <li><strong>没有任何公司披露「纯 CDU 毛利率」。</strong>Vertiv、Schneider、nVent、Ecolab/CoolIT、Eaton/Boyd 均未披露液冷收入或液冷毛利；台系奇鋐、双鸿明确不拆液冷收入。因此「CDU 毛利 40%–60%」在公开渠道<strong>没有任何一手支持</strong>，v2.8 起的删除决定<strong>维持</strong>。</li>
+        </ul>
+      </div>
+      <div class="callout"><strong>方向性提示（不是结论）：</strong>三家互相独立的一手披露一致显示，<strong>已实现的较高毛利集中在「海外」与「服务／解决方案」，而不在「国内裸设备」</strong>。这是三家公司的<strong>披露事实</strong>与由此产生的<strong>方向性提示</strong>，<strong>不构成</strong>对任何新进入者能否取得同等毛利的判断——三家公司的海外收入与服务收入都建立在多年积累的当地渠道、服务网络与装机量之上，这些本身就是高成本的前置条件。本节仅作为后续方向选择的输入，配套 BP v2.2 已按此定位使用（BP §9.5），且<strong>未改变其阶段一国内起步主线</strong>。</div>
+      <p class="small">confidence：披露事实本身 0.93（一级年报）；方向性提示的可迁移性 0.70。valid_until：2026-11-30。invalidate_if：英维克或申菱首次披露液冷专项收入或液冷分部毛利率（将首次形成国内「纯液冷」第二样本）；曙光数创披露 2026 年冷板液冷产品分项毛利率；Ecolab 或 Eaton 首次披露 CoolIT／Boyd 独立液冷收入与利润。完整的 21 项毛利率锚点台账见《算力冷却_验证与决策包 v1.0_20260905》第 1.2 章及底稿 <code>temp/research-validation-pack/findings/evidence-01-margin-anchors.md</code>。</p>
+    </section>
+
+    <section id="procurement">
+      <h2>6. 客户采购、合同责任与回款</h2>
+      <h3>6.1 项目链</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">阶段</th><th scope="col">客户门</th><th scope="col">供应商证据</th><th scope="col">现金/责任</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>RFQ / 资格预审</td><td>经验、质量体系、财务、本地服务、工况边界</td><td>项目清单、合规矩阵、BoQ、偏离表</td><td>投标和NRE先行；漏项可能免费补供</td></tr>
+        <tr><td>PoC / qualification</td><td>平台、材料、水质、热工水力、故障模式</td><td>样机、FMEA、DVT/PVT、整改闭环</td><td>是否收费、周期和转化率待客户验证</td></tr>
+        <tr><td>FAT</td><td>流量/压力、换热、过滤/脱气、控制、报警、冗余</td><td>序列化BOM、校准、COA、FAT报告</td><td>关键件和在制品占现</td></tr>
+        <tr><td>SAT / ISAT</td><td>流量平衡、带载稳定、BMS/DCIM、联锁、维护性</td><td>现场报告、培训、竣工图、缺陷关闭</td><td>安装、差旅、冲洗、整改继续占现</td></tr>
+        <tr><td>最终验收</td><td>第三方/最终客户签字与观察期</td><td>验收报告、发票、PBG</td><td>最大回款瓶颈；终端延迟可向供应商传导</td></tr>
+        <tr><td>质保与回款</td><td>SLA、备件、故障处理、PBG释放</td><td>服务台账、保险、备件与8D</td><td>长尾服务、授信和尾部损失</td></tr>
+        </tbody>
+      </table>
+      <h3>6.2 招标价格分类：不得互换</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">项目</th><th scope="col">预算/预估</th><th scope="col">最高限价</th><th scope="col">候选/中标</th><th scope="col">合同/结算</th><th scope="col">裁决</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>佛山三水 6×420 kW</td><td>无数据</td><td>172.56万元，不含税；含管路、工质处理、安装调试与深化</td><td>无数据</td><td>无数据</td><td>配套包上限；不得除台数生成裸机ASP</td></tr>
+        <tr><td>南京科创 12×500 kW</td><td>429万元，不含税；含管路、附件、工质和安装</td><td>折扣上限机制</td><td>无数据</td><td>按实结算；金额无数据</td><td>项目预估；不是成交价</td></tr>
+        <tr><td>浙江移动 50×300 kW</td><td>无数据</td><td>数值位于未取得附件</td><td>结果页线索存在，价格不可核验</td><td>无数据</td><td>只证明规模、份额机制、交期和质保</td></tr>
+        </tbody>
+      </table>
+      <p class="small">来源：佛山与南京为招标镜像，来源等级三级，只作价格性质线索；正式结果发布即失效。完整条款旁证见<a href="https://www.cdac.in/index.aspx?dynamicId=NjY4MzIzMjM%3D&amp;id=tenders_viewpdf">C-DAC DCLC Tender, 2022-12-13, p.12及pp.14–17</a>。</p>
+
+      <h3>6.2.1 折算为单位容量价格后的收敛结果（v3.3 新增）</h3>
+      <p>v3.2 及此前把包价除以<strong>台数</strong>得到 28.76 万元/台与 35.75 万元/套，两个数相差 24%，容易被解释为「容量不同导致的正常差异」而失去信息量。v3.3 改按<strong>总价 ÷ 总容量</strong>折算为元/kW，两个来自不同省份、不同容量、不同时点的样本随即高度收敛。</p>
+      <table>
+        <thead>
+        <tr><th scope="col">样本</th><th scope="col">数量 × 容量</th><th scope="col">总容量</th><th scope="col">公开金额（不含税）</th><th scope="col">单位容量价格</th><th scope="col">金额性质与供货边界</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>广东移动佛山三水，2026-07-22</td><td>6 × 420 kW</td><td>2,520 kW</td><td>1,725,576.99 元</td><td><strong>684.75 元/kW</strong></td><td><strong>总价最高限价</strong>；含废液收集推车、储液桶、304 不锈钢二次管路、系统调测、运输就位对接、深化设计</td></tr>
+        <tr><td>江苏移动南京科创 C2，2026-07-31</td><td>12 × 500 kW</td><td>6,000 kW</td><td>4,290,000 元</td><td><strong>715.00 元/kW</strong></td><td><strong>项目预估金额</strong>；含二次管路、附件、工质、安装</td></tr>
+        <tr><td colspan="4"><strong>两样本收敛度</strong></td><td><strong>4.4%</strong></td><td>两个独立样本落在 684.75–715.00 之间</td></tr>
+        </tbody>
+      </table>
+      <p class="small">复算：<code>1,725,576.99 ÷ 2,520 = 684.7528</code>；<code>4,290,000 ÷ 6,000 = 715.0000</code>；<code>715.00 ÷ 684.75 − 1 = 4.42%</code>。</p>
+      <div class="tnote">
+        <b>作为价格上限约束的含义：</b>两个独立样本在单位容量价格上的高度收敛，显著提升了「该价格水平代表国内运营商真实采购水平」的置信度（<code>confidence 0.85</code>）。因此该折算值<strong>首次使「价格上限」可以进入约束条件计算</strong>——它回答的是「在这个渠道里，价格<strong>不可能高于</strong>多少」，而不是「价格<strong>会是</strong>多少」。
+        <br><br><b>使用边界（强制随表引用）：</b>
+        <ul>
+          <li><strong>样本量为 2</strong>，且两个样本均来自中国移动省级公司，不构成对全渠道的统计推断。</li>
+          <li><strong>这是包价折算</strong>（含二次管路、工质、安装、深化设计），裸机 CDU 单位价格必然<strong>低于</strong>此数。</li>
+          <li><strong>这是限价／预估，不是中标价。</strong>限价机制下投标折扣普遍存在，实际成交可能更低，<strong>不可能更高</strong>。</li>
+          <li>两个样本均为 <strong>420/500 kW 大容量档</strong>。小容量 CDU 的固定内容（泵、PLC、HMI、机柜、钣金）不随容量线性缩减，因此 100/200 kW 的元/kW <strong>应显著高于</strong> 685–715；具体高多少<strong>无数据，不得插值</strong>。</li>
+          <li>因此该数<strong>只能</strong>作为「300–500 kW 档、国内运营商渠道、含配套包」的<strong>价格上限约束边界</strong>使用，<strong>不作价格预测，不作 ASP，不作任何容量档的报价基准</strong>。</li>
+        </ul>
+      </div>
+      <div class="callout risk"><strong>为什么这条约束重要（对新进入者不利，如实呈现）：</strong>把该上限与同边界成本结构对照，缺口是结构性的而非边际的——详见第 8 章的成本桥与可行域。同时，<strong>不存在可核验的同规格液冷产品公开价格时间序列</strong>：本轮未取得任何「同一容量、同一工况、同一供货边界」的产品在两个以上时点的公开成交价。因此<strong>禁止</strong>写「CDU 价格年降 X%」并标为事实；只可写「存在多项独立的降价压力信号，但无公开价格时间序列可量化降幅」。<code>confidence 0.88</code>（对这一否定结论本身）。</div>
+      <p class="small">来源：广东移动佛山三水询比公告（完整镜像，三级，0.92）；江苏移动南京科创 C2 招标公告（完整镜像，三级，0.91）。<strong>金额本身来自公告原文，折算为一级实绩的算术折算；镜像等级仅影响公告文本的可核验性，不影响除法本身。</strong>valid_until 2026-12-31；invalidate_if：任一官方中选公示、单价最高限价附件或分项报价清单公开。</p>
+
+      <h3>6.3 合同责任边界</h3>
+      <p>合同至少拆分CDU本体、一次侧、二次主管、Manifold/UQD/软管、冷板、工质、水质、检测排水、BMS/DCIM、施工与运维；按“原因 + 控制权 + 验收状态”分责。单列IT设备直接损失、数据/利润/停机等间接损失、第三方索赔、污染清理、LD、责任上限及穿透项；保险与赔偿义务背靠背。</p>
+      <p class="small">结构旁证：<a href="https://www.sec.gov/Archives/edgar/data/1854368/000121390026053566/ea028958501ex10-1.htm">Digi Power X–Cerebras Data Center Colocation and Master Services Agreement, 2026-05-04, Articles 10–12</a>。该文件证明分责、间接损失排除、责任上限与保险结构存在，但具体额度已脱敏，不外推至中国CDU合同。</p>
+    </section>
+
+    <section id="sam">
+      <h2>7. TAM / SAM / SOM：项目池而非市场份额</h2>
+      <p><strong>TAM：</strong>Dell’Oro全球液冷设备制造商收入端点。<strong>SAM：</strong>目标公司未来24个月可服务项目池。<strong>SOM：</strong>在合格项目中，经项目qualification、订单、交付、服务和回款约束后的收入。<strong>2.6/2.7 章的 L1/L2/L3 与占比序列不是 TAM、SAM 或 SOM 的任何一层</strong>，只是外部市场锚定。</p>
+      <div class="formula">Eligible_i = Power_i × Finance_i × Build_i × Platform_i × ServiceGeo_i
+L_design(i,j) = RackCount(i,j) × P_IT(i,j) × HCR(i,j) × PeakFactor(i,j)
+N_installed = ceil(L_design / C_effective) + N_redundant
+Revenue_i = Σ(N_installed × ASP_validated) + OtherValidated
+SAM_24m = Σ(Eligible_i × Revenue_i × Commissioning_24m_i)</div>
+      <table>
+        <thead>
+        <tr><th scope="col">候选项目</th><th scope="col">已获电</th><th scope="col">已融资</th><th scope="col">在建</th><th scope="col">平台明确</th><th scope="col">地理可服务</th><th scope="col">Eligible</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>Stargate UAE首簇</td><td>项目级文件无数据</td><td>无数据</td><td>有施工信号</td><td>柜级BOM无数据</td><td>目标公司能力无数据</td><td>否</td></tr>
+        <tr><td>Khazna扩张项目</td><td>逐项目无数据</td><td>公司级融资，未逐项目映射</td><td>逐项目无数据</td><td>无数据</td><td>无数据</td><td>否</td></tr>
+        <tr><td>沙特HUMAIN</td><td>无数据</td><td>项目融资无数据</td><td>具体项目无数据</td><td>无数据</td><td>无数据</td><td>否</td></tr>
+        <tr><td>PIF–Google Dammam AI Hub</td><td>无数据</td><td>无数据</td><td>仍有审批前提</td><td>无数据</td><td>无数据</td><td>否</td></tr>
+        </tbody>
+      </table>
+      <div class="callout risk"><strong>当前裁决：</strong>公开可核验Eligible项目数暂未闭环；SAM<sub>24m</sub>=无数据，不是0。公开资料不足时不填亿元点值。SOM同样为无数据，直至取得客户项目表、平台BOM、有效ASP与服务方案。</div>
+    </section>
+
+    <section id="economics">
+      <h2>8. 单位经济：100/200/300/450 kW空模型</h2>
+      <table>
+        <thead>
+        <tr><th scope="col">字段</th><th scope="col">100 kW</th><th scope="col">200 kW</th><th scope="col">300 kW</th><th scope="col">450 kW</th><th scope="col">解锁证据</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>额定工况/流量/压差/工质/冗余</td><td>无数据</td><td>无数据</td><td>无数据</td><td>无数据</td><td>客户RFQ + 样机性能矩阵</td></tr>
+        <tr><td>CDU净ASP</td><td>ASP100</td><td>ASP200</td><td>ASP300</td><td>ASP450</td><td>同边界书面报价/订单；至少两个可比样本</td></tr>
+        <tr><td>BOM：泵、板换、阀、过滤/脱气、PLC/VFD、传感、钣金、管件、工质</td><td>询价</td><td>询价</td><td>询价</td><td>询价</td><td>每类至少两家书面报价，含MOQ/交期/质保/付款</td></tr>
+        <tr><td>制造与测试：装配、清洗、压力、气密、FAT、良率、返工</td><td>实测</td><td>实测</td><td>实测</td><td>实测</td><td>至少三批试制工时、一次通过率和返修记录</td></tr>
+        <tr><td>安装/SAT/第三方测试</td><td>项目化</td><td>项目化</td><td>项目化</td><td>项目化</td><td>责任界面、站点工时和服务商报价</td></tr>
+        <tr><td>物流、关税、保险</td><td>报价</td><td>报价</td><td>报价</td><td>报价</td><td>Incoterms、目的地、HS编码、保险报价</td></tr>
+        <tr><td>渠道/EPC</td><td>合同</td><td>合同</td><td>合同</td><td>合同</td><td>渠道或联合体协议</td></tr>
+        <tr><td>质保/售后、坏账/LD</td><td>模型</td><td>模型</td><td>模型</td><td>模型</td><td>故障数据、合同责任、保费/免赔额、客户信用</td></tr>
+        <tr><td>营运资金</td><td>周模型</td><td>周模型</td><td>周模型</td><td>周模型</td><td>客户付款、供应商账期、PBG、库存和验收节点</td></tr>
+        <tr><td>贡献毛利/ROIC/盈亏平衡</td><td>无数据</td><td>无数据</td><td>无数据</td><td>无数据</td><td>以上字段全部解锁后才计算</td></tr>
+        </tbody>
+      </table>
+      <div class="formula">CM_i = NetRevenue_i − BOM_i − MfgFAT_i − InstallSAT_i − LogisticsDutyInsurance_i − ChannelEPC_i − WarrantyExpected_i − CreditLossLD_i
+CashAdjustedCM_i = CM_i − GuaranteeFinanceFees_i − WorkingCapitalCost_i</div>
+      <p>现金模型按周计算，至少压力测试：验收延迟、无预付款、PBG/履约保证、关键件预付、FAT失败、现场整改、框架订单延期、汇率/关税、重大返修与责任穿透。传统CCC仅作摘要，不能替代里程碑现金流。</p>
+      <div class="callout risk"><strong>公开证据不足：</strong>不输出未经验证的ASP、毛利、ROIC、回收期或盈亏平衡台数。取得书面报价、合同、试制工时/良率、故障数据和真实付款节点后才解锁。<strong>2.6/2.7 章的每 MW 投资强度是设施与 IT 的宏观造价包络，不得当作 CDU ASP 或部件价值。</strong></div>
+
+      <h3>8.1 唯一可复算的毛利锚点：曙光数创冷板液冷 10.36%（v3.3 新增）</h3>
+      <p>空模型的每一格仍为无数据，但 v3.3 起有一个<strong>可独立复算、可用于对照的外部锚点</strong>。它不填入上表任何一格，只用于判断「一旦上表被填实，结果落在什么位置上意味着什么」。</p>
+      <div class="formula">营业收入   298,639,495.45 元
+营业成本   267,702,360.46 元
+毛利       298,639,495.45 − 267,702,360.46 = 30,937,134.99 元
+毛利率     30,937,134.99 ÷ 298,639,495.45 = 10.3594%  →  与年报披露的 10.36% 完全自洽</div>
+      <p class="small">来源：<a href="http://static.cninfo.com.cn/finalpage/2026-04-14/1225104669.PDF">曙光数创 2025 年年度报告，2026-04-14，「收入构成 / 按产品分类分析」</a>（一级，0.95）。同比 −15.48pct；年报归因「冷板液冷处于市场导入期，市场竞争较为激烈」。</p>
+      <div class="tnote">
+        <b>这个锚点是什么口径（使用前必读）：</b>曙光数创年报按产品分类披露，<strong>服务单独成行</strong>（51.02%），因此 10.36% 对应的 267,702,360.46 元营业成本主要是<strong>产品成本</strong>。但该公司收入确认为项目制（以客户验收报告为时点一次性确认），其营业成本大概率<strong>已包含项目实施／安装相关的直接成本</strong>，而<strong>不含</strong>销售、管理与研发费用。
+        <br><br>因此在成本桥上，它的位置是：<code>硬件毛利（仅扣 BOM+制造） &gt; 10.36% &gt; 项目贡献毛利（再扣安装/物流/渠道/质保/坏账）</code>。即 <strong>10.36% 应被读作「扣除 BOM、制造与项目直接成本后的毛利」，比硬件毛利严格，比项目贡献毛利宽松。不得当成项目贡献毛利，也不得当成纯裸机硬件毛利。</strong>
+      </div>
+      <div class="callout risk"><strong>这个锚点不是行业地板（下行反证，必须同时呈现）：</strong>同一家公司 2026 年上半年冷板液冷收入同比 <strong>+290.09%</strong>、成为主要收入来源，但公司整体转为亏损——半年报营业收入 2.4594 亿元（+75.56%）、归母净利润 <strong>−7,340 万元</strong>（上年同期 −4,077 万元）、经营现金流净额 <strong>−2.42 亿元</strong>。<strong>冷板收入放量与亏损扩大同时发生，说明 10.36% 是「2025 年度的一个观测值，且趋势向下」，而不是「行业最低水平」。</strong>任何以 10.36% 作为「保守下限」的推导都低估了风险，应额外测试 5%–8% 的下行情景。<span class="small">来源：曙光数创 2026 年半年度报告（经财经媒体转述，三级，0.80）；须回到半年报原件确认冷板产品分项毛利率后方可替换本节口径。</span></div>
+      <h4>锚点的意义：所需毛利率与实证水平的缺口</h4>
+      <table>
+        <thead>
+        <tr><th scope="col">若倒推所需毛利率落在</th><th scope="col">与实证锚点的关系</th><th scope="col">判定</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>≤ 10%</td><td>处于曙光冷板 10.36% 实证水平之内</td><td>与已披露的最纯可比样本一致，<strong>但该样本本身在亏损</strong>，仍不足以支撑固定费用</td></tr>
+        <tr><td>10%–21%</td><td>高于曙光冷板，低于申菱设备 21.46%</td><td>需要证明本项目比曙光数创冷板业务显著更优（更高定价或更低成本），<strong>须有书面证据</strong></td></tr>
+        <tr><td>21%–28%</td><td>达到申菱数据服务 23.60%／英维克境内 23.83%／英维克机房温控 28.36% 的混合口径水平</td><td>需要产品结构中含大比例风冷／方案服务，或定价能力显著更强</td></tr>
+        <tr><td>&gt; 28%</td><td>超过所有国内一手披露的相关分部</td><td><strong>只在海外市场（英维克境外 52.64%）有实证支持</strong>；国内裸设备口径无任何一手支持</td></tr>
+        <tr><td>&gt; 40%</td><td>无任何一手支持</td><td>此前删除「CDU 毛利 40%–60%」的决定<strong>维持，不得恢复</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="callout risk"><strong>配套决策包的倒推结果（对新进入者不利，如实呈现）：</strong>按同边界（CDU + 二次管路 + 工质 + 安装调试）成本结构，能让阶段一固定费用在可达容量下平衡的价格，其对应的所需贡献毛利率是 <strong>27%–37%</strong>；而国内可比公司一手披露的相关毛利率是 <strong>10.36%–23.83%</strong>。<strong>缺口约 4–27 个百分点。</strong>该结论回答的是「必须达到什么」，不是「将会达到什么」。<br><br>同时，同边界总成本下界为 <strong>840 元/kW</strong>（最乐观 BOM 400 + 非 BOM 440），高于第 6.2.1 节的国内运营商包价上限 684.75–715.00 元/kW 约 <strong>17%–23%</strong>：<strong>价格可行域与国内运营商公开采购的价格上限不重叠。</strong><span class="small">复算：<code>840 ÷ 715 = 1.175</code>；<code>840 ÷ 684.75 = 1.227</code>；<code>1,500 − 1,090 = 410</code>，<code>410 ÷ 1,500 = 27.3%</code>；<code>1,730 − 1,090 = 640</code>，<code>640 ÷ 1,730 = 37.0%</code>。</span></div>
+
+      <h3>8.2 责任敞口与现金：从「无数据」到「已量化的约束」（v3.3 新增摘要）</h3>
+      <p class="small">本节为摘要，完整参数、公式与逐项复算见《算力冷却_验证与决策包 v1.0_20260905》第 4、5 章。三级来源的金额参照已逐项标注等级，<strong>不得写成行业事实</strong>。</p>
+      <table>
+        <thead>
+        <tr><th scope="col">维度</th><th scope="col">量化结果</th><th scope="col">推导与复算</th><th scope="col">数据性质 / 来源等级</th></tr>
+        </thead>
+        <tbody>
+        <tr><td rowspan="3"><strong>责任敞口</strong></td><td>单台 200 kW CDU 覆盖的 IT 资产 <strong>3,392 万元</strong></td><td><code>135 kW × 0.90 = 121.5 kW/柜</code>；<code>200 ÷ 121.5 = 1.646 柜</code>；<code>21.2 × 135,000 × 7.2 = 2,060.64 万元/柜</code>；<code>1.6461 × 2,060.64 = 3,392</code></td><td>功率为原厂规格（一级）；价值强度为第三方模型（二级）；汇率 7.2 为假设</td></tr>
+        <tr><td>单块 GPU 基板损坏 = 合同额 <strong>1.76–2.52 倍</strong>、项目毛利 <strong>17.0–24.3 倍</strong></td><td>合同额 <code>715 × 200 ÷ 10,000 = 14.30 万元</code>；毛利 <code>14.30 × 10.36% = 1.48 万元</code>；损失 <code>3.5–5.0 万美元 × 7.2 = 25.2–36.0 万元</code></td><td>基板成本为<strong>三级</strong>（0.55），须以客户实际机型备件价格替换</td></tr>
+        <tr><td>行业指引转引的责任上限（合同价 10%–20% = 1.43–2.86 万元）<strong>仅覆盖单块基板成本的 4%–11%</strong></td><td><code>1.43 ÷ 36.0 = 3.97%</code>；<code>2.86 ÷ 25.2 = 11.35%</code></td><td>责任上限区间为<strong>三级</strong>（0.55），<strong>不得写成行业事实</strong></td></tr>
+        <tr><td rowspan="3"><strong>现金</strong></td><td>单项目峰值现金 <strong>91 万元/MW</strong>；阶段一并行容量 <strong>1.21 MW</strong>、年吞吐 <strong>1.86 MW</strong></td><td><code>65 + 15 + 5 + 0.05 × 120 = 91.0</code>；<code>110 ÷ 91 = 1.209</code>；<code>1 × (52 ÷ 28) = 1.857</code></td><td>付款条款为已核验招标文件（一级）；成本项为假设，待 M1 替换</td></tr>
+        <tr><td>相对 F2 盈亏平衡点 <strong>7.80 MW/年</strong> 的达成率 <strong>23.8%</strong></td><td><code>3,200,000 ÷ 410 = 7,805 kW</code>；<code>1.86 ÷ 7.80 = 23.8%</code></td><td>模型推导；固定费用口径来自 BP 资金用途表</td></tr>
+        <tr><td>三条底线：最低现金 <strong>171 万元</strong>、最大并行 <strong>1 个</strong>项目、回款延迟容忍 <strong>11.2 周</strong>；30% 预付款可延长至 <strong>17.1 周</strong></td><td><code>91 + 320 ÷ 4 = 171</code>；<code>FLOOR(160 ÷ 91) = 1</code>；<code>(160 − 91) ÷ 6.1538 = 11.2</code>；<code>(160 − 55) ÷ 6.1538 = 17.1</code></td><td>模型推导；C-DAC 安装调试期 16 周为一级</td></tr>
+        <tr><td><strong>客户分层</strong></td><td>低密度改造客户敞口约为高密 GB300 集群的 <strong>1/4.71</strong></td><td>低密度对照：<code>40,000 × 5 × 7.2 = 144 万元/柜</code>，5 柜 = 720 万元；<code>3,392 ÷ 720 = 4.71</code></td><td>模型推导；对照参数为假设</td></tr>
+        </tbody>
+      </table>
+      <div class="callout risk"><strong>本节的性质：</strong>以上全部是<strong>约束条件</strong>，回答「必须达到什么」，<strong>不是</strong>对本公司业绩、赔付概率或现金流的预测。责任敞口的量化<strong>不意味着</strong>该损失会发生，而是说明「若发生，赔付规模相对合同额与毛利处于什么量级」——正是这个量级差决定了责任封顶属于业务前提而非谈判技巧。合同额 14.30 万元与毛利 1.48 万元采用的是<strong>国内运营商实证包价上限</strong>与<strong>曙光冷板实证毛利率</strong>，均为可核验的外部值，<strong>不是本公司的报价或毛利假设</strong>。</div>
+    </section>
+
+    <section id="strategy">
+      <h2>9. 战略与资金：阶段上限不等于承诺</h2>
+      <table>
+        <thead>
+        <tr><th scope="col">门禁</th><th scope="col">阶段1要求</th><th scope="col">阶段2/3追加要求</th><th scope="col">责任人</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>客户订单</td><td>付费PoC/NRE和书面平台边界</td><td>不可撤销PO或最低采购，订单覆盖专用投入</td><td>销售负责人</td></tr>
+        <tr><td>贡献毛利</td><td>建立完整项目损益，不允许缺项</td><td>现金调整后贡献持续为正并通过压力情景</td><td>CFO/项目财务</td></tr>
+        <tr><td>回款</td><td>付款节点、验收主体和PBG可执行</td><td>DSO、库存和峰值现金不突破董事会阈值</td><td>CFO</td></tr>
+        <tr><td>可靠性</td><td>DVT/FAT/SAT无未关闭关键缺陷</td><td>多批次一致性、现场故障率与质保准备可测</td><td>CTO/质量负责人</td></tr>
+        <tr><td>现金跑道</td><td>首期上限800万元内完成验证</td><td>压力情景下仍有董事会规定的安全跑道</td><td>CEO/CFO</td></tr>
+        </tbody>
+      </table>
+      <p>阶段2最高1,200万元、阶段3最高1,500万元只代表潜在上限；未达任一关键门禁即冻结招聘、专用库存和非关键CapEx。CapEx不得领先已签订单和qualification进度。<strong>外部投资增速与液冷占比上升均不构成解锁条件</strong>；只有订单、贡献、回款、可靠性与现金跑道达标才可解锁。</p>
+    </section>
+
+    <section id="regions">
+      <h2>10. 区域状态：先项目质量，后市场热度</h2>
+      <table>
+        <thead>
+        <tr><th scope="col">区域/项目</th><th scope="col">announced / planned</th><th scope="col">financed</th><th scope="col">under construction</th><th scope="col">live</th><th scope="col">是否IT MW</th><th scope="col">商业处理</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>中国</td><td>地方规划须逐项筛选</td><td>项目级验证</td><td>项目级验证</td><td>标准机架/智算统计不等于液冷IT负荷</td><td>通常否</td><td>优先真实消纳、已获电、回款清晰客户</td></tr>
+        <tr><td>柔佛</td><td>大量讨论/审批项目</td><td>逐项目无数据</td><td>有项目集群</td><td>公开“completed”容量不能直接认定live IT</td><td>定义不一</td><td>须有TNB接电、开工、租户/平台和本地服务</td></tr>
+        <tr><td>新加坡</td><td>新增容量是政策目标</td><td>逐项目</td><td>逐项目</td><td>政府披露现有约1.4 GW</td><td>口径需核</td><td>经OEM/EPC进入，不把政策容量当漏斗</td></tr>
+        <tr><td>沙特</td><td>HUMAIN及Google Hub多为意向/审批阶段</td><td>项目级无数据</td><td>公开证据不足</td><td>官方capacity stock定义待核</td><td>待核</td><td>本地EPC、信用证、平台与GPU许可先行</td></tr>
+        <tr><td>阿联酋</td><td>园区总愿景不计近期SAM</td><td>公司级融资不自动映射项目</td><td>Stargate首簇有施工信号</td><td>Khazna组合容量不等于全部live</td><td>部分待核</td><td>首簇仍须电力、平台、服务与采购链闭环</td></tr>
+        <tr><td>欧美</td><td>连接队列含重复/投机申请</td><td>逐项目</td><td>逐项目</td><td>需求强但准入最严</td><td>来源各异</td><td>作为认证后市场；遵守报告、F-gas和责任要求</td></tr>
+        </tbody>
+      </table>
+      <p>欧盟现行证据支持数据中心报告规则与F-gas横向法规，不支持统一“液冷强制认证”。PFAS与F-gas必须按CAS、GWP、设备和法规路径分别判断。高温/缺水不自动等于容易销售，仍需WUE、冷源、工质回收和本地运维闭环。</p>
+    </section>
+
+    <section id="risks">
+      <h2>11. 风险、反命题与季度跟踪</h2>
+      <table>
+        <thead>
+        <tr><th scope="col">风险/反命题</th><th scope="col">概率</th><th scope="col">影响</th><th scope="col">先行指标</th><th scope="col">内部阈值与动作</th><th scope="col">责任人</th><th scope="col">复盘日</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>并网/施工延期</td><td>高</td><td>高</td><td>接电协议、NTP、施工里程碑</td><td>缺电力/开工/平台任两项：移出24个月SAM</td><td>销售/项目总监</td><td>2026-10-31</td></tr>
+        <tr><td>Hyperscaler CapEx放缓</td><td>中</td><td>高</td><td>四大云厂商指引与资产减值；IDC AI基础设施季度修正方向</td><td>连续两季显著下修：冻结二期扩产，并把2.6章情景切换到A-基准/A-受限</td><td>战略负责人</td><td>每季财报后</td></tr>
+        <tr><td>算力投资融资条件收紧</td><td>中</td><td>高</td><td>债务成本、减值公告、IEA关于数据中心融资的更新</td><td>融资收紧信号确认：下调L1/L2序列并重估三组占比</td><td>CFO/战略负责人</td><td>每季</td></tr>
+        <tr><td>OEM指定/垂直整合</td><td>高</td><td>高</td><td>RFQ中指定CDU或AVL比例</td><td>多数目标项目排除独立供应商：转ODM、部件或服务</td><td>BD/产品</td><td>2026-11-30</td></tr>
+        <tr><td>价格降幅快于成本</td><td>高</td><td>高</td><td>同工况RFQ/合同价、完全成本</td><td>现金调整后贡献持续为负：停止扩产并重定价</td><td>CFO/采购</td><td>月度</td></tr>
+        <tr><td>重大漏液/失流</td><td>中</td><td>极高</td><td>FAT/SAT缺陷、现场告警、质保索赔</td><td>重大事件：停发货、隔离批次、8D与保险通知</td><td>质量负责人</td><td>事件即时</td></tr>
+        <tr><td>回款与营运资金</td><td>高</td><td>高</td><td>验收延期、DSO、库存、PBG占用</td><td>突破董事会现金阈值：冻结非必要采购</td><td>CFO</td><td>每两周</td></tr>
+        <tr><td>GPU许可/项目合规</td><td>中</td><td>高</td><td>最终用户、ECCN、许可与交付</td><td>无书面许可路径：不锁专用BOM、不确认收入</td><td>法务/合规</td><td>月度</td></tr>
+        <tr><td>水/PFAS/F-gas约束</td><td>中</td><td>高</td><td>WUE、SDS、CAS、GWP、回收路径</td><td>无完整材料声明或水许可：禁用/不承诺</td><td>EHS/工程</td><td>2026-10-31</td></tr>
+        <tr><td>来源口径/版本漂移</td><td>高</td><td>中</td><td>Dell’Oro、IDC、JLL、McKinsey、IEA新版定义与边界说明</td><td>新版即复核：重设端点，禁止跨版本拼序列与拼占比</td><td>研究负责人</td><td>新版即时</td></tr>
+        <tr><td><strong>价格可行域与国内渠道不重叠（v3.3 新增）</strong></td><td>高</td><td>极高</td><td>四 SKU 书面报价折算的 BOM 元/kW；任一官方 CDU 分项中标价；曙光冷板分项毛利率趋势</td><td>若 BOM &gt; 450 元/kW：国内运营商裸设备渠道判定为不可进入，重心转海外／服务／非运营商渠道，且不为该渠道预留专用样机配置与库存</td><td>CFO/采购/产品</td><td>M1 回收即时；否则月度</td></tr>
+        <tr><td><strong>责任封顶不可得（v3.3 新增）</strong></td><td>中</td><td>极高</td><td>客户书面责任条款草案；产品责任险承保范围与除外责任；C-DAC 式采购人删除自拟封顶的先例是否重现</td><td>R1–R6 任一无法达成：<strong>不接单</strong>；或只接低密度改造客户（敞口降 4.71 倍）。判定先于报价</td><td>法务/CFO</td><td>每合同</td></tr>
+        <tr><td><strong>回款尾部击穿现金结构（v3.3 新增）</strong></td><td>高</td><td>高</td><td>客户付款条款中的预付款比例与账期起算日；实际验收尾部周数</td><td>无预付款且验收尾部 &gt;11.2 周：并行项目数降至 0，不得签约；拒绝无条件 pay-when-paid</td><td>CFO</td><td>每合同 / 每周现金</td></tr>
+        </tbody>
+      </table>
+      <p class="small">以上阈值是内部管理门禁，不代表行业事实。需由董事会、客户合同和试制数据持续校准。v3.3 新增的三行对应配套 BP v2.2 的 §2.6、§13.2 与 §10.2。</p>
+    </section>
+
+    <section id="appendix">
+      <h2>12. 附录</h2>
+      <h3>12.1 关键证据台账（节选）</h3>
+      <table>
+        <thead>
+        <tr><th scope="col">ID</th><th scope="col">主张</th><th scope="col">文件 / URL / 日期 / 章节</th><th scope="col">数据性质 / 来源等级</th><th scope="col">status_as_of / version</th><th scope="col">valid_until / invalidate_if</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>D01</td><td>液冷设备2025接近30亿美元、2029约70亿美元</td><td><a href="https://www.delloro.com/news/data-center-liquid-cooling-market-to-approach-7-billion-by-2029-as-ai-deployments-accelerate/">Dell’Oro, 2026-01-08, report highlights</a></td><td>机构估计/机构预测；二级</td><td>2026-08-22 / Jan-2026</td><td>2027-01-31 / 新版预测</td></tr>
+        <tr><td>G01</td><td>continued-momentum需求2025年82→2030年219 GW；AI约44→156 GW</td><td><a href="https://www.mckinsey.com/featured-insights/sustainable-inclusive-growth/charts/data-center-demands">McKinsey, Data center demands, 2025-05-20</a></td><td>机构估计/机构预测；二级</td><td>2026-08-22 / continued momentum</td><td>2027-02-28 / 新版需求模型</td></tr>
+        <tr><td>G02</td><td>设施供给103→200 GW；2026–2030近100 GW上线；AI份额25%→50%（存量口径）</td><td><a href="https://www.jll.com/content/dam/jllcom/en/global/documents/reports/research-reports/26-research-global-data-center-outlook-new.pdf">JLL, 2026 Global Data Center Outlook, 2026-01-06</a></td><td>机构估计/机构预测；二级</td><td>2026-08-22 / 2026 Outlook</td><td>2027版</td></tr>
+        <tr><td>G03</td><td>2025年末全球在建约31.7 GW；在建不等于投运</td><td><a href="https://www.cushmanwakefield.com/en/news/2026/05/dallas-texas-ranked-number-one-primary-data-market-in-the-world">Cushman &amp; Wakefield, Global Data Center Market Comparison, 2026-05-20</a></td><td>机构估计；二级</td><td>2026-08-22 / 107 markets</td><td>2027版</td></tr>
+        <tr><td>G04</td><td>2025–2030累计投资6.7万亿美元，AI 5.2、传统IT 1.5万亿美元；AI三情景3.7/5.2/7.9万亿对应78/125/205 GW增量；5.2万亿按15%建设、25%能源、60%技术分配</td><td><a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-cost-of-compute-a-7-trillion-dollar-race-to-scale-data-centers">McKinsey, The cost of compute, 2025-04-28</a></td><td>机构预测；二级（分配比例经三级转述）</td><td>2026-08-22 / worldwide compute value chain</td><td>新版投资模型 / 基准情景已被2025–2026实际投资超越</td></tr>
+        <tr><td>G05</td><td>DLC 2024年11→2029年58亿美元；July-2025预测</td><td><a href="https://www.delloro.com/news/ai-build-out-to-propel-data-center-physical-infrastructure-market-to-63-1-billion-by-2029/">Dell’Oro, 2025-08-15</a></td><td>机构估计/机构预测；二级</td><td>2026-08-22 / July-2025 forecast</td><td>已被新版取代 / 仅作版本对照</td></tr>
+        <tr><td>G06</td><td>DLC 2030超过80亿美元；DCPI 2030超过800亿美元；热管理约20% CAGR</td><td><a href="https://www.delloro.com/news/data-center-physical-infrastructure-market-to-surpass-80-billion-by-2030/">Dell’Oro, 2026-02-10</a></td><td>机构预测；二级</td><td>2026-08-22 / Jan-2026 forecast</td><td>已被 K01 取代 / 仅作版本对照</td></tr>
+        <tr><td>K01</td><td>DCPI 2030达1,200亿美元；2025–2030 CAGR 22%；净新增容量增速2026见顶后放缓；隐含2025基年约440亿美元</td><td><a href="https://www.delloro.com/news/data-center-physical-infrastructure-market-forecast-to-reach-120-billion-by-2030/">Dell’Oro, 2026-08-19</a></td><td>机构预测；二级（方法付费不可见）</td><td>2026-08-22 / August-2026 forecast</td><td>2027-02-28 / 边界再次调整即重设2.7章组③</td></tr>
+        <tr><td>K02</td><td>DCPI 4Q2025单季109亿美元、同比约+20%；据季度增速反推FY2025约380–420亿美元（旧边界）</td><td><a href="https://www.delloro.com/news/data-center-physical-infrastructure-market-reaches-10-9-billion-in-4q-2025-up-20-percent-y-y/">Dell’Oro, 2026-03-19</a></td><td>机构估计；二级</td><td>2026-08-22 / 4Q25 quarterly</td><td>下一季报</td></tr>
+        <tr><td>K03</td><td>AI基础设施支出2024年1,530亿、2025年3,180亿美元；2026上调至4,970亿；2029年1.08万亿、2030年1.21万亿美元；服务器占约97.6%</td><td><a href="https://www.idc.com/resource-center/blog/ai-infrastructure-spending-caps-historic-year-at-90-billion-in-q4-2025-2029-spending-to-eclipse-1-trillion/">IDC AI Infrastructure Tracker 公开更新, 2026</a></td><td>机构估计/机构预测；二级（方法付费不可见）</td><td>2026-08-22 / Q1-2026 update</td><td>下一季更新 / 连续两季下修即下移L2与L3</td></tr>
+        <tr><td>K04</td><td>2026年全球平均数据中心建设成本预计1,130万美元/MW（2025年1,070万、2020年770万）；AI租户fit-out最高2,500万美元/MW；至2030最高3万亿美元投资</td><td><a href="https://www.jll.com/content/dam/jllcom/en/global/documents/reports/research-reports/26-research-global-data-center-outlook-new.pdf">JLL, 2026 Global Data Center Outlook, 2026-01-06</a></td><td>机构估计/机构预测；二级</td><td>2026-08-22 / 2026 Outlook</td><td>2027版 / 单位成本转降即下调L1</td></tr>
+        <tr><td>K05</td><td>2025年全球数据中心相关能源侧投资超过1,000亿美元（含发电、现场发电与电网升级）</td><td><a href="https://iea.blob.core.windows.net/assets/64594543-cf6e-4fd9-8238-d3cae35daf48/WorldEnergyInvestment2026.pdf">IEA, World Energy Investment 2026, 2026-05</a></td><td>机构估计；一级</td><td>2026-08-22 / WEI 2026</td><td>2027版</td></tr>
+        <tr><td>K06</td><td>大型科技公司2025年CapEx超4,000亿美元，2026预计再增约75%；数据中心投资已大到无法仅靠资产负债表融资</td><td><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary">IEA, Key Questions on Energy and AI, 2026-04-16</a></td><td>机构估计/机构预测；一级</td><td>2026-08-22 / 2026 update</td><td>新IEA版本</td></tr>
+        <tr><td>K07</td><td>1 GW AI数据中心前期CapEx约380亿美元；分项约服务器21.2、设施11.4、网络4.9美元/W</td><td><a href="https://epoch.ai/data-insights/ai-datacenter-cost-breakdown">Epoch AI, Total cost of ownership of a one-gigawatt AI data center, 更新 2026-05-14</a></td><td>第三方研究模型；二级（总额）/三级（分项转述）</td><td>2026-08-22 / May-2026 model</td><td>新版模型 / 典型化模型，非市场统计</td></tr>
+        <tr><td>K08</td><td>四大超大规模厂商CapEx：2024约2,240亿、2025约4,130亿美元；2026指引合计约7,300–7,450亿美元</td><td>Alphabet / Amazon / Microsoft / Meta 2026年7月下旬财报与业绩会（经二级媒体汇总）</td><td>实绩 / 公司指引；一级（原始财报）/二级（汇总）</td><td>2026-08-22 / Q2-2026 guidance</td><td>下季财报 / 三种CapEx定义不可比，只作旁证</td></tr>
+        <tr><td>D02</td><td>全球数据中心用电485→950 TWh</td><td><a href="https://iea.blob.core.windows.net/assets/3179f7f8-01f6-4dd6-bffa-c9f7b73f1dc9/KeyQuestionsonEnergyandAI.pdf">IEA, 2026-04-16, Executive Summary p.10</a></td><td>机构估计/机构预测；一级</td><td>2026-08-22 / 2026 update</td><td>新IEA版本</td></tr>
+        <tr><td>E01</td><td>Lenovo GB300功率、HCR与Q–ΔP</td><td><a href="https://lenovopress.lenovo.com/lp2357.pdf">Lenovo GB300 Product Guide, 2026-08-13, Table 27</a></td><td>原厂规格；一级</td><td>2026-08-22 / update 2026-08-13</td><td>2026-11-30 / 新revision或BOM</td></tr>
+        <tr><td>S01</td><td>GB/T 48023已发布、2027-02-01实施</td><td><a href="https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=114934594976F57EA3F3683C13B13DB8">SAMR/SAC官方条目, 2026-07-30</a></td><td>已发布待实施；一级</td><td>2026-08-22 / GB/T 48023-2026</td><td>2027-02-01 / 延期、勘误、修订</td></tr>
+        <tr><td>C01</td><td>CoolIT已归Ecolab</td><td><a href="https://investor.ecolab.com/news/news-details/2026/Ecolab-Closes-CoolIT-Acquisition-and-Expands-AI-Cooling-Platform-as-Global-High-Tech-Business-Targets-4-Billion-by-2030/default.aspx">Ecolab closing release, 2026-07-02</a></td><td>实绩；二级</td><td>2026-08-22 / closing</td><td>年度复核 / 重组或重述</td></tr>
+        <tr><td>C02</td><td>Boyd Thermal已归Eaton</td><td><a href="https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-completes-acquisition-of-leading-liquid-cooling-solutions-provider-boyd-thermal.html">Eaton closing release, 2026-03-12</a></td><td>实绩；二级</td><td>2026-08-22 / closing</td><td>年度复核 / 重组或重述</td></tr>
+        <tr><td>P01</td><td>DCLC付款、PBG与五年质保结构</td><td><a href="https://www.cdac.in/index.aspx?dynamicId=NjY4MzIzMjM%3D&amp;id=tenders_viewpdf">C-DAC Tender, 2022-12-13, p.12及pp.14–17</a></td><td>实绩；一级</td><td>2026-08-22 / tender terms</td><td>合同长期有效；行业外推年度复核</td></tr>
+        <tr><td>R01</td><td>规划项目存在接电延迟风险</td><td><a href="https://www.iea.org/reports/energy-and-ai/executive-summary">IEA Energy and AI, 2025-04-10, Electricity grids</a></td><td>研究；一级</td><td>2026-08-22 / 2025 report</td><td>2027-01-31 / 新版电网研究</td></tr>
+        <tr><td>V01</td><td>曙光数创冷板液冷产品毛利率 10.36%（2025 年度）；浸没 36.49%；服务 51.02%；境外 37.83%／西部 10.38%。可由收入成本独立复算</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-04-14/1225104669.PDF">曙光数创 2025 年年度报告, 2026-04-14, 收入构成／按产品分类分析／按区域分类分析</a></td><td>实绩；一级</td><td>2026-09-05 / FY2025 annual</td><td>2026-11-30 / 2026 半年报或年报披露冷板分项毛利率</td></tr>
+        <tr><td>V02</td><td>英维克境内 23.83% vs 境外 52.64%（全产品混合，非纯液冷）；机房温控节能产品 28.36%</td><td><a href="https://disc.static.szse.cn/disc/disk03/finalpage/2026-04-21/2f89a147-3bd6-43e1-9a24-b6d0fbac0641.PDF">英维克 2025 年年度报告, 2026-04-21, 分行业／分产品／分地区</a></td><td>实绩；一级</td><td>2026-09-05 / FY2025 annual</td><td>2026-11-30 / 首次披露液冷专项收入或毛利</td></tr>
+        <tr><td>V03</td><td>申菱环境设备 21.46% vs 解决方案及服务 31.63%；数据服务行业 23.60%（非纯液冷）</td><td><a href="https://disc.static.szse.cn/disc/disk03/finalpage/2026-04-27/66d8c358-5299-4978-a3a2-327bf46dc1bc.PDF">申菱环境 2025 年年度报告, 2026-04-27, 分行业／分产品</a></td><td>实绩；一级</td><td>2026-09-05 / FY2025 annual</td><td>2026-11-30 / 首次披露液冷专项收入或毛利</td></tr>
+        <tr><td>V04</td><td>曙光数创 2026 H1：营业收入 2.4594 亿元（+75.56%）、归母净利 −7,340 万元、经营现金流 −2.42 亿元；冷板液冷收入 +290.09%</td><td>曙光数创 2026 年半年度报告（经财经媒体转述）, 2026-08-25</td><td>实绩；<strong>三级（转述一级披露）</strong></td><td>2026-09-05 / H1-2026</td><td>取得半年报原件即替换 / 三季报</td></tr>
+        <tr><td>V05</td><td>单位容量包价上限：佛山 684.75 元/kW、南京 715.00 元/kW，两样本收敛 4.4%。均为含配套包的限价／预估，非中标价</td><td>广东移动佛山三水询比公告（镜像）, 2026-07-22；中国移动江苏南京科创 C2 招标公告（镜像）, 2026-07-31</td><td>实绩折算；<strong>三级（公告镜像）</strong>，除法本身可复算</td><td>2026-09-05 / 招标公告</td><td>2026-12-31 / 官方中选公示、单价限价附件或分项报价清单公开</td></tr>
+        <tr><td>V06</td><td>责任条款结构先例：分责、间接损失排除、责任上限与保险背靠背；<strong>额度全部脱敏</strong>。反证：C-DAC 2024 删除供应商自拟的合同总价封顶，改用 GeM 标准责任条款</td><td><a href="https://www.sec.gov/Archives/edgar/data/1854368/000121390026053566/ea028958501ex10-1.htm">Digi Power X–Cerebras MSA, 生效 2026-05-04, Art. 10–12、§14.2(b)</a>；<a href="https://www.cdac.in/index.aspx?dynamicId=NTIwOTcyMDc%3D&amp;id=tenders_viewpdf">C-DAC Annexure B Corrigendum, 2024-07</a></td><td>实绩；一级</td><td>2026-09-05 / 生效合同与澄清件</td><td>2027-03-31 / 取得未脱敏的液冷设备供货合同责任条款</td></tr>
+        <tr><td>V07</td><td>付款条款与验收周期：30% 预付需同额保函、到货累计 80%（30 天信用期）、调试 +10%、末款 +10% 凭 3% PBG；履约保证金 5%；安装调试全周期 16 周。TCIL 付款延伸至带载 6 个月／投运 1 年</td><td><a href="https://www.cdac.in/index.aspx?dynamicId=NjY4MzIzMjM%3D&amp;id=tenders_viewpdf">C-DAC Integrated DCLC Tender, 2022-12-13, p.12 §12</a>；<a href="https://www.tcil.net.in/tender/pdf/24f2035.pdf">TCIL Data Centre Turnkey RFP, 2024-05-22, §3.1–3.13</a></td><td>实绩；一级</td><td>2026-09-05 / tender terms</td><td>2026-12-31 / 取得客户书面付款条款</td></tr>
+        <tr><td>V08</td><td>三级金额参照（<strong>不得写成行业事实</strong>）：GPU 基板更换 3.5–5.0 万美元；责任上限 10%–20%；性能 LD 10%–15%；集中招标年降 5%–8%；海外 200–240 美元/kW</td><td>印度保险行业分析；《The Definitive Guide to AI Data Centers》§2.4（转引 Womble Bond Dickinson）；券商研报汇总与行业自媒体</td><td>研究／营销；<strong>三级</strong></td><td>2026-09-05 / 滚动</td><td>取得客户书面条款或书面报价即<strong>必须替换</strong></td></tr>
+        </tbody>
+      </table>
+      <p class="small">V01–V08 为 v3.3 新增条目，与《算力冷却_验证与决策包 v1.0_20260905》附录 B 来源台账 S1–S23 对应。<strong>置信度：</strong>V01 0.95；V02、V03 0.93；V04 0.80；V05 0.85（折算值）／0.91–0.92（公告镜像）；V06 0.93–0.97；V07 0.95–0.96；V08 0.40–0.55。</p>
+      <h3>12.2 模型公式</h3>
+      <ul>
+        <li>热负荷：<code>L_design = rack_count × P_IT × HCR × peak_factor</code></li>
+        <li>有效冷量：<code>C_effective = C_curve(ATD,TCS,FWS,fluid,pump_state) × derating</code></li>
+        <li>设备数：<code>N_installed = ceil(L_design/C_effective) + redundancy_by_failure_domain</code></li>
+        <li>项目贡献：<code>净收入 − BOM − 制造/FAT − 安装/SAT − 物流/税/保险 − 渠道 − 质保 − 坏账/LD</code></li>
+        <li>峰值资金：<code>MAX(0, minimum_cash_buffer − MIN(cumulative_weekly_cash))</code></li>
+        <li>累计投资年度化：<code>Annual_t = CumulativeTotal × index_t / Σindex</code></li>
+        <li>设施侧 CapEx：<code>L1_t = average(NewCommissioned_{t+1}, NewCommissioned_{t+2}) × FacilityIntensity_t</code></li>
+        <li>算力基建总投资：<code>L3_t = L1_t + L2_t</code>；可比值 <code>= L3_t + OffSitePower_t</code></li>
+        <li>液冷占比：<code>Ratio_low = LC_low / Denominator_high</code>；<code>Ratio_high = LC_high / Denominator_low</code></li>
+      </ul>
+      <h3>12.3 访谈/询价待办与解锁门</h3>
+      <ol>
+        <li><strong>价格：</strong>至少两个同工况、同冗余、同质保的正式分项中标/合同价；预算、限价不替代。</li>
+        <li><strong>BOM：</strong>四SKU的泵、板换、UQD、PLC/VFD、阀件、过滤/脱气、钣金与工质，每类至少两家书面报价。</li>
+        <li><strong>客户：</strong>至少两个OEM/客户项目qualification包，确认PoC收费、周期、转量产、平台边界与独立CDU准入。</li>
+        <li><strong>合同：</strong>至少一份CDU/EPC分包合同，包含验收、付款、漏液/停机/数据损失、责任上限、保险、PBG与质保。</li>
+        <li><strong>项目池：</strong>销售逐项目补齐接电、融资、NTP、平台/BOM、柜数、投运批次与本地服务。</li>
+        <li><strong>试制：</strong>至少三批工时、良率、FAT一次通过率、返修、现场故障与质保成本数据。</li>
+        <li><strong>投资口径取证：</strong>取得Dell’Oro DCPI与液冷付费报告的逐年表与边界说明、IDC AI Infrastructure Tracker分项、JLL单位建设成本的地区/密度拆分，以替换 2.6/2.7 章的桥接模型。</li>
+      </ol>
+
+      <h3>12.4 最小证据集与验证路径（v3.3 新增）</h3>
+      <p class="lead">v3.2 的第 12.3 节列出七类待办，但未区分先后与成本。v3.3 依据配套决策包，把其中<strong>四项</strong>标定为<strong>前置证据</strong>：它们成本极低、周期极短，却决定一笔 245 万元的不可回收支出是否应该发生。</p>
+      <table>
+        <thead>
+        <tr><th scope="col">ID</th><th scope="col">证据</th><th scope="col">它决定什么</th><th scope="col">周期</th><th scope="col">现金成本</th><th scope="col">次序</th></tr>
+        </thead>
+        <tbody>
+        <tr><td><strong>M1</strong></td><td>四 SKU 关键件书面报价（每类 ≥2 家；含单价、MOQ、阶梯价、交期、质保、付款条件）</td><td>BOM 能否落到 275–450 元/kW，即<strong>单位经济是否可能为正</strong></td><td>4–6 周</td><td><strong>≈0</strong>（仅工时）</td><td rowspan="4"><strong>前置</strong></td></tr>
+        <tr><td><strong>M3</strong></td><td>客户书面责任条款草案 + 产品责任险报价（承保范围与除外责任书面确认）</td><td>最坏情景是否会毁掉公司，即<strong>业务是否可成立</strong></td><td>4–8 周</td><td>1–3 万元</td></tr>
+        <tr><td><strong>M4</strong></td><td>客户书面付款条款（预付款比例、里程碑比例、账期起算日、质保金/保函形式）</td><td>并行项目数与现金红线，即<strong>现金是否够</strong></td><td>2–4 周</td><td><strong>≈0</strong></td></tr>
+        <tr><td><strong>M5</strong></td><td>客户书面平台包（TCS/FWS 温度、Q–ΔP、工质、wetted materials、HCR、冗余与故障态）</td><td>样机设计是否有效，即<strong>245 万元会不会白花</strong></td><td>4–8 周</td><td><strong>≈0</strong></td></tr>
+        <tr><td>M2</td><td>两个同边界 CDU 分项成交价/合同价</td><td>校准第 6.2.1 节的价格上限约束</td><td>4–8 周</td><td>≈0–1 万元</td><td rowspan="3">并行</td></tr>
+        <tr><td>M6</td><td>至少一个<strong>付费</strong> PoC / 有偿验证的书面意向</td><td>客户准入是否真正打开</td><td>8–12 周</td><td>≈0（收款方）</td></tr>
+        <tr><td>M7</td><td>EPC/服务商分包协议意向（覆盖机电施工资质与安装能力）</td><td>能否投含安装的标</td><td>6–10 周</td><td>≈0</td></tr>
+        <tr><td>M9</td><td>代表样机与三批试制良率数据</td><td>产品是否可交付</td><td>16–36 周</td><td><strong>245 万元</strong>（NRE 115 + 样机 130）</td><td><strong>必须在 M1/M3/M4/M5 全部取得后</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="grid">
+        <div class="card"><b>&lt; 5 万元</b>四项前置证据的合计现金成本</div>
+        <div class="card"><b>6–8 周</b>四项并行执行的周期</div>
+        <div class="card"><b>49 : 1</b>保护比 = 245 万元受保护支出 ÷ 5 万元取证成本</div>
+      </div>
+      <p class="small">复算：<code>(115 + 130) ÷ 5 = 49.0</code>。配套 BP v2.2 已把这四项写入 <strong>G0.5 前置证据门</strong>：四项齐备前，样机物料、工装与 NRE 的任何采购不得启动，包括「先小批量试做」。工具支持：<code>tools/RFQ_四SKU物料询价模板_20260905.md</code>、<code>tools/客户访谈提纲_采购与责任_20260905.md</code>、<code>tools/合同条款审查清单_20260905.md</code>。</p>
+      <div class="callout warn"><strong>早期停止信号：</strong>若四项中任何一项在 12 周内无法取得，应视为客户准入尚未打开的早期信号，正确动作是<strong>暂停而非加大投入</strong>。</div>
+
+      <div class="callout ok"><strong>最终研究状态（v3.3 更新）：</strong>市场、工程、竞争、标准、采购流程、风险、区域状态与算力基建投资分层足以形成正文。<strong>价格、BOM、SAM/SOM、单位经济与责任额度仍无成交级数据，但已由《<a href="算力冷却_验证与决策包_v1.0_20260905.html">算力冷却_验证与决策包 v1.0 / 20260905</a>》转化为条件、可行域、敞口与生存条件，验证路径与最小证据集已明确</strong>：可得份额 → 由 E1–E8 八个准入事件解锁的条件；价格 → 可行域下界 840 元/kW 与国内运营商包价上限 684.75–715.00 元/kW 不重叠；责任 → 敞口已量化（合同额 1.76–2.52 倍、毛利 17.0–24.3 倍）并形成 8 条红线；现金 → 峰值 91 万元/MW、并行 1 个项目、B1/B2/B3 三条底线。<strong>「已明确验证路径」不等于「已验证」</strong>——继续泛搜不替代管理层线下取证，取证的正确起点是上述四项前置证据。</div>
+    </section>
+
+    <section id="changelog" class="page-break">
+      <h2>13. v3.1 → v3.2 变更说明</h2>
+      <p class="lead">本节列出 v3.2 相对 v3.1（2026-08-22 发布）的全部实质性变更及原因。数据截止日不变，仍为 2026-08-22。v3.1、v3.0、v2.8 与各版 BP 未被修改。</p>
+      <table>
+        <thead>
+        <tr><th scope="col">#</th><th scope="col">变更</th><th scope="col">位置</th><th scope="col">原因</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>1</td><td><strong>移除表格单元格内的孤立英文字母后缀。</strong>v3.1 的表格把数据性质写成紧跟数值的单个英文字母，例如关键 IT 需求的 100、供给的 555、需求的 180、2032 区间 235–290 后面各跟一个表示“模型”的字母；用电 485 后面跟一个表示“机构估计”的字母；容量 219 后面跟一个表示“机构预测”的字母。v3.2 已把这类后缀全部删除，单元格只保留数值或区间本身。</td><td>2.1、2.2、2.5.1、2.5.2、2.5.3、5、12.1 全部表格</td><td>用户反馈这种写法易被误读为单位或数量级（例如把区间后的字母读成“百万”）。孤立英文字母紧跟数字时与单位无法区分。</td></tr>
+        <tr><td>2</td><td><strong>改用中文数据性质标签 + 表下备注。</strong>标签体系由单字母缩写改为「实绩／机构估计／机构预测／模型／无数据」，均带 <code>title</code> 属性可悬停查看英文原义。表 2.5.2、2.6.5、2.7.2 下方新增结构化备注，逐列逐年说明哪些是机构端点、哪些是本报告桥接、哪些完全无机构对应端点。</td><td>1.1 口径字典；2.5.2、2.6.5、2.7.2 表下备注</td><td>视觉标签有价值但不能用会被误读为单位的孤立字母；数据性质需要说明的信息量超过一个字母能承载的范围。</td></tr>
+        <tr><td>3</td><td><strong>原英文缩写「不可得／未披露」标记全文改写为「无数据」。</strong></td><td>3.1、3.2、6.2、7、8、10 等</td><td>与中文标签体系一致；避免中英混排造成的口径歧义。</td></tr>
+        <tr><td>4</td><td><strong>来源等级由 <code>L1/L2/L3</code> 改为中文「一级／二级／三级」，<code>L1/L2/L3</code> 释放给投资层级专用。</strong></td><td>1.2、12.1 及全文</td><td>任务二要求用 L1/L2/L3 表示投资分层，与 v3.1 的来源等级编号直接冲突。保留投资层级用法，来源等级改中文。</td></tr>
+        <tr><td>5</td><td><strong>新增 2.6 章「全球算力基建投资估算（2025–2032）」。</strong>定义 L1／L1+／L2／L3／DCPI 五层；披露累计口径年度化方法；用自上而下与自下而上两条独立路径交叉验证；给出 2025–2032 逐年 L1、L2、L3、AI 占比与 DCPI 的区间主表；超大规模厂商 CapEx 只作旁证。</td><td>新增 <code>#capex</code></td><td>任务二。此前报告只列 McKinsey 与 JLL 的累计端点，无可复算的年度序列，无法作为液冷占比的分母。</td></tr>
+        <tr><td>6</td><td><strong>新增 2.7 章「液冷占算力基建的比例（2025–2032）」。</strong>三组分母（L3／L1／DCPI）逐年区间、各自适用场景、约 40 倍极差警示、Dell’Oro 三版本敏感性对照、九项驱动因素、对本业务的含义与边界。</td><td>新增 <code>#liquid-share</code></td><td>任务三。占比是最容易被误引的指标，必须与分母同时呈现。</td></tr>
+        <tr><td>7</td><td><strong>裁决：McKinsey 6.7 万亿基准情景已过时，改用其加速情景（合计 9.4 万亿）作为顶层比对锚。</strong>依据是 A-基准的 2025 年年度化值（6,130 亿美元）低于当年可核验观测值（IDC AI 基础设施 3,180 亿 + 本报告估非 AI IT 约 2,400 亿 + IEA 能源侧超 1,000 亿）。两条路径不取平均。</td><td>2.6.6</td><td>任务二要求「两条路径结果若差异大，必须解释原因，不得强行取平均掩盖差异」。</td></tr>
+        <tr><td>8</td><td><strong>披露自下而上 IT 腿低估约 36%，并说明四项原因，未取平均掩盖。</strong>处置为 L1 用路径 B、L2 用 IDC 实测。</td><td>2.6.4</td><td>同上。容量法与支出统计不可能自然闭合，必须写清而不是调参对齐。</td></tr>
+        <tr><td>9</td><td><strong>澄清「AI 容量占比」是存量口径，不是新增口径。</strong>表 2.5.2 列名改为「AI容量占比（存量口径）」，备注说明 AI 约占 2026–2030 新增容量的 76%，2.6 章模型使用新增份额 65%–82%。</td><td>2.5.2 备注、2.6.3、2.6.4</td><td>v3.1 的 2.5.4 容量强度校验把存量份额当作新增份额使用。本次<strong>不回溯改写 2.5.4 的液冷收入序列</strong>（保持 25–35／60–80／90–140 亿美元不变），只列为跟踪项，避免在无新证据时改动 TAM 主锚。</td></tr>
+        <tr><td>10</td><td><strong>新增 Dell’Oro August-2026 DCPI 版本（2030 达 1,200 亿美元、CAGR 22%）与 4Q2025 季报（单季 109 亿美元），版本隔离表由三行扩为四行。</strong>2.1 表中的 DCPI 端点由「2030 1,200亿美元」补注版本名。</td><td>2.1、2.5.3、12.1（K01、K02）</td><td>v3.1 正文只在 2.5.4 脚注提到 1,200 亿美元，未纳入版本隔离表。组③分母必须锁定单一版本。</td></tr>
+        <tr><td>11</td><td><strong>核心观点表由五条扩为六条，</strong>新增「液冷在算力投资中的价值占比极低，且高度依赖分母」。封面卡片之一改为三组占比对照。</td><td>核心观点①、封面</td><td>新增结论需在结论先行层面可见。</td></tr>
+        <tr><td>12</td><td><strong>新增证据台账条目 K01–K08，</strong>覆盖 Dell’Oro August-2026、Dell’Oro 4Q2025、IDC AI 基础设施、JLL 单位建设成本、IEA WEI 2026、IEA Key Questions、Epoch AI 成本模型、四大厂商 CapEx。台账编号 <code>M01</code>、<code>M02</code> 改为 <code>D01</code>、<code>D02</code>。</td><td>12.1</td><td>新增数据必须逐条落台账；在取消单字母数据性质标签后，以同一字母开头的台账编号容易被误读为标签。</td></tr>
+        <tr><td>13</td><td><strong>新增风险行：</strong>「算力投资融资条件收紧」与「来源口径/版本漂移」；「Hyperscaler CapEx 放缓」的动作补充「把 2.6 章情景切换到 A-基准/A-受限」。</td><td>11</td><td>新增章节引入了新的失效路径，必须配套跟踪指标与模型动作。</td></tr>
+        <tr><td>14</td><td><strong>在第 5、7、8、9 章补写与新增章节的隔离条款：</strong>占比不是市场份额、不是 TAM/SAM/SOM 任何一层、每 MW 强度不是 CDU ASP、外部投资增速不构成资金解锁条件。</td><td>5、7、8、9</td><td>防止新增的宏观数字被反向用来恢复此前删除的伪精确点值或绕过资金门禁。</td></tr>
+        <tr><td>15</td><td><strong>版本元数据统一为 v3.2 Evidence-led / 20260822。</strong>title、kicker、封面 pill、页脚、目录与正文引用同步；副标题补入「算力基建投资、液冷占比」。</td><td>全文</td><td>版本一致性要求。</td></tr>
+        <tr><td>16</td><td><strong>新增研究底稿 <code>findings/angle-10-capex-and-liquid-share.md</code>，</strong>含 19 条证据台账（机构、标题、日期、URL、原文、地域、口径边界、基准年、数据性质、来源等级、valid_until）、完整建模步骤与十项限制说明。</td><td>研究底稿目录</td><td>正文只呈现结论与主表，可复算细节与原文引用放底稿。</td></tr>
+        </tbody>
+      </table>
+      <h3>13.1 明确未改动的内容</h3>
+      <ul>
+        <li><strong>液冷设备收入序列不变：</strong>2025 年 25–35 亿、2029 年 60–80 亿、2032 年 90–140 亿美元，Base 约 30／70／115 亿美元。2.7 章的分子直接引用该序列。</li>
+        <li><strong>未恢复任何此前删除的伪精确点值：</strong>市场份额、前五集中度、部件价值占比、通用毛利率、CDU 静态 ASP、SAM/SOM 亿元点值均仍为无数据。</li>
+        <li><strong>Dell’Oro 跨版本隔离纪律不变，</strong>并扩展到第四个版本；三/四个版本不得拼成单一机构序列，也不得拼成单一占比序列。</li>
+        <li><strong>资金门禁与阶段上限不变：</strong>800／1,200／1,500 万元仍为阶段上限而非承诺额度。</li>
+        <li><strong>配套 BP 名称与版本不变：</strong>《算力冷却系统新业务BP》v1.9_20260808；本报告不修改任何 BP 版本。<span class="small">（v3.3 已把配套 BP 更新为 v2.2_20260906，见第 14 章）</span></li>
+      </ul>
+    </section>
+
+    <section id="changelog33" class="page-break">
+      <h2>14. v3.2 → v3.3 变更说明</h2>
+      <p class="lead">本节列出 v3.3 相对 v3.2（2026-08-22 发布）的全部实质性变更及原因。本次修订<strong>只补实证，不改市场结论</strong>：全部新增内容来自《算力冷却_验证与决策包 v1.0 / 20260905》及其一手来源，无新造数据。数据截止日由 2026-08-22 推进至 <strong>2026-09-05</strong>；<strong>市场序列（第 2、2.5、2.6、2.7 章）的口径截止日与全部数值均未变。</strong>v3.2 及更早各版报告、各版 BP 与演示稿均未被修改。</p>
+      <table>
+        <thead>
+        <tr><th scope="col">#</th><th scope="col">变更</th><th scope="col">位置</th><th scope="col">原因</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>1</td><td><strong>新增三家公司一手披露的分部毛利对比表。</strong>英维克境外 52.64% vs 境内 23.83%（差 28.81pct）；申菱解决方案及服务 31.63% vs 设备 21.46%（差 10.17pct）；曙光服务 51.02% vs 冷板液冷产品 10.36%（差 40.66pct）；另列曙光境外 37.83% vs 西部 10.38% 与 Modine 数据中心分部 20.2% 作对照。<strong>逐行标注期间、口径边界、是否纯液冷与来源链接</strong>，并给出四条使用边界与「没有任何公司披露纯 CDU 毛利率」的裁决。</td><td>新增 <a href="#competition">5.1</a>；核心观点① 结论 3 同步</td><td>v3.2 的第 5 章只在「毛利口径」列写了单个数字，未做同一公司内部分部对比，因而看不出「毛利在海外与服务侧」这一结构性事实。该事实是后续方向选择的关键输入。</td></tr>
+        <tr><td>2</td><td><strong>补入曙光数创 10.36% 的完整复算过程与该锚点的意义。</strong>公开算式 <code>298,639,495.45 − 267,702,360.46 = 30,937,134.99</code>，<code>÷ 298,639,495.45 = 10.3594%</code>，与年报披露自洽；说明其在成本桥上的位置（严于硬件毛利、宽于项目贡献毛利）；给出五档「所需毛利率落在何处意味着什么」的判定表；并同时呈现下行反证（2026 H1 冷板收入 +290.09% 而归母净利 −7,340 万元、经营现金流 −2.42 亿元），明确 <strong>10.36% 不是行业地板</strong>。</td><td>新增 <a href="#economics">8.1</a></td><td>v3.2 在第 5 章引用了 10.36%，但未给复算过程、未给口径边界、未说明它能用来对照什么。缺少这三项时，读者容易把它当作「行业地板」或「项目贡献毛利」使用。</td></tr>
+        <tr><td>3</td><td><strong>补入两个运营商采购样本折算为元/kW 的收敛结果及其含义。</strong>佛山 <code>1,725,576.99 ÷ 2,520 = 684.75</code>；南京 <code>4,290,000 ÷ 6,000 = 715.00</code>；两样本收敛 4.4%。明确其含义是「价格<strong>不可能高于</strong>多少」的上限约束边界。<strong>注明样本量为 2、为包价折算、为限价／预估而非中标价、仅覆盖 300–500 kW 档，仅作约束边界不作价格预测，且小容量档不得插值。</strong>同时写入「无公开价格时间序列」的否定裁决。</td><td>新增 <a href="#procurement">6.2.1</a>；核心观点① 结论 4 同步</td><td>v3.2 按「万元/台」呈现（28.76 与 35.75，差 24%），信息被容量差异掩盖。按元/kW 折算后两个独立样本高度收敛，首次使价格上限可以进入约束计算。</td></tr>
+        <tr><td>4</td><td><strong>新增责任敞口与现金约束的量化摘要。</strong>单台 200 kW CDU 覆盖 IT 资产 3,392 万元；单块 GPU 基板损坏 = 合同额 1.76–2.52 倍、项目毛利 17.0–24.3 倍；行业指引转引的 10%–20% 责任上限仅覆盖单块基板成本的 4%–11%；峰值现金 91 万元/MW、并行容量 1.21 MW、年吞吐 1.86 MW（为 F2 盈亏平衡 7.80 MW/年 的 23.8%）；三条底线 171 万元／1 个项目／11.2 周，30% 预付款延长至 17.1 周；低密度改造客户敞口为高密集群的 1/4.71。</td><td>新增 <a href="#economics">8.2</a></td><td>第 8 章此前只有空模型，读者无法判断「填实后会落在什么区间」。摘要使空模型有了外部参照，同时保持每一格仍为无数据。</td></tr>
+        <tr><td>5</td><td><strong>结论更新：从「尚未验证」改为「已转化为条件、可行域、敞口与生存条件，验证路径与最小证据集已明确」。</strong>封面裁决、核心观点① 结论 3/4/6、第 12 章最终研究状态同步更新，并链接《算力冷却_验证与决策包 v1.0_20260905》。<strong>同时明确「已明确验证路径」不等于「已验证」</strong>，研究充分性裁决仍为 SUFFICIENT WITH LIMITATIONS。</td><td>封面、核心观点①、<a href="#appendix">12.4</a></td><td>四个缺口已由决策包转化为可执行约束，原表述会低估现有材料的决策价值；但不得因此暗示参数已被验证。</td></tr>
+        <tr><td>6</td><td><strong>新增 12.4 最小证据集与验证路径。</strong>把 12.3 的七类待办按「决策价值 ÷ 现金成本」排序，标定 M1／M3／M4／M5 为前置证据：合计 &lt;5 万元、6–8 周，保护 245 万元样机与 NRE 支出，<strong>保护比 49:1</strong>；M9（245 万元）必须在四项之后。附早期停止信号（12 周未取得即暂停）。</td><td>新增 <a href="#appendix">12.4</a></td><td>v3.2 的待办清单未区分先后与成本，实践中会导致「先做样机再找客户」的次序错误。</td></tr>
+        <tr><td>7</td><td><strong>新增风险行三条：</strong>价格可行域与国内渠道不重叠、责任封顶不可得、回款尾部击穿现金结构。各自配先行指标与自动动作。</td><td><a href="#risks">11</a></td><td>新增实证引入了新的失效路径，必须配套跟踪指标与预先约定的动作。</td></tr>
+        <tr><td>8</td><td><strong>新增证据台账条目 V01–V08，</strong>覆盖三家公司年报分部毛利、曙光 2026 H1、两个运营商包价折算、责任条款先例与反证、付款条款与验收周期、三级金额参照清单。逐条标注数据性质、来源等级、status_as_of 与 invalidate_if。</td><td><a href="#appendix">12.1</a></td><td>新增数据必须逐条落台账；三级来源必须显式标注并列入待替换清单。</td></tr>
+        <tr><td>9</td><td><strong>配套 BP 版本更新为 v2.2_20260906，</strong>并说明两份文件的对应关系：BP v2.2 在 G0 与 G1 之间新增 G0.5 前置证据门，把本报告 5.1、6.2.1、8.1、8.2、12.4 的实证转写为公司侧门禁。</td><td>核心观点②、页脚、封面 pill</td><td>版本一致性；避免读者按旧 BP 版本理解门禁结构。</td></tr>
+        <tr><td>10</td><td><strong>版本元数据统一为 v3.3 Evidence-led / 20260906，数据截止日 2026-09-05。</strong>title、kicker、封面 pill、目录、页脚同步；副标题补入「分部毛利实证、单位容量价格上限与验证路径」；新增有效期分层（价格与现金 2026-12-31；责任结构 2027-03-31）与倒推纪律条款。</td><td>全文</td><td>版本一致性要求。</td></tr>
+        </tbody>
+      </table>
+      <h3>14.1 明确未改动的内容</h3>
+      <ul>
+        <li><strong>全部市场序列不变：</strong>液冷设备收入 2025 年 25–35 亿、2029 年 60–80 亿、2032 年 90–140 亿美元；第 2.6 章 L1/L2/L3 投资序列；第 2.7 章三组占比（0.3%–0.9%／1.3%–5.6%／5%–11%）。<strong>本次未新增、未上修任何市场端点。</strong></li>
+        <li><strong>Dell’Oro 四版本隔离纪律不变：</strong>不得跨版本相减、拼序列或拼占比。</li>
+        <li><strong>SAM<sub>24m</sub> 与 SOM 仍为无数据，不是 0。</strong>第 7 章的项目池裁决不变；第 8 章空模型的每一格仍为无数据。</li>
+        <li><strong>未恢复任何此前删除的伪精确点值：</strong>市场份额、前五集中度、部件价值占比、通用毛利率、CDU 静态 ASP、SAM/SOM 亿元点值均仍为无数据。<strong>5.1 的分部毛利率是三家可比公司的一手披露事实，不是本公司或任何 CDU 供应商的毛利率，不构成对「CDU 毛利 40%–60%」的回填；6.2.1 的 684.75／715.00 元/kW 是包价折算的上限边界，不是 CDU ASP。</strong></li>
+        <li><strong>研究充分性裁决不变：</strong>SUFFICIENT WITH LIMITATIONS。</li>
+        <li><strong>倒推纪律不变：</strong>全部倒推结论回答「必须达到什么」，不回答「将会达到什么」。</li>
+      </ul>
+      <div class="callout warn"><strong>有效期分层：</strong>总体结论 valid_until <strong>2026-11-30</strong>；投资与占比章节（2.6／2.7）valid_until <strong>2027-02-28</strong>；v3.3 新增的价格与现金实证 valid_until <strong>2026-12-31</strong>；责任结构 valid_until <strong>2027-03-31</strong>。invalidate_if：四 SKU 书面报价取得；任一官方 CDU 分项中标价或合同价公开；客户书面责任条款或付款条款取得；曙光数创披露 2026 年冷板液冷产品分项毛利率；英维克／申菱首次披露液冷专项收入或毛利。</div>
+      <div class="footer">算力冷却商业调研报告 · v3.3 Evidence-led / 20260906 · 数据截止 2026-09-05（市场序列口径仍为 2026-08-22）· 配套《算力冷却系统新业务BP》v2.2_20260906 与《算力冷却_验证与决策包》v1.0_20260905 · 本报告不构成投资、认证或采购建议。本报告不修改任何历史版本报告、BP 或演示稿。</div>
+    </section>
+  </main>
+</div>
+</body>
+</html>
