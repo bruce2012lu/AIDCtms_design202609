@@ -1,0 +1,10 @@
+{
+  "mesh_wall_heat": 19648,
+  "mesh_wall_heat_full": 221184,
+  "mesh_z_floor": 32260,
+  "mesh_z_rib": 23036,
+  "mesh_z_orifice": 18432,
+  "mesh_x0": 21794,
+  "mesh_x0_full": 261528,
+  "mesh_y0": 24544
+}
