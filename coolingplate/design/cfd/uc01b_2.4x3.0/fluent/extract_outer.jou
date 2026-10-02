@@ -1,0 +1,5 @@
+/file/set-batch-options yes yes no
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_R"
+/report/surface-integrals/area-weighted-avg "et2d4-1:external" () temperature no
+/report/surface-integrals/area-weighted-avg et2d4-1:external () temperature no
+/exit

@@ -1,0 +1,7 @@
+/file/set-batch-options yes yes no
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_L"
+/define/boundary-conditions/list-zones
+/report/surface-integrals/area-weighted-avg et2d2 () pressure no
+/report/surface-integrals/area-weighted-avg et2d3 () pressure no
+/report/fluxes/mass-flow yes et2d2 et2d3 () no
+/exit

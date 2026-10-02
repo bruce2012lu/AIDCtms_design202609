@@ -1,0 +1,62 @@
+start_device: dx11
+
+get_physical_info: debug = 0
+	debug driver options include:
+		   1 = show full rendition information
+		   2 = has separate Gouraud triangle drawing
+		   4 = has 24 bit color
+		   8 = has 3D Z drawing capabilities
+		  16 = uses VGA pixels (640 by 480)
+		  32 = has input calls (mouse & keyboard)
+		  64 = no input calls (mouse & keyboard)
+		 128 = hides color map calls
+		 256 = hides statistics
+		 512 = hides test coverage analysis
+		1024 = has gray scale
+		2048 = has 16 bit color
+		4096 = can do landscape
+		recommended settings to simulate:
+			2D   driver: debug =	0
+			2.5D driver: debug =	2
+			3D   driver: debug = 12
+	color system = 256 mapped color
+	pixels = 1280 by 1024
+	physical size = 31.75 by 25.40 cm
+	no mouse nor keyboard
+	cannot handle landscape orientation
+
+init_update
+
+get_outer_window
+	left	  = 0
+	right  = 0
+	bottom = 0
+	top	  = 0
+
+find_all_fonts
+
+free_outer_window
+
+finish_update
+
+stop_device
+	*** rendition handling ***
+
+	*** geometry processing ***
+
+	*** test program coverage ***
+	draw_dc_ellipse was not called
+	draw_dc_elliptical_arc was not called
+	draw_dc_outline_ellipse was not called
+	draw_dc_polyline was not called
+	draw_dc_face was not called
+	draw_dc_colorized_face was not called
+	draw_dc_rectangle was not called
+	draw_dc_polydot was not called
+	draw_dc_text was not called
+	draw_dc_polytriangle was not called
+	draw_dc_colorized_polytriangle was not called
+	draw_dc_mapped8_rasters was not called
+	create_frame_buffer was not called
+	display_frame_buffer was not called
+	destroy_frame_buffer was not called

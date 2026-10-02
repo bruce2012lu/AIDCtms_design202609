@@ -1,0 +1,272 @@
+Auto-Transcript Start Time:  11:48:20, 25 Sep 2026 ÖÐ¹ú±ê×¼Ê±¼ä 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent"
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:32:00 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:63930 
+
+Node 0 connecting to the Host ... connection established.
+GPU Solver enabled
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  38964  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  21380  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  11356  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  15336  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  40836  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd\\uc01b_2.4x3.0\\fluent\\cleanup-fluent-DESKTOP-JHEHF28-40836.bat
+
+Graphics driver currently in use: dx11
+
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent\uc01b_cht_v2_t4_gpu_n216_q105.jou...
+
+> ; UC-01b CHT v2 n216 q105 restart â€” visible GUI, no /exit
+; DP-A P=1100 W is the whole plate. Two-die GPU heat = 1100*0.39*2 = 858 W.
+; Flow split SPLIT_GPU=0.80 is flow only: GPU branch 1.60 L/min, not 80% of 1100 W.
+; Jets: 9 along ribs (X, 3.0 mm, die 27.0 mm exact) x 12 along the return-slot
+; long axis (Y, 2.4 mm) = 108 per die, N=216.
+; Cell row Y = 28.8 mm, 0.8 mm wider than the 28 mm die.
+; Plate envelope in Y = 28+1.2 = 29.2 mm, so 0.4 mm remains inside the envelope.
+; q''_nominal = (858/216)/(2.4e-3*3.0e-3) = 551697.5308641976 W/m2 = 55.16975308641976 W/cm2.
+; Applied BC is 1.05 x nominal (edge-hole / nonuniform redundancy). Flow is NOT scaled.
+; q''_BC = 579282.4074074075 W/m2 = 57.92824074074075 W/cm2.
+; Coupon power at the BC = 858*1.05 = 900.9 W. Plate spec stays 429+429+198+44 = 1100 W.
+; Die-average flux stays 429/(27*28 mm2) = 56.74603174603175 W/cm2. That is not the coupon BC.
+; mdot = (992.2*1.60/60000)/216 = 0.00012249382716049385 kg/s. Tin=313.15 K. D=0.40 mm unchanged.
+; Initial field: uc01b_cht_v2_i7900 is the OLD 128-jet solution (q''=56.746 W/cm2, mdot=2.067e-4). Do not overwrite it.
+; return_slot = pressure-outlet gauge 0, backflow T=313.15 K. return_slot:015 stays wall.
+; Criteria: continuity and xyz-mom 1e-4, energy 1e-6, k/omega 1e-3.
+; Write fluent/uc01b_cht_v2_n216_q105. Do not write i7900.
+;
+/file/set-batch-options yes yes no
+
+> /file/confirm-overwrite yes
+
+> /file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_n216_q105.log"
+Opening input/output transcript to file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_n216_q105.log".
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  38964  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  21380  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  11356  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  15336  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  40836  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.cas.h5"Fast-loading "E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\fluent26.1.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.cas.h5" in NODE0 mode ...
+  Reading mesh ...
+     4472280 cells,     3 cell zones ...
+        2760804 hexahedral cells,  zone id: 2
+        1533156 hexahedral cells,  zone id: 3
+         178320 hexahedral cells,  zone id: 4
+    13626374 faces,    15 face zones ...
+           3576 quadrilateral symmetry faces,  zone id: 17
+          27044 quadrilateral symmetry faces,  zone id: 16
+          17500 quadrilateral wall faces,  zone id: 15
+         503452 quadrilateral interior faces,  zone id: 14
+        4509890 quadrilateral interior faces,  zone id: 13
+        8193964 quadrilateral interior faces,  zone id: 5
+           5500 quadrilateral mass-flow-inlet faces,  zone id: 6
+           6720 quadrilateral pressure-outlet faces,  zone id: 7
+          29720 quadrilateral wall faces,  zone id: 8
+           1600 quadrilateral wall faces,  zone id: 9
+         104892 quadrilateral wall faces,  zone id: 10
+         104892 quadrilateral wall faces,  zone id: 19
+          29720 quadrilateral wall faces,  zone id: 11
+          29720 quadrilateral wall faces,  zone id: 18
+          58184 quadrilateral symmetry faces,  zone id: 12
+     4681156 nodes,     1 node zone  ...
+  Done.
+
+
+Building...
+     mesh
+	distributing mesh
+		pairs....,
+		parts....,
+		faces....,
+		nodes....,
+		shadow nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 697285/5346 = 130.431
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	sym:017
+	sym:016
+	interior:014
+	interior:013
+	wall_tim_cu
+	wall_cu_fluid
+	wall_orifice
+	wall_heat
+	interior
+	return_slot:015
+	inlet_jet
+	return_slot
+	sym
+	solid_tim2
+	solid_cu
+	fluid
+     parallel,
+Done.
+
+Preparing mesh for display...
+Done.
+
+
+> /file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.dat.h5"
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.dat.h5" in NODE0 mode ...
+
+
+  Reading results.
+Parallel variables...
+Done.
+
+
+> /define/boundary-conditions/zone-type return_slot:015 wall
+
+> /define/boundary-conditions/zone-type return_slot pressure-outlet
+
+> /define/models/viscous/kw-sst yes
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet () mass-flow no 0.00012249382716049385 t no 313.15 q
+
+> /define/boundary-conditions/wall
+(return_slot:015 wall_heat wall_orifice wall_cu_fluid wall_tim_cu wall_tim_cu-shadow wall_cu_fluid-shadow)
+zone id/name [return_slot:015] wall_heat
+Use Profile for Wall Thickness? [no] no
+Wall Thickness (constant or expression) (in [m]) [0] 0
+Use Profile for Heat Generation Rate? [no] no
+Heat Generation Rate (constant or expression) (in [W/m^3]) [0] 0
+material-name [tim2]: Change current value? [no] no
+Thermal BC Type [heat-flux]: Change current value? [no] yes
+
+Thermal BC Type [heat-flux]> heat-flux
+Use Profile for Heat Flux? [no] no
+Heat Flux (constant or expression) (in [W/m^2]) [567460.3174603175] 579282.4074074075
+Enable shell conduction? [no] no
+Use Profile for Convective Augmentation Factor? [no] no
+Convective Augmentation Factor (constant or expression) [1] 1
+
+> /solve/monitors/residual/criterion-type Available options: (absolute none)
+0
+
+> /solve/monitors/residual/check-convergence? yes
+Check convergence of x-velocity residuals? [yes] yes
+Check convergence of y-velocity residuals? [yes] yes
+Check convergence of z-velocity residuals? [yes] yes
+Check convergence of energy residuals? [yes] yes
+Check convergence of k residuals? [yes] yes
+Check convergence of omega residuals? [yes] yes
+
+> /solve/monitors/residual/convergence-criteria
+continuity residual convergence criterion [0.0001] 1e-4
+x-velocity residual convergence criterion [0.0001] 1e-4
+y-velocity residual convergence criterion [0.0001] 1e-4
+z-velocity residual convergence criterion [0.0001] 1e-4
+energy residual convergence criterion [1e-06] 1e-6
+k residual convergence criterion [0.001] 1e-3
+omega residual convergence criterion [0.001] 1e-3
+
+> /solve/iterate 2000
+Preparing GPU solver, please wait ...
+------------------------------------------------------------------------------------------------------------------------
+Rank  PID    Core  OS     Host             Device  Name                     Version  Memory(GB)   Bandwidth  Cores      
+------------------------------------------------------------------------------------------------------------------------
+0     15336  1/32  win64  DESKTOP-JHEHF28  0/1     NVIDIA GeForce RTX 4090  8.9      23.99/22.44  961.395    128x128    
+1     11356  1/32  win64  DESKTOP-JHEHF28  0/1     NVIDIA GeForce RTX 4090  8.9      23.99/22.44  961.395    128x128    
+2     21380  1/32  win64  DESKTOP-JHEHF28  0/1     NVIDIA GeForce RTX 4090  8.9      23.99/22.44  961.395    128x128    
+3     38964  1/32  win64  DESKTOP-JHEHF28  0/1     NVIDIA GeForce RTX 4090  8.9      23.99/22.44  961.395    128x128    
+------------------------------------------------------------------------------------------------------------------------
+Bandwidth : 21.1807, 5.97653 GB/s
+Latency   : 0.1145, 12.2773 usec
+
+Upload restart solution data ...
+Apply restart data ... 
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy           k       omega     time/iter
+  7900  4.0743e-07  4.9083e-07  6.5537e-07  1.1218e-06  9.5641e-07  6.8951e-07  2.2019e-04  0:00:00 2000
+Reverse flow on 2328 faces of outlet boundary (return_slot).
+  7901  7.9507e-05  1.4091e-06  1.5035e-06  5.7275e-04  4.7041e-04  5.3683e-04  2.4148e-04  1:46:57 1999
+Reverse flow on 2260 faces of outlet boundary (return_slot).
+  7902  1.7054e-04  8.9628e-05  8.7187e-05  3.4331e-04  1.9684e-04  7.2588e-04  2.4239e-04  1:01:17 1998
+Reverse flow on 2309 faces of outlet boundary (return_slot).
+  7903  1.8437e-04  1.0801e-04  1.1982e-04  3.3569e-04  2.1380e-04  8.8048e-04  2.4574e-04  1:02:23 1997
+Reverse flow on 2467 faces of outlet boundary (return_slot).
+  7904  2.1558e-04  1.3501e-04  1.5485e-04  3.6050e-04  2.1598e-04  9.2815e-04  2.5018e-04  1:07:31 1996
+Reverse flow on 2552 faces of outlet boundary (return_slot).
+  7905  2.2509e-04  1.4955e-04  1.6955e-04  3.5022e-04  2.0973e-04  8.1197e-04  2.5301e-04  1:12:31 1995
+Reverse flow on 2610 faces of outlet boundary (return_slot).
+  7906  2.0267e-04  1.4903e-04  1.6645e-04  3.0844e-04  2.0137e-04  6.9197e-04  2.5436e-04  1:11:21 1994
+Reverse flow on 2659 faces of outlet boundary (return_slot).
+  7907  1.7139e-04  1.3586e-04  1.5159e-04  2.5013e-04  1.9347e-04  5.6697e-04  2.5520e-04  1:10:13 1993
+Reverse flow on 2684 faces of outlet boundary (return_slot).
+  7908  1.4054e-04  1.1685e-04  1.3143e-04  1.9090e-04  1.8678e-04  4.5814e-04  2.5574e-04  1:08:57 1992
+Reverse flow on 2674 faces of outlet boundary (return_slot).
+  7909  1.1506e-04  9.7525e-05  1.0978e-04  1.4419e-04  1.8333e-04  3.7432e-04  2.5608e-04  1:08:08 1991
+Reverse flow on 2681 faces of outlet boundary (return_slot).
+  7910  9.5474e-05  8.0047e-05  8.9230e-05  1.0797e-04  1.8147e-04  3.0786e-04  2.5630e-04  1:06:21 1990
+Reverse flow on 2670 faces of outlet boundary (return_slot).
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy           k       omega     time/iter
+  7911  8.0006e-05  6.5781e-05  7.1928e-05  8.6178e-05  1.8154e-04  2.6261e-04  2.5649e-04  1:03:15 1989
+Reverse flow on 2626 faces of outlet boundary (return_slot).
+  7912  6.7144e-05  5.4639e-05  5.9091e-05  7.9629e-05  1.8318e-04  2.2350e-04  2.5664e-04  1:01:07 1988
+Reverse flow on 2609 faces of outlet boundary (return_slot).
+  7913  5.6502e-05  4.6453e-05  5.0804e-05  8.1842e-05  1.8598e-04  1.9214e-04  2.5676e-04  0:57:55 1987
+Reverse flow on 2599 faces of outlet boundary (return_slot).
+  7914  4.7852e-05  4.0517e-05  4.6181e-05  8.5270e-05  1.8718e-04  1.6416e-04  2.5685e-04  0:55:28 1986
+Reverse flow on 2293 faces of outlet boundary (return_slot).
+  7915  4.0806e-05  3.6344e-05  4.3718e-05  8.5961e-05  1.8508e-04  1.4747e-04  2.5685e-04  0:55:06 1985
+Reverse flow on 2210 faces of outlet boundary (return_slot).
+  7916  3.5117e-05  3.3304e-05  4.2064e-05  8.3151e-05  1.8024e-04  1.3535e-04  2.5679e-04  0:54:52 1984
+Reverse flow on 2125 faces of outlet boundary (return_slot).
+  7917  3.0723e-05  3.0904e-05  4.0473e-05  7.7477e-05  1.7338e-04  1.2350e-04  2.5674e-04  0:55:04 1983
+Reverse flow on 2093 faces of outlet boundary (return_slot).
+  7918  2.7265e-05  2.8847e-05  3.8582e-05  7.0086e-05  1.6344e-04  1.1022e-04  2.5666e-04  0:52:43 1982
+Reverse flow on 1913 faces of outlet boundary (return_slot).
+  7919  2.4482e-05  2.6699e-05  3.6288e-05  6.2201e-05  1.5380e-04  9.6427e-05  2.5659e-04  0:53:06 1981
+Reverse flow on 1767 faces of outlet boundary (return_slot).
+  7920  2.2348e-05  2.4522e-05  3.3707e-05  5.4502e-05  1.4475e-04  8.3228e-05  2.5655e-04  0:53:01 1980
+Reverse flow on 1628 faces of outlet boundary (return_slot).
+  7921  2.0711e-05  2.2351e-05  3.0995e-05  4.7613e-05  1.3693e-04  7.1725e-05  2.5654e-04  0:54:31 1979
+Reverse flow on 1586 faces of outlet boundary (return_slot).
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy           k       omega     time/iter
+  7922  1.9464e-05  2.0315e-05  2.8437e-05  4.2151e-05  1.3055e-04  6.2944e-05  2.5658e-04  0:54:16 1978

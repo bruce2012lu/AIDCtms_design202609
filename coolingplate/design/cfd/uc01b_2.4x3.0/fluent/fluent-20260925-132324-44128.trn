@@ -1,0 +1,208 @@
+Auto-Transcript Start Time:  13:23:24, 25 Sep 2026 中国标准时间 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent"
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:32:00 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+
+*********************************************
+Info: Your license enables 4-way parallel execution.
+For faster simulations, please start the application with the appropriate parallel options.
+*********************************************
+
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:51866 
+
+Node 0 connecting to the Host ... connection established.
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0    DESKTOP-JHEHF28  1/32  Windows-x64  23968  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  15336  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd\\uc01b_2.4x3.0\\fluent\\cleanup-fluent-DESKTOP-JHEHF28-15336.bat
+Note: Rank = 0: Process affinity not being set (6).
+
+Graphics driver currently in use: dx11
+
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent\uc01b_n216_q105_surfaces.jou...
+
+> ; Report-only. Read saved n216 q105. Do not iterate. Do not write case/data.
+/file/set-batch-options yes yes no
+
+> /file/confirm-overwrite yes
+
+> /file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_n216_q105_surfaces.log"
+Opening input/output transcript to file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_n216_q105_surfaces.log".
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  23968  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  15336  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_n216_q105.cas.h5"Fast-loading "E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\fluent26.1.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_n216_q105.cas.h5" in NODE0 mode ...
+  Reading mesh ...
+     4472280 cells,     3 cell zones ...
+        2760804 hexahedral cells,  zone id: 2
+        1533156 hexahedral cells,  zone id: 3
+         178320 hexahedral cells,  zone id: 4
+    13626374 faces,    15 face zones ...
+           3576 quadrilateral symmetry faces,  zone id: 17
+          27044 quadrilateral symmetry faces,  zone id: 16
+          17500 quadrilateral wall faces,  zone id: 15
+         503452 quadrilateral interior faces,  zone id: 14
+        4509890 quadrilateral interior faces,  zone id: 13
+        8193964 quadrilateral interior faces,  zone id: 5
+           5500 quadrilateral mass-flow-inlet faces,  zone id: 6
+           6720 quadrilateral pressure-outlet faces,  zone id: 7
+          29720 quadrilateral wall faces,  zone id: 8
+           1600 quadrilateral wall faces,  zone id: 9
+         104892 quadrilateral wall faces,  zone id: 10
+         104892 quadrilateral wall faces,  zone id: 19
+          29720 quadrilateral wall faces,  zone id: 11
+          29720 quadrilateral wall faces,  zone id: 18
+          58184 quadrilateral symmetry faces,  zone id: 12
+     4681156 nodes,     1 node zone  ...
+Warning: reading 4 partition grid onto 1 compute node machine.
+         Combining every 4 partitions.
+  Done.
+
+
+Building...
+     mesh
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	sym:017
+	sym:016
+	interior:014
+	interior:013
+	wall_tim_cu
+	wall_cu_fluid
+	wall_orifice
+	wall_heat
+	interior
+	inlet_jet
+	sym
+	return_slot:015
+	return_slot
+	solid_tim2
+	solid_cu
+	fluid
+     parallel,
+Done.
+
+
+> /file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_n216_q105.dat.h5"
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_n216_q105.dat.h5" in NODE0 mode ...
+
+
+  Reading results.
+Parallel variables...
+Done.
+
+
+> /report/surface-integrals/area-weighted-avg Available surfaces: (return_slot return_slot:015 inlet_jet wall_heat wall_orifice wall_cu_fluid wall_tim_cu sym sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+inlet_jet () temperature no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                       inlet_jet               313.15
+
+> /report/surface-integrals/area-weighted-avg Available surfaces: (return_slot return_slot:015 inlet_jet wall_heat wall_orifice wall_cu_fluid wall_tim_cu sym sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+return_slot () temperature no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                     return_slot            320.90048
+
+> /report/surface-integrals/area-weighted-avg Available surfaces: (return_slot return_slot:015 inlet_jet wall_heat wall_orifice wall_cu_fluid wall_tim_cu sym sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+wall_heat () temperature no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                       wall_heat             341.9327
+
+> /report/surface-integrals/area-weighted-avg Available surfaces: (return_slot return_slot:015 inlet_jet wall_heat wall_orifice wall_cu_fluid wall_tim_cu sym sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+wall_heat () heat-flux no
+
+           Area-Weighted Average
+         Total Surface Heat Flux              [W/m^2]
+-------------------------------- --------------------
+                       wall_heat            579282.41
+
+> /report/surface-integrals/area-weighted-avg Available surfaces: (return_slot return_slot:015 inlet_jet wall_heat wall_orifice wall_cu_fluid wall_tim_cu sym sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+wall_cu_fluid () temperature no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                   wall_cu_fluid            326.81594
+
+> /report/surface-integrals/area-weighted-avg Available surfaces: (return_slot return_slot:015 inlet_jet wall_heat wall_orifice wall_cu_fluid wall_tim_cu sym sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+wall_tim_cu () temperature no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                     wall_tim_cu            336.67745
+
+> /report/surface-integrals/area-weighted-avg Available surfaces: (return_slot return_slot:015 inlet_jet wall_heat wall_orifice wall_cu_fluid wall_tim_cu sym sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+inlet_jet () pressure no
+
+           Area-Weighted Average
+                 Static Pressure                 [Pa]
+-------------------------------- --------------------
+                       inlet_jet            1088.1265
+
+> /report/surface-integrals/area-weighted-avg Available surfaces: (return_slot return_slot:015 inlet_jet wall_heat wall_orifice wall_cu_fluid wall_tim_cu sym sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+return_slot () pressure no
+
+           Area-Weighted Average
+                 Static Pressure                 [Pa]
+-------------------------------- --------------------
+                     return_slot                    0
+
+> /report/fluxes/mass-flow inlet_jet 
+Error: Please answer y[es] or n[o].
+Error Object: inlet_jet
+
+Error: Please answer y[es] or n[o].
+Error Object: inlet_jet
+
+Transcript closed.
+Auto-Transcript Stop Time:  13:24:17, 25 Sep 2026 中国标准时间 
+Total Transcript Time: 0 Minute 52 Second.

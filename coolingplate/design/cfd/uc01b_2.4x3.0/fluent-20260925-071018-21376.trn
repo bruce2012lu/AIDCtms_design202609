@@ -1,0 +1,294 @@
+Auto-Transcript Start Time:  07:10:18, 25 Sep 2026 ÖÐ¹ú±ê×¼Ê±¼ä 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0"
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:32:00 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:60618 
+
+Node 0 connecting to the Host ... connection established.
+GPU Solver enabled
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  29736  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  32232  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  28336  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  12792  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  35508  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd\\uc01b_2.4x3.0\\cleanup-fluent-DESKTOP-JHEHF28-35508.bat
+
+Graphics driver currently in use: dx11
+
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file fluent/uc01b_cht_v2_t4_gpu.jou...
+
+> ; UC-01b CHT v2 continuation from iter 7861
+; 4-way parallel, GPU solver selected on the fluent command line (-gpu).
+; Read the saved case/data. Do not read the raw msh. Do not reinitialize.
+; Criteria unchanged: continuity and xyz-mom 1e-4, energy 1e-6, k/omega 1e-3.
+; Do not change outlet boundary conditions. Leave the GUI open (no /exit).
+;
+/file/set-batch-options yes yes no
+
+> /file/confirm-overwrite yes
+
+> /file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_t4_gpu.log"
+Opening input/output transcript to file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_t4_gpu.log".
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  29736  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  32232  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  28336  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  12792  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  35508  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7861.cas.h5"Fast-loading "E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\fluent26.1.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7861.cas.h5" in NODE0 mode ...
+  Reading mesh ...
+     4472280 cells,     3 cell zones ...
+        2760804 hexahedral cells,  zone id: 2
+        1533156 hexahedral cells,  zone id: 3
+         178320 hexahedral cells,  zone id: 4
+    13626374 faces,    15 face zones ...
+           3576 quadrilateral symmetry faces,  zone id: 17
+          27044 quadrilateral symmetry faces,  zone id: 16
+          17500 quadrilateral wall faces,  zone id: 15
+         503452 quadrilateral interior faces,  zone id: 14
+        4509890 quadrilateral interior faces,  zone id: 13
+        8193964 quadrilateral interior faces,  zone id: 5
+           5500 quadrilateral mass-flow-inlet faces,  zone id: 6
+           6720 quadrilateral pressure-outlet faces,  zone id: 7
+          29720 quadrilateral wall faces,  zone id: 8
+           1600 quadrilateral wall faces,  zone id: 9
+         104892 quadrilateral wall faces,  zone id: 10
+         104892 quadrilateral wall faces,  zone id: 19
+          29720 quadrilateral wall faces,  zone id: 11
+          29720 quadrilateral wall faces,  zone id: 18
+          58184 quadrilateral symmetry faces,  zone id: 12
+     4681156 nodes,     1 node zone  ...
+  Done.
+
+
+
+Following contexts active in the case file have been de-activated because of their current context control conditions:
+"coupled-pseudo-transient"
+
+Building...
+     mesh
+	auto partitioning mesh by Metis (fast, model-weighted),
+	distributing mesh
+		pairs....,
+		parts....,
+		faces....,
+		nodes....,
+		shadow nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 697285/5346 = 130.431
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	sym:017
+	sym:016
+	interior:014
+	interior:013
+	wall_tim_cu
+	wall_cu_fluid
+	wall_orifice
+	wall_heat
+	interior
+	return_slot:015
+	inlet_jet
+	return_slot
+	sym
+	solid_tim2
+	solid_cu
+	fluid
+     parallel,
+Done.
+
+Preparing mesh for display...
+Done.
+
+
+> /file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7861.dat.h5"
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7861.dat.h5" in NODE0 mode ...
+
+
+  Reading results.
+Parallel variables...
+Done.
+
+
+> /solve/monitors/residual/criterion-type Available options: (absolute none)
+0
+
+> /solve/monitors/residual/check-convergence? yes
+Check convergence of x-velocity residuals? [yes] yes
+Check convergence of y-velocity residuals? [yes] yes
+Check convergence of z-velocity residuals? [yes] yes
+Check convergence of energy residuals? [yes] yes
+Check convergence of k residuals? [yes] yes
+Check convergence of omega residuals? [yes] yes
+
+> /solve/monitors/residual/convergence-criteria
+continuity residual convergence criterion [1e-05] 1e-4
+x-velocity residual convergence criterion [1e-05] 1e-4
+y-velocity residual convergence criterion [1e-05] 1e-4
+z-velocity residual convergence criterion [1e-05] 1e-4
+energy residual convergence criterion [1e-05] 1e-6
+k residual convergence criterion [1e-05] 1e-3
+omega residual convergence criterion [1e-05] 1e-3
+
+> /solve/iterate 2000
+Preparing GPU solver, please wait ...
+------------------------------------------------------------------------------------------------------------------------
+Rank  PID    Core  OS     Host             Device  Name                     Version  Memory(GB)   Bandwidth  Cores      
+------------------------------------------------------------------------------------------------------------------------
+0     12792  1/32  win64  DESKTOP-JHEHF28  0/1     NVIDIA GeForce RTX 4090  8.9      23.99/22.44  961.395    128x128    
+1     28336  1/32  win64  DESKTOP-JHEHF28  0/1     NVIDIA GeForce RTX 4090  8.9      23.99/22.44  961.395    128x128    
+2     32232  1/32  win64  DESKTOP-JHEHF28  0/1     NVIDIA GeForce RTX 4090  8.9      23.99/22.44  961.395    128x128    
+3     29736  1/32  win64  DESKTOP-JHEHF28  0/1     NVIDIA GeForce RTX 4090  8.9      23.99/22.44  961.395    128x128    
+------------------------------------------------------------------------------------------------------------------------
+Bandwidth : 21.1243, 6.38607 GB/s
+Latency   : 0.11765, 12.0777 usec
+
+Upload restart solution data ...
+Apply restart data ... 
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy           k       omega     time/iter
+  7861  0.0000e+00  0.0000e+00  0.0000e+00  0.0000e+00  0.0000e+00  0.0000e+00  0.0000e+00  0:00:00 2000
+Reverse flow on 28 faces of outlet boundary (return_slot).
+  7862  9.3623e-05  2.0331e-04  2.4728e-04  2.0637e-04  1.2756e-04  2.4912e-04  2.3744e-04  0:24:19 1999
+Reverse flow on 24 faces of outlet boundary (return_slot).
+  7863  6.0625e-05  1.1437e-04  1.4382e-04  1.1788e-04  6.2714e-05  1.1449e-04  2.2316e-04  0:20:35 1998
+Reverse flow on 6 faces of outlet boundary (return_slot).
+  7864  5.6505e-05  6.1482e-05  8.9500e-05  7.2638e-05  4.0150e-05  6.2473e-05  2.2178e-04  0:24:50 1997
+Reverse flow on 3 faces of outlet boundary (return_slot).
+  7865  4.5714e-05  3.5874e-05  5.7122e-05  4.6678e-05  2.9172e-05  3.8160e-05  2.2142e-04  0:29:15 1996
+Reverse flow on 2 faces of outlet boundary (return_slot).
+  7866  3.3570e-05  2.2931e-05  3.7320e-05  3.1400e-05  2.3806e-05  2.5218e-05  2.2117e-04  0:30:08 1995
+  7867  2.3955e-05  1.5745e-05  2.5127e-05  2.1763e-05  2.1453e-05  1.7331e-05  2.2094e-04  0:33:06 1994
+  7868  1.7491e-05  1.1294e-05  1.7573e-05  1.5497e-05  2.0003e-05  1.2267e-05  2.2076e-04  0:35:41 1993
+  7869  1.3443e-05  8.3762e-06  1.2825e-05  1.1295e-05  1.8647e-05  9.1949e-06  2.2063e-04  0:33:23 1992
+  7870  1.0800e-05  6.4327e-06  9.7986e-06  8.4822e-06  1.7201e-05  7.3300e-06  2.2053e-04  0:33:41 1991
+  7871  8.9496e-06  5.1476e-06  7.9032e-06  6.6153e-06  1.5646e-05  6.0965e-06  2.2045e-04  0:34:03 1990
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy           k       omega     time/iter
+  7872  7.5559e-06  4.2863e-06  6.6997e-06  5.3676e-06  1.4166e-05  5.2192e-06  2.2039e-04  0:38:34 1989
+  7873  6.4577e-06  3.6929e-06  5.8620e-06  4.5489e-06  1.2723e-05  4.5986e-06  2.2034e-04  0:38:32 1988
+  7874  5.5596e-06  3.2589e-06  5.1826e-06  4.0019e-06  1.1360e-05  4.1340e-06  2.2030e-04  0:38:27 1987
+  7875  4.8235e-06  2.9246e-06  4.5682e-06  3.6174e-06  1.0083e-05  3.7536e-06  2.2027e-04  0:38:23 1986
+  7876  4.2161e-06  2.6410e-06  3.9989e-06  3.3201e-06  8.8673e-06  3.4025e-06  2.2025e-04  0:38:31 1985
+  7877  3.7102e-06  2.3924e-06  3.4763e-06  3.0702e-06  7.7150e-06  3.0690e-06  2.2024e-04  0:38:55 1984
+  7878  3.2845e-06  2.1678e-06  3.0398e-06  2.8562e-06  6.6225e-06  2.7728e-06  2.2023e-04  0:39:02 1983
+  7879  2.9225e-06  1.9532e-06  2.6843e-06  2.6735e-06  5.6160e-06  2.5293e-06  2.2023e-04  0:39:29 1982
+  7880  2.6114e-06  1.7548e-06  2.3837e-06  2.5175e-06  4.7337e-06  2.3293e-06  2.2022e-04  0:39:47 1981
+  7881  2.3412e-06  1.5771e-06  2.1303e-06  2.3830e-06  4.0060e-06  2.1577e-06  2.2022e-04  0:39:47 1980
+  7882  2.1045e-06  1.4234e-06  1.9179e-06  2.2637e-06  3.4391e-06  2.0037e-06  2.2021e-04  0:39:45 1979
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy           k       omega     time/iter
+  7883  1.8960e-06  1.2929e-06  1.7399e-06  2.1567e-06  3.0210e-06  1.8650e-06  2.2021e-04  0:39:47 1978
+  7884  1.7115e-06  1.1845e-06  1.5895e-06  2.0594e-06  2.7247e-06  1.7430e-06  2.2021e-04  0:39:24 1977
+  7885  1.5476e-06  1.0941e-06  1.4611e-06  1.9693e-06  2.5190e-06  1.6371e-06  2.2020e-04  0:39:18 1976
+  7886  1.4023e-06  1.0188e-06  1.3375e-06  1.8853e-06  2.3746e-06  1.5460e-06  2.2020e-04  0:39:28 1975
+  7887  1.2731e-06  9.5342e-07  1.2359e-06  1.8080e-06  2.2670e-06  1.4650e-06  2.2020e-04  0:39:12 1974
+  7888  1.1584e-06  8.9553e-07  1.1503e-06  1.7362e-06  2.1776e-06  1.3885e-06  2.2019e-04  0:39:48 1973
+  7889  1.0565e-06  8.4407e-07  1.0775e-06  1.6686e-06  2.0925e-06  1.3133e-06  2.2019e-04  0:39:43 1972
+  7890  9.6529e-07  7.9786e-07  1.0133e-06  1.6048e-06  2.0032e-06  1.2363e-06  2.2019e-04  0:40:05 1971
+  7891  8.8324e-07  7.5535e-07  9.5545e-07  1.5443e-06  1.9064e-06  1.1594e-06  2.2019e-04  0:40:02 1970
+  7892  8.0904e-07  7.1597e-07  9.0317e-07  1.4868e-06  1.8018e-06  1.0834e-06  2.2019e-04  0:40:25 1969
+  7893  7.4164e-07  6.7932e-07  8.5618e-07  1.4323e-06  1.6912e-06  1.0112e-06  2.2019e-04  0:40:39 1968
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy           k       omega     time/iter
+  7894  6.8008e-07  6.4505e-07  8.1431e-07  1.3802e-06  1.5774e-06  9.4555e-07  2.2019e-04  0:40:42 1967
+  7895  6.2385e-07  6.1310e-07  7.7739e-07  1.3307e-06  1.4636e-06  8.8723e-07  2.2019e-04  0:40:57 1966
+  7896  5.7248e-07  5.8365e-07  7.4527e-07  1.2838e-06  1.3519e-06  8.3697e-07  2.2019e-04  0:40:53 1965
+  7897  5.2563e-07  5.5678e-07  7.1757e-07  1.2393e-06  1.2444e-06  7.9372e-07  2.2019e-04  0:40:54 1964
+  7898  4.8280e-07  5.3246e-07  6.9373e-07  1.1975e-06  1.1423e-06  7.5525e-07  2.2019e-04  0:41:59 1963
+  7899  4.4350e-07  5.1056e-07  6.7321e-07  1.1582e-06  1.0462e-06  7.2131e-07  2.2019e-04  0:41:55 1962
+  7900  4.0743e-07  4.9083e-07  6.5537e-07  1.1218e-06  9.5641e-07  6.8951e-07  2.2019e-04  0:41:51 1961
+! 7900 solution is converged
+Done
+
+> /file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_t4_gpu"
+Writing to DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_t4_gpu.cas.h5" in NODE0 mode and compression level 1 ...
+Grouping cells for Laplace smoothing ...
+     4472280 cells,     3 zones ...
+    13626374 faces,    15 zones ...
+     4681156 nodes,     1 zone  ...
+  Done.
+Done.
+
+Additional data file quantities are not supported when writing in the default CFF format (.dat.h5 files).
+
+
+Writing to DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_t4_gpu.dat.h5" in NODE0 mode and compression level 1 ...
+  Writing results.
+Done.
+
+
+> /file/stop-transcript
+
+Transcript closed.
+
+> ; no /exit â€” leave the GUI open
+
+> /file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_i7900_save.log"
+Opening input/output transcript to file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_i7900_save.log".
+
+
+> /file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900"
+Writing to DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.cas.h5" in NODE0 mode and compression level 1 ...
+Grouping cells for Laplace smoothing ...
+     4472280 cells,     3 zones ...
+    13626374 faces,    15 zones ...
+     4681156 nodes,     1 zone  ...
+  Done.
+Done.
+
+Additional data file quantities are not supported when writing in the default CFF format (.dat.h5 files).
+
+
+Writing to DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.dat.h5" in NODE0 mode and compression level 1 ...
+  Writing results.
+Done.
+
+
+> /exit y
+
+Transcript closed.
+Auto-Transcript Stop Time:  09:31:40, 25 Sep 2026 ÖÐ¹ú±ê×¼Ê±¼ä 
+Total Transcript Time: 2 Hour 21 Minute 22 Second.

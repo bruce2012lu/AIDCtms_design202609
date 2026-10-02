@@ -1,0 +1,18 @@
+UC-01b CHT — use the Fluent GUI that is ALREADY open.
+Do not start fluent.exe again.
+
+1) Mesh (circular D=0.40 mm, Cu + TIM2 solids)
+   D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\mesh\uc01b_cht_medium.msh
+   (also: uc01b_cht_coarse.msh 165112 HEXA, uc01b_cht_fine.msh 709664 HEXA)
+
+2) Journal (File → Read → Journal, or type in TUI:)
+   /file/read-journal "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_gui.jou"
+
+3) After 80 iter, Transcript has T and P. Then:
+   R_conv_cell = (T_cu_fluid - 313.15) / 4.085714
+   R_conv_2die = R_conv_cell / 210
+   R_c-in = 0.006 + 0.003392 + R_conv_2die
+   Case-data: fluent\uc01b_CHT.cas.h5
+
+SST, water 40 C, mdot=2.067e-4 kg/s, q''=56.746 W/cm2 on wall_heat.
+Journal does NOT /exit.

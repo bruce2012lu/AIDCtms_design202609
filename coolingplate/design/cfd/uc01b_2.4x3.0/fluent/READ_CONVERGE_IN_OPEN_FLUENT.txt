@@ -1,0 +1,14 @@
+If batch Fluent cannot get a license (FLUENT_EXIT=254), do not kill the open GUI.
+
+In the ALREADY-OPEN Fluent:
+  File → Read → Journal
+  D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent\uc01b_cht_converge.jou
+
+That journal ends with /exit. If you must keep the GUI, stop before the last two lines
+or use TUI up through /solve/iterate 4000 and the reports, then skip /exit.
+
+Criteria in the journal:
+  continuity, x/y/z-momentum < 1e-4
+  energy < 1e-6
+  k, omega < 1e-3
+Cap 4000 after 300 first-order startup. Coupled + pseudo-transient.

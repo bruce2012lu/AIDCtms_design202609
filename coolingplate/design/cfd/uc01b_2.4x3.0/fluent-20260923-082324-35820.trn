@@ -1,0 +1,321 @@
+Auto-Transcript Start Time:  08:23:24, 23 Sep 2026 ÖÐ¹ú±ê×¼Ê±¼ä 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0"
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:32:00 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+
+*********************************************
+Info: Your license enables 4-way parallel execution.
+For faster simulations, please start the application with the appropriate parallel options.
+*********************************************
+
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:52258 
+
+Node 0 connecting to the Host ... connection established.
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0    DESKTOP-JHEHF28  1/32  Windows-x64  13480  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  31244  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd\\uc01b_2.4x3.0\\cleanup-fluent-DESKTOP-JHEHF28-31244.bat
+
+DESKTOP-JHEHF28 has other FLUENT parallel processes running.                       Process affinity not being set.
+
+Graphics driver currently in use: dx11
+
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent\uc01b_cht_v2_current_plot.jou...
+
+> ; Read the exported intermediate v2 field. Visible GUI. No /exit.
+; Does not open the live unsaved session and does not read the mesh-only file.
+/file/set-batch-options yes no no
+
+> /file/confirm-overwrite yes
+
+> /file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_current_plot.log"
+Opening input/output transcript to file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_current_plot.log".
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  13480  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  31244  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_current.cas.h5"Fast-loading "E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\fluent26.1.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_current.cas.h5" in NODE0 mode ...
+  Reading mesh ...
+     4472280 cells,     3 cell zones ...
+        2760804 hexahedral cells,  zone id: 2
+        1533156 hexahedral cells,  zone id: 3
+         178320 hexahedral cells,  zone id: 4
+    13626374 faces,    15 face zones ...
+           3576 quadrilateral symmetry faces,  zone id: 17
+          27044 quadrilateral symmetry faces,  zone id: 16
+          17500 quadrilateral wall faces,  zone id: 15
+         503452 quadrilateral interior faces,  zone id: 14
+        4509890 quadrilateral interior faces,  zone id: 13
+        8193964 quadrilateral interior faces,  zone id: 5
+           5500 quadrilateral mass-flow-inlet faces,  zone id: 6
+           6720 quadrilateral pressure-outlet faces,  zone id: 7
+          29720 quadrilateral wall faces,  zone id: 8
+           1600 quadrilateral wall faces,  zone id: 9
+         104892 quadrilateral wall faces,  zone id: 10
+         104892 quadrilateral wall faces,  zone id: 19
+          29720 quadrilateral wall faces,  zone id: 11
+          29720 quadrilateral wall faces,  zone id: 18
+          58184 quadrilateral symmetry faces,  zone id: 12
+     4681156 nodes,     1 node zone  ...
+  Done.
+
+
+Building...
+     mesh
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	sym:017
+	sym:016
+	interior:014
+	interior:013
+	wall_tim_cu
+	wall_cu_fluid
+	wall_orifice
+	wall_heat
+	interior
+	return_slot:015
+	inlet_jet
+	return_slot
+	sym
+	solid_tim2
+	solid_cu
+	fluid
+     parallel,
+Done.
+
+Preparing mesh for display...
+Done.
+
+
+> /file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_current.dat.h5"
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_current.dat.h5" in NODE0 mode ...
+
+
+  Reading results.
+Parallel variables...
+Done.
+
+
+> /define/boundary-conditions/list-zones
+  id  name                       type                adj-zone-material     wall-material         kind
+----  -------------------------  ------------------  --------------------  --------------------  ----
+   2  fluid                      fluid               water-liquid                                cell
+   3  solid_cu                   solid               copper                                      cell
+   4  solid_tim2                 solid               tim2                                        cell
+  12  sym                        symmetry                                                        face
+   7  return_slot                pressure-outlet                                                 face
+   6  inlet_jet                  mass-flow-inlet                                                 face
+  15  return_slot:015            wall                copper                tim2                  face
+   5  interior                   interior                                                        face
+   8  wall_heat                  wall                tim2                  tim2                  face
+   9  wall_orifice               wall                water-liquid          tim2                  face
+  10  wall_cu_fluid              wall                water-liquid          tim2                  face
+  11  wall_tim_cu                wall                tim2                  tim2                  face
+  13  interior:013               interior                                                        face
+  14  interior:014               interior                                                        face
+  16  sym:016                    symmetry                                                        face
+  17  sym:017                    symmetry                                                        face
+  18  wall_tim_cu-shadow         wall                copper                tim2                  face
+  19  wall_cu_fluid-shadow       wall                copper                tim2                  face
+
+> /report/surface-integrals/area-weighted-avg Available surfaces: (sym wall_tim_cu wall_cu_fluid wall_orifice wall_heat inlet_jet return_slot return_slot:015 sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+wall_heat () temperature no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                       wall_heat            335.37647
+
+> /report/surface-integrals/area-weighted-avg Available surfaces: (sym wall_tim_cu wall_cu_fluid wall_orifice wall_heat inlet_jet return_slot return_slot:015 sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+wall_tim_cu () temperature no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                     wall_tim_cu            330.22847
+
+> /report/surface-integrals/area-weighted-avg Available surfaces: (sym wall_tim_cu wall_cu_fluid wall_orifice wall_heat inlet_jet return_slot return_slot:015 sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+wall_cu_fluid () temperature no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                   wall_cu_fluid            322.05227
+
+> /surface/iso-surface
+
+iso-surface of> z-coordinate
+new surface id/name [z-coordinate-12] v2cur_zmid
+Available surfaces: (sym wall_tim_cu wall_cu_fluid wall_orifice wall_heat inlet_jet return_slot return_slot:015 sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] ,
+Select zone names/ids(1) [()] ,
+(0)
+(1) (in [m]) [0] 0.00075
+(2) (in [m]) [()] ()
+
+> /surface/iso-surface
+
+iso-surface of> z-coordinate
+new surface id/name [z-coordinate-13] v2cur_zorif
+Available surfaces: (v2cur_zmid sym wall_tim_cu wall_cu_fluid wall_orifice wall_heat inlet_jet return_slot return_slot:015 sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] ,
+Select zone names/ids(1) [()] ,
+(0)
+(1) (in [m]) [0] 0.004711008
+(2) (in [m]) [()] ()
+
+> /surface/iso-surface
+
+iso-surface of> y-coordinate
+new surface id/name [y-coordinate-14] v2cur_y0
+Available surfaces: (v2cur_zorif v2cur_zmid sym wall_tim_cu wall_cu_fluid wall_orifice wall_heat inlet_jet return_slot return_slot:015 sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] ,
+Select zone names/ids(1) [()] ,
+(0)
+(1) (in [m]) [0] 0
+(2) (in [m]) [()] ()
+
+> /surface/iso-surface
+
+iso-surface of> x-coordinate
+new surface id/name [x-coordinate-15] v2cur_x0
+Available surfaces: (v2cur_y0 v2cur_zorif v2cur_zmid sym wall_tim_cu wall_cu_fluid wall_orifice wall_heat inlet_jet return_slot return_slot:015 sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] ,
+Select zone names/ids(1) [()] ,
+(0)
+(1) (in [m]) [0] 0
+(2) (in [m]) [()] ()
+
+> /surface/iso-surface
+
+iso-surface of> z-coordinate
+new surface id/name [z-coordinate-16] v2cur_ztim
+Available surfaces: (v2cur_x0 v2cur_y0 v2cur_zorif v2cur_zmid sym wall_tim_cu wall_cu_fluid wall_orifice wall_heat inlet_jet return_slot return_slot:015 sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] ,
+Select zone names/ids(1) [()] ,
+(0)
+(1) (in [m]) [0] -0.00208
+(2) (in [m]) [()] ()
+
+> /surface/iso-surface
+
+iso-surface of> z-coordinate
+new surface id/name [z-coordinate-17] v2cur_z0
+Available surfaces: (v2cur_ztim v2cur_x0 v2cur_y0 v2cur_zorif v2cur_zmid sym wall_tim_cu wall_cu_fluid wall_orifice wall_heat inlet_jet return_slot return_slot:015 sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] ,
+Select zone names/ids(1) [()] ,
+(0)
+(1) (in [m]) [0] 0
+(2) (in [m]) [()] ()
+
+> /surface/iso-surface
+
+iso-surface of> z-coordinate
+new surface id/name [z-coordinate-18] v2cur_zrib
+Available surfaces: (v2cur_z0 v2cur_ztim v2cur_x0 v2cur_y0 v2cur_zorif v2cur_zmid sym wall_tim_cu wall_cu_fluid wall_orifice wall_heat inlet_jet return_slot return_slot:015 sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] ,
+Select zone names/ids(1) [()] ,
+(0)
+(1) (in [m]) [0] 0.0015
+(2) (in [m]) [()] ()
+
+> /file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_zmid.prof" v2cur_zmid () temperature x-velocity y-velocity z-velocity ()
+
+Writing 'D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_zmid.prof' profiles for v2cur_zmid
+.
+
+
+> /file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_zorif.prof" v2cur_zorif () temperature x-velocity y-velocity z-velocity ()
+
+Writing 'D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_zorif.prof' profiles for v2cur_zorif
+.
+
+
+> /file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_y0.prof" v2cur_y0 () temperature x-velocity y-velocity z-velocity ()
+
+Writing 'D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_y0.prof' profiles for v2cur_y0
+.
+
+
+> /file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_x0.prof" v2cur_x0 () temperature x-velocity y-velocity z-velocity ()
+
+Writing 'D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_x0.prof' profiles for v2cur_x0
+.
+
+
+> /file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_ztim.prof" v2cur_ztim () temperature x-velocity y-velocity z-velocity ()
+
+Writing 'D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_ztim.prof' profiles for v2cur_ztim
+.
+
+
+> /file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_z0.prof" v2cur_z0 () temperature x-velocity y-velocity z-velocity ()
+
+Writing 'D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_z0.prof' profiles for v2cur_z0
+.
+
+
+> /file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_zrib.prof" v2cur_zrib () temperature x-velocity y-velocity z-velocity ()
+
+Writing 'D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_zrib.prof' profiles for v2cur_zrib
+.
+
+
+> /file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_wall_heat.prof" wall_heat () temperature ()
+
+Writing 'D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/v2cur_wall_heat.prof' profiles for wall_heat
+.
+
+
+> /file/stop-transcript
+
+Transcript closed.
+
+> ; no /exit â€” leave this window open
+
+> (cx-use-window-id 51)
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+/exit y
+(cx-gui-do cx-activate-item "Question*OK")
+Auto-Transcript Stop Time:  09:33:34, 25 Sep 2026 ÖÐ¹ú±ê×¼Ê±¼ä 
+Total Transcript Time: 2 Day 1 Hour 10 Minute 10 Second.

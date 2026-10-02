@@ -1,0 +1,5 @@
+/file/set-batch-options yes yes no
+/file/import/?
+/file/read-grid tiny_cube.msh
+/file/read-case tiny_cube.msh
+/exit yes

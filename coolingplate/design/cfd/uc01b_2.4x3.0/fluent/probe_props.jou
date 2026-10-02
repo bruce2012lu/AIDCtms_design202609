@@ -1,0 +1,26 @@
+/file/set-batch-options yes yes no
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_Wsetup"
+/define/materials/change-create
+water-liquid
+water-liquid
+yes
+constant
+992.2
+yes
+constant
+4179
+yes
+constant
+0.631
+no
+no
+no
+yes
+constant
+6.53e-4
+no
+no
+no
+no
+/define/materials/list-properties water-liquid
+/exit

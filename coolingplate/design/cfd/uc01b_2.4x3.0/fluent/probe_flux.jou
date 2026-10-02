@@ -1,0 +1,13 @@
+/file/set-batch-options yes yes no
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_W"
+/define/materials/copy solid copper
+/define/models/shell-conduction/multi-layer-shell? yes
+/define/models/shell-conduction/settings
+et2d4
+()
+yes
+1
+0.002
+copper
+SHELLNEXT
+/exit

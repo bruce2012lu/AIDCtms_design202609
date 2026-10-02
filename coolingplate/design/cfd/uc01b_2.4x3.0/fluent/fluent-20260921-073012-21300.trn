@@ -1,0 +1,377 @@
+Auto-Transcript Start Time:  07:30:12, 21 Sep 2026 中国标准时间 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent"
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:32:00 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+
+*********************************************
+Info: Your license enables 4-way parallel execution.
+For faster simulations, please start the application with the appropriate parallel options.
+*********************************************
+
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:54224 
+
+Node 0 connecting to the Host ... connection established.
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0    DESKTOP-JHEHF28  1/32  Windows-x64  13236  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  28572  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd\\uc01b_2.4x3.0\\fluent\\cleanup-fluent-DESKTOP-JHEHF28-28572.bat
+Note: Rank = 0: Process affinity not being set (6).
+
+Graphics driver currently in use: dx11
+
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file uc01b_laminar.jou...
+
+> ; UC-01b laminar / water / Fluent 2026 R1
+; et2d2=inlet_jet et2d3=return_slot et2d4=wall_imp et2d8=SYM
+; mdot = 2.0671e-4 kg/s
+/file/set-batch-options yes yes no
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_fluent6.msh"
+Reading "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_fluent6.msh"...
+
+Buffering for file scan...
+
+  128039 nodes.
+  116320 hexahedral cells, zone 10.
+  337392 quadrilateral interior faces, zone 11.
+     100 quadrilateral wall faces, zone 12.
+     960 quadrilateral wall faces, zone 13.
+    2472 quadrilateral wall faces, zone 14.
+    2420 quadrilateral wall faces, zone 15.
+     200 quadrilateral wall faces, zone 16.
+    8648 quadrilateral wall faces, zone 17.
+    8336 quadrilateral wall faces, zone 18.
+
+Building...
+     mesh
+     materials,
+     interface,
+     domains,
+     zones,
+	et2d8
+	et2d7
+	et2d6
+	et2d5
+	et2d4
+	et2d3
+	et2d2
+	int_et3d1
+	et3d1
+     parallel,
+Done.
+
+
+> /mesh/check
+
+ Domain Extents:
+   x-coordinate: min (m) = -1.500000e-03, max (m) = 1.500000e-03
+   y-coordinate: min (m) = -1.200000e-03, max (m) = 1.200000e-03
+   z-coordinate: min (m) = 0.000000e+00, max (m) = 8.000000e-03
+ Volume statistics:
+   minimum volume (m3): 4.200004e-16
+   maximum volume (m3): 4.768397e-12
+     total volume (m3): 2.658184e-08
+ Face area statistics:
+   minimum face area (m2): 2.100003e-11
+   maximum face area (m2): 6.812000e-08
+ Checking mesh................................
+ Done.
+
+> /define/models/energy yes
+Compute viscous energy work? [no] no
+Include pressure work in energy equation? [no] no
+Include kinetic energy in energy equation? [no] no
+Include diffusion at inlets? [yes] no
+
+> /define/models/viscous/laminar yes
+
+> /define/materials/copy fluid water-liquid
+
+Material "water-liquid" copied from database.
+
+
+> /define/boundary-conditions/zone-type et2d2 mass-flow-inlet
+
+> /define/boundary-conditions/zone-type et2d3 pressure-outlet
+
+> /define/boundary-conditions/zone-type et2d8 symmetry
+
+> /define/boundary-conditions/set/mass-flow-inlet et2d2 () mass-flow no 0.00020671 t no 313.15 quit
+
+> /define/boundary-conditions/set/pressure-outlet et2d3 () t no 313.15 quit
+
+> /define/operating-conditions/operating-pressure 101325
+
+> /solve/monitors/residual/print? yes
+
+> /solve/monitors/residual/plot? no
+
+> /solve/initialize/hyb-initialization
+
+Initialize using the hybrid initialization method.
+
+Checking case topology... 
+-This case has both inlets & outlets 
+-Pressure information is not available at the boundaries.
+ Case will be initialized with constant pressure
+
+	iter		scalar-0
+
+	1		1.000000e+00
+	2		1.133944e-06
+	3		1.011853e-07
+	4		7.673853e-09
+	5		6.478623e-10
+	6		6.150439e-11
+	7		5.794699e-12
+	8		5.781177e-13
+	9		5.678279e-14
+	10		5.652934e-15
+
+Hybrid initialization is done.
+
+> /solve/iterate 80
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+     1  1.0000e+00  3.0640e-02  3.0158e-02  1.2328e-01  9.3810e-17  0:00:51   79
+     2  6.7130e-01  2.0992e-02  2.0455e-02  7.7827e-02  1.2618e-16  0:00:50   78
+     3  8.6159e-01  1.8373e-02  1.8140e-02  7.6045e-02  1.3344e-16  0:00:49   77
+     4  1.0000e+00  1.3932e-02  1.3708e-02  6.4921e-02  1.4330e-16  0:00:48   76
+     5  1.0000e+00  1.2399e-02  1.2973e-02  4.5210e-02  1.4717e-16  0:00:48   75
+     6  1.0534e+00  1.2739e-02  1.2621e-02  3.0366e-02  1.4903e-16  0:00:47   74
+     7  1.0963e+00  1.1458e-02  1.0544e-02  2.4169e-02  1.4773e-16  0:00:45   73
+     8  1.1298e+00  1.0939e-02  9.8949e-03  2.0988e-02  1.4569e-16  0:00:43   72
+     9  1.2507e+00  1.0898e-02  9.3819e-03  1.8149e-02  1.4697e-16  0:00:42   71
+    10  1.3362e+00  1.1087e-02  9.0565e-03  1.6515e-02  1.4637e-16  0:00:41   70
+    11  1.3663e+00  1.1380e-02  9.0463e-03  1.5840e-02  1.4731e-16  0:00:39   69
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    12  1.3954e+00  1.1111e-02  9.0628e-03  1.5151e-02  1.4727e-16  0:00:38   68
+    13  1.4303e+00  1.1985e-02  9.2343e-03  1.5239e-02  1.4663e-16  0:00:37   67
+    14  1.4321e+00  1.1704e-02  9.4098e-03  1.5490e-02  1.4600e-16  0:00:36   66
+    15  1.4034e+00  1.1235e-02  9.2151e-03  1.4750e-02  1.4619e-16  0:00:35   65
+    16  1.3669e+00  1.1196e-02  8.8636e-03  1.4139e-02  1.4726e-16  0:00:34   64
+    17  1.3441e+00  1.1056e-02  8.6100e-03  1.3751e-02  1.4632e-16  0:00:34   63
+    18  1.3302e+00  1.0497e-02  8.4652e-03  1.3540e-02  1.4629e-16  0:00:33   62
+    19  1.3059e+00  1.0019e-02  8.1275e-03  1.3391e-02  1.4644e-16  0:00:32   61
+    20  1.2839e+00  9.9462e-03  7.7896e-03  1.3487e-02  1.4621e-16  0:00:32   60
+    21  1.2730e+00  9.9330e-03  7.5125e-03  1.3866e-02  1.4633e-16  0:00:31   59
+    22  1.2696e+00  1.0114e-02  7.3418e-03  1.4606e-02  1.4611e-16  0:00:31   58
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    23  1.2754e+00  1.0533e-02  7.3582e-03  1.5621e-02  1.4618e-16  0:00:30   57
+    24  1.3054e+00  1.0993e-02  7.5198e-03  1.6508e-02  1.4673e-16  0:00:30   56
+    25  1.3398e+00  1.1487e-02  7.7218e-03  1.7017e-02  1.4628e-16  0:00:29   55
+    26  1.3742e+00  1.2109e-02  7.9321e-03  1.7108e-02  1.4741e-16  0:00:28   54
+    27  1.3882e+00  1.2420e-02  8.0536e-03  1.6782e-02  1.4719e-16  0:00:28   53
+    28  1.4043e+00  1.2266e-02  8.2760e-03  1.6716e-02  1.4745e-16  0:00:28   52
+    29  1.4245e+00  1.1990e-02  8.3767e-03  1.6915e-02  1.4682e-16  0:00:27   51
+    30  1.4291e+00  1.1666e-02  8.2581e-03  1.6692e-02  1.4706e-16  0:00:26   50
+    31  1.4307e+00  1.0953e-02  8.1686e-03  1.7028e-02  1.4702e-16  0:00:26   49
+    32  1.4302e+00  1.1042e-02  8.1620e-03  1.7801e-02  1.4775e-16  0:00:25   48
+
+ Reversed flow on 7 faces (0.8% area) of pressure-outlet 13.
+    33  1.4220e+00  1.1237e-02  8.2270e-03  1.8498e-02  1.4644e-16  0:00:25   47
+
+ Reversed flow on 19 faces (2.1% area) of pressure-outlet 13.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    34  1.4211e+00  1.1677e-02  8.4605e-03  1.8856e-02  1.4832e-16  0:00:24   46
+
+ Reversed flow on 39 faces (4.7% area) of pressure-outlet 13.
+    35  1.4460e+00  1.1992e-02  8.6974e-03  1.8431e-02  1.4920e-16  0:00:24   45
+
+ Reversed flow on 58 faces (7.1% area) of pressure-outlet 13.
+    36  1.4589e+00  1.1444e-02  8.6822e-03  1.8294e-02  1.4954e-16  0:00:23   44
+
+ Reversed flow on 72 faces (8.6% area) of pressure-outlet 13.
+    37  1.4419e+00  1.0922e-02  8.3133e-03  1.7629e-02  1.4814e-16  0:00:23   43
+
+ Reversed flow on 87 faces (10.2% area) of pressure-outlet 13.
+    38  1.4132e+00  1.0956e-02  8.2025e-03  1.6940e-02  1.4925e-16  0:00:23   42
+
+ Reversed flow on 93 faces (10.7% area) of pressure-outlet 13.
+    39  1.3940e+00  1.1275e-02  8.2747e-03  1.6221e-02  1.4857e-16  0:00:22   41
+
+ Reversed flow on 93 faces (10.7% area) of pressure-outlet 13.
+    40  1.3944e+00  1.1168e-02  8.2121e-03  1.5494e-02  1.4842e-16  0:00:21   40
+
+ Reversed flow on 89 faces (10.1% area) of pressure-outlet 13.
+    41  1.3835e+00  1.0996e-02  8.0278e-03  1.5152e-02  1.4854e-16  0:00:21   39
+
+ Reversed flow on 86 faces (9.6% area) of pressure-outlet 13.
+    42  1.3655e+00  1.1375e-02  8.1402e-03  1.5072e-02  1.4869e-16  0:00:20   38
+
+ Reversed flow on 63 faces (7.1% area) of pressure-outlet 13.
+    43  1.3789e+00  1.1730e-02  8.3243e-03  1.5038e-02  1.4953e-16  0:00:19   37
+
+ Reversed flow on 51 faces (5.6% area) of pressure-outlet 13.
+    44  1.3998e+00  1.1753e-02  8.3873e-03  1.4877e-02  1.4824e-16  0:00:19   36
+
+ Reversed flow on 53 faces (6.1% area) of pressure-outlet 13.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    45  1.4164e+00  1.1769e-02  8.4590e-03  1.4930e-02  1.4854e-16  0:00:18   35
+
+ Reversed flow on 50 faces (5.9% area) of pressure-outlet 13.
+    46  1.4223e+00  1.1791e-02  8.5752e-03  1.4803e-02  1.4832e-16  0:00:18   34
+
+ Reversed flow on 54 faces (6.2% area) of pressure-outlet 13.
+    47  1.4162e+00  1.1314e-02  8.4741e-03  1.4508e-02  1.4981e-16  0:00:17   33
+
+ Reversed flow on 56 faces (6.3% area) of pressure-outlet 13.
+    48  1.3965e+00  1.1158e-02  8.3622e-03  1.4157e-02  1.4843e-16  0:00:17   32
+
+ Reversed flow on 51 faces (5.7% area) of pressure-outlet 13.
+    49  1.3927e+00  1.1149e-02  8.2552e-03  1.3867e-02  1.4720e-16  0:00:16   31
+
+ Reversed flow on 45 faces (5.3% area) of pressure-outlet 13.
+    50  1.3925e+00  1.1022e-02  8.1306e-03  1.3521e-02  1.4928e-16  0:00:16   30
+
+ Reversed flow on 39 faces (4.7% area) of pressure-outlet 13.
+    51  1.3804e+00  1.0877e-02  8.2262e-03  1.3499e-02  1.4966e-16  0:00:15   29
+
+ Reversed flow on 38 faces (4.5% area) of pressure-outlet 13.
+    52  1.3881e+00  1.1027e-02  8.4028e-03  1.3588e-02  1.5085e-16  0:00:15   28
+
+ Reversed flow on 35 faces (4.1% area) of pressure-outlet 13.
+    53  1.4023e+00  1.1076e-02  8.4184e-03  1.3851e-02  1.5090e-16  0:00:14   27
+
+ Reversed flow on 32 faces (3.8% area) of pressure-outlet 13.
+    54  1.4121e+00  1.1039e-02  8.2992e-03  1.3901e-02  1.5026e-16  0:00:14   26
+
+ Reversed flow on 26 faces (3.2% area) of pressure-outlet 13.
+    55  1.3863e+00  1.0591e-02  7.7544e-03  1.3829e-02  1.4951e-16  0:00:13   25
+
+ Reversed flow on 23 faces (2.6% area) of pressure-outlet 13.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    56  1.3763e+00  1.0635e-02  7.7705e-03  1.4382e-02  1.5017e-16  0:00:13   24
+
+ Reversed flow on 16 faces (2.0% area) of pressure-outlet 13.
+    57  1.3723e+00  1.0940e-02  7.9718e-03  1.5015e-02  1.4993e-16  0:00:12   23
+
+ Reversed flow on 20 faces (2.3% area) of pressure-outlet 13.
+    58  1.3832e+00  1.1112e-02  8.1057e-03  1.5587e-02  1.5000e-16  0:00:12   22
+
+ Reversed flow on 34 faces (3.2% area) of pressure-outlet 13.
+    59  1.4083e+00  1.1277e-02  8.2198e-03  1.6121e-02  1.4999e-16  0:00:11   21
+
+ Reversed flow on 38 faces (3.6% area) of pressure-outlet 13.
+    60  1.4426e+00  1.1632e-02  8.5988e-03  1.6793e-02  1.5090e-16  0:00:11   20
+
+ Reversed flow on 43 faces (4.2% area) of pressure-outlet 13.
+    61  1.4649e+00  1.2026e-02  8.8879e-03  1.7812e-02  1.5022e-16  0:00:10   19
+
+ Reversed flow on 52 faces (4.9% area) of pressure-outlet 13.
+    62  1.4908e+00  1.2494e-02  9.4909e-03  1.8598e-02  1.5018e-16  0:00:10   18
+
+ Reversed flow on 59 faces (5.7% area) of pressure-outlet 13.
+    63  1.5163e+00  1.3067e-02  1.0004e-02  1.8778e-02  1.5041e-16  0:00:09   17
+
+ Reversed flow on 67 faces (6.5% area) of pressure-outlet 13.
+    64  1.5327e+00  1.3156e-02  9.9859e-03  1.8623e-02  1.4999e-16  0:00:09   16
+
+ Reversed flow on 68 faces (6.4% area) of pressure-outlet 13.
+    65  1.5384e+00  1.3229e-02  1.0022e-02  1.8387e-02  1.5085e-16  0:00:08   15
+
+ Reversed flow on 69 faces (6.4% area) of pressure-outlet 13.
+    66  1.5609e+00  1.3466e-02  1.0035e-02  1.7936e-02  1.4974e-16  0:00:07   14
+
+ Reversed flow on 74 faces (6.9% area) of pressure-outlet 13.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    67  1.5876e+00  1.3587e-02  1.0130e-02  1.7557e-02  1.5108e-16  0:00:07   13
+
+ Reversed flow on 80 faces (7.4% area) of pressure-outlet 13.
+    68  1.5807e+00  1.3179e-02  9.8847e-03  1.7229e-02  1.5193e-16  0:00:06   12
+
+ Reversed flow on 76 faces (6.7% area) of pressure-outlet 13.
+    69  1.5415e+00  1.2563e-02  9.6254e-03  1.6712e-02  1.5117e-16  0:00:06   11
+
+ Reversed flow on 68 faces (5.7% area) of pressure-outlet 13.
+    70  1.5225e+00  1.2625e-02  9.4841e-03  1.6597e-02  1.5002e-16  0:00:05   10
+
+ Reversed flow on 60 faces (5.3% area) of pressure-outlet 13.
+    71  1.5070e+00  1.2882e-02  9.3798e-03  1.6226e-02  1.5206e-16  0:00:05    9
+
+ Reversed flow on 55 faces (4.9% area) of pressure-outlet 13.
+    72  1.4984e+00  1.2776e-02  9.2773e-03  1.5991e-02  1.5035e-16  0:00:04    8
+
+ Reversed flow on 50 faces (4.4% area) of pressure-outlet 13.
+    73  1.4825e+00  1.2603e-02  9.0464e-03  1.6145e-02  1.5163e-16  0:00:04    7
+
+ Reversed flow on 50 faces (4.4% area) of pressure-outlet 13.
+    74  1.4590e+00  1.2580e-02  8.9462e-03  1.6471e-02  1.4969e-16  0:00:03    6
+
+ Reversed flow on 49 faces (4.3% area) of pressure-outlet 13.
+    75  1.4389e+00  1.2539e-02  8.8965e-03  1.6270e-02  1.5005e-16  0:00:03    5
+
+ Reversed flow on 47 faces (4.2% area) of pressure-outlet 13.
+    76  1.4162e+00  1.2417e-02  9.0314e-03  1.6119e-02  1.5085e-16  0:00:02    4
+
+ Reversed flow on 46 faces (4.0% area) of pressure-outlet 13.
+    77  1.3988e+00  1.2164e-02  9.2107e-03  1.5749e-02  1.5069e-16  0:00:02    3
+
+ Reversed flow on 47 faces (4.2% area) of pressure-outlet 13.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    78  1.4086e+00  1.1532e-02  9.2591e-03  1.5184e-02  1.5020e-16  0:00:01    2
+
+ Reversed flow on 53 faces (4.7% area) of pressure-outlet 13.
+    79  1.4075e+00  1.1217e-02  8.9551e-03  1.4407e-02  1.5060e-16  0:00:01    1
+
+ Reversed flow on 63 faces (6.2% area) of pressure-outlet 13.
+    80  1.3570e+00  1.1072e-02  8.4295e-03  1.3674e-02  1.5029e-16  0:00:00    0
+
+> /file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_L"Fast-loading "E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\fluent26.1.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Writing to DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_L.cas.h5" in NODE0 mode and compression level 1 ...
+Grouping cells for Laplace smoothing ...
+      116320 cells,     1 zone  ...
+      360528 faces,     8 zones ...
+      128039 nodes,     1 zone  ...
+  Done.
+Done.
+
+Writing to DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_L.dat.h5" in NODE0 mode and compression level 1 ...
+  Writing results.
+Done.
+
+
+> /report/surface-integrals/area-weighted-avg Available surfaces: (et2d8 et2d7 et2d6 et2d5 et2d4 et2d2 et2d3)
+pressure 
+Error: eval: unbound variable
+Error Object: pressure
+
+Error: Invalid surface.
+Error Object: pressure
+
+Error: Invalid surface.
+Error Object: pressure
+Auto-Transcript Stop Time:  07:31:46, 21 Sep 2026 中国标准时间 
+Total Transcript Time: 1 Minute 34 Second.

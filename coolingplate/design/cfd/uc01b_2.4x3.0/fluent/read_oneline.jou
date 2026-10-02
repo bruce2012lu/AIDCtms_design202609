@@ -1,0 +1,7 @@
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/read-case "tiny_oneline.msh"
+/solve/initialize/initialize-flow yes
+/solve/iterate 5
+/file/write-case-data "tiny_L"
+/exit yes

@@ -1,0 +1,29 @@
+; iso-surface first prompt is "iso-surface of>" = field, then name.
+/file/set-batch-options yes yes no
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_R"
+/surface/iso-surface
+x-coordinate
+pl_x0
+,
+,
+0
+()
+/surface/iso-surface
+y-coordinate
+pl_y0
+,
+,
+0
+()
+/surface/iso-surface
+z-coordinate
+pl_z075
+,
+,
+0.00075
+()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/pl_x0.prof" pl_x0 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/pl_y0.prof" pl_y0 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/pl_z075.prof" pl_z075 () temperature velocity-magnitude ()
+/exit
+yes

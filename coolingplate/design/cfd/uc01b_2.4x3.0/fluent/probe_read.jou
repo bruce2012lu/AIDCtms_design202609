@@ -1,0 +1,6 @@
+; Probe how Fluent 26.1 reads a legacy msh
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+(if (procedure-exists? 'cff-file?) (display "cff-file? exists\n") (display "no cff-file?\n"))
+/file/read-case "tiny_cube.msh" no
+/exit yes

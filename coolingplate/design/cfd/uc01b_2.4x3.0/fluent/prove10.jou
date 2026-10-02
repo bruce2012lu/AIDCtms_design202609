@@ -1,0 +1,8 @@
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/tiny_fluent6.msh"
+/define/models/steady yes
+/solve/initialize/initialize-flow yes
+/solve/iterate 10
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/tiny_prove"
+/exit yes

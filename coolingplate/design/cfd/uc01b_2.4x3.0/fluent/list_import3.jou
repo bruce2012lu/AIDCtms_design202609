@@ -1,0 +1,5 @@
+/file/set-batch-options yes yes no
+/file/import
+?
+q
+/exit yes

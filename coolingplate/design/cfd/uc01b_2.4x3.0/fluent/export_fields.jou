@@ -1,0 +1,30 @@
+; write-profile is more reliable than ascii for headless export
+/file/set-batch-options yes yes no
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_R"
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/wall_imp.prof" et2d4 () temperature velocity-magnitude ()
+/surface/iso-surface
+pl_x0
+x-coordinate
+,
+,
+0
+()
+/surface/iso-surface
+pl_y0
+y-coordinate
+,
+,
+0
+()
+/surface/iso-surface
+pl_z075
+z-coordinate
+,
+,
+0.00075
+()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/pl_x0.prof" pl_x0 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/pl_y0.prof" pl_y0 () temperature velocity-magnitude ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/pl_z075.prof" pl_z075 () temperature velocity-magnitude ()
+/exit
+yes

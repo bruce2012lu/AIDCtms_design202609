@@ -1,0 +1,114 @@
+Auto-Transcript Start Time:  07:45:08, 21 Sep 2026 中国标准时间 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent"
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:32:00 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+
+*********************************************
+Info: Your license enables 4-way parallel execution.
+For faster simulations, please start the application with the appropriate parallel options.
+*********************************************
+
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:56943 
+
+Node 0 connecting to the Host ... connection established.
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0    DESKTOP-JHEHF28  1/32  Windows-x64  25676  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  520    Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd\\uc01b_2.4x3.0\\fluent\\cleanup-fluent-DESKTOP-JHEHF28-520.bat
+Note: Rank = 0: Process affinity not being set (6).
+
+Graphics driver currently in use: dx11
+
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file probe_wall.jou...
+
+> /file/set-batch-options yes yes no
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_Wsetup"Fast-loading "E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\fluent26.1.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_Wsetup.cas.h5" in NODE0 mode ...
+  Reading mesh ...
+      116320 cells,     1 cell zone  ...
+         116320 hexahedral cells,  zone id: 10
+      360528 faces,     8 face zones ...
+         337392 quadrilateral interior faces,  zone id: 11
+            100 quadrilateral wall faces,  zone id: 12
+            960 quadrilateral wall faces,  zone id: 13
+           2472 quadrilateral wall faces,  zone id: 14
+           2420 quadrilateral wall faces,  zone id: 15
+            200 quadrilateral wall faces,  zone id: 16
+           8648 quadrilateral wall faces,  zone id: 17
+           8336 quadrilateral wall faces,  zone id: 18
+      128039 nodes,     1 node zone  ...
+  Done.
+
+
+Building...
+     mesh
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	et2d8
+	et2d7
+	et2d6
+	et2d5
+	et2d4
+	et2d3
+	et2d2
+	int_et3d1
+	et3d1
+     parallel,
+Done.
+
+
+> /define/boundary-conditions/wall
+(et2d2 et2d3 et2d4 et2d5 et2d6 et2d7 et2d8)
+zone id/name [et2d2] et2d4
+Use Profile for Wall Thickness? [no] no
+Wall Thickness (constant or expression) (in [m]) [0] 0
+Use Profile for Heat Generation Rate? [no] no
+Heat Generation Rate (constant or expression) (in [W/m^3]) [0] 0
+material-name [aluminum]: Change current value? [no] no
+Thermal BC Type [heat-flux]: Change current value? [no] yes
+
+Thermal BC Type [heat-flux]> temperature
+Use Profile for Temperature? [no] no
+Temperature (constant or expression) (in [K]) [300] 323.15
+Enable shell conduction? [no] no
+Wall Motion [motion-bc-stationary]: Change current value? [no] no
+Shear Boundary Condition [shear-bc-noslip]: Change current value? [no] no
+Use Profile for Convective Augmentation Factor? [no] no
+Convective Augmentation Factor (constant or expression) [1] no
+
+Error: eval: unbound variable
+Error Object: no
+
+Error: Invalid 
+Error Object: no
+Auto-Transcript Stop Time:  07:45:54, 21 Sep 2026 中国标准时间 
+Total Transcript Time: 0 Minute 46 Second.

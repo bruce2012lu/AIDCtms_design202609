@@ -1,0 +1,357 @@
+Auto-Transcript Start Time:  08:03:54, 23 Sep 2026 ÖÐ¹ú±ê×¼Ê±¼ä 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0"
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:32:00 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+
+*********************************************
+Info: Your license enables 4-way parallel execution.
+For faster simulations, please start the application with the appropriate parallel options.
+*********************************************
+
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:53558 
+
+Node 0 connecting to the Host ... connection established.
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0    DESKTOP-JHEHF28  1/32  Windows-x64  20640  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  33452  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd\\uc01b_2.4x3.0\\cleanup-fluent-DESKTOP-JHEHF28-33452.bat
+
+DESKTOP-JHEHF28 has other FLUENT parallel processes running.                       Process affinity not being set.
+
+Graphics driver currently in use: dx11
+
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent\uc01b_cht_v2_plot.jou...
+
+> ; Plot-only Fluent. Visible GUI. Does not /exit.
+; Does not touch the solve in cx2610 PID 7688.
+; Reads the mesh that passed the check. No solution data yet, so no T/V export.
+/file/set-batch-options yes no no
+
+> /file/confirm-overwrite yes
+
+> /file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_plot_v2b.log"
+Opening input/output transcript to file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_plot_v2b.log".
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  20640  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  33452  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_cht_v2.msh"
+Reading "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_cht_v2.msh"...
+
+Buffering for file scan...
+
+ 4547658 nodes.
+ 2760804 hexahedral cells, zone  2.
+ 1533156 hexahedral cells, zone  3.
+  178320 hexahedral cells, zone  4.
+13207306 quadrilateral interior faces, zone  5.
+    5500 quadrilateral velocity-inlet faces, zone  6.
+   24220 quadrilateral pressure-outlet faces, zone  7.
+   29720 quadrilateral wall faces, zone  8.
+    1600 quadrilateral wall faces, zone  9.
+  104892 quadrilateral wall faces, zone 10.
+   29720 quadrilateral wall faces, zone 11.
+   88804 quadrilateral symmetry faces, zone 12.
+
+Building...
+     mesh
+      interior -> interior (5) and interior:013 (13)
+      interior -> interior (5) and interior:014 (14)
+      return_slot -> return_slot (7) and return_slot:015 (15)
+      sym -> sym (12) and sym:016 (16)
+      sym -> sym (12) and sym:017 (17)
+Note: Separating interior zone 5 into zones 5 and 13. 
+Note: Separating interior zone 5 into zones 5 and 14. 
+Note: Separating pressure-outlet zone 7 into zones 7 and 15. 
+Note: Separating symmetry zone 12 into zones 12 and 16. 
+Note: Separating symmetry zone 12 into zones 12 and 17. 
+     materials,
+     interface,
+     domains,
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	sym:017
+	sym:016
+	return_slot:015
+	interior:014
+	interior:013
+	sym
+	wall_tim_cu
+	wall_cu_fluid
+	wall_orifice
+	wall_heat
+	return_slot
+	inlet_jet
+	interior
+	solid_tim2
+	solid_cu
+	fluid
+Warning: Flow boundary zone (return_slot:015) is adjacent to a solid zone (solid_cu). 
+ This problem MUST be fixed before 
+         solution can proceed!
+
+     parallel,
+Warning: Flow boundary zone (return_slot:015) is adjacent to a solid zone (solid_cu). 
+ This problem MUST be fixed before 
+         solution can proceed!
+
+Warning: Flow boundary zone (return_slot:015) is adjacent to a solid zone (solid_cu). 
+ This problem MUST be fixed before 
+         solution can proceed!
+
+Done.
+
+Preparing mesh for display...
+Done.
+
+
+> /mesh/check
+
+ Domain Extents:
+   x-coordinate: min (m) = -1.500000e-03, max (m) = 1.500000e-03
+   y-coordinate: min (m) = -1.200000e-03, max (m) = 1.200000e-03
+   z-coordinate: min (m) = -2.080000e-03, max (m) = 8.000000e-03
+ Volume statistics:
+   minimum volume (m3): 8.068593e-18
+   maximum volume (m3): 2.277646e-11
+     total volume (m3): 5.842729e-08
+ Face area statistics:
+   minimum face area (m2): 2.846122e-12
+   maximum face area (m2): 1.768929e-07
+ Checking mesh................................
+ Done.
+
+> /define/boundary-conditions/list-zones
+  id  name                       type                adj-zone-material     wall-material         kind
+----  -------------------------  ------------------  --------------------  --------------------  ----
+   2  fluid                      fluid               air                                         cell
+   3  solid_cu                   solid               aluminum                                    cell
+   4  solid_tim2                 solid               aluminum                                    cell
+   5  interior                   interior                                                        face
+   6  inlet_jet                  mass-flow-inlet                                                 face
+   7  return_slot                pressure-outlet                                                 face
+   8  wall_heat                  wall                aluminum              aluminum              face
+   9  wall_orifice               wall                air                   aluminum              face
+  10  wall_cu_fluid              wall                air                   aluminum              face
+  11  wall_tim_cu                wall                aluminum              aluminum              face
+  12  sym                        symmetry                                                        face
+  13  interior:013               interior                                                        face
+  14  interior:014               interior                                                        face
+  15  return_slot:015            pressure-outlet                                                 face
+  16  sym:016                    symmetry                                                        face
+  17  sym:017                    symmetry                                                        face
+  18  wall_tim_cu-shadow         wall                aluminum              aluminum              face
+  19  wall_cu_fluid-shadow       wall                aluminum              aluminum              face
+
+> /file/stop-transcript
+
+Transcript closed.
+
+> ; no /exit â€” leave this plot window open
+
+> (cx-gui-do cx-set-toggle-button2 "Key Behavioral Changes*Table1*CheckButton2(Don't show this message again)" #t)
+(cx-gui-do cx-activate-item "Key Behavioral Changes*Table1*CheckButton2(Don't show this message again)")
+(cx-gui-do cx-activate-item "Key Behavioral Changes*PanelButtons*PushButton1(OK)")
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cxg-clear-all-selections (cx-active-window))
+(cxg-add-surfaces-to-selection '(wall_cu_fluid return_slot:015 wall_cu_fluid-shadow) (cx-active-window))
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cxg-clear-all-selections (cx-active-window))
+(cxg-add-surfaces-to-selection '(return_slot wall_orifice wall_cu_fluid sym return_slot:015 sym:016 wall_cu_fluid-shadow) (cx-active-window))
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*PushButton1(Interfaces)")
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*Table3(Interfaces)*PushButton1(Mesh)")
+(cx-gui-do cx-activate-item "Mesh Interfaces*PanelButtons*PushButton2(Cancel)")
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*Table3(Mesh)*PushButton4(Check)")
+(cx-use-window-id 51)
+(cxg-clear-all-selections (cx-active-window))
+(cxg-add-surfaces-to-selection '(inlet_jet return_slot wall_heat wall_orifice wall_cu_fluid sym return_slot:015 sym:016 sym:017 wall_tim_cu-shadow wall_cu_fluid-shadow) (cx-active-window))
+(cx-use-window-id 51)
+(cxg-clear-all-selections (cx-active-window))
+(cxg-add-surfaces-to-selection '(return_slot wall_orifice wall_cu_fluid sym return_slot:015 sym:016 wall_cu_fluid-shadow) (cx-active-window))
+(cx-use-window-id 51)
+(cxg-clear-all-selections (cx-active-window))
+(cxg-add-surfaces-to-selection '(inlet_jet return_slot wall_orifice wall_cu_fluid sym return_slot:015 sym:016 wall_cu_fluid-shadow) (cx-active-window))
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*PushButton1(Zones)")
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*PushButton1(Interfaces)")
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*Table3(Interfaces)*PushButton1(Mesh)")
+(cx-gui-do cx-activate-item "Mesh Interfaces*PanelButtons*PushButton2(Cancel)")
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot:015 (pressure-outlet, id=15)"))
+(cx-use-window-id 51)
+(cxg-clear-all-selections (cx-active-window))
+(cxg-add-surfaces-to-selection '(inlet_jet return_slot wall_orifice return_slot:015) (cx-active-window))
+(cx-use-window-id 51)
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot:015 (pressure-outlet, id=15)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet|inlet_jet (mass-flow-inlet, id=6)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Symmetry"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot:015 (pressure-outlet, id=15)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot:015 (pressure-outlet, id=15)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet|inlet_jet (mass-flow-inlet, id=6)"))
+(cx-gui-do cx-activate-item "ToolBar*Pointer*boxselect")
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cxg-clear-all-selections (cx-active-window))
+(cxg-add-surfaces-to-selection '() (cx-active-window))
+(cx-gui-do cx-activate-item "ToolBar*Pointer*rotate")
+(cx-use-window-id 51)
+(cx-set-camera-relative '(0.00544533 -0.0102366 0.00418953) '(0 0 0) '(-0.238944 -0.383618 1.09104) 0 0)
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet|inlet_jet (mass-flow-inlet, id=6)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Wall"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot:015 (pressure-outlet, id=15)"))
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*PushButton1(Mesh Models)")
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*PushButton1(Interfaces)")
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*Table3(Interfaces)*PushButton1(Mesh)")
+(cx-gui-do cx-set-list-selections "Mesh Interfaces*Table1*Table2(Zones)*List1" '( 0))
+(cx-gui-do cx-activate-item "Mesh Interfaces*Table1*Table2(Zones)*List1")
+(cx-gui-do cx-set-list-selections "Mesh Interfaces*Table1*Table2(Zones)*List1" '())
+(cx-gui-do cx-activate-item "Mesh Interfaces*Table1*Table2(Zones)*List1")
+(cx-gui-do cx-activate-item "Mesh Interfaces*PanelButtons*PushButton2(Cancel)")
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*PushButton1(Surface)")
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*Table3(Surface)*PushButton2(Manage)")
+(cx-gui-do cx-set-list-selections "Surfaces*Table1*List1(Surfaces)" '( 0))
+(cx-gui-do cx-activate-item "Surfaces*Table1*List1(Surfaces)")
+(cx-gui-do cx-set-list-selections "Surfaces*Table1*List1(Surfaces)" '( 0 2))
+(cx-gui-do cx-activate-item "Surfaces*Table1*List1(Surfaces)")
+(cx-gui-do cx-set-list-selections "Surfaces*Table1*List1(Surfaces)" '( 0 2 7))
+(cx-gui-do cx-activate-item "Surfaces*Table1*List1(Surfaces)")
+(cx-gui-do cx-activate-item "Surfaces*PanelButtons*PushButton2(Cancel)")
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet|inlet_jet (mass-flow-inlet, id=6)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet|inlet_jet (mass-flow-inlet, id=6)"))
+(cx-use-window-id 51)
+(cx-set-camera-relative '(-0.00340686 -0.0367438 -0.0123558) '(0 0 0) '(0.0839324 -0.575797 0.121231) 0 0)
+(cx-use-window-id 51)
+(cx-set-camera-relative '(0.00235204 0.0266042 0.0165256) '(0 0 0) '(-0.1046 0.148804 -0.070155) 0 0)
+(cx-use-window-id 51)
+(handle-key "??")
+(cx-use-window-id 51)
+(cx-set-camera-relative '(-0.00531897 -0.0165044 0.000134736) '(0 0 0) '(0.0774425 0.474092 -0.0117554) 0 0)
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Energy (Off)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Energy (Off)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Energy (Off)"))
+(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )
+(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Energy (Off)*On")
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Heat Exchanger (Off)"))
+(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )
+(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Heat Exchanger (Off)*Edit...")
+(cx-gui-do cx-activate-item "Heat Exchanger Model*PanelButtons*PushButton2(Cancel)")
+(cx-use-window-id 51)
+(cx-set-camera-relative '(-0.00597908 -0.0139274 -0.00948014) '(0 0 0) '(0.484329 0.0905788 0.234646) 0 0)
+(cx-use-window-id 51)
+(cx-set-camera-relative '(-0.0406536 0.00883755 -0.0158719) '(0 0 0) '(0.447519 -0.748887 0.0596219) 0 0)
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot:015 (pressure-outlet, id=15)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )
+(cx-gui-do cx-activate-item "MenuBar*Display inSubMenu*New Window")
+(cx-use-window-id 52)
+(cx-set-camera-relative '(0.00221937 -0.00387072 0.00231734) '(0 0 0) '(0.538367 -0.00623953 -0.212263) 0 0)
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet|inlet_jet (mass-flow-inlet, id=6)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet|inlet_jet (mass-flow-inlet, id=6)"))
+(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )
+(cx-gui-do cx-activate-item "MenuBar*Display inSubMenu*Mesh")
+(cx-use-window-id 51)
+(cx-set-camera-relative '(0.0127039 -0.00406905 0.018459) '(0 0 0) '(0.431555 0.425576 -0.205613) 0 0)
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet|inlet_jet (mass-flow-inlet, id=6)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet|inlet_jet (mass-flow-inlet, id=6)"))
+(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )
+(cx-gui-do cx-activate-item "MenuBar*Display inSubMenu*User Window 1")
+(cx-use-window-id 51)
+(cx-set-camera-relative '(-0.00043953 -0.0105359 0.0085228) '(0 0 0) '(0.54093 0.216056 0.117768) 0 0)
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )
+(cx-gui-do cx-activate-item "MenuBar*Add toSubMenu*Active Window")
+(cx-use-window-id 51)
+(cx-set-camera-relative '(-0.00472036 -0.0112676 0.00349837) '(0 0 0) '(0.395225 -0.0244619 0.336219) 0 0)
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot:015 (pressure-outlet, id=15)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot:015 (pressure-outlet, id=15)"))
+(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )
+(cx-gui-do cx-activate-item "MenuBar*Add toSubMenu*Active Window")
+(cx-use-window-id 51)
+(cx-set-camera-relative '(0.000920288 0.00808859 -0.000743316) '(0 0 0) '(-0.145916 0.00851309 -0.25852) 0 0)
+(cx-use-window-id 51)
+(cx-set-camera-relative '(0.00323797 -0.0274682 -0.0156812) '(0 0 0) '(0.212752 -0.351468 0.966477) 0 0)
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot:015 (pressure-outlet, id=15)"))
+(cx-use-window-id 51)
+(cx-set-camera-relative '(0.0118382 0.0232661 0.002515) '(0 0 0) '(-0.350054 0.343397 -1.07207) 0 0)
+(cx-use-window-id 51)
+(cx-set-camera-relative '(-0.0173981 -0.00110563 0.0144688) '(0 0 0) '(0.215674 0.0251209 0.310563) 0 0)
+(cx-use-window-id 51)
+(cx-set-camera-relative '(0.0170645 0.00585355 -0.0152438) '(0 0 0) '(-0.335065 -0.0799013 -0.435211) 0 0)
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot (pressure-outlet, id=7)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot:015 (pressure-outlet, id=15)"))
+(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|return_slot:015 (pressure-outlet, id=15)"))
+(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )
+(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-return_slot:015 (pressure-outlet, id=15)*Edit...")
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 1)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 2)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 3)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 4)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 5)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 6)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 7)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 8)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 1)
+(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)
+(cx-gui-do cx-activate-item "Pressure Outlet*PanelButtons*PushButton2(Cancel)")
+/exit y
+(cx-gui-do cx-activate-item "Question*OK")
+Auto-Transcript Stop Time:  09:31:48, 25 Sep 2026 ÖÐ¹ú±ê×¼Ê±¼ä 
+Total Transcript Time: 2 Day 1 Hour 27 Minute 53 Second.

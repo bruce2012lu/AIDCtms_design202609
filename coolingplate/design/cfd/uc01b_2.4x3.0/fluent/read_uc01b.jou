@@ -1,0 +1,5 @@
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/read-case "uc01b.msh"
+/file/write-case "uc01b_read_ok"
+/exit yes

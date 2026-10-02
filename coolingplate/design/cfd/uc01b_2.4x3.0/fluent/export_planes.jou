@@ -1,0 +1,50 @@
+; Create X=0 / Y=0 / Z=0.75 mm iso-surfaces then export T and |V|.
+; One token per line so extra prompts can take "," as default.
+/file/set-batch-options yes yes no
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_R"
+/surface/iso-surface
+pl_x0
+x-coordinate
+,
+,
+0
+()
+/surface/iso-surface
+pl_y0
+y-coordinate
+,
+,
+0
+()
+/surface/iso-surface
+pl_z075
+z-coordinate
+,
+,
+0.00075
+()
+/file/export/ascii
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/pl_x0
+pl_x0
+()
+yes
+temperature
+velocity-magnitude
+()
+/file/export/ascii
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/pl_y0
+pl_y0
+()
+yes
+temperature
+velocity-magnitude
+()
+/file/export/ascii
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/pl_z075
+pl_z075
+()
+yes
+temperature
+velocity-magnitude
+()
+/exit

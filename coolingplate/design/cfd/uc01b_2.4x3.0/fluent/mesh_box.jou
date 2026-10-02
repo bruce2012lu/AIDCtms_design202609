@@ -1,0 +1,5 @@
+; Fluent Meshing: try to make a simple box so solver can iterate
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+? 
+/exit yes

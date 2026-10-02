@@ -1,0 +1,5 @@
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/read-case "tiny_cube.msh"
+/file/write-case "tiny_ok"
+/exit yes

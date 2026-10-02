@@ -1,0 +1,13 @@
+/file/set-batch-options yes yes no
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_fluent6.msh"
+/define/models/energy yes
+no
+no
+no
+no
+/define/models/viscous/laminar yes
+/define/materials/copy fluid water-liquid
+/define/boundary-conditions/?
+/define/boundary-conditions/modify-zones/?
+/define/boundary-conditions/fluid/?
+/exit

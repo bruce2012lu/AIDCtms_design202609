@@ -1,0 +1,14 @@
+; probe: assign water-liquid + 40C props + wall T, then list-zones
+/file/set-batch-options yes yes no
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_fluent6.msh"
+/define/models/energy yes
+no
+no
+no
+no
+/define/models/viscous/laminar yes
+/define/materials/copy fluid water-liquid
+/define/materials/change-create water-liquid water-liquid yes constant 992.2 yes constant 4179 yes constant 0.631 no no yes constant 6.53e-4 no no no no
+/define/boundary-conditions/fluid et3d1 yes water-liquid no no no no 0 no 0 no 0 no 0 no 0 no 1 no no no yes 0
+/define/boundary-conditions/list-zones
+/exit

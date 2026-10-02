@@ -1,0 +1,5 @@
+; Export wall_imp (et2d4, Z=0) T and |V| from uc01b_R. No new surfaces.
+/file/set-batch-options yes yes no
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_R"
+/file/export/ascii "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/wall_imp" et2d4 () yes temperature velocity-magnitude ()
+/exit

@@ -1,0 +1,7 @@
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+; try several import spellings; first that works wins
+/file/import/plot3d/formatted "../mesh/uc01b.xyz" no no no
+/file/import/plot3d "../mesh/uc01b.xyz"
+/file/read-case "../mesh/uc01b.xyz"
+/exit yes
