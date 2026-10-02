@@ -1,0 +1,47 @@
+[
+  {
+    "file": "tables/p012_t1.csv",
+    "page": 12,
+    "rows": 6,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p024_t0.csv",
+    "page": 24,
+    "rows": 7,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 1: Compute Tray Network Ports"
+    ]
+  },
+  {
+    "file": "tables/p025_t0.csv",
+    "page": 25,
+    "rows": 10,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 2: Network Interface Names",
+      "Table 3: Network Interface Names"
+    ]
+  },
+  {
+    "file": "tables/p025_t1.csv",
+    "page": 25,
+    "rows": 8,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 2: Network Interface Names",
+      "Table 3: Network Interface Names"
+    ]
+  },
+  {
+    "file": "tables/p026_t1.csv",
+    "page": 26,
+    "rows": 5,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 4: NVLink Switch Network Ports"
+    ]
+  }
+]

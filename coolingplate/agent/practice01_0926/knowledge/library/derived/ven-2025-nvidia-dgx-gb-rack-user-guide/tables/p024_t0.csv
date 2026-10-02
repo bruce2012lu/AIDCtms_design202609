@@ -1,0 +1,7 @@
+﻿Port,Port Type,Network / switch
+ConnectX-7 port OSFP computenet (InfiniBand),,
+BlueField-3 left port,QSFP,storagenet (Ethernet)
+BlueField-3 right port,QSFP,dgxnet (Ethernet)
+Bluefield-3 RJ-45 port,RJ45,ipminet (Ethernet)
+1 GbEthernet port LAN,RJ45,Not Connected
+1 GbEthernet Port BMC,RJ45,ipminet (Ethernet)

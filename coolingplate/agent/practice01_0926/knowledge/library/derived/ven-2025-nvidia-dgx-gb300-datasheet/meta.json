@@ -1,0 +1,11 @@
+{
+  "id": "ven-2025-nvidia-dgx-gb300-datasheet",
+  "sha256": "ce143beb4f90531ac316873fad049189fbd84cbc97c58404a653f2d3f72272d5",
+  "source": "files/vendor_docs/ven-2025-nvidia-dgx-gb300-datasheet.pdf",
+  "extracted_at": "2026-10-02T23:32:21",
+  "pages": 3,
+  "chars": 6068,
+  "chunks": 6,
+  "tables": 0,
+  "figures": 2
+}

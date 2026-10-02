@@ -1,0 +1,18 @@
+﻿Port,PCIe Bus,Interface name,RDMA
+"Left Bay OSFP P3 00:03:00.0 ibp3s0 mlx5 0
+_",,,
+Left Bay OSFP P4,02:03:00.0,ibp2p3s0,"mlx5 1
+_"
+Right Bay OSFP P3,10:03:00.0,ibp16p3s0,"mlx5 4
+_"
+Right Bay OSFP P4,12:03:00.0,ibp11p3s0,"mlx5 5
+_"
+Left Bay BF3 P1,06:03:00.0,enP6p3s0f0np0,"mlx5 2
+_"
+Left Bay BF3 P2,06:03:00.1,enP6p3s0f1np1,"mlx5 3
+_"
+Right Bay BF3 P1,16:03:00.0,enP22p3s0f0np0,"mlx5 6
+_"
+Right Bay BF3 P2,16:03:00.1,enP22p3s0f1np1,"mlx5 7
+_"
+LAN,,enP5p9s0,

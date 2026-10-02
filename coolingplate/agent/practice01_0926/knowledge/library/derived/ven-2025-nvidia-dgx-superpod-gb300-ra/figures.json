@@ -1,0 +1,171 @@
+[
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 1280,
+    "h": 680,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p005_i1.jpg",
+    "page": 5,
+    "w": 1280,
+    "h": 680,
+    "captions_on_page": [
+      "Figure 1. Sample Design for DGX SuperPOD GB300"
+    ]
+  },
+  {
+    "file": "figures/p008_i1.jpg",
+    "page": 8,
+    "w": 1360,
+    "h": 841,
+    "captions_on_page": [
+      "Figure 2. DGX GB300 (4 racks are shown here)"
+    ]
+  },
+  {
+    "file": "figures/p009_i1.jpg",
+    "page": 9,
+    "w": 1310,
+    "h": 374,
+    "captions_on_page": [
+      "Figures 3 and 4 show the front and rear of a DGX GB300 compute tray  respectively.",
+      "Figure 3. GB300 Compute Tray Front",
+      "Figure 4. GB300 Compute Tray Rear",
+      "Figure 5 shows the block diagram of the GB300 compute tray with two GB300  Superchips, each chip combines two NVIDIA B300 Tensor Core GPUs and one  NVIDIA Grace CPU, connected over a 900GB/s ultra-low-power NVLink-C2C  interconnect."
+    ]
+  },
+  {
+    "file": "figures/p010_i1.jpg",
+    "page": 10,
+    "w": 1367,
+    "h": 997,
+    "captions_on_page": [
+      "Figure 5. GB300 Compute Tray Block Diagram"
+    ]
+  },
+  {
+    "file": "figures/p011_i1.jpg",
+    "page": 11,
+    "w": 1565,
+    "h": 408,
+    "captions_on_page": [
+      "Figure 6. NVLink Switch Tray",
+      "Figure 7. DGX Power Shelf"
+    ]
+  },
+  {
+    "file": "figures/p011_i2.jpg",
+    "page": 11,
+    "w": 1193,
+    "h": 128,
+    "captions_on_page": [
+      "Figure 6. NVLink Switch Tray",
+      "Figure 7. DGX Power Shelf"
+    ]
+  },
+  {
+    "file": "figures/p019_i1.jpg",
+    "page": 19,
+    "w": 593,
+    "h": 255,
+    "captions_on_page": [
+      "Figure 7: Multi-node NVLink Topology"
+    ]
+  },
+  {
+    "file": "figures/p020_i1.jpg",
+    "page": 20,
+    "w": 1240,
+    "h": 825,
+    "captions_on_page": [
+      "Figure 8 shows the compute fabric layout for the full GB300 SuperPOD Scalable  Unit (8 DGX GB300 systems). Each compute rack is rail-aligned. Traffic per rail of  each compute tray is always one hop away from other compute trays in the same  Scalable Unit. Traffic between different compute racks, or",
+      "Figure 8. Compute fabric for full 576 GPUs DGX SuperPOD"
+    ]
+  },
+  {
+    "file": "figures/p021_i1.jpg",
+    "page": 21,
+    "w": 1090,
+    "h": 437,
+    "captions_on_page": [
+      "Figure 10. Q3400-RD InfiniBand Quantum-X800 switch"
+    ]
+  },
+  {
+    "file": "figures/p022_i1.jpg",
+    "page": 22,
+    "w": 1396,
+    "h": 259,
+    "captions_on_page": [
+      "Figure 10. SN5600D switch",
+      "Figure 12 represents the scale-out design for the Ethernet Fabric. The design  follows a 2-layer design with spine-leaf switches. Each SU contains four leaf  SN5600 switches. These switches are connected to the BlueField BF3240 dual- port card at a 400Gbps for best performance and redundancy."
+    ]
+  },
+  {
+    "file": "figures/p023_i1.jpg",
+    "page": 23,
+    "w": 1397,
+    "h": 547,
+    "captions_on_page": [
+      "Figure 12. Storage and In-band Ethernet fabric logical design"
+    ]
+  },
+  {
+    "file": "figures/p024_i1.jpg",
+    "page": 24,
+    "w": 1395,
+    "h": 439,
+    "captions_on_page": [
+      "Figure 16. Storage and Inband Access      The in-band management network provides several key functions:"
+    ]
+  },
+  {
+    "file": "figures/p026_i1.jpg",
+    "page": 26,
+    "w": 1399,
+    "h": 879,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p027_i1.jpg",
+    "page": 27,
+    "w": 1017,
+    "h": 361,
+    "captions_on_page": [
+      "Figure 16. Logical OOB management network layout",
+      "Figure 17. SN2201 switch",
+      "Figure 14: Uplink Connectivity    With DGX SuperPOD GB300 – the default configuration also assumes that  customer would provide dedicated access to their OOB network. The last pair of  the OOB switch becomes the “OOB edge TOR” switches, which would also be  responsible of OOB uplink."
+    ]
+  },
+  {
+    "file": "figures/p027_i2.jpg",
+    "page": 27,
+    "w": 498,
+    "h": 203,
+    "captions_on_page": [
+      "Figure 16. Logical OOB management network layout",
+      "Figure 17. SN2201 switch",
+      "Figure 14: Uplink Connectivity    With DGX SuperPOD GB300 – the default configuration also assumes that  customer would provide dedicated access to their OOB network. The last pair of  the OOB switch becomes the “OOB edge TOR” switches, which would also be  responsible of OOB uplink."
+    ]
+  },
+  {
+    "file": "figures/p032_i1.jpg",
+    "page": 32,
+    "w": 1398,
+    "h": 810,
+    "captions_on_page": [
+      "Figure 17. NVIDIA DGX GB300 SuperPOD Software Stack"
+    ]
+  },
+  {
+    "file": "figures/p034_i1.jpg",
+    "page": 34,
+    "w": 1076,
+    "h": 752,
+    "captions_on_page": [
+      "Figure 17. NVIDIA Run:ai"
+    ]
+  }
+]

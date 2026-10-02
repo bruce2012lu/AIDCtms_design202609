@@ -1,0 +1,11 @@
+{
+  "id": "ven-2025-nvidia-dgx-gb200-datasheet",
+  "sha256": "84fb1163824eba64af8bb35f53b7bc42202933f2374de41c40c0f910c0961ace",
+  "source": "files/vendor_docs/ven-2025-nvidia-dgx-gb200-datasheet.pdf",
+  "extracted_at": "2026-10-02T23:32:21",
+  "pages": 3,
+  "chars": 6409,
+  "chunks": 5,
+  "tables": 1,
+  "figures": 1
+}
