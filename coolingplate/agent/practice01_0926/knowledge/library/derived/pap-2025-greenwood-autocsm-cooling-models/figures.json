@@ -1,0 +1,100 @@
+[
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 1164,
+    "h": 522,
+    "captions_on_page": [
+      "Figure 1. The base ExaDigiT framework, incorporating telemetry data, a power simulator (RAPS), visual analytics, and a CSM. (Brewer et al. 2024)",
+      "Figure 2. AutoCSM API in the broader ExaDigiT procedure. Dotted line indicates scope of AutoCSM."
+    ]
+  },
+  {
+    "file": "figures/p003_i1.jpg",
+    "page": 3,
+    "w": 1780,
+    "h": 854,
+    "captions_on_page": [
+      "Figure 1. The base ExaDigiT framework, incorporating telemetry data, a power simulator (RAPS), visual analytics, and a CSM. (Brewer et al. 2024)",
+      "Figure 2. AutoCSM API in the broader ExaDigiT procedure. Dotted line indicates scope of AutoCSM."
+    ]
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 1780,
+    "h": 678,
+    "captions_on_page": [
+      "Figure 3. Internal to AutoCSM API procedure for CSM creation."
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 1265,
+    "h": 966,
+    "captions_on_page": [
+      "Figure 4. ExaDigiT Modelica template library. All systems use a common TemplateSystem that is then modified for the specific system. The TemplateSystem relies on replaceable components built on the (BaseClasses) models.",
+      "Figure 5. Example of a system model using the ExaDigiT Modelica template library. This is the Frontier AutoCSM model cooling tower loop. Every system model has a common set of components for use by the AutoCSM API or for internal-to-model usage."
+    ]
+  },
+  {
+    "file": "figures/p006_i1.jpg",
+    "page": 6,
+    "w": 1780,
+    "h": 821,
+    "captions_on_page": [
+      "Figure 4. ExaDigiT Modelica template library. All systems use a common TemplateSystem that is then modified for the specific system. The TemplateSystem relies on replaceable components built on the (BaseClasses) models.",
+      "Figure 5. Example of a system model using the ExaDigiT Modelica template library. This is the Frontier AutoCSM model cooling tower loop. Every system model has a common set of components for use by the AutoCSM API or for internal-to-model usage."
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 1780,
+    "h": 1461,
+    "captions_on_page": [
+      "Figure 6. Pseudo-code workflow of the AutoCSM workflow with descriptions of each of the steps."
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 1591,
+    "h": 550,
+    "captions_on_page": [
+      "Figure 7. Example of the datacenter portion of the Frontier CSM before and after using the ExaDigiT Modelica AutoCSM template library where the compute blocks were able to be modified to an array.",
+      "Figure 8. Subset of the Frontier CSM model implemented using the ExaDigiT Modelica AutoCSM template library demonstrating the nested hierarchy of the model structure. The dots at the bottom indicate that the levels of the hierarchy may continue as needed."
+    ]
+  },
+  {
+    "file": "figures/p008_i1.jpg",
+    "page": 8,
+    "w": 1780,
+    "h": 1010,
+    "captions_on_page": [
+      "Figure 7. Example of the datacenter portion of the Frontier CSM before and after using the ExaDigiT Modelica AutoCSM template library where the compute blocks were able to be modified to an array.",
+      "Figure 8. Subset of the Frontier CSM model implemented using the ExaDigiT Modelica AutoCSM template library demonstrating the nested hierarchy of the model structure. The dots at the bottom indicate that the levels of the hierarchy may continue as needed."
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 544,
+    "h": 743,
+    "captions_on_page": [
+      "Figure 9. Part of the Frontier input JSON specification file for AutoCSM used to auto-generate the FMU.",
+      "Figure 10. The python code required to process the input JSON file to create a Frontier FMU."
+    ]
+  },
+  {
+    "file": "figures/p009_i1.jpg",
+    "page": 9,
+    "w": 719,
+    "h": 501,
+    "captions_on_page": [
+      "Figure 9. Part of the Frontier input JSON specification file for AutoCSM used to auto-generate the FMU.",
+      "Figure 10. The python code required to process the input JSON file to create a Frontier FMU."
+    ]
+  }
+]

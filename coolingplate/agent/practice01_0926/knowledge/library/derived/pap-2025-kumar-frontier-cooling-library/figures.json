@@ -1,0 +1,124 @@
+[
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 619,
+    "h": 295,
+    "captions_on_page": [
+      "Figure 1. ExaDigiT architecture overview (Brewer et al. 2024)"
+    ]
+  },
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 1978,
+    "h": 665,
+    "captions_on_page": [
+      "Figure 2. Simplified schematic of Frontier cooling system. Locations at which the cooling model predicts pressures, temperatures, and flow rates are numbered"
+    ]
+  },
+  {
+    "file": "figures/p005_i0.jpg",
+    "page": 5,
+    "w": 1435,
+    "h": 844,
+    "captions_on_page": [
+      "Figure 3. CDU model in Dymola based on the subsystem specific TRANSFORM library template (M. S. Greenwood 2017)",
+      "Figure 4 depicts the simplified control system logic cur- rently implemented for the cooling model. The control system logic is divided into the central energy plant and the data center. A detailed overview of the control sys- tem logic is beyond the scope of this paper. The Mod- elica model capture"
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 1109,
+    "h": 617,
+    "captions_on_page": [
+      "Figure 4. Frontier cooling model controls summary",
+      "Figure 5. CDU controls model snapshot in Dymola"
+    ]
+  },
+  {
+    "file": "figures/p006_i1.jpg",
+    "page": 6,
+    "w": 729,
+    "h": 831,
+    "captions_on_page": [
+      "Figure 4. Frontier cooling model controls summary",
+      "Figure 5. CDU controls model snapshot in Dymola"
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 969,
+    "h": 755,
+    "captions_on_page": [
+      "Figure 6. Modelica model predictions vs. telemetry data for the CDU return temperature for a ∼6 hour snapshot",
+      "Figure 7. Modelica model predictions vs. telemetry data for the CTWP relative % pump speed for a 1 day snapshot"
+    ]
+  },
+  {
+    "file": "figures/p007_i1.jpg",
+    "page": 7,
+    "w": 791,
+    "h": 663,
+    "captions_on_page": [
+      "Figure 6. Modelica model predictions vs. telemetry data for the CDU return temperature for a ∼6 hour snapshot",
+      "Figure 7. Modelica model predictions vs. telemetry data for the CTWP relative % pump speed for a 1 day snapshot"
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 435,
+    "h": 435,
+    "captions_on_page": [
+      "Figure 8. Modelica model predictions (exported as an FMU) vs. telemetry data for the CDU and the central energy plant."
+    ]
+  },
+  {
+    "file": "figures/p008_i1.jpg",
+    "page": 8,
+    "w": 436,
+    "h": 435,
+    "captions_on_page": [
+      "Figure 8. Modelica model predictions (exported as an FMU) vs. telemetry data for the CDU and the central energy plant."
+    ]
+  },
+  {
+    "file": "figures/p008_i2.jpg",
+    "page": 8,
+    "w": 435,
+    "h": 435,
+    "captions_on_page": [
+      "Figure 8. Modelica model predictions (exported as an FMU) vs. telemetry data for the CDU and the central energy plant."
+    ]
+  },
+  {
+    "file": "figures/p008_i3.jpg",
+    "page": 8,
+    "w": 435,
+    "h": 435,
+    "captions_on_page": [
+      "Figure 8. Modelica model predictions (exported as an FMU) vs. telemetry data for the CDU and the central energy plant."
+    ]
+  },
+  {
+    "file": "figures/p008_i4.jpg",
+    "page": 8,
+    "w": 435,
+    "h": 436,
+    "captions_on_page": [
+      "Figure 8. Modelica model predictions (exported as an FMU) vs. telemetry data for the CDU and the central energy plant."
+    ]
+  },
+  {
+    "file": "figures/p008_i5.jpg",
+    "page": 8,
+    "w": 436,
+    "h": 436,
+    "captions_on_page": [
+      "Figure 8. Modelica model predictions (exported as an FMU) vs. telemetry data for the CDU and the central energy plant."
+    ]
+  }
+]

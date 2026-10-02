@@ -1,0 +1,11 @@
+{
+  "id": "pap-2024-sun-nanofluids-datacenter-review",
+  "sha256": "0f831726a7004a090bebd48d9020a3b073ab1db36a0f6fa2b0ea7f67cdd72ea2",
+  "source": "repo:agents/AIDCtms/coolingplate/papers/pdfs/03_MDPI_2024_Nanofluids_DataCenter_Review.pdf",
+  "extracted_at": "2026-10-02T23:31:43",
+  "pages": 29,
+  "chars": 112636,
+  "chunks": 94,
+  "tables": 0,
+  "figures": 16
+}

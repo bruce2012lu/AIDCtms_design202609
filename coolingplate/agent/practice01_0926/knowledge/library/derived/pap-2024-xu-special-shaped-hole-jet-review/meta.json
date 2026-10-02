@@ -1,0 +1,11 @@
+{
+  "id": "pap-2024-xu-special-shaped-hole-jet-review",
+  "sha256": "e6384a82bbaddec108f71d9bdcca75cd4f19825858fda64fb16621756febdc15",
+  "source": "repo:agents/AIDCtms/coolingplate/papers/pdfs/02_MDPI_2024_SSH_JetImpingement_Review.pdf",
+  "extracted_at": "2026-10-02T23:31:45",
+  "pages": 25,
+  "chars": 102074,
+  "chunks": 85,
+  "tables": 0,
+  "figures": 14
+}
