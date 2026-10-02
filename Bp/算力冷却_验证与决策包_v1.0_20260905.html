@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="算力冷却 验证与决策包 v1.0：把可得份额、价格、责任、现金回报四个未验证缺口转化为条件化、可验证、可执行的约束条件。数据截止 2026-09-05">
+  <title>算力冷却 · 验证与决策包 v1.0 / 20260905</title>
+  <style>
+    :root{--ink:#172033;--muted:#5d687a;--line:#d9e1ec;--blue:#175cd3;--navy:#0b2239;--bg:#f3f6fa;--ok:#087a70;--warn:#9a6700;--bad:#b42318;--purple:#6941c6}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.72 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+    .page{max-width:1220px;margin:auto;background:#fff;box-shadow:0 12px 42px rgba(11,34,57,.09)}
+    header{padding:58px 66px 40px;background:linear-gradient(135deg,#071a2e,#0b2239 42%,#175cd3);color:#fff}
+    .kicker{font-size:13px;letter-spacing:.15em;text-transform:uppercase;opacity:.86}
+    .subtitle{max-width:940px;font-size:18px;opacity:.94}
+    h1{font-size:43px;line-height:1.18;margin:14px 0 11px}
+    h2{font-size:25px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:9px;margin:0 0 16px}
+    h3{font-size:18px;color:#123c6e;margin:25px 0 10px}
+    h4{font-size:15.5px;color:var(--navy);margin:18px 0 8px}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+    .pill{border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.11);font-size:13px}
+    nav{padding:27px 66px;background:#fbfcfe;border-bottom:1px solid var(--line)}nav h2{font-size:18px}
+    .toc{columns:2;column-gap:40px}.toc a{display:block;color:#123c6e;text-decoration:none;margin:4px 0}.toc a:hover{text-decoration:underline}
+    main{padding:40px 66px 66px}section{margin:0 0 43px;scroll-margin-top:20px}
+    .overview{min-height:820px;padding:42px 66px;border-bottom:1px solid var(--line);break-after:page}
+    .lead{font-size:17px;color:#21314e;background:#eff5ff;border-left:5px solid var(--blue);padding:16px 19px;border-radius:8px}
+    .decision{font-size:19px;font-weight:700;color:var(--navy);padding:16px 19px;background:#edf4ff;border-left:6px solid var(--blue);border-radius:8px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:14px 0}
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin:14px 0}
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:14px 0}
+    .card{border:1px solid var(--line);border-radius:11px;padding:15px;background:#fff}
+    .card b{display:block;color:var(--blue);font-size:19px;line-height:1.3;margin-bottom:5px}
+    .card.alert{border-color:#f6c8c5;background:#fff7f6}.card.alert b{color:var(--bad)}
+    .card.good{border-color:#b6e4d2;background:#f2fbf7}.card.good b{color:var(--ok)}
+    table{width:100%;border-collapse:collapse;margin:14px 0 23px;font-size:13.5px}
+    th{background:#0b2239;color:#fff;text-align:left;font-weight:600}
+    th,td{border:1px solid var(--line);padding:9px 10px;vertical-align:top}
+    tbody tr:nth-child(odd) td{background:#f8fafc}
+    td.num,th.num{text-align:right;white-space:nowrap}
+    tr.total td{background:#eef3fb !important;font-weight:700}
+    tr.bad td{background:#fff3f2 !important}
+    tr.good td{background:#f1fbf7 !important}
+    .tag{display:inline-block;border-radius:5px;padding:1px 6px;font-size:11px;font-weight:700;white-space:nowrap;cursor:help}
+    .a{background:#e8f7f0;color:var(--ok)}.e{background:#eaf1fd;color:#1149a8}.f{background:#fff2cc;color:var(--warn)}
+    .m{background:#eee9fe;color:var(--purple)}.na{background:#feeceb;color:var(--bad)}
+    .callout{border:1px solid #c9d8ff;background:#f4f7ff;border-radius:11px;padding:15px 18px;margin:17px 0}
+    .callout.risk{border-color:#f6c8c5;background:#fff7f6}
+    .callout.ok{border-color:#b6e4d2;background:#f2fbf7}
+    .callout.warn{border-color:#f0dca8;background:#fffbef}
+    .tnote{border-left:4px solid var(--blue);background:#fbfcfe;padding:12px 15px;margin:-9px 0 24px;font-size:13px;line-height:1.7;color:#33415a;border-radius:0 8px 8px 0}
+    .tnote b{color:var(--navy)}.tnote ul{margin:6px 0 0;padding-left:20px}.tnote li{margin:3px 0}
+    .small{color:var(--muted);font-size:13px}
+    .formula{font-family:Consolas,"Courier New",monospace;background:#0b2239;color:#e8eef7;padding:13px 16px;border-radius:8px;overflow:auto;font-size:13px;line-height:1.85;white-space:pre}
+    .page-break{break-before:page}
+    .footer{border-top:1px solid var(--line);padding-top:18px;margin-top:31px;color:var(--muted);font-size:13px}
+    a{color:#175cd3;word-break:break-word}ul,ol{padding-left:22px}
+    @media(max-width:820px){header,nav,main,.overview{padding-left:22px;padding-right:22px}.grid,.grid2,.grid4{grid-template-columns:1fr}.toc{columns:1}h1{font-size:32px}table{display:block;overflow-x:auto}}
+    @media print{body{background:#fff}.page{box-shadow:none}header,nav,main,.overview{padding-left:28px;padding-right:28px}section{break-inside:auto}table,.card,.callout{break-inside:avoid}a{color:inherit}.toc{columns:1}}
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header id="top">
+    <div class="kicker">Validation &amp; Decision Pack · v1.0 / 20260905</div>
+    <h1>算力冷却 · 验证与决策包</h1>
+    <div class="subtitle">把可得份额、价格、责任、现金回报四个未验证缺口，从「未知」转化为「条件化 + 可验证 + 可执行」。本文件不预测，只给约束条件、判定阈值与取证动作。</div>
+    <div class="meta">
+      <span class="pill">版本：v1.0 / 20260905</span>
+      <span class="pill">数据截止日：2026-09-05</span>
+      <span class="pill">配套调研报告：v3.2_20260822（未修改）</span>
+      <span class="pill">配套 BP：v2.1_20260822（未修改）</span>
+      <span class="pill">性质：内部决策材料，非投资建议</span>
+    </div>
+  </header>
+
+  <!-- ============ 封面裁决 ============ -->
+  <section class="overview" id="cover">
+    <h2>首页｜四个缺口的转化裁决</h2>
+    <div class="decision">总裁决：四个缺口全部完成转化。转化后的结论比转化前更不利，但更可执行。核心发现是——<strong>能让业务成立的价格区间，与国内运营商公开采购的价格上限不重叠</strong>；<strong>单次漏液事故的潜在赔付是项目毛利的 17–2,290 倍</strong>；<strong>阶段一 800 万元预算在结构上只能支撑约 1 个 1 MW 并行项目</strong>。因此阶段一的正确目标不是收入，而是用不到 5 万元、6–8 周取得四项书面证据，以决定是否投入 245 万元的样机与 NRE。</div>
+
+    <div class="grid4">
+      <div class="card alert"><b>缺口一 → 条件与上限</b>份额由准入事件解锁，不由预测生成。列出 8 个解锁事件；在事件未发生前，可触达容量上限约 1–2 MW/年</div>
+      <div class="card alert"><b>缺口二 → 价格可行域</b>倒推所需毛利率 27%–37%，国内一手披露的相关毛利率为 10.36%–23.60%。缺口 4–27 个百分点</div>
+      <div class="card alert"><b>缺口三 → 敞口量化</b>单台 200 kW CDU 覆盖的 IT 资产约 3,392 万元 = 合同额的 237 倍、项目毛利的 2,290 倍</div>
+      <div class="card alert"><b>缺口四 → 生存条件</b>单项目峰值现金 91 万元/MW；回款延迟容忍度 11 周，而已核验合同的验收尾部为 16–52 周</div>
+    </div>
+
+    <h3>本轮定向补证的最重要实证发现</h3>
+    <div class="grid">
+      <div class="card"><b>10.36%</b>曙光数创 2025 年<strong>冷板液冷产品</strong>毛利率，同比 −15.48pct。公开渠道唯一的「纯冷板式液冷」产品毛利率。年报数据可独立复算并完全自洽<span class="tag a" title="Actual">实绩</span></div>
+      <div class="card"><b>52.64% vs 23.83%</b>英维克 2025 年<strong>境外 vs 境内</strong>毛利率（全产品混合口径）。三家公司独立指向同一结论：毛利在海外与服务里，不在国内裸设备里<span class="tag a" title="Actual">实绩</span></div>
+      <div class="card"><b>684.75 / 715.00 元/kW</b>佛山与南京两个 2026 年运营商样本的包价折算单位容量价格。两个独立样本收敛在 4.4% 以内<span class="tag m" title="Model">模型推导</span></div>
+    </div>
+
+    <h3>转化前 vs 转化后</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">缺口</th><th scope="col">转化前（v3.2 的状态）</th><th scope="col">转化后（本包的产出）</th><th scope="col">可执行动作</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>一｜可得份额</strong></td><td>SAM<sub>24m</sub> = 无数据；SOM = 无数据。无法回答「能拿多少」</td><td>不回答「能拿多少」，改为回答「拿到份额的结构性前提是什么」。给出 8 个准入解锁事件，每个对应可获得的客户层级；给出无 OEM 指定与全球服务时的客户类型与项目规模边界</td><td>按事件清单逐项取证，而非做市场份额假设</td></tr>
+        <tr><td><strong>二｜价格</strong></td><td>ASP = 无数据；毛利 = 无数据。禁止填点值，但也无法判断项目是否成立</td><td>不预测价格，改为倒推「价格必须落在哪个区间」。给出零贡献价格下界 840–1,340 元/kW、可讨论区 1,440 元/kW 以上，并与实证锚点对照，明确指出矛盾</td><td>四 SKU 书面询价（工具包一），4–6 周、近零成本即可判定 BOM 是否落在可行区间</td></tr>
+        <tr><td><strong>三｜责任</strong></td><td>责任额度 = 无数据。只知道「存在责任上限」，不知道敞口有多大</td><td>量化最坏情景敞口与合同额、毛利的比例；证明责任封顶是业务成立前提而非谈判技巧；给出四层控制设计与 8 条红线</td><td>合同条款审查清单（工具包三）；向保险人询价并书面确认承保与除外</td></tr>
+        <tr><td><strong>四｜现金回报</strong></td><td>现金跑道 = 无数据。「800 万元可支撑 X 个月」待解锁</td><td>建立项目级现金模型，得出峰值现金 91 万元/MW、并行容量 1.21 MW、年吞吐 1.86 MW/年、三条现金底线，并指出与已核验验收周期的冲突</td><td>客户访谈取得书面付款条款（工具包二）；13 周滚动现金表按周执行</td></tr>
+      </tbody>
+    </table>
+
+    <h3>纪律声明</h3>
+    <div class="callout">
+      <ul>
+        <li><strong>倒推不是预测。</strong>本文件全部反向计算回答的是「必须达到什么」，不是「将会达到什么」。任何把倒推结果当作预测引用的行为，都是对本文件的误用。</li>
+        <li><strong>全部假设与公式公开。</strong>第 7 章列出全部公式、全部参数及其依据分级（实证／可比公司／纯假设／推导），任何人可独立复算。计算底稿见 <code>temp/research-validation-pack/findings/</code>。</li>
+        <li><strong>结论对项目不利之处如实呈现。</strong>倒推所需毛利率高于行业实证水平这一矛盾，在第 3 章第 3.6 节完整展开并给出三种可能解释，包括「该渠道对新进入者结构性不成立」这一不利解释。</li>
+        <li><strong>不恢复任何已删除的伪精确点值。</strong>市场份额、部件价值占比、通用毛利率区间、CDU 静态 ASP、SAM/SOM 亿元点值仍为无数据。</li>
+        <li><strong>不修改既有报告。</strong>本文件不改动《算力冷却商业调研报告 v3.2》与《算力冷却系统新业务 BP v2.1》的任何内容。</li>
+        <li>总体 <strong>valid_until：2026-12-31</strong>（价格与现金参数）／<strong>2027-03-31</strong>（责任结构）。四 SKU 书面报价、任一官方 CDU 分项中标价、客户书面责任或付款条款的取得，将提前触发全面复核。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 目录 ============ -->
+  <nav aria-label="目录">
+    <h2>目录</h2>
+    <div class="toc">
+      <a href="#evidence">1. 本轮定向补证结果与实证锚点</a>
+      <a href="#share">2. 缺口一：可得份额 → 份额的条件与上限</a>
+      <a href="#price">3. 缺口二：价格 → 倒推所需价格与实证锚点对照</a>
+      <a href="#liability">4. 缺口三：责任 → 敞口量化与封顶设计</a>
+      <a href="#cash">5. 缺口四：现金回报 → 现金模型与生存条件</a>
+      <a href="#plan">6. 证据获取计划与最小验证集</a>
+      <a href="#formulas">7. 附录 A：全部公式与参数依据</a>
+      <a href="#ledger">8. 附录 B：来源台账</a>
+      <a href="#toolkit">9. 附录 C：工具包索引与使用顺序</a>
+      <a href="#delta">10. 本包改变了哪些决策判断</a>
+    </div>
+  </nav>
+
+  <main>
+
+  <!-- ============ 1. 补证结果 ============ -->
+  <section id="evidence">
+    <h2>1. 本轮定向补证结果与实证锚点</h2>
+    <p class="lead">本轮不做泛化搜索。只搜三类可验证的实证锚点：上市公司披露的液冷业务毛利率与收入结构、液冷行业的价格趋势证据、液冷相关的产品责任与保险实践。前两轮已确认公开渠道无法闭环 CDU 裸机成交价、四 SKU BOM 与责任额度，本轮不重复该失败。</p>
+
+    <h3>1.1 补证的成败裁决</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">补证目标</th><th scope="col">结果</th><th scope="col">取得的内容</th><th scope="col">置信度</th></tr>
+      </thead>
+      <tbody>
+        <tr class="good"><td><strong>上市公司液冷毛利率与收入结构</strong></td><td><strong>成功</strong></td><td>取得 4 家公司一手年报的产品／分部／地区毛利率共 18 项，含唯一的「纯冷板式液冷」产品毛利率，以及境内外与设备/服务的毛利率差</td><td class="num">0.90</td></tr>
+        <tr class="bad"><td><strong>同规格产品价格时间序列</strong></td><td><strong>失败（如实记录）</strong></td><td><span class="tag na" title="Not Available">无数据</span>。未取得任何「同容量、同工况、同供货边界」产品在两个以上时点的公开成交价。取得 8 项方向性降价压力信号，其中 3 项为一手</td><td class="num">0.88（对否定结论本身）</td></tr>
+        <tr class="good"><td><strong>产品责任与保险实践</strong></td><td><strong>部分成功</strong></td><td>责任条款<strong>结构</strong>可证（含 1 份 SEC 申报的液冷责任条款原件）；责任<strong>额度</strong>在几乎全部可查合同中被脱敏或不公开，行业惯例区间只有三级来源</td><td class="num">0.85（结构）／0.55（额度）</td></tr>
+      </tbody>
+    </table>
+
+    <h3>1.2 毛利率锚点台账（用于第 3 章倒推对照）</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">ID</th><th scope="col">公司／口径</th><th scope="col">期间</th><th scope="col">是否纯液冷</th><th class="num" scope="col">毛利率</th><th class="num" scope="col">同比</th><th scope="col">性质 / 等级</th></tr>
+      </thead>
+      <tbody>
+        <tr class="bad"><td>A1</td><td><strong>曙光数创／冷板液冷产品</strong></td><td>2025 年度</td><td><strong>是（冷板式）</strong></td><td class="num"><strong>10.36%</strong></td><td class="num">−15.48pct</td><td><span class="tag a" title="Actual">实绩</span> 一级（年报）</td></tr>
+        <tr><td>A2</td><td>曙光数创／浸没液冷产品</td><td>2025 年度</td><td>是（浸没）</td><td class="num">36.49%</td><td class="num">−13.52pct</td><td><span class="tag a" title="Actual">实绩</span> 一级</td></tr>
+        <tr><td>A3</td><td>曙光数创／模块化产品</td><td>2025 年度</td><td>否</td><td class="num">23.96%</td><td class="num">+4.49pct</td><td><span class="tag a" title="Actual">实绩</span> 一级</td></tr>
+        <tr><td>A4</td><td>曙光数创／配套产品</td><td>2025 年度</td><td>部分</td><td class="num">16.03%</td><td class="num">+6.36pct</td><td><span class="tag a" title="Actual">实绩</span> 一级</td></tr>
+        <tr class="good"><td>A5</td><td><strong>曙光数创／服务</strong></td><td>2025 年度</td><td>液冷相关服务</td><td class="num"><strong>51.02%</strong></td><td class="num">−25.05pct</td><td><span class="tag a" title="Actual">实绩</span> 一级（收入仅 762 万元）</td></tr>
+        <tr><td>A6</td><td>曙光数创／集团</td><td>2025 年度</td><td>否</td><td class="num">25.65%</td><td class="num">−4.45pct</td><td><span class="tag a" title="Actual">实绩</span> 一级</td></tr>
+        <tr><td>A7</td><td>曙光数创／分地区</td><td>2025 年度</td><td>混合</td><td class="num">北 30.49% ／ 东 14.71% ／ 西 10.38% ／ 南 23.86% ／ <strong>境外 37.83%</strong></td><td class="num">—</td><td><span class="tag a" title="Actual">实绩</span> 一级</td></tr>
+        <tr><td>A8</td><td>曙光数创／集团</td><td>2026 H1</td><td>否</td><td class="num">约 11.93%</td><td class="num">−7.56pct</td><td><span class="tag e" title="Estimate / secondary">转述</span> <strong>三级</strong>，置信 0.70，须回原件</td></tr>
+        <tr><td>A9</td><td>英维克／机房温控节能产品</td><td>2025 年度</td><td>否（含风冷）</td><td class="num">28.36%</td><td class="num">+1.39pct</td><td><span class="tag a" title="Actual">实绩</span> 一级</td></tr>
+        <tr><td>A10</td><td>英维克／机柜温控节能产品</td><td>2025 年度</td><td>否</td><td class="num">27.24%</td><td class="num">−4.24pct</td><td><span class="tag a" title="Actual">实绩</span> 一级</td></tr>
+        <tr class="good"><td>A11</td><td><strong>英维克／分地区</strong></td><td>2025 年度</td><td>否（全产品混合）</td><td class="num">境内 <strong>23.83%</strong> ／ 境外 <strong>52.64%</strong></td><td class="num">−1.44pct ／ +3.17pct</td><td><span class="tag a" title="Actual">实绩</span> 一级</td></tr>
+        <tr><td>A13</td><td>申菱环境／数据服务行业</td><td>2025 年度</td><td>否（含风冷、相变、主机）</td><td class="num">23.60%</td><td class="num">+4.26pct</td><td><span class="tag a" title="Actual">实绩</span> 一级</td></tr>
+        <tr class="good"><td>A14</td><td><strong>申菱环境／分产品</strong></td><td>2025 年度</td><td>否</td><td class="num">设备 <strong>21.46%</strong> ／ 解决方案及服务 <strong>31.63%</strong></td><td class="num">−1.47pct ／ +4.99pct</td><td><span class="tag a" title="Actual">实绩</span> 一级</td></tr>
+        <tr><td>A15</td><td>Modine／Data Centers 分部</td><td>FY2027 Q1（截至 2026-06-30）</td><td>否（含 chiller / CRAH）</td><td class="num">20.2%</td><td class="num">−960bp</td><td><span class="tag a" title="Actual">实绩</span> 二级（业绩公告）</td></tr>
+        <tr><td>A17</td><td>奇鋐 AVC／集团</td><td>2026 Q2</td><td>否（不拆液冷）</td><td class="num">32.57%</td><td class="num">—</td><td><span class="tag e" title="Transcript">转录</span> 三级，置信 0.75</td></tr>
+        <tr><td>A18</td><td>双鸿 Auras／集团</td><td>2026 Q1 / Q2</td><td>否（液冷占比 &gt;55%，管理层口径）</td><td class="num">29.7% / 28.42%</td><td class="num">—</td><td><span class="tag e" title="Transcript">转录</span> 三级，置信 0.72</td></tr>
+        <tr class="total"><td>A19–A21</td><td>Vertiv / Schneider / nVent / Ecolab-CoolIT / Eaton-Boyd</td><td>2025–2026</td><td>—</td><td class="num"><span class="tag na" title="Not Disclosed">无数据</span></td><td class="num">—</td><td>均未披露液冷收入或液冷毛利率</td></tr>
+      </tbody>
+    </table>
+    <div class="tnote">
+      <b>表 1.2 备注：</b>
+      <ul>
+        <li><b>A1 可独立复算：</b><code>营业收入 298,639,495.45 − 营业成本 267,702,360.46 = 30,937,134.99</code>；<code>30,937,134.99 ÷ 298,639,495.45 = 10.3594%</code>，与年报披露的 10.36% 完全一致。</li>
+        <li><b>A1 的口径位置（关键）：</b>该公司按产品分类披露且<strong>服务（A5）单独成行</strong>，故 A1 的营业成本主要是产品成本；但其收入确认为「项目完工取得验收报告后一次性确认」，营业成本大概率<strong>已含项目实施与安装相关直接成本</strong>，且<strong>不含</strong>销售、管理、研发费用。因此 A1 在成本桥中的位置是：<strong>严于「硬件毛利」、宽于「项目贡献毛利」</strong>。不得把 10.36% 读成项目贡献毛利，也不得读成纯裸机硬件毛利。</li>
+        <li><b>A9／A13／A15 含大量非液冷产品</b>（风冷机房空调、相变、chiller、CRAH），只能作为「液冷相关分部」的量级参照，<strong>不是液冷毛利率</strong>。</li>
+        <li><b>A11 是全产品混合的地区口径</b>，不能读成「液冷海外毛利 52.64%」；但可支持「海外定价与毛利显著高于国内」的方向性结论，且与 A7、A14 相互独立地指向同一方向。</li>
+        <li><b>A8 为三级转述，且 11.93% 是集团综合毛利率而非冷板产品毛利率</b>，必须回到 2026 年半年度报告原件确认后才可使用。</li>
+      </ul>
+    </div>
+
+    <div class="callout risk">
+      <strong>A1 不是地板，趋势仍向下。</strong>同一家公司 2026 年半年报显示：营业收入 2.4594 亿元（同比 +75.56%）、冷板液冷产品收入同比 <strong>+290.09%</strong> 并成为主要收入来源，但归母净利润为 <strong>−7,340 万元</strong>（上年同期 −4,077 万元，亏损扩大），经营现金流净额 <strong>−2.42 亿元</strong>。<strong>冷板收入放量与亏损扩大同时发生。</strong>因此在倒推模型中不应把 10.36% 当作「行业地板」，必须额外测试 5%–8% 的下行情景。
+    </div>
+
+    <h3>1.3 三家公司独立交叉验证的结构性结论</h3>
+    <div class="grid">
+      <div class="card good"><b>+28.81pct</b>英维克：境外 52.64% − 境内 23.83%<br><span class="small">一手年报，全产品混合口径</span></div>
+      <div class="card good"><b>+10.17pct</b>申菱：解决方案及服务 31.63% − 设备 21.46%<br><span class="small">一手年报</span></div>
+      <div class="card good"><b>+40.66pct</b>曙光：服务 51.02% − 冷板液冷产品 10.36%<br><span class="small">一手年报，服务收入基数小</span></div>
+    </div>
+    <div class="callout ok">
+      <strong>三家公司、三种独立口径，指向同一个结论：毛利在「海外」和「服务／解决方案」里，不在「国内裸设备」里。</strong>这是本轮最有决策价值的新发现，因为它把「价格与毛利不可验证」这个死结，转化为一个<strong>可执行的方向选择</strong>：如果第 3 章倒推出的所需毛利率高于国内实证水平，则出路不是「争取更高的国内定价」（无实证支持），而是「转向海外市场或提高服务／解决方案收入占比」（有一手实证支持）。
+    </div>
+
+    <h3>1.4 价格趋势：明确的否定结论</h3>
+    <div class="callout risk">
+      <strong>无公开价格时间序列。</strong>本轮未取得任何「同一容量、同一工况、同一供货边界」的产品在两个以上时点的公开成交价。因此：<strong>禁止</strong>写「CDU 价格年降 X%」并标为事实；<strong>允许</strong>写「存在多项独立的降价压力信号，但无公开价格时间序列可量化降幅」。
+    </div>
+    <table>
+      <thead>
+        <tr><th scope="col">ID</th><th scope="col">降价压力信号</th><th scope="col">证据</th><th scope="col">等级 / 置信</th><th scope="col">可否量化</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>P1</td><td><strong>最纯可比公司的冷板毛利实测下滑</strong></td><td>曙光数创冷板液冷毛利率 10.36%，同比 −15.48pct；年报明确归因「冷板液冷处于市场导入期，市场竞争较为激烈」</td><td>一级 / 0.95</td><td>毛利率可量化；价格降幅不可从量、结构、成本中分离</td></tr>
+        <tr><td>P2</td><td>扩产期毛利压缩在海外同样发生</td><td>Modine 数据中心分部毛利率由 29.8% 降至 20.2%，归因含材料成本、质保费用与扩产低效</td><td>二级 / 0.94</td><td>毛利率可量化；不可归因于单一价格因素</td></tr>
+        <tr><td>P3</td><td>产能急剧扩张</td><td>奇鋐液冷模组月产能计划由 20 万件增至 100 万件、manifold 由 1,000 增至 7,000；2026/2027 CapEx 150/170 亿新台币；nVent 三年新增液冷面积 &gt;40 万平方英尺</td><td>二级 / 0.82</td><td>产能可量化；对价格的传导不可量化</td></tr>
+        <tr><td>P4</td><td>工艺进入门槛较低 + 标准化</td><td>冷板依赖 CNC、快接依靠精密车削、Manifold 以焊接为主；OCP Deschutes／Redfish／参考架构推动接口趋同，扩大可替换供应商范围</td><td>三级 + 二级 / 0.70</td><td>不可量化</td></tr>
+        <tr><td>P5</td><td>集中招标压价</td><td>券商研报汇总称集中招标模式下产品年均降价 5%–8%，低端散热组件毛利率普遍不足 15%</td><td><strong>三级 / 0.45</strong></td><td><strong>不得引用为事实</strong>，只作线索</td></tr>
+        <tr><td>P6</td><td>国内外价格水平差异</td><td>二手来源称国内 CDU 单价被压缩至 1,000 元/kW 甚至更低，海外北美项目维持 200–240 美元/kW</td><td><strong>三级 / 0.40</strong></td><td><strong>不得引用为事实</strong>；但与 P7 方向一致，可作交叉线索并写入客户访谈验证问题</td></tr>
+        <tr class="good"><td>P7</td><td><strong>一手交叉印证：境内外毛利差</strong></td><td>英维克 2025 年境外毛利率 52.64% vs 境内 23.83%</td><td><strong>一级 / 0.93</strong></td><td>可量化，且<strong>独立于 P6</strong> 支持「海外定价显著更高」</td></tr>
+        <tr><td>P8</td><td>大客户以「量换价 + 锁产能」</td><td>Modine 单一战略客户签订 2027–2029 年 &gt;40 亿美元产能协议并预付 1.65 亿美元</td><td>二级 / 0.90</td><td>协议金额可量化；价格条款未公开</td></tr>
+      </tbody>
+    </table>
+
+    <h3>1.5 唯一可复算的价格上限证据：单位容量价格</h3>
+    <p>把前一轮已核验的两个 2026 年运营商采购样本，按「总价 ÷ 总容量」折算为单位容量价格，可得到<strong>同边界（CDU 本体 + 二次管路 + 工质 + 安装调试）的包价上限</strong>。</p>
+    <table>
+      <thead>
+        <tr><th scope="col">样本</th><th class="num" scope="col">数量 × 容量</th><th class="num" scope="col">总容量</th><th class="num" scope="col">公开金额（不含税）</th><th class="num" scope="col">单位容量价格</th><th scope="col">金额性质</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>广东移动佛山三水智算机房改造一期</td><td class="num">6 × 420 kW</td><td class="num">2,520 kW</td><td class="num">1,725,576.99 元</td><td class="num"><strong>684.75 元/kW</strong></td><td>总价<strong>最高限价</strong>；含废液收集推车、备用储液桶、两组 304 不锈钢二次管路、6 台系统调测、生产运输二次搬运就位、与 IT 柜及一次侧对接、配合深化设计</td></tr>
+        <tr><td>江苏移动南京科创数据中心 C2 栋</td><td class="num">12 × 500 kW</td><td class="num">6,000 kW</td><td class="num">4,290,000 元</td><td class="num"><strong>715.00 元/kW</strong></td><td>项目<strong>预估金额</strong>；最高限价为报价折扣 100%；含二次管路、附件、工质、安装</td></tr>
+        <tr class="total"><td colspan="4">两样本差异</td><td class="num"><strong>4.4%</strong></td><td>两个不同省份、不同容量、不同时点的独立样本高度收敛</td></tr>
+      </tbody>
+    </table>
+    <div class="tnote">
+      <b>复算：</b><code>1,725,576.99 ÷ 2,520 = 684.7528</code>；<code>4,290,000 ÷ 6,000 = 715.0000</code>；<code>715.00 ÷ 684.75 − 1 = 4.42%</code>。
+      <br><b>为什么「元/kW」比「万元/台」更有用：</b>前一轮把总价除以台数得到 28.76 万元/台与 35.75 万元/套，两个数相差 24%，容易被解释为「容量不同导致的正常差异」而被搁置。折算为元/kW 后，两个独立样本落在 684.75 与 715.00 之间，差异仅 4.4%。<strong>这种收敛显著提升了「该价格水平代表国内运营商真实采购水平」的置信度（0.85），并使其第一次可以进入约束条件的计算。</strong>
+    </div>
+    <div class="callout warn">
+      <strong>使用边界（强制，四条）：</strong>
+      <ol>
+        <li>这是<strong>包价</strong>（含管路、工质、安装、深化设计），裸机 CDU 单位价格必然<strong>低于</strong>此数。</li>
+        <li>这是<strong>限价／预估</strong>，不是中标价。限价机制下投标折扣普遍存在，实际成交<strong>可能更低，不可能更高</strong>。</li>
+        <li>两个样本均为 <strong>420／500 kW 大容量档</strong>。小容量 CDU 的固定内容（泵、PLC、HMI、机柜、钣金）不随容量线性缩减，因此 100／200 kW 的元/kW <strong>应显著高于</strong> 684.75–715.00，具体高多少为<strong>无数据</strong>，<strong>不得插值</strong>。</li>
+        <li>因此该数只能作为「<strong>300–500 kW 档、国内运营商渠道、含配套包</strong>」的价格上限使用，不得外推到其他容量、渠道或供货边界。</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 2. 缺口一 ============ -->
+  <section id="share" class="page-break">
+    <h2>2. 缺口一：可得份额 → 份额的条件与上限</h2>
+    <p class="lead">本章不预测份额。份额不是预测出来的，是由准入事件解锁的。本章回答四个问题：拿到份额的结构性前提是什么；可比公司的实际路径花了多久；在不具备全球服务与 OEM 指定时可触达的边界在哪里；哪些具体事件能解锁哪一层客户。</p>
+
+    <h3>2.1 结构性前提：五道门，全部由客户或 OEM 掌握</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">前提</th><th scope="col">公开可核验的具体门槛</th><th scope="col">对新进入者的含义</th><th scope="col">来源等级</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1 客户准入</strong></td><td>浙江移动要求 2022 年以来<strong>单个 CDU 客户合同 ≥200 万元</strong>的同类业绩；江苏移动要求机电施工资质、安全生产许可证、项目管理人员及同类冷板液冷业绩</td><td><strong>典型的鸡生蛋问题</strong>：没有业绩不能投标，不能投标就没有业绩。必须先在非运营商渠道取得 ≥200 万元同类合同</td><td>三级（完整镜像，0.90）</td></tr>
+        <tr><td><strong>2 OEM 指定</strong></td><td>截至 2026-08-21 <strong>不存在</strong>可公开验证的 NVIDIA MGX/NPN 统一 CDU 认证流程或公开 AVL；华为有公司级供应商体系认证 + 项目级物料选型认证，但无公开 Atlas CDU 完整名录</td><td>准入只能<strong>逐 OEM、逐平台、逐项目</strong>取得。「生态伙伴」「样机展示」「规格符合」都不构成量产准入</td><td>二级（原厂文档）/ 0.94–0.97</td></tr>
+        <tr><td><strong>3 全球服务</strong></td><td>PPC（希腊）RFI 要求：关键制冷方案制造商 ≥5 年数据中心制造与测试经验、已安装项目清单、DDP 到场、强制监督/安装/调试/培训、<strong>当地（希腊）服务能力</strong>与关键备件；C-DAC 要求 8 小时响应、零件/模块最长 72 小时更换、5 年现场综合质保</td><td>海外项目的门槛不是 CE/UL，而是「制造商履历 + 参考项目 + 当地监督服务 + DDP + 关键备件」的联合门槛。<strong>新进入者的现实路径是与当地 EPC/服务商联合，而非作为单一 OEM 总包</strong></td><td>一级（采购人原件）/ 0.94–0.98</td></tr>
+        <tr><td><strong>4 责任承担能力</strong></td><td>见第 4 章：单台 200 kW CDU 覆盖的 IT 资产可达 3,392 万元；C-DAC 2024 明确<strong>拒绝</strong>供应商自拟的「合同总价封顶 + 排除间接损失」</td><td>责任承担能力是<strong>资产负债表与保险能力</strong>，不是技术能力。新进入者在此项上结构性劣势最大</td><td>一级 / 0.90</td></tr>
+        <tr><td><strong>5 产能与交期</strong></td><td>浙江移动框架要求<strong>订单后 45 个自然日到货</strong>；C-DAC 要求整套供货、安装、调试、测试 16 周</td><td>45 日交期意味着必须有在制品或关键件安全库存，直接占用现金（见第 5 章）</td><td>三级（0.90）/ 一级（0.96）</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2.2 用可比公司的实际路径反推：三条门，没有第四条</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">公司</th><th scope="col">公开可查的路径与耗时</th><th scope="col">规模化的实际触发因素</th><th scope="col">当前盈利状态</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>曙光数创</strong></td><td><strong>约 14 年</strong>：2011 年提出液冷技术路线 → 2015 年推出首款量产冷板式方案 → 2025 年冷板液冷收入 2.99 亿元</td><td>自建平台 + 长期客户关系（字节、阿里、腾讯、百度、京东、美团、快手）+ 40 项国标/行标/团标参编 + 197 项授权专利</td><td>冷板毛利 <strong>10.36%</strong>；2026 H1 归母净利 −7,340 万元</td></tr>
+        <tr><td><strong>申菱环境</strong></td><td><strong>约 14 年</strong>：2011 年起商用液冷 → 2025 年顺德新基建智能温控基地投产（含液冷测试中心）→ 2025 年数据服务 23.43 亿元</td><td>自建平台 + 头部客户粘性 + 70 余项液冷专利 + 自建液冷测试与制造能力</td><td>数据服务 23.60%；设备 21.46%；<strong>服务 31.63%</strong></td></tr>
+        <tr><td><strong>英维克</strong></td><td>全链条产品 + Intel Xeon 6 部件验证 + Google Deschutes 5 CDU 展示 + 累计交付 1.2 GW</td><td>自建平台 + 部件级 OEM 验证 + 海外基地与工程服务</td><td>境内 23.83%；<strong>境外 52.64%</strong>；2026 Q1 归母净利同比大幅下滑</td></tr>
+        <tr><td><strong>双鸿 Auras</strong></td><td>CDU 2026 年小量数百台 → 2027 年目标 2,000 台</td><td><strong>建立在既有冷板/manifold 客户关系之上</strong>的产品线延伸，不是从零进入</td><td>集团 28.4%–29.7%（不拆液冷）</td></tr>
+        <tr><td><strong>Modine / Airedale</strong></td><td>数据中心分部 FY2027 Q1 收入 3.486 亿美元，同比 +90%</td><td><strong>单一战略客户的 40 亿美元产能协议 + 1.65 亿美元客户预付款</strong>（2027–2029）</td><td>分部毛利由 29.8% 降至 <strong>20.2%</strong></td></tr>
+        <tr><td><strong>CoolIT</strong></td><td>未来 12 个月销售约 5.5 亿美元（交易时前瞻值）→ <strong>2026-07-02 被 Ecolab 以约 47.5 亿美元收购</strong></td><td><strong>被有水处理、工质与全球现场服务能力的平台收购</strong></td><td>公告仅称 high-margin，<strong>未披露数值</strong></td></tr>
+        <tr><td><strong>Boyd Thermal</strong></td><td>2026 年液冷收入 15 亿美元（签约时预测）→ <strong>2026-03-12 被 Eaton 以 95.5 亿美元净现金对价收购</strong></td><td><strong>同上：并入具备全球电力与服务网络的平台</strong></td><td><span class="tag na" title="Not Disclosed">无数据</span></td></tr>
+        <tr><td><strong>Motivair</strong></td><td>2025-02-28 Schneider 以 8.47 亿欧元取得 75%，剩余 25% 拟 2028 年 put/call</td><td>同上</td><td><span class="tag na" title="Not Disclosed">无数据</span></td></tr>
+      </tbody>
+    </table>
+    <div class="callout risk">
+      <strong>核心推导：每一条可核验的规模化路径，都走了三扇门中的一扇——</strong>
+      <ol>
+        <li><strong>门 A：14 年以上的自建平台与客户关系</strong>（曙光、申菱、英维克）。代价是时间，且到今天冷板毛利仍只有 10.36%。</li>
+        <li><strong>门 B：单一大客户的产能协议 + 客户预付款</strong>（Modine）。代价是客户集中风险与专用产能。</li>
+        <li><strong>门 C：被具备全球服务与流体运维能力的平台收购</strong>（CoolIT/Ecolab、Boyd/Eaton、Motivair/Schneider）。这是独立公司的<strong>退出</strong>路径，不是规模化路径。</li>
+      </ol>
+      <strong>没有任何一条路径是「产品好 + 招标价格有竞争力」。</strong>这是份额天花板逻辑的实证基础：份额不由产品与价格决定，由准入事件决定。<span class="tag m" title="Model">本报告推导</span>
+    </div>
+
+    <h3>2.3 无 OEM 指定与全球服务时的可触达边界</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">客户层级</th><th scope="col">可触达性</th><th scope="col">单项目规模边界</th><th scope="col">阻塞条件</th></tr>
+      </thead>
+      <tbody>
+        <tr class="good"><td><strong>存量风改液改造、区域 IDC、中小云、实验/超算集群</strong></td><td><strong>可触达</strong></td><td>0.5–3 MW；按 684.75–1,500 元/kW 计，单项目 CDU 配套包 <strong>34–450 万元</strong></td><td>无。决策链短、验收在国内、服务半径可覆盖。<strong>这是阶段一唯一现实的目标层</strong></td></tr>
+        <tr><td>运营商省级项目</td><td><strong>条件可触达</strong></td><td>2.5–6 MW（对照佛山 2.52 MW、南京 6.0 MW）</td><td>需 ≥200 万元同类业绩 + 机电施工资质 + 安全生产许可证 + 45 日交期。<strong>需先在上一层取得业绩，或以联合体/分包进入</strong></td></tr>
+        <tr class="bad"><td>运营商集团集采／框架</td><td><strong>不可触达</strong></td><td>15 MW 级（对照浙江 50×300 kW）</td><td>需多年业绩、产能证明与份额历史。框架份额还不等于订单</td></tr>
+        <tr class="bad"><td>Hyperscaler / OEM 整柜项目</td><td><strong>不可触达</strong></td><td>不适用</td><td>需 OEM 项目级 qualification（逐平台）+ 全球服务 + 责任承担能力</td></tr>
+        <tr class="bad"><td>海外项目直签总包</td><td><strong>不可触达</strong></td><td>不适用</td><td>PPC RFI 门槛：≥5 年经验、参考项目清单、DDP、当地服务、关键备件。<strong>只能与当地 EPC/服务商联合</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <strong>份额天花板逻辑：</strong>在准入事件全部未发生的状态下，可触达范围被压缩到「存量改造 + 区域 IDC 的单项目直销」。该层的年可触达容量上限，不由市场规模决定，<strong>而由服务半径与营运资金决定</strong>——按第 5 章的现金模型，阶段一的年交付能力约 <strong>1.86 MW/年</strong>。这与市场 TAM 无关，也不会因市场情景上修而扩大。
+    </div>
+
+    <h3>2.4 份额解锁事件清单（每个事件对应可获得的客户层级）</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">事件</th><th scope="col">内容</th><th scope="col">解锁的客户层级</th><th scope="col">前置依赖</th><th scope="col">可验证的完成判据</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>E1</strong></td><td>取得第一个<strong>付费</strong> PoC 或有偿样机验证</td><td>存量改造、区域 IDC、中小云</td><td>M1、M5（见第 6 章）</td><td>客户书面订单或验证协议，且我方收到款</td></tr>
+        <tr><td><strong>E2</strong></td><td>取得第一个 <strong>≥200 万元同类 CDU 合同业绩</strong>（可为联合体/分包，但我方须为合同主体之一）</td><td><strong>运营商省级项目的投标资格</strong></td><td>E1</td><td>合同原件 + 客户验收报告，金额与标的可对应运营商资格条款</td></tr>
+        <tr><td><strong>E3</strong></td><td>取得机电施工资质 + 安全生产许可证，或签署持证 EPC 的长期分包协议</td><td>含安装的运营商/IDC 交钥匙标的</td><td>无（可与 E1 并行）</td><td>证书原件或已签分包框架协议</td></tr>
+        <tr><td><strong>E4</strong></td><td>通过一家 OEM 的<strong>供应商体系认证</strong> + 一个平台的<strong>物料选型认证</strong></td><td>该 OEM 该平台的项目 BOM</td><td>M5、E1</td><td>OEM 书面认证通知 + 进入该项目 BOM 或 AVL 的书面确认</td></tr>
+        <tr><td><strong>E5</strong></td><td>建立可<strong>书面承诺</strong>的 8h 响应／72h 换件服务网络（自建或授权服务商）</td><td>五年质保类合同（C-DAC 类）、高可用性要求客户</td><td>E2（需有项目支撑服务网点成本）</td><td>服务商协议 + 备件库清单与位置 + 可对客户书面承诺的 SLA</td></tr>
+        <tr><td><strong>E6</strong></td><td>取得<strong>产品责任险</strong>（含冷却液释放明列承保）+ 可封顶责任的书面合同范本</td><td><strong>高价值 GPU 机柜项目</strong></td><td>M3</td><td>保单正本 + 承保范围与除外责任书面确认 + 至少一个客户接受的责任条款范本</td></tr>
+        <tr><td><strong>E7</strong></td><td>取得海外当地 EPC/服务伙伴协议 + 目的地合规（CE/UL 等）</td><td><strong>海外项目</strong>（英维克境外 52.64% 毛利所在的市场）</td><td>E2、E5、E6</td><td>伙伴协议 + 认证证书 + 至少一个海外项目询价邀请</td></tr>
+        <tr><td><strong>E8</strong></td><td>关键件双源 + 三批试制良率数据</td><td>框架/批量订单的产能承诺</td><td>M1、E1</td><td>双源合格供应商清单 + 三批一次通过率与返修记录</td></tr>
+      </tbody>
+    </table>
+    <div class="callout ok">
+      <strong>本章的转化结论：</strong>「可得份额」这个问题在没有 E1–E8 的情况下无法回答，也不需要回答——因为答案是「结构性接近于零，且不由我方努力决定」。正确的管理动作不是做份额假设，而是<strong>把 E1–E8 变成有主体、有时间、有成本的取证任务</strong>（见第 6 章），并在每个事件达成时才向上打开对应的客户层级与预算。<strong>E1、E6 是解锁其余全部事件的两个关键节点：E1 打开业绩链条，E6 打开高价值客户。</strong>
+    </div>
+  </section>
+
+  <!-- ============ 3. 缺口二 ============ -->
+  <section id="price" class="page-break">
+    <h2>3. 缺口二：价格 → 倒推所需价格与实证锚点对照</h2>
+    <p class="lead">本章是全案核心。不预测价格，而做逆向分析：给定 BOM 成本区间、制造费用、期间费用与目标回报，倒推出<strong>必须达到的 ASP 与毛利率</strong>，再与第 1 章的实证锚点对照。若倒推所需毛利显著高于行业实证水平，如实指出矛盾并给出应对选项，不美化。</p>
+
+    <h3>3.1 固定费用口径：两档，都必须报告</h3>
+    <p>来源：BP v2.1 §10 资金用途表（阶段 1 上限 800 万元）。<span class="tag a" title="Actual">实绩</span>（内部预算文件）</p>
+    <table>
+      <thead>
+        <tr><th scope="col">科目</th><th class="num" scope="col">阶段 1（万元）</th><th scope="col">是否费用性</th><th class="num" scope="col">纳入 F1</th><th class="num" scope="col">纳入 F2</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>核心团队与专项工程</td><td class="num">220</td><td>是（经常性）</td><td class="num">220</td><td class="num">220</td></tr>
+        <tr><td>产品 NRE／软件／IP</td><td class="num">115</td><td>是（一次性）</td><td class="num">115</td><td class="num">—</td></tr>
+        <tr><td>样机／物料／工装</td><td class="num">130</td><td>是（一次性）</td><td class="num">130</td><td class="num">—</td></tr>
+        <tr><td>测试／认证／客户验证</td><td class="num">95</td><td>是（部分经常性）</td><td class="num">95</td><td class="num">50</td></tr>
+        <tr><td>供应商 NPI／授权制造</td><td class="num">50</td><td>是（部分经常性）</td><td class="num">50</td><td class="num">20</td></tr>
+        <tr><td>PoC／订单营运资金</td><td class="num">110</td><td><strong>否（可回收）</strong></td><td class="num">—</td><td class="num">—</td></tr>
+        <tr><td>保险／法务／网络安全／服务</td><td class="num">30</td><td>是（经常性）</td><td class="num">30</td><td class="num">30</td></tr>
+        <tr><td>董事会预备金</td><td class="num">50</td><td>是（备用）</td><td class="num">50</td><td class="num">—</td></tr>
+        <tr class="total"><td>合计</td><td class="num">800</td><td></td><td class="num"><strong>F1 = 690</strong></td><td class="num"><strong>F2 = 320</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="tnote">
+      <b>定义与复算：</b>
+      <ul>
+        <li><code>F1 = 800 − 110 = 690 万元/年</code>：阶段一需由毛利或注资覆盖的<strong>全部费用性支出</strong>（含一次性 NRE 与样机）。回答「阶段一能否靠自身回收」。</li>
+        <li><code>F2 = 220 + 50 + 20 + 30 = 320 万元/年</code>：<strong>稳态经常性固定费用</strong>。回答「业务能否自我维持」。</li>
+        <li><b>为什么两个都要报：</b>只报 F2 会低估投入（忽略 245 万元的 NRE 与样机），只报 F1 会低估稳态可行性（把一次性支出当成永久负担）。<strong>任何单一口径的盈亏平衡都是误导。</strong></li>
+      </ul>
+    </div>
+
+    <h3>3.2 单位容量成本结构（200 kW 档，与招标包价同边界）</h3>
+    <p><strong>口径对齐（关键）：</strong>为与第 1.5 节的实证价格可比，本表覆盖范围与招标包一致，即 <strong>CDU 本体 + 二次管路 + 工质 + 安装调试</strong>。这使后续对照是同边界比较，而非跨边界比较。</p>
+    <table>
+      <thead>
+        <tr><th scope="col">成本项</th><th class="num" scope="col">元/kW</th><th scope="col">依据分级</th><th scope="col">说明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>BOM（泵组、板换、阀件、过滤/脱气/补液、PLC/HMI/VFD、传感、机架钣金、管件、工质、线束、漏液检测）</td><td class="num"><strong>400 / 650 / 900</strong></td><td><span class="tag m" title="Assumption">纯假设</span></td><td>三档；由 §3.3 工程量级自校验确认区间合理，中值 650。<strong>这是全案第一优先待替换参数</strong></td></tr>
+        <tr><td>制造／装配／耐压气密／冲洗／FAT</td><td class="num">100</td><td><span class="tag m" title="Assumption">纯假设</span></td><td>待试制工时卡替换</td></tr>
+        <tr><td>安装／SAT／差旅／整改</td><td class="num">150</td><td><span class="tag m" title="Assumption">纯假设</span></td><td><strong>新进入者无既有服务网络，此项显著高于在位者</strong></td></tr>
+        <tr><td>物流／关税／保险</td><td class="num">50</td><td><span class="tag m" title="Assumption">纯假设</span></td><td>国内口径</td></tr>
+        <tr><td>渠道／EPC 分成</td><td class="num">40</td><td><span class="tag m" title="Assumption">纯假设</span></td><td>直销可为 0，但不得默认为 0</td></tr>
+        <tr><td>预期质保准备（2 年）</td><td class="num">70</td><td><span class="tag m" title="Assumption">纯假设</span></td><td>无故障率数据</td></tr>
+        <tr><td>预期坏账／LD</td><td class="num">30</td><td><span class="tag m" title="Assumption">纯假设</span></td><td>无 CDU 专属坏账率</td></tr>
+        <tr class="total"><td>非 BOM 小计</td><td class="num"><strong>440</strong></td><td><span class="tag m" title="Model">推导</span></td><td><code>100+150+50+40+70+30 = 440</code></td></tr>
+        <tr class="total"><td><strong>同边界总成本</strong></td><td class="num"><strong>840 / 1,090 / 1,340</strong></td><td><span class="tag m" title="Model">推导</span></td><td>BOM 三档 + 440</td></tr>
+      </tbody>
+    </table>
+    <p class="small">复算：<code>400+440=840</code>；<code>650+440=1,090</code>；<code>900+440=1,340</code>。</p>
+
+    <h3>3.3 BOM 假设的工程量级自校验</h3>
+    <p class="small">本节不是证据，是对「400–900 元/kW」这一<strong>假设</strong>是否荒谬的合理性检查。全部为量级估算。</p>
+    <table>
+      <thead>
+        <tr><th scope="col">关键件（200 kW CDU）</th><th class="num" scope="col">量级（元）</th><th scope="col">关键件</th><th class="num" scope="col">量级（元）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>板式换热器（200 kW，ATD ≈5 K）</td><td class="num">8,000–20,000</td><td>阀件／过滤／脱气／定压补液</td><td class="num">8,000–20,000</td></tr>
+        <tr><td>泵组 2 台（N+1，15–25 m³/h @ 3 bar）</td><td class="num">12,000–40,000</td><td>机柜／钣金／管件／保温</td><td class="num">10,000–25,000</td></tr>
+        <tr><td>VFD × 2</td><td class="num">4,000–10,000</td><td>电气／线束／配电</td><td class="num">5,000–12,000</td></tr>
+        <tr><td>PLC + HMI</td><td class="num">5,000–15,000</td><td>工质（PG25，数百升）</td><td class="num">3,000–10,000</td></tr>
+        <tr><td>传感器（流量、压力、温度、电导率、漏液）</td><td class="num">5,000–15,000</td><td></td><td class="num"></td></tr>
+        <tr class="total"><td><strong>合计</strong></td><td class="num"><strong>60,000–167,000</strong></td><td><strong>折单位容量</strong></td><td class="num"><strong>300–835 元/kW</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn">
+      <strong>自校验结论：</strong>假设区间 400–900 元/kW 与工程量级一致，中值 650 略偏保守但不荒谬。<strong>更重要的是：后文将得出「在 715 元/kW 包价下取得正贡献要求 BOM ≤ 275 元/kW」，而 275 落在工程量级区间之外（低于 300 下界）。</strong>这意味着该结论不是由某个偏高的假设造成的，而是在假设区间的整个范围内都成立。
+    </div>
+
+    <h3>3.4 第一个核心矛盾：成本下界高于价格上限</h3>
+    <div class="grid2">
+      <div class="card alert"><b>840 元/kW</b>最乐观 BOM（400）情景下的同边界总成本<span class="tag m" title="Model">模型</span></div>
+      <div class="card"><b>684.75–715.00 元/kW</b>国内运营商包价上限，两个独立样本收敛<span class="tag a" title="Actual">实绩</span>折算</div>
+    </div>
+    <table>
+      <thead>
+        <tr><th scope="col">对照</th><th class="num" scope="col">佛山 684.75</th><th class="num" scope="col">南京 715.00</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>最乐观 BOM（400）总成本 840 ÷ 价格上限</td><td class="num">1.227 倍</td><td class="num">1.175 倍</td></tr>
+        <tr class="bad"><td>中值 BOM（650）总成本 1,090 ÷ 价格上限</td><td class="num"><strong>1.592 倍</strong></td><td class="num"><strong>1.524 倍</strong></td></tr>
+        <tr><td>最保守 BOM（900）总成本 1,340 ÷ 价格上限</td><td class="num">1.957 倍</td><td class="num">1.874 倍</td></tr>
+        <tr class="total"><td>在 715 元/kW 下取得非负贡献所需的 BOM 上限</td><td class="num" colspan="2"><strong>≤ 275 元/kW</strong>（<code>715 − 440</code>），即比假设中值低 <strong>57.7%</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="small">复算：<code>840÷715=1.175</code>；<code>840÷684.75=1.227</code>；<code>1,090÷715=1.524</code>；<code>1,090÷684.75=1.592</code>；<code>1,340÷715=1.874</code>；<code>1,340÷684.75=1.957</code>；<code>715−440=275</code>；<code>1−275÷650=57.7%</code>。</p>
+
+    <div class="callout risk">
+      <strong>矛盾陈述：即使 BOM 落在假设区间的最低端，同边界总成本仍高于国内运营商包价上限约 17%–23%；在中值 BOM 下高出 52%–59%。</strong>该结论必须原样呈现，不得通过调低成本假设来消除。
+    </div>
+
+    <h4>三种可能的解释（必须全部呈现）</h4>
+    <table>
+      <thead>
+        <tr><th scope="col">#</th><th scope="col">解释</th><th scope="col">支持证据</th><th scope="col">检验方法与成本</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>H1</strong></td><td><strong>成本假设偏高</strong>：真实 BOM 可能落在 275–450 元/kW</td><td>工程量级下界为 300 元/kW，与 275 接近但不重叠</td><td><strong>四 SKU 关键件书面询价，4–6 周，现金成本近零</strong>（工具包一）</td></tr>
+        <tr><td><strong>H2</strong></td><td><strong>招标样本不可外推</strong>：该价格上限可能由在位者的平台摊销、垂直整合、既有服务网络与低边际固定成本支撑，或为进入运营商框架的战略性低价</td><td><strong>一手支持：</strong>曙光数创冷板毛利 10.36%，2026 H1 冷板收入 +290% 而归母净利 −7,340 万元、经营现金流 −2.42 亿元。这与「在位者在该价格带上仅取得极薄毛利甚至亏损」一致</td><td>客户/渠道访谈取得分项成交价（工具包二）；观察在位者后续季报</td></tr>
+        <tr><td><strong>H3</strong></td><td><strong>国内运营商裸设备渠道对新进入者结构性不成立</strong></td><td>由 H1、H2 的检验结果反推</td><td>若 H1 检验后 BOM &gt; 450 元/kW，则 H3 成立</td></tr>
+      </tbody>
+    </table>
+    <div class="callout risk">
+      <strong>H2 的含义比 H1 更严重。</strong>如果在位者确实能在 685–715 元/kW 交付，其同边界成本约为 615–640 元/kW（按 10.36% 毛利反推），即仅为本模型中值假设 1,090 的 <strong>56%–59%</strong>。这意味着：<strong>即使新进入者把成本压到在位者水平，该渠道的回报也不足以支撑独立业务的固定费用——因为在位者自己就在亏损。</strong><span class="tag m" title="Model">推导</span>
+      <br><span class="small">复算：<code>715×(1−0.1036)=640.9</code>；<code>684.75×(1−0.1036)=613.6</code>；<code>640.9÷1,090=58.8%</code>；<code>613.6÷1,090=56.3%</code>。</span>
+    </div>
+
+    <h3>3.5 倒推所需毛利率与盈亏平衡容量</h3>
+    <div class="formula">CM_intensity = P_netrev − C_total                    （元/kW）
+CM_rate      = CM_intensity ÷ P_netrev
+BE_capacity  = F × 10,000 ÷ CM_intensity             （kW/年，F 单位为万元）</div>
+    <p>以中值成本 <code>C_total = 1,090 元/kW</code> 计：</p>
+    <table>
+      <thead>
+        <tr><th scope="col">价格 P（元/kW）</th><th class="num" scope="col">CM 强度（元/kW）</th><th class="num" scope="col">倒推所需 CM 率</th><th class="num" scope="col">BE @F2=320 万（MW/年）</th><th class="num" scope="col">BE @F1=690 万（MW/年）</th></tr>
+      </thead>
+      <tbody>
+        <tr class="bad"><td><strong>684.75</strong>（佛山实证上限）</td><td class="num"><strong>−405</strong></td><td class="num">负</td><td class="num">无盈亏平衡点</td><td class="num">无盈亏平衡点</td></tr>
+        <tr class="bad"><td><strong>715.00</strong>（南京实证上限）</td><td class="num"><strong>−375</strong></td><td class="num">负</td><td class="num">无盈亏平衡点</td><td class="num">无盈亏平衡点</td></tr>
+        <tr class="bad"><td>840（最乐观 BOM 的零贡献点）</td><td class="num">−250</td><td class="num">负</td><td class="num">无</td><td class="num">无</td></tr>
+        <tr><td>1,090（中值 BOM 的零贡献点）</td><td class="num">0</td><td class="num">0%</td><td class="num">∞</td><td class="num">∞</td></tr>
+        <tr><td>1,200</td><td class="num">110</td><td class="num">9.2%</td><td class="num"><strong>29.09</strong></td><td class="num">62.73</td></tr>
+        <tr><td>1,440（海外参照低位，三级待核）</td><td class="num">350</td><td class="num"><strong>24.3%</strong></td><td class="num"><strong>9.14</strong></td><td class="num">19.71</td></tr>
+        <tr><td>1,500</td><td class="num">410</td><td class="num"><strong>27.3%</strong></td><td class="num"><strong>7.80</strong></td><td class="num">16.83</td></tr>
+        <tr><td>1,730（海外参照高位，三级待核）</td><td class="num">640</td><td class="num"><strong>37.0%</strong></td><td class="num"><strong>5.00</strong></td><td class="num">10.78</td></tr>
+        <tr><td>1,800</td><td class="num">710</td><td class="num">39.4%</td><td class="num">4.51</td><td class="num">9.72</td></tr>
+      </tbody>
+    </table>
+    <p class="small">复算样例：<code>1,500−1,090=410</code>；<code>410÷1,500=27.33%</code>；<code>3,200,000÷410=7,805 kW=7.80 MW</code>；<code>6,900,000÷410=16,829 kW=16.83 MW</code>。全表已逐行复算。</p>
+
+    <h3>3.6 第二个核心矛盾：倒推所需毛利率高于行业实证水平</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">情景</th><th class="num" scope="col">所需 CM 率</th><th scope="col">实证对照</th><th scope="col">判定</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>P = 1,200 元/kW，需 29.09 MW/年</td><td class="num">9.2%</td><td>曙光冷板 10.36%（A1）</td><td>毛利率可达，但 <strong>29 MW/年 的容量不可达</strong>（见 §3.9）</td></tr>
+        <tr class="bad"><td>P = 1,500 元/kW，需 7.80 MW/年</td><td class="num"><strong>27.3%</strong></td><td>曙光冷板 10.36%；申菱设备 21.46%；申菱数据服务 23.60%；英维克境内 23.83%；Modine 数据中心 20.2%</td><td><strong>所需毛利率高于所有国内一手披露的相关口径</strong>，缺口 3.5–17 个百分点</td></tr>
+        <tr class="bad"><td>P = 1,730 元/kW，需 5.00 MW/年</td><td class="num"><strong>37.0%</strong></td><td>国内无任何一手支持；仅英维克境外 52.64%、申菱服务 31.63%、曙光服务 51.02% 高于此</td><td><strong>仅海外市场或服务收入结构可能支持</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="callout risk">
+      <strong>矛盾陈述（不得美化）：能让阶段一固定费用在可达容量下平衡的价格，其对应的所需毛利率是 27%–37%；而国内可比公司一手披露的相关毛利率是 10.36%–23.83%。倒推所需毛利率显著高于国内行业实证水平，缺口约 4–27 个百分点。</strong>
+      <br><br>唯一有一手实证支持该毛利率水平的，是<strong>海外市场</strong>（英维克境外 52.64%、曙光境外 37.83%）与<strong>服务／解决方案收入</strong>（申菱 31.63%、曙光服务 51.02%）。
+    </div>
+
+    <h4>应对选项（五个，含「不进入」）</h4>
+    <table>
+      <thead>
+        <tr><th scope="col">选项</th><th scope="col">内容</th><th scope="col">实证支持</th><th scope="col">前置条件</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>O1</strong></td><td><strong>降低 BOM 至 275–450 元/kW</strong></td><td>工程量级下界 300 元/kW，接近但不完全支持</td><td>四 SKU 书面询价（M1）。<strong>成本近零、周期 4–6 周，必须最先做</strong></td></tr>
+        <tr class="good"><td><strong>O2</strong></td><td><strong>转向海外市场</strong></td><td><strong>一手：</strong>英维克境外 52.64% vs 境内 23.83%；曙光境外 37.83%</td><td>E5（服务网络）、E6（保险与责任）、E7（当地伙伴与合规）。周期长、成本高</td></tr>
+        <tr class="good"><td><strong>O3</strong></td><td><strong>提高服务／解决方案收入占比</strong></td><td><strong>一手：</strong>申菱解决方案及服务 31.63% vs 设备 21.46%；曙光服务 51.02% vs 冷板产品 10.36%</td><td>E5（服务能力）；须重新定义产品边界，从「卖设备」转为「卖方案 + 长期服务」</td></tr>
+        <tr><td><strong>O4</strong></td><td><strong>把固定费用降到 F2 以下</strong>：不自建工厂、全部授权制造、极轻团队</td><td>无外部实证；但 F2 = 320 万元已是较轻结构</td><td>若 F2 降至 160 万元，P=1,500 时 BE 降至 3.90 MW/年，仍高于阶段一 1.86 MW/年 的交付能力<br><span class="small">复算：<code>1,600,000÷410=3,902 kW</code></span></td></tr>
+        <tr class="bad"><td><strong>O5</strong></td><td><strong>不进入国内运营商裸设备渠道</strong></td><td>H2、H3</td><td>由 M1 的结果决定。若 BOM &gt; 450 元/kW，O5 是理性选择</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3.7 敏感性分析（龙卷风数据表）</h3>
+    <p>基准：<code>P = 1,500 元/kW</code>，<code>BOM = 650</code>，<code>C_total = 1,090</code>，<code>CM = 410 元/kW</code>，<code>F2 = 320 万元</code>。</p>
+    <table>
+      <thead>
+        <tr><th scope="col">变量</th><th scope="col">变动</th><th class="num" scope="col">变动后取值</th><th class="num" scope="col">CM 强度（元/kW）</th><th class="num" scope="col">相对基准</th><th class="num" scope="col">BE @F2（MW/年）</th></tr>
+      </thead>
+      <tbody>
+        <tr class="bad"><td rowspan="2"><strong>ASP</strong></td><td>−20%</td><td class="num">1,200</td><td class="num"><strong>110</strong></td><td class="num"><strong>−73.2%</strong></td><td class="num">29.09</td></tr>
+        <tr class="good"><td>+20%</td><td class="num">1,800</td><td class="num"><strong>710</strong></td><td class="num"><strong>+73.2%</strong></td><td class="num">4.51</td></tr>
+        <tr><td rowspan="2"><strong>BOM</strong></td><td>+15%</td><td class="num">747.5</td><td class="num">312.5</td><td class="num">−23.8%</td><td class="num">10.24</td></tr>
+        <tr><td>−15%</td><td class="num">552.5</td><td class="num">507.5</td><td class="num">+23.8%</td><td class="num">6.31</td></tr>
+        <tr><td><strong>销量</strong></td><td>±50%</td><td class="num">2–6 MW/年</td><td class="num">410（不变）</td><td class="num">0%</td><td class="num">7.80（不变）</td></tr>
+      </tbody>
+    </table>
+    <p class="small">复算：<code>1,200−1,090=110</code>，<code>110÷410−1=−73.17%</code>；<code>1,800−1,090=710</code>，<code>710÷410−1=+73.17%</code>；<code>650×1.15=747.5</code>，<code>1,500−(747.5+440)=312.5</code>，<code>312.5÷410−1=−23.78%</code>；<code>650×0.85=552.5</code>，<code>1,500−992.5=507.5</code>，<code>507.5÷410−1=+23.78%</code>。</p>
+
+    <div class="callout">
+      <strong>排序：ASP（±73.2%）＞ BOM（±23.8%）＞ 销量（0%）。ASP 的影响力是 BOM 的 3.1 倍。</strong>
+      <br><br><strong>销量的正确解读：</strong>销量不改变单位贡献强度，也不改变盈亏平衡点，只改变「距离盈亏平衡有多远」。在 P=1,500、V=4 MW/年（约 20 台 200 kW）时，年贡献 <code>4,000 × 410 = 164 万元</code>，对 F2=320 万元的缺口为 <strong>−156 万元</strong>；销量 ±50% 使缺口落在 <strong>−238 万元 至 −74 万元</strong> 之间。<strong>在任何 ±50% 的销量情景下，阶段一均不能达到 F2 盈亏平衡。</strong>
+      <br><span class="small">复算：<code>4,000×410=1,640,000 元=164 万元</code>，<code>164−320=−156</code>；<code>2,000×410=82 万元 → 82−320=−238</code>；<code>6,000×410=246 万元 → 246−320=−74</code>。</span>
+    </div>
+
+    <h3>3.8 价格可行域</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">区间（元/kW）</th><th scope="col">判定</th><th scope="col">依据</th></tr>
+      </thead>
+      <tbody>
+        <tr class="bad"><td><strong>&lt; 840</strong></td><td><strong>必然亏损</strong>——在最乐观 BOM（400）下仍为负贡献</td><td>零贡献下界 = 最乐观 C_total</td></tr>
+        <tr class="bad"><td>840–1,090</td><td><strong>不可接单</strong>——仅当 BOM 落在假设区间下半部时贡献为正，且无法覆盖任何固定费用</td><td>贡献 0–250 元/kW，BE &gt; 12.8 MW/年</td></tr>
+        <tr><td>1,090–1,440</td><td><strong>容量不可达</strong>——贡献为正（0–350 元/kW），但 F2 盈亏平衡需 9.1–∞ MW/年</td><td>对照 §3.9</td></tr>
+        <tr><td>1,440–1,730</td><td><strong>可讨论区</strong>——F2 盈亏平衡需 5.0–9.1 MW/年，但所需毛利率 24%–37%，国内无实证支持</td><td>仅海外或服务结构可支持</td></tr>
+        <tr class="good"><td><strong>&gt; 1,730</strong></td><td><strong>可行</strong>——F2 盈亏平衡 &lt; 5 MW/年</td><td>已高于任何可核验的国内价格水平</td></tr>
+      </tbody>
+    </table>
+    <div class="callout risk">
+      <strong>结论：国内运营商实证包价上限 684.75–715.00 元/kW，落在「必然亏损」区间内，且低于可行域下界（840）约 15%–19%。价格可行域与国内运营商公开采购的价格上限不重叠；与（待核的）海外价格参照区间重叠。</strong>
+      <br><br>结合第 1.3 节三家公司的一手交叉验证（海外 &gt; 境内、服务 &gt; 设备），本节的证据导向结论是：<strong>如果这个业务成立，它是一个出口／海外服务业务或方案服务业务，不是一个国内运营商招标业务。</strong>这不是价格预测，是价格必须落在哪个区间的约束条件。
+      <br><br><span class="small">复算：<code>840÷715−1=17.5%</code>（成本高于价格）；<code>1−715÷840=14.9%</code>、<code>1−684.75÷840=18.5%</code>（价格低于可行域下界）。</span>
+    </div>
+
+    <h3>3.9 «29 MW/年» 与 «7.8 MW/年» 的可达性裁决</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">公开采购样本</th><th class="num" scope="col">容量</th><th scope="col">性质</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>广东移动佛山三水</td><td class="num">2.52 MW</td><td>单项目</td></tr>
+        <tr><td>江苏移动南京科创</td><td class="num">6.00 MW</td><td>单项目</td></tr>
+        <tr><td>浙江移动 2026–2027 框架（全部，两家分）</td><td class="num">15.00 MW</td><td>框架；68% 多数份额 = 10.2 MW，跨约 2.25 年 ≈ <strong>4.5 MW/年</strong></td></tr>
+        <tr><td>联通宁夏中卫 DC7</td><td class="num">24.00 MW</td><td>EPC POD 总包，<strong>不是 CDU 裸机采购</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="callout risk">
+      <strong>裁决：</strong>
+      <ul>
+        <li><strong>29.09 MW/年</strong>（P=1,200，已高于实证上限 68%）相当于每年独家中标接近 <strong>5 个南京规模的项目</strong>，或约 <strong>6.5 倍</strong>浙江移动框架多数份额的年化量。在无 OEM 指定、无全球服务、无历史业绩的条件下<strong>不可达</strong>。</li>
+        <li><strong>7.80 MW/年</strong>（P=1,500）相当于每年 <strong>1.3 个南京规模项目</strong>，或 <strong>1.7 倍</strong>浙江框架多数份额的年化量。理论上可想象，但需先解锁第 2.4 节的 E2、E3。</li>
+        <li>对照第 5 章：阶段一现金约束下的年交付能力为 <strong>1.86 MW/年</strong>，是 7.80 MW/年 的 <strong>23.8%</strong>。</li>
+      </ul>
+      <span class="small">复算：<code>29.09÷6.00=4.85</code>；<code>29.09÷4.5=6.46</code>；<code>1,200÷715−1=67.8%</code>；<code>7.80÷6.00=1.30</code>；<code>7.80÷4.5=1.73</code>；<code>1.86÷7.80=23.8%</code>。</span>
+    </div>
+  </section>
+
+  <!-- ============ 4. 缺口三 ============ -->
+  <section id="liability" class="page-break">
+    <h2>4. 缺口三：责任 → 敞口量化与封顶设计</h2>
+    <p class="lead">本章把「责任额度未知」转化为「敞口已量化、封顶已设计、红线已明确」。核心洞察：单次事故的潜在赔付远超项目毛利，因此责任封顶不是谈判技巧，而是业务成立的前提条件。</p>
+
+    <h3>4.1 责任敞口类型清单</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">敞口类型</th><th scope="col">触发情形</th><th scope="col">量级特征</th><th scope="col">是否可保</th></tr>
+      </thead>
+      <tbody>
+        <tr class="bad"><td><strong>漏液导致 GPU／服务器直接财产损坏</strong></td><td>UQD 微渗、Manifold 法兰破裂、软管失效、CDU 内部泄漏、冷板腐蚀点蚀</td><td><strong>本章量化重点</strong>；与被覆盖的 IT 资产价值线性相关</td><td>需专门条款，标准财产险可能按「污染」或「渐变渗漏」除外</td></tr>
+        <tr class="bad"><td><strong>停机损失（业务中断）</strong></td><td>CDU 泵失效、板换污堵、控制误动作、级联导致整个回路停机</td><td>与客户业务价值相关，可远超设备价值</td><td>须由间接损失排除条款排除；客户侧 BI 险的「修复期」口径本身有缺口</td></tr>
+        <tr class="bad"><td><strong>数据／模型权重损失</strong></td><td>非正常断电、训练中断</td><td>难以估值，且客户可能主张为直接损失</td><td>通常须列入责任上限例外的争议项；<strong>我方必须排除</strong></td></tr>
+        <tr><td>间接／后果性损失</td><td>客户流失、SLA 罚款、声誉、监管资本占用</td><td>可为设备损失的数倍至数十倍</td><td>只能靠合同排除</td></tr>
+        <tr><td>性能不达标（PG）</td><td>额定容量、ATD、流量、压降、噪声未达保证值</td><td>性能扣款，行业指引转引区间为合同价 10%–15%</td><td>不可保；靠 PG 工况绑定与扣款上限控制</td></tr>
+        <tr><td>交付延迟（LD）</td><td>关键件断供、FAT 失败、清关延误、客户变更</td><td>C-DAC 先例：上限由 10% 调整为 5%</td><td>不可保；靠 LD 上限与免责事由控制</td></tr>
+        <tr><td>污染与环境清理</td><td>工质释放到环境</td><td>清理费用 + 第三方索赔</td><td>需环境责任险；两相含氟工质普遍有 PFAS 除外</td></tr>
+        <tr><td>第三方索赔</td><td>客户的客户（租户）向客户索赔后追偿至我方</td><td>不可预知</td><td>需 CGL 覆盖合同赔偿义务</td></tr>
+      </tbody>
+    </table>
+
+    <h3>4.2 最坏情景量化：单台 200 kW CDU 服务的机柜价值量</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">输入</th><th class="num" scope="col">值</th><th scope="col">依据分级</th><th scope="col">来源</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>机柜 IT 功率（GB300 NVL72 TDP）</td><td class="num">135 kW</td><td><span class="tag a" title="Actual">实绩</span></td><td>Lenovo GB300 Product Guide, Table 27（一级原厂规格）</td></tr>
+        <tr><td>液冷占比（HCR）</td><td class="num">约 90%</td><td><span class="tag a" title="Actual">实绩</span></td><td>同上；液体负荷 <code>135 × 0.90 = 121.5 kW/柜</code></td></tr>
+        <tr><td>服务器价值强度</td><td class="num">21.2 美元/W</td><td><span class="tag e" title="Third-party model">第三方模型</span></td><td>Epoch AI 一 GW AI 数据中心 TCO 模型（二级）</td></tr>
+        <tr><td>汇率</td><td class="num">7.2 元/美元</td><td><span class="tag m" title="Assumption">假设</span></td><td>—</td></tr>
+        <tr class="total"><td><strong>单柜服务器价值</strong></td><td class="num"><strong>2,060.6 万元</strong></td><td><span class="tag m" title="Model">推导</span></td><td><code>21.2 × 135,000 = 2,862,000 美元</code>；<code>× 7.2 = 2,060.64 万元</code></td></tr>
+        <tr class="total"><td>200 kW CDU 覆盖柜数</td><td class="num">1.646 柜</td><td><span class="tag m" title="Model">推导</span></td><td><code>200 ÷ 121.5 = 1.6461</code></td></tr>
+        <tr class="total"><td><strong>单台 200 kW CDU 服务的 IT 资产价值</strong></td><td class="num"><strong>3,392 万元</strong></td><td><span class="tag m" title="Model">推导</span></td><td><code>1.6461 × 2,060.64 = 3,392.0 万元</code></td></tr>
+      </tbody>
+    </table>
+    <div class="tnote">
+      <b>独立交叉验证：</b>多个独立的三级来源（行业分析、保险经纪）称「GPU 整柜数百万美元级」，与本模型的 286 万美元/柜量级一致。两条路径方法完全独立（前者为行业观察，后者为 TCO 工程模型），量级吻合。本报告<strong>采用可复算的模型路径</strong>，因为它的参数可被客户实际机型替换。
+      <br><br><b>低密度改造情景（对照）：</b>40 kW/柜液体负荷、5 柜、通用服务器约 5 美元/W → 单柜 <code>40,000 × 5 × 7.2 = 144 万元</code>，5 柜合计 <strong>720 万元</strong>。敞口相差 <strong>4.71 倍</strong>。<strong>客户分层直接决定责任敞口量级——这是本章最重要的可执行推论。</strong>
+      <br><span class="small">复算：<code>3,392 ÷ 720 = 4.71</code>。</span>
+    </div>
+
+    <h3>4.3 敞口与合同额、项目毛利的比例（关键洞察）</h3>
+    <p>以第 1.5 节的国内实证包价上限计：<code>合同额 = 715 × 200 ÷ 10,000 = 14.30 万元</code>；<code>项目毛利 = 14.30 × 10.36% = 1.48 万元</code>（毛利率采用第 1.2 节 A1 实证锚点）。</p>
+    <table>
+      <thead>
+        <tr><th scope="col">事故情景</th><th class="num" scope="col">潜在损失</th><th class="num" scope="col">÷ 合同额 14.30 万元</th><th class="num" scope="col">÷ 项目毛利 1.48 万元</th><th scope="col">来源等级</th></tr>
+      </thead>
+      <tbody>
+        <tr class="bad"><td><strong>单块 GPU 基板损坏</strong>（约 50 ml 冷却液滴落，3.5–5.0 万美元）</td><td class="num">25.2–36.0 万元</td><td class="num"><strong>1.76–2.52 倍</strong></td><td class="num"><strong>17.0–24.3 倍</strong></td><td>三级（0.55）</td></tr>
+        <tr class="bad"><td><strong>单柜 IT 资产全损</strong></td><td class="num">2,060.6 万元</td><td class="num"><strong>144 倍</strong></td><td class="num"><strong>1,391 倍</strong></td><td>二级模型 + 一级功率规格</td></tr>
+        <tr class="bad"><td><strong>该 CDU 覆盖范围全损</strong>（1.65 柜）</td><td class="num">3,392 万元</td><td class="num"><strong>237 倍</strong></td><td class="num"><strong>2,290 倍</strong></td><td>同上</td></tr>
+        <tr><td>POD 级级联（32–72 柜）</td><td class="num">6.6 亿–14.8 亿元</td><td class="num">4,600–10,400 倍</td><td class="num">44,500–100,300 倍</td><td>三级（0.55）</td></tr>
+        <tr><td>行业指引转引的责任上限（合同价 10%–20%）</td><td class="num">1.43–2.86 万元</td><td class="num">0.10–0.20 倍</td><td class="num">0.97–1.93 倍</td><td><strong>三级（0.55）</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="small">复算：<code>715×200÷10,000=14.30</code>；<code>14.30×0.1036=1.48148</code>；<code>35,000×7.2÷10,000=25.2</code>；<code>50,000×7.2÷10,000=36.0</code>；<code>25.2÷1.48148=17.01</code>；<code>36.0÷1.48148=24.30</code>；<code>25.2÷14.30=1.76</code>；<code>36.0÷14.30=2.52</code>；<code>2,060.64÷14.30=144.10</code>；<code>2,060.64÷1.48148=1,390.9</code>；<code>3,392÷14.30=237.2</code>；<code>3,392÷1.48148=2,289.6</code>；<code>2,060.64×32=6.59 亿</code>；<code>2,060.64×72=14.84 亿</code>；<code>14.30×0.1=1.43</code>、<code>×0.2=2.86</code>。</p>
+
+    <div class="callout risk">
+      <h4 style="margin-top:0">四条关键洞察</h4>
+      <ol>
+        <li><strong>在最小可想象的事故中，供应商已经赔掉了 17.0–24.3 个同规模项目的全部毛利。</strong>一次约 50 ml 的冷却液滴落造成的单块基板更换成本（25.2–36.0 万元），等于整个合同额的 1.76–2.52 倍。</li>
+        <li><strong>行业惯例的「合同价 10%–20% 责任上限」在此业务中对客户毫无意义。</strong>1.43–2.86 万元的上限连一块基板都赔不起（仅为单块基板成本的 4%–11%）。因此客户的理性诉求必然是<strong>不封顶或设超级上限</strong>——这正是谈判会破裂的地方。</li>
+        <li><strong>责任封顶不是谈判技巧，是业务成立的前提条件。</strong>单柜全损 2,060.6 万元 是阶段一全部预算（800 万元）的 <strong>2.58 倍</strong>：一次事故可以消灭整个业务。若无法取得书面责任上限 + 间接损失排除 + 可投保确认，该项目的数学期望为负，<strong>无论定价多高</strong>。</li>
+        <li><strong>技术故障隔离是唯一能降低敞口本身（而非转移敞口）的手段。</strong>合同上限、保险、供应商追偿都只是转移风险；把「每台 CDU 覆盖的 IT 资产价值」从 3,392 万元降到 720 万元（低密度改造客户）是 <strong>4.71 倍</strong>的敞口削减，比任何条款谈判都有效。<strong>这直接决定阶段一的客户选择：优先低密度存量改造，而非高密 GB300 集群</strong>——与第 2.3 节的可触达客户层结论一致。</li>
+      </ol>
+      <span class="small">复算：<code>2,060.64 ÷ 800 = 2.576</code>。</span>
+    </div>
+
+    <h3>4.4 责任控制四层设计</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">层</th><th scope="col">手段</th><th scope="col">作用</th><th scope="col">是否降低敞口本身</th><th scope="col">可得性证据</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1 合同责任上限</strong></td><td>累计责任上限（≤ 含服务合同总价）、间接损失排除、按「原因 + 控制权 + 验收状态」归责、迟延 LD ≤ 5%、PG 以扣款为限</td><td>转移</td><td>否</td><td><strong>正证：</strong>Digi Power X–Cerebras Art. 11.2/12.1–12.3（一级，结构可证、额度脱敏）。<strong>反证：</strong>C-DAC 2024 <strong>拒绝</strong>供应商自拟的「合同总价封顶 + 排除间接损失」，改为适用 GeM 标准责任条款</td></tr>
+        <tr><td><strong>2 保险</strong></td><td>产品责任/CGL（须覆盖合同赔偿义务）、<strong>冷却液释放明列为承保的直接财产损失</strong>、安装工程一切险（CAR）、超额责任险、附加被保险人、代位求偿放弃、保险凭证</td><td>转移</td><td>否</td><td>Digi Power X–Cerebras Art. 10（一级，保额脱敏）；除外结构为三级来源，须以保单原件替换</td></tr>
+        <tr><td><strong>3 供应商追偿</strong></td><td>UQD／泵／软管／板换背靠背质保、PCN 变更控制、批次可追溯、供应商产品责任险及附加被保险人</td><td>转移</td><td>否</td><td>C-DAC 漏项与风险承担条款（一级）可作范本；具体条款须在 RFQ 阶段争取（工具包一已含四项商务问题）</td></tr>
+        <tr class="good"><td><strong>4 技术故障隔离</strong></td><td>逐柜/逐回路隔离阀、集液盘 + 排水、漏液检测联动自动切断、负压二次回路选项、双回路拓扑、UQD 扭矩管控与循环寿命追踪、水质监测（氯离子阈值）、泵冗余自动切换</td><td><strong>降低</strong></td><td><strong>是</strong></td><td>OCP CDU 指导的 FAT/SAT 项（二级）；行业分析指出多数生产设计仍为<strong>单回路</strong>，一处泄漏即须停整个回路（三级）</td></tr>
+      </tbody>
+    </table>
+    <div class="callout ok">
+      <strong>设计原则：第 4 层必须先做。</strong>前三层都是把已经存在的巨大敞口转移给别人（客户、保险人、供应商），而任何一方都可能拒绝或除外。第 4 层减少敞口的绝对值，是唯一不依赖对方同意的手段，且它同时降低前三层的谈判难度与保费。<strong>技术隔离方案应作为产品定义的一部分写入 DVP，而不是作为事后的风险缓解措施。</strong>
+    </div>
+
+    <h3>4.5 红线条款：8 条，无法达成即不接单</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">ID</th><th scope="col">条款</th><th scope="col">先例／依据</th><th scope="col">等级</th></tr>
+      </thead>
+      <tbody>
+        <tr class="bad"><td><strong>R1</strong></td><td>累计责任上限有<strong>明示金额或明确公式</strong>，且 ≤ 含服务的合同总价；上限例外项<strong>不含</strong>「漏液导致 IT 设备损坏」与「停机」</td><td>Reed Smith 市场惯例；Digi Power X–Cerebras 存在上限</td><td>二级 / 一级</td></tr>
+        <tr class="bad"><td><strong>R2</strong></td><td>明示排除间接／后果性损失：利润、收入、<strong>数据</strong>、算力/训练机会、客户流失、商誉、SLA 罚款、客户对第三方的赔偿、监管处罚与监管资本占用</td><td>Digi Power X–Cerebras Art. 12.1</td><td>一级</td></tr>
+        <tr class="bad"><td><strong>R3</strong></td><td>责任按「<strong>原因 + 控制权 + 验收状态</strong>」分配，不按「设备归谁」</td><td>Digi Power X–Cerebras Art. 11.2(b)(c)</td><td>一级</td></tr>
+        <tr class="bad"><td><strong>R4</strong></td><td>一次侧水质失控、异物侵入、误操作、压力异常导致的二次侧污染或损坏，责任在<strong>设施方</strong>；我方责任始于二次侧接口</td><td>Digi Power X–Cerebras Art. 11.2(b)</td><td>一级</td></tr>
+        <tr class="bad"><td><strong>R5</strong></td><td>客户或第三方安装/拆装 UQD、不当运维、超工况运行、未按手册维护造成的漏液或损坏，<strong>不计入我方责任</strong></td><td>Digi Power X–Cerebras §14.2(b)</td><td>一级</td></tr>
+        <tr class="bad"><td><strong>R6</strong></td><td>保险与赔偿义务<strong>背靠背</strong>：合同要求我方承担的赔偿义务必须落在保单承保范围内；<strong>冷却液释放明列为承保的直接财产损失</strong>；免赔额、除外责任、分项限额书面确认。不可保部分须量化为自留风险并计入报价</td><td>Digi Power X–Cerebras Art. 10；保险除外结构（三级）</td><td>一级 / 三级</td></tr>
+        <tr class="bad"><td><strong>R7</strong></td><td>迟延 LD ≤ 合同价 <strong>5%</strong>，且与责任上限<strong>合并</strong>计算而非叠加</td><td>C-DAC 2024 Corrigendum：由「每周 0.5%、最高 10%」调整为「最高 5% 的未税基础合同额」</td><td>一级</td></tr>
+        <tr class="bad"><td><strong>R8</strong></td><td>PG 未达标以<strong>性能扣款为限</strong>，不触发合同终止、全额退货或无限整改；PG 保证值必须绑定明确工况与仪器精度</td><td>行业指引（三级）；须逐项谈判</td><td>三级</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn">
+      <strong>准红线（未达成须管理层专项决议）：</strong>SAT 前置条件（客户须完成一次侧、供电、IT 侧就位与水质达标）；<strong>拒绝无条件 pay-when-paid</strong>（TCIL 2024 先例把付款延伸至带载运行 6 个月、投运满 1 年，并以「收到最终客户付款为前提」）；账期起算日明确；背景 IP 不转移；<strong>漏项责任范围限定</strong>（C-DAC 与 TCIL 均规定「系统完整运行所需但漏报的物料由中标人免费补齐」，必须在投标阶段用「供货范围清单 + 明确排除项」限定）。
+      <br><br>完整可执行版本见《合同条款审查清单_20260905.md》，共 8 大类 60 余条，每条标注红线／可谈判／可接受。
+    </div>
+  </section>
+
+  <!-- ============ 5. 缺口四 ============ -->
+  <section id="cash" class="page-break">
+    <h2>5. 缺口四：现金回报 → 现金模型与生存条件</h2>
+    <p class="lead">本章把「现金跑道未知」转化为「峰值现金已算、并行项目数已定、三条底线已设」。付款条款参数全部来自已核验的公开合同，逐项标明来源。</p>
+
+    <h3>5.1 付款条款参数来源（全部实证）</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">参数</th><th scope="col">值</th><th scope="col">来源</th><th scope="col">等级 / 置信</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>预付款</td><td>最高 30%，需同额银行保函，有效 12 个月</td><td>C-DAC DCLC，p.12 §12</td><td>一级 / 0.96</td></tr>
+        <tr><td>到货实物核验后累计</td><td>至 80%，30 天信用期</td><td>同上</td><td>一级 / 0.96</td></tr>
+        <tr><td>安装/调试/测试 + 验收报告后</td><td>+10%</td><td>同上</td><td>一级 / 0.96</td></tr>
+        <tr><td>末款</td><td>+10%，凭 3% PBG 释放；PBG 覆盖 5 年质保，有效 62 个月</td><td>同上</td><td>一级 / 0.96</td></tr>
+        <tr><td>履约保证金</td><td>未税合同额 5%（C-DAC）；含税成交额 5%（江苏移动）</td><td>C-DAC；江苏移动招标公告</td><td>一级 / 三级（0.91）</td></tr>
+        <tr><td>投标保证金</td><td>4 万元</td><td>江苏移动</td><td>三级 / 0.91</td></tr>
+        <tr><td>中国运营商交期</td><td>订单后 45 个自然日到货</td><td>浙江移动框架</td><td>三级 / 0.90</td></tr>
+        <tr><td>中国运营商质保</td><td>终验报告后 ≥24 个月</td><td>同上</td><td>三级 / 0.90</td></tr>
+        <tr><td>安装调试全周期</td><td>16 周（整套供货 + 安装 + 调试 + 测试）</td><td>C-DAC</td><td>一级 / 0.96</td></tr>
+        <tr class="bad"><td><strong>EPC 付款尾部</strong></td><td>里程碑延伸至<strong>带载运行 6 个月、投运满 1 年</strong>；且明确「<strong>以收到最终客户付款为前提</strong>」</td><td>TCIL 2024 Data Centre Turnkey RFP §3.1–3.13</td><td>一级 / 0.95</td></tr>
+        <tr><td>验收完成标准</td><td>第三方验证测试 + 最终客户验收</td><td>联通宁夏中卫 DC7</td><td>三级 / 0.86</td></tr>
+        <tr><td>邻近行业分段付款（结构旁证）</td><td>30/30/35/5，5% 质量保函有效至 60 个月质保期结束后一个月</td><td>中石油济柴储能液冷温控</td><td>三级 / 0.78，<strong>仅作结构旁证</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h3>5.2 单项目峰值现金占用（按每 MW CDU 容量）</h3>
+    <div class="formula">峰值现金/MW = BOM现金 + 安装现金 + 物流现金 + 履约保证金 − 预付款
+             = 65 + 15 + 5 + 0.05 × 合同额 − 预付比例 × 合同额      （万元/MW）</div>
+    <p class="small">现金支出由第 3.2 节的成本强度换算：<code>BOM 650 元/kW → 65 万元/MW</code>；<code>安装 150 元/kW → 15 万元/MW</code>；<code>物流 50 元/kW → 5 万元/MW</code>。</p>
+    <table>
+      <thead>
+        <tr><th scope="col">价格情景</th><th class="num" scope="col">合同额（万元/MW）</th><th class="num" scope="col">履约保证金 5%</th><th class="num" scope="col">峰值现金占用（万元/MW）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>P = 715（实证上限）</td><td class="num">71.5</td><td class="num">3.58</td><td class="num">88.6</td></tr>
+        <tr class="total"><td><strong>P = 1,200（本模型基准）</strong></td><td class="num">120.0</td><td class="num">6.00</td><td class="num"><strong>91.0</strong></td></tr>
+        <tr><td>P = 1,500</td><td class="num">150.0</td><td class="num">7.50</td><td class="num">92.5</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn">
+      <strong>关键假设：无客户预付款。</strong>依据：佛山、南京、浙江三个运营商公开文件均<strong>未见预付款条款</strong>；C-DAC 的 30% 预付款需要同额银行保函（占用授信，本身有成本）。
+      <br><br><strong>若能取得 30% 预付款，峰值现金占用从 91.0 降至 55.0 万元/MW，降幅 39.6%。这使「争取预付款」成为现金层面单一杠杆最高的谈判目标——高于价格谈判。</strong>
+      <br><span class="small">复算：<code>65+15+5+0.05×120=91.0</code>；<code>0.30×120=36</code>；<code>91−36=55.0</code>；<code>36÷91=39.6%</code>。</span>
+    </div>
+
+    <h3>5.3 800 万元预算下的并行项目数（硬约束）</h3>
+    <p>BP v2.1 §10 明确「PoC／订单营运资金 110 万元，<strong>仅用于已签项目</strong>；按周峰值模型，拒绝长期无担保垫资」。</p>
+    <table>
+      <thead>
+        <tr><th scope="col">可用营运资金口径</th><th class="num" scope="col">金额（万元）</th><th class="num" scope="col">÷ 91 万元/MW</th><th scope="col">并行容量</th></tr>
+      </thead>
+      <tbody>
+        <tr class="total"><td><strong>严格口径（仅 PoC/订单营运资金）</strong></td><td class="num">110</td><td class="num"><strong>1.21 MW</strong></td><td><strong>约 1 个 1 MW 项目，或 6 台 200 kW</strong></td></tr>
+        <tr><td>含董事会预备金（110 + 50）</td><td class="num">160</td><td class="num">1.76 MW</td><td>约 1 个 1.7 MW 项目；<strong>不足以支撑 2 个并行 1 MW 项目并保留缓冲</strong></td></tr>
+        <tr><td>全部预算（实际不可用，690 已承诺）</td><td class="num">800</td><td class="num">8.79 MW</td><td>仅作上限参照，<strong>不得作为规划依据</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="small">复算：<code>110÷91=1.209</code>；<code>160÷91=1.758</code>；<code>800÷91=8.791</code>。</p>
+
+    <h4>年吞吐量</h4>
+    <p>单项目现金占用周期按「下单 → 回款」约 <strong>28 周</strong>：W0 下单、W6 出厂 FAT、W7 到货（对应 45 日交期）、W12 SAT、W16 终验、W20 回款（终验 + 30 天账期），加 8 周缓冲。</p>
+    <div class="formula">年吞吐 = 并行容量 × (52 ÷ 项目现金周期周数) = 1 MW × (52 ÷ 28) = 1.86 MW/年</div>
+    <table>
+      <thead>
+        <tr><th scope="col">项</th><th class="num" scope="col">值</th><th scope="col">来源</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>阶段一现金约束下的年交付能力</td><td class="num"><strong>1.86 MW/年</strong></td><td>本节</td></tr>
+        <tr><td>F2 盈亏平衡所需容量（P = 1,500 元/kW）</td><td class="num">7.80 MW/年</td><td>第 3.5 节</td></tr>
+        <tr class="total"><td><strong>达成率</strong></td><td class="num"><strong>23.8%</strong></td><td><code>1.86 ÷ 7.80</code></td></tr>
+      </tbody>
+    </table>
+    <div class="callout risk">
+      <strong>阶段一 800 万元预算在结构上不可能达到盈亏平衡——即使全部执行成功，交付容量也只有 F2 盈亏平衡点的约 24%。</strong>
+      <br><br>这不是失败，而是阶段一的正确定位：<strong>阶段一买的是证据，不是利润。</strong>因此阶段一的目标必须写成<strong>证据里程碑</strong>，绝不能写成收入或台数目标。<strong>任何把阶段一设成「收入 X 万元」或「交付 Y 台」的目标，都在数学上要求突破现金约束，因而必然导致垫资、延迟付款或超预算。</strong>
+    </div>
+
+    <h3>5.4 现金安全三条底线</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">#</th><th scope="col">底线</th><th scope="col">公式</th><th scope="col">阶段一取值（1 MW 已签）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>B1</strong></td><td><strong>最低现金余额</strong></td><td><code>≥ 单项目峰值占用 × 已签 MW + F2 ÷ 4</code></td><td><code>91 × 1 + 320 ÷ 4 = 171 万元</code>。<strong>建议董事会批准 200 万元</strong>（留 17% 缓冲）</td></tr>
+        <tr><td><strong>B2</strong></td><td><strong>最大并行项目数</strong></td><td><code>FLOOR(可用营运资金 ÷ 单项目峰值占用)</code></td><td><code>FLOOR(160 ÷ 91) = 1</code>。<strong>1 个 1 MW 级项目；第二个项目必须等第一个回款到账后才可签约</strong></td></tr>
+        <tr><td><strong>B3</strong></td><td><strong>最长可承受回款延迟</strong></td><td><code>(可用营运资金 − 单项目峰值占用) ÷ (F2 ÷ 52)</code></td><td><code>(160 − 91) ÷ 6.154 = 11.2 周</code>。<strong>超过 11 周即触发现金红线</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="small">复算：<code>320÷4=80</code>；<code>91+80=171</code>；<code>171×1.17≈200</code>；<code>320÷52=6.1538</code>；<code>(160−91)÷6.1538=11.21</code>。</p>
+
+    <h3>5.5 B3 与实测验收周期的冲突（本章最重要的风险）</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">已核验的验收/付款尾部</th><th class="num" scope="col">周期</th><th scope="col">来源等级</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>B3 现金容忍度</strong></td><td class="num"><strong>11.2 周</strong></td><td>本模型</td></tr>
+        <tr class="bad"><td>C-DAC：供货 + 安装 + 调试 + 测试</td><td class="num">16 周</td><td>一级</td></tr>
+        <tr class="bad"><td>TCIL：全项目 214 天；付款延伸至带载运行 6 个月、投运满 1 年</td><td class="num">30–52+ 周</td><td>一级</td></tr>
+        <tr><td>中国运营商：终验后质保起算，但终验日期未公开</td><td class="num"><span class="tag na" title="Not Available">无数据</span></td><td>—</td></tr>
+        <tr><td>联通中卫：以第三方验证测试 + 最终客户验收为完成标准</td><td class="num"><span class="tag na" title="Not Available">无数据</span>，结构上可长</td><td>三级</td></tr>
+      </tbody>
+    </table>
+    <div class="callout risk">
+      <strong>B3 = 11.2 周 的容忍度，显著低于已核验合同中出现的验收与付款尾部（16 周至 52 周以上）。即：按公开合同条款的常见结构，阶段一的现金结构在单个项目上就会被击穿。</strong>
+      <br><br>三项直接推论：
+      <ol>
+        <li><strong>争取预付款不是优化项，是生存条件。</strong>30% 预付款把峰值从 91 降到 55 万元/MW，B3 从 11.2 周延长到 <strong>17.1 周</strong>——刚好覆盖 C-DAC 式的 16 周安装调试周期。<br><span class="small">复算：<code>(160−55)÷6.1538=17.06 周</code>。</span></li>
+        <li><strong>拒绝「pay-when-paid」背靠背条款是红线。</strong>TCIL 式「以收到最终客户付款为前提」会把回款不确定性无限延长，任何现金模型在该条款下都不成立。</li>
+        <li><strong>必须把自身收款绑定到「CDU 到货 + SAT」，而不是最终客户验收或投运周年。</strong>C-DAC 的「到货实物核验后累计至 80%」是可争取的先例，且它把大部分现金风险前移到我方可控的节点。</li>
+      </ol>
+    </div>
+
+    <h3>5.6 13 周滚动现金表模板（结构，数值待填）</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">行</th><th scope="col">科目</th><th class="num" scope="col">W1</th><th class="num" scope="col">W2</th><th class="num" scope="col">…</th><th class="num" scope="col">W13</th><th scope="col">数据来源</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>期初现金</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>上周期末</td></tr>
+        <tr><td>2</td><td>客户预付款</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>合同付款表</td></tr>
+        <tr><td>3</td><td>到货/初验里程碑收款</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>合同付款表 × 收款概率</td></tr>
+        <tr><td>4</td><td>终验/尾款收款</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>同上</td></tr>
+        <tr><td>5</td><td>质保金/PBG 释放</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>保函到期表</td></tr>
+        <tr class="total"><td>6</td><td><strong>收款小计</strong></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td><code>2+3+4+5</code></td></tr>
+        <tr><td>7</td><td>关键件供应商预付</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>PO 排程</td></tr>
+        <tr><td>8</td><td>供应商账期付款</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>PO 排程</td></tr>
+        <tr><td>9</td><td>工资与社保税费</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>编制表</td></tr>
+        <tr><td>10</td><td>制造/FAT 费用</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>试制计划</td></tr>
+        <tr><td>11</td><td>安装/SAT/差旅</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>项目排程</td></tr>
+        <tr><td>12</td><td>物流/关税/保险</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>运价与报关</td></tr>
+        <tr><td>13</td><td>NRE/软件/IP</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>合同里程碑</td></tr>
+        <tr><td>14</td><td>测试/认证/第三方</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>测试报价</td></tr>
+        <tr><td>15</td><td>保函手续费与授信占用</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>银行费率</td></tr>
+        <tr><td>16</td><td>保险保费</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>保险报价</td></tr>
+        <tr><td>17</td><td>质保服务与备件</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>服务成本模型</td></tr>
+        <tr><td>18</td><td>CapEx</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>CapEx 审批表</td></tr>
+        <tr><td>19</td><td>税款（增值税/所得税）</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>税务测算</td></tr>
+        <tr class="total"><td>20</td><td><strong>支出小计</strong></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td><code>7…19 求和</code></td></tr>
+        <tr class="total"><td>21</td><td><strong>净现金流</strong></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td><code>6 − 20</code></td></tr>
+        <tr class="total"><td>22</td><td><strong>期末现金</strong></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td><code>1 + 21</code></td></tr>
+        <tr><td>23</td><td>履约保证金/保函占用余额</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td>保函台账</td></tr>
+        <tr class="total"><td>24</td><td><strong>可动用现金</strong></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td><code>22 − 23</code></td></tr>
+        <tr><td>25</td><td>最低现金余额（B1）</td><td class="num">171</td><td class="num">171</td><td class="num">171</td><td class="num">171</td><td>本模型第 5.4 节</td></tr>
+        <tr class="total"><td>26</td><td><strong>安全余量</strong></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td><code>24 − 25</code></td></tr>
+        <tr class="bad"><td>27</td><td><strong>红线告警</strong></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td><code>26 &lt; 0 → 立即停止签约</code></td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn">
+      <strong>强制压力情景（每周更新时必跑七档）：</strong>
+      <ol>
+        <li>终验延迟 +30 / +60 / +90 天</li>
+        <li>客户预付款 0% / 30%（含保函成本）</li>
+        <li>尾款 5% / 10% / 20% 被质保金或 PBG 替代</li>
+        <li>关键件 100% 预付 / 30 天账期 / 60 天账期</li>
+        <li>一次 FAT 失败 + 一次现场整改</li>
+        <li>框架订单只兑现 50% / 75% / 100%</li>
+        <li>一次重大漏液直接财产损失（按第 4.3 节情景）。<strong>保险赔款在承保范围、免赔额和除外责任确认前不得计入现金流入。</strong></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 6. 取证计划 ============ -->
+  <section id="plan" class="page-break">
+    <h2>6. 证据获取计划与最小验证集</h2>
+    <p class="lead">本章把「待验证」变成有主体、有时间、有方法、有成本的行动。核心问题只有一个：<strong>在花钱做样机之前，哪些证据必须先拿到？</strong>这是保护现金的核心。</p>
+
+    <h3>6.1 取证任务清单</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">ID</th><th scope="col">证据</th><th scope="col">目标对象</th><th scope="col">方法与工具</th><th class="num" scope="col">周期</th><th class="num" scope="col">现金成本</th><th scope="col">责任人角色</th><th scope="col">对应缺口</th></tr>
+      </thead>
+      <tbody>
+        <tr class="good"><td><strong>M1</strong></td><td><strong>四 SKU 关键件书面报价（每类 ≥2 家）</strong>，含单价、MOQ、阶梯价、交期、质保、付款条件</td><td>泵、板换、UQD、Manifold、阀件、过滤/脱气、PLC/VFD、传感、钣金、工质供应商</td><td>《RFQ 四 SKU 物料询价模板》直接发出</td><td class="num">4–6 周</td><td class="num"><strong>≈0</strong>（仅工时）</td><td>采购 + 产品工程</td><td><strong>二</strong></td></tr>
+        <tr class="good"><td><strong>M3</strong></td><td><strong>客户书面责任条款草案</strong>（责任上限、间接损失排除、漏液归责）<strong>+ 产品责任险报价</strong>（承保范围与除外责任书面确认）</td><td>1–2 个目标客户 + 2 家保险经纪/保险公司</td><td>《合同条款审查清单》+《客户访谈提纲》缺口三追问库</td><td class="num">4–8 周</td><td class="num">1–3 万元<br><span class="small">（律师 + 保险询价）</span></td><td>法务 + 商务</td><td><strong>三</strong></td></tr>
+        <tr class="good"><td><strong>M4</strong></td><td><strong>客户书面付款条款</strong>（预付款、里程碑比例、账期起算日、质保金/保函）</td><td>2–3 个目标客户或 EPC</td><td>《客户访谈提纲》缺口四追问库</td><td class="num">2–4 周</td><td class="num"><strong>≈0</strong></td><td>商务 + 财务</td><td><strong>四</strong></td></tr>
+        <tr class="good"><td><strong>M5</strong></td><td><strong>客户书面平台包</strong>（TCS/FWS 温度、Q–ΔP、工质、wetted materials、HCR、冗余、故障态要求）</td><td>1–2 个目标客户 或 1 个 OEM</td><td>NDA + 技术澄清会</td><td class="num">4–8 周</td><td class="num"><strong>≈0</strong></td><td>产品工程</td><td><strong>一 / 二</strong></td></tr>
+        <tr><td><strong>M2</strong></td><td>两个同边界的 CDU <strong>分项成交价/合同价</strong></td><td>客户、渠道、EPC、同业</td><td>《客户访谈提纲》缺口二追问库；跟踪浙江移动结果附件与佛山/南京官方中选公示</td><td class="num">4–8 周</td><td class="num">≈0–1 万元</td><td>商务 + 研究</td><td><strong>二</strong></td></tr>
+        <tr><td><strong>M6</strong></td><td>至少一个<strong>付费</strong> PoC / 有偿验证的书面意向</td><td>存量改造、区域 IDC、中小云</td><td>基于 M5 的方案 + M3 的责任范本</td><td class="num">8–12 周</td><td class="num">≈0（收款方）</td><td>商务</td><td><strong>一</strong></td></tr>
+        <tr><td><strong>M7</strong></td><td>EPC/服务商分包协议意向（覆盖机电施工资质与安装能力）</td><td>2–3 家持证 EPC</td><td>商务洽谈</td><td class="num">6–10 周</td><td class="num">≈0</td><td>商务</td><td><strong>一</strong>（E3）</td></tr>
+        <tr><td><strong>M8</strong></td><td>OEM 供应商体系认证的<strong>申请受理与要求清单</strong></td><td>1 家 OEM</td><td>供应商注册 + NDA</td><td class="num">8–16 周</td><td class="num">≈0–2 万元</td><td>质量 + 商务</td><td><strong>一</strong>（E4）</td></tr>
+        <tr class="bad"><td><strong>M9</strong></td><td>代表样机与三批试制良率数据</td><td>内部 + 授权制造商</td><td>DVP + 试制</td><td class="num">16–36 周</td><td class="num"><strong>245 万元</strong><br><span class="small">（NRE 115 + 样机 130）</span></td><td>产品工程</td><td><strong>二</strong></td></tr>
+        <tr class="bad"><td><strong>M10</strong></td><td>服务网络与备件库（8h 响应 / 72h 换件）</td><td>自建或授权服务商</td><td>服务商协议 + 备件预置</td><td class="num">12–24 周</td><td class="num">高（须由项目支撑）</td><td>服务</td><td><strong>一</strong>（E5）</td></tr>
+        <tr class="bad"><td><strong>M11</strong></td><td>海外当地伙伴 + 目的地合规（CE/UL）</td><td>海外 EPC/服务商 + 认证机构</td><td>伙伴洽谈 + 认证申请</td><td class="num">24–52 周</td><td class="num">高</td><td>商务 + 质量</td><td><strong>一</strong>（E7）／<strong>二</strong>（O2）</td></tr>
+      </tbody>
+    </table>
+
+    <h3>6.2 优先级排序：按「决策价值 ÷ 现金成本」</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">优先级</th><th scope="col">任务</th><th scope="col">决策价值</th><th class="num" scope="col">现金成本</th><th scope="col">判定</th></tr>
+      </thead>
+      <tbody>
+        <tr class="good"><td><strong>第一批（立即启动，并行）</strong></td><td><strong>M1、M3、M4、M5</strong></td><td><strong>极高</strong>——分别决定「单位经济是否可能为正」「最坏情景是否毁掉公司」「现金是否够」「样机设计是否有效」</td><td class="num"><strong>&lt; 5 万元</strong></td><td><strong>先做。这四项决定 245 万元该不该花</strong></td></tr>
+        <tr><td>第二批（第一批出结果后）</td><td>M2、M6、M7</td><td>高——M2 校准价格可行域；M6 解锁 E1；M7 解锁 E3</td><td class="num">&lt; 2 万元</td><td>做</td></tr>
+        <tr><td>第三批（G1 通过后）</td><td>M8、M9</td><td>高，但成本高。M9 是全案最大的单笔支出</td><td class="num">245–250 万元</td><td><strong>必须以第一批的结果为前置条件</strong></td></tr>
+        <tr class="bad"><td>第四批（G2 后或放弃）</td><td>M10、M11</td><td>解锁高价值客户与海外市场（O2），但需项目现金流支撑</td><td class="num">高</td><td>阶段一不做。若第一批结果指向 O5（不进入），则放弃</td></tr>
+      </tbody>
+    </table>
+
+    <h3>6.3 关键判断：在花钱做样机之前必须先拿到什么</h3>
+    <div class="callout risk">
+      <h4 style="margin-top:0">必须先拿到 M1、M3、M4、M5，共四项</h4>
+      <table style="margin-bottom:0">
+        <thead>
+          <tr><th scope="col">证据</th><th scope="col">它决定什么</th><th scope="col">若结果不利，应做什么</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>M1</strong> 四 SKU 书面报价</td><td>BOM 能否落到 275–450 元/kW，即<strong>单位经济是否可能为正</strong></td><td>若 BOM &gt; 450 元/kW，国内运营商渠道排除（O5），重心转 O2/O3</td></tr>
+          <tr><td><strong>M3</strong> 责任条款 + 保险报价</td><td>最坏情景是否会毁掉公司，即<strong>业务是否可成立</strong></td><td>若无法取得 R1–R6，不接单；或只接低密度改造客户（敞口降 4.71 倍）</td></tr>
+          <tr><td><strong>M4</strong> 客户付款条款</td><td>并行项目数与现金红线，即<strong>现金是否够</strong></td><td>若无预付款且验收尾部 &gt;11 周，B2 降至 0，阶段一不得签约</td></tr>
+          <tr><td><strong>M5</strong> 客户平台包</td><td>样机设计是否有效，即<strong>245 万元会不会白花</strong></td><td>若拿不到平台包，样机只能按公开工况设计，客户不认，投入无效</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid">
+      <div class="card good"><b>&lt; 5 万元</b>四项证据的合计现金成本</div>
+      <div class="card good"><b>6–8 周</b>四项并行执行的周期</div>
+      <div class="card good"><b>49 : 1</b>保护比 = 245 万元受门禁保护的支出 ÷ 5 万元取证成本</div>
+    </div>
+    <div class="callout ok">
+      <strong>这是全案杠杆最高的现金保护动作：用不到 5 万元、6–8 周，决定 245 万元的样机与 NRE 是否应该花。</strong>在 M1、M3、M4、M5 全部取得之前，样机物料、工装与 NRE 的任何采购<strong>不得启动</strong>，包括「先小批量试做」这类看似低风险的支出。
+      <br><span class="small">复算：<code>(115 + 130) ÷ 5 = 49.0</code>。</span>
+    </div>
+
+    <h3>6.4 最小验证集（通过 G1 门禁所需的最少证据）</h3>
+    <p>BP v2.1 §G1 要求：代表样机全工况矩阵与故障注入通过；≥2 付费验证；两个同边界合同价；回款闭环；项目贡献可计算且为正；四 SKU BOM；关键件双源；三批试制；客户责任可保可封顶；压力情景不突破现金安全线。本节给出与之对应的最小证据集。</p>
+    <table>
+      <thead>
+        <tr><th scope="col">#</th><th scope="col">最小验证集项目</th><th scope="col">对应任务</th><th scope="col">通过判据（可验证）</th><th scope="col">对应缺口</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong>四 SKU 每类关键件 ≥2 家书面报价</strong>，且 200 kW 档 BOM 可计算</td><td>M1</td><td>报价单原件；BOM 汇总表可复算至元/kW；关键件双源清单</td><td>二</td></tr>
+        <tr><td>2</td><td><strong>≥1 份客户书面责任条款</strong>，R1–R6 全部达成</td><td>M3</td><td>条款文本；《合同条款审查清单》红线栏 6/6 通过</td><td>三</td></tr>
+        <tr><td>3</td><td><strong>≥1 份产品责任险报价</strong>，冷却液释放明列承保，除外责任书面确认</td><td>M3</td><td>保险报价单 + 承保范围与除外责任书面说明；不可保部分已量化</td><td>三</td></tr>
+        <tr><td>4</td><td><strong>≥1 份客户书面付款条款</strong>，四项要素明确</td><td>M4</td><td>预付款比例、里程碑比例、账期起算日、质保金/保函形式四项齐备</td><td>四</td></tr>
+        <tr><td>5</td><td><strong>≥1 份客户书面平台包</strong></td><td>M5</td><td>TCS/FWS 温度、Q–ΔP、工质、wetted materials、HCR、冗余与故障态要求齐备</td><td>一 / 二</td></tr>
+        <tr><td>6</td><td><strong>≥2 项付费验证</strong>（客户已付款）</td><td>M6</td><td>验证协议 + 收款凭证</td><td>一</td></tr>
+        <tr><td>7</td><td><strong>≥2 个同边界合同价</strong>（可为我方合同或已核验的第三方分项价）</td><td>M2</td><td>可折算元/kW，且供货边界可逐项拆分对比</td><td>二</td></tr>
+        <tr><td>8</td><td><strong>项目贡献毛利可计算且为正</strong></td><td>M1+M2+M4</td><td>按第 3.2 节成本桥逐项填实数，CM 强度 &gt; 0</td><td>二</td></tr>
+        <tr><td>9</td><td><strong>13 周现金表 + 七档压力情景不突破 B1</strong></td><td>M4</td><td>压力情景下第 26 行安全余量全周为正</td><td>四</td></tr>
+        <tr><td>10</td><td><strong>代表样机全工况矩阵与故障注入通过；三批试制良率数据</strong></td><td>M9</td><td>DVP 报告；含单泵故障态能力；三批一次通过率与返修记录</td><td>二</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn">
+      <strong>最小验证集的执行顺序（强制）：</strong>第 1–5 项（M1、M3、M4、M5）为<strong>前置门</strong>，合计成本 &lt;5 万元、周期 6–8 周，<strong>必须全部取得后</strong>才可启动第 10 项（M9，245 万元）。第 6–9 项在此期间并行推进。
+      <br><br><strong>若第 1–5 项中任何一项在 12 周内无法取得，应视为 G1 无法通过的早期信号</strong>，此时的正确动作是暂停而非加大投入——因为无法取得这些证据本身，就说明客户准入（缺口一）尚未打开。
+    </div>
+  </section>
+
+  <!-- ============ 7. 附录 A 公式 ============ -->
+  <section id="formulas" class="page-break">
+    <h2>7. 附录 A：全部公式与参数依据</h2>
+    <p class="lead">本章公开全部公式与全部参数的依据分级，使任何人可独立复算。计算底稿见 <code>temp/research-validation-pack/findings/model-03-reverse-price-liability-cash.md</code>。</p>
+
+    <h3>7.1 全部公式</h3>
+    <div class="formula"># ── 缺口二：倒推价格 ──────────────────────────────
+F1 = 阶段一费用性支出总额 = 800 − 110 = 690                       （万元/年）
+F2 = 稳态经常性固定费用   = 220 + 50 + 20 + 30 = 320               （万元/年）
+C_nonBOM     = 100 + 150 + 50 + 40 + 70 + 30 = 440                 （元/kW）
+C_total      = BOM + C_nonBOM                                      （元/kW）
+CM_intensity = P_netrev − C_total                                   （元/kW）
+CM_rate      = CM_intensity ÷ P_netrev
+BE_capacity  = F × 10,000 ÷ CM_intensity                            （kW/年，F 单位万元）
+P_floor      = C_total                                （零贡献价格下界，元/kW）
+BOM_max      = P_target − C_nonBOM                （给定价格下的 BOM 上限，元/kW）
+单位容量价格  = 项目总价 ÷ (台数 × 单台额定容量)                    （元/kW）
+在位者隐含成本 = P_tender × (1 − 实证毛利率)                        （元/kW）
+
+# ── 缺口三：责任敞口 ──────────────────────────────
+液体负荷每柜 = 机柜 IT 功率 × HCR                                   （kW）
+覆盖柜数     = CDU 额定容量 ÷ 液体负荷每柜
+单柜 IT 价值 = 服务器价值强度(美元/W) × 机柜功率(W) × 汇率           （元）
+敞口         = 覆盖柜数 × 单柜 IT 价值                              （元）
+敞口倍数_合同 = 敞口 ÷ 合同额
+敞口倍数_毛利 = 敞口 ÷ (合同额 × 毛利率)
+
+# ── 缺口四：现金 ─────────────────────────────────
+峰值现金每MW = BOM现金 + 安装现金 + 物流现金
+             + 0.05 × 合同额 − 预付比例 × 合同额                    （万元/MW）
+并行容量     = 可用营运资金 ÷ 峰值现金每MW                          （MW）
+年吞吐       = 并行容量 × (52 ÷ 项目现金周期周数)                   （MW/年）
+B1 最低现金  = 峰值现金每MW × 已签MW + F2 ÷ 4                       （万元）
+B2 最大并行  = FLOOR(可用营运资金 ÷ 峰值现金每MW)                   （个）
+B3 延迟容忍  = (可用营运资金 − 峰值现金占用) ÷ (F2 ÷ 52)            （周）
+
+# ── 取证门禁 ─────────────────────────────────────
+保护比 = 受门禁保护的支出 ÷ 取证现金成本 = (115 + 130) ÷ 5 = 49.0</div>
+
+    <h3>7.2 全部参数与依据分级</h3>
+    <table>
+      <thead>
+        <tr><th scope="col">参数</th><th class="num" scope="col">取值</th><th scope="col">依据分级</th><th scope="col">具体来源</th><th scope="col">替换条件</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>阶段一预算上限</td><td class="num">800 万元</td><td><span class="tag a" title="Actual">实绩</span></td><td>BP v2.1 §10（内部预算文件）</td><td>董事会调整</td></tr>
+        <tr><td>PoC/订单营运资金</td><td class="num">110 万元</td><td><span class="tag a" title="Actual">实绩</span></td><td>同上</td><td>同上</td></tr>
+        <tr><td>NRE + 样机（受门禁保护的支出）</td><td class="num">245 万元</td><td><span class="tag a" title="Actual">实绩</span></td><td>同上（115 + 130）</td><td>同上</td></tr>
+        <tr class="bad"><td><strong>BOM（200 kW 档）</strong></td><td class="num"><strong>400/650/900 元/kW</strong></td><td><span class="tag m" title="Assumption">纯假设</span></td><td>工程量级自校验区间 300–835 元/kW（§3.3）</td><td><strong>M1 四 SKU 书面报价。第一优先替换</strong></td></tr>
+        <tr><td>制造/FAT</td><td class="num">100 元/kW</td><td><span class="tag m" title="Assumption">纯假设</span></td><td>—</td><td>三批试制工时卡</td></tr>
+        <tr><td>安装/SAT/差旅</td><td class="num">150 元/kW</td><td><span class="tag m" title="Assumption">纯假设</span></td><td>—</td><td>标准工时与差旅报价</td></tr>
+        <tr><td>物流/关税/保险</td><td class="num">50 元/kW</td><td><span class="tag m" title="Assumption">纯假设</span></td><td>—</td><td>书面运价与报关</td></tr>
+        <tr><td>渠道/EPC</td><td class="num">40 元/kW</td><td><span class="tag m" title="Assumption">纯假设</span></td><td>—</td><td>渠道协议</td></tr>
+        <tr><td>质保准备（2 年）</td><td class="num">70 元/kW</td><td><span class="tag m" title="Assumption">纯假设</span></td><td>—</td><td>故障率与服务成本数据</td></tr>
+        <tr><td>坏账/LD</td><td class="num">30 元/kW</td><td><span class="tag m" title="Assumption">纯假设</span></td><td>—</td><td>客户信用与历史核销</td></tr>
+        <tr class="good"><td><strong>佛山包价上限</strong></td><td class="num"><strong>684.75 元/kW</strong></td><td><span class="tag a" title="Actual">实绩</span>折算</td><td>1,725,576.99 元 ÷ 2,520 kW；广东移动佛山三水询比公告，2026-07-22</td><td>官方中选公示或分项清单</td></tr>
+        <tr class="good"><td><strong>南京包价上限</strong></td><td class="num"><strong>715.00 元/kW</strong></td><td><span class="tag a" title="Actual">实绩</span>折算</td><td>4,290,000 元 ÷ 6,000 kW；江苏移动南京科创 C2 招标公告，2026-07-31</td><td>官方中标结果或分项报价</td></tr>
+        <tr><td>海外价格参照</td><td class="num">1,440–1,730 元/kW</td><td><span class="tag f" title="Unverified">三级待核</span></td><td>200–240 美元/kW（行业自媒体），汇率 7.2</td><td><strong>不得作为基准值</strong>；M2 或客户访谈替换</td></tr>
+        <tr class="good"><td><strong>冷板液冷毛利率（实证锚点）</strong></td><td class="num"><strong>10.36%</strong></td><td><span class="tag a" title="Actual">实绩</span></td><td>曙光数创 2025 年年度报告，按产品分类分析</td><td>2026 年报/半年报冷板分项毛利率</td></tr>
+        <tr><td>机柜 IT 功率</td><td class="num">135 kW</td><td><span class="tag a" title="Actual">实绩</span></td><td>Lenovo GB300 Product Guide, Table 27（一级原厂规格）</td><td>客户实际机型</td></tr>
+        <tr><td>液冷占比 HCR</td><td class="num">约 90%</td><td><span class="tag a" title="Actual">实绩</span></td><td>同上</td><td>M5 客户平台包</td></tr>
+        <tr><td>服务器价值强度</td><td class="num">21.2 美元/W</td><td><span class="tag e" title="Third-party model">第三方模型</span></td><td>Epoch AI 一 GW AI 数据中心 TCO 模型（二级）</td><td>客户实际 BOM 或备件价格</td></tr>
+        <tr><td>GPU 基板更换成本</td><td class="num">3.5–5.0 万美元</td><td><span class="tag f" title="Tertiary">三级</span></td><td>印度保险行业分析（0.55）</td><td><strong>须以客户实际机型备件价格替换</strong></td></tr>
+        <tr><td>汇率</td><td class="num">7.2 元/美元</td><td><span class="tag m" title="Assumption">假设</span></td><td>—</td><td>结算时汇率</td></tr>
+        <tr><td>行业责任上限惯例</td><td class="num">合同价 10%–20%</td><td><span class="tag f" title="Tertiary">三级</span></td><td>行业指引转引 Womble Bond Dickinson（0.55）</td><td><strong>不得写成行业事实</strong>；M3 客户条款替换</td></tr>
+        <tr><td>性能 LD 惯例</td><td class="num">合同价 10%–15%（宽 5%–25%）</td><td><span class="tag f" title="Tertiary">三级</span></td><td>同上</td><td>同上</td></tr>
+        <tr><td>迟延 LD 上限先例</td><td class="num">合同价 5%</td><td><span class="tag a" title="Actual">实绩</span></td><td>C-DAC 2024 Corrigendum（一级）</td><td>M3 客户条款</td></tr>
+        <tr><td>履约保证金</td><td class="num">合同额 5%</td><td><span class="tag a" title="Actual">实绩</span></td><td>C-DAC（未税）；江苏移动（含税成交额）</td><td>M4 客户条款</td></tr>
+        <tr><td>项目现金周期</td><td class="num">28 周</td><td><span class="tag m" title="Model">推导</span></td><td>W0 下单 → W6 FAT → W7 到货（45 日交期）→ W12 SAT → W16 终验 → W20 回款 + 8 周缓冲</td><td>M4 客户条款 + 实际项目</td></tr>
+        <tr><td>预付款比例（基准）</td><td class="num">0%</td><td><span class="tag a" title="Actual">实绩</span></td><td>佛山/南京/浙江三个公开文件均未见预付款条款</td><td>M4 客户条款</td></tr>
+      </tbody>
+    </table>
+
+    <h3>7.3 依据分级图例</h3>
+    <table>
+      <thead><tr><th scope="col">标记</th><th scope="col">含义</th><th scope="col">处理纪律</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag a" title="Actual">实绩</span></td><td>来自一手披露、官方招标文件、原厂正式规格或内部预算文件，可复核</td><td>可作基准</td></tr>
+        <tr><td><span class="tag e" title="Estimate / third-party model">机构估计／第三方模型</span></td><td>来自可比公司分部披露或第三方研究模型，口径不完全一致</td><td>须标注口径差异</td></tr>
+        <tr><td><span class="tag f" title="Tertiary / unverified">三级待核</span></td><td>二手转述、行业指引、经纪商分析、自媒体</td><td><strong>不得作为基准值，不得写成行业事实</strong>；只可作方向线索或敏感性高位参照</td></tr>
+        <tr><td><span class="tag m" title="Assumption / Model">纯假设／推导</span></td><td>无外部证据的管理层假设，或由上述三类经公式推出</td><td><strong>必须由 RFQ／访谈替换后才能进入决策</strong>；公式必须公开</td></tr>
+        <tr><td><span class="tag na" title="Not Available">无数据</span></td><td>公开证据不足、未披露或口径不匹配</td><td><strong>不得改成 0，不得用二手区间填空</strong></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ 8. 附录 B 来源 ============ -->
+  <section id="ledger">
+    <h2>8. 附录 B：来源台账</h2>
+    <table>
+      <thead>
+        <tr><th scope="col">ID</th><th scope="col">标题／机构</th><th class="num" scope="col">日期</th><th scope="col">位置／条款</th><th scope="col">等级</th><th class="num" scope="col">置信度</th><th scope="col">支持内容</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>S1</td><td><a href="http://static.cninfo.com.cn/finalpage/2026-04-14/1225104669.PDF">曙光数据基础设施创新技术（北京）股份有限公司 2025 年年度报告</a></td><td class="num">2026-04-14</td><td>收入构成／按产品分类分析／按区域分类分析</td><td>一级</td><td class="num">0.95</td><td>A1–A7：冷板液冷 10.36%、浸没 36.49%、服务 51.02%、境外 37.83%</td></tr>
+        <tr><td>S2</td><td>曙光数创 2026 年半年度报告（经财经媒体转述）</td><td class="num">2026-08-25</td><td>主要财务数据；冷板液冷 +290.09%</td><td>三级</td><td class="num">0.80</td><td>A8：2026 H1 收入 2.4594 亿元、归母净利 −7,340 万元、经营现金流 −2.42 亿元</td></tr>
+        <tr><td>S3</td><td><a href="https://disc.static.szse.cn/disc/disk03/finalpage/2026-04-21/2f89a147-3bd6-43e1-9a24-b6d0fbac0641.PDF">深圳市英维克科技股份有限公司 2025 年年度报告</a></td><td class="num">2026-04-21</td><td>分行业／分产品／分地区／分销售模式</td><td>一级</td><td class="num">0.93</td><td>A9–A12：机房温控 28.36%、<strong>境内 23.83% vs 境外 52.64%</strong></td></tr>
+        <tr><td>S4</td><td><a href="https://disc.static.szse.cn/disc/disk03/finalpage/2026-04-27/66d8c358-5299-4978-a3a2-327bf46dc1bc.PDF">广东申菱环境系统股份有限公司 2025 年年度报告</a></td><td class="num">2026-04-27</td><td>分行业／分产品；数据服务板块说明</td><td>一级</td><td class="num">0.93</td><td>A13–A14：数据服务 23.60%、<strong>设备 21.46% vs 解决方案及服务 31.63%</strong></td></tr>
+        <tr><td>S5</td><td><a href="https://investors.modine.com/news/news-details/2026/Modine-Reports-First-Quarter-Fiscal-2027-Results/default.aspx">Modine Reports First Quarter Fiscal 2027 Results</a></td><td class="num">2026-07-29</td><td>Data Centers segment；Gross profit 表</td><td>二级</td><td class="num">0.94</td><td>A15：数据中心分部毛利 20.2%，同比 −960bp</td></tr>
+        <tr><td>S6</td><td><a href="https://www.sec.gov/Archives/edgar/data/1854368/000121390026053566/ea028958501ex10-1.htm">Digi Power X–Cerebras《Data Center Colocation and Master Services Agreement》</a></td><td class="num">生效 2026-05-04；申报 2026-05-08</td><td>Art. 10.1–10.3；11.2(b)–(c)；12.1–12.3；§14.2(b)</td><td><strong>一级</strong></td><td class="num">0.97</td><td>R2–R6 的条款先例：保险清单、漏液归责、间接损失排除、责任上限（额度脱敏）、客户造成损坏</td></tr>
+        <tr><td>S7</td><td><a href="https://www.cdac.in/index.aspx?dynamicId=NjY4MzIzMjM%3D&amp;id=tenders_viewpdf">C-DAC《Integrated DCLC Solutions》招标</a></td><td class="num">2022-12-13</td><td>p.12 §12；p.14–17 §1–9</td><td><strong>一级</strong></td><td class="num">0.96</td><td>第 5.1 节全部付款参数：30% 预付+保函、80% 到货、10% 调试、10% 凭 3% PBG、5% 履约、5 年质保、8h/72h、16 周</td></tr>
+        <tr><td>S8</td><td><a href="https://www.cdac.in/index.aspx?dynamicId=NTIwOTcyMDc%3D&amp;id=tenders_viewpdf">C-DAC《Annexure B – Corrigendum, GEM/2024/B/5031803》</a></td><td class="num">2024-07</td><td>Corrigendum §6–8；ATC §6、§11；预投标问答</td><td><strong>一级</strong></td><td class="num">0.93</td><td>R7：迟延 LD 上限调至 5%；<strong>关键反证</strong>：供应商自拟责任封顶被删除，改为适用 GeM 标准责任条款</td></tr>
+        <tr><td>S9</td><td><a href="https://www.tcil.net.in/tender/pdf/24f2035.pdf">TCIL《ITBD/CDOT/I/2024 Data Centre Turnkey RFP》</a></td><td class="num">2024-05-22</td><td>§3.1–3.13，约 p.30–36</td><td><strong>一级</strong></td><td class="num">0.95</td><td>第 5.5 节：里程碑延伸至带载 6 个月/投运 1 年；「以收到最终客户付款为前提」；3% PBG；CAR 险；LD 最高 10%</td></tr>
+        <tr><td>S10</td><td><a href="https://eprocurement.dei.gr/media/31832/ngapd-3004-teliko.pdf">RFI NGAPD-3004 Critical MEP Equipment for Kozani Data Centre / PPC Greece</a></td><td class="num">2026-02</td><td>p.1–7；§2.4、3、4；CDU questionnaire</td><td><strong>一级</strong></td><td class="num">0.94</td><td>第 2.1 节前提 3：≥5 年制造测试经验、参考项目、DDP、当地服务、关键备件</td></tr>
+        <tr><td>S11</td><td><a href="https://ocp-all.groups.io/g/OCP-DCF/attachment/559/1/OCP%20CDU%20Performance%20&amp;%20Specification%20Guidance%20for%20Modular%20TCS.pdf">OCP《CDU Performance &amp; Specification Guidance for Modular TCS》</a></td><td class="num">版本表记 Target Release: OCP Regional Summit 2026</td><td>§3.6，p.11</td><td>二级</td><td class="num">0.92</td><td>RFQ 模板的 FAT/SAT 项；BMS/DCIM 集成；传感器校准。<strong>是开放规范指导，不自动并入合同</strong></td></tr>
+        <tr><td>S12</td><td><a href="https://www.opencompute.org/documents/base-specification-for-single-phase-water-based-cold-plate-coolant-v1-3-final-pdf">OCP《Base Specification for Single Phase Water-Based Cold Plate Coolants》v1.3</a></td><td class="num">2026-08-06 生效</td><td>§3；§5.3–5.7</td><td><strong>一级</strong></td><td class="num">0.99</td><td>RFQ 模板的工质与 COA 要求</td></tr>
+        <tr><td>S13</td><td><a href="https://lenovopress.lenovo.com/lp2357.pdf">Lenovo GB300 Product Guide</a></td><td class="num">2026-08-13</td><td>Table 27</td><td><strong>一级</strong>（原厂规格）</td><td class="num">0.95</td><td>第 4.2 节：135 kW TDP、约 90% 液冷、Q–ΔP 曲线</td></tr>
+        <tr><td>S14</td><td>Epoch AI《Total cost of ownership of a one-gigawatt AI data center》</td><td class="num">更新 2026-05-14</td><td>分项 servers 21.2 $/W</td><td>二级（第三方模型）</td><td class="num">0.75</td><td>第 4.2 节：服务器价值强度。<strong>是典型化模型，非市场统计</strong></td></tr>
+        <tr><td>S15</td><td>中国移动广东佛山三水智算机房改造一期 CDU 及配套系统询比公告（完整镜像）</td><td class="num">2026-07-22</td><td>采购清单；§1.1、1.4、1.6–1.8</td><td>三级（镜像）</td><td class="num">0.92</td><td>第 1.5 节：6×420 kW、37/45℃ 与 40/50℃、二次侧 3.5 bar、EG20–25、双泵、总价最高限价 1,725,576.99 元、45 日到货、验收后 2 年保修</td></tr>
+        <tr><td>S16</td><td>中国移动江苏公司 2026 年南京科创数据中心 C2 栋液冷 CDU 项目招标公告（完整镜像）</td><td class="num">2026-07-31</td><td>§1.1–1.8；资格 §2.3–2.6</td><td>三级（镜像）</td><td class="num">0.91</td><td>第 1.5 节：12×500 kW、预估 429 万元、4 万元投标保证金、5% 履约保证金、按实结算、施工资质要求</td></tr>
+        <tr><td>S17</td><td>中国移动浙江公司 2026–2027 年液冷 CDU 设备采购项目招标公告（完整镜像）</td><td class="num">2025-12-26</td><td>§1.1、1.5–1.8；§2.3</td><td>三级（镜像）</td><td class="num">0.90</td><td>第 2.1、3.9 节：50×300 kW、68%/32% 份额、45 日到货、终验后 ≥24 月保修、框架至 2028-03-31、<strong>≥200 万元业绩门槛</strong>；单价限价在附件未公开</td></tr>
+        <tr><td>S18</td><td>联通宁夏中卫 DC7 液冷机电 EPC 中标候选人公示（转载原公示）</td><td class="num">2026-03-23</td><td>候选报价；工期/验收</td><td>三级</td><td class="num">0.86</td><td>第 3.9 节：48×500 kW POD；第三方验证 + 最终客户验收。<strong>不可作 CDU ASP</strong></td></tr>
+        <tr><td>S19</td><td><a href="https://www.reedsmith.com/articles/data-centers-bytes-and-rights/liability-clauses-in-data-center-construction-contracts/">Reed Smith《Liability clauses in data center construction contracts》</a></td><td class="num">滚动，访问 2026-09-05</td><td>全文</td><td>二级（律所评论）</td><td class="num">0.85</td><td>第 4.5 节 R1：责任上限按合同价百分比设定；间接损失排除；上限例外的常见范围；<strong>单次事件责任可远超项目价值与可获得保险额度</strong></td></tr>
+        <tr><td>S20</td><td><a href="https://aidatacenterguide.com/part-2-project-delivery-schedule-procurement-contracts-and-risk/2-4-the-contract-stack-and-commercial-legal-framework">《The Definitive Guide to AI Data Centers》§2.4 The Contract Stack</a></td><td class="num">滚动，访问 2026-09-05</td><td>LD 与责任上限段</td><td><strong>三级</strong>（行业指引，转引 Womble Bond Dickinson）</td><td class="num">0.55</td><td>第 4.3 节参照值：性能 LD 常见封顶 10%–15%（宽 5%–25%）；累计责任上限常见 10%–20%。<strong>不得写成行业事实</strong></td></tr>
+        <tr><td>S21</td><td><a href="https://www.nextguardinsurance.com/florida-insurance-blog/ai-data-center-insurance-coverage-gaps-2026">NextGuard《AI Data Center Insurance: Coverage Gaps 2026》</a></td><td class="num">2026</td><td>Coolant release as property damage 段</td><td><strong>三级</strong>（经纪商）</td><td class="num">0.55</td><td>第 4.4 节第 2 层：冷却液释放可能被按污染/渐变渗漏除外；PFAS 除外。<strong>须以保单原件替换</strong></td></tr>
+        <tr><td>S22</td><td><a href="https://sarvada.ai/industry-risk-profiles/data-centre-advanced-cooling-insurance-india">Sarvada《Data Centre Advanced Cooling Insurance》（印度 hyperscale）</a></td><td class="num">滚动，访问 2026-09-05</td><td>DLC failure modes 段</td><td><strong>三级</strong></td><td class="num">0.55</td><td>第 4.3 节：约 50 ml 冷却液滴落造成基板更换 3.5–5.0 万美元；CDU/Manifold 故障可级联 32–72 柜；EEI 与 M&amp;BD 灰区；渐变劣化除外</td></tr>
+        <tr><td>S23</td><td>行业价格与竞争分析（券商研报汇总、行业自媒体，多篇）</td><td class="num">2026</td><td>—</td><td><strong>三级</strong></td><td class="num">0.40–0.45</td><td>P5：集中招标年均降价 5%–8%；P6：国内 CDU 约 1,000 元/kW、海外 200–240 美元/kW。<strong>均不得引用为事实，只作访谈验证问题</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn">
+      <strong>引用纪律：</strong>S20、S21、S22、S23 为三级来源。任何进入董事会材料或对外文件的引用，<strong>必须保留等级标注与置信度</strong>，且不得写成法规、标准或行业事实。三级来源的百分比区间（责任上限 10%–20%、性能 LD 10%–15%、年降 5%–8%、海外 200–240 美元/kW）在取得客户书面条款或书面报价后<strong>必须替换</strong>。
+    </div>
+  </section>
+
+  <!-- ============ 9. 附录 C 工具包 ============ -->
+  <section id="toolkit">
+    <h2>9. 附录 C：工具包索引与使用顺序</h2>
+    <table>
+      <thead>
+        <tr><th scope="col">工具</th><th scope="col">文件</th><th scope="col">用途</th><th scope="col">对应任务</th><th scope="col">使用时机</th></tr>
+      </thead>
+      <tbody>
+        <tr class="good"><td><strong>一｜RFQ 四 SKU 物料询价模板</strong></td><td><code>tools/RFQ_四SKU物料询价模板_20260905.md</code></td><td>取得 100/200/300/450 kW 四档、同工况同边界的书面报价。含统一工况说明（热工水力、冗余可维护、电气控制、结构接口、试验文件）、9 张物料表（泵组、换热器、UQD/Manifold、阀件过滤脱气、传感仪表、控制电气、结构钣金、工质、制造测试服务）、供应商能力与商务条件表、供应商自查清单</td><td><strong>M1</strong></td><td><strong>立即发出。这是全案第一优先动作</strong></td></tr>
+        <tr class="good"><td><strong>二｜客户访谈提纲</strong></td><td><code>tools/客户访谈提纲_采购与责任_20260905.md</code></td><td>分五类对象（中小云／IDC-Colo／运营商／OEM／EPC）各 10–15 题，覆盖采购流程、决策人、qualification 周期、验收标准、付款条款、责任分配、更换供应商触发条件。含按缺口分组的跨对象追问库、访谈记录模板、访谈完成标准</td><td><strong>M2、M4、M5、M6、M7</strong></td><td>与工具一并行启动</td></tr>
+        <tr class="good"><td><strong>三｜合同条款审查清单</strong></td><td><code>tools/合同条款审查清单_20260905.md</code></td><td>8 大类 60 余条，每条标注红线／可谈判／可接受，覆盖责任与赔偿、保险、验收、质保、PG 与 LD、付款担保与现金、知识产权与保密、变更终止。含 8 条红线汇总表、6 条准红线、红线的量化依据、审查结论页与条款先例来源</td><td><strong>M3</strong></td><td>取得任何客户合同草案时立即启用；同时用于向保险人询价</td></tr>
+        <tr><td>研究底稿｜毛利率锚点</td><td><code>temp/research-validation-pack/findings/evidence-01-margin-anchors.md</code></td><td>21 项毛利率锚点台账、口径边界警示、对倒推模型的直接含义</td><td>第 1、3 章底稿</td><td>复核第 1.2、3.6 节时</td></tr>
+        <tr><td>研究底稿｜价格趋势与责任保险</td><td><code>temp/research-validation-pack/findings/evidence-02-price-trend-and-liability.md</code></td><td>8 项降价压力信号、9 项责任惯例、7 项漏液损失量级证据、保险承保与除外结构清单</td><td>第 1、4 章底稿</td><td>复核第 1.4、4.3、4.4 节时</td></tr>
+        <tr><td>研究底稿｜模型与复算</td><td><code>temp/research-validation-pack/findings/model-03-reverse-price-liability-cash.md</code></td><td>全部参数、公式、逐项复算记录、模型失效条件</td><td>第 3、4、5、7 章底稿</td><td><strong>独立复算本文件全部数字时</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="callout ok">
+      <strong>推荐执行顺序：</strong>
+      <ol>
+        <li><strong>第 1 周：</strong>发出工具一（RFQ）至每类物料 ≥3 家供应商；启动工具二（访谈）预约，优先中小云与 EPC。</li>
+        <li><strong>第 2–4 周：</strong>完成 ≥4 场访谈，取得 M4（付款条款）与 M5（平台包）线索；用工具三向 2 家保险经纪询价。</li>
+        <li><strong>第 4–6 周：</strong>回收 RFQ 报价，计算实际 BOM 元/kW，重跑第 3.4–3.8 节；判定 H1／H2／H3。</li>
+        <li><strong>第 6–8 周：</strong>取得 M3（责任条款 + 保险报价），用工具三红线汇总表逐条判定；形成 G1 前置门的完整结论。</li>
+        <li><strong>第 8 周决策点：</strong>M1、M3、M4、M5 四项齐备则可提交样机与 NRE 的 245 万元支出审批；任一项缺失则暂停并复核缺口一（客户准入）是否真正打开。</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 10. 决策变化 ============ -->
+  <section id="delta" class="page-break">
+    <h2>10. 本包改变了哪些决策判断</h2>
+    <p class="lead">本章列出本包相对 v3.2 报告与 v2.1 BP 所改变的判断。这些改变不来自新的市场数据，而来自把已有证据重新组织成约束条件。</p>
+
+    <table>
+      <thead>
+        <tr><th scope="col">#</th><th scope="col">原判断（v3.2 / v2.1）</th><th scope="col">本包的判断</th><th scope="col">依据</th><th scope="col">决策后果</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>ASP 与毛利为「无数据」，因此单位经济不可判断，需等待书面报价</td><td><strong>虽仍无数据，但已可判断「价格必须落在哪个区间」，而该区间与国内运营商公开采购的价格上限不重叠</strong></td><td>把两个包价样本折算为元/kW（684.75 / 715.00，收敛 4.4%），与同边界成本下界 840 元/kW 对照</td><td><strong>国内运营商裸设备渠道从「待验证机会」降级为「待排除假说」。</strong>阶段一不应以运营商项目为主要目标</td></tr>
+        <tr><td><strong>2</strong></td><td>「液冷毛利」不可验证，40%–60% 已删除但无替代锚点</td><td><strong>已有可复算的实证锚点 10.36%，且趋势向下（2026 H1 冷板收入 +290% 而净亏损扩大）。倒推所需毛利率 27%–37%，缺口 4–27 个百分点</strong></td><td>曙光数创 2025 年报可独立复算；2026 半年报趋势确认</td><td><strong>「提高国内定价」不再是可选项（无实证支持）。可选项收窄为：降 BOM、转海外、转服务、降固定费用、不进入</strong></td></tr>
+        <tr class="good"><td><strong>3</strong></td><td>海外市场作为「区域进入顺序」的一个选项，与国内并列</td><td><strong>海外与服务是唯一有一手实证支持的毛利来源。三家公司独立验证：境外 52.64% vs 境内 23.83%；服务 31.63%/51.02% vs 设备 21.46%/10.36%</strong></td><td>英维克、申菱、曙光 2025 年报分地区与分产品毛利率</td><td><strong>业务定位从「国内液冷设备供应商」转向「出口/海外服务业务或方案服务业务」。这改变了产品定义、能力建设顺序与人才结构</strong></td></tr>
+        <tr class="bad"><td><strong>4</strong></td><td>责任额度为「无数据」，责任封顶列为需争取的合同条款</td><td><strong>责任封顶是业务成立的前提条件，不是谈判条款。单台 200 kW CDU 覆盖的 IT 资产是合同额的 237 倍、项目毛利的 2,290 倍；一块基板损坏即等于 17–24 个项目的全部毛利</strong></td><td>Lenovo GB300 功率（一级）+ Epoch AI 价值强度（二级）+ 曙光毛利率（一级）的组合推导</td><td><strong>R1–R6 升级为红线：无法达成即不接单，且这一判断先于定价。同时新增第 4 层「技术故障隔离」为产品定义的必需项，而非事后缓解措施</strong></td></tr>
+        <tr class="bad"><td><strong>5</strong></td><td>阶段一目标为「产品—客户验证」，上限 800 万元，现金跑道为 NA</td><td><strong>阶段一在结构上不可能达到盈亏平衡：现金约束下年交付能力 1.86 MW，仅为 F2 盈亏平衡点（7.80 MW）的 23.8%。且并行项目数硬约束为 1 个 1 MW 项目</strong></td><td>峰值现金 91 万元/MW × 可用营运资金 110 万元；项目周期 28 周</td><td><strong>阶段一目标必须改写为证据里程碑，不得设收入或台数目标。任何「阶段一收入 X 万元」的目标在数学上要求突破现金约束</strong></td></tr>
+        <tr class="bad"><td><strong>6</strong></td><td>验收延迟作为现金压力情景之一（+30/+60/+90 天）</td><td><strong>回款延迟容忍度仅 11.2 周，而已核验合同的验收付款尾部为 16–52 周以上。即按公开合同的常见结构，单个项目就会击穿阶段一现金结构</strong></td><td>B3 公式 + C-DAC 16 周 + TCIL 30–52 周</td><td><strong>争取预付款从「优化项」升级为「生存条件」（30% 预付款把 B3 从 11.2 周延长到 17.1 周）；拒绝 pay-when-paid 升级为准红线</strong></td></tr>
+        <tr><td><strong>7</strong></td><td>SAM/SOM 为无数据，份额待项目池闭环后计算</td><td><strong>份额不由预测生成，由准入事件解锁。每一条可核验的规模化路径都走了三扇门：14 年自建平台、单一大客户产能协议、或被平台收购。没有一条是「产品好 + 价格有竞争力」</strong></td><td>曙光/申菱约 14 年路径；Modine 40 亿美元产能协议 + 1.65 亿美元预付款；CoolIT/Boyd/Motivair 被收购</td><td><strong>管理动作从「做份额假设」改为「执行 E1–E8 事件清单」。E1（付费 PoC）与 E6（保险与责任范本）是解锁其余事件的两个关键节点</strong></td></tr>
+        <tr class="good"><td><strong>8</strong></td><td>G1 门禁列出十余项要求，但未区分先后与成本</td><td><strong>最小验证集的前四项（M1、M3、M4、M5）合计成本 &lt;5 万元、周期 6–8 周，却决定 245 万元的样机与 NRE 是否应该花。保护比 49:1</strong></td><td>BP §10 资金用途表 + 各取证任务的周期成本估算</td><td><strong>样机与 NRE 支出置于四项前置证据门之后。在四项齐备前，包括「先小批量试做」在内的任何样机采购不得启动</strong></td></tr>
+        <tr class="good"><td><strong>9</strong></td><td>客户分层按项目规模与决策链长短划分</td><td><strong>客户分层同时决定责任敞口量级。低密度存量改造客户的敞口是高密 GB300 集群的 1/4.71</strong></td><td>40 kW/柜 × 5 柜 × 5 美元/W = 720 万元 vs 3,392 万元</td><td><strong>阶段一客户选择的第一原则从「决策链短」变为「敞口低且决策链短」。技术隔离与客户选择是同一件事的两面</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout risk">
+      <h4 style="margin-top:0">一句话总结</h4>
+      <p style="margin-bottom:0">本包没有找到新的市场机会，而是把四个「未知」变成了四个「约束」，并因此发现：<strong>这个业务如果成立，它不是一个国内运营商招标业务，而是一个受责任封顶保护、以海外或服务收入为毛利来源、由准入事件逐步解锁、并在现金上一次只能做一个项目的窄口径业务。</strong>阶段一的正确动作是用不到 5 万元、6–8 周取得四项书面证据，据此决定是否投入 245 万元——而不是先做样机再找客户。</p>
+    </div>
+
+    <div class="footer">
+      <p><strong>算力冷却 · 验证与决策包 v1.0 / 20260905</strong>　数据截止日 2026-09-05</p>
+      <p>本文件为内部决策材料，不构成证券投资建议、产品认证或采购承诺。全部倒推与参数化模型回答「必须达到什么」，不回答「将会达到什么」；任何把倒推结果作为预测引用的行为均属误用。</p>
+      <p>本文件不修改《算力冷却商业调研报告 v3.2_20260822》与《算力冷却系统新业务 BP v2.1_20260822》的任何内容。</p>
+      <p>总体 valid_until：2026-12-31（价格与现金参数）／2027-03-31（责任结构）。四 SKU 书面报价、任一官方 CDU 分项中标价、客户书面责任或付款条款、曙光数创冷板分项毛利率更新，将提前触发全面复核。</p>
+      <p><a href="#top">返回顶部</a></p>
+    </div>
+  </section>
+
+  </main>
+</div>
+</body>
+</html>

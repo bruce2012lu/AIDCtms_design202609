@@ -1,0 +1,1435 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>算力冷却商业调研报告 v2.8 Risk-buffered</title>
+  <style>
+    :root{--ink:#172033;--muted:#5b6578;--line:#d9e1ef;--blue:#1f5eff;--navy:#0b1f3a;--bg:#f5f7fb;--ok:#0f8a5f;--warn:#b7791f;--accent:#7a3bff}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.75 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+    .page{max-width:1180px;margin:0 auto;background:white;min-height:100vh;box-shadow:0 10px 40px rgba(10,31,68,.08)}
+    header{padding:52px 64px 34px;background:linear-gradient(135deg,#0b1f3a,#133c78 62%,#1f5eff);color:white}
+    header .kicker{letter-spacing:.16em;text-transform:uppercase;opacity:.85;font-size:13px}
+    h1{font-size:42px;line-height:1.2;margin:14px 0 10px}
+    .subtitle{font-size:18px;opacity:.92;max-width:880px}
+    .meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .pill{border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.12);font-size:13px}
+    nav{padding:28px 64px;border-bottom:1px solid var(--line);background:#fbfcff}
+    nav h2{margin:0 0 14px;font-size:18px;color:var(--navy)}
+    .toc-part{margin:14px 0 6px;font-weight:700;color:var(--accent);font-size:14px;letter-spacing:.05em}
+    .toc-list{columns:2;column-gap:42px;margin-bottom:10px}
+    .toc-list a{display:block;color:#18345f;text-decoration:none;margin:3px 0;font-size:14px}
+    .toc-list a:hover{text-decoration:underline}
+    main{padding:38px 64px 64px}
+    .part-divider{margin:48px 0 22px;padding:18px 22px;border-left:6px solid var(--accent);background:linear-gradient(90deg,#f3edff,transparent);border-radius:8px}
+    .part-divider .label{color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:13px}
+    .part-divider .title{font-size:22px;font-weight:700;color:var(--navy);margin-top:4px}
+    .part-divider .desc{color:var(--muted);font-size:14px;margin-top:6px}
+    section{margin:0 0 38px}
+    h2{font-size:24px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:9px;margin:0 0 16px}
+    h3{font-size:18px;margin:22px 0 10px;color:#173b70}
+    .lead{font-size:17px;color:#23314d;background:#f1f6ff;border-left:5px solid var(--blue);padding:16px 20px;border-radius:8px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}
+    .num{font-size:25px;font-weight:700;color:var(--blue)}
+    table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px}
+    th{background:#102a4c;color:#fff;text-align:left;font-weight:600}
+    th,td{border:1px solid var(--line);padding:10px 11px;vertical-align:top}
+    tr:nth-child(even) td{background:#f8fafd}
+    .tag{display:inline-block;border-radius:6px;padding:2px 7px;font-size:12px;font-weight:700}
+    .verified{background:#e8f7f0;color:var(--ok)}
+    .estimate{background:#fff3d6;color:var(--warn)}
+    .callout{border:1px solid #c9d8ff;background:#f4f7ff;border-radius:12px;padding:16px 18px;margin:18px 0}
+    .risk{border-color:#ffd0d0;background:#fff7f7}
+    .overview-page{padding:38px 64px 44px;background:#fff;min-height:900px;border-bottom:1px solid var(--line);break-after:page}
+    .overview-page h2{font-size:28px}
+    .overview-page .decision{font-size:18px;font-weight:700;color:var(--navy);padding:14px 18px;background:#eef4ff;border-left:6px solid var(--blue);border-radius:8px}
+    .overview-page .three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+    .overview-page .mini{border:1px solid var(--line);border-radius:10px;padding:13px;background:#fbfcff}
+    .overview-page .mini b{display:block;color:var(--blue);font-size:20px}
+    ul{padding-left:22px}
+    ol{padding-left:22px}
+    .small{color:var(--muted);font-size:13px}
+    .footer{border-top:1px solid var(--line);padding-top:18px;margin-top:30px;color:var(--muted);font-size:13px}
+    @media print{
+      body{background:white}.page{box-shadow:none}.toc-list{columns:1}
+      header,nav,main{padding-left:28px;padding-right:28px}
+      section,.part-divider{break-inside:avoid}
+      .overview-page{min-height:auto;break-after:page}
+      a{color:inherit}
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="kicker">Commercial Research Report · v2.8 Risk-buffered</div>
+    <h1>算力冷却商业调研报告</h1>
+    <div class="subtitle">面向 AI 智算中心液冷系统新业务立项：市场机会、行业格局、产品路线与商业化策略</div>
+    <div class="meta">
+      <span class="pill">更新至 2026 年 8 月</span>
+      <span class="pill">中国起步 · 东南亚/中东扩展 · 全球主流市场</span>
+      <span class="pill">核心产品：高度集成 CDU + 芯片级 PCB 冷板</span>
+      <span class="pill">配套交付：《算力冷却系统新业务BP》</span>
+    </div>
+  </header>
+
+  <section class="overview-page" id="one-page-overview">
+    <h2>两页概述①｜市场趋势与需求判断</h2>
+    <div class="decision">先看市场再谈立项：AI算力、电力约束和机柜功率密度共同推动液冷从“可选优化”转为高密算力基础设施，但市场规模口径差异大，不能把服务器整机、液冷产业和液冷设备收入直接相加。</div>
+    <div class="three">
+      <div class="mini"><b>1,880 EFLOPS</b>中国智能算力规模（2026Q1，FP16，国家数据局）</div>
+      <div class="mini"><b>82 → 219 GW</b>全球关键IT容量需求（2025E→2030F，McKinsey持续动量情景）</div>
+      <div class="mini"><b>485 → 950 TWh</b>全球数据中心用电（2025E→2030F，IEA）</div>
+    </div>
+    <h3>四条确定性趋势</h3>
+    <table>
+      <thead><tr><th>趋势</th><th>可靠信号</th><th>对液冷需求的含义</th><th>需要警惕</th></tr></thead>
+      <tbody>
+        <tr><td><strong>算力基础设施继续扩张</strong></td><td>中国2025年末在用算力设施超过1,373万标准机架；全球关键IT容量持续增长</td><td>新建智算中心和存量改造共同形成需求</td><td>规划容量不等于已融资、已并网或已形成订单</td></tr>
+        <tr><td><strong>单柜热密度跨越风冷边界</strong></td><td>GB200/GB300 NVL72约120–142 kW；Vera Rubin采用100%液冷</td><td>冷板、CDU、Manifold、UQD和控制成为系统级刚需</td><td>必须区分IT功率、液体热负荷和CDU额定工况</td></tr>
+        <tr><td><strong>液冷进入规模化阶段</strong></td><td>Dell'Oro：全球液冷设备收入约$3B（2025E）→$7B（2029F）</td><td>设备、集成、调试和运维均有增长空间</td><td>IDC整机口径和CAICT产业口径不可与设备TAM相加</td></tr>
+        <tr><td><strong>能效和电网约束强化</strong></td><td>中国大型/超大型数据中心PUE≤1.25、枢纽节点≤1.2；全球数据中心用电上升</td><td>温水液冷、余热利用和系统控制价值提高</td><td>PUE受负载、气候、冷源和配电影响，不能归因于单一设备</td></tr>
+      </tbody>
+    </table>
+    <h3>区域机会排序</h3>
+    <div class="three">
+      <div class="mini"><b>中国｜近期主市场</b>需求体量最大；优先筛选已并网、有上架计划且付款条件清晰的项目</div>
+      <div class="mini"><b>东南亚｜第一出海站</b>柔佛等区域扩张快、高温高湿，本地交付和售后是关键</div>
+      <div class="mini"><b>中东｜高潜项目市场</b>主权AI规划大，但须区分live、在建和远期规划容量</div>
+    </div>
+    <p class="small">判断结论：市场方向成立，真正可服务市场取决于客户准入、认证周期、接口兼容、项目回款和本地服务，而不是仅由行业CAGR决定。</p>
+  </section>
+
+  <section class="overview-page" id="ecosystem-commercial-overview">
+    <h2>两页概述②｜生态观察与商业规划</h2>
+    <div class="decision">生态决定进入路径：算力平台/OEM掌握接口与认证，头部热管理厂商正走向全栈整合，新进入者应先在未充分服务市场建立交付与现金闭环，再凭客户验证进入主流供应链。</div>
+    <h3>生态观察</h3>
+    <table>
+      <thead><tr><th>生态层</th><th>关键参与者</th><th>正在发生的变化</th><th>本业务切入点</th></tr></thead>
+      <tbody>
+        <tr><td><strong>算力平台与整机</strong></td><td>NVIDIA、华为、Lenovo、Dell、Supermicro及ODM</td><td>机柜功率上升，液路接口、流量、压降、水质和冗余由平台生态定义</td><td>先做接口兼容和联合验证，不能只按CDU铭牌功率销售</td></tr>
+        <tr><td><strong>热管理方案商</strong></td><td>Vertiv、Schneider/Motivair、CoolIT、英维克等</td><td>竞争从单设备升级为“冷板+CDU+设施侧+软件+全球服务”</td><td>避开头部认证客户正面竞争，以快速响应和本地服务切入</td></tr>
+        <tr><td><strong>关键部件供应链</strong></td><td>泵、板换、UQD、阀件、传感器、PLC、冷板厂商</td><td>国产化加速，但可靠性、批量一致性和责任边界仍是采购核心</td><td>关键件双源、供应商书面规格、完全成本和质保准备金</td></tr>
+        <tr><td><strong>标准与客户准入</strong></td><td>OCP、YD/T、国标、运营商及OEM测试体系</td><td>标准趋于统一，额定工况、性能曲线和第三方验证成为入场券</td><td>把测试认证和客户书面认可设为扩张硬门禁</td></tr>
+      </tbody>
+    </table>
+    <h3>商业三步走</h3>
+    <table>
+      <thead><tr><th>阶段</th><th>市场打法</th><th>投入上限</th><th>解锁条件</th><th>阶段目标</th></tr></thead>
+      <tbody>
+        <tr><td><strong>① 利基切入</strong><br>2027 · M0–M12</td><td>中小云、区域IDC和存量改造；标准化系统+快速交付+本地服务</td><td><strong>¥800万</strong></td><td>1,000h、≥2个付费项目、回款≥¥1,200万、完全成本毛利≥30%</td><td>证明产品、付费与现金闭环</td></tr>
+        <tr><td><strong>② 梯度扩张</strong><br>2028 · M13–M24</td><td>进入OEM/ODM生态和运营商项目；完成第三方与联合客户验证</td><td><strong>最高¥1,200万</strong></td><td>客户书面认可、无重大可靠性事件、现金跑道≥6个月</td><td>获得准入和批量复制资格</td></tr>
+        <tr><td><strong>③ 主流市场</strong><br>2029+ · M25–M36+</td><td>联合开发芯片级冷板和高价值部件，进入全球高密算力供应链</td><td><strong>最高¥1,500万</strong></td><td>明确NRE/采购意向；无客户牵引不建产线</td><td>形成IP、较高毛利和全球期权</td></tr>
+      </tbody>
+    </table>
+    <div class="three">
+      <div class="mini"><b>资金纪律</b>三期合计最高¥3,500万，按G1/G2逐期解锁</div>
+      <div class="mini"><b>条件性风险改善</b>总支出不增加时，Y1现金约¥180万→¥380万</div>
+      <div class="mini"><b>No-Go</b>未达门禁即冻结下一期、招聘和非关键CapEx</div>
+    </div>
+    <p class="small">董事会当前只需决定是否批准首期¥800万验证及风险缓冲预算；后两期不是承诺额度，而是门禁达成后的条件期权。</p>
+  </section>
+
+  <nav>
+    <h2>目录</h2>
+
+    <div class="toc-part">第一篇 · 市场机会（WHY：值不值得做）</div>
+    <div class="toc-list">
+      <a href="#sec-summary">1. 执行摘要与阅读指南</a>
+      <a href="#sec-compute">2. 算力建设与 AI 机柜趋势</a>
+      <a href="#sec-cooling">3. 冷却技术与液冷市场</a>
+      <a href="#sec-tech-deep">3A. 核心产品技术路线调研（CDU + PCB 冷板）</a>
+      <a href="#sec-global">4. 全球与出海市场（含 2024–2032 年度框架）</a>
+    </div>
+
+    <div class="toc-part">第二篇 · 行业格局（WHAT：谁在玩、玩什么、怎么买）</div>
+    <div class="toc-list">
+      <a href="#sec-competition">5. 竞争格局与竞品对标</a>
+      <a href="#sec-customers">6. 客户分层与采购决策</a>
+      <a href="#sec-supply">7. 价值链与供应链</a>
+      <a href="#sec-policy">8. 政策、标准与认证</a>
+    </div>
+
+    <div class="toc-part">第三篇 · 战略与产品（HOW：我们怎么打）</div>
+    <div class="toc-list">
+      <a href="#sec-product">9. 产品路线与技术指标</a>
+      <a href="#sec-strategy">10. 商业策略与商业模式</a>
+      <a href="#sec-bp-align">11. 与 BP 口径一致性</a>
+    </div>
+
+    <div class="toc-part">第四篇 · 风险与附录</div>
+    <div class="toc-list">
+      <a href="#sec-risk">12. 风险与对策</a>
+      <a href="#sec-sources">13. 数据来源、参考资料与不确定性</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="callout" style="background:#fffaf0;border-color:#f3d088;margin:0 0 24px">
+      <strong>货币与单位约定（适用于本报告所有数字）：</strong>
+      <ul style="margin:6px 0 0">
+        <li><strong>人民币：</strong>使用 "¥" 或 "元 / 万元 / 亿元" 后缀，例如 ¥800 万、184 亿元（RMB）。</li>
+        <li><strong>美元：</strong>使用 "$" 或 "亿美元 / 万美元" 后缀，例如 $21–55 亿（USD）、$50–100/套。</li>
+        <li><strong>未注明币种的"亿"或"万"：</strong>默认为人民币；如有 $ 符号或紧邻 "美元" 字样，则为美元。</li>
+        <li><strong>容量与算力单位：</strong>电力容量 W/kW/MW/GW；算力 PFLOPS/EFLOPS/ZFLOPS（按厂商口径标注 FP4/FP8/FP16）；机柜密度 kW/柜；热流密度 W/cm²；热阻 ℃/W 或 K/W。</li>
+        <li><strong>时间口径：</strong>年份直接写明（如 2024、2025E 估算 / 2026F 预测）；财年与日历年一致。</li>
+        <li><strong>数据性质标签：</strong><span class="tag verified">已核实</span>=来自政府文件 / 行业白皮书 / 上市公司公告 / 第三方权威研究；<span class="tag estimate">估算</span>=多源交叉测算或行业访谈口径，仅作战略参考。</li>
+      </ul>
+    </div>
+
+    <!-- ============== 第一篇 ============== -->
+    <div class="part-divider">
+      <div class="label">PART I</div>
+      <div class="title">第一篇 · 市场机会（WHY：值不值得做）</div>
+      <div class="desc">从算力建设、机柜趋势、冷却技术与全球出海四个角度，回答“为什么此时切入算力冷却市场”。</div>
+    </div>
+
+    <section id="sec-summary">
+      <h2>1. 执行摘要与阅读指南</h2>
+      <p class="lead">液冷正从 AI 智算中心的“可选项”转为高密算力的基础设施。核心驱动来自三重约束：GB200 NVL72 约 120 kW、GB300 NVL72 约 120 kW且官方架构上限 142 kW；PUE 政策要求新建及改扩建大型/超大型数据中心≤1.25、枢纽节点≤1.2；以及 Rubin NVL72 等新平台采用 100% 液冷与 45℃温水设计。需要强调：NVIDIA 尚未官方披露 Rubin NVL72 为“600 kW 单柜”，Rubin Ultra NVL576 是 8 个 NVL72 机架组成的多机架域。</p>
+      <div class="grid">
+        <div class="card"><div class="num">1,880 EFLOPS</div><div>中国智能算力规模（2026Q1，FP16，国家数据局）<span class="tag verified">官方</span></div></div>
+        <div class="card"><div class="num">$3B → $7B</div><div>全球数据中心液冷厂商收入 2025E→2029F（Dell'Oro）<span class="tag verified">已核源</span></div></div>
+        <div class="card"><div class="num">485→950 TWh</div><div>全球数据中心用电 2025E→2030F（IEA）<span class="tag verified">已核源</span></div></div>
+      </div>
+      <div class="callout"><strong>v2.8 更新：</strong>市场历史数据口径不变；配套BP业务仍于2027年启动。三期上限调整为800/1,200/1,500万元，合计最高3,500万元；增量优先用于测试、客户验证、周转和现金缓冲。</div>
+
+      <h3>1.1 五条核心结论</h3>
+      <ol>
+        <li>液冷正进入规模化阶段，但“2025 年 20% → 2027 年 &gt;50% → 2030 年 82%”属于行业推演而非统一统计口径；商业决策应更多跟踪液冷设备收入、整机出货和客户项目。</li>
+        <li>CDU、快接头和冷板是高壁垒部件；公开毛利率多为产业链估算而非厂商分部披露，立项须用询价 BOM 和试制良率复核。</li>
+        <li>建议采用<strong>“高度集成 CDU（含控制系统）+ 芯片级 PCB 冷板”</strong>双核心产品路线，分三步演进（中小云 CDU → 大厂认证级 CDU → 芯片 PCB 冷板）。</li>
+        <li>商业化采用<strong>滩头阵地战略 + 梯度扩张</strong>：第一阶段聚焦中小云、区域 IDC、出海高温市场（东南亚/中东），第二阶段进入华为/英伟达生态，第三阶段攻全球主流高端市场。</li>
+        <li>与配套《算力冷却系统新业务BP》的三期注资上限800/1,200/1,500万元及里程碑门禁保持一致；三年营收目标仍须由项目、台数和回款自下而上验证。</li>
+      </ol>
+
+      <h3>1.2 阅读指南</h3>
+      <table>
+        <tr><th>篇章</th><th>回答什么问题</th><th>建议读者</th></tr>
+        <tr><td>第一篇 市场机会</td><td>为什么此时切入算力冷却市场（市场规模、机柜趋势、技术演进、全球出海）</td><td>决策层、投资人、立项评审</td></tr>
+        <tr><td>第二篇 行业格局</td><td>谁在玩、谁来买、靠什么准入（竞争、客户、供应链、政策）</td><td>战略/市场/BD 团队</td></tr>
+        <tr><td>第三篇 战略与产品</td><td>本业务怎么打（产品三级路线、商业模式、与 BP 的财务/融资口径）</td><td>产品/研发/财务/创始人</td></tr>
+        <tr><td>第四篇 风险与附录</td><td>主要风险点与缓释、数据来源与不确定性</td><td>全体</td></tr>
+      </table>
+    </section>
+
+    <section id="sec-compute">
+      <h2>2. 算力建设与 AI 机柜趋势</h2>
+      <p class="lead">冷却需求不是由“数据中心面积”决定，而是由 AI 服务器/整柜的算力密度、功耗密度与单柜设备价值决定。AI 服务器正从“8 卡机”走向“整柜级算力产品”，冷却系统也从机房配套升级为整柜 BOM 的关键组成。</p>
+
+      <h3>2.1 中国算力与数据中心建设总盘</h3>
+      <table>
+        <tr><th>指标</th><th>数值</th><th>年份/口径</th><th>性质</th></tr>
+        <tr><td>中国数据中心整体市场规模</td><td>430 亿元 → 1532 亿元（CAGR≈20%）</td><td>2017→2024</td><td><span class="tag verified">已核实</span></td></tr>
+        <tr><td>中国在用算力中心/算力设施标准机架</td><td>超过 900 万架 → 1,085 万架 → 超过 1,373 万架</td><td>2024 年末 → 2025.06 → 2025 年末</td><td><span class="tag verified">国家数据局/信通院；统计边界有变化</span></td></tr>
+        <tr><td>中国智算中心投资规模</td><td>879 亿元 → 1,014 亿元 → 1,356 亿元</td><td>2023 → 2024 → 2025E</td><td><span class="tag verified">已核实+估算</span></td></tr>
+        <tr><td>中国智能算力规模</td><td>788 → 1,590 → 1,880 EFLOPS（FP16）；2025 年已建成 42 个万卡级智算集群</td><td>2025.06 → 2025 年末 → 2026Q1</td><td><span class="tag verified">工信部 / 国家数据局</span></td></tr>
+        <tr><td>中国算力中心用电</td><td>1,700 亿 kWh → 8,000 亿 kWh；占全社会用电 1.6% → 约 6%</td><td>2025A → 2030F</td><td><span class="tag verified">国家能源局</span></td></tr>
+        <tr><td>全球数据中心用电</td><td>415 TWh → 485 TWh → 950 TWh；均为 IEA 模型估计/预测</td><td>2024E → 2025E → 2030F</td><td><span class="tag verified">IEA 2025/2026</span></td></tr>
+      </table>
+      <p class="small">口径提示：2024 年“算力中心”、2025 年“算力设施”的调查覆盖范围可能不同；2025 年中 788 EFLOPS 与年末 1,590 EFLOPS 也存在时点和统计总体变化，不能直接计算半年增速。全球 415/485 TWh 不是统一计量的审计实际值，本文标为 E。</p>
+
+      <h3>2.2 机柜功率密度跃迁</h3>
+      <p>传统风冷在约 15–30 kW/柜后经济性和部署复杂度快速恶化。GB200/GB300 已把整柜功率推至约 120–142 kW；Vera Rubin NVL72 采用 100% 液冷、支持 45℃液体冷却并在 2026 年下半年由伙伴供货。微软已部署闭式 D2C 液冷，但没有找到“2025 年 2 月起所有 Azure AI 一律强制 D2C”的官方依据，本文删除该表述。</p>
+      <table>
+        <tr><th>机型/代际</th><th>单机柜功率</th><th>GPU 单芯 TDP</th><th>冷却要求</th><th>商业含义</th></tr>
+        <tr><td>传统风冷机柜</td><td>6–15 kW，上限约 15–20 kW</td><td>-</td><td>风冷</td><td>仅适合低密存量负载</td></tr>
+        <tr><td>H100/H200 高密 AI 集群</td><td>50–100+ kW</td><td>约 700–1000 W</td><td>冷板液冷为主</td><td>冷板液冷成为新建 AIDC 主流</td></tr>
+        <tr><td>NVIDIA GB200 NVL72</td><td>约 120 kW</td><td>约 1000 W</td><td>主要热源液冷，部分部件仍风冷</td><td>CDU、冷板与 Manifold 成为基础配置</td></tr>
+        <tr><td>NVIDIA GB300 NVL72</td><td>约 120 kW；官方架构上限 142 kW</td><td>未采用非官方单芯估值</td><td>全机架液冷架构</td><td>高可靠 CDU 与功率平滑协同</td></tr>
+        <tr><td>Vera Rubin NVL72</td><td>官方未披露固定机架功率</td><td>-</td><td>100% 液冷；45℃液体冷却</td><td>温水冷却与控制协同成为门槛</td></tr>
+        <tr><td>Rubin Ultra NVL576</td><td>8 个 NVL72 机架组成多机架域，不是单柜</td><td>-</td><td>液冷 + 800VDC 路线</td><td>机会转向 Pod 级并联与 2 MW CDU</td></tr>
+      </table>
+
+      <h3>2.3 主流 AI 服务器/机柜产品规格与单柜价值</h3>
+      <table>
+        <tr><th>产品形态</th><th>典型配置</th><th>单柜算力</th><th>单柜功率</th><th>单柜设备价值</th><th>冷却要求</th><th>冷却商业含义</th></tr>
+        <tr><td>传统通用服务器机柜</td><td>2U/4U CPU 服务器，20–40 台/柜</td><td>以 CPU 通用算力为主</td><td>6–15 kW</td><td>约 50–200 万元/柜 <span class="tag estimate">估算</span></td><td>风冷</td><td>液冷价值低，存量改造市场</td></tr>
+        <tr><td>8 卡 GPU 服务器集群</td><td>HGX A100/H100/H200，4–8 台/柜</td><td>约 10–40 PFLOPS（FP16/FP8）<span class="tag estimate">估算</span></td><td>30–80 kW</td><td>约 500–1,500 万元/柜 <span class="tag estimate">估算</span></td><td>风冷增强或冷板液冷</td><td>CDU/冷板/快接头开始标配</td></tr>
+        <tr><td>NVIDIA GB200 NVL72 整柜</td><td>72 GPU + 36 Grace CPU，NVLink 域整柜</td><td>约 1.4 EFLOPS（FP4）<span class="tag estimate">公开换算</span></td><td>约 120–132 kW</td><td>约 2,000–3,500 万元/柜 <span class="tag estimate">估算</span></td><td>强制 D2C 液冷</td><td>CDU/冷板/UQD/Manifold 全链路刚需</td></tr>
+        <tr><td>NVIDIA GB300 NVL72</td><td>Blackwell Ultra 代际，整柜液冷</td><td>较 GB200 显著提升</td><td>参考架构约 142 kW</td><td>随整机配置与合同变化，不给统一报价</td><td>整柜液冷 + 高可靠冗余</td><td>认证级 CDU 与近芯片冷板价值上升</td></tr>
+        <tr><td>Vera Rubin / Rubin Ultra</td><td>Rubin NVL72 与多机架 NVL576 计算域</td><td>平台级性能跃迁</td><td>Rubin 固定机架功率未官方披露；NVL576 为 8 个 NVL72 机架</td><td>未公开</td><td>100% 液冷；最高约 45℃供液</td><td>高温水、MW 级设施侧 CDU 与多机架集成能力上升</td></tr>
+        <tr><td>国产 AI 整柜/集群</td><td>华为昇腾、昆仑、海光/寒武纪等</td><td>因芯片与组网差异较大</td><td>30–150 kW/柜</td><td>约 300–2,000 万元/柜 <span class="tag estimate">估算</span></td><td>冷板液冷逐步普及</td><td>国产化项目重视自主可控，本土 CDU 友好</td></tr>
+      </table>
+
+      <h3>2.4 200/300/450 kW CDU 对应哪些厂商机柜</h3>
+      <p class="lead">必须区分四个量：<strong>整柜 IT 功率、液冷带热比例、CDU 在指定工况下的有效冷量、系统级冗余</strong>。选型公式为：Q<sub>design</sub> = Σ(P<sub>IT</sub> × HCR × 同时负载系数) × (1 + 工程余量)。泵 N+1 只代表 CDU 内部泵冗余，不等于系统具有 N+1 CDU 容量。</p>
+      <table>
+        <thead><tr><th>机柜/平台</th><th>官方功率基线</th><th>液冷架构/带热比例</th><th>公开液路要求</th><th>严谨结论</th></tr></thead>
+        <tbody>
+          <tr><td>NVIDIA DGX GB200 NVL72</td><td>约 120 kW/柜；8 柜 SuperPOD SU 的设施 TDP 为 1.2 MW</td><td>混合冷却：CPU/GPU 等高功耗部件液冷，其余部件风冷</td><td>公开资料未给统一的机柜液体热负荷和流量；需 NVIDIA/OEM 项目热设计表</td><td>不能把 120 kW 直接当作 CDU 液冷负荷；按整柜功率选型属于保守上界</td></tr>
+          <tr><td>NVIDIA GB300 NVL72</td><td>最高 142 kW/柜；8 柜 SU 设施 TDP 1.2 MW</td><td>混合冷却；高功耗部件 D2C，仍有风冷余热</td><td>公开资料未给统一液体热负荷/流量</td><td>200 kW 容量段可覆盖单柜总功率上界，但接口、流量和压降仍须 OEM 确认</td></tr>
+          <tr><td>华为 Atlas 900 A3 计算柜</td><td>最大支持 66 kW 供电</td><td>官方称计算柜散热液冷比最高约 70%，随配置变化；D2C 规划液体热负荷上界约 46 kW/柜</td><td>公开的 62/74 LPM 与 46/81 kPa 参数明确针对“可选液冷门”，不能代替冷板 Manifold 回路参数</td><td>若余热也由液冷门带走，总液体负荷可能高于 46 kW；正式选型须取得《系统关键参数》</td></tr>
+          <tr><td>Lenovo N1380 Neptune</td><td>三套 enclosure 满配约 162 kW DC/柜</td><td>全系统直接温水冷却，无内部风扇，液体带热接近整柜负荷</td><td>处理水；入口温度最高 45℃</td><td>200 kW CDU 可覆盖 1 柜满配 N1380，并留约 23% 名义余量</td></tr>
+          <tr><td>Supermicro DLC-2</td><td>最高约 250 kW/柜</td><td>官方最高 98% 系统热捕获，液体热负荷可接近 245 kW</td><td>官方 4U In-Rack CDU 最高 250 kW；温水最高 45℃</td><td>200 kW 不足以覆盖满配 250 kW 柜；300 kW 档可覆盖单柜并留规划余量</td></tr>
+          <tr><td>Dell IR7000 / PowerRack 7000</td><td>液冷母排最高支持约 504 kW/柜</td><td>近 100% 热捕获设计</td><td>按具体 sled/OEM 配置确定</td><td>200/300/450 kW 单台均不能覆盖 504 kW 满配柜；应采用 ≥550 kW 额定档或并联 CDU</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th>CDU 额定档位</th><th>按 10% 规划余量的示例覆盖</th><th>不能直接承诺的场景</th></tr></thead>
+        <tbody>
+          <tr><td><strong>200 kW</strong></td><td>1× GB200 或 GB300（按整柜功率保守）；约 2–3× Atlas A3（按 66 kW 总热量上界/46 kW D2C 负荷）；1× Lenovo N1380</td><td>满配 Supermicro 250 kW 柜、Dell 504 kW 柜</td></tr>
+          <tr><td><strong>300 kW</strong></td><td>2× GB200 或 1× GB300；约 4–5× Atlas A3；1× N1380；1× Supermicro DLC-2 250 kW 柜</td><td>2× GB300 按整柜功率加 10% 后约 312 kW；2× N1380 为 356 kW</td></tr>
+          <tr><td><strong>450 kW</strong></td><td>3× GB200 或 2× GB300；约 6–8× Atlas A3；2× N1380；1× Supermicro 250 kW 柜</td><td>3× GB300 加 10% 后约 469 kW；Dell 504 kW 满配柜</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>额定冷量不是固定常数：</strong>Vertiv XDU450 的名义 453 kW 建立在 4℃ approach temperature difference（ATD）等指定工况下；改变一次/二次侧温度、流量、压降或工质后，有效冷量会变化。OCP Deschutes 的 2 MW 则明确对应 3℃ ATD、500 GPM、80–90 psi 和 N+1 无密封泵。200/300/450 kW 产品规格必须同步声明额定工况和性能曲线。</div>
+      <p class="small">上表“10%余量”仅为本报告统一比较假设，不是行业强制值。正式项目应按客户可靠性等级设置余量，并校核单 CDU 故障时剩余设备是否承担 100% 设计负荷。</p>
+
+      <h3>2.5 单柜价值拆解：为什么冷却系统值得单独创业</h3>
+      <table>
+        <tr><th>机柜类型</th><th>单柜设备价值</th><th>冷却价值占比</th><th>冷却系统单柜价值</th><th>高价值部件</th><th>商业判断</th></tr>
+        <tr><td>传统风冷机柜</td><td>50–200 万元</td><td>2%–5%</td><td>1–10 万元</td><td>末端空调、风扇、气流</td><td>价值量低，非本项目核心</td></tr>
+        <tr><td>H100/H200 高密冷板柜</td><td>500–1,500 万元</td><td>5%–10%</td><td>30–120 万元</td><td>CDU、冷板、快接头、Manifold</td><td>中小云/IDC 第一阶段抓手</td></tr>
+        <tr><td>GB200/GB300 整柜</td><td>2,000–5,000 万元</td><td>6%–12%</td><td>120–500 万元</td><td>认证 CDU、UQD、冷板、监控控制</td><td>进入大厂生态后弹性大</td></tr>
+        <tr><td>Rubin/MW 级整柜</td><td>≥5,000 万元</td><td>8%–15%</td><td>400–1,000 万元+</td><td>高集成 CDU、冷媒/两相、PCB 冷板</td><td>L3 阶段决定上限</td></tr>
+      </table>
+
+      <h3>2.6 算力建设方分层（Tier 1 / Tier 2 / Tier 3）</h3>
+      <table>
+        <tr><th>层级</th><th>代表建设方</th><th>建设特点</th><th>采购逻辑</th><th>冷却进入路径</th></tr>
+        <tr><td>Tier 1 全球 Hyperscaler / 主权 AI</td><td>Microsoft、AWS、Google、Meta、Oracle、OpenAI/Stargate、G42、HUMAIN、NEOM</td><td>单项目数百 MW–GW 级，最新 GPU 整柜</td><td>极致 TCO、全球认证、长期供货、生态兼容</td><td>中长期目标；需先有认证级 CDU 与标杆案例</td></tr>
+        <tr><td>Tier 1 中国头部云/运营商</td><td>阿里云、腾讯云、字节、百度、移动、电信、联通、华为云</td><td>大规模集采，国产化 + PUE 约束强</td><td>入围名录、价格、可靠性、交付规模</td><td>第二阶段以认证级 CDU 切入</td></tr>
+        <tr><td>Tier 2 区域云/中小云/第三方 IDC</td><td>区域智算运营商、中小云、Colo/IDC、GPU 租赁</td><td>1–20 MW 或百柜级，决策快</td><td>交付速度、预算、PUE 达标、运维简便</td><td>第一阶段滩头阵地</td></tr>
+        <tr><td>Tier 2 出海区域建设方</td><td>马来西亚/印尼/泰国 IDC、本地运营商、中资云出海、中东本地集成商</td><td>高温高湿，本地工程与服务重要</td><td>高温适配、本地合规、EPC、备件</td><td>高温 CDU + 远程运维 + 冷媒接口预留</td></tr>
+        <tr><td>Tier 3 企业/科研/行业</td><td>金融、制造、科研、地方超算、私有云</td><td>规模较小、需求碎片化</td><td>项目制、可靠性、性价比、售后</td><td>样机验证与灯塔项目</td></tr>
+      </table>
+
+      <h3>2.7 算力服务器与冷却系统的五个趋势</h3>
+      <ul>
+        <li><strong>产品形态整柜化：</strong>AI 服务器从 8 卡机转向 GB200/GB300 整柜级，冷却必须与机柜/网络/供电一体化设计。</li>
+        <li><strong>功率密度快速上行：</strong>2025–2026 高端 AI 柜进入约 120–142 kW；更高代际功率尚待官方规格，不把多机架 NVL576 误写为单柜。</li>
+        <li><strong>冷却价值量提升：</strong>高端 AI 机柜冷却系统价值可达百万元级，CDU/冷板/控制权重上升。</li>
+        <li><strong>采购门槛认证化：</strong>Tier 1 客户依赖认证与生态名录；Tier 2 客户更看交付速度、价格、运维与 PUE。</li>
+        <li><strong>近芯片散热前移：</strong>瓶颈从机房级冷源转向芯片封装附近，PCB 冷板、微通道、两相/冷媒成为高端差异化方向。</li>
+      </ul>
+    </section>
+
+
+    <section id="sec-cooling">
+      <h2>3. 冷却技术与液冷市场</h2>
+      <p class="lead">冷板式是“务实主力”，浸没/两相是“性能天花板”；本业务以 CDU 与控制系统切入，外购冷板/快接头/歧管/管路完成集成，再向认证级 CDU 与芯片级 PCB 冷板延伸。</p>
+
+      <h3>3.1 五条技术路线对比</h3>
+      <table>
+        <tr><th>路线</th><th>适用场景</th><th>PUE/能力</th><th>成熟度</th><th>市场份额（液冷内）</th><th>商业判断</th></tr>
+        <tr><td>风冷</td><td>传统低密机柜</td><td>PUE 1.4–1.6，上限约 15–20 kW/柜</td><td>最高</td><td>—</td><td>存量补充，难满足新建 AIDC</td></tr>
+        <tr><td>冷板液冷（D2C）</td><td>中高密 AI 机柜、存量改造</td><td>PUE 1.15–1.25；60–150 kW/柜</td><td>高</td><td><strong>~65%</strong></td><td>中短期主流，最佳切入点</td></tr>
+        <tr><td>单相浸没</td><td>超高密、超算、定制机房</td><td>PUE 1.05–1.10</td><td>中</td><td>~34%（含两相）</td><td>高性能但改造难</td></tr>
+        <tr><td>两相浸没 / 冷媒冷却</td><td>极高热流密度、芯片级散热</td><td>PUE ~1.05；相变潜热最强</td><td>早期规模化</td><td>含于浸没</td><td>中东/高温地区与下一代 GPU 前瞻卡位</td></tr>
+        <tr><td>喷淋液冷</td><td>高密定制</td><td>PUE ~1.1</td><td>低</td><td>~1%</td><td>份额有限</td></tr>
+      </table>
+
+      <h3>3.2 中国液冷市场与渗透率路径</h3>
+      <table>
+        <tr><th>指标</th><th>数值</th><th>年份/口径</th><th>来源/性质</th></tr>
+        <tr><td>中国智算中心液冷产业</td><td>184 亿元（+66.1%）</td><td>2024E</td><td><span class="tag verified">信通院测算</span></td></tr>
+        <tr><td>中国智算中心液冷市场</td><td>约 1,300 亿元</td><td>2029F</td><td><span class="tag estimate">信通院预测</span></td></tr>
+        <tr><td>中国液冷服务器整机市场</td><td>23.7 亿美元；出货量超过 23 万台</td><td>2024E</td><td><span class="tag verified">IDC 官方跟踪</span></td></tr>
+        <tr><td>中国液冷服务器市场 CAGR</td><td>46.8%，2029 年达 162 亿美元</td><td>2024E→2029F</td><td><span class="tag verified">IDC 已核源</span></td></tr>
+      </table>
+      <table>
+        <tr><th>年份</th><th>2024E</th><th>2025M</th><th>2026M</th><th>2027M</th><th>2028M</th><th>2029F</th><th>2030M</th><th>2031M</th><th>2032M</th></tr>
+        <tr><td>中国液冷服务器整机（亿美元，IDC 口径）</td><td><strong>23.7</strong></td><td>34.8</td><td>51.1</td><td>75.1</td><td>110.3</td><td><strong>162.0</strong></td><td>210.6</td><td>256.9</td><td>295.5</td></tr>
+        <tr><td>中国智算中心液冷产业（亿元，CAICT 口径）</td><td><strong>184</strong></td><td>272</td><td>402</td><td>595</td><td>879</td><td><strong>1,300</strong></td><td>1,690</td><td>2,062</td><td>2,371</td></tr>
+      </table>
+      <p class="small">E=机构对历史年份的跟踪/测算；F=机构远期预测；M=本文模型。2025–2028 按机构端点 CAGR 插值；2029 后不再机械延续约 47%–48% 高增速，基准情景采用 2030/2031/2032 增长 30%/22%/15%。IDC 与 CAICT 产品边界不同，不得相加；2030–2032 均非机构原始预测。</p>
+
+      <h3>3.3 全球液冷市场：口径分层</h3>
+      <table>
+        <tr><th>机构</th><th>2024/2025 规模</th><th>远期规模</th><th>CAGR</th><th>口径</th></tr>
+        <tr><td><strong>Dell'Oro（主口径）</strong></td><td>接近 $3B（2025）</td><td>约 $7B（2029）</td><td>约 24%（据端点计算）</td><td>全球数据中心液冷设备厂商收入；最接近本业务 TAM</td></tr>
+        <tr><td>Dell'Oro DLC 子口径</td><td>$1.1B（2024）</td><td>$5.8B（2029）</td><td>约 39%</td><td>直接液冷；预计仍为主流</td></tr>
+        <tr><td>MarketsandMarkets（宽口径敏感性）</td><td>$2.84B（2025）</td><td>$21.14B（2032）</td><td>33.2%</td><td>解决方案 + 安装/集成/维护等服务；不可与 Dell'Oro 相加</td></tr>
+        <tr><td>IDC 中国口径</td><td>$2.37B（2024）</td><td>$16.2B（2029）</td><td>46.8%</td><td>液冷服务器整机，不等于液冷部件收入</td></tr>
+        <tr><td>CAICT 中国口径</td><td>¥184 亿元（2024）</td><td>约 ¥1,300 亿元（2029）</td><td>约 48%</td><td>智算中心液冷产业测算，边界宽于设备收入</td></tr>
+        <tr><td>其他商业研究机构</td><td>$2.1B–$6.6B（2024/2025）</td><td>远期差异显著</td><td>18%–33%</td><td>定义与历史版本常有重估，仅作敏感性参考</td></tr>
+      </table>
+      <p class="small">口径纪律：市场规模必须同时写明“地域 + 产品边界 + 收入口径 + 基准年”。本文不再使用缺少统一边界的份额点估值作为财务输入。</p>
+
+      <h3>3.4 单机柜热管理价值链拆解</h3>
+      <table>
+        <tr><th>部件</th><th>价值量占比</th><th>平均毛利率</th><th>新业务建议</th></tr>
+        <tr><td>冷板（Cold Plate）</td><td>约 41%</td><td>20%–30%；高端定制 40%–60%</td><td>初期外购；L3 阶段切入芯片级 PCB 冷板</td></tr>
+        <tr><td>CDU</td><td>约 32%</td><td><strong>40%–60%</strong></td><td><strong>L1 自研，掌握控制系统</strong></td></tr>
+        <tr><td>快接头 / UQD</td><td>约 14%</td><td><strong>40%–50%</strong></td><td>初期外购，后期联合开发</td></tr>
+        <tr><td>Manifold（歧管）</td><td>约 13%</td><td>30%–35%</td><td>外购集成，保留设计接口能力</td></tr>
+      </table>
+      <p class="small">冷却液 5% 左右；管路阀门 10% 左右。CDU 是系统“心脏与控制中枢”，ASP 与技术壁垒最高。</p>
+    </section>
+
+    <section id="sec-tech-deep">
+      <h2>3A. 核心产品技术路线调研（CDU + 芯片级 PCB 冷板）</h2>
+      <p class="lead">本章在 §3 行业级技术路线基础上，进一步深入到本公司两大核心自研产品的<strong>系统架构、子系统选型、工艺路线、IP/专利格局</strong>层面，为产品立项、研发分工、专利布局和供应商谈判提供工程级依据。所有数据均标注【已核实】/【估算】，并尽量给出公开来源出处。</p>
+
+      <h3>3A.1 CDU 系统架构与配置形态</h3>
+      <p>CDU（Coolant Distribution Unit，冷量分配单元）的核心职责是：在<strong>一次侧（设施侧 FWS, Facility Water System）</strong>与<strong>二次侧（IT 侧 TCS, Technology Cooling System）</strong>之间做<strong>热量交换 + 流量分配 + 压差稳定 + 水质保护 + 漏液隔离</strong>。它既是一台机电产品，更是一台工业控制器。</p>
+
+      <div style="border:1px solid var(--line);border-radius:12px;padding:14px 18px;background:#fbfcff;overflow-x:auto;margin:10px 0 18px">
+        <svg viewBox="0 0 1080 360" width="100%" style="max-width:1080px;font-family:'Microsoft YaHei',sans-serif;font-size:12px" xmlns="http://www.w3.org/2000/svg">
+          <!-- 标题 -->
+          <text x="540" y="20" text-anchor="middle" font-weight="700" fill="#0b1f3a" font-size="14">图 3A-1 · L2L 液冷 CDU 系统框图（一次侧 FWS / 二次侧 TCS / 控制层）</text>
+
+          <!-- 一次侧 FWS 区域 -->
+          <rect x="20" y="50" width="200" height="260" fill="#eef4ff" stroke="#1f5eff" stroke-dasharray="4,3" rx="8"/>
+          <text x="120" y="68" text-anchor="middle" font-weight="700" fill="#1f5eff">一次侧 FWS</text>
+          <text x="120" y="84" text-anchor="middle" fill="#5b6578">（设施侧冷却水 W17/W27/W32）</text>
+          <rect x="40" y="100" width="160" height="36" fill="#fff" stroke="#1f5eff" rx="6"/>
+          <text x="120" y="123" text-anchor="middle">冷却塔 / 干冷器 / 冷水机组</text>
+          <rect x="40" y="150" width="160" height="36" fill="#fff" stroke="#1f5eff" rx="6"/>
+          <text x="120" y="173" text-anchor="middle">一次侧循环泵 + 调节阀</text>
+          <rect x="40" y="200" width="160" height="36" fill="#fff" stroke="#1f5eff" rx="6"/>
+          <text x="120" y="223" text-anchor="middle">水处理 / 补水 / 软化</text>
+          <rect x="40" y="250" width="160" height="36" fill="#fff" stroke="#1f5eff" rx="6"/>
+          <text x="120" y="273" text-anchor="middle">FWS 流量 / 温度传感</text>
+
+          <!-- CDU 本体 -->
+          <rect x="260" y="50" width="380" height="260" fill="#f7f3ff" stroke="#7a3bff" stroke-width="1.5" rx="8"/>
+          <text x="450" y="68" text-anchor="middle" font-weight="700" fill="#7a3bff">CDU 本体（本公司自研核心）</text>
+          <rect x="280" y="84" width="160" height="36" fill="#fff" stroke="#7a3bff" rx="6"/>
+          <text x="360" y="107" text-anchor="middle">板式换热器 PHE</text>
+          <rect x="460" y="84" width="160" height="36" fill="#fff" stroke="#7a3bff" rx="6"/>
+          <text x="540" y="107" text-anchor="middle">缓冲箱 / 膨胀箱</text>
+          <rect x="280" y="132" width="160" height="36" fill="#fff" stroke="#7a3bff" rx="6"/>
+          <text x="360" y="155" text-anchor="middle">双泵 N+1（屏蔽/磁力）</text>
+          <rect x="460" y="132" width="160" height="36" fill="#fff" stroke="#7a3bff" rx="6"/>
+          <text x="540" y="155" text-anchor="middle">电磁阀 / 止回阀 / 过滤</text>
+          <rect x="280" y="180" width="160" height="36" fill="#fff" stroke="#7a3bff" rx="6"/>
+          <text x="360" y="203" text-anchor="middle">冷却液处理（脱气/补液）</text>
+          <rect x="460" y="180" width="160" height="36" fill="#fff" stroke="#7a3bff" rx="6"/>
+          <text x="540" y="203" text-anchor="middle">温/压/流/漏液传感</text>
+          <rect x="280" y="228" width="340" height="36" fill="#0b1f3a" rx="6"/>
+          <text x="450" y="251" text-anchor="middle" fill="#fff">PLC 控制器 + 触摸屏 HMI + 远程 IO</text>
+          <rect x="280" y="272" width="340" height="28" fill="#1f5eff" rx="6"/>
+          <text x="450" y="291" text-anchor="middle" fill="#fff">Modbus / SNMP / Redfish / MQTT 对外接口</text>
+
+          <!-- 二次侧 TCS -->
+          <rect x="680" y="50" width="200" height="260" fill="#eef9f3" stroke="#0f8a5f" stroke-dasharray="4,3" rx="8"/>
+          <text x="780" y="68" text-anchor="middle" font-weight="700" fill="#0f8a5f">二次侧 TCS</text>
+          <text x="780" y="84" text-anchor="middle" fill="#5b6578">（IT 侧低导电去离子水）</text>
+          <rect x="700" y="100" width="160" height="36" fill="#fff" stroke="#0f8a5f" rx="6"/>
+          <text x="780" y="123" text-anchor="middle">机柜 Manifold + UQD</text>
+          <rect x="700" y="150" width="160" height="36" fill="#fff" stroke="#0f8a5f" rx="6"/>
+          <text x="780" y="173" text-anchor="middle">服务器节点入口 QD</text>
+          <rect x="700" y="200" width="160" height="36" fill="#fff" stroke="#0f8a5f" rx="6"/>
+          <text x="780" y="223" text-anchor="middle">芯片冷板（GPU/CPU/HBM）</text>
+          <rect x="700" y="250" width="160" height="36" fill="#fff" stroke="#0f8a5f" rx="6"/>
+          <text x="780" y="273" text-anchor="middle">回流 Manifold + 漏液托盘</text>
+
+          <!-- 上位 DCIM/BMS -->
+          <rect x="900" y="50" width="160" height="120" fill="#fff3d6" stroke="#b7791f" stroke-dasharray="4,3" rx="8"/>
+          <text x="980" y="70" text-anchor="middle" font-weight="700" fill="#b7791f">DCIM / BMS / AI</text>
+          <text x="980" y="92" text-anchor="middle">SaaS 监控</text>
+          <text x="980" y="112" text-anchor="middle">PdM 故障预测</text>
+          <text x="980" y="132" text-anchor="middle">AI 节能优化</text>
+          <text x="980" y="152" text-anchor="middle">BMS 联动停机</text>
+
+          <!-- 连接箭头 -->
+          <g stroke="#1f5eff" stroke-width="2" fill="none">
+            <path d="M220 118 L260 102" marker-end="url(#arrow-blue)"/>
+            <path d="M220 168 L260 152" marker-end="url(#arrow-blue)"/>
+          </g>
+          <g stroke="#0f8a5f" stroke-width="2" fill="none">
+            <path d="M640 102 L680 118" marker-end="url(#arrow-green)"/>
+            <path d="M640 152 L680 168" marker-end="url(#arrow-green)"/>
+          </g>
+          <g stroke="#b7791f" stroke-width="2" fill="none" stroke-dasharray="5,3">
+            <path d="M620 286 L900 130" marker-end="url(#arrow-orange)"/>
+          </g>
+
+          <!-- 箭头定义 -->
+          <defs>
+            <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <path d="M0,0 L0,8 L8,4 z" fill="#1f5eff"/>
+            </marker>
+            <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <path d="M0,0 L0,8 L8,4 z" fill="#0f8a5f"/>
+            </marker>
+            <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <path d="M0,0 L0,8 L8,4 z" fill="#b7791f"/>
+            </marker>
+          </defs>
+
+          <!-- 底注 -->
+          <text x="540" y="340" text-anchor="middle" fill="#5b6578">蓝色＝一次侧（设施水）；紫色＝CDU 本体（本公司核心自研）；绿色＝二次侧（IT 侧）；橙色＝上位监控/AI 接口</text>
+        </svg>
+      </div>
+
+      <h4>3A.1.1 CDU 七大子系统</h4>
+      <table>
+        <tr><th>子系统</th><th>关键组件</th><th>核心指标</th><th>选型/工程难点</th><th>本公司策略</th></tr>
+        <tr><td>① 换热单元</td><td>板式换热器 PHE（钎焊式/可拆式）</td><td>换热效率、压降、耐压、抗结垢</td><td>板片不锈钢/钛、钎焊密封、近端温差 ΔT≤1.5℃</td><td>外购阿法拉伐/Danfoss/SWEP；国产舒瑞普/三花</td></tr>
+        <tr><td>② 循环动力</td><td>双泵 N+1（屏蔽泵/磁力泵/离心泵）+ 变频器</td><td>流量、扬程、效率、MTBF、噪声</td><td>无密封防漏、热待机切换、变频低速噪声、轴承寿命</td><td>L1 国产飞龙/南方水泵；L2 联合开发屏蔽泵</td></tr>
+        <tr><td>③ 阀路与过滤</td><td>电磁阀、止回阀、平衡阀、Y 型/篮式过滤、自动泄压</td><td>压损、密封、可清洗</td><td>不锈钢/铜镍/PVDF 选材抗腐蚀；100 μm 过滤 + 旁路</td><td>国产标准件，关键阀位双源</td></tr>
+        <tr><td>④ 缓冲与补给</td><td>缓冲箱 / 膨胀罐 / 自动补液 / 脱气器</td><td>容积、压力、自动控制</td><td>系统稳压 ±20 kPa；自动排气与脱气</td><td>自研结构件 + 标准件</td></tr>
+        <tr><td>⑤ 水质保护</td><td>软化树脂、离子交换、UV、生物抑制</td><td>电导率、pH、TOC、微生物</td><td>二次侧电导率 &lt;10 μS/cm；与冷板/快接头材料兼容</td><td>合作工质厂联调</td></tr>
+        <tr><td>⑥ 控制与监控</td><td>PLC + I/O + HMI + 传感器（温/压/流/漏液/液位）</td><td>采样率、控制精度、协议</td><td>±0.5℃ 温控、±2% 流量、毫秒级漏液响应</td><td><strong>本公司核心壁垒，自研控制策略</strong></td></tr>
+        <tr><td>⑦ 二次侧接口</td><td>UQD / 盲插快接头 / Manifold 接口</td><td>盲插对位、零滴漏、流量等级</td><td>OCP UQD / NVIDIA MGX 兼容；C/D 等级带宽</td><td>外购 Parker/CPC/CEJN 或国产鼎通/溯联</td></tr>
+      </table>
+
+      <h4>3A.1.2 CDU 配置形态对比（机房级 / Row / In-Row / In-Rack / Side-Car）</h4>
+      <table>
+        <tr><th>形态</th><th>容量等级</th><th>占地</th><th>失效域</th><th>布署灵活度</th><th>ASP 区间</th><th>典型场景</th></tr>
+        <tr><td>机房级 L2L（Hall/Gallery）</td><td>1 MW – 2.5 MW <span class="tag verified">已核实</span></td><td>大（独立机房）</td><td>大（整 Pod）</td><td>低，需统一管路</td><td>$150K–$350K（约 ¥110–250 万）<span class="tag estimate">估算</span></td><td>Hyperscaler / GW 级 AI 工厂</td></tr>
+        <tr><td>Row CDU（落地式）</td><td>300 kW – 1.35 MW <span class="tag verified">已核实</span></td><td>中（占 1 个机柜位）</td><td>4–10 个机柜</td><td>中</td><td>$60K–$180K（约 ¥45–130 万）<span class="tag estimate">估算</span></td><td>GB200/GB300 NVL72 整柜部署</td></tr>
+        <tr><td>In-Row CDU（行间）</td><td>200 – 800 kW</td><td>中（占 0.5 柜位）</td><td>2–6 个机柜</td><td>中高</td><td>$50K–$140K（约 ¥38–100 万）<span class="tag estimate">估算</span></td><td>区域 IDC / 中小云改造</td></tr>
+        <tr><td>In-Rack CDU（机内 4–10 U）</td><td>15 – 300 kW <span class="tag verified">已核实</span></td><td>小（占 4–10U）</td><td>单机柜</td><td>高，可滚动部署</td><td>$25K–$70K（约 ¥18–50 万）<span class="tag estimate">估算</span></td><td>边缘 AI / 实验室 / 私有 AI 推理</td></tr>
+        <tr><td>Side-Car CDU（机柜外挂）</td><td>50 – 200 kW</td><td>小（贴柜旁挂）</td><td>1–2 个机柜</td><td>很高，零基础改造</td><td>$30K–$90K（约 ¥22–65 万）<span class="tag estimate">估算</span></td><td>风冷机房改造液冷的过渡方案</td></tr>
+        <tr style="background:#f4f7ff"><td colspan="7"><strong>本公司形态选择：</strong>L1 主推 <strong>In-Rack 50–150 kW</strong>（4U–8U）+ <strong>Side-Car 100–200 kW</strong>（用于存量改造），失效域小、改造成本低、对中小云/出海最友好；L2 进入 <strong>Row CDU 300–500 kW</strong> 段，与英伟达 NVL72/华为 Atlas 整柜配套；L3 阶段不主推机房级，避免与 Vertiv/Schneider 正面竞争。</td></tr>
+      </table>
+      <p class="small">来源综合：Vertiv/Schneider/DCD 2026 评测、Supermicro LCS-SCDU/LiquidStack CDU-1MW/Motivair MCDU 公开规格、Lianliwork 2026 In-Rack vs In-Row 对比。</p>
+
+      <h3>3A.2 CDU 五条技术路线对比</h3>
+      <table>
+        <tr><th>路线</th><th>冷却介质</th><th>单柜散热能力</th><th>PUE 目标</th><th>漏液风险</th><th>改造难度</th><th>整柜成本指数（风冷=1）</th><th>典型供应商</th><th>对本业务合适度</th></tr>
+        <tr><td>① 冷板水冷 CDU（单相）</td><td>去离子水 + 防冻剂（PG25/EG30）</td><td>50–200 kW（峰值 300 kW）<span class="tag verified">已核实</span></td><td>1.15–1.25</td><td>中（正压有滴漏风险）</td><td>低，可与风冷混合</td><td>1.3–1.8</td><td>Vertiv、CoolIT、英维克、申菱、高澜</td><td><strong>★★★★★ L1 首选</strong></td></tr>
+        <tr><td>② 负压（真空）液冷 CDU</td><td>去离子水（系统压力 -20 ~ -50 kPa）</td><td>30–150 kW <span class="tag estimate">估算</span></td><td>1.15–1.20</td><td><strong>极低（吸入空气而非外漏）</strong></td><td>中，需密封工艺</td><td>1.5–2.0</td><td>曙光数创、华为部分方案、Iceotope（部分产品）</td><td>★★★★ 出海/金融场景差异化</td></tr>
+        <tr><td>③ 两相冷板 / 冷媒 CDU</td><td>HFO/HFE/R1234ze 等低 GWP 冷媒</td><td>100–400 kW，热流密度 100+ W/cm² <span class="tag estimate">估算</span></td><td>1.05–1.15</td><td>低（蒸发即吸热，无液相外漏）</td><td>高，需冷媒回路设计</td><td>2.0–2.8</td><td>ZutaCore、Accelsius、Chilldyne 部分、台达预研</td><td>★★★ L3 接口预留，2027+ 卡位</td></tr>
+        <tr><td>④ 单相浸没 CDU</td><td>合成烃/矿物油/氟化液（PAO/FC-3284）</td><td>整箱 100–200 kW <span class="tag verified">已核实</span></td><td>1.05–1.10</td><td>低（无外漏但需维护）</td><td>极高，需重构机柜</td><td>2.5–3.2</td><td>Submer、GRC、LiquidStack、高澜、广东合一</td><td>★★ 不主推，仅做接口学习</td></tr>
+        <tr><td>⑤ 两相浸没 CDU</td><td>低沸点氟化液（FC-72/HFE-7000/Novec）</td><td>200+ kW，热流密度可达 50–80 W/cm²</td><td>1.03–1.08（极致）</td><td>低（蒸发回流）</td><td>极高，需密封整箱</td><td>3.0–4.0</td><td>LiquidStack、3M（已退出工质）、Allied Control</td><td>★ 短期不进入；跟踪国产工质替代</td></tr>
+      </table>
+
+      <h3>3A.3 CDU 关键技术参数与设计权衡</h3>
+
+      <h4>3A.3.1 容量等级阶梯</h4>
+      <table>
+        <tr><th>容量</th><th>形态建议</th><th>典型应用</th><th>BOM 成本指数（50 kW=1）</th><th>本公司路线</th></tr>
+        <tr><td>50 kW</td><td>In-Rack 4U–6U</td><td>实验室 / 单 GPU 服务器 / 边缘 AI</td><td>1.0</td><td>L1 入门款</td></tr>
+        <tr><td>100 kW</td><td>In-Rack 6U–10U</td><td>H100/H200 8 卡柜</td><td>1.6</td><td>L1 主推</td></tr>
+        <tr><td>150 kW</td><td>In-Rack 10U / Side-Car</td><td>GB200 NVL72 单柜（132 kW + 10% 余量）</td><td>2.1</td><td>L1 主推</td></tr>
+        <tr><td>200 kW</td><td>Side-Car / In-Row</td><td>GB300 NVL72 参考架构约 142 kW，含工程余量</td><td>2.6</td><td>L1 上限 / L2 起点</td></tr>
+        <tr><td>300 kW</td><td>In-Row / Row</td><td>2 个 GB300 柜 / 国产昇腾整柜</td><td>3.5</td><td>L2 主推</td></tr>
+        <tr><td>450 kW</td><td>Row CDU 落地式</td><td>NVL72 + 网络柜组 / 小型 Pod</td><td>4.8</td><td>L2 高端</td></tr>
+        <tr><td>1 MW 及以上</td><td>机房级 Hall</td><td>Rubin Ultra / 主权 AI 工厂</td><td>9.0+</td><td><strong>不主推</strong>，避免与 Vertiv 正面竞争</td></tr>
+      </table>
+
+      <h4>3A.3.2 二次侧温度区间（ASHRAE TC9.9 / W-class）</h4>
+      <table>
+        <tr><th>等级</th><th>供水温度</th><th>典型应用</th><th>冷源</th><th>对应 PUE</th><th>本公司支持</th></tr>
+        <tr><td>W17</td><td>≤17℃</td><td>风冷+液冷混合、CPU 通用</td><td>冷水机组（机械制冷）</td><td>1.30–1.40</td><td>兼容但不主推</td></tr>
+        <tr><td>W27</td><td>≤27℃</td><td>中密 AI / H100 推理</td><td>干冷器 + 蒸发辅助</td><td>1.20–1.30</td><td>L1 默认</td></tr>
+        <tr><td>W32</td><td>≤32℃</td><td>主流 D2C 液冷、GB200</td><td>干冷器为主</td><td>1.15–1.20</td><td><strong>L1 主推</strong></td></tr>
+        <tr><td>W40</td><td>≤40℃</td><td>高温免冷机、东南亚/中东</td><td>纯干冷器，无机械制冷</td><td>1.08–1.15</td><td><strong>L1/L2 出海差异化</strong></td></tr>
+        <tr><td>W45+</td><td>≤45℃</td><td>极端高温免冷、Rubin 路线图</td><td>直接热回收</td><td>1.05–1.10</td><td>L3 长期目标</td></tr>
+      </table>
+      <p class="small">说明：W32–W40 是当前 GB200/GB300 主流，本公司 L1 必须支持 W32，L1 后期/L2 必须支持 W40 以打开中东/东南亚市场。</p>
+
+      <h4>3A.3.3 泵类型对比</h4>
+      <table>
+        <tr><th>类型</th><th>密封方式</th><th>效率</th><th>寿命 / MTBF</th><th>噪声</th><th>价格指数</th><th>适用场景</th></tr>
+        <tr><td>屏蔽泵（Canned Motor）</td><td>无机械密封，定子隔离</td><td>40%–55%</td><td>80,000 h+，零外漏</td><td>低</td><td>2.5–3.5</td><td><strong>CDU 主泵首选（认证级）</strong></td></tr>
+        <tr><td>磁力泵（Magnetic Drive）</td><td>磁耦合，无轴封</td><td>50%–65%</td><td>60,000–80,000 h</td><td>中</td><td>1.8–2.5</td><td>L1 经济方案</td></tr>
+        <tr><td>离心泵（机械密封）</td><td>机械密封（易漏）</td><td>60%–75%</td><td>30,000–50,000 h，存在漏液点</td><td>中高</td><td>1.0</td><td><strong>不建议用于 CDU 主回路</strong></td></tr>
+        <tr><td>变频离心 + 双密封</td><td>双端面机械密封 + 缓冲液</td><td>65%–78%</td><td>40,000–60,000 h</td><td>中</td><td>1.4</td><td>一次侧 FWS 可用</td></tr>
+      </table>
+
+      <h4>3A.3.4 控制策略</h4>
+      <ul>
+        <li><strong>恒流量（Constant Flow）：</strong>结构简单，但在变负载下回温波动大；适合稳态推理负载。</li>
+        <li><strong>恒压差（ΔP Control）：</strong>用变频泵维持 Manifold 两端压差恒定；适合机柜数量动态变化场景。</li>
+        <li><strong>恒供水温度（Constant Tsupply）：</strong>主控目标，二次侧供水 ±0.5℃；通过一次侧阀 + 二次侧旁通双调节实现。</li>
+        <li><strong>多变量 PID + 前馈：</strong>以 IT 负载（PDU 实时功率）做前馈，PID 收尾；可提前响应 GPU 训练波动（典型负载阶跃 60 秒达 80%）。</li>
+        <li><strong>AI 节能优化（高阶）：</strong>结合 DCIM 历史数据用 LSTM/RL 预测 5–15 分钟后负载，动态调节供水温度和泵频，节电潜力 8%–15%（估算）。</li>
+      </ul>
+
+      <h4>3A.3.5 冗余与高可用</h4>
+      <table>
+        <tr><th>层级</th><th>设计</th><th>RTO（恢复时间）</th><th>典型应用</th></tr>
+        <tr><td>泵冗余</td><td>N+1 双泵热备（共母管，单泵 100% 容量）</td><td>&lt;1 s 自动切换</td><td>所有 L1/L2 CDU 标配</td></tr>
+        <tr><td>控制冗余</td><td>双 PLC 热备 + 双触屏 + 双电源</td><td>&lt;500 ms</td><td>L2 认证级必选</td></tr>
+        <tr><td>电源冗余</td><td>双路 380V/UPS + STS 自动切换</td><td>0（不间断）</td><td>L2 必选</td></tr>
+        <tr><td>CDU 整机冗余</td><td>2N 或 N+1（多 CDU 共用 Manifold）</td><td>0（液压联动）</td><td>大厂集采项目要求</td></tr>
+        <tr><td>一次侧冗余</td><td>冷源 N+1，多回路</td><td>分钟级</td><td>客户侧设计</td></tr>
+      </table>
+
+      <h4>3A.3.6 防漏液三重设计（本公司核心专利方向）</h4>
+      <ol>
+        <li><strong>系统层：</strong>二次侧维持<strong>负压（-20 ~ -50 kPa）</strong>运行 → 系统破口时空气吸入而非液体外漏；通过缓冲箱 + 真空泵 + 变频实现稳压。</li>
+        <li><strong>结构层：</strong>所有管路<strong>双层包覆</strong>，外层为透明聚合物（PFA/PVDF）+ 内嵌漏液检测线缆；UQD 采用<strong>零滴漏盲插</strong>，分离瞬时漏量 &lt;0.05 mL。</li>
+        <li><strong>检测层：</strong>每个 CDU 与每个机柜底部布置<strong>毫秒级漏液传感（导电带 + 光学反射 + 压差监测）</strong>，三选二报警后 PLC 自动关阀 + 通知 BMS 关 PDU。</li>
+      </ol>
+
+      <h4>3A.3.7 远程运维与数据接口</h4>
+      <table>
+        <tr><th>协议</th><th>用途</th><th>开放度</th><th>本公司支持</th></tr>
+        <tr><td>Modbus TCP/RTU</td><td>BA/BMS 标准接入</td><td>开放</td><td>L1 默认</td></tr>
+        <tr><td>SNMP v2c/v3</td><td>网络运维与告警</td><td>开放</td><td>L1 默认</td></tr>
+        <tr><td>MQTT</td><td>云端 SaaS 数据上行</td><td>开放</td><td>L1 默认</td></tr>
+        <tr><td>OPC UA</td><td>工业互联 / 工厂集成</td><td>开放</td><td>L2 默认</td></tr>
+        <tr><td>Redfish / Swordfish</td><td>OCP/服务器侧标准</td><td>开放</td><td>L2 必选（英伟达 MGX 要求）</td></tr>
+        <tr><td>Open BMC（液冷扩展）</td><td>大厂自研 BMS 对接</td><td>开放</td><td>L2 必选（华为/字节项目）</td></tr>
+        <tr><td>厂商私有 API（华为 iFusion/英伟达 DGX Cloud）</td><td>大厂生态对接</td><td>受控</td><td>L2 通过授权</td></tr>
+      </table>
+
+      <h3>3A.4 控制系统与软件栈</h3>
+      <p>控制系统是 CDU 的"大脑"，<strong>毛利、认证、客户粘性、运维数据资产</strong>都集中在这一层。本公司将其定义为<strong>必须自研、不可外包</strong>的核心模块。</p>
+
+      <h4>3A.4.1 三层架构</h4>
+      <table>
+        <tr><th>层级</th><th>组件</th><th>选型建议</th><th>开发分工</th></tr>
+        <tr><td>① 工业控制层（Edge）</td><td>PLC（西门子 S7-1200/1500、施耐德 M241/M580、和利时 LM、信捷 XD）+ 触摸屏 HMI（10–15"）+ 远程 IO 模块</td><td>L1 用施耐德/和利时（成本/国产化平衡）；L2 进入华为生态时考虑国产化 PLC</td><td><strong>自研梯形图/ST 语言控制逻辑</strong>，硬件可外购</td></tr>
+        <tr><td>② 数据/网络层（Gateway）</td><td>边缘网关 + 工业交换机 + 协议转换（Modbus/SNMP/Redfish/MQTT/OPC UA）</td><td>研华/移远工业网关；TLS 加密上行</td><td>协议栈 + 数据缓存 + 离线降级</td></tr>
+        <tr><td>③ 上位 SaaS/DCIM</td><td>Web 可视化（React + ECharts/Plotly）+ 时序数据库（InfluxDB/TDengine）+ 报警引擎 + AI 模型服务</td><td>L1 单机自研 + 私有云部署；L2 多租户 SaaS（与运营商 BMS 对接）</td><td><strong>自研，构建运维数据资产</strong></td></tr>
+      </table>
+
+      <h4>3A.4.2 软件功能模块（L1 → L3 演进）</h4>
+      <table>
+        <tr><th>功能</th><th>L1 必备</th><th>L2 升级</th><th>L3 高级</th></tr>
+        <tr><td>实时监控</td><td>温/压/流/泵频/阀位/漏液</td><td>+ 多机柜 Pod 视图</td><td>+ AI 异常检测</td></tr>
+        <tr><td>报警与联动</td><td>三级告警 + 短信/微信</td><td>+ BMS 联动停机</td><td>+ 故障预测 PdM</td></tr>
+        <tr><td>能效分析</td><td>实时 PUE / pPUE</td><td>+ 历史趋势 + 报告生成</td><td>+ AI 节能寻优</td></tr>
+        <tr><td>运维管理</td><td>登录 + 用户权限 + 操作日志</td><td>+ 工单系统 + 备件预测</td><td>+ 数字孪生仿真</td></tr>
+        <tr><td>接口对接</td><td>Modbus + SNMP + MQTT</td><td>+ Redfish + OpenBMC + OPC UA</td><td>+ 华为 iFusion / 英伟达 DGX Cloud</td></tr>
+        <tr><td>OCP/ODCC 兼容</td><td>遵循 ODCC 接口规范</td><td>通过 OCP UQD + Redfish 认证</td><td>提交开源贡献，进入 OCP 名录</td></tr>
+      </table>
+
+      <h4>3A.4.3 与 OCP/ODCC 规范对齐</h4>
+      <ul>
+        <li><strong>OCP Cooling Environments 子项目：</strong>定义 D2C / Immersion 接口规范；本公司在 L1 阶段就需将 UQD 接口、Manifold 间距、控制信号对齐 OCP 规范，避免后期改型。</li>
+        <li><strong>ODCC 液冷规范（中国）：</strong>对应 ODCC 冷板液冷全生命周期质量管控、ODCC UQD 接口标准；进入运营商集采的硬性前提。</li>
+        <li><strong>NVIDIA MGX 兼容性：</strong>MGX 平台对 CDU 的 Manifold/UQD/Redfish/液质参数有明确要求；L2 阶段必须通过 NVIDIA 认证实验室测试。</li>
+        <li><strong>华为 Atlas / 鲲鹏液冷规范：</strong>华为生态使用基于 Open BMC 的扩展规范，对二次侧水质和接口有独立要求；L2 阶段并行推进。</li>
+      </ul>
+
+      <h3>3A.5 芯片级 PCB 冷板技术路线对比</h3>
+      <p>"PCB 冷板"在业界语境包含<strong>狭义（PCB 板上集成微流道作为冷板）</strong>与<strong>广义（直接贴合 PCB/封装的芯片级冷板）</strong>两种理解。本公司 L3 阶段聚焦广义路线：<strong>面向 GB200/GB300/Rubin GPU 封装的近芯片级高性能冷板</strong>，并预研狭义 PCB 内嵌微流道方向作为长期 IP 储备。</p>
+
+      <table>
+        <tr><th>路线</th><th>典型结构</th><th>热阻 R_th（℃/W）</th><th>压降 ΔP（kPa @ 1.5 LPM）</th><th>最大热流密度（W/cm²）</th><th>目标平台</th><th>制造工艺难度</th><th>量产良率</th><th>典型供应商</th></tr>
+        <tr><td>① 铜微通道 - 刨削（Skiving）</td><td>整块铜基刨削细鳍片（鳍 ≤0.5 mm/距 ≤0.5 mm）</td><td>0.06–0.08 <span class="tag verified">已核实</span></td><td>15–25</td><td>80–120</td><td>H100/H200/GB200</td><td>中</td><td>85%–95%</td><td>奇鋐、双鸿、CoolIT、Kingka</td></tr>
+        <tr><td>② 铜微通道 - 化学蚀刻（Etch）</td><td>多片铜箔光刻蚀刻 + 真空钎焊层叠</td><td><strong>0.04–0.06</strong></td><td>20–35</td><td>120–200</td><td>GB300/Rubin <span class="tag verified">已核实</span></td><td>高</td><td>70%–85%</td><td>Mikros / Boyd / Wieland、台资链高端</td></tr>
+        <tr><td>③ 铜微通道 - CNC + 钎焊</td><td>CNC 铣槽 + 盖板真空钎焊</td><td>0.07–0.10</td><td>10–20</td><td>60–100</td><td>H100/GB200 中端</td><td>低</td><td>92%–98%</td><td>RivCut、国内众多 CNC 厂</td></tr>
+        <tr><td>④ 铝挤型 + 钎焊</td><td>挤出铝鳍 + CAB 钎焊盖板</td><td>0.12–0.18</td><td>8–15</td><td>30–50</td><td>CPU/低端 GPU</td><td>低</td><td>95%+</td><td>飞荣达、银轮、川环</td></tr>
+        <tr><td>⑤ 3D 打印增材（SLM/DMLS）</td><td>激光选区熔化铜/AlSi10Mg 拓扑优化流道</td><td>0.05–0.08 <span class="tag estimate">估算</span></td><td>10–18</td><td>100–150</td><td>定制超算 / 异形封装</td><td>极高</td><td>50%–75%</td><td>Fabric8Labs、铂力特、华曙</td></tr>
+        <tr><td>⑥ 铜 + VC 均热板复合</td><td>VC 均热板做基底 + 微通道做冷却面</td><td><strong>0.03–0.05</strong></td><td>20–35</td><td>200–300 <span class="tag estimate">估算</span></td><td>GB300 Ultra / Rubin</td><td>极高</td><td>60%–80%</td><td>奇鋐、台达、Auras、Cooler Master 在研</td></tr>
+        <tr><td>⑦ 喷射冲击（Jet Impingement）</td><td>多喷嘴直接冲击芯片背面</td><td>0.025–0.04 <span class="tag estimate">估算</span></td><td>40–80</td><td>250–400</td><td>2027+ 极高密 GPU/HBM4</td><td>极高</td><td>研发阶段</td><td>JetCool（已被 Flex 收购）、IBM 在研</td></tr>
+        <tr><td>⑧ 毛细蒸发 / Capillary 两相</td><td>烧结铜毛细芯 + 工质蒸发</td><td>0.02–0.04 <span class="tag estimate">估算</span></td><td>5–15</td><td>300–500</td><td>Rubin Ultra / 1 MW 整柜</td><td>极高</td><td>研发阶段</td><td>Calyos、奇鋐预研、ZutaCore（部分）</td></tr>
+        <tr><td>⑨ CVD 金刚石散热基底（Diamond Heat Spreader）</td><td>CVD 多晶金刚石（PCD）做近 die 高导基底 + 铜微通道/VC 协同</td><td><strong>0.02–0.04 <span class="tag estimate">估算</span></strong></td><td>15–30</td><td><strong>500–1000+</strong></td><td>2028+ Rubin Ultra / 主权 AI 极端高热流密度场景</td><td>极高（金刚石界面焊接/金属化、CTE 匹配为核心难点）</td><td>30%–60%（高端芯片小批量）</td><td>Element Six（De Beers）、II-VI/Coherent、AKHAN、Diamond Foundry；国内 力量钻石、黄河旋风、富耐克；哈工大、北大研发</td></tr>
+      </table>
+      <p class="small">参数来源综合：ToneCooling/KingKa Tech/KenFa Tech 2026 公开技术白皮书、RivCut/Mikros 工艺文档、IEEE ITHERM 2024/2025 论文摘要；金刚石数据综合 Element Six 公开技术资料、IEEE EDTM/ECTC 2024–2025 金刚石散热论文与国内力量钻石/黄河旋风 CVD 工艺公告。R_th 为单芯片冷板端到端热阻（流量条件标注于"压降"列）。</p>
+
+      <div class="callout">
+        <strong>关于金刚石（CVD Diamond）路线的判断：</strong>多晶金刚石热导率约 <strong>1500–2200 W/m·K</strong>，约为铜（~400 W/m·K）的 4–5 倍，是 VC 之外的另一条"近芯片极致散热"路线。
+        <ul style="margin:8px 0 0">
+          <li><strong>用法：</strong>金刚石做 die-attach 高导基底，再叠铜微通道或 VC 把热量带走；或作为 TIM 替代/嵌入封装层。</li>
+          <li><strong>现状：</strong>已在 GaN HEMT、SiC 功率器件、激光二极管、雷达 T/R 模块小批量商用；GPU/HBM 场景仍处于研发与小试用阶段。</li>
+          <li><strong>痛点：</strong>成本极高（>$100/cm² 量级 <span class="tag estimate">估算</span>）；与铜/硅之间 CTE 匹配、界面金属化与焊接是工程难点；2028 年前难以规模化。</li>
+          <li><strong>对本公司建议：</strong>列为 <strong>L3+ 前瞻预研</strong>方向（>42 个月）。短期不自建 CVD 产线；可在 L2 末与 Element Six / 力量钻石 / 黄河旋风等小批量合作，先在内部测试台搭"金刚石 + 铜微通道 + VC"复合样件，验证 R_th 与界面可靠性；同步在控制软件与冷板接口侧布局兼容专利，等市场打开后即可切入。</li>
+        </ul>
+      </div>
+
+      <h4>3A.5.1 本公司 L3 路线的目标曲线</h4>
+      <table>
+        <tr><th>阶段</th><th>路线选择</th><th>R_th 目标</th><th>压降目标</th><th>目标平台</th><th>制造合作</th></tr>
+        <tr><td>L3 起步（24–30 月）</td><td>铜微通道 - CNC + 真空钎焊</td><td>0.07–0.08</td><td>≤25 kPa @ 1.5 LPM</td><td>GB200 / 国产昇腾</td><td>外协CNC与钎焊 + 自有氦检/热阻验证</td></tr>
+        <tr><td>L3 主推（30–42 月）</td><td>铜微通道 - 蚀刻 + 钎焊 / FSW</td><td><strong>0.05–0.06</strong></td><td>≤30 kPa @ 1.8 LPM</td><td>GB300 / Rubin</td><td>蚀刻/钎焊外协 + 自有氦检与可靠性验证</td></tr>
+        <tr><td>L3 长期（42 月+）</td><td>VC + 微通道复合 / 喷射冲击预研；<strong>金刚石散热基底</strong>合作小批量验证</td><td><strong>0.02–0.05</strong></td><td>≤40 kPa</td><td>Rubin Ultra / 主权 AI 极端高热流密度</td><td>合作研发 + 专利布局；与 Element Six / 力量钻石等小试</td></tr>
+      </table>
+
+      <h4>3A.5.2 PCB 冷板剖面示意</h4>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:14px 18px;background:#fbfcff;overflow-x:auto;margin:10px 0 18px">
+        <svg viewBox="0 0 1080 280" width="100%" style="max-width:1080px;font-family:'Microsoft YaHei',sans-serif;font-size:12px" xmlns="http://www.w3.org/2000/svg">
+          <text x="540" y="20" text-anchor="middle" font-weight="700" fill="#0b1f3a" font-size="14">图 3A-2 · 铜微通道冷板剖面（GB300 GPU + HBM 一体冷板示意）</text>
+
+          <!-- PCB -->
+          <rect x="120" y="220" width="840" height="30" fill="#1a5e1a" stroke="#0b1f3a"/>
+          <text x="540" y="240" text-anchor="middle" fill="#fff">PCB（FR-4 / 高速基板）</text>
+
+          <!-- BGA -->
+          <g fill="#444">
+            <rect x="280" y="210" width="220" height="10"/>
+            <rect x="580" y="210" width="220" height="10"/>
+          </g>
+          <text x="170" y="216" fill="#5b6578">BGA 焊球</text>
+
+          <!-- GPU + HBM die -->
+          <rect x="290" y="180" width="200" height="30" fill="#3a3a3a"/>
+          <text x="390" y="200" text-anchor="middle" fill="#fff">GPU Die（≈1400 W）</text>
+          <rect x="590" y="180" width="200" height="30" fill="#3a3a3a"/>
+          <text x="690" y="200" text-anchor="middle" fill="#fff">HBM3e 堆栈 ×8</text>
+
+          <!-- TIM -->
+          <rect x="285" y="172" width="510" height="8" fill="#c9a05f"/>
+          <text x="60" y="178" fill="#b7791f">TIM2（液态金属/相变片）</text>
+
+          <!-- 冷板 base -->
+          <rect x="120" y="120" width="840" height="52" fill="#d97a3a" stroke="#0b1f3a"/>
+          <text x="60" y="148" fill="#7a3bff">铜冷板</text>
+          <text x="60" y="162" fill="#7a3bff">（C1100 OFC）</text>
+
+          <!-- 微通道 -->
+          <g fill="#1f5eff" stroke="#0b1f3a" stroke-width="0.5">
+            <rect x="130" y="125" width="3" height="40"/>
+            <rect x="138" y="125" width="3" height="40"/>
+            <rect x="146" y="125" width="3" height="40"/>
+            <rect x="154" y="125" width="3" height="40"/>
+            <rect x="162" y="125" width="3" height="40"/>
+            <rect x="170" y="125" width="3" height="40"/>
+          </g>
+          <g fill="#1f5eff" stroke="#0b1f3a" stroke-width="0.5">
+            <rect x="930" y="125" width="3" height="40"/>
+            <rect x="938" y="125" width="3" height="40"/>
+            <rect x="946" y="125" width="3" height="40"/>
+            <rect x="922" y="125" width="3" height="40"/>
+            <rect x="914" y="125" width="3" height="40"/>
+            <rect x="906" y="125" width="3" height="40"/>
+          </g>
+          <!-- 中央微通道密集区 -->
+          <g fill="#1f5eff" stroke="none">
+            <rect x="280" y="125" width="220" height="40" opacity="0.35"/>
+            <rect x="580" y="125" width="220" height="40" opacity="0.35"/>
+          </g>
+          <text x="390" y="148" text-anchor="middle" fill="#fff" font-size="11">微通道 0.15–0.2 mm</text>
+          <text x="690" y="148" text-anchor="middle" fill="#fff" font-size="11">变截面 + 增强湍流</text>
+
+          <!-- 流体路径 -->
+          <g stroke="#0f8a5f" stroke-width="2.5" fill="none">
+            <path d="M120 110 Q540 70 960 110" marker-end="url(#arrow-flow)"/>
+          </g>
+          <text x="540" y="60" text-anchor="middle" fill="#0f8a5f" font-weight="700">二次侧 W32–W40 去离子水（1.5–2.5 LPM/GPU）</text>
+
+          <!-- 进出口 -->
+          <rect x="80" y="100" width="40" height="40" fill="#0f8a5f"/>
+          <text x="100" y="125" text-anchor="middle" fill="#fff">入</text>
+          <rect x="960" y="100" width="40" height="40" fill="#b7791f"/>
+          <text x="980" y="125" text-anchor="middle" fill="#fff">出</text>
+
+          <!-- 盖板钎焊 -->
+          <rect x="120" y="116" width="840" height="6" fill="#d4763f" stroke="#0b1f3a"/>
+          <text x="540" y="115" text-anchor="middle" fill="#0b1f3a" font-size="11">真空钎焊盖板（钎料 ≤25 μm，He 检漏 10⁻⁸ mbar·L/s）</text>
+
+          <defs>
+            <marker id="arrow-flow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+              <path d="M0,0 L0,10 L10,5 z" fill="#0f8a5f"/>
+            </marker>
+          </defs>
+
+          <text x="540" y="270" text-anchor="middle" fill="#5b6578" font-size="11">微通道宽度 0.15–0.2 mm、鳍片高度 ≥3 mm、L/P&gt;15、雷诺数 &lt;2000（层流）；目标 R_th ≤0.06 ℃/W</text>
+        </svg>
+      </div>
+
+      <h3>3A.6 PCB 冷板工艺与可靠性要点</h3>
+
+      <h4>3A.6.1 密封工艺对比</h4>
+      <table>
+        <tr><th>工艺</th><th>密封强度（耐压）</th><th>典型缝隙</th><th>成本指数</th><th>可拆性</th><th>本公司适用阶段</th></tr>
+        <tr><td>O-Ring + 螺栓压紧</td><td>0.2–0.5 MPa（30–75 psi）</td><td>0.1–0.3 mm</td><td>1.0</td><td>可拆</td><td>L3 原型验证 / 维修</td></tr>
+        <tr><td>胶接（环氧/UV）</td><td>0.5–1.0 MPa</td><td>0.05–0.1 mm</td><td>1.3</td><td>不可拆</td><td>不主推（长期可靠性差）</td></tr>
+        <tr><td>超声焊（Ultrasonic Welding）</td><td>0.8–1.5 MPa</td><td>—</td><td>1.5</td><td>不可拆</td><td>铝冷板低端用</td></tr>
+        <tr><td>FSW 搅拌摩擦焊</td><td>3–5 MPa</td><td>金属冶金键合</td><td>2.0</td><td>不可拆</td><td>L3 主推（铝）</td></tr>
+        <tr><td>真空钎焊（Vacuum Brazing）</td><td>5–10 MPa（25 bar 测试）<span class="tag verified">已核实</span></td><td>≤25 μm 钎料层</td><td>2.5</td><td>不可拆</td><td><strong>L3 主推（铜）</strong></td></tr>
+        <tr><td>扩散焊（Diffusion Bonding）</td><td>10–20 MPa</td><td>原子级键合</td><td>4.0</td><td>不可拆</td><td>L3 后期高端</td></tr>
+        <tr><td>激光焊（Laser Welding）</td><td>3–6 MPa</td><td>≤0.1 mm 熔深</td><td>2.2</td><td>不可拆</td><td>不锈钢管路 + 局部封口</td></tr>
+      </table>
+
+      <h4>3A.6.2 长期可靠性与失效模式</h4>
+      <table>
+        <tr><th>失效模式</th><th>触发条件</th><th>典型周期</th><th>缓释设计</th></tr>
+        <tr><td>电化学腐蚀（Galvanic）</td><td>铜-铝异种金属 + 水中离子</td><td>1–3 年</td><td>禁混金属或使用阻蚀剂；电导率 &lt;10 μS/cm</td></tr>
+        <tr><td>侵蚀-腐蚀（Erosion-corrosion）</td><td>高速流体 + 颗粒</td><td>2–5 年</td><td>限流速 &lt;3 m/s；过滤 100 μm；进口圆角设计</td></tr>
+        <tr><td>热-机械疲劳</td><td>开关机循环引起 TIM/钎焊层裂纹</td><td>10,000 次循环（10 年）</td><td>钎料蠕变设计 + TIM2 选液态金属/PCM</td></tr>
+        <tr><td>颗粒污染（CCD - Coolant Contamination Drift）</td><td>系统补水/拆装带入颗粒</td><td>0.5–2 年</td><td>双重过滤 + 闭式补液 + 在线水质监测</td></tr>
+        <tr><td>生物膜（Biofouling）</td><td>水温高 + 微生物</td><td>0.5–1 年</td><td>UV 杀菌 + 阻生剂 + 定期排放</td></tr>
+        <tr><td>冷却液降解</td><td>氟化液长期受热分解</td><td>5–10 年</td><td>选低分解工质 + 年度采样化验</td></tr>
+      </table>
+
+      <h4>3A.6.3 机械接口（与封装 / PCB / Socket）</h4>
+      <ul>
+        <li><strong>弹簧加载压紧（Spring-Loaded Bolster Plate）：</strong>GB200/GB300 SXM 模组使用 4–6 颗自锁式螺栓 + 蝶簧，压紧力典型 200–400 N/cm²；过压会损伤芯片 BGA，欠压会增加 TIM 热阻。</li>
+        <li><strong>TIM 选型：</strong>L1 用相变片 PCM（Honeywell PTM7950 / 莱尔德 Tflex）成本低易装配；L2/L3 切入液态金属（Conductonaut 类）热导率提升 3–5 倍，但需防腐蚀涂层。</li>
+        <li><strong>平面度 / 平整度：</strong>冷板贴合面平面度 ≤25 μm / Φ50 mm；表面粗糙度 Ra ≤0.8 μm；本公司 CNC 加工 ±0.02 mm 平整度（已核实工业标准）。</li>
+        <li><strong>盲插快接（QD）与机柜 Manifold：</strong>UQD-C/D 等级，分离瞬时漏量 &lt;0.05 mL；本公司初期外购 CPC/Parker/Staubli，L2 后期联合鼎通/溯联开发国产替代。</li>
+      </ul>
+
+      <h4>3A.6.4 制造与出厂测试</h4>
+      <table>
+        <tr><th>测试项目</th><th>方法</th><th>合格判据</th><th>本公司是否自建</th></tr>
+        <tr><td>氦检（He Leak）</td><td>真空腔 + 氦质谱仪</td><td>≤1×10⁻⁸ mbar·L/s <span class="tag verified">已核实工业标准</span></td><td><strong>L3 自建</strong></td></tr>
+        <tr><td>水压保压</td><td>25 bar 保压 6 小时（氮气）</td><td>压降 ≤0.5 bar</td><td>L1 即自建</td></tr>
+        <tr><td>压力循环（Pulsed）</td><td>0–10 bar 循环 10,000 次</td><td>无渗漏、无形变</td><td>L3 自建</td></tr>
+        <tr><td>流阻测试</td><td>水流标定平台 1.0–3.0 LPM</td><td>压降曲线在 ±10% 设计窗口</td><td>L1 自建</td></tr>
+        <tr><td>热阻测试（Calorimetric）</td><td>恒功率加热块 + 标定流量 + 入出温差</td><td>R_th 在设计目标 ±5%</td><td><strong>L3 自建（核心）</strong></td></tr>
+        <tr><td>热循环老化（HTOL）</td><td>1,000 小时 85℃ / 85% RH</td><td>性能衰减 &lt;5%</td><td>L2 外协第三方</td></tr>
+        <tr><td>盐雾 / 振动 / EMC</td><td>第三方实验室</td><td>对应国军标 / IEC</td><td>外协</td></tr>
+      </table>
+
+      <h3>3A.7 冷却介质与工质选型</h3>
+      <table>
+        <tr><th>分类</th><th>典型工质</th><th>沸点 (℃)</th><th>GWP</th><th>3M 退出后供应风险</th><th>典型应用</th><th>本公司选择</th></tr>
+        <tr><td>水基（单相）</td><td>去离子水 + 防冻剂（25% PG / 30% EG）</td><td>100</td><td>0</td><td>无</td><td>D2C 冷板液冷主流</td><td><strong>L1/L2 主用</strong></td></tr>
+        <tr><td>负压水基</td><td>真空脱气水</td><td>低压沸点 70–80</td><td>0</td><td>无</td><td>负压防漏方案</td><td>L1/L2 差异化方案</td></tr>
+        <tr><td>单相介质油（碳氢）</td><td>合成 PAO、矿物油、合成烷烃</td><td>&gt;200</td><td>0</td><td>无</td><td>单相浸没</td><td>不主推</td></tr>
+        <tr><td>单相氟化液</td><td>3M FC-3284/40（已退出）、Solvay Galden、Chemours Opteon、旭硝子 AGC</td><td>50–200</td><td>低（多数 &lt;5）</td><td><strong>高（3M 2025 退出）</strong></td><td>单相浸没 / 部分两相冷板</td><td>仅做接口预留</td></tr>
+        <tr><td>两相低沸点工质（旧）</td><td>R134a (GWP 1430)、R245fa (GWP 1030)</td><td>-26 / 15</td><td>高</td><td>受 F-气体法规限制</td><td>历史两相 PoC</td><td>不推荐</td></tr>
+        <tr><td>两相 HFO（新）</td><td>R1234ze (GWP 7)、HFO-1336mzz</td><td>-19 / 33</td><td>极低</td><td>低</td><td>新一代两相冷板/CDU</td><td>L3 优先选型</td></tr>
+        <tr><td>两相 HFE / Novec</td><td>HFE-7100/7000/7200、Novec 7000（3M 退出）</td><td>30–61</td><td>≤500</td><td><strong>高</strong></td><td>电子工业冷却</td><td>仅做接口预留</td></tr>
+        <tr><td>国产替代</td><td>巨化（JC-1/JL-X）、新宙邦氟化液、长芦盐 EFL</td><td>多型号</td><td>需逐项核实</td><td>低（国产化窗口）</td><td>国产替代</td><td><strong>L3 战略合作开发</strong></td></tr>
+      </table>
+      <p class="small">3M 已确认于 2025 年底完成 PFAS 制造退出；但“留下 $4–6 亿美元冷却液空缺”和“全球冷却剂市占 90%”未找到足够一手证据，本报告不采用。3M 公告披露的是退出前全部自制 PFAS 产品年净销售约 $13 亿，并非数据中心冷却液收入。</p>
+
+      <h3>3A.8 标准、IP 与专利格局</h3>
+
+      <h4>3A.8.1 关键接口与开放标准</h4>
+      <table>
+        <tr><th>标准/规范</th><th>组织</th><th>状态</th><th>对本公司意义</th></tr>
+        <tr><td>OCP UQD（Universal Quick Disconnect）</td><td>Open Compute Project</td><td>v1.0 已发布</td><td>L1 即对齐 UQD-C/D；为进入英伟达 MGX 生态铺路</td></tr>
+        <tr><td>OCP Cooling Environments / D2C 接口</td><td>OCP</td><td>持续演进</td><td>L2 必须通过</td></tr>
+        <tr><td>ODCC 冷板液冷规范 + UQD 接口</td><td>开放数据中心委员会（中国）</td><td>2024–2025 多版本</td><td>进入运营商集采前提</td></tr>
+        <tr><td>NVIDIA MGX / NVL72 液冷规范</td><td>NVIDIA</td><td>受控</td><td>L2 通过 NPN 认证</td></tr>
+        <tr><td>Redfish (DMTF) / Swordfish (SNIA)</td><td>DMTF / SNIA</td><td>开放</td><td>L1 后期默认接入</td></tr>
+        <tr><td>Open BMC（液冷扩展）</td><td>OpenBMC 社区</td><td>开放</td><td>L2 进入华为/字节生态</td></tr>
+        <tr><td>YD/T 6358-2025《冷板式液冷数据中心技术要求》</td><td>工信部 / CCSA</td><td>2025.04.10 发布，2025.08.01 实施</td><td>设计、施工、部署、使用、运维和测评基线</td></tr>
+        <tr><td>OCP Project Deschutes 5</td><td>OCP / Google</td><td>2025.07.01 生效</td><td>2 MW CDU；500 GPM、3℃ ATD、N+1 无密封泵、DI 水/PG25</td></tr>
+        <tr><td>GB/T 44989-2024 绿色数据中心评价</td><td>国标委</td><td>2025.06 实施</td><td>客户侧 PUE/能效评测</td></tr>
+        <tr><td>GB 服务器及存储设备用液冷部件（20243523-T-469）</td><td>国标计划</td><td>2024.12 立项</td><td>未来产品入网测试基础</td></tr>
+      </table>
+
+      <h4>3A.8.2 关键专利地图（按方向）</h4>
+      <table>
+        <tr><th>方向</th><th>关键技术点</th><th>主要专利持有者（公开估算）</th><th>专利墙规避建议</th></tr>
+        <tr><td>CDU 控制策略</td><td>多变量协同控制、前馈+PID、AI 节能、冷热通道协同</td><td>Vertiv、Schneider、英维克、申菱、华为、IBM</td><td>聚焦"前馈 + RL/LSTM 联合优化"等新交叉点；采用功能等效但实现不同的方案</td></tr>
+        <tr><td>负压防漏</td><td>真空回路、负压稳压、空气吸入隔离、漏液检测三选二</td><td>曙光数创、Iceotope、华为，部分日企（NEC、富士通）</td><td><strong>本公司优先布局负压 + 三层检测 + 自动关阀联动专利</strong>，计划2027年上半年完成首批高质量专利评审与提交</td></tr>
+        <tr><td>In-Rack CDU 集成</td><td>4U–10U 紧凑泵换热集成、双泵共母管 N+1、Manifold 一体化</td><td>Supermicro、Vertiv（Motivair）、DCX、ACT、CoolIT、英维克</td><td>聚焦"紧凑高密 + 静音 + 远程运维"组合点；规避台资链已布的 In-Rack 集成结构</td></tr>
+        <tr><td>PCB 冷板 / 微通道</td><td>蚀刻多层叠焊、变截面流道、湍流增强、3D 打印拓扑</td><td>奇鋐、双鸿、Mikros、Boyd、Wieland、CoolIT、Fabric8Labs、JetCool</td><td>L3 优先布局"VC + 微通道复合""增材制造拓扑流道"等空白点；可申请 PCT 出海</td></tr>
+        <tr><td>UQD 盲插快接</td><td>盲插对位、零滴漏、自闭止流</td><td>Parker、CPC、Staubli、CEJN；国产鼎通、溯联、Lotes、FIT、AVC</td><td>L1 外购；L2 阶段联合开发"国产化 UQD"获得独立专利权</td></tr>
+        <tr><td>两相冷板 / 冷媒</td><td>分布式蒸发、毛细回流、冷媒分配</td><td>ZutaCore、Accelsius、JetCool、Chilldyne、Calyos</td><td>L3 阶段以 HFO 工质 + 自研分配器作为预研专利方向</td></tr>
+      </table>
+
+      <h4>3A.8.3 主要专利持有者扫描（公开数据估算）</h4>
+      <table>
+        <tr><th>厂商</th><th>液冷相关专利估算（公开/中外合计）</th><th>核心方向</th><th>对本公司的影响</th></tr>
+        <tr><td>英维克</td><td>500+ 件 <span class="tag estimate">估算</span></td><td>CDU、Coolinside 全链、控制</td><td>国内最大专利墙；需规避其控制策略与 CDU 结构专利</td></tr>
+        <tr><td>申菱环境</td><td>200+ 件 <span class="tag estimate">估算</span></td><td>CDU、华为生态集成</td><td>规避其与华为联合申请的接口专利</td></tr>
+        <tr><td>高澜股份</td><td>150+ 件 <span class="tag estimate">估算</span></td><td>冷板、TANK、浸没</td><td>规避字节浸没相关专利</td></tr>
+        <tr><td>Schneider Electric（含 Motivair）</td><td>数量待专利检索复核</td><td>CDU、机房级冷源、监控</td><td>北美/欧洲出海需关注其专利</td></tr>
+        <tr><td>CoolIT Systems</td><td>200+ 件 <span class="tag estimate">估算</span></td><td>CDU、冷板、CHx 系列</td><td>北美出海规避其冷板与控制专利</td></tr>
+        <tr><td>Asetek</td><td>150+ 件 <span class="tag estimate">估算</span></td><td>泵集成冷板（一体化）</td><td>规避其"泵在冷板"专利</td></tr>
+        <tr><td>奇鋐（Asia Vital）/ 双鸿（Auras）</td><td>各 300+ 件 <span class="tag estimate">估算</span></td><td>冷板、VC、Manifold、HBM 冷板</td><td>L3 阶段最大冷板专利墙</td></tr>
+        <tr><td>NVIDIA / Microsoft</td><td>50+ 件（液冷相关）<span class="tag estimate">估算</span></td><td>系统级液冷架构、控制</td><td>主要为平台专利，正常使用即可</td></tr>
+      </table>
+      <p class="small">数据来源：智慧芽 / Innography 等专利平台公开统计区间，仅作战略地图参考，具体规避以法律意见为准。</p>
+
+      <h4>3A.8.4 本公司 IP 战略</h4>
+      <ol>
+        <li><strong>四向预先布局：</strong>① 控制算法（前馈+RL+LSTM 联合）② 负压防漏（结构 + 检测 + 联动）③ In-Rack 紧凑集成（4U–8U 内 N+1 双泵 + 共母管） ④ PCB 冷板工艺（VC+微通道复合、变截面流道）。</li>
+        <li><strong>申请节奏：</strong>L1 阶段（0–12 月）至少完成 10–15 件发明专利首批申请；L2 阶段进入 PCT 全球布局（重点：美、欧、日韩、马来、沙特）。</li>
+        <li><strong>规避手段：</strong>FTO（Freedom-to-Operate）专利分析作为每个里程碑的强制 Gate；与外部律所建立长期顾问关系。</li>
+        <li><strong>反制储备：</strong>对台资链/海外龙头核心专利，预先准备无效宣告材料与交叉许可筹码。</li>
+      </ol>
+
+      <h3>3A.9 本公司技术路线建议（L1 / L2 / L3 综合）</h3>
+
+      <h4>3A.9.1 L1 滩头阵地 CDU（0–12 月，800 万验证预算）</h4>
+      <div class="callout">
+        <strong>产品定义：</strong>单相水基 + 双泵 N+1 + PLC/HMI + 远程运维；完成 50/100/150/200 kW 共平台设计，但首期只制造 100/200 kW 两台代表性工程样机，50/150 kW 通过模块组合与降额验证形成 SKU；机械加工、钣金和总装外协。
+      </div>
+      <table>
+        <tr><th>关键参数</th><th>L1 目标值</th><th>对标参考</th></tr>
+        <tr><td>容量阶梯</td><td>50/100/150/200 kW</td><td>覆盖 H100/H200/GB200 NVL72</td></tr>
+        <tr><td>二次侧温度</td><td>W27/W32 默认；W40 选配</td><td>ASHRAE TC9.9</td></tr>
+        <tr><td>温控精度</td><td>±0.5℃（稳态）</td><td>优于 Vertiv 同段 ±1℃</td></tr>
+        <tr><td>泵冗余</td><td>双屏蔽泵 N+1 热备 &lt;1 s 切换</td><td>对标 Supermicro LCS-SCDU-250</td></tr>
+        <tr><td>防漏液</td><td>负压选配 + 双层管 + 三重检测</td><td>规避 Vertiv 正压方案</td></tr>
+        <tr><td>接口协议</td><td>Modbus + SNMP + MQTT 默认；Redfish 选配</td><td>对齐 ODCC 标准</td></tr>
+        <tr><td>ASP 目标</td><td>待50/100/150/200 kW各SKU书面询价</td><td>按额定工况、配置、质保和渠道分别定价，不预设统一低价</td></tr>
+      </table>
+
+      <h4>3A.9.2 L2 客户验证级 CDU（12–24 月，最高 1,200 万注资）</h4>
+      <div class="callout">
+        <strong>产品定义：</strong>扩展 150–450 kW；新增 MTBF ≥80,000 h、EMC（GB/T 17626）、噪声 ≤72 dBA、安规（GB 4943.1）等认证；双 PLC 控制冗余、双电源、Redfish + Open BMC + OPC UA 全协议；优先攻克英伟达 MGX 兼容性测试与华为合作伙伴名录。
+      </div>
+      <table>
+        <tr><th>关键参数</th><th>L2 目标值</th><th>认证目标</th></tr>
+        <tr><td>容量阶梯</td><td>150/200/300/450 kW</td><td>覆盖 GB300 NVL72 / 国产昇腾整柜</td></tr>
+        <tr><td>形态</td><td>Row / In-Row 落地式 + In-Rack 升级款</td><td>对标 Vertiv XDU450 / Motivair MCDU-70</td></tr>
+        <tr><td>MTBF</td><td>≥80,000 h</td><td>第三方实验室验证</td></tr>
+        <tr><td>EMC/安规</td><td>GB/T 17626 / GB 4943.1 / CE</td><td>L2 末完成认证</td></tr>
+        <tr><td>控制冗余</td><td>双 PLC 热备、双电源、双 HMI</td><td>对标海外高端</td></tr>
+        <tr><td>大厂兼容</td><td>NVIDIA MGX、华为 iFusion、Open BMC</td><td>进入名录</td></tr>
+        <tr><td>ASP 目标</td><td>¥150–300 万/台</td><td>比海外低 25%–35%</td></tr>
+      </table>
+
+      <h4>3A.9.3 L3 芯片级 PCB 冷板（24–36 月，最高 1,500 万注资）</h4>
+      <div class="callout">
+        <strong>产品定义：</strong>起步路线 = <strong>铜微通道 + CNC + 真空钎焊</strong>，钎焊/CNC由合作制造商或共享中试线完成，自有能力聚焦设计、氦检、热阻标定和可靠性验证；中期评估 <strong>蚀刻 + 钎焊/FSW</strong>。目标 R_th 0.05–0.08 ℃/W、热流密度 100–150 W/cm²、压降 ≤30 kPa @ 1.8 LPM；第三期不包含自建完整冷板量产线。
+      </div>
+      <table>
+        <tr><th>关键参数</th><th>L3 目标值</th><th>对标参考</th></tr>
+        <tr><td>R_th</td><td>0.05–0.08 ℃/W</td><td>GB300 公开目标 0.015–0.02 K/W 单芯（多芯片冷板）</td></tr>
+        <tr><td>热流密度</td><td>≥100 W/cm²</td><td>对标台资链高端</td></tr>
+        <tr><td>压降</td><td>≤30 kPa @ 1.8 LPM</td><td>OCP/MGX 流量窗口</td></tr>
+        <tr><td>密封</td><td>真空钎焊（铜）+ FSW（铝）</td><td>钎料 ≤25 μm，He 检 10⁻⁸ mbar·L/s</td></tr>
+        <tr><td>测试</td><td>25 bar 保压 / 压力循环 10,000 次 / 热循环 1,000 h</td><td>对标 ToneCooling/Kingka 标准</td></tr>
+        <tr><td>目标平台</td><td>GB200 / GB300 / Rubin / 国产昇腾下代</td><td>覆盖 1000–1400 W TDP</td></tr>
+        <tr><td>单芯 ASP</td><td>$80–150（约 ¥600–1100 元）</td><td>对标双鸿/CoolIT</td></tr>
+      </table>
+
+      <h4>3A.9.4 IP 与差异化策略一览</h4>
+      <table>
+        <tr><th>方向</th><th>差异化卖点</th><th>对标短板</th><th>专利预申请</th></tr>
+        <tr><td>负压防漏</td><td>"零外漏 + 三重检测 + 自动关阀"组合</td><td>头部多为正压 + 单点检测</td><td>L1 阶段 3–5 件结构 + 控制专利</td></tr>
+        <tr><td>In-Rack 紧凑集成</td><td>4U–8U 内集成双屏蔽泵 + N+1 + 静音 ≤60 dBA</td><td>奇鋐/Supermicro 现品偏大</td><td>L1 阶段 2–3 件结构专利</td></tr>
+        <tr><td>AI 控制策略</td><td>前馈（IT 负载预测）+ RL 节能寻优 + LSTM 故障预测</td><td>大厂多用规则+PID</td><td>L1/L2 阶段 3–5 件算法/控制专利</td></tr>
+        <tr><td>PCB 冷板工艺</td><td>变截面流道 + 增材拓扑 + VC 复合 + <strong>金刚石基底预研</strong></td><td>台资链固化在固定截面；金刚石基底尚无主流玩家锁定</td><td>L3 阶段 5–8 件 PCT 全球专利 + 金刚石界面/复合结构专利</td></tr>
+        <tr><td>国产化供应链</td><td>巨化/新宙邦工质 + 国产 UQD + 国产屏蔽泵</td><td>大厂依赖进口</td><td>合作开发协议 + 联合专利</td></tr>
+      </table>
+
+      <h4>3A.9.5 L3+ 极致散热五条候选路线对照（选型决策表）</h4>
+      <p>L3 主推铜微通道/钎焊（已在 §3A.5、§3A.9.3 定义）；L3+ 阶段（>42 个月）面向 GB300 Ultra / Rubin / Rubin Ultra / 主权 AI 极端高热流密度场景，下列五条路线是候选。按"性能 / 成本 / 工程难度 / 时点 / 对本公司战略契合度"统一打分。</p>
+      <table>
+        <tr><th>路线</th><th>最大热流密度</th><th>R_th 量级</th><th>成本（量产时）</th><th>工程难度</th><th>可量产时点</th><th>对本公司战略意义</th><th>L3+ 推荐度</th></tr>
+        <tr><td>① VC + 微通道复合</td><td>200–300 W/cm²</td><td>0.03–0.05 ℃/W</td><td>中高（VC ~$30–80/件）</td><td>高（VC + 微通道叠焊）</td><td><strong>2027–2028</strong></td><td>承接 L3 工艺，自然延伸；与铜冷板供应链共享</td><td><strong>★★★★★ 首选</strong></td></tr>
+        <tr><td>② CVD 金刚石散热基底</td><td><strong>500–1000+ W/cm²</strong></td><td>0.02–0.04 ℃/W</td><td>极高（>$100/cm²）</td><td>极高（CTE 匹配、金属化、焊接）</td><td>2028–2030</td><td>极端高热流密度场景预研，IP 卡位空白；与材料厂合作非自研产线</td><td>★★★★ 战略预研</td></tr>
+        <tr><td>③ 喷射冲击（Jet Impingement）</td><td>250–400 W/cm²</td><td>0.025–0.04 ℃/W</td><td>中高（喷嘴阵列加工）</td><td>极高（喷嘴对齐、回流设计）</td><td>2027–2029</td><td>JetCool 已被 Flex 收购，IBM 研发中；本公司可做接口适配方</td><td>★★★ 跟踪</td></tr>
+        <tr><td>④ 毛细蒸发（Capillary 两相）</td><td>300–500 W/cm²</td><td>0.02–0.04 ℃/W</td><td>中（烧结铜毛细芯）</td><td>极高（两相控制、启停稳定性）</td><td>2028–2030</td><td>需配套两相工质供应；与 ZutaCore/Calyos 路线相似</td><td>★★★ 跟踪</td></tr>
+        <tr><td>⑤ 两相浸没（Tank/Chassis）</td><td>≥1000 W/cm²（整柜整体）</td><td>系统级，按整柜热流计</td><td>高（专用工质 + TANK + 服务器适配）</td><td>极高（基础设施改造）</td><td>2026–2028 已小批量</td><td>系统级方案；与本公司 CDU 路线非直接竞争，可做 In-Tank CDU 补充</td><td>★★ 边缘卡位</td></tr>
+      </table>
+      <p class="small">综合判断：VC + 微通道复合是 <strong>L3+ 首选</strong>（性能/成本/工程难度/时点四项最均衡，且可承接 L3 工艺与供应链）；CVD 金刚石作为 IP 卡位与极端场景战略预研，与材料厂合作小试，不自建产线；喷射冲击与毛细蒸发跟踪行业进展，等性能/成本拐点出现再切入；两相浸没做"In-Tank CDU"接口适配即可，不正面参与浸没系统设计。</p>
+
+      <div class="callout risk">
+        <strong>路线总结：</strong>本公司采取<strong>"L1 稳健（水基 + In-Rack + 三重防漏）→ L2 标杆（认证 + 大厂生态 + Row CDU）→ L3 突破（PCB 冷板 + VC 复合 + IP 全球布局）"</strong>三段式技术路线；与商业三段（中小云/出海 → 大厂集采 → 全球高端）严格同步；IP 策略前置，避免成长期被头部专利墙阻断。
+      </div>
+    </section>
+
+    <section id="sec-global">
+      <h2>4. 全球与出海市场（含 2024–2032 年度框架）</h2>
+      <p class="lead">公司终局目标是全球高端市场，但前 1–2 年以中国 + 东南亚/中东作为滩头阵地：决策链短、竞争薄弱、气候痛点强，适合用差异化 CDU 与冷媒方案快速形成现金流和标杆。</p>
+
+      <h3>4.1 区域阶段判断</h3>
+      <table>
+        <tr><th>区域</th><th>市场驱动</th><th>冷却需求特点</th><th>进入建议</th></tr>
+        <tr><td>中国</td><td>AI 算力建设、运营商集采、PUE 政策</td><td>冷板液冷规模化、国产化要求强</td><td>中小云/区域 IDC 滩头阵地，验证 CDU+集成</td></tr>
+        <tr><td>东南亚</td><td>新加坡外溢、Johor 集群、印尼/泰国云基建</td><td>高温高湿，能耗水资源压力大</td><td>跟随中资云出海或本地 IDC/EPC 合作</td></tr>
+        <tr><td>中东</td><td>沙特/阿联酋主权 AI（G42/HUMAIN）</td><td>高环境温度，冷媒/两相价值高</td><td>高温适配、低 PUE、模块化交付为差异化</td></tr>
+        <tr><td>北美/欧洲</td><td>Hyperscaler 与高端 GPU 集群主战场</td><td>认证严、标准成熟、客户集中</td><td>中长期目标，先有标杆与认证基础</td></tr>
+      </table>
+
+      <h3>4.2 重点国家/区域最新算力建设信号（2024–2030）</h3>
+      <table>
+        <tr><th>国家/区域</th><th>最新可靠基线</th><th>至 2028/2030 的公开指引</th><th>液冷商业含义</th><th>优先级</th></tr>
+        <tr><td>中国</td><td>2025 年末在用算力设施超过 1,373 万标准机架；2026Q1 智算 1,880 EFLOPS（FP16）</td><td>算力中心用电 2025 年 170 TWh → 2030 年约 800 TWh</td><td>需求最大，但统计扩围、并网、上架率、客户验证和回款均须筛选</td><td><strong>第一优先级</strong></td></tr>
+        <tr><td>美国</td><td>EPRI 估计 2024 年数据中心用电 177–192 TWh</td><td>2030 年低/中/高情景 383/596/793 TWh；DOE 另预计 2028 年 325–580 TWh</td><td>高密 AI 主战场；电网接入、认证、责任险、专利与服务门槛最高</td><td>中长期</td></tr>
+        <tr><td>欧洲</td><td>2024 年数据中心用电约 70 TWh</td><td>2030 年约 115 TWh；FLAP-D 并网等待可达多年</td><td>需求增长与电网约束并存，液冷价值取决于获电和能效合规</td><td>选择性进入</td></tr>
+        <tr><td>马来西亚/柔佛</td><td>马来西亚 2024 年末 54 座在运数据中心、live IT 容量约 504.8 MW</td><td>AirTrunk 柔佛四园区规划超过 700 MW；批准/规划容量不得计作已投运</td><td>优先跟踪已获电力和明确建设期项目，不把全部 pipeline 当订单</td><td><strong>出海重点</strong></td></tr>
+        <tr><td>沙特</td><td>官方资料显示 2023 年在运容量约 204 MW；HUMAIN/NVIDIA 第一阶段规划 18,000 个 GB300 GPU</td><td>2030 年官方目标约 1,300 MW；HUMAIN 五年最高 500 MW 是规划上限</td><td>高温供液、主权项目准入和本地服务是关键</td><td>高潜力高门槛</td></tr>
+        <tr><td>中东整体</td><td>JLL 统计 2026 年中 live 约 1.6 GW、开发中 2.6 GW</td><td>规划约 13.8 GW，但不能视为已融资、已并网或确定订单</td><td>用“live/在建/规划”分层筛选，避免按项目新闻稿高估 TAM</td><td>项目制跟踪</td></tr>
+        <tr><td>阿联酋</td><td>Stargate UAE 为 5 GW 园区内的 1 GW 集群</td><td>首期 200 MW 预计 2026 年投运</td><td>近期可确认机会以上限 200 MW 首期理解，不以 5 GW 计单</td><td>联合验证型</td></tr>
+      </table>
+
+      <h3>4.3 算力建设与液冷年度框架（2024–2032）</h3>
+      <table>
+        <tr><th>指标</th><th>2024</th><th>2025</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th><th>2031</th><th>2032</th></tr>
+        <tr><td><strong>全球数据中心用电（TWh）</strong></td><td><strong>415E</strong></td><td><strong>485E</strong></td><td>555M</td><td>635M</td><td>726M</td><td>830M</td><td><strong>950F</strong></td><td>995M</td><td>1,043M</td></tr>
+        <tr><td><strong>全球关键 IT 容量需求（GW，持续动量情景）</strong></td><td>67M</td><td><strong>82E</strong></td><td>100M</td><td>122M</td><td>148M</td><td>180M</td><td><strong>219F</strong></td><td>267M</td><td>324M</td></tr>
+        <tr><td><strong>中国算力中心用电（TWh）</strong></td><td>166E*</td><td><strong>170A</strong></td><td>296M</td><td>422M</td><td>548M</td><td>674M</td><td><strong>800F</strong></td><td>900–926M</td><td>1,000–1,052M</td></tr>
+        <tr><td><strong>全球液冷设备厂商收入（十亿美元）</strong></td><td>约 1.5M</td><td><strong>约 3.0E</strong></td><td>约 3.7M</td><td>约 4.6M</td><td>约 5.7M</td><td><strong>约 7.0F</strong></td><td>约 8.4M</td><td>约 9.8M</td><td>约 11.2M</td></tr>
+        <tr><td>全球液冷解决方案+服务（十亿美元，宽口径）</td><td>2.13M</td><td><strong>2.84E</strong></td><td>3.78M</td><td>5.04M</td><td>6.71M</td><td>8.94M</td><td>11.91M</td><td>15.87M</td><td><strong>21.14F</strong></td></tr>
+      </table>
+      <p class="small">A=官方实绩；E=机构对历史年份的估计/测算；F=机构预测；M=本文透明模型。全球用电以 IEA 415/485/950 TWh 及 2035 约 1,200 TWh 路径插值；关键 IT 容量统一采用 McKinsey 2025 年研究的“持续动量”82→219 GW 情景，其他版本的 171 GW 下行情景不拼入同一序列，2031–2032 仅机械延伸该情景；中国 2024 年 166 TWh 与 2025 实绩边界不完全可比；Dell'Oro 主口径 2030–2032 采用 20%/17%/14% 递减增速。宽口径含服务，禁止与设备收入相加。</p>
+      <div class="callout"><strong>最新算力建设信号：</strong>2026Q1 全国智能算力达 188 万 PFLOPS（即 1,880 EFLOPS，FP16），八大国家枢纽占比超过 80%，国家监测调度平台已接入 137 万 PFLOPS；IEA 披露五家大型科技公司 2025 年资本开支超过 $4,000 亿，2026 年预计再增长约 75%。需求强劲，但电网、设备供应和审批瓶颈会推迟部分项目。</div>
+
+      <h3>4.4 出海重点国家明细与优先级</h3>
+      <table>
+        <tr><th>国家</th><th>代表项目/客户</th><th>气候与 PUE 压力</th><th>液冷/冷媒偏好</th><th>合规与渠道</th><th>优先级</th></tr>
+        <tr><td>新加坡</td><td>金融云、区域总部、绿色 DC 试点</td><td>土地/电力严格，绿色准入强</td><td>高 PUE 改善、高可靠 CDU</td><td>本地服务、绿色认证</td><td>A-：高价值标杆，容量增量受限</td></tr>
+        <tr><td>马来西亚柔佛/新山</td><td>Johor 园区、国际云与中资云外溢</td><td>高温高湿，电力/水资源统筹</td><td>冷板液冷 + 模块化 CDU；后续冷媒</td><td>本地 IDC/EPC 合作</td><td><strong>A：前两年出海首选</strong></td></tr>
+        <tr><td>印尼</td><td>雅加达走廊、本地运营商与国际云</td><td>高温高湿，运维能力差异大</td><td>易维护 CDU、远程监控、备件</td><td>本地伙伴+售后</td><td>B+：增量大，价格敏感</td></tr>
+        <tr><td>泰国</td><td>曼谷/EEC、制造业数字化</td><td>热湿，PUE 与电价压力上升</td><td>标准化冷板，低运维复杂度</td><td>EPC/集成商渠道</td><td>B：机会型市场</td></tr>
+        <tr><td>沙特</td><td>NEOM、HUMAIN、PIF 主权 AI</td><td>高环境温度，风冷效率低</td><td>冷媒/两相、高温工况 CDU</td><td>国际认证 + 主权项目准入</td><td><strong>A：高潜力高门槛</strong></td></tr>
+        <tr><td>阿联酋</td><td>G42、Stargate UAE、阿布扎比 AI</td><td>高温、能耗约束</td><td>高可靠 CDU + 冷媒/两相验证</td><td>国际认证 + 本地交付</td><td>A：标杆与联合验证</td></tr>
+      </table>
+
+      <h3>4.5 逐国典型 IDC / AI 项目清单（用于 BD 锚定）</h3>
+      <table>
+        <tr><th>国家</th><th>代表项目 / 客户名</th><th>容量/规模区间</th><th>启用/规划时间</th><th>对冷却的指向意义</th></tr>
+        <tr><td>中国</td><td>中移动智算中心（呼和浩特/哈尔滨/贵阳）、中电信智算中心、华为乌兰察布昇腾基地、字节张北/怀来、阿里张北、腾讯仪征/天津</td><td>单基地数十 MW 至数百 MW</td><td>2024–2027 持续放量</td><td>液冷集采、国产化、PUE≤1.25 标杆</td></tr>
+        <tr><td>新加坡</td><td>Equinix SG5/SG6、ST Telemedia、Digital Realty SIN、AirTrunk SIN1</td><td>单项目 20–60 MW</td><td>2024–2026</td><td>PUE 严控，绿色准入，适合高 PUE 改善方案</td></tr>
+        <tr><td>马来西亚（柔佛）</td><td>YTL-Sea Limited Johor 园区、AirTrunk JHB1、GDS Johor、字节 Johor、Equinix JH1</td><td>单项目 50–200+ MW；总规划数 GW</td><td>2024–2028</td><td>高密 AI 与液冷扩张前线，<strong>出海首选</strong></td></tr>
+        <tr><td>印尼</td><td>NeutraDC、DCI Indonesia、Princeton Digital Group、Telkom DC</td><td>单项目 10–50 MW</td><td>2024–2027</td><td>本地服务和备件体系是关键</td></tr>
+        <tr><td>泰国</td><td>STT GDC、True IDC、CSL（One to One Contacts）、AWS Bangkok Region</td><td>单项目 10–40 MW</td><td>2025–2027</td><td>制造业数字化与区域灾备</td></tr>
+        <tr><td>沙特</td><td>HUMAIN（PIF 主导）、NEOM 数据中心、Saudi Aramco AI</td><td>单项目数百 MW，主权 AI 总规划 GW 级</td><td>2025–2030</td><td>高温适配、冷媒/两相、主权项目准入</td></tr>
+        <tr><td>阿联酋</td><td>G42（Khazna 集群）、Stargate UAE、Microsoft UAE、e&（前身 Etisalat）DC</td><td>Stargate UAE 5 GW 路线图；G42 集群数百 MW–GW 级</td><td>2025–2030</td><td>国际认证、英伟达生态、冷媒方案高价值</td></tr>
+        <tr><td>美国</td><td>Microsoft Stargate、Meta Hyperion、AWS、Google、CoreWeave/Lambda</td><td>单项目数百 MW–GW 级</td><td>2025–2030</td><td>终局主战场，但认证/渠道壁垒最高</td></tr>
+      </table>
+      <p class="small">说明：项目名为公开报道的代表性案例，容量为公开/估算区间；用于 BD 团队定位和优先级排序，正式商务前应再核对最新公告。</p>
+    </section>
+
+    <!-- ============== 第二篇 ============== -->
+    <div class="part-divider">
+      <div class="label">PART II</div>
+      <div class="title">第二篇 · 行业格局（WHAT：谁在玩、谁来买、靠什么准入）</div>
+      <div class="desc">竞争对手、客户分层、价值链与上游供应、政策标准与认证体系。</div>
+    </div>
+
+    <!-- §5–§8 待第 3 步填充 -->
+
+    <section id="sec-competition">
+      <h2>5. 竞争格局与竞品对标</h2>
+      <p class="lead">竞争重点正从“单一部件供应”转向“系统控制 + 可靠性交付 + 标准认证 + 客户绑定”。本业务从 CDU 控制系统切入再向 PCB 冷板延伸，可掌握系统架构核心价值，避免与全链条龙头正面硬碰硬。</p>
+
+      <h3>5.1 国内主要竞争者</h3>
+      <table>
+        <tr><th>厂商</th><th>定位/出身</th><th>技术路线</th><th>优势</th><th>风险/短板</th></tr>
+        <tr><td>英维克</td><td>精密温控龙头</td><td>冷板 + 浸没，全链条</td><td>Coolinside 全链条，英伟达 NPN Tier1 背书</td><td>规模强、正面竞争难度高</td></tr>
+        <tr><td>曙光数创</td><td>中科曙光系</td><td>浸没相变为主</td><td>超算标杆，PUE 可低至 1.08</td><td>客户体系相对封闭</td></tr>
+        <tr><td>申菱环境</td><td>特种/工业空调转型</td><td>冷板 + 浸没全栈，CDU 强</td><td>CDU 能力强，<strong>华为深度绑定</strong></td><td>转型仍在爬坡</td></tr>
+        <tr><td>高澜股份</td><td>电力电子热管理</td><td>冷板 + 浸没（单相氟化液）</td><td>高可靠设计迁移；字节浸没独家；订单充足</td><td>历史毛利偏低，需兑现订单</td></tr>
+        <tr><td>浪潮/新华三/超聚变</td><td>服务器 OEM</td><td>整机 + 液冷</td><td>集采绑定、份额大</td><td>部件多外采，可成为客户/伙伴</td></tr>
+        <tr><td>飞龙/银轮/川环/溯联/鼎通</td><td>汽车热管理/连接器转型</td><td>泵、软管、接头、模组</td><td>成本与制造响应快</td><td>单部件议价能力有限</td></tr>
+      </table>
+
+      <h3>5.2 海外主要竞争者</h3>
+      <table>
+        <tr><th>厂商</th><th>技术路线</th><th>定位/动态</th><th>启示</th></tr>
+        <tr><td>Vertiv（维谛）</td><td>DLC + 浸没</td><td>全球液冷龙头；GB200 阶段曾为英伟达独家 CDU 认证；Equinix-Vertiv “AI Powerhouse”</td><td>认证与全球服务是高端门槛</td></tr>
+        <tr><td>Schneider Electric</td><td>DLC 基础设施</td><td>支持单柜 132 kW；全栈数据中心基础设施</td><td>系统级方案能力重要</td></tr>
+        <tr><td>CoolIT Systems（Ecolab 拟收购）</td><td>DLC 冷板/CDU</td><td>CHx2000；Ecolab 交易截至 2026.08 尚待交割</td><td>冷板+CDU 生态绑定强</td></tr>
+        <tr><td>nVent / Boyd（Eaton） / Asetek</td><td>冷板、CDU、精密制造</td><td>海外高端供应链</td><td>精密制造与认证周期长</td></tr>
+        <tr><td>Submer / LiquidStack / Iceotope / GRC</td><td>单相/两相/机箱级浸没</td><td>面向超高密与边缘；Trane 于 2026.03 完成收购 LiquidStack</td><td>冷媒/两相方向跟踪，不宜早期重押</td></tr>
+        <tr><td>台资链：奇宏/双鸿/奇鋐/台达/酷冷至尊/Wiwynn</td><td>冷板/Manifold/CDU</td><td>英伟达核心一级供应商，先发优势</td><td>对标技术指标，避免硬抢</td></tr>
+      </table>
+      <p class="small">产业整合显著加速：Ecolab 于 2026.03 宣布拟以约 $47.5 亿现金收购 CoolIT，预计 2026Q3 完成，截至 2026.08 尚待交割；Vertiv 收购 Strategic Thermal Labs；Schneider 于 2025 年取得 Motivair 75% 控制权；Trane 于 2026.03 完成收购 LiquidStack。头部竞争已升级为“工质 + 冷板 + CDU + 设施侧 + 全球服务”全链条。</p>
+
+      <h3>5.3 竞品 CDU 参数对标与本公司目标</h3>
+      <table>
+        <tr><th>产品/厂商</th><th>制冷量</th><th>控制/冗余</th><th>接口与适配</th><th>客户/定位</th></tr>
+        <tr><td>英维克 Coolinside 系列</td><td>机柜级/列级/机房级多规格</td><td>全链条控制、工质与冷源协同</td><td>冷板/管路/快接头/Manifold/CDU 全链路</td><td>国内龙头，英伟达生态</td></tr>
+        <tr><td>申菱 CDU300</td><td>约 300 kW（公开型号）</td><td>高可靠、工程化交付</td><td>冷板液冷系统</td><td>华为合作代表</td></tr>
+        <tr><td>高澜 CDU</td><td>多规格，冷板/浸没</td><td>电力电子热管理迁移</td><td>管网/干冷器/TANK 集成</td><td>字节/运营商等</td></tr>
+        <tr><td>Vertiv Liebert XDU</td><td>450 kW + 更高功率段</td><td>N+1、企业级监控</td><td>高密 D2C 液冷</td><td>全球高端 DC</td></tr>
+        <tr><td>CoolIT CHx 系列</td><td>数百 kW–MW 级</td><td>液冷服务器生态成熟</td><td>GPU/HPC 冷板系统</td><td>微软/AWS/Google/HPE</td></tr>
+        <tr><td><strong>本公司 L1 目标 CDU</strong></td><td><strong>50–150 kW 模块化</strong></td><td><strong>N+1、PLC/控制器、触摸屏、远程运维、泄漏监测</strong></td><td><strong>冷板液冷 + 冷媒/两相接口预留</strong></td><td><strong>中小云/区域 IDC，1 年商用</strong></td></tr>
+        <tr><td><strong>本公司 L2 认证级 CDU</strong></td><td><strong>150–300 kW+，可并联扩展</strong></td><td><strong>可靠性、EMC、噪声、维护性；接口标准化</strong></td><td><strong>对齐华为/英伟达生态测试</strong></td><td><strong>进入大厂供应商名录</strong></td></tr>
+      </table>
+
+      <h3>5.4 CDU 价格带与 ASP 估算（用于定价校准）</h3>
+      <table>
+        <tr><th>产品段</th><th>制冷量</th><th>典型 ASP 区间</th><th>毛利区间</th><th>对应厂商/定位</th><th>本公司定价建议</th></tr>
+        <tr><td>低端集成 CDU（OEM/外购贴牌）</td><td>50–150 kW</td><td>¥30–60 万元/台 <span class="tag estimate">估算</span></td><td>15%–25%</td><td>中小集成商、汽车热管理转型方</td><td>不主推；用于补足产品线</td></tr>
+        <tr><td>国产主流 CDU（自研整机）</td><td>100–300 kW</td><td>¥60–150 万元/台 <span class="tag estimate">估算</span></td><td>30%–45%</td><td>英维克、申菱、高澜中端线</td><td><strong>L1 主推区间，定价上限略低于英维克同等款</strong></td></tr>
+        <tr><td>国产高端/认证级 CDU</td><td>300–500 kW</td><td>¥150–300 万元/台 <span class="tag estimate">估算</span></td><td>40%–55%</td><td>英维克高端、申菱 CDU300+</td><td><strong>L2 目标区间，比海外低 25%–35%</strong></td></tr>
+        <tr><td>海外高端 CDU</td><td>450 kW–MW 级</td><td>$60K–$250K+ 美元/台（约 ¥45–180 万元）<span class="tag estimate">估算</span></td><td>40%–60%</td><td>Vertiv Liebert XDU、CoolIT CHx2000、Schneider</td><td>对标参考，不与之硬碰头部认证客户</td></tr>
+        <tr><td>In-Rack CDU（机柜内集成）</td><td>50–200 kW</td><td>¥40–120 万元/台 <span class="tag estimate">估算</span></td><td>35%–50%</td><td>OCP/MGX 适配方</td><td>L2 后期推出，对应 GB300 整柜场景</td></tr>
+        <tr><td>芯片级/PCB 冷板</td><td>—</td><td>公开研究的“单芯片硬件成本”、供应商“单块冷板报价”和“整柜液冷模组”边界不同，暂不设统一 ASP</td><td>待 BOM、良率、质保验证</td><td>奇鋐、双鸿、CoolIT 等</td><td>L3 仅在明确物料边界和联合客户后定价</td></tr>
+      </table>
+      <p class="small">价格区间来自公开招标、券商研报与产业链访谈估算；具体客户报价受批量、定制度、付款条件影响，最终以商务合同为准。</p>
+    </section>
+
+    <section id="sec-customers">
+      <h2>6. 客户分层与采购决策</h2>
+      <p>互联网 + 电信合计占液冷市场约 90%；进入大厂集采名录/认证体系是商业化的决定性门槛。新业务应分阶段渗透不同客户层级，避免一开始就硬碰最高门槛。</p>
+
+      <h3>6.1 客户分层与采购逻辑</h3>
+      <table>
+        <tr><th>客户</th><th>占比/特征</th><th>采购逻辑</th><th>核心痛点</th><th>建议打法</th></tr>
+        <tr><td>互联网/云厂商</td><td>液冷需求先行者，占整体约 50%+</td><td>TCO + PUE + 自研定制；先试点后规模化</td><td>极致 PUE、超高密、快速交付、供应链安全</td><td>中期通过认证级 CDU 进入字节/阿里/腾讯等定制项目</td></tr>
+        <tr><td>电信运营商</td><td>与互联网合计约 90%</td><td>双碳 + 国产化 + 集采性价比</td><td>能耗指标、国产自主可控、规模一致性</td><td>第二阶段通过认证与联合测试进入移动/电信集采</td></tr>
+        <tr><td>第三方 IDC/Colo</td><td>PUE 政策强约束</td><td>满足 PUE + 客户需求适配</td><td>改造兼容性、上架率、绿电</td><td>偏好可改造方案（冷板），第一阶段灯塔客户</td></tr>
+        <tr><td>AI 公司/智算运营商</td><td>新增量，增速快</td><td>算力密度 + 部署速度</td><td>交付周期、超高密散热、运维</td><td>整柜/整机交付、训推一体</td></tr>
+        <tr><td>超算/科研</td><td>标杆示范</td><td>极致性能 + 节能指标</td><td>极致 PUE、可靠性</td><td>样机验证与口碑案例</td></tr>
+        <tr><td>海外主权 AI / IDC</td><td>沙特/UAE/东南亚等</td><td>本地合规、EPC、气候适配</td><td>高温高湿、交付与运维</td><td>渠道/EPC 合作，突出高温适配与冷媒</td></tr>
+      </table>
+
+      <h3>6.2 采购决策六要素（按重要性）</h3>
+      <ol>
+        <li><strong>认证与入围资格：</strong>英伟达 NPN/Tier1、英特尔验证、华为合作名录、运营商集采入围——商业化决定性门槛。</li>
+        <li><strong>TCO 经济性：</strong>CapEx + OpEx（含 PUE 节电）+ 全生命周期运维。</li>
+        <li><strong>PUE 达标能力：</strong>直接关系能评、绿色认证、建设审批。</li>
+        <li><strong>可靠性与漏液风险：</strong>负压方案、盲插快接头、长效工质。</li>
+        <li><strong>交付与产能：</strong>英伟达放量下产能保障成稀缺资源。</li>
+        <li><strong>国产自主可控：</strong>运营商/政府/国产算力项目的硬性偏好。</li>
+      </ol>
+    </section>
+
+    <section id="sec-supply">
+      <h2>7. 价值链与供应链</h2>
+      <p class="lead">上游高壁垒部件（冷板、CDU、快接头、Manifold）合计占机柜热管理价值量 90%+，是利润集中区。本业务自研聚焦 CDU+控制系统，外购集成其他部件，逐步向 PCB 冷板延伸。</p>
+
+      <h3>7.1 产业链结构</h3>
+      <ul>
+        <li><strong>上游（价值与利润核心，毛利 25%–60%）：</strong>冷板、冷却液、CDU、快接头（UQD）、电磁阀、TANK、Manifold、循环泵、板式换热器。</li>
+        <li><strong>中游（集成转化）：</strong>冷板式/浸没式液冷系统、CDU 整机、液冷服务器、系统集成。</li>
+        <li><strong>下游：</strong>互联网、电信、金融、第三方 IDC、超算、AI 公司。</li>
+      </ul>
+
+      <h3>7.2 关键部件国产化对照</h3>
+      <table>
+        <tr><th>部件</th><th>国际主导</th><th>国产玩家/进展</th><th>国产化判断</th></tr>
+        <tr><td>CDU</td><td>Vertiv、Schneider、nVent、CoolIT、Boyd（前五约 65%）</td><td>英维克、申菱、高澜、曙光数创、银轮、飞龙</td><td>加速替代，本业务自研突破口</td></tr>
+        <tr><td>快接头/UQD</td><td>Parker、CPC、Staubli、CEJN（GB200 NVL72 用 162 套，$50–100/套）</td><td>鼎通、川环、溯联、Lotes、FIT、AVC</td><td>可外购/联合开发，验证可靠性</td></tr>
+        <tr><td>冷板</td><td>奇鋐、双鸿、CoolIT、Coolermaster、宝德（前五约 96%）</td><td>英维克及多家代工</td><td>普通冷板成熟；高端 PCB/微通道仍有壁垒</td></tr>
+        <tr><td>Manifold</td><td>双鸿、奇鋐、台达</td><td>立敏达（领益）、英维克、申菱、同飞</td><td>国产化推进，焊接与一致性关键</td></tr>
+        <tr><td>循环泵/泵阀</td><td>高端国际占优</td><td>飞龙等批量交付</td><td>部分突破，高端待提升</td></tr>
+        <tr><td>冷却液/氟化液</td><td>3M（已退出）、索尔维、科慕、旭硝子</td><td>巨化、新宙邦、长芦</td><td><strong>替代窗口期</strong></td></tr>
+      </table>
+
+      <h3>7.3 成本与风险</h3>
+      <ul>
+        <li>数据中心建设成本：电气 40%–45%，冷却 15%–20%（仅次于电气）。</li>
+        <li>国产液冷方案整体成本较海外低 30%+，响应更快。</li>
+        <li>风险：高端泵阀/特种氟化液仍依赖进口；CDU/冷板标准不统一致互换性差（国标正在推进）；价格战压低毛利。</li>
+      </ul>
+
+      <h3>7.4 CDU 整机 BOM 成本结构（L1 200 kW 模型机参考）</h3>
+      <table>
+        <tr><th>BOM 大项</th><th>子项</th><th>成本占比</th><th>金额区间（按整机出厂成本 ¥80 万）<span class="tag estimate">估算</span></th><th>供应建议</th></tr>
+        <tr><td rowspan="3">动力与换热（约 45%）</td><td>板式换热器</td><td>15%–20%</td><td>¥12–16 万</td><td>国产成熟，多源采购</td></tr>
+        <tr><td>循环泵（双泵 N+1）</td><td>12%–18%</td><td>¥10–14 万</td><td>高端进口/国产飞龙等并行</td></tr>
+        <tr><td>电磁阀、止回阀、过滤器</td><td>5%–8%</td><td>¥4–6 万</td><td>国产，注意可靠性筛选</td></tr>
+        <tr><td rowspan="3">控制与电气（约 20%）</td><td>PLC 控制器 + I/O 模块</td><td>5%–8%</td><td>¥4–6 万</td><td>西门子/施耐德/和利时；可标准化</td></tr>
+        <tr><td>HMI 触摸屏与人机界面</td><td>2%–3%</td><td>¥1.5–2.5 万</td><td>国产成熟</td></tr>
+        <tr><td>泄漏监测/传感器/温压流量计</td><td>5%–8%</td><td>¥4–6 万</td><td>仪表国产化 + 关键传感器进口</td></tr>
+        <tr><td>结构件与管路（约 15%）</td><td>钣金机柜、不锈钢管路、保温</td><td>12%–18%</td><td>¥10–14 万</td><td>本地钣金加工 + 标准化设计</td></tr>
+        <tr><td>接头与歧管（约 8%）</td><td>UQD/快接头、Manifold（外购）</td><td>6%–10%</td><td>¥5–8 万</td><td>初期外购国产+一线进口</td></tr>
+        <tr><td>工质与初装（约 4%）</td><td>冷却液初装、清洁、调试耗材</td><td>3%–5%</td><td>¥2.5–4 万</td><td>合作开发 + 多源采购</td></tr>
+        <tr><td>测试与认证摊销（约 5%）</td><td>出厂测试、第三方测试、运输</td><td>4%–6%</td><td>¥3–5 万</td><td>L2 阶段单台成本下降</td></tr>
+        <tr><td>制造与人工（约 3%）</td><td>装配、调试、QC</td><td>2%–4%</td><td>¥2–3 万</td><td>外协 + 自有装配混合</td></tr>
+        <tr style="background:#f4f7ff"><td colspan="2"><strong>合计</strong></td><td><strong>100%</strong></td><td><strong>约 ¥80 万出厂成本</strong></td><td>对应 ¥120–150 万 ASP（毛利 33%–47%）</td></tr>
+      </table>
+      <p class="small">说明：BOM 结构因机型、批量、供应商谈判结果而异；上述为 L1 200 kW 自研 CDU 的战略测算，用于成本对标与议价指引，正式 BOM 应由工程部按物料明细维护。</p>
+    </section>
+
+    <section id="sec-policy">
+      <h2>8. 政策、标准与认证</h2>
+      <p>液冷需求的刚性政策底座是 PUE 硬约束；液冷部件国标的逐步落地将降低应用门槛、加速规模化，也意味着取得标准合规与第三方评价资质会成为竞争筹码。</p>
+
+      <h3>8.1 政策与标准清单</h3>
+      <table>
+        <tr><th>类别</th><th>名称/编号</th><th>时间</th><th>关键内容</th></tr>
+        <tr><td>节能政策</td><td>《数据中心绿色低碳发展专项行动计划》（发改环资〔2024〕970号）</td><td>2024.07</td><td><strong>2025 年底新建大型/超大型 PUE≤1.25，枢纽节点≤1.2；明确推广液冷</strong></td></tr>
+        <tr><td>布局政策</td><td>《关于深入实施"东数西算"工程加快构建全国一体化算力网》</td><td>2023.12</td><td>2025 年新建 PUE&lt;1.3；推广液冷等先进散热</td></tr>
+        <tr><td>能效行动</td><td>《2024—2025 年节能降碳行动方案》</td><td>2024</td><td>启动国家绿色数据中心推荐工作</td></tr>
+        <tr><td>国家标准</td><td><strong>GB/T 44989-2024《绿色数据中心评价》</strong></td><td>2024.11 发布 / 2025.06 实施</td><td>含液冷暖通系统绿色设计指标计算方法（附录 D）</td></tr>
+        <tr><td>国标计划</td><td>《服务器及存储设备用液冷部件技术规范》（20243523-T-469）</td><td>2024.12 立项</td><td>统一冷板/连接组件/CDU 设计/工艺/试验方法</td></tr>
+        <tr><td>行业标准</td><td>YD/T 6358-2025《冷板液冷数据中心》</td><td>2025</td><td>通信行业冷板液冷技术要求</td></tr>
+        <tr><td>团标/开放规范</td><td>ODCC 冷板液冷全生命周期质量管控；OCP UQD 接口规范</td><td>持续</td><td>互操作、全生命周期质量</td></tr>
+        <tr><td>国际</td><td>欧盟《能效指令》将液冷纳入数据中心强制认证</td><td>—</td><td>海外合规驱动 + 接口开放标准</td></tr>
+      </table>
+
+      <h3>8.2 生态认证门槛</h3>
+      <ul>
+        <li>英伟达 NPN（Network Partner Network）/MGX/Tier1 认证。</li>
+        <li>华为数据中心液冷合作伙伴名录、华为云供应商认证。</li>
+        <li>中国移动、中国电信、中国联通三大运营商集采入围。</li>
+        <li>ODCC/OCP 开放计算规范兼容（UQD、CDU、冷板接口）。</li>
+        <li>第三方评价：绿色数据中心、节能产品认证、CE/能效（出海）。</li>
+      </ul>
+    </section>
+
+    <!-- ============== 第三篇 ============== -->
+    <div class="part-divider">
+      <div class="label">PART III</div>
+      <div class="title">第三篇 · 战略与产品（HOW：怎么落地）</div>
+      <div class="desc">产品路线、商业模式、市场打法，并与《算力冷却系统新业务BP》进行口径一致性校验。</div>
+    </div>
+
+    <!-- §9–§11 待第 4 步填充 -->
+
+    <section id="sec-product">
+      <h2>9. 产品路线与技术指标</h2>
+      <p class="lead">建议以<strong>“高度集成 CDU（含控制系统）+ 芯片级 PCB 冷板”</strong>为两大核心自研产品，分三级演进。该组合兼顾短期现金流（L1）、系统控制权与生态准入（L2）、长期技术壁垒（L3）。</p>
+
+      <h3>9.1 三级产品路线图</h3>
+      <table>
+        <tr><th>阶段</th><th>时间</th><th>核心产品</th><th>外购/集成边界</th><th>商业目标</th></tr>
+        <tr><td>L1 滩头阵地</td><td>0–12 个月</td><td><strong>中小云服务器 CDU（含控制系统）</strong></td><td>外购冷板、快接头、Manifold、管路、TANK；公司做系统集成与交付</td><td>1 年内出可商用产品，形成销售现金流</td></tr>
+        <tr><td>L2 梯度扩张</td><td>12–24 个月</td><td><strong>华为/英伟达认证级 CDU</strong></td><td>关键连接件联合开发，部分自研</td><td>通过认证测试，进入大厂供应商名录</td></tr>
+        <tr><td>L3 高端卡位</td><td>24–36 个月</td><td><strong>芯片级 PCB 冷板/冷板模组</strong></td><td>保留部分精密加工外协</td><td>进入高毛利核心部件，提升整体方案 ASP</td></tr>
+      </table>
+      <div class="callout">
+        <strong>核心建议：</strong>早期不要自研所有部件。以 CDU+控制系统掌握系统架构、数据与可靠性；用外购部件降低交付风险；等客户、认证和现金流稳定后，再投入 PCB 冷板。
+      </div>
+
+      <h3>9.2 三级产品技术指标基线（立项目标，需工程验证）</h3>
+      <table>
+        <tr><th>产品级别</th><th>关键指标</th><th>验证重点</th><th>对应 BP 融资</th></tr>
+        <tr><td>L1 中小云 CDU（含控制）</td><td>50–200 kW 共平台；100/200 kW 两台代表样机；水基冷板液冷；远程运维 + 泄漏监测</td><td>连续运行、漏液保护、泵阀寿命、控制稳定性、现场可维护性</td><td><strong>第一步 800 万</strong></td></tr>
+        <tr><td>L2 客户验证级 CDU</td><td>300/450 kW；MTBF 目标提升；EMC/噪声/安规/接口标准化；多机柜并联与监控协议</td><td>OEM/ODM生态兼容、第三方测试、可靠性与批量一致性</td><td><strong>第二步最高 1,200 万</strong></td></tr>
+        <tr><td>L3 芯片级 PCB 冷板</td><td>联合开发低热阻微通道冷板，不在无订单牵引时自建完整产线</td><td>热阻、压降、腐蚀、疲劳、密封、量产良率</td><td><strong>第三步最高 1,500 万</strong></td></tr>
+      </table>
+
+      <h3>9.3 自研 vs 外购边界（起步阶段）</h3>
+      <table>
+        <tr><th>部件</th><th>起步策略</th><th>理由</th></tr>
+        <tr><td>CDU（含控制器/PLC/HMI/远程监控）</td><td><strong>自研</strong></td><td>系统心脏，完全成本毛利目标30%–40%，决定可靠性与认证</td></tr>
+        <tr><td>冷板（普通水冷）</td><td>外购</td><td>普通冷板成熟，供应商众多</td></tr>
+        <tr><td>快接头/UQD</td><td>外购，后期联合开发</td><td>精密制造与认证壁垒高</td></tr>
+        <tr><td>Manifold/管路/TANK</td><td>外购集成</td><td>成熟供应商较多，适合轻资产起步</td></tr>
+        <tr><td>冷却液/冷媒</td><td>合作开发 / 多源采购</td><td>3M 退出带来替代窗口，但不宜早期重资产</td></tr>
+        <tr><td>芯片级 PCB 冷板（L3）</td><td><strong>自研（24 个月后）</strong></td><td>近芯片散热高壁垒高毛利，是下一阶段核心</td></tr>
+      </table>
+
+      <h3>9.4 三年产品路线甘特图</h3>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:18px 22px;background:#fbfcff;overflow-x:auto">
+        <svg viewBox="0 0 1080 320" width="100%" style="max-width:1080px;font-family:'Microsoft YaHei',sans-serif;font-size:12px" xmlns="http://www.w3.org/2000/svg">
+          <!-- 标尺 -->
+          <line x1="180" y1="36" x2="1060" y2="36" stroke="#1f5eff" stroke-width="1.2"/>
+          <g fill="#0b1f3a">
+            <text x="180" y="28" font-size="11">2027 Q1</text>
+            <text x="320" y="28" font-size="11">2027 Q3</text>
+            <text x="460" y="28" font-size="11">2028 Q1</text>
+            <text x="600" y="28" font-size="11">2028 Q3</text>
+            <text x="740" y="28" font-size="11">2029 Q1</text>
+            <text x="880" y="28" font-size="11">2029 Q3</text>
+            <text x="1020" y="28" font-size="11">2030</text>
+          </g>
+          <g stroke="#d9e1ef" stroke-width="1">
+            <line x1="320" y1="36" x2="320" y2="300"/>
+            <line x1="460" y1="36" x2="460" y2="300"/>
+            <line x1="600" y1="36" x2="600" y2="300"/>
+            <line x1="740" y1="36" x2="740" y2="300"/>
+            <line x1="880" y1="36" x2="880" y2="300"/>
+          </g>
+
+          <!-- L1 CDU -->
+          <text x="20" y="72" fill="#0b1f3a" font-weight="700">L1 中小云 CDU</text>
+          <text x="20" y="88" fill="#5b6578">研发 → 样机 → 商用</text>
+          <rect x="180" y="60" width="280" height="22" fill="#1f5eff" rx="4"/>
+          <text x="190" y="76" fill="white">共平台 + 两台代表样机（800 万）</text>
+          <rect x="460" y="60" width="200" height="22" fill="#7a3bff" rx="4"/>
+          <text x="470" y="76" fill="white">灯塔客户出货 / 现金流闭环</text>
+
+          <!-- L2 认证 CDU -->
+          <text x="20" y="138" fill="#0b1f3a" font-weight="700">L2 认证级 CDU</text>
+          <text x="20" y="154" fill="#5b6578">华为/英伟达认证</text>
+          <rect x="460" y="126" width="300" height="22" fill="#1f5eff" rx="4"/>
+          <text x="470" y="142" fill="white">300/450 kW + 联合验证（最高1200万）</text>
+          <rect x="760" y="126" width="160" height="22" fill="#7a3bff" rx="4"/>
+          <text x="770" y="142" fill="white">名录入围 + 集采</text>
+
+          <!-- L3 PCB 冷板 -->
+          <text x="20" y="204" fill="#0b1f3a" font-weight="700">L3 PCB 冷板</text>
+          <text x="20" y="220" fill="#5b6578">近芯片散热</text>
+          <rect x="740" y="192" width="220" height="22" fill="#1f5eff" rx="4"/>
+          <text x="750" y="208" fill="white">联合研发 + 样件（最高1500万）</text>
+          <rect x="960" y="192" width="100" height="22" fill="#7a3bff" rx="4"/>
+          <text x="970" y="208" fill="white">小批量首单</text>
+
+          <!-- Go/No-Go -->
+          <text x="20" y="270" fill="#b7791f" font-weight="700">里程碑</text>
+          <g fill="#b7791f">
+            <circle cx="460" cy="282" r="6"/>
+            <text x="470" y="286">G1：L1 商用 + 灯塔客户回款</text>
+            <circle cx="740" cy="282" r="6"/>
+            <text x="750" y="286">G2：进入大厂名录</text>
+            <circle cx="980" cy="282" r="6"/>
+            <text x="990" y="286">G3：PCB 首单</text>
+          </g>
+
+          <!-- 注资标记 -->
+          <g fill="#0f8a5f" font-weight="700">
+            <text x="186" y="50">▼ 800万</text>
+            <text x="466" y="50">▼ 最高1200万</text>
+            <text x="746" y="50">▼ 最高1500万</text>
+          </g>
+        </svg>
+      </div>
+      <p class="small">蓝色为研发与认证阶段，紫色为商业化交付阶段，绿色三角为注资节点，橙色圆点为 Go/No-Go 里程碑。该路线图与 BP 的甘特图保持一致。</p>
+    </section>
+
+    <section id="sec-strategy">
+      <h2>10. 商业策略与商业模式</h2>
+      <p class="lead">市场进入策略采用专业商业术语表达：<strong>滩头阵地战略（Beachhead Strategy）+ 低端/未充分服务市场切入（Low-end / Underserved-market Disruption）+ 由利基市场向主流市场的梯度渗透与扩张（Land-and-Expand / 梯度扩张）</strong>。</p>
+
+      <h3>10.1 三阶段市场进入路径</h3>
+      <table>
+        <tr><th>阶段</th><th>目标客户</th><th>地域</th><th>产品</th><th>关键 KPI</th></tr>
+        <tr><td>① 滩头阵地（0–12 月）</td><td>中小云、区域 IDC、AI 公司样板</td><td>中国 + 出海试点（马来/沙特等）</td><td>L1 CDU + 外购集成</td><td>3 家灯塔客户、销售回款打开</td></tr>
+        <tr><td>② 梯度扩张（12–24 月）</td><td>华为/英伟达生态、运营商集采、海外主权 AI</td><td>中国 + 中东 + 东南亚扩展</td><td>L2 认证级 CDU</td><td>进入 1–2 家大厂名录、规模订单</td></tr>
+        <tr><td>③ 主流市场（24–36 月+）</td><td>全球 Hyperscaler、欧美高端 DC</td><td>北美/欧洲为主</td><td>L3 PCB 冷板 + 高端 CDU</td><td>海外标杆与高毛利部件订单</td></tr>
+      </table>
+
+      <h3>10.2 商业模式与收入结构</h3>
+      <table>
+        <tr><th>收入类型</th><th>阶段</th><th>毛利特征</th><th>说明</th></tr>
+        <tr><td>外购集成项目</td><td>L1 早期</td><td>约18%–20%</td><td>快速交付与现金流，不作为长期利润核心</td></tr>
+        <tr><td>自研 L1 CDU 销售</td><td>L1 中期起</td><td>目标30%–40%</td><td>须由BOM、良率、质保和渠道成本验证</td></tr>
+        <tr><td>L2 认证级 CDU + 运维服务</td><td>L2</td><td>目标35%–45%</td><td>进入大厂和运营商生态；仍需客户报价验证</td></tr>
+        <tr><td>L3 PCB 冷板/冷板模组</td><td>L3</td><td>约 45%–55%</td><td>高壁垒部件，提升整体方案 ASP</td></tr>
+        <tr><td>冷却液/耗材/服务</td><td>全周期</td><td>复购型</td><td>客户粘性与稳定现金流</td></tr>
+      </table>
+
+      <h3>10.3 GTM 与营销打法</h3>
+      <ul>
+        <li><strong>灯塔客户（Lighthouse）战术：</strong>首年集中资源打造 3 家中小云/区域 IDC 标杆，做成可参观、可量化（PUE/节电/可靠性）的样板案例，驱动口碑扩散。</li>
+        <li><strong>认证前置：</strong>L1 阶段就主动对齐 ODCC/OCP/华为/英伟达接口规范，为 L2 阶段进入名录铺路。</li>
+        <li><strong>出海伙伴生态：</strong>跟随中资云出海项目（如字节马来 IDC）、与本地 EPC/IDC 运营商合作，降低交付风险。</li>
+        <li><strong>定价：</strong>L1 阶段以"比海外高端低 30%+、比国产低端高品质"为基准；L2/L3 阶段向标杆毛利收敛。</li>
+        <li><strong>销售激励：</strong>提成挂钩回款而非签单，避免现金流被应收账款拖累。</li>
+      </ul>
+
+      <h3>10.4 TAM / SAM / SOM 测算</h3>
+      <p>用三层市场拆解校验 BP 的三年营收目标。本报告不把液冷服务器整机或宽口径产业规模当作本公司的设备 TAM，而采用 Dell'Oro 液冷设备厂商收入作为顶层锚点。<br><span class="small">TAM 用美元；SAM / SOM 用人民币；规划折算暂按 $1≈¥7.2。</span></p>
+      <table>
+        <tr><th>口径</th><th>2027（Y1）</th><th>2028（Y2）</th><th>2029（Y3）</th><th>2030（指引）</th><th>说明</th></tr>
+        <tr><td><strong>TAM</strong><br>全球数据中心液冷设备厂商收入</td><td>约 $46 亿</td><td>约 $57 亿</td><td>约 $70 亿</td><td>约 $84 亿</td><td>2027/2028为端点插值；2029为机构预测；2030为本文模型</td></tr>
+        <tr><td><strong>需求侧旁证</strong></td><td colspan="4">IDC：中国液冷服务器2024 $23.7亿→2029 $162亿；CAICT：中国智算中心液冷产业2024 ¥184亿→2029约¥1,300亿</td><td>不可与TAM相加</td></tr>
+        <tr><td><strong>SAM</strong><br>50–450 kW CDU + 集成</td><td>约 ¥40–65 亿元</td><td>约 ¥55–90 亿元</td><td>约 ¥76–126 亿元</td><td>约 ¥90–150 亿元</td><td><span class="tag estimate">管理层估算；逐层公式待披露</span></td></tr>
+        <tr><td><strong>SOM</strong><br>BP 营收目标</td><td>¥1,800 万<br><span class="small">0.28%–0.45%</span></td><td>¥5,500 万<br><span class="small">0.61%–1.00%</span></td><td>¥13,000 万<br><span class="small">1.03%–1.71%</span></td><td>¥25,000 万<br><span class="small">1.67%–2.78%</span></td><td>需要持续订单转化</td></tr>
+        <tr style="background:#fff3d6"><td colspan="6"><strong>结论：</strong>Y3目标约占SAM的1.0%–1.7%，数学上可达但执行要求高，必须用订单、认证、回款和良率逐季验证。</td></tr>
+      </table>
+
+      <h3>10.5 客户单价与目标客户数（自下而上校验）</h3>
+      <table>
+        <tr><th>年份</th><th>主要客户类型</th><th>典型单项目金额</th><th>需要项目数</th><th>对应 BP 营收</th></tr>
+        <tr><td>2027 (L1)</td><td>中小云/区域 IDC 灯塔</td><td>¥150–300 万元/项目</td><td>6–12 个项目</td><td>¥1,800 万</td></tr>
+        <tr><td>2028 (L2 启动)</td><td>中小云 + 第三方 IDC + 出海试点</td><td>¥300–600 万元/项目</td><td>10–18 个项目</td><td>¥5,500 万</td></tr>
+        <tr><td>2029 (L2 + L3 启动)</td><td>认证级 CDU 集采 + 出海主权 AI</td><td>¥800–1,500 万元/项目</td><td>10–16 个项目</td><td>¥13,000 万</td></tr>
+        <tr><td>2030 (L3 放量)</td><td>大厂生态 + PCB 冷板首单</td><td>¥1,500–3,000 万元/项目</td><td>10–17 个项目</td><td>¥25,000 万 <span class="tag estimate">指引</span></td></tr>
+      </table>
+      <p class="small">单项目金额含 CDU、外购集成、冷板/耗材/服务的综合 ASP；自下而上的客户数与自上而下的 SOM 互相校验。</p>
+    </section>
+
+    <section id="sec-bp-align">
+      <h2>11. 与 BP 口径一致性</h2>
+      <p>本调研结论与配套《算力冷却系统新业务BP》的三期注资上限800/1,200/1,500万元保持一致。只有在三年总支出维持¥7,060万、增量融资不转化为额外招聘/设备/库存时，Y1期末现金才提高至约¥380万；否则须等额扣减并重算跑道。</p>
+      <table>
+        <tr><th>阶段</th><th>建议上限</th><th>自下而上估算过程（万元）</th><th>不含项目</th></tr>
+        <tr><td>L1 验证</td><td><strong>800</strong></td><td>团队/外协210 + 两台代表样机170 + 测试设备120 + 测试认证75 + 试点周转115 + IP/软件30 + 预备80</td><td>四档完整样机、自建工厂、大额客户垫资</td></tr>
+        <tr><td>L2 扩展</td><td><strong>最高1,200</strong></td><td>团队/外协300 + 300/450 kW样机280 + 测试设备150 + 联合验证170 + 项目周转190 + BD/服务60 + 预备50</td><td>未获客户牵引的批量备货</td></tr>
+        <tr><td>L3 技术期权</td><td><strong>最高1,500</strong></td><td>团队/合作研发350 + 样件工装320 + 测试设备230 + 验证120 + 小批周转290 + IP/BD80 + 预备110</td><td>完整冷板量产线；该项须另行立项</td></tr>
+      </table>
+
+      <table>
+        <tr><th>调研结论</th><th>BP 对应策略</th><th>一致性判断</th></tr>
+        <tr><td>Dell'Oro 液冷设备收入 2025 近 $3B → 2029 约 $7B；IDC/CAICT 中国口径同步高增长</td><td>三年营收 1,800 万 → 5,500 万 → 1.3 亿元</td><td><span class="tag estimate">待验证</span> 市场增长支持方向，但营收仍须由项目、台数与回款自下而上证明</td></tr>
+        <tr><td>CDU 是系统控制与可靠性中枢；公开高毛利数据多为产业链估算</td><td>第一步800万做共平台、代表样机和强化验证</td><td><span class="tag estimate">风险下降</span> 增量用于测试、周转和预备金</td></tr>
+        <tr><td>OEM/ODM/运营商验证是规模化决定性门槛</td><td>第二步最高1,200万做300/450 kW与第三方/客户验证</td><td><span class="tag verified">客户进入路径一致</span></td></tr>
+        <tr><td>近芯片散热需求上升，但客户规格和量产责任尚未锁定</td><td>第三步最高1,500万联合开发PCB冷板</td><td><span class="tag estimate">条件合理</span> 无联合客户则不启动、不建产线</td></tr>
+        <tr><td>中小云与出海（东南亚/中东）存在未充分服务空间</td><td>滩头阵地战略 + 梯度扩张</td><td><span class="tag verified">商业策略一致</span></td></tr>
+      </table>
+
+      <h3>11.1 仍需创始人在 BP 与调研之间继续校准的假设</h3>
+      <ol>
+        <li>L1 阶段营收与外购集成毛利（18%–25%）是否符合实际产品与交付节奏；</li>
+        <li>在总支出不增加的条件下，BP目标模型Y1期末现金提高至约¥380万、静态覆盖约5.4个月平均运营费用；年内最低现金尚未建模，backstop、客户预付款和13周现金预测仍是关键前提；</li>
+        <li>第二步认证范围与周期：华为名录 vs 英伟达 NPN/MGX 的优先级与实际认证时长；</li>
+        <li>第三步芯片级 PCB 冷板的技术路线与目标客户（自研深度、专用产线设备）；</li>
+        <li>出海首选市场：东南亚 vs 中东优先级、是否独立设立海外销售/服务实体。</li>
+      </ol>
+    </section>
+
+    <!-- ============== 第四篇 ============== -->
+    <div class="part-divider">
+      <div class="label">PART IV</div>
+      <div class="title">第四篇 · 风险与附录</div>
+      <div class="desc">关键风险与对策、数据来源、参考资料与不确定性说明。</div>
+    </div>
+
+    <section id="sec-risk">
+      <h2>12. 风险与对策</h2>
+      <p class="lead">关键风险集中在技术可靠性、客户集中度、价格战与冷却液/冷媒供应。每项风险均给出可执行的缓释路径，并与 BP 中风险章节口径一致。</p>
+
+      <h3>12.1 风险矩阵</h3>
+      <table>
+        <tr><th>风险类别</th><th>具体风险</th><th>影响</th><th>缓释方向</th></tr>
+        <tr><td>技术</td><td>漏液、可靠性、长期工质稳定性；冷板 vs 浸没 vs 两相路线不确定</td><td>客户信任与品牌</td><td>负压/盲插方案、双路线接口预留、长效工质合作开发</td></tr>
+        <tr><td>市场</td><td>客户高度集中（互联网+电信占 90%）、AI 资本开支周期波动</td><td>营收波动大</td><td>客户多元化（中小云+出海+大厂）、灯塔客户口碑</td></tr>
+        <tr><td>政策</td><td>PUE 政策执行节奏/区域差异；补贴退坡</td><td>需求节奏</td><td>紧跟政策、布局枢纽节点项目</td></tr>
+        <tr><td>竞争</td><td>价格战、毛利下行；头部规模碾压；台资先发</td><td>盈利能力</td><td>聚焦 CDU 控制系统等高壁垒环节，差异化卡位</td></tr>
+        <tr><td>供应链</td><td>高端泵阀/特种氟化液依赖进口或少数供应商；3M 退出短期缺口</td><td>保供与成本</td><td>国产替代、多源采购、关键件框架协议</td></tr>
+        <tr><td>认证/资质</td><td>未进入英伟达/华为/运营商名录则规模化受阻</td><td>商业化门槛</td><td>L1 阶段就接口对齐，L2 集中投入认证</td></tr>
+        <tr><td>资金/现金流</td><td>总支出不增加时现金缓冲改善；年内峰值、验收延期、应收和库存仍可能快速占用资金</td><td>现金断裂</td><td>增量融资优先保留流动性；新增支出等额扣减现金；书面backstop、客户预付款、13周现金预测</td></tr>
+        <tr><td>团队/产能</td><td>研发与认证人才稀缺；产能爬坡不足</td><td>错失窗口</td><td>母公司共享职能、关键岗位提前招聘、产能前置</td></tr>
+      </table>
+
+      <h3>12.2 三个 Go/No-Go 决策点（与 BP 一致）</h3>
+      <ol>
+        <li><strong>G1（L1 末，约 12 个月）：</strong>是否完成 L1 CDU 商用出货、灯塔客户回款 ≥ 计划 80%？若否 → 重估产品节奏。</li>
+        <li><strong>G2（L2 末，约 24 个月）：</strong>是否进入至少 1 家大厂认证/供应商名录？若否 → 重估高端扩张路径，聚焦中小云+出海现金流基本盘。</li>
+        <li><strong>G3（L3 末，约 36 个月）：</strong>PCB 冷板样机指标是否达成，是否拿到首单？若否 → 维持 CDU 业务，PCB 冷板延期。</li>
+      </ol>
+    </section>
+
+    <section id="sec-sources">
+      <h2>13. 数据来源、参考资料与不确定性</h2>
+
+      <h3>13.1 主要数据来源</h3>
+      <table>
+        <tr><th>来源</th><th>用途</th><th>性质</th></tr>
+        <tr><td>国家发改委等四部门《数据中心绿色低碳发展专项行动计划》（970 号文，2024.07）</td><td>PUE 政策、东数西算</td><td><span class="tag verified">政府文件</span></td></tr>
+        <tr><td>全国标准信息公共服务平台 / GB/T 44989-2024</td><td>绿色数据中心评价标准、液冷部件国标计划</td><td><span class="tag verified">官方标准</span></td></tr>
+        <tr><td>中国信息通信研究院（CAICT）《智算中心液冷产业全景研究报告（2025年）》</td><td>中国智算中心液冷产业 2024 年测算 184 亿元、2029 年预测约 1,300 亿元</td><td><span class="tag verified">权威测算</span></td></tr>
+        <tr><td>IDC《中国半年度液冷服务器市场（2024下半年）跟踪》</td><td>2024 年液冷服务器 23.7 亿美元、2029 年 162 亿美元、CAGR 46.8%</td><td><span class="tag verified">机构跟踪/预测</span></td></tr>
+        <tr><td>科智咨询 / 中商产业研究院</td><td>智算中心投资、液冷服务器规模与预测</td><td><span class="tag estimate">含估算</span></td></tr>
+        <tr><td>赛迪顾问《中国液冷数据中心发展白皮书》</td><td>厂商排名、冷板&gt;70% 份额</td><td><span class="tag verified">第三方</span></td></tr>
+        <tr><td>Grand View / Precedence / Mordor / MarketsandMarkets / ResearchIntelo / Dell'Oro</td><td>全球液冷市场规模与 CAGR</td><td><span class="tag estimate">多口径差异</span></td></tr>
+        <tr><td>券商研报（东方财富/中金/国信/国海等，2024–2026）</td><td>价值链拆解、毛利率、价值量、渗透率路径</td><td><span class="tag estimate">测算</span></td></tr>
+        <tr><td>上市公司公告与财报（英维克、申菱、高澜等）</td><td>厂商财务与订单</td><td><span class="tag verified">已核实</span></td></tr>
+        <tr><td>Synergy Research、JLL、Cushman & Wakefield、IEA</td><td>全球数据中心容量与电力需求</td><td><span class="tag verified">第三方</span></td></tr>
+        <tr><td>NVIDIA、华为、Lenovo、Supermicro、Dell 官方产品与设施文档</td><td>机柜功率、液冷覆盖率、流量/压差和 CDU 容量边界</td><td><span class="tag verified">第一方规格</span></td></tr>
+      </table>
+
+      <h3>13.2 参考资料与可点击链接</h3>
+      <ul>
+        <li>国家发改委（970 号文等）：<a href="https://www.ndrc.gov.cn/" target="_blank">ndrc.gov.cn</a></li>
+        <li>全国标准信息公共服务平台（GB/T 44989-2024 等）：<a href="https://std.samr.gov.cn/" target="_blank">std.samr.gov.cn</a></li>
+        <li>IDC（中国半年度液冷服务器市场跟踪等）：<a href="https://www.idc.com/" target="_blank">idc.com</a></li>
+        <li>中国信通院（液冷/数据中心白皮书）：<a href="https://www.caict.ac.cn/" target="_blank">caict.ac.cn</a></li>
+        <li>ODCC 开放数据中心委员会：<a href="https://www.odcc.org.cn/" target="_blank">odcc.org.cn</a></li>
+        <li>Grand View Research、Mordor Intelligence、MarketsandMarkets、Dell'Oro 等全球液冷市场预测报告。</li>
+        <li>英维克、申菱环境、高澜股份、Vertiv、CoolIT、Schneider Electric 等公司公开产品资料与公告。</li>
+        <li>Synergy Research、JLL、Cushman & Wakefield、IEA 等全球数据中心容量与电力需求研究。</li>
+        <li>Dell'Oro：<a href="https://www.delloro.com/news/data-center-liquid-cooling-market-to-approach-7-billion-by-2029-as-ai-deployments-accelerate/" target="_blank">全球液冷设备收入 2025 近 $3B → 2029 约 $7B</a></li>
+        <li>IEA：<a href="https://www.iea.org/reports/energy-and-ai" target="_blank">Energy and AI（2024 年 415 TWh、2035 路径）</a>；<a href="https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary" target="_blank">2026 更新（2025 年 485 TWh、2030 年 950 TWh）</a></li>
+        <li>国家数据局：<a href="https://www.nda.gov.cn/sjj/swdt/mtsy/0428/20260428225238659058846_pc.html" target="_blank">2026Q1 全国智能算力 188 万 PFLOPS、枢纽占比与监测接入</a></li>
+        <li>国家能源局：<a href="https://www.nea.gov.cn/20260529/18c09743776c4dddb55288ceea38b8b1/c.html" target="_blank">2025/2030 中国算力中心用电 1,700/8,000 亿 kWh</a></li>
+        <li>CAICT：<a href="https://www.caict.ac.cn/kxyj/qwfb/ztbg/202508/P020250826611237647336.pdf" target="_blank">2024/2029 中国智算中心液冷产业 184/1,300 亿元</a></li>
+        <li>IDC 官方：<a href="https://my.idc.com/getdoc.jsp?containerId=prCHC53302025" target="_blank">2024 中国液冷服务器 $2.37B、2029 $16.2B</a></li>
+        <li>MarketsandMarkets：<a href="https://www.prnewswire.com/news-releases/data-center-liquid-cooling-market-worth-21-14-billion-by-2032--exclusive-report-by-marketsandmarkets-302414203.html" target="_blank">液冷解决方案+服务 2025 $2.84B、2032 $21.14B</a></li>
+        <li>McKinsey：<a href="https://www.mckinsey.com/featured-insights/sustainable-inclusive-growth/charts/data-center-demands" target="_blank">全球关键 IT 容量需求“持续动量”情景：2025 年 82 GW、2030 年 219 GW</a></li>
+        <li>EPRI：<a href="https://powering-intelligence.epri.com/annual-peak-use.html" target="_blank">美国数据中心 2024 用电估计与 2030 情景</a></li>
+        <li>JLL：<a href="https://www.jll.com/en-us/newsroom/global-data-center-sector-to-nearly-double-to-200gw-amid-ai-infrastructure-boom" target="_blank">全球数据中心供给容量至 2030 年约 200 GW</a></li>
+        <li>MIDA：<a href="https://www.mida.gov.my/mida-news/malaysia-ranked-first-in-sea-5-data-centre-opportunity-index/" target="_blank">马来西亚 2024 年在运数据中心与 IT 容量</a></li>
+        <li>美国能源部：<a href="https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers" target="_blank">美国数据中心 2023/2028 用电基线与预测</a></li>
+        <li>AirTrunk：<a href="https://airtrunk.com/airtrunk-doubles-down-in-malaysia-with-two-new-hyperscale-campuses-in-johor-bahru/" target="_blank">柔佛四园区超过 700 MW</a></li>
+        <li>NVIDIA：<a href="https://nvidianews.nvidia.com/news/humain-and-nvidia-announce-strategic-partnership-to-build-ai-factories-of-the-future-in-saudi-arabia" target="_blank">HUMAIN 五年最高 500 MW 与首阶段 18,000 个 GB300 GPU</a></li>
+        <li>阿布扎比政府：<a href="https://www.mediaoffice.abudhabi/en/technology/global-tech-alliance-launches-stargate-uae/" target="_blank">Stargate UAE 1 GW 集群、首期 200 MW</a></li>
+        <li>NVIDIA：<a href="https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/components.html" target="_blank">GB300 NVL72 架构</a>；<a href="https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer" target="_blank">Vera Rubin 平台</a></li>
+        <li>NVIDIA：<a href="https://docs.nvidia.com/dgx/dgxgb200-user-guide/hardware.html" target="_blank">DGX GB200/GB300 系统硬件与约 120 kW 整柜功率</a></li>
+        <li>华为：<a href="https://support.huawei.com/enterprise/zh/doc/EDOC1100401572/908e3129" target="_blank">Atlas 900 A3 计算柜 66 kW 与约 70% 液冷比</a>；<a href="https://support.huawei.com/enterprise/zh/doc/EDOC1100401572/de187aa3" target="_blank">可选液冷门的32℃供水流量与压差</a></li>
+        <li>Lenovo：<a href="https://lenovopress.lenovo.com/ds0187.pdf" target="_blank">ThinkSystem N1380 Neptune 162 kW DC/柜</a></li>
+        <li>Supermicro：<a href="https://www.supermicro.com/datasheet/Datasheet_Supermicro_DLC-2.pdf" target="_blank">DLC-2 最高 250 kW/柜、最高 98% 热捕获</a></li>
+        <li>Dell：<a href="https://www.dell.com/en-us/shop/dell-poweredge-integrated-rack-scalable-systems/sf/integrated-rack-scalable-systems" target="_blank">IR7000/PowerRack 7000 最高 504 kW 液冷母排</a></li>
+        <li>Vertiv：<a href="https://www.vertiv.com/48ed4b/globalassets/shared/vertiv-xdu450-cdu_datasheet_en-na.pdf" target="_blank">XDU450：453 kW @ 4℃ ATD</a></li>
+        <li>OCP：<a href="https://www.opencompute.org/documents/ocp-specification-deschutes-final-2025-09-05-pdf" target="_blank">Project Deschutes 5（2 MW CDU）</a></li>
+        <li>Nature：<a href="https://www.nature.com/articles/s41586-025-08832-3" target="_blank">先进冷却全生命周期评估</a></li>
+        <li>3M：<a href="https://pfas.3m.com/exit-information" target="_blank">2025 年底完成 PFAS 制造退出</a></li>
+      </ul>
+
+      <h3>13.3 不确定性说明</h3>
+      <ul>
+        <li><strong>市场规模口径分歧：</strong>Dell'Oro 的约 $3B 是 2025 年设备厂商收入；MarketsandMarkets 的 $2.84B 是解决方案+服务口径；Grand View 等更宽口径可明显更高。名称相同不代表可直接比较，更不能相加。</li>
+        <li><strong>渗透率路径为估算：</strong>37%/50%/82% 等为基于 GB200/GB300 放量推断，实际受芯片供给、电力、资本开支节奏影响。</li>
+        <li><strong>机柜功率与代际时间：</strong>GB300 NVL72 参考架构约 142 kW；Vera Rubin 未披露固定机架功率；Rubin Ultra NVL576 是 8 个 NVL72 机架组成的多机架域。伙伴供货节奏与最终配置仍可能调整。</li>
+        <li><strong>毛利率与价值量占比：</strong>来自券商对 GB300 机柜的测算，不同机型/项目差异显著。</li>
+        <li><strong>冷却液市场：</strong>3M 退出影响、国产替代份额（&lt;10%→40%+）为行业预测，验证周期存在不确定性。</li>
+        <li><strong>2024–2032 年度序列：</strong>仅标记 A/E/F 的锚点来自官方或机构；M 为本文插值、外推或情景区间，只用于规划与压力测试，不作为审计口径。</li>
+      </ul>
+
+      <h3>13.4 版本演进</h3>
+      <ul>
+        <li><strong>V0.1（前台快速交付）：</strong>最小可读结构与核心结论。</li>
+        <li><strong>V0.2（前台增量补强）：</strong>恢复 MD 原始详表、补充 2032 国家测算、竞品对标、技术指标基线、与 BP 一致性检查。</li>
+        <li><strong>v2.0（结构重排）：</strong>把杂物章节拆解归并；按市场机会 / 行业格局 / 战略产品 / 风险附录四篇章组织全文。</li>
+        <li><strong>v2.1（深度数据版）：</strong>新增 5 个深度小节——§4.5 逐国典型 IDC 项目清单、§5.4 CDU 价格带与 ASP 估算、§7.4 CDU 整机 BOM 成本结构、§9.4 三年产品路线甘特图（SVG）、§10.4 TAM/SAM/SOM 测算 + §10.5 自下而上客户数校验。可读性、可落地性、与 BP 财务模型的勾稽性均显著提升。</li>
+        <li><strong>v2.2（Tech-Deep 技术深潜版）：</strong>新增整章 <strong>§3A《核心产品技术路线调研》</strong>，含 9 个工程级子节、约 20 张技术对比表、2 张 SVG 示意图（CDU 系统框图 + PCB 冷板剖面），覆盖 CDU 子系统/形态/路线/参数/控制软件栈、芯片级 PCB 冷板 8 条工艺路线对比、密封与可靠性、工质选型、标准接口与专利地图、IP 战略；并给出 L1/L2/L3 三级产品技术目标值与 IP 预申请清单。</li>
+        <li><strong>v2.2.1（本版本，货币与单位约定明确化）：</strong>顶部新增「货币与单位约定」框；§4.3 全球年度测算框架表头明示"亿美元（USD）"；§10.4 TAM/SAM/SOM 表标注 USD/RMB 与"亿元"全称；§3A.7 工质章节中的 PFAS 缺口标注 (USD)。所有未注明币种的"亿/万/元"默认人民币。</li>
+        <li><strong>v2.3（2026.08 Evidence Update）：</strong>新增工信部 1,590 EFLOPS、IEA 485→950 TWh、Dell'Oro $3B→$7B 与 OCP 2 MW CDU；纠正多项无充分一手依据表述。</li>
+        <li><strong>v2.4（2026.08 2024–2032 Update）：</strong>更新 2025 年末 1,373 万标准机架、全球/中国用电与关键 IT 容量；将液冷设备、解决方案+服务、中国整机和产业测算分列；所有 2030 年后非机构锚点采用递减增速或区间模型。</li>
+        <li><strong>v2.5（2026.08 Funding Update）：</strong>将三期注资上限调整为500/900/1,200万元；补充团队、样机、测试、认证、周转与预备金的自下而上估算过程。</li>
+        <li><strong>v2.6（2026.08 2027 Start）：</strong>配套BP业务启动年调整为2027年；路线图、TAM/SAM/SOM和客户收入计划统一顺延一年。</li>
+        <li><strong>v2.7（2026.08 Funding Refresh）：</strong>首期/二期注资上限调整为600/1,000万元，三期仍为1,200万元；同步更新现金缓冲与自下而上用途。</li>
+        <li><strong>v2.8（2026.08 Risk-buffered）：</strong>三期上限调整为800/1,200/1,500万元；增量聚焦测试、客户验证、周转和预备金，Y1模型现金缓冲提高至约380万元。</li>
+      </ul>
+
+      <div class="footer">版本：v2.8 Risk-buffered · 更新至 2026.08 · 配套交付《算力冷却系统新业务BP》。业务Y1为2027年；资金估算仍需用供应商书面报价、人员编制、测试机构报价和客户付款条件复核。</div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
