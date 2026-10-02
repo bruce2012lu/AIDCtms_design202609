@@ -1,0 +1,108 @@
+# CP-B300-JM-01 · 微通道 + 冲击换热冷板 · 冻结参数集
+#
+# 唯一数据源：../design/NVIDIA_B300_微通道冲击换热冷板设计报告_v1.0_20260913.html
+# 所有几何为候选值，待 NVIDIA 订单 ICD 冻结（报告 §图纸与尺寸 已标 待ICD）。
+# 单位：长度 mm，流量 L/min，功率 W，温度 °C，压力 kPa。
+# 坐标原点：冷板左下角，X 向右，Y 向上。
+
+meta:
+  model: CP-B300-JM-01
+  title: NVIDIA B300 微通道 + 冲击换热冷板
+  source_report: ../design/NVIDIA_B300_微通道冲击换热冷板设计报告_v1.0_20260913.html
+  source_version: v1.0 / 2026-09-13
+  status: candidate          # candidate | icd_frozen
+  confidence: 0.7            # 几何为候选布置，非官方盖板图
+
+material:
+  body: C110               # 紫铜
+  # 40 °C 水物性，用于反算孔速 / Re / 温升
+  coolant:
+    name: water
+    inlet_temp_c: 40.0
+    density_kg_m3: 992.2
+    viscosity_pa_s: 6.53e-4
+    cp_j_kgk: 4179.0
+
+plate:
+  width: 95.0              # X
+  height: 75.0             # Y
+  thickness: 8.5           # 外形，含周边钎缝 / 水嘴台阶 0.5
+  braze_seam: 0.5
+  # 厚度栈：余铜 2.0 + 槽 1.5 + H 2.0 + 孔板 2.5 = 8.0（腔）
+  nozzle_plate_t: 2.5      # 进液盖 / 喷嘴板
+  base_plate_t: 3.5        # 换热底板（含槽深 1.5）
+  base_remaining: 2.0      # 接触面余厚，报告要求 >= 1.8
+  jet_standoff: 2.0        # H，喷距
+
+# 两颗计算 die：报告 §锁定封装坐标（origin 为 die 左下角）
+dies:
+  size: [27.0, 28.0]
+  hbi_gap: 3.0             # NV-HBI 缝，不得对缝打密孔
+  items:
+    - { id: Die-A, origin: [19.0, 23.5] }
+    - { id: Die-B, origin: [49.0, 23.5] }
+
+# GPU 区微射流阵列（每 die 8x8 = 64，合计 128）
+jets:
+  diameter: 0.50           # D，可微钻
+  pitch: 3.0               # S，S/D = 6（文献窗 4-8）
+  count_x: 8
+  count_y: 8
+  # 首孔中心；阵面 (8-1)*3.0 = 21 x 21，居中落在 27x28 内
+  array_origin:
+    Die-A: [22.0, 27.0]
+    Die-B: [52.0, 27.0]
+  # 抽吸孔：错排在四个喷嘴中间，压差把废液向上抽回出液歧管。
+  # 报告只写了「错开布置」，未给孔径 —— 下面是候选值，待 CFD 定。
+  suction_diameter: 0.80
+  suction_candidate: true
+
+# GPU 短槽：驻点后 <=8 mm 内排液，避免交叉流吹歪下游驻点
+gpu_grooves:
+  width: 0.40
+  depth: 1.50
+  pitch: 0.80              # 肋宽 = 0.80 - 0.40 = 0.40
+  count_per_die: 30        # 2 die 合计 60 条并联流道
+  max_length: 8.0          # L <= 8，由分段 + 抽吸孔保证
+  segment_land: 1.0        # 段间铜岛，抽吸位
+
+# 八颗 12-Hi HBM3e：每侧一列 4 颗，只走平槽，无喷嘴
+hbm:
+  size: [11.0, 11.0]
+  columns_x: [5.0, 79.0]   # 左列 / 右列 origin.x
+  rows_y: [12.5, 25.5, 38.5, 51.5]
+  channel_width: 0.60      # D_h 大于 GPU 槽，降速防冲蚀
+  channel_depth: 1.50
+  channel_pitch: 1.30
+  channels_per_side: 8     # 反算 V ~ 0.46 m/s，落在 0.80 帽以下
+  velocity_cap: 0.80
+
+# 隔离肋：切断 GPU 短槽横流，同时是抗弯筋
+rib:
+  width: 2.0
+
+hydraulics:
+  flow_total: 2.0          # 设计点
+  flow_envelope: 2.4
+  split:
+    gpu: 1.60              # 80%，跟着热流走
+    hbm: 0.40              # 20%
+  dp_design: [8.0, 12.0]
+  dp_sample_target: 18.0
+  dp_limit: 20.0           # 不含机柜歧管
+  filtration_um: 25.0      # 系统侧投运，按最小孔径 1/10 校核
+
+thermal:
+  # 两档不得混成一个保证数
+  dp_a_guarantee_w: 1100.0     # Lenovo TGP，出厂保证点
+  dp_b_envelope_w: 1400.0      # NVIDIA 公开最大 TGP，仅包络仿真
+  power_split_dp_a:
+    die_each: 429.0            # 78% 合计
+    hbm_total: 198.0           # 18%
+    io_other: 44.0             # 4%
+  r_conv_target: [0.010, 0.014]
+  r_case_to_fluid: [0.023, 0.028]
+
+surface:
+  flatness: 0.05
+  roughness_ra_um: 0.8
