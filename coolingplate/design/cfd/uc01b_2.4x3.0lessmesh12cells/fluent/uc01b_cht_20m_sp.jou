@@ -1,0 +1,227 @@
+; UC-01b 12-jet strip, single precision. 8 MPI + GPU.
+; Each inlet_jet_XX is one hole, 1.225e-4 kg/s.
+; return_slot, outlet_y_front, outlet_y_back: same pressure outlet, gauge 0, backflow 313.15 K.
+; wall_heat flux 579282 W/m2. Interior zone stays interior.
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/logs/fluent_cht_20m_sp_r2.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/mesh/uc01b_cht_less_12y_20m_inlets.msh"
+/mesh/check
+/define/boundary-conditions/list-zones
+/define/boundary-conditions/zone-type interior interior
+/define/boundary-conditions/zone-type inlet_jet_01 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_02 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_03 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_04 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_05 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_06 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_07 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_08 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_09 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_10 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_11 mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_jet_12 mass-flow-inlet
+/define/boundary-conditions/zone-type return_slot pressure-outlet
+/define/boundary-conditions/zone-type outlet_y_front pressure-outlet
+/define/boundary-conditions/zone-type outlet_y_back pressure-outlet
+/define/boundary-conditions/zone-type SYM symmetry
+/define/models/energy yes
+no
+no
+no
+no
+/define/models/viscous/kw-sst yes
+/define/materials/copy fluid water-liquid
+/define/materials/copy solid copper
+/define/materials/change-create
+water-liquid
+water-liquid
+yes
+constant
+992.2
+yes
+constant
+4179
+yes
+constant
+0.631
+yes
+constant
+6.53e-4
+no
+no
+no
+/define/materials/change-create
+copper
+copper
+yes
+constant
+8960
+yes
+constant
+385
+yes
+constant
+390
+/define/materials/change-create
+aluminum
+tim2
+yes
+constant
+2800
+yes
+constant
+1000
+yes
+constant
+8.818342
+yes
+/define/boundary-conditions/fluid
+fluid
+yes
+water-liquid
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+no
+no
+/define/boundary-conditions/solid
+solid_cu
+yes
+copper
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+/define/boundary-conditions/solid
+solid_tim2
+yes
+tim2
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_01 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_02 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_03 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_04 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_05 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_06 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_07 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_08 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_09 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_10 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_11 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_jet_12 () mass-flow no 1.225e-4 t no 313.15 q
+/define/boundary-conditions/set/pressure-outlet return_slot () t no 313.15 q
+/define/boundary-conditions/set/pressure-outlet outlet_y_front () t no 313.15 q
+/define/boundary-conditions/set/pressure-outlet outlet_y_back () t no 313.15 q
+/define/boundary-conditions/wall
+wall_heat
+no
+0
+no
+0
+no
+yes
+heat-flux
+no
+579282
+no
+no
+1
+/report/reference-values/temperature 313.15
+/define/operating-conditions/operating-pressure 101325
+/solve/set/p-v-coupling 24
+/solve/set/pseudo-transient yes
+yes
+1
+1
+0
+yes
+1
+/solve/set/discretization-scheme/pressure 10
+/solve/set/discretization-scheme/mom 0
+/solve/set/discretization-scheme/k 0
+/solve/set/discretization-scheme/omega 0
+/solve/set/discretization-scheme/temperature 0
+/solve/monitors/residual/print? yes
+/solve/monitors/residual/plot? yes
+/solve/monitors/residual/criterion-type 0
+/solve/monitors/residual/check-convergence? no
+no
+no
+no
+no
+no
+no
+/solve/initialize/set-defaults/temperature 313.15
+/solve/initialize/hyb-initialization
+/solve/iterate 300
+/solve/set/discretization-scheme/pressure 12
+/solve/set/discretization-scheme/mom 1
+/solve/set/discretization-scheme/k 1
+/solve/set/discretization-scheme/omega 1
+/solve/set/discretization-scheme/temperature 1
+/solve/monitors/residual/check-convergence? yes
+yes
+yes
+yes
+yes
+yes
+yes
+/solve/monitors/residual/convergence-criteria
+1e-4
+1e-4
+1e-4
+1e-4
+1e-6
+1e-3
+1e-3
+/solve/iterate 4000
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/fluent/uc01b_cht_20m_sp"
+/define/boundary-conditions/list-zones
+/file/stop-transcript
