@@ -1,0 +1,287 @@
+[
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 1592,
+    "h": 554,
+    "captions_on_page": [
+      "Figure 1. Test case of multiple jet impingement cooling with a 4 × 4 inlet nozzle array and a staggered 5 × 5 outlet nozzle array [15]: (a) schematic view of the internal channels; (b) computer-aided design (CAD) structure of the designed cooler."
+    ]
+  },
+  {
+    "file": "figures/p005_i0.jpg",
+    "page": 5,
+    "w": 1445,
+    "h": 549,
+    "captions_on_page": [
+      "Figure 2. Full computational ﬂuid dynamics (CFD) model of the impingement jet cooler with 4 × 4 nozzle array and inside manifold ﬂuid delivery system.",
+      "Figure 3. Unit cell model simpliﬁcation with 1/8 model and symmetry boundary conditions."
+    ]
+  },
+  {
+    "file": "figures/p005_i1.jpg",
+    "page": 5,
+    "w": 1513,
+    "h": 539,
+    "captions_on_page": [
+      "Figure 2. Full computational ﬂuid dynamics (CFD) model of the impingement jet cooler with 4 × 4 nozzle array and inside manifold ﬂuid delivery system.",
+      "Figure 3. Unit cell model simpliﬁcation with 1/8 model and symmetry boundary conditions."
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 1785,
+    "h": 630,
+    "captions_on_page": [
+      "Figure 4. Meshing details of (a) full model and (b) unit cell model, (c) shows the details of the boundary layer mesh between the ﬂuid and solid interface."
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 1602,
+    "h": 986,
+    "captions_on_page": [
+      "Figure 5. Unsteady ﬂow simulation—unsteady Reynolds-averaged Navier–Stokes (URANS) for Vin = 5 m/s and Red = 2048. The velocity at two points as function of ﬂow time (time step) is plotted.",
+      "Figure 6. Conjugate ﬂow and thermal unit cell modeling for Red = 1024: top row—velocity streamlines in the unit cell model, and bottom row—temperature distribution in the active region of the Si chip for diﬀerent turbulent models."
+    ]
+  },
+  {
+    "file": "figures/p008_i1.jpg",
+    "page": 8,
+    "w": 1627,
+    "h": 904,
+    "captions_on_page": [
+      "Figure 5. Unsteady ﬂow simulation—unsteady Reynolds-averaged Navier–Stokes (URANS) for Vin = 5 m/s and Red = 2048. The velocity at two points as function of ﬂow time (time step) is plotted.",
+      "Figure 6. Conjugate ﬂow and thermal unit cell modeling for Red = 1024: top row—velocity streamlines in the unit cell model, and bottom row—temperature distribution in the active region of the Si chip for diﬀerent turbulent models."
+    ]
+  },
+  {
+    "file": "figures/p008_i2.jpg",
+    "page": 8,
+    "w": 1602,
+    "h": 986,
+    "captions_on_page": [
+      "Figure 5. Unsteady ﬂow simulation—unsteady Reynolds-averaged Navier–Stokes (URANS) for Vin = 5 m/s and Red = 2048. The velocity at two points as function of ﬂow time (time step) is plotted.",
+      "Figure 6. Conjugate ﬂow and thermal unit cell modeling for Red = 1024: top row—velocity streamlines in the unit cell model, and bottom row—temperature distribution in the active region of the Si chip for diﬀerent turbulent models."
+    ]
+  },
+  {
+    "file": "figures/p008_i3.jpg",
+    "page": 8,
+    "w": 1627,
+    "h": 904,
+    "captions_on_page": [
+      "Figure 5. Unsteady ﬂow simulation—unsteady Reynolds-averaged Navier–Stokes (URANS) for Vin = 5 m/s and Red = 2048. The velocity at two points as function of ﬂow time (time step) is plotted.",
+      "Figure 6. Conjugate ﬂow and thermal unit cell modeling for Red = 1024: top row—velocity streamlines in the unit cell model, and bottom row—temperature distribution in the active region of the Si chip for diﬀerent turbulent models."
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 1479,
+    "h": 830,
+    "captions_on_page": [
+      "Figure 7. Large Eddy Simulations (LES) modeling results: (a) velocity and temperature distribution at Red = 1024; (b) ﬂow velocity development as function of the time. (4 × 4 nozzle array, di = 0.6 mm)."
+    ]
+  },
+  {
+    "file": "figures/p009_i1.jpg",
+    "page": 9,
+    "w": 1484,
+    "h": 949,
+    "captions_on_page": [
+      "Figure 7. Large Eddy Simulations (LES) modeling results: (a) velocity and temperature distribution at Red = 1024; (b) ﬂow velocity development as function of the time. (4 × 4 nozzle array, di = 0.6 mm)."
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 1390,
+    "h": 1105,
+    "captions_on_page": [
+      "Figure 8. Nuavg–Red correlations: Turbulence model comparison with diﬀerent RANS models and benchmarked with LES model (30 ≤Red ≤4000).",
+      "Figure 9. Nu0–Red correlations: Turbulence model comparison with diﬀerent RANS models and benchmarked with LES model (30 ≤Red ≤4000)."
+    ]
+  },
+  {
+    "file": "figures/p011_i1.jpg",
+    "page": 11,
+    "w": 1414,
+    "h": 1116,
+    "captions_on_page": [
+      "Figure 8. Nuavg–Red correlations: Turbulence model comparison with diﬀerent RANS models and benchmarked with LES model (30 ≤Red ≤4000).",
+      "Figure 9. Nu0–Red correlations: Turbulence model comparison with diﬀerent RANS models and benchmarked with LES model (30 ≤Red ≤4000)."
+    ]
+  },
+  {
+    "file": "figures/p011_i2.jpg",
+    "page": 11,
+    "w": 1390,
+    "h": 1105,
+    "captions_on_page": [
+      "Figure 8. Nuavg–Red correlations: Turbulence model comparison with diﬀerent RANS models and benchmarked with LES model (30 ≤Red ≤4000).",
+      "Figure 9. Nu0–Red correlations: Turbulence model comparison with diﬀerent RANS models and benchmarked with LES model (30 ≤Red ≤4000)."
+    ]
+  },
+  {
+    "file": "figures/p011_i3.jpg",
+    "page": 11,
+    "w": 1414,
+    "h": 1116,
+    "captions_on_page": [
+      "Figure 8. Nuavg–Red correlations: Turbulence model comparison with diﬀerent RANS models and benchmarked with LES model (30 ≤Red ≤4000).",
+      "Figure 9. Nu0–Red correlations: Turbulence model comparison with diﬀerent RANS models and benchmarked with LES model (30 ≤Red ≤4000)."
+    ]
+  },
+  {
+    "file": "figures/p012_i0.jpg",
+    "page": 12,
+    "w": 1522,
+    "h": 1195,
+    "captions_on_page": [
+      "Figure 10. f–Red correlations: Turbulence model comparison with diﬀerent RANS models and benchmarked with LES model (30 ≤Red ≤4000).",
+      "Figure 11. Conjugate ﬂow and thermal modeling with full CFD model: top row—velocity streamline, and bottom row—temperature distributions with diﬀerent turbulent models (130 ≤Red ≤1400)."
+    ]
+  },
+  {
+    "file": "figures/p012_i1.jpg",
+    "page": 12,
+    "w": 1844,
+    "h": 936,
+    "captions_on_page": [
+      "Figure 10. f–Red correlations: Turbulence model comparison with diﬀerent RANS models and benchmarked with LES model (30 ≤Red ≤4000).",
+      "Figure 11. Conjugate ﬂow and thermal modeling with full CFD model: top row—velocity streamline, and bottom row—temperature distributions with diﬀerent turbulent models (130 ≤Red ≤1400)."
+    ]
+  },
+  {
+    "file": "figures/p012_i2.jpg",
+    "page": 12,
+    "w": 1522,
+    "h": 1195,
+    "captions_on_page": [
+      "Figure 10. f–Red correlations: Turbulence model comparison with diﬀerent RANS models and benchmarked with LES model (30 ≤Red ≤4000).",
+      "Figure 11. Conjugate ﬂow and thermal modeling with full CFD model: top row—velocity streamline, and bottom row—temperature distributions with diﬀerent turbulent models (130 ≤Red ≤1400)."
+    ]
+  },
+  {
+    "file": "figures/p012_i3.jpg",
+    "page": 12,
+    "w": 1844,
+    "h": 936,
+    "captions_on_page": [
+      "Figure 10. f–Red correlations: Turbulence model comparison with diﬀerent RANS models and benchmarked with LES model (30 ≤Red ≤4000).",
+      "Figure 11. Conjugate ﬂow and thermal modeling with full CFD model: top row—velocity streamline, and bottom row—temperature distributions with diﬀerent turbulent models (130 ≤Red ≤1400)."
+    ]
+  },
+  {
+    "file": "figures/p013_i0.jpg",
+    "page": 13,
+    "w": 1718,
+    "h": 991,
+    "captions_on_page": [
+      "Figure 12. Temperature comparison between the unit cell model (UC) and full cooler level model (FM) with transition SST turbulence model for diﬀerent ﬂow rate values (FL): (a) FL = 100 mL/min; (b) FL = 300 mL/min; (c) FL = 650 mL/min; (d) FL = 1000 mL/min; (e) temperature comparison as a function of"
+    ]
+  },
+  {
+    "file": "figures/p014_i0.jpg",
+    "page": 14,
+    "w": 1246,
+    "h": 1014,
+    "captions_on_page": [
+      "Figure 13. Temperature proﬁles along the chip diagonal: comparison for unit cell and full model with transition Shear Stress Transport (SST) model under the ﬂow rate of 300 mL/min and 650 mL/min.",
+      "Figure 14. Pressure drop of unit cell and full cooler level model as function of the total ﬂow rate."
+    ]
+  },
+  {
+    "file": "figures/p014_i1.jpg",
+    "page": 14,
+    "w": 1127,
+    "h": 963,
+    "captions_on_page": [
+      "Figure 13. Temperature proﬁles along the chip diagonal: comparison for unit cell and full model with transition Shear Stress Transport (SST) model under the ﬂow rate of 300 mL/min and 650 mL/min.",
+      "Figure 14. Pressure drop of unit cell and full cooler level model as function of the total ﬂow rate."
+    ]
+  },
+  {
+    "file": "figures/p014_i2.jpg",
+    "page": 14,
+    "w": 1246,
+    "h": 1014,
+    "captions_on_page": [
+      "Figure 13. Temperature proﬁles along the chip diagonal: comparison for unit cell and full model with transition Shear Stress Transport (SST) model under the ﬂow rate of 300 mL/min and 650 mL/min.",
+      "Figure 14. Pressure drop of unit cell and full cooler level model as function of the total ﬂow rate."
+    ]
+  },
+  {
+    "file": "figures/p014_i3.jpg",
+    "page": 14,
+    "w": 1127,
+    "h": 963,
+    "captions_on_page": [
+      "Figure 13. Temperature proﬁles along the chip diagonal: comparison for unit cell and full model with transition Shear Stress Transport (SST) model under the ﬂow rate of 300 mL/min and 650 mL/min.",
+      "Figure 14. Pressure drop of unit cell and full cooler level model as function of the total ﬂow rate."
+    ]
+  },
+  {
+    "file": "figures/p015_i0.jpg",
+    "page": 15,
+    "w": 1326,
+    "h": 664,
+    "captions_on_page": [
+      "Figure 15. Test case demonstration of the microjet impingement cooler: (a) photo of 3D printed cooler with 4 × 4 nozzle array; (b) bottom view of the printed jet nozzles.",
+      "Figure 16 shows a schematic of the experimental setup for the measurement of the hydraulic and thermal performance of the microjet cooler. The closed ﬂow loop includes ﬂow meter, pressure transducer, heat exchanger, chiller, pump, ﬁlter and temperature sensor. The closed ﬂow loop can be operated in ",
+      "Figure 16. Experimental set-up of the impingement jet cooling: ﬂow loop measurement system; temperature distribution measurement and microjet cooler."
+    ]
+  },
+  {
+    "file": "figures/p015_i1.jpg",
+    "page": 15,
+    "w": 1767,
+    "h": 976,
+    "captions_on_page": [
+      "Figure 15. Test case demonstration of the microjet impingement cooler: (a) photo of 3D printed cooler with 4 × 4 nozzle array; (b) bottom view of the printed jet nozzles.",
+      "Figure 16 shows a schematic of the experimental setup for the measurement of the hydraulic and thermal performance of the microjet cooler. The closed ﬂow loop includes ﬂow meter, pressure transducer, heat exchanger, chiller, pump, ﬁlter and temperature sensor. The closed ﬂow loop can be operated in ",
+      "Figure 16. Experimental set-up of the impingement jet cooling: ﬂow loop measurement system; temperature distribution measurement and microjet cooler."
+    ]
+  },
+  {
+    "file": "figures/p015_i2.jpg",
+    "page": 15,
+    "w": 1326,
+    "h": 664,
+    "captions_on_page": [
+      "Figure 15. Test case demonstration of the microjet impingement cooler: (a) photo of 3D printed cooler with 4 × 4 nozzle array; (b) bottom view of the printed jet nozzles.",
+      "Figure 16 shows a schematic of the experimental setup for the measurement of the hydraulic and thermal performance of the microjet cooler. The closed ﬂow loop includes ﬂow meter, pressure transducer, heat exchanger, chiller, pump, ﬁlter and temperature sensor. The closed ﬂow loop can be operated in ",
+      "Figure 16. Experimental set-up of the impingement jet cooling: ﬂow loop measurement system; temperature distribution measurement and microjet cooler."
+    ]
+  },
+  {
+    "file": "figures/p015_i3.jpg",
+    "page": 15,
+    "w": 1767,
+    "h": 976,
+    "captions_on_page": [
+      "Figure 15. Test case demonstration of the microjet impingement cooler: (a) photo of 3D printed cooler with 4 × 4 nozzle array; (b) bottom view of the printed jet nozzles.",
+      "Figure 16 shows a schematic of the experimental setup for the measurement of the hydraulic and thermal performance of the microjet cooler. The closed ﬂow loop includes ﬂow meter, pressure transducer, heat exchanger, chiller, pump, ﬁlter and temperature sensor. The closed ﬂow loop can be operated in ",
+      "Figure 16. Experimental set-up of the impingement jet cooling: ﬂow loop measurement system; temperature distribution measurement and microjet cooler."
+    ]
+  },
+  {
+    "file": "figures/p016_i0.jpg",
+    "page": 16,
+    "w": 1474,
+    "h": 1227,
+    "captions_on_page": [
+      "Figure 17. Model comparison with full CFD model, unit cell model and experimental results data on Nuavg-Red number."
+    ]
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 500,
+    "h": 175,
+    "captions_on_page": []
+  }
+]

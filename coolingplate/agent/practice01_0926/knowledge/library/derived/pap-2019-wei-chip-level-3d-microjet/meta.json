@@ -1,0 +1,11 @@
+{
+  "id": "pap-2019-wei-chip-level-3d-microjet",
+  "sha256": "8978499e8725dd55d088ff5953d196150bc566991dff03a563cbfbf771a92883",
+  "source": "files/papers/pap-2019-wei-chip-level-3d-microjet.pdf",
+  "extracted_at": "2026-10-02T23:31:25",
+  "pages": 10,
+  "chars": 50565,
+  "chunks": 41,
+  "tables": 0,
+  "figures": 34
+}

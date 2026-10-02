@@ -1,0 +1,178 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 248,
+    "h": 272,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p001_i1.jpg",
+    "page": 1,
+    "w": 236,
+    "h": 298,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p001_i2.jpg",
+    "page": 1,
+    "w": 120,
+    "h": 120,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 967,
+    "h": 584,
+    "captions_on_page": [
+      "Fig. 1. Details of the thermal test chip: (a) cross section view of the PTCQ package; (b) schematic of the heater and diode temperature sensor layer; (c) photograph of the bare die package."
+    ]
+  },
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 1772,
+    "h": 626,
+    "captions_on_page": [
+      "Fig. 3 illustrates the critical parameters in the cross section of a generic impingement jet cooler with locally distributed outlets in be- tween the inlet nozzles. Three diﬀerent levels are shown in the cooler schematic Fig. 3(b): the inlet plenum level, the outlet plenum level and the impingement ",
+      "Fig. 6 shows the dedicated experimental test set-up for the accurate ﬂow and pressure measurements in the cooler and the temperature measurements in the test chip. All the sensors in the set-up are con- nected to and controlled by LabVIEW, allowing operation of the ﬂow loop either in a controlled ma",
+      "Fig. 2. Floorplan of the 8 × 8 mm2 PTCQ thermal test chip: (a) conﬁgurations of 32 × 32 array of temperature sensors; a) conﬁgurations of 832 programmable heater cells; (c) details of the metal meander heaters within one cell (240 × 240 μm2)."
+    ]
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 1772,
+    "h": 568,
+    "captions_on_page": [
+      "Fig. 3. Chip level impingement jet cooler: (a) generic impingement cooler cross section; (b) schematic with geometry parameters.",
+      "Fig. 4. Demonstration of the chip level single impingement jet cooler: (a) experimental set-up photo of single jet cooler; (b) schematic view of the cooler with diﬀerent parts; (c) and (d) photo and isometric drawing of single inlet and six outlets.",
+      "Fig. 5. Demonstration of the chip level 4 × 4 impingement jet cooler: (a) CAD design details of diﬀerent individual parts; (b) photo with the arrangement of nozzle placement; (c) ﬁnal as- sembly of 4 × 4 impingement jet cooler. (1- Cover layer, 2-inlet/outlet plenum, 3-nozzle plate, 4-support struct"
+    ]
+  },
+  {
+    "file": "figures/p004_i1.jpg",
+    "page": 4,
+    "w": 1502,
+    "h": 809,
+    "captions_on_page": [
+      "Fig. 3. Chip level impingement jet cooler: (a) generic impingement cooler cross section; (b) schematic with geometry parameters.",
+      "Fig. 4. Demonstration of the chip level single impingement jet cooler: (a) experimental set-up photo of single jet cooler; (b) schematic view of the cooler with diﬀerent parts; (c) and (d) photo and isometric drawing of single inlet and six outlets.",
+      "Fig. 5. Demonstration of the chip level 4 × 4 impingement jet cooler: (a) CAD design details of diﬀerent individual parts; (b) photo with the arrangement of nozzle placement; (c) ﬁnal as- sembly of 4 × 4 impingement jet cooler. (1- Cover layer, 2-inlet/outlet plenum, 3-nozzle plate, 4-support struct"
+    ]
+  },
+  {
+    "file": "figures/p004_i2.jpg",
+    "page": 4,
+    "w": 1476,
+    "h": 772,
+    "captions_on_page": [
+      "Fig. 3. Chip level impingement jet cooler: (a) generic impingement cooler cross section; (b) schematic with geometry parameters.",
+      "Fig. 4. Demonstration of the chip level single impingement jet cooler: (a) experimental set-up photo of single jet cooler; (b) schematic view of the cooler with diﬀerent parts; (c) and (d) photo and isometric drawing of single inlet and six outlets.",
+      "Fig. 5. Demonstration of the chip level 4 × 4 impingement jet cooler: (a) CAD design details of diﬀerent individual parts; (b) photo with the arrangement of nozzle placement; (c) ﬁnal as- sembly of 4 × 4 impingement jet cooler. (1- Cover layer, 2-inlet/outlet plenum, 3-nozzle plate, 4-support struct"
+    ]
+  },
+  {
+    "file": "figures/p005_i0.jpg",
+    "page": 5,
+    "w": 1772,
+    "h": 923,
+    "captions_on_page": [
+      "Fig. 6. Schematic of the experimental ﬂow loop."
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 1773,
+    "h": 1058,
+    "captions_on_page": [
+      "Fig. 7. CFD models: (a) transparent view and (b) meshing of full 4×4 nozzle array models; c) meshing of a single jet cooler with one inlet nozzle and 6 outlet nozzles; (d), (e) and (f) details of the boundary layer and heater cell meshing."
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 2031,
+    "h": 632,
+    "captions_on_page": [
+      "Fig. 8. Single jet model validations (ﬂow rate = 600 ml/min, chip power = 24 W): (a) temperature measurement results; (b) CFD modeling results; (c) comparison of single jet modeling results and experiments data.",
+      "Fig. 9. Modeling and experimental results of 4 × 4 multi-jet cooler (Red = 1015 for 600 ml/min) (a) measurement, (b) CFD modeling, (c) temperature increase proﬁle comparison between measurements and CFD modeling of multi-jet cooler (chip power = 50 W)."
+    ]
+  },
+  {
+    "file": "figures/p007_i1.jpg",
+    "page": 7,
+    "w": 2033,
+    "h": 646,
+    "captions_on_page": [
+      "Fig. 8. Single jet model validations (ﬂow rate = 600 ml/min, chip power = 24 W): (a) temperature measurement results; (b) CFD modeling results; (c) comparison of single jet modeling results and experiments data.",
+      "Fig. 9. Modeling and experimental results of 4 × 4 multi-jet cooler (Red = 1015 for 600 ml/min) (a) measurement, (b) CFD modeling, (c) temperature increase proﬁle comparison between measurements and CFD modeling of multi-jet cooler (chip power = 50 W)."
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 2031,
+    "h": 615,
+    "captions_on_page": [
+      "Fig. 12 shows the comparison between the uniform heating case and the quasi-uniform heating case for the 4 × 4 multi-jet cooling. Although the diﬀerence for the average temperature is small (10.5% and 1.2% for 300 ml/min and 600 ml/min respectively), the temperature distribution maps look completely",
+      "Fig. 13(d) shows that the hot spots cooling with locally distributed outlets can achieve a better cooling performance than common outlets. The main advantage of the locally distributed outlets is that the cross ﬂow eﬀects can be reduced that are present in the common outlet ﬂow. The simulation resul",
+      "Fig. 10. Experimental and modeling results of 480 × 480 µm2 hot spots under the chip power Q = 3.3 W (Red = 1015 for 600 ml/min): (a) experimental results of local temperature distribution; (b) CFD simulations of local temperature distribution; (c) experiments and modeling comparison under the same ",
+      "Fig. 11. Comparison of the simulated chip temperature distribution for single jet cooling with diﬀerent heating conﬁgurations: (a) uniform heating modeling results for 600 ml/min; (b) quasi-uniform heating modeling results for 600 ml/min; (c) diagonal proﬁle comparison between uniform heating and qu"
+    ]
+  },
+  {
+    "file": "figures/p008_i1.jpg",
+    "page": 8,
+    "w": 2030,
+    "h": 632,
+    "captions_on_page": [
+      "Fig. 12 shows the comparison between the uniform heating case and the quasi-uniform heating case for the 4 × 4 multi-jet cooling. Although the diﬀerence for the average temperature is small (10.5% and 1.2% for 300 ml/min and 600 ml/min respectively), the temperature distribution maps look completely",
+      "Fig. 13(d) shows that the hot spots cooling with locally distributed outlets can achieve a better cooling performance than common outlets. The main advantage of the locally distributed outlets is that the cross ﬂow eﬀects can be reduced that are present in the common outlet ﬂow. The simulation resul",
+      "Fig. 10. Experimental and modeling results of 480 × 480 µm2 hot spots under the chip power Q = 3.3 W (Red = 1015 for 600 ml/min): (a) experimental results of local temperature distribution; (b) CFD simulations of local temperature distribution; (c) experiments and modeling comparison under the same ",
+      "Fig. 11. Comparison of the simulated chip temperature distribution for single jet cooling with diﬀerent heating conﬁgurations: (a) uniform heating modeling results for 600 ml/min; (b) quasi-uniform heating modeling results for 600 ml/min; (c) diagonal proﬁle comparison between uniform heating and qu"
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 2031,
+    "h": 641,
+    "captions_on_page": [
+      "Fig. 12. Comparison of simulated chip temperature distribution for multi-jet cooling with diﬀerent heating conﬁgurations: (a) uniform heating modeling results for 600 ml/min; (b) quasi-uniform heating modeling results for 600 ml/min; (c) proﬁle comparison between uniform heating and quasi-uniform he",
+      "Fig. 13. Hot spots cooling modeling for ﬂow rate 600 ml/min: (a) hot spots cooling with common outlets; (b) hot spots cooling with locally distributed outlets; (c) hot spots cooling with nozzle misalignment; (d) temperature proﬁle comparison with diﬀerent conﬁgurations."
+    ]
+  },
+  {
+    "file": "figures/p009_i1.jpg",
+    "page": 9,
+    "w": 2033,
+    "h": 1368,
+    "captions_on_page": [
+      "Fig. 12. Comparison of simulated chip temperature distribution for multi-jet cooling with diﬀerent heating conﬁgurations: (a) uniform heating modeling results for 600 ml/min; (b) quasi-uniform heating modeling results for 600 ml/min; (c) proﬁle comparison between uniform heating and quasi-uniform he",
+      "Fig. 13. Hot spots cooling modeling for ﬂow rate 600 ml/min: (a) hot spots cooling with common outlets; (b) hot spots cooling with locally distributed outlets; (c) hot spots cooling with nozzle misalignment; (d) temperature proﬁle comparison with diﬀerent conﬁgurations."
+    ]
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 1501,
+    "h": 671,
+    "captions_on_page": [
+      "Fig. 14. Normalized comparison of the measured temperature proﬁles for the cases of (a) single jet cooler with respect to the reference measurement without cooling; (b) comparison between the singe jet cooling and multi-jet 4 × 4 array cooling.",
+      "Fig. 15. Correlations between Nusselt number and Reynolds number for single jet and multi-jet conﬁgurations."
+    ]
+  },
+  {
+    "file": "figures/p010_i1.jpg",
+    "page": 10,
+    "w": 968,
+    "h": 723,
+    "captions_on_page": [
+      "Fig. 14. Normalized comparison of the measured temperature proﬁles for the cases of (a) single jet cooler with respect to the reference measurement without cooling; (b) comparison between the singe jet cooling and multi-jet 4 × 4 array cooling.",
+      "Fig. 15. Correlations between Nusselt number and Reynolds number for single jet and multi-jet conﬁgurations."
+    ]
+  }
+]
