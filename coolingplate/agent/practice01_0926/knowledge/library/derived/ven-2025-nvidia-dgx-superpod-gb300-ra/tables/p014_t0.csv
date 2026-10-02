@@ -1,0 +1,24 @@
+﻿"Mission Control
+Software","NVIDIA Mission Control software delivers a full stack data center solution
+engineered for NVIDIA DGX SuperPOD with DGX GB300 infrastructure
+deployments. It integrates essential management and operational capabilities
+into a unified platform, thereby providing enterprise customers with simplified
+control over their NVIDIA DGX SuperPOD infrastructure deployments at scale.
+NVIDIA Mission Control also leverages NVIDIA Run;ai functionality, providing
+seamless workload orchestration.",,
+NVIDIA AI Enterprise,"NVIDIA AI Enterprise is an end-to-end, cloud-native software platform that
+accelerates data science pipelines and streamlines development and deployment
+of production-grade LLMs and other generative AI applications.",,
+Magnum IO,Enables increased performance for AI and HPC,,
+NVIDIA NGC,"The NGC catalog provides a collection of GPU-optimized containers for AI and
+HPC",,
+Slurm,"A classic workload manager used to manage complex workloads in a multi-node,
+batch-style, compute environment",,
+Run:AI,,,
+,,NVIDIA Run:ai accelerates AI operations with dynamic orchestration across the AI,
+,,"lifecycle. It maximizes GPU utilization, scales AI workloads efficiently, and",
+,,integrates seamlessly into hybrid infrastructure with minimal overhead. Browse,
+,,"the documentation to install and monitor your environment, manage resources",
+,,"and organizations, run and scale AI workloads, and integrate NVIDIA Run:ai into",
+,,your workflows using APIs.,
+,,,

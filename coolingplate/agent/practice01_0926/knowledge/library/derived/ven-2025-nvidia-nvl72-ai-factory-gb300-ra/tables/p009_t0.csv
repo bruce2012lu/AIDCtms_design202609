@@ -1,0 +1,6 @@
+﻿,Component,,,Quantity,
+"NVIDIA Grace Processor, with a total of 72 ARM Neoverse V2 cores, connected via
+NVLink C2C, and 1TB aggregated LPDDR5 CPU main memory",,,2,,
+"NVIDIA B300 GPU, with 1,152 GB aggregated HBM3 memory",,,4,,
+"NVIDIA ConnectX-8 Mezzanine Boards, with 2 ConnectX-8 network adapters each",,,2,,
+Dual-port QSFP112 NVIDIA BlueField-3 B3240 DPU,,,1,,

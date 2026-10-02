@@ -1,0 +1,11 @@
+{
+  "id": "ven-2025-nvidia-nvl72-ai-factory-gb300-ra",
+  "sha256": "9c9b807be9cc7d0a34e5857638692fa2dd23b55435c70bd5f0fd680e5ff0f96c",
+  "source": "files/vendor_docs/ven-2025-nvidia-nvl72-ai-factory-gb300-ra.pdf",
+  "extracted_at": "2026-10-02T23:32:24",
+  "pages": 38,
+  "chars": 59332,
+  "chunks": 54,
+  "tables": 9,
+  "figures": 15
+}

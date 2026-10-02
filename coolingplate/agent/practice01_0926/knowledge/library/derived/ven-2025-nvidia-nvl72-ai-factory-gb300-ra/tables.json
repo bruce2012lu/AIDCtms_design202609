@@ -1,0 +1,86 @@
+[
+  {
+    "file": "tables/p009_t0.csv",
+    "page": 9,
+    "rows": 5,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 1 Compute Tray Components",
+      "Table 2 Management Node Components (x86 control node)"
+    ]
+  },
+  {
+    "file": "tables/p009_t1.csv",
+    "page": 9,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 1 Compute Tray Components",
+      "Table 2 Management Node Components (x86 control node)"
+    ]
+  },
+  {
+    "file": "tables/p010_t0.csv",
+    "page": 10,
+    "rows": 7,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 3 Management Node Components (ARM control node)"
+    ]
+  },
+  {
+    "file": "tables/p010_t1.csv",
+    "page": 10,
+    "rows": 10,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 3 Management Node Components (ARM control node)"
+    ]
+  },
+  {
+    "file": "tables/p020_t0.csv",
+    "page": 20,
+    "rows": 9,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 4 Fabric Roles and Usage Recommendations"
+    ]
+  },
+  {
+    "file": "tables/p024_t0.csv",
+    "page": 24,
+    "rows": 6,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 5 GB300 NVL72 Server Ethernet Components with Spectrum-X Fabric"
+    ]
+  },
+  {
+    "file": "tables/p032_t0.csv",
+    "page": 32,
+    "rows": 9,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 8 Enterprise RA Software Components"
+    ]
+  },
+  {
+    "file": "tables/p035_t0.csv",
+    "page": 35,
+    "rows": 12,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 9 Terminology"
+    ]
+  },
+  {
+    "file": "tables/p036_t0.csv",
+    "page": 36,
+    "rows": 11,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 10 shows the GB300 compute tray requirements",
+      "Table 10 GB300 compute node/tray requirements"
+    ]
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 748,
+    "h": 949,
+    "captions_on_page": [
+      "Figure 1 NVIDIA GB300 NVL72"
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 601,
+    "h": 400,
+    "captions_on_page": [
+      "Figure 2 NVIDIA GB300 NVL Compute Tray"
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 1813,
+    "h": 608,
+    "captions_on_page": [
+      "Figure 3 Sample logical design for the compute tray"
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 1420,
+    "h": 552,
+    "captions_on_page": [
+      "Figure 4 NVLink Switch"
+    ]
+  },
+  {
+    "file": "figures/p014_i0.jpg",
+    "page": 14,
+    "w": 667,
+    "h": 447,
+    "captions_on_page": [
+      "Figure 5 NVIDIA Bluefield-3 B3240 DPU"
+    ]
+  },
+  {
+    "file": "figures/p015_i0.jpg",
+    "page": 15,
+    "w": 1000,
+    "h": 562,
+    "captions_on_page": [
+      "Figure 6 NVIDIA Mezzanine Network Board with two ConnectX-8 ASICs",
+      "Figure 7. NVIDIA SN5610 Switch"
+    ]
+  },
+  {
+    "file": "figures/p015_i1.jpg",
+    "page": 15,
+    "w": 983,
+    "h": 553,
+    "captions_on_page": [
+      "Figure 6 NVIDIA Mezzanine Network Board with two ConnectX-8 ASICs",
+      "Figure 7. NVIDIA SN5610 Switch"
+    ]
+  },
+  {
+    "file": "figures/p022_i0.jpg",
+    "page": 22,
+    "w": 1486,
+    "h": 1220,
+    "captions_on_page": [
+      "Figure 10 Example diagram of 18-Tray SU connected to 2 planes (4 rails each) of the  compute fabric"
+    ]
+  },
+  {
+    "file": "figures/p025_i0.jpg",
+    "page": 25,
+    "w": 1442,
+    "h": 292,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p025_i1.jpg",
+    "page": 25,
+    "w": 2176,
+    "h": 268,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p026_i0.jpg",
+    "page": 26,
+    "w": 2022,
+    "h": 702,
+    "captions_on_page": [
+      "Figure 11 Two Rack GB300 NVL72 with SpectrumX Enterprise RA (144 GPUs)"
+    ]
+  },
+  {
+    "file": "figures/p028_i0.jpg",
+    "page": 28,
+    "w": 2026,
+    "h": 904,
+    "captions_on_page": [
+      "Figure 12 Four Rack GB300 NVL72 with Spectrum-X Enterprise RA (288 GPUs)"
+    ]
+  },
+  {
+    "file": "figures/p030_i0.jpg",
+    "page": 30,
+    "w": 2040,
+    "h": 902,
+    "captions_on_page": [
+      "Figure 13 Eight Rack GB300 NVL72 with Spectrum-X Enterprise RA (576 GPUs)"
+    ]
+  },
+  {
+    "file": "figures/p037_i0.jpg",
+    "page": 37,
+    "w": 632,
+    "h": 484,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p038_i0.jpg",
+    "page": 38,
+    "w": 630,
+    "h": 732,
+    "captions_on_page": []
+  }
+]

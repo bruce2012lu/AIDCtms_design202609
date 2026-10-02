@@ -1,0 +1,36 @@
+﻿,,,,,,,,
+,Component,,,Technology,,,Description,
+,,,,,,,,
+8x Compute Racks,,,NVIDIA DGX GB300 NVL72,,,"The world’s premier rack-scale, purpose-built AI
+systems featuring NVIDIA Grace-Blackwell Ultra
+GB300 modules. GB300 Superchips. NVL72
+scale-out GPU interconnect and integrated
+NVLink switch trays.",,
+NVLink Fabric,,,NVIDIA NVLink 5,,,"NVLink Switches supports fast, direct memory
+access between GPUs on the same compute
+rack.",,
+Compute Fabric,,,"NVIDIA Q3400 InfiniBand
+Switch",,,"Rail-optimized, non-blocking, full fat-tree
+network with four Quantum X-800 connections
+per system for inter-rack GPU
+communications.",,
+"Storage and In-band
+Management Fabric",,,"NVIDIA Spectrum 4 SN5600
+Ethernet switches",,,"The fabric is optimized to match peak
+performance of the configured storage array,
+built with 64 port 800 Gbps Ethernet switch
+providing high port density with high
+performance.",,
+InfiniBand management,,,"NVIDIA Unified Fabric Manager
+Appliance, Enterprise Edition",,,"NVIDIA UFM combines enhanced, real-time
+network telemetry with AI powered cyber
+intelligence and analytics to manage scale-out
+InfiniBand data centers",,
+NVLink Management,,,"NVIDIA Network Manager
+eXperience (NMX-M)",,,"NVIDIA NMX Manager manages, operates the
+NVLink switches and provides real-time
+network telemetry to manage all NVLink
+infrastructure",,
+"Out-of-band (OOB)
+management network",,,NVIDIA SN2201 switch,,,"48 x 1 Gbps Ethernet switch leveraging copper
+ports to minimize complexity",,

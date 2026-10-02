@@ -1,0 +1,14 @@
+﻿,Component,,,Configuration,
+CPUs,,,2x NVIDIA Grace with 72 cores,,
+System Memory,,,480 GB (LPDDR5X on-module),,
+Boot Drive,,,OS 2x960 GB M.2 or SATA/SAS SSD/ SW RAID1,,
+Data Cache Drive,,,2x 7.68 TB NVMe SSD,,
+Storage/in-band Network Adapter,,,4x ConnectX-7 200G single-port,,
+Platform Security,,,"TPM 2.0, SHA-256 and support for secure boot",,
+Baseboard Management Controller (BMC),,,"Host BMC with discrete connection, supports
+Redfish 1.4 or above, Serial-over-LAN via SSH, IPv6
+support, support discovery of BMC IP in-band via
+Redfish",,
+Management Network,,,2 x 1 Gb/s In-band port,,
+Host UEFI,,,"UEFI 2.6 compliant BIOS implementation for
+HTTP(s) network boot",,

@@ -1,0 +1,19 @@
+﻿,,,,,
+,Component,,,Description,
+,,,,,
+NVIDIA AI Enterprise,,,"A suite of AI and data analytics software optimized for the development and
+deployment of AI. Provides best-in-class development tools, production-ready
+containers, and frameworks for rapid deployment of AI workloads",,
+NVIDIA Mission Control,,,"NVIDIA Mission Control is a software solution that automates and manages
+every aspect of AI data center operations, from infrastructure provisioning to
+developer workloads. It streamlines workload deployment, orchestrates jobs,
+and monitors resources.",,
+NVIDIA Dynamo,,,"NVIDIA Dynamo is an open-source inference software for efficiently
+orchestrating and coordinating AI inference requests across large fleets of
+GPUs, scaling reasoning models in AI Factories at the lowest cost and highest
+efficiency.",,
+NVIDIA Run:ai,,,"An orchestration platform that accelerates AI operations with dynamic
+orchestration across the AI lifecycle.",,
+NVIDIA NGC,,,A collection of GPU-optimized containers for AI and HPC.,,
+NVIDIA NetQ™,,,"A highly scalable, modern network operations toolset that provides visibility,
+troubleshooting, and validation of network fabrics in real time",,

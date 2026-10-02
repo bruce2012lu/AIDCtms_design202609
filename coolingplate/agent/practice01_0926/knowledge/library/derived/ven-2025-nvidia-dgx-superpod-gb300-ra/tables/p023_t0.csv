@@ -1,0 +1,10 @@
+﻿,,,,,Max.,
+,,,Compute,Storage,,Management Leafs
+# GPUs,# SUs,Spines,,,Supported Storage,
+,,,Leafs,Leafs,Bandwidth,and OOB Spines
+,,,,,,
+,,,,,,
+1152,2,4,8,2,64x400GbE,2+2
+2304,4,8,16,2,128x400GbE,2+2
+4608,8,12,32,4,256x400GbE,2+2
+9216,16,24,64,8,1024x400GbE,2+2

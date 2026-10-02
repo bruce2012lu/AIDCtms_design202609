@@ -1,0 +1,240 @@
+[
+  {
+    "file": "figures/p001_i1.jpg",
+    "page": 1,
+    "w": 855,
+    "h": 591,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 1230,
+    "h": 153,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p002_i1.jpg",
+    "page": 2,
+    "w": 989,
+    "h": 532,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p002_i3.jpg",
+    "page": 2,
+    "w": 685,
+    "h": 352,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 293,
+    "h": 160,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p003_i1.jpg",
+    "page": 3,
+    "w": 251,
+    "h": 163,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p003_i2.jpg",
+    "page": 3,
+    "w": 272,
+    "h": 163,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p003_i3.jpg",
+    "page": 3,
+    "w": 265,
+    "h": 162,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p003_i5.jpg",
+    "page": 3,
+    "w": 237,
+    "h": 147,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p003_i6.jpg",
+    "page": 3,
+    "w": 138,
+    "h": 150,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 302,
+    "h": 297,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p004_i1.jpg",
+    "page": 4,
+    "w": 281,
+    "h": 246,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p005_i0.jpg",
+    "page": 5,
+    "w": 581,
+    "h": 752,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 656,
+    "h": 552,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p006_i1.jpg",
+    "page": 6,
+    "w": 635,
+    "h": 478,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 1007,
+    "h": 1230,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 628,
+    "h": 464,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p008_i2.jpg",
+    "page": 8,
+    "w": 627,
+    "h": 496,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p009_i1.jpg",
+    "page": 9,
+    "w": 463,
+    "h": 206,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p009_i3.jpg",
+    "page": 9,
+    "w": 163,
+    "h": 178,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 437,
+    "h": 439,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p010_i1.jpg",
+    "page": 10,
+    "w": 907,
+    "h": 479,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 482,
+    "h": 314,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p011_i1.jpg",
+    "page": 11,
+    "w": 469,
+    "h": 304,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p011_i2.jpg",
+    "page": 11,
+    "w": 482,
+    "h": 294,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p011_i3.jpg",
+    "page": 11,
+    "w": 606,
+    "h": 360,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p012_i0.jpg",
+    "page": 12,
+    "w": 1229,
+    "h": 214,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p012_i2.jpg",
+    "page": 12,
+    "w": 854,
+    "h": 452,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p013_i0.jpg",
+    "page": 13,
+    "w": 508,
+    "h": 314,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p014_i0.jpg",
+    "page": 14,
+    "w": 1230,
+    "h": 521,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p014_i2.jpg",
+    "page": 14,
+    "w": 216,
+    "h": 653,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p015_i0.jpg",
+    "page": 15,
+    "w": 514,
+    "h": 575,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p016_i0.jpg",
+    "page": 16,
+    "w": 764,
+    "h": 627,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p016_i1.jpg",
+    "page": 16,
+    "w": 525,
+    "h": 637,
+    "captions_on_page": []
+  }
+]

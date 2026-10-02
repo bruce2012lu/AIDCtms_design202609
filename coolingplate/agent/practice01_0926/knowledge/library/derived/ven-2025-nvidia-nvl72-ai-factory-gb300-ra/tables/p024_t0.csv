@@ -1,0 +1,13 @@
+﻿,
+Component,Technology
+Compute node servers (18),"Each GB300 NVL Compute Tray is configured with
+• One NVIDIA BlueField-3 B3240 dual port 400
+Gb/s DPU.
+• Four NVIDIA ConnectX-8 SuperNICs dual-port
+800 Gb/s. The adapters operate at 2x400 Gb/s
+per port"
+"Compute (East/West) Spine-Leaf
+Fabric",NVIDIA SN5600 128-port 400 Gb/s switches
+"Converged (North/South) Spine-
+Leaf Fabric",NVIDIA SN5600 128-port 400 Gb/s switches
+OOB management fabric,NVIDIA SN2201 48-port 1 Gb plus 4-port 100 Gb/s

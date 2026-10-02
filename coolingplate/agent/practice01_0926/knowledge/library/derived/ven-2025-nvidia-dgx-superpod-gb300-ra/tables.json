@@ -1,0 +1,67 @@
+[
+  {
+    "file": "tables/p013_t0.csv",
+    "page": 13,
+    "rows": 10,
+    "cols": 9,
+    "captions_on_page": [
+      "Table 1. The software components are shown in Table 2.",
+      "Table 1. DGX SuperPOD / 1 Scalable Unit infrastructure",
+      "Table 2. DGX SuperPOD software components"
+    ]
+  },
+  {
+    "file": "tables/p013_t1.csv",
+    "page": 13,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 1. The software components are shown in Table 2.",
+      "Table 1. DGX SuperPOD / 1 Scalable Unit infrastructure",
+      "Table 2. DGX SuperPOD software components"
+    ]
+  },
+  {
+    "file": "tables/p014_t0.csv",
+    "page": 14,
+    "rows": 13,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p021_t0.csv",
+    "page": 21,
+    "rows": 8,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 3. Larger SuperPOD component counts"
+    ]
+  },
+  {
+    "file": "tables/p023_t0.csv",
+    "page": 23,
+    "rows": 10,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 4. Spine and Super Spine Switch Requirements for Scale Out"
+    ]
+  },
+  {
+    "file": "tables/p030_t0.csv",
+    "page": 30,
+    "rows": 5,
+    "cols": 9,
+    "captions_on_page": [
+      "Table 4. Storage performance requirements"
+    ]
+  },
+  {
+    "file": "tables/p031_t1.csv",
+    "page": 31,
+    "rows": 7,
+    "cols": 9,
+    "captions_on_page": [
+      "Table 5. Guidelines for storage performance"
+    ]
+  }
+]

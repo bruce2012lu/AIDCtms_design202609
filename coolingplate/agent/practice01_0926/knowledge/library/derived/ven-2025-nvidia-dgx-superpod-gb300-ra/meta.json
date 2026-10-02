@@ -1,0 +1,11 @@
+{
+  "id": "ven-2025-nvidia-dgx-superpod-gb300-ra",
+  "sha256": "021d690f066054899b2bb5889ff339fbdb01ae5240c10dd69547bd340ad28c4c",
+  "source": "files/vendor_docs/ven-2025-nvidia-dgx-superpod-gb300-ra.pdf",
+  "extracted_at": "2026-10-02T23:32:22",
+  "pages": 36,
+  "chars": 51346,
+  "chunks": 46,
+  "tables": 7,
+  "figures": 18
+}

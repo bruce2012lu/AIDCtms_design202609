@@ -1,0 +1,35 @@
+﻿,Term,,,Definition,
+Node,,,"The distinct hardware tray in the GB300 NVL72 rack that
+supports a bare-metal OS instance",,
+Rack,,,"A physical arrangement of equipment, such as servers or
+switches in a vertical closet",,
+Open Compute Project (OCP) Rack,,,"Rack based on the Open Rack V3 standard from the Open
+Compute Project, with the vertical space divided up into
+48mm units (OU) and with power distributed using power
+shelves, a DC bus bar and, AC power cords",,
+Electronic Industries Alliance (EIA) Rack,,,"Conventional “Enterprise” Rack, originally based on the
+EIA-310-D standard, with the vertical space divided up in
+44.45mm rack units (RU) and with power distributed
+using rack power distribution units (rPDUs) and AC power",,
+Tray,,,"One of the systems inserted into the GB300 NVL72
+solution, generally either a “Node” or a “NVSwitch” (which
+may include 1-2 NVSwitch ASICs) installed directly into a
+Rack",,
+Hot Air Containment (HAC),,,"Refers to a set of racks that exhaust into the same hot-
+air containment area, generally from two opposing rows",,
+NVLink (?) Switch ASIC,,,"The silicon building block with a specific logical port count
+that drives the network topology",,
+Global Fabric Manager (GFM),,,"The external services that manage the fabric of a NVLink
+Domain",,
+NVLink Domain,,,"The full set of nodes connected with a single multi-node
+NVLink fabric",,
+NVLink Block,,,"A group of nodes within a NVLink Domain that are
+allocated to the same job. A single job may have multiple
+blocks assigned across multiple domains",,
+NVLink Partition,,,"A construct of group nodes within an NVLink Domain that
+are isolated to only access each other’s GPU memory. A
+partition could be configured as an entire domain or there
+could be multiple partitions in the same domain. Using
+partitions should protect interruptions to work running
+on one partition from the other partitions. Partitions are
+setup via API calls to the GFM.",,

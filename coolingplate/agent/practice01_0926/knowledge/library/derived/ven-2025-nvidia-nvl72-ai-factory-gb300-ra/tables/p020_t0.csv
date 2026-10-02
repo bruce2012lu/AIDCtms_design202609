@@ -1,0 +1,14 @@
+﻿Fabric Roles,"RDMA/RoCE
+Support",,"AI Training,",,"Pure
+Inference","Storage
+connectivity"
+,,,"Fine tuning,",,,
+,,,ML or HPC,,,
+"GPU Compute
+(East/West)",Recommended,Recommended,,,Optional,Not Recommended
+"CPU Converged
+(North/South)",Optional,Recommended,,,Recommended,Recommended
+Storage,Optional,Recommended,,,Recommended,Recommended
+Customer,Not applicable,Recommended,,,Recommended,Optional
+Support Servers,Optional,Recommended,,,Recommended,Optional
+OOB Management,Not applicable,Recommended,,,Recommended,Not Applicable

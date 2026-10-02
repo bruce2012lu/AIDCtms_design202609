@@ -1,0 +1,8 @@
+﻿,,IB Leaf Switch,,IB Spine Switch
+# GPUs,# SUs,,,
+,,Per SU,Total,Total
+,,,,
+1152,2,8,16,8
+2304,4,8,32,18
+4608,8,8,64,36
+9216,16,8,128,72

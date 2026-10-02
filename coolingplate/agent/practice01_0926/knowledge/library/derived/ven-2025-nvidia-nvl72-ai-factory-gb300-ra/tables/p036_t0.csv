@@ -1,0 +1,19 @@
+﻿,Component,,,Configuration,
+CPUs,,,"2x NVIDIA Grace (C2), with total of 72 ARM
+Neoverse V2 cores connected with NVLink C2C",,
+System Memory,,,1 TB aggregated CPU LPDDR5 Main Memory,,
+Boot Drive,,,1 x 2 TB Gen4 M.2 for OS SSD,,
+Data Cache Drive,,,8 x 4 TB E1.S for Data Cache SSD,,
+NVIDIA GPUs,,,"4x NVIDIA Blackwell Ultra GPU, with total of 720 GB
+of aggregated HBM3 memory",,
+Compute Network Adapter,,,"2x NVIDIA Mezzanine Boards with 2x ConnectX-8
+800 GB/s NICs in each one",,
+Storage/in-band Network Adapter,,,"1x Dual-port QSFP112 NVIDIA BlueField-3 DPU
+operating at 400 GB/s",,
+Platform Security,,,"TPM 2.0, SHA-256 and support for secure boot",,
+Baseboard Management Controller (BMC),,,"Host BMC with discrete connection, supports
+Redfish 1.4 or above, Serial-over-LAN via SSH, IPv6
+support, support discovery of BMC IP in-band via
+Redfish",,
+Host UEFI,,,"UEFI 2.6 compliant BIOS implementation for
+HTTP(s) network boot",,

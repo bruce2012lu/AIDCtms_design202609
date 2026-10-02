@@ -1,0 +1,27 @@
+﻿,,,,,,,,
+,Level,,,Work Description,,,Data Set Size,
+,,,,,,,,
+Standard,,,"Multiple concurrent LLM or
+fine-tuning training jobs and
+periodic checkpoints with
+inference, where the compute
+requirements dominate the
+data I/O requirements
+significantly.",,,"Most datasets can fit within the
+local compute systems’ memory
+cache during training or inference.
+The datasets are single modality,
+and models have millions of
+parameters.",,
+Enhanced,,,"Multiple concurrent
+multimodal training jobs and
+periodic checkpoints with
+inference, where the data I/O
+performance is an important
+factor for end-to-end
+workload timing.",,,"Datasets are too large to fit into
+local compute systems’ memory
+cache requiring more I/O during
+training or inference, not enough
+to obviate the need for frequent
+I/O. The datasets have multiple",,

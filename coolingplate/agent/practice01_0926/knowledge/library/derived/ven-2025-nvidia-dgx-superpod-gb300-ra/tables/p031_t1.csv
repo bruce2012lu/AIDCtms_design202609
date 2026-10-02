@@ -1,0 +1,7 @@
+﻿,,,,,,,,
+,Performance Characteristic,,,Standard (GBps),,,Enhanced (GBps),
+,,,,,,,,
+Single SU aggregate system read,,,90,,,280,,
+Single SU aggregate system write,,,45,,,140,,
+4 SU aggregate system read,,,360,,,"1,120",,
+4 SU aggregate system write,,,180,,,560,,
