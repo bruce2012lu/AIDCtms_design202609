@@ -1,0 +1,1306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI算力芯片液冷冷板技术专利分析报告 v1.4 · 2026-09-07</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1180px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:48px 58px 34px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.12em;color:#9db6d4}
+header h1{font-size:32px;line-height:1.25;margin:8px 0 10px}
+.sub{font-size:16px;color:#d7e6f5}
+.meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:4px 10px;font-size:12px}
+nav{padding:16px 58px;background:var(--soft);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav a{color:var(--blue);text-decoration:none;margin-right:14px;display:inline-block;font-size:13px}
+nav a:hover{text-decoration:underline}
+main{padding:30px 58px 58px}
+h2{font-size:22px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:7px;margin:34px 0 14px}
+h3{font-size:17px;color:#174f83;margin:22px 0 8px}
+h4{font-size:15px;color:#1b3d66;margin:16px 0 6px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:14px 17px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:12px;background:var(--soft)}
+.card b{display:block;font-size:22px;color:var(--navy)}
+.card.blue{border-top-color:var(--blue)}
+.card.warn{border-top-color:var(--warn)}
+.card.red{border-top-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13px}
+th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 15px;border-radius:7px;margin:12px 0}
+.risk{border-color:#efb5b2;background:#fff5f4}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.small{color:var(--muted);font-size:12px}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.tagb{background:#e7f0fb;color:var(--blue)}
+ul.tight,ol.tight{margin:8px 0 12px 1.2em;padding:0}
+ul.tight li,ol.tight li{margin:4px 0}
+pre{background:#0f2138;color:#d7e6f5;padding:12px 14px;border-radius:7px;overflow:auto;font-size:12px;line-height:1.55}
+code{font-family:Consolas,"Courier New",monospace;font-size:12px}
+p code,.lead code,td code,li code{background:#eef3f8;color:#12345a;padding:1px 5px;border-radius:3px}
+pre code{background:none;color:inherit;padding:0}
+.barwrap{margin:8px 0 16px}
+.barrow{display:grid;grid-template-columns:140px 1fr 56px;gap:8px;align-items:center;margin:6px 0}
+.bartrack{height:10px;background:#e4ebf3;border-radius:6px;overflow:hidden}
+.barfill{height:100%;background:var(--blue);border-radius:6px}
+.barfill.teal{background:var(--teal)}
+.barfill.warn{background:#d48a12}
+.barfill.mute{background:#9aa8ba}
+a{color:var(--blue)}
+.fig{border:1px solid var(--line);border-radius:9px;padding:10px;background:#fbfcfe;margin:14px 0 4px}
+.fig img{display:block;width:100%;height:auto;border-radius:6px}
+.figcap{margin:0 2px 18px;color:var(--muted);font-size:12px;line-height:1.55}
+.figcap strong{color:var(--navy)}
+.pfig{margin:12px 0 8px;border:1px solid var(--line);border-radius:9px;padding:10px 12px 6px;background:#fbfcfe}
+.pfig img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:4px}
+.pfig .src{display:block;margin-top:2px;font-size:11.5px;color:var(--muted)}
+.papergrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.drawn{border-style:dashed}
+.prin{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:10px 0 16px}
+.prin h4{margin-top:0}
+footer{padding:18px 58px;background:var(--navy);color:#d5e1ec;font-size:12px}
+@media(max-width:800px){
+  header,nav,main,footer{padding-left:22px;padding-right:22px}
+  .grid,.grid3,.grid2,.papergrid{grid-template-columns:1fr}
+  nav a{margin-bottom:6px}
+}
+@media print{
+  body{background:#fff}
+  .page{box-shadow:none}
+  nav{display:none;position:static}
+  header{break-after:avoid}
+  h2{break-after:avoid}
+  table, .card, .note, .lead, .fig, .prin{break-inside:avoid}
+  @page{size:A4;margin:12mm}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">PATENT LANDSCAPE · DIRECT-TO-CHIP COLD PLATE</div>
+  <h1>AI算力芯片液冷冷板技术专利分析报告</h1>
+  <div class="sub">国内外公开情报抽样：微通道 · 微翅片 · 冲击射流 · 金刚石 · 纳米流体</div>
+  <div class="meta">
+    <span class="pill">版本 v1.4</span>
+    <span class="pill">2026-09-07</span>
+    <span class="pill">CNIPA / USPTO / EPO / WIPO</span>
+    <span class="pill">芯片级 / 封装级 / 冷板级 D2C</span>
+    <span class="pill">不含 CDU / 冷却塔 / 浸没主体</span>
+    <span class="pill">功率标尺：NVIDIA H100→B300→Rubin</span>
+    <span class="pill">配图优先调研原图</span>
+    <span class="pill">非 FTO 法律意见</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#exec">结论</a>
+  <a href="#scope">范围与检索</a>
+  <a href="#landscape">总态势</a>
+  <a href="#nvidia">英伟达功率标尺</a>
+  <a href="#spec">规格与热阻</a>
+  <a href="#routes">五条路线</a>
+  <a href="#hybrid">射流+微通道</a>
+  <a href="#process">加工工艺</a>
+  <a href="#compare">横向对比</a>
+  <a href="#geo">地域与供应链</a>
+  <a href="#action">空白与布局</a>
+  <a href="#patents">专利清单</a>
+  <a href="#limit">局限与来源</a>
+</nav>
+
+<main>
+
+<section id="exec">
+<h2>0. 结论先行</h2>
+<p class="lead"><strong>一句话：</strong>铲齿守量产，微通道 / MLCP 是 2 kW 级主路径，射流补热点，金刚石做均热，纳米流体不宜当主产品。最有价值的窗口不在“再挖一条直通道”，而在分区 / 拓扑流道、射流–微通道杂交、去 TIM2 盖板一体化、金刚石嵌件与可制造防堵防漏工艺。</p>
+
+<ol class="tight">
+  <li><strong>冷板式液冷已是未来 3–5 年 AI 服务器的主流散热形态。</strong>欧洲专利库 2000–2023 年数据中心冷却专利显示，2015 年后液冷申请占比持续上升，近期时段液冷可占相关专利约八成，其中直接液冷（冷板）是主体。</li>
+  <li><strong>五条技术路线并不并列竞争，而是分层叠加</strong>（见下表与第 3 章）。</li>
+  <li><strong>国内外分工已经出现：</strong>美欧日掌握基础结构与封装级微射流 / 微通道；台湾厂商卡位 NVIDIA MLCP / MCL 认证产线；大陆在系统级液冷（浪潮、曙光数创、英维克、华为）专利密度高，但<strong>微米级蚀刻 + 真空扩散焊 + 半导体级洁净</strong>仍是短板。</li>
+  <li><strong>工艺必须分三条产线写，不要混成一个车间指标：</strong>机加工（铲齿 / CNC / 微钻）+ 真空钎焊或隧道炉保 B300 量产；蚀刻 + 扩散焊做 MLCP；金属 3D 打印做异形喷嘴、MMC 与拓扑样件。铜增材的粉末残留、粗糙度和导热折损仍是课题，量产件应走“机加底板 + 增材/蚀刻盖板”的混合工艺（第 3.7 节）。</li>
+</ol>
+
+<div class="grid">
+  <div class="card"><b>1000 / 1400 W</b>B200 / B300 单 GPU 公开 TDP</div>
+  <div class="card blue"><b>1.8–2.3 kW</b>Rubin R100 Max-Q / Max-P 报道</div>
+  <div class="card warn"><b>~3.6 kW</b>Rubin Ultra 四裸片封装路线图</div>
+  <div class="card red"><b>135 / 155 kW</b>GB300 NVL72 Lenovo TDP / EDP</div>
+</div>
+<div class="grid" style="margin-top:10px">
+  <div class="card"><b>&lt;0.03→0.02</b>H100 → B200 冷板热阻目标 °C/W</div>
+  <div class="card blue"><b>≤0.022</b>Rubin 2300 W × 50 K 物理上限 °C/W</div>
+  <div class="card warn"><b>~65→158</b>硅面积平均热流 W/cm²（B200→R100 Max-P）</div>
+  <div class="card"><b>180–220 kW</b>Vera Rubin NVL72 机柜报道包络</div>
+</div>
+<p class="small">英伟达口径以第 2.4.0 节为准，分官方 / OEM / 产业报道三层，不得相加。热流分硅面积平均与热点；热阻随 TDP 上台阶必须下降。</p>
+</section>
+
+<section id="scope">
+<h2>1. 调研范围、数据源与检索策略</h2>
+
+<h3>1.1 问题定义</h3>
+<p>必须以<strong>英伟达最新量产与在研 SKU</strong>定功率密度，而不是停在 H100。公开链：H100/H200 <strong>700 W</strong> → B200 <strong>1000 W</strong> → B300 常见报道 <strong>1400 W</strong>（Lenovo TGP 有 1100 W 口径）→ Rubin R100 报道 <strong>1800 W（Max-Q）/ 2300 W（Max-P）</strong> → Rubin Ultra 路线图约 <strong>3600 W/封装</strong>。机柜：GB300 NVL72 为 Lenovo <strong>135 kW TDP / 155 kW EDP</strong>、NVIDIA RA <strong>142 kW</strong>；Vera Rubin NVL72 报道 <strong>180–220 kW</strong>。传统“铜盖 + TIM2 + 铲齿冷板”在 B300 已紧，Rubin 上必须靠微通道 / 射流杂交或 MLCP。</p>
+<p>本报告只回答三件事：</p>
+<ul class="tight">
+  <li>国内外专利在五条技术方向上各自保护什么？</li>
+  <li>每条路线的优势、短板、工艺门槛是什么？</li>
+  <li>对后续研发、供应链与规避设计，哪些空白更值得占？</li>
+</ul>
+
+<h3>1.2 数据源头（国内外同时覆盖）</h3>
+<table>
+  <tr><th>层级</th><th>国内</th><th>国际</th></tr>
+  <tr><td>官方专利库</td><td>中国国家知识产权局（CNIPA）公开文本；专利检索及分析系统</td><td>USPTO、EPO / Espacenet、WIPO Patentscope</td></tr>
+  <tr><td>聚合检索</td><td>Google Patents（CN 公开号）、Patsnap Eureka 公开页</td><td>Google Patents（US / EP / WO）、Freepatentsonline</td></tr>
+  <tr><td>学术 / 综述</td><td>华中科大等高校授权专利；国内券商 / 标准文件交叉验证</td><td><em>Energies</em> 2024, 17, 3615（斯图加特大学，EPO 2000–2023）；Mudawar 等换热综述</td></tr>
+  <tr><td>产业情报</td><td>浪潮、曙光数创、华为 CloudMatrix 公开材料</td><td>NVIDIA / TSMC 供应链报道，JetCool、Element Six、Future Market Insights</td></tr>
+</table>
+<div class="note"><strong>方法边界：</strong>本轮为公开网页与公开专利文本抽样，<strong>不是</strong> Derwent / Innography / 智慧芽全库定量检索。未做全库去重的家族计数一律按量级判断表述。法律状态以公开页为准，存在滞后。本文件<strong>不是</strong>自由实施（FTO）法律意见，也不是权利要求逐条比对。</div>
+
+<h3>1.3 建议检索式（可复用于正式库）</h3>
+<p><strong>分类号（优先组合）</strong></p>
+<ul class="tight">
+  <li><code>H01L 23/473</code> 半导体装置液体冷却</li>
+  <li><code>H05K 7/20254</code> / <code>H05K 7/20218</code> 电子设备液体冷却</li>
+  <li><code>F28F 3/12</code> 内部流体通道板</li>
+  <li><code>F28F 13/06</code> / <code>F28F 13/12</code> 射流、扰动强化</li>
+  <li><code>C09K 5/10</code> / <code>C09K 5/14</code> 传热液体、纳米分散</li>
+  <li><code>C23C 16/27</code> CVD 金刚石；<code>C22C 26/00</code> 金刚石复合材料</li>
+</ul>
+<div class="grid2">
+  <div>
+    <h4>中文关键词组</h4>
+<pre><code>(微通道 OR 微流道 OR 微翅片 OR 铲齿 OR 针肋
+ OR 冲击射流 OR 射流冲击 OR 金刚石 OR 纳米流体)
+AND (冷板 OR 液冷板 OR 水冷板)
+ OR 机加工 OR CNC OR 铣削 OR 微钻 OR 增材 OR 3D打印 OR 选区激光)
+AND (芯片 OR GPU OR CPU OR 加速器 OR 服务器 OR 数据中心)</code></pre>
+  </div>
+  <div>
+    <h4>英文关键词组</h4>
+<pre><code>(microchannel OR microfluidic OR microfin OR skived
+ OR pin-fin OR "jet impingement" OR microjet
+ OR diamond OR nanofluid
+ OR CNC OR skiving OR milling OR "additive manufacturing" OR LPBF OR SLM)
+AND ("cold plate" OR coldplate OR "liquid cooling")
+AND (GPU OR CPU OR accelerator OR "data center" OR server)</code></pre>
+  </div>
+</div>
+<p>过滤：优先看独立权利要求中的流道几何、喷嘴阵列、盖板一体化、材料键合、工质配方；系统级机柜 / CDU 仅作背景。</p>
+</section>
+
+<section id="landscape">
+<h2>2. 产业与专利总态势</h2>
+
+<h3>2.1 为什么冷板专利在 2015 年后加速</h3>
+<p>斯图加特大学对 EPO 2000–2023 数据中心冷却专利的分类结果表明：</p>
+<ul class="tight">
+  <li>相关样本约 <strong>733</strong> 件，其中判定相关约 <strong>496</strong> 件。</li>
+  <li>整体分布：液冷约 <strong>35%</strong>，风冷约 <strong>27%</strong>；液冷内部，直接液冷约 <strong>20%</strong>（冷板约 <strong>17%</strong>），浸没约 <strong>9%</strong>。</li>
+  <li>按时段看：风冷占比从早期约 <strong>69%</strong> 降到近期约 <strong>9%</strong>，液冷从约 <strong>24%</strong> 升到约 <strong>84%</strong>；直接液冷始终占液冷的 <strong>58–68%</strong>。</li>
+  <li>2018 年后风冷申请明显回落，优化空间被判定为接近耗尽。</li>
+</ul>
+<p>市场侧同步给出需求：Direct-to-Chip 冷板市场有机构预测 2026 年约 <strong>32 亿美元</strong>，2036 年约 <strong>139 亿美元</strong>，CAGR 约 <strong>15.8%</strong>；其中微通道冷板约占需求 <strong>42%</strong>，HPC / AI 应用约占 <strong>45%</strong>（Future Market Insights，公开摘要口径）。</p>
+
+<h3>2.2 技术代际：从“贴一块铜板”到“把水做到硅旁边”</h3>
+<table>
+  <tr><th>代际</th><th>结构</th><th>热阻瓶颈</th><th>典型工艺</th><th>产业状态</th></tr>
+  <tr><td>G0 管式 / 冲压钎焊</td><td>埋管或宽流道</td><td>对流面积不足</td><td>冲压 + 钎焊</td><td>成熟，AI 高热流不够用</td></tr>
+  <tr><td>G1 铲齿 / 微翅片</td><td>一体铲出密肋</td><td>TIM2 + 沿程温升 + 流阻</td><td>铲齿 + 真空钎焊 / 搅拌摩擦焊</td><td><span class="tag">当前量产主力</span></td></tr>
+  <tr><td>G2 微通道冷板</td><td>水力直径 0.1–1 mm 级通道</td><td>仍有 TIM2；堵塞与压降</td><td>蚀刻 / CNC + 扩散焊或钎焊</td><td>高端 GPU 快速导入</td></tr>
+  <tr><td>G3 MLCP / MCL</td><td>盖板或加强环内做微通道，取消独立冷板与 TIM2</td><td>封装翘曲、泄漏、洁净度</td><td>半导体级蚀刻 + 扩散焊 + 镀金</td><td><span class="tagw">NVIDIA Rubin 供应链验证中</span></td></tr>
+  <tr><td>G4 硅内微流体</td><td>冷却液进入芯片或封装内部</td><td>蚀刻深度与机械强度、可靠性</td><td>光刻 / DRIE + 键合</td><td>微软 + Corintis、TSMC 路线，验证阶段</td></tr>
+  <tr><td>并行增强</td><td>射流、金刚石嵌件、纳米工质、拓扑流道</td><td>各自独立短板</td><td>见第 3 章</td><td>与 G1–G4 叠加，而非替代</td></tr>
+</table>
+<p>NVIDIA 一侧公开讨论的 MLCP（Microchannel Liquid Cold Plate / Microchannel Lid）核心，是把冷却液通道做到散热盖本身，砍掉 TIM2；供应商公开名单中多见 AVC、Cooler Master、Jentech、Delta、Auras。大陆厂商（蓝思、中航光电、宁波精达等）公开信息仍多处于送样 / 验证，量产良率与泄漏风险尚未过关。微软则与 Corintis 走更激进的<strong>硅内叶脉分形微流体</strong>，实验口径称温升可降约 <strong>65%</strong>、换热约为现有冷板的三倍。</p>
+
+<h3>2.3 申请人格局（抽样，按角色）</h3>
+<div class="grid3">
+  <div class="card blue">
+    <strong>美欧日 · 结构与封装</strong>
+    <ul class="tight">
+      <li><strong>IBM</strong>：硅微通道、分层歧管、热点加密，基础专利厚</li>
+      <li><strong>Intel</strong>：US12133357B2；封装级 DLMJ</li>
+      <li><strong>NVIDIA</strong>：US12477696 微通道 + 热管</li>
+      <li><strong>JetCool</strong>：WO2020210587A1、US11844193</li>
+      <li><strong>Element Six</strong>：CVD 金刚石铬键合</li>
+      <li>Google / Samsung / IMEC / CoolIT / Asetek / Boyd</li>
+    </ul>
+  </div>
+  <div class="card">
+    <strong>中国大陆 · 系统与应用结构</strong>
+    <ul class="tight">
+      <li><strong>浪潮</strong>：自称 2024 液冷专利 700+；铲齿转射流；CN113871359A</li>
+      <li><strong>曙光数创</strong>：授权相关约 197（液冷约 158）；牵头冷板国标</li>
+      <li><strong>华为</strong>：WO2026103052A1 分区混构；热阻公开口径 0.03 °C·cm²/W</li>
+      <li><strong>英维克</strong>：系统级认证，冷板多为配套</li>
+      <li>华中科大 / 蓝锐 / 烯力：工质与旁通控制</li>
+    </ul>
+  </div>
+  <div class="card warn">
+    <strong>中国台湾 · 制造认证</strong>
+    <p>Jentech、AVC、Auras、Cooler Master、Delta 卡位 NVIDIA 盖板、均热板、MLCP 量产。壁垒在<strong>可制造性、镀层、扩散焊、泄漏与翘曲控制</strong>，不只是专利件数。</p>
+  </div>
+</div>
+</section>
+
+<section id="spec">
+<h2>2.4 行业规格：单位面积换热量与热阻趋势</h2>
+<p class="lead"><strong>规格必须分层写，不能混成一个数。</strong>功率与功率密度以<strong>英伟达最新量产 / 在研 SKU</strong>为尺（第 2.4.0 节），不得停在 H100，也不得把机柜、模组、单 GPU 三个 TDP 相加。芯片侧看单位面积换热量（热流密度 <em>q″</em>，W/cm²）和结温；冷板侧看热阻 <em>R<sub>θ</sub></em>（°C/W）或面积热阻 <em>R″</em>（°C·cm²/W）以及压降；机柜侧看 OEM 流量–温度表；设施侧看 ASHRAE W 类。禁止用固定 10 K 温升反推正式流量，禁止把设施水温度写成机柜进液。</p>
+
+<h3 id="nvidia">2.4.0 以英伟达最新 SKU 为标尺（冷板必须对这张表）</h3>
+<p class="lead">同一颗 B300，Lenovo SXM DLC 的 TGP <strong>1100 W</strong> 和 NVL72 常见报道的 <strong>1400 W</strong> 不是同一个数。Rubin 的 1800 / 2300 W 是<strong>软件功率档</strong>（Max-Q / Max-P），不是两颗不同的硬件。Grace、NVSwitch、CX-8 也要单独冷板，不能只按 GPU 加总。</p>
+
+<h4>功率阶梯（官方 / OEM / 报道三层）</h4>
+<table>
+  <tr><th>对象</th><th>功率</th><th>硅面积 / 热流怎么算</th><th>对冷板的含义</th><th>来源 / 置信度</th></tr>
+  <tr>
+    <td>H100 / H200 SXM</td>
+    <td><strong>700 W</strong></td>
+    <td>GH100 级硅约 814 mm² → 平均约 <strong>86 W/cm²</strong></td>
+    <td>工程 <em>R<sub>θ</sub></em> &lt;0.03 °C/W 已够；铲齿可覆盖</td>
+    <td><span class="tag">高</span> NVIDIA / 公开规格</td>
+  </tr>
+  <tr>
+    <td>B200 SXM / GB200 GPU</td>
+    <td><strong>1000 W</strong>（液冷 SKU 有资料写 1000–1200 W）</td>
+    <td>双计算 die，各约 750–800 mm²，合计约 15–16 cm² → 硅面积平均约 <strong>63–67 W/cm²</strong>。若按 8–10 cm²“单侧活性区”则 100–125</td>
+    <td>目标常写 &lt;0.02 °C/W；流量约 2–3 L/min。平均热流未必高于 H100，难的是双 die 非均匀</td>
+    <td><span class="tag">高</span> TDP；<span class="tagw">中</span> 面积</td>
+  </tr>
+  <tr>
+    <td><strong>B300 SXM DLC（Lenovo）</strong></td>
+    <td><strong>TGP 1100 W</strong>；HBM3e 288 GB，带宽 7.7 TB/s</td>
+    <td>硅面积未公开，沿用同代双 die 约 15–16 cm² → 平均约 <strong>69–73 W/cm²</strong>；热点估 200–350</td>
+    <td>50 K 预算：<em>R<sub>θ</sub></em> ≤ 50/1100 = <strong>0.045 °C/W</strong>；留 TIM/不均，设计 <strong>&lt;0.028–0.030</strong></td>
+    <td><span class="tag">高</span> Lenovo LP2357</td>
+  </tr>
+  <tr>
+    <td><strong>B300 @ GB300 NVL72 / 行业口径</strong></td>
+    <td>广泛写 <strong>1400 W/GPU</strong></td>
+    <td>同面积假设 → 平均约 <strong>88–93 W/cm²</strong>；热点估 250–450</td>
+    <td>50 K 预算：<em>R<sub>θ</sub></em> ≤ <strong>0.036 °C/W</strong>；设计 <strong>&lt;0.022–0.025</strong>。HGX 八卡档常见封顶 1100 W，与此不同</td>
+    <td><span class="tagw">中</span> 报道；须 OEM ICD 冻结</td>
+  </tr>
+  <tr>
+    <td>GB200 超芯片模组</td>
+    <td>约 <strong>2700 W</strong>（2 GPU + Grace）</td>
+    <td>多芯片非均匀：两处 GPU 热点 + CPU + HBM</td>
+    <td>禁止一条等宽槽冷却整模组；应对每 GPU 独立冷板或分区流道</td>
+    <td><span class="tagw">中</span> 公开拆解 / 厂商</td>
+  </tr>
+  <tr>
+    <td>Grace CPU（GB300 托盘）</td>
+    <td>Lenovo：<strong>300 W</strong>，72 核 Neoverse V2</td>
+    <td>低于 GPU，但与 GPU 同托盘、同 TCS</td>
+    <td>可与 GPU 共歧管；冷板单独，热图不同</td>
+    <td><span class="tag">高</span> Lenovo</td>
+  </tr>
+  <tr>
+    <td><strong>GB300 NVL72 整柜</strong></td>
+    <td>72×B300 + 36×Grace；Lenovo <strong>135 kW TDP / 155 kW EDP</strong>；NVIDIA RA <strong>142 kW</strong>；Supermicro 132–140 kW</td>
+    <td>约 90% 液 / 10% 风。液冷侧约 120–140 kW</td>
+    <td>冷板按芯片设计；水力按 OEM 25–45 °C ↔ 59–177 L/min。四个机柜口径<strong>不得相加</strong></td>
+    <td><span class="tag">高</span> 与本仓库 GB300 总体设计 v2.2 一致</td>
+  </tr>
+  <tr>
+    <td>Compute Tray</td>
+    <td>4×B300 + 2×Grace。按 4×1100+2×300 = <strong>5.0 kW</strong>；若 GPU 按 1400 W 则 <strong>6.2 kW</strong></td>
+    <td>4 个 GPU 热点 + 2 个 CPU + HBM</td>
+    <td>每 GPU 独立冷板或分区流道；不得整托盘一条直槽</td>
+    <td><span class="tag">高</span> 构成 / <span class="tagw">中</span> 千瓦加总</td>
+  </tr>
+  <tr>
+    <td><strong>Rubin R100（GR100）</strong></td>
+    <td>报道 <strong>1800 W Max-Q / 2300 W Max-P</strong>。二者是软件功率档，不是两颗芯片；上限 2300 W/GPU。双近光罩 die，晶体管 3360 亿，HBM4 288 GB / 22 TB/s</td>
+    <td>报道总硅约 <strong>1456 mm²</strong>（2×~730 mm²）→ 平均 <em>q″</em> ≈ <strong>124 / 158 W/cm²</strong>。两个计算 die = <strong>两个主热点</strong></td>
+    <td>50 K 预算：<em>R<sub>θ</sub></em> ≤ <strong>0.028 / 0.022 °C/W</strong>。38 K（Tin 45 °C、Tj 83 °C）则 ≤ <strong>0.021 / 0.017</strong>。铲齿开始吃力，优先微通道 / 射流杂交或 MLCP；HBM 区<strong>不要</strong>套 GPU 射流</td>
+    <td><span class="tagw">中</span> SemiAnalysis / GTC 报道；NVIDIA 开发者博文未公布 TDP</td>
+  </tr>
+  <tr>
+    <td>Vera Rubin NVL72</td>
+    <td>72 Rubin + 36 Vera；SemiAnalysis：2300 W 档机柜 <strong>180–220 kW</strong></td>
+    <td>同 GB300 机柜外形，功率上一个台阶</td>
+    <td>冷板流量 / 压降窗要按新 ICD 重开，不能沿用 GB300 表</td>
+    <td><span class="tagw">中</span> 产业报道，非订单 ICD</td>
+  </tr>
+  <tr>
+    <td>Rubin Ultra 封装</td>
+    <td>路线图约 <strong>3600 W</strong>，4 计算 die + 更多 HBM</td>
+    <td>封装内多热点；平均热流取决于面积是否再翻倍</td>
+    <td>冷板级可能不够，要和封装厂做嵌入式 / 两相预研。50 K 预算 <em>R<sub>θ</sub></em> ≤ <strong>0.014 °C/W</strong></td>
+    <td><span class="tagr">低–中</span> 路线图</td>
+  </tr>
+</table>
+<div class="barwrap">
+  <div class="barrow"><span>H100/H200</span><div class="bartrack"><div class="barfill teal" style="width:30%"></div></div><span>700 W</span></div>
+  <div class="barrow"><span>B200</span><div class="bartrack"><div class="barfill" style="width:43%"></div></div><span>1000 W</span></div>
+  <div class="barrow"><span>B300 TGP</span><div class="bartrack"><div class="barfill teal" style="width:48%"></div></div><span>1100 W</span></div>
+  <div class="barrow"><span>B300 NVL72</span><div class="bartrack"><div class="barfill" style="width:61%"></div></div><span>1400 W</span></div>
+  <div class="barrow"><span>R100 Max-Q</span><div class="bartrack"><div class="barfill warn" style="width:78%"></div></div><span>1800 W</span></div>
+  <div class="barrow"><span>R100 Max-P</span><div class="bartrack"><div class="barfill warn" style="width:100%"></div></div><span>2300 W</span></div>
+</div>
+<p class="figcap"><strong>图 2-4a</strong> 英伟达数据中心 GPU 单卡功率（横轴按 2300 W = 100%）。B300 两档不要混：Lenovo TGP 1100 W（高）；NVL72 / 行业 1400 W（中）。Rubin 1800/2300 是软件功率档（中），不是订单 ICD。</p>
+<div class="papergrid">
+  <div class="pfig">
+    <img src="assets/src/gb200_fig1_layout_heatflux.jpg" alt="NVIDIA GB200 Grace Blackwell Superchip layout and heat flux">
+    <p class="figcap"><strong>论文原图 · GB200 模组布局与热流</strong> 2×Blackwell GPU + 1×Grace，热图完全非均匀。图中色标约 3.5–4.0×10⁵ W/m² = <strong>35–40 W/cm²</strong>，这是按约 50 mm 级 GPU <em>footprint</em> 的封装平均，不是硅 die 平均（die 平均更高）。冷板必须分区，不能一条等宽槽浇整板。<span class="src">来源：arXiv:2604.10941，Fig. 1（OA）。调研材料抽出。</span></p>
+  </div>
+  <div class="pfig">
+    <img src="assets/src/chip_fig2_25d3d.jpg" alt="2D vs 2.5D vs 3D chiplet thermal distribution">
+    <p class="figcap"><strong>论文原图 · 2D / Chiplet 封装热分布</strong> 热点不在几何中心。GB300 / Rubin 都是这类热图，平行直通道按均匀热流优化会在热点失守。<span class="src">来源：Energies 2026, 19(14):3304，Fig. 2（CC BY）。调研材料抽出。</span></p>
+  </div>
+</div>
+
+<div class="note risk"><strong>不要用的数：</strong>① 部分冷板厂商把 GB300 写成“单 GPU 2400 W、<em>R</em>th≤0.030、3.5 L/min”——与 Lenovo TGP 1100 W、行业 1400 W 冲突，本报告<strong>不作为基线</strong>；2400 W 更接近“双 GPU + CPU 模组”或未核验宣传。② Alliance Chemical 等把 B200 写成 500–600 W/cm²，是按 1.5–2 cm²“活性核”反推，只能当<strong>热点上限</strong>，不能当封装 / 硅面积平均。③ 不得用固定 10 K 温升反推 NVIDIA 正式流量。</div>
+
+<h4>由最新芯片反推冷板必须达到的热阻</h4>
+<p>结温按持续满血常见包络 <em>T<sub>j</sub></em> ≈ 83–90 °C，进液按暖水 32–45 °C。下表给两档物理上限：<strong>50 K</strong>（偏松）和 <strong>38 K</strong>（Tin 45 °C、Tj 83 °C，更贴近 W45 暖水）。工程目标还要再低，因为 TIM1/TIM2 与热流不均会吃掉预算。</p>
+<table>
+  <tr><th>芯片功率</th><th>50 K 上限 <em>R<sub>θ</sub></em></th><th>38 K 上限 <em>R<sub>θ</sub></em></th><th>建议工程目标（含 TIM/不均）</th><th>对应器件</th></tr>
+  <tr><td>700 W</td><td>0.071</td><td>0.054</td><td><strong>&lt;0.030</strong></td><td>H100 / H200</td></tr>
+  <tr><td>1000 W</td><td>0.050</td><td>0.038</td><td><strong>&lt;0.020</strong></td><td>B200 / GB200 GPU</td></tr>
+  <tr><td><strong>1100 W</strong></td><td><strong>0.045</strong></td><td><strong>0.035</strong></td><td><strong>&lt;0.028–0.030</strong></td><td><strong>B300 TGP（量产基线）</strong></td></tr>
+  <tr><td><strong>1400 W</strong></td><td><strong>0.036</strong></td><td><strong>0.027</strong></td><td><strong>&lt;0.022–0.025</strong></td><td><strong>B300 NVL72 报道档</strong></td></tr>
+  <tr><td>1800 W</td><td>0.028</td><td>0.021</td><td>&lt;0.018–0.022</td><td>R100 Max-Q 报道</td></tr>
+  <tr><td><strong>2300 W</strong></td><td><strong>0.022</strong></td><td><strong>0.017</strong></td><td><strong>&lt;0.012–0.016</strong>；评估射流杂交 / MLCP</td><td><strong>R100 Max-P 报道</strong></td></tr>
+  <tr><td>~3600 W</td><td>0.014</td><td>0.011</td><td>需 MLCP / 近结区 / 可能两相</td><td>Rubin Ultra 路线图</td></tr>
+</table>
+<p class="small">单位 °C/W。这是<strong>结–进液</strong>上限，不是冷板本体保证点。冷板对流段还要更低。厂商讨论的 Rubin &lt;0.012 °C/W 落在 2300 W × 38 K 上限（0.017）之下，物理上说得通，但<strong>尚未见 NVIDIA 官方冻结</strong>，标低–中置信。</p>
+
+<h4>功率密度：硅面积平均 vs 热点</h4>
+<table>
+  <tr><th>器件</th><th>功率</th><th>采用的硅面积假设</th><th>平均 <em>q″</em></th><th>热点估（约 ×2.5）</th><th>说明</th></tr>
+  <tr><td>H100</td><td>700 W</td><td>~8.14 cm²（GH100）</td><td>~86 W/cm²</td><td>~220 W/cm²</td><td>面积相对有公开值</td></tr>
+  <tr><td>B200</td><td>1000 W</td><td>~15–16 cm²（双 die）</td><td>~63–67</td><td>160–170；单 die 核区更高</td><td>面积翻倍快于功率，<strong>平均热流可低于 H100</strong></td></tr>
+  <tr><td>B300</td><td>1100 / 1400 W</td><td>同代双 die（未公开）</td><td>~69–93</td><td>170–230</td><td>HBM 12-Hi 也发热，冷板要盖到 HBM，但 HBM 禁高速射流</td></tr>
+  <tr><td>R100</td><td>1800 / 2300 W</td><td>~14.56 cm²（报道 1456 mm²）</td><td><strong>124 / 158</strong></td><td>每 die 更高；双热点</td><td>平均热流第一次明显高于 B300；难的是总功率把热阻预算压到 0.02 以下</td></tr>
+</table>
+<div class="note"><strong>对专利与产品的直接推论：</strong>B300 量产仍可用强化铲齿 / 微通道打平均 70–90 W/cm²，但必须分区对准 GPU 核与 HBM。Rubin 的新约束不是“平均热流爆炸一个数量级”，而是 <strong>1.8–2.3 kW 把 <em>R<sub>θ</sub></em> 压到 0.022 以下</strong>、以及双计算 die 要两处驻点 / 两套局部强化。这正是方案 A（GPU 射流 + HBM 短通道、HBM 无射流）的物理理由。</div>
+
+<h3>2.4.1 两个必须分开的指标</h3>
+<table>
+  <tr><th>指标</th><th>符号 / 单位</th><th>物理含义</th><th>谁对这个数负责</th></tr>
+  <tr>
+    <td>单位面积换热量（热流密度）</td>
+    <td><em>q″</em> = <em>P</em> / <em>A</em>，W/cm²（1 W/cm² = 10 kW/m²）</td>
+    <td>单位芯片面积要被带走的功率。封装平均值与热点峰值可差 2–4 倍</td>
+    <td>芯片热图 + 冷板对流能否“接得住”</td>
+  </tr>
+  <tr>
+    <td>器件热阻</td>
+    <td><em>R<sub>θ</sub></em> = (<em>T</em><sub>c</sub> − <em>T</em><sub>in</sub>) / <em>P</em>，°C/W</td>
+    <td>每瓦功率造成的壳温相对进液温升。TDP 越高，同样温差预算下 <em>R<sub>θ</sub></em> 必须更低</td>
+    <td>冷板 + TIM2 + 流量点</td>
+  </tr>
+  <tr>
+    <td>面积热阻</td>
+    <td><em>R″</em> = <em>R<sub>θ</sub></em> × <em>A</em>，°C·cm²/W</td>
+    <td>去掉面积影响，便于比 TIM、盖板、对流各层。华为 CloudMatrix 公开口径约 0.03 °C·cm²/W</td>
+    <td>界面与对流设计</td>
+  </tr>
+</table>
+<div class="note"><strong>换算提醒：</strong>700 W（H100）若 <em>R<sub>θ</sub></em> = 0.03 °C/W，壳温相对进液升高 21 °C；同样热阻到 B300 1400 W 就是 42 °C，到 R100 2300 W 就是 69 °C，会直接撞结温墙。所以代际升级时，<strong>热阻目标几乎必须同比下降</strong>，而不是“还按 0.03 °C/W 做”。</div>
+
+<div class="papergrid">
+  <div class="pfig">
+    <img src="assets/src/ashrae_fig1_rth_vs_socket.jpg" alt="ASHRAE thermal resistance vs year">
+    <p class="figcap"><strong>论文原图 · 壳–环境热阻被功率逐年压薄</strong> ASHRAE 把 Ψ<sub>CA</sub> 从 2000 年约 1 °C/W 压到 2020 年约 0.12。这是风冷时代的曲线；液冷冷板要把结–进液再压到 0.02 量级。<span class="src">来源：ASHRAE Liquid Cooling White Paper，Fig. 1。调研材料抽出。</span></p>
+  </div>
+  <div class="pfig">
+    <img src="assets/src/ashrae_fig2_cooling_difficulty.jpg" alt="ASHRAE degree of cooling difficulty">
+    <p class="figcap"><strong>论文原图 · 冷却难度 1/Ψ<sub>CA</sub></strong> 同一批器件，难度指标随年份陡升。B300 / Rubin 只是把这条曲线再往上推一档：功率涨、进液暖、结温几乎不动。<span class="src">来源：ASHRAE Liquid Cooling White Paper，Fig. 2。调研材料抽出。</span></p>
+  </div>
+</div>
+<div class="fig drawn">
+  <img src="assets/principle-rth-stack.png" alt="GPU 液冷热阻链：硅、TIM1、盖板、TIM2、冷板壁、对流">
+</div>
+<p class="figcap"><strong>图 2-4 · 自绘示意</strong>（调研材料无 TIM1/TIM2 分层原图，故补绘）。传统路径：硅 → TIM1 → 盖板 → TIM2 → 冷板铜壁 → 对流。Meta / OCP 分析指出，盖板 + TIM1 可占 ASIC 总热阻约一半；TIM2 是冷板能直接砍掉的一层。MLCP / MCL 把流道做到盖板内，等于叉掉 TIM2。</p>
+
+<h3>2.4.2 热流密度代际（单位面积换热量）</h3>
+<p>公开资料里“热流”经常混用三种口径，表中分开写：</p>
+<table>
+  <tr><th>代际</th><th>代表器件</th><th>TDP / 模组功率</th><th>硅面积平均热流</th><th>热点热流（报道 / 估算）</th><th>冷却形态</th></tr>
+  <tr><td>2017–2020</td><td>V100 / A100</td><td>300–400 W</td><td>数十 W/cm²</td><td>高于平均，仍可风冷</td><td>风冷为主</td></tr>
+  <tr><td>2022–2024</td><td>H100 / H200 SXM</td><td><strong>700 W</strong></td><td>~86 W/cm²（GH100）</td><td>~220；有厂商写 320–400（低置信）</td><td>风冷极限，液冷上量</td></tr>
+  <tr><td>2024–2025</td><td>B200 / GB200 GPU</td><td><strong>1000 W</strong>（液冷有 1000–1200）</td><td>双 die 约 63–67；活性区口径 100–125</td><td>公开局部 150；500–600 只能当活性核上限</td><td>单相冷板标配</td></tr>
+  <tr><td>2025–2026 量产</td><td><strong>B300 / GB300 NVL72</strong></td><td>TGP <strong>1100 W</strong> / 报道 <strong>1400 W</strong>；整柜 135/155 kW</td><td>~69–93 W/cm²</td><td>估 170–450；HBM 邻区与 SM 错位</td><td>整柜强制液冷，约 90/10</td></tr>
+  <tr><td>2026–2027</td><td><strong>Rubin R100 / VR NVL72</strong></td><td><strong>1800 / 2300 W</strong>；机柜 180–220 kW</td><td><strong>124 / 158 W/cm²</strong></td><td>双计算 die 双热点</td><td>100% 液冷；MLCP / 射流杂交</td></tr>
+  <tr><td>路线图</td><td>Rubin Ultra</td><td>封装约 3600 W</td><td>取决于四 die 面积</td><td>多热点 + 近结区</td><td>单相吃干后看两相</td></tr>
+  <tr><td>实验室 / 近结区</td><td>Chiplet / 3D</td><td>—</td><td>—</td><td>局部 1 kW/cm² 量级已见综述</td><td>嵌入式微流体、金刚石、两相</td></tr>
+</table>
+<div class="barwrap">
+  <div class="barrow"><span>硅平均 · H100</span><div class="bartrack"><div class="barfill teal" style="width:17%"></div></div><span>86</span></div>
+  <div class="barrow"><span>硅平均 · B200</span><div class="bartrack"><div class="barfill" style="width:13%"></div></div><span>65</span></div>
+  <div class="barrow"><span>硅平均 · B300 1.4kW</span><div class="bartrack"><div class="barfill teal" style="width:18%"></div></div><span>90</span></div>
+  <div class="barrow"><span>硅平均 · R100 2.3kW</span><div class="bartrack"><div class="barfill warn" style="width:32%"></div></div><span>158</span></div>
+  <div class="barrow"><span>热点估 · R100</span><div class="bartrack"><div class="barfill warn" style="width:80%"></div></div><span>400</span></div>
+  <div class="barrow"><span>实验室近结区</span><div class="bartrack"><div class="barfill mute" style="width:100%"></div></div><span>1000</span></div>
+</div>
+<p class="figcap"><strong>图 2-5</strong> 单位面积换热量量级（W/cm²）。横轴按 1000 W/cm² = 100% 归一。B200 硅面积平均可低于 H100（双 die 摊薄）；Rubin Max-P 才把平均值明显抬上去。设计以 OEM 热图为准，不用活性核反推当整板平均。</p>
+<div class="pfig">
+  <img src="assets/src/ashrae_fig4_air_vs_liquid.jpg" alt="ASHRAE air vs liquid cooling transition">
+  <p class="figcap"><strong>论文原图 · 风冷到液冷的功率门槛</strong> 2U+ 风冷大约在 350–400 W 封顶；H100 700 W 已越过这道墙。B300 / Rubin 只能液冷。<span class="src">来源：ASHRAE Liquid Cooling White Paper，Fig. 4。调研材料抽出。</span></p>
+</div>
+
+<h3>2.4.3 冷板热阻目标正在下台阶</h3>
+<table>
+  <tr><th>平台</th><th>TDP（公开 / 厂商）</th><th>冷板 <em>R<sub>θ</sub></em> 目标</th><th>结温 / 壳温包络</th><th>来源层级</th></tr>
+  <tr><td>H100 / H200</td><td>700 W</td><td><strong>&lt; 0.03 °C/W</strong></td><td>厂商写 Tj 约 83 °C</td><td>中（冷板厂商选型表）</td></tr>
+  <tr><td>B200 / GB200 GPU</td><td>1000–1200 W</td><td><strong>&lt; 0.02 °C/W</strong></td><td>约 83 °C</td><td>中</td></tr>
+  <tr><td><strong>B300 TGP（Lenovo）</strong></td><td><strong>1100 W</strong></td><td><strong>&lt; 0.028–0.030</strong></td><td>50 K 上限 0.045；38 K 上限 0.035</td><td><span class="tag">高</span> 功率；中 热阻目标</td></tr>
+  <tr><td><strong>B300 NVL72 报道</strong></td><td><strong>1400 W</strong></td><td><strong>&lt; 0.022–0.025</strong></td><td>50 K 上限 0.036；38 K 上限 0.027</td><td>中</td></tr>
+  <tr><td>GB200 模组冷板（公开拆解）</td><td>模组约 2700 W</td><td>&lt; 0.03 °C/W；压降 ≤20 kPa</td><td>有资料写 Tc 升 &lt;30–40 °C</td><td>中</td></tr>
+  <tr><td>OCP / Meta Tide 冷板</td><td>~1 kW OAM</td><td>可做到 <strong>&lt; 0.02 °C/W</strong>（TTV，PG25 可能再差约 15%）</td><td>Group 2 进液 30–37 °C 时壳温可低于 60 °C</td><td>高（OCP 公开指南）</td></tr>
+  <tr><td><strong>R100 Max-Q / Max-P</strong></td><td><strong>1800 / 2300 W</strong></td><td>物理上限 0.028 / 0.022（50 K）；厂商讨论 <strong>&lt; 0.012</strong></td><td>暖水 45 °C 时余量很薄</td><td>低–中，需 OEM 冻结</td></tr>
+  <tr><td>AMD MI300X / Intel Gaudi 3</td><td>~750 / ~600 W</td><td>&lt;0.025 / &lt;0.035</td><td>约 90 / 95 °C</td><td>中；对照项，非本尺</td></tr>
+  <tr><td>实验室两相微通道</td><td>≥1000 W</td><td>可到 0.0065 K/W</td><td>背面 ≤90 °C 常见</td><td>高（ITherm 等）</td></tr>
+</table>
+<div class="barwrap">
+  <div class="barrow"><span>H100 目标 0.030</span><div class="bartrack"><div class="barfill mute" style="width:100%"></div></div><span>0.030</span></div>
+  <div class="barrow"><span>B200 目标 0.020</span><div class="bartrack"><div class="barfill" style="width:67%"></div></div><span>0.020</span></div>
+  <div class="barrow"><span>B300 1.4kW 0.025</span><div class="bartrack"><div class="barfill teal" style="width:83%"></div></div><span>0.025</span></div>
+  <div class="barrow"><span>R100 50K 上限 0.022</span><div class="bartrack"><div class="barfill warn" style="width:73%"></div></div><span>0.022</span></div>
+  <div class="barrow"><span>Rubin 讨论 0.012</span><div class="bartrack"><div class="barfill warn" style="width:40%"></div></div><span>0.012</span></div>
+  <div class="barrow"><span>实验室两相 0.0065</span><div class="bartrack"><div class="barfill mute" style="width:22%"></div></div><span>0.007</span></div>
+</div>
+<p class="figcap"><strong>图 2-6</strong> 冷板热阻目标下台阶（°C/W，越小越好）。横轴按 0.030 = 100%。铜微通道公开典型 0.015–0.025 °C/W，迷你通道约 0.025–0.045 °C/W。R100 Max-P 的 0.022 是 50 K 物理上限，不是厂商保证点。</p>
+
+<h3>2.4.4 冷板与系统侧硬约束（2025–2026 包络）</h3>
+<table>
+  <tr><th>层级</th><th>指标</th><th>行业包络</th><th>备注</th></tr>
+  <tr><td>芯片 / 封装</td><td>接触平面度 / 粗糙度</td><td>≤0.05 mm；<em>Ra</em> ≤0.8 μm；裸片接触有要求 &lt;25 μm</td><td>TIM 厚度一厚，对流再好也救不了结温</td></tr>
+  <tr><td>芯片 / 封装</td><td>TIM2 面积热阻</td><td>Meta 公开约 0.1–0.2 °C·cm²/W</td><td>MLCP 的动机就是消这一层</td></tr>
+  <tr><td>冷板</td><td>单 GPU 流量</td><td>约 0.5–3 L/min；初筛 1.0–1.5 L/min·kW</td><td>OCP 典型设计 1.5 L/min·kW ≈ 10 K 温升</td></tr>
+  <tr><td>冷板</td><td>压降</td><td>常见设计 <strong>≤20 kPa</strong>；整板组 15–30 kPa</td><td>不得吃掉机柜压降窗</td></tr>
+  <tr><td>冷板</td><td>进出水温升</td><td>设计常用 &lt;10 K</td><td><strong>不能</strong>用 10 K 反推正式流量</td></tr>
+  <tr><td>冷板</td><td>材料</td><td>GPU 优先紫铜 C110 / C1020；真空钎焊</td><td>铝适合低功率；禁止铜铝混用无缓蚀</td></tr>
+  <tr><td>机柜</td><td>TCS 进液</td><td>OEM 表常见 25–45 °C</td><td>GB300 基线随温度改流量</td></tr>
+  <tr><td>机柜</td><td>工质</td><td>DI 水或 PG25</td><td>PG25 相对纯水换热可差约 15%</td></tr>
+  <tr><td>工质</td><td>过滤 / 电导 / pH</td><td>投运颗粒常 ≤25–50 μm；电导上限常见 25 μS/cm；pH 约 7.5–10.5</td><td>OCP 单相水基冷板冷却液规范</td></tr>
+  <tr><td>设施</td><td>ASHRAE W 类</td><td>W32 / W45 等是<strong>设施水</strong>温度等级</td><td>不要写成机柜进液</td></tr>
+</table>
+<p>H200 SXM5 八卡组公开设计点（厂商，中置信）：进液 38 °C、8.0 L/min 纯水，冷板表面 &lt;65 °C，流阻约 18.5 kPa。可作“当前量产铜冷板能打到哪里”的锚点。</p>
+<div class="note risk"><strong>对专利与产品的含义：</strong>规格趋势是“热流上去、热阻下来、压降还被锁在约 20 kPa”。只申请更密的直通道，会先撞泵功和堵塞，而不是先赢热阻。有价值的权利要求应带<strong>热流密度分区、压降上限、可清洗最小水力直径</strong>，并与 TIM2 消除或热点对准绑定。</div>
+</section>
+
+<section id="routes">
+<h2>3. 五条技术路线：优势、短板、工艺、原理图与代表专利</h2>
+<p class="lead">读图方式：五条路线不是互斥替代。商业热流取公开工程量级；实验室极值单独标注。成熟度 1–5 为本研究综合判断（5 = 已规模出货）。</p>
+
+<div class="grid2">
+  <div>
+    <h4>商业热流能力量级（对流轴）</h4>
+    <div class="barwrap">
+      <div class="barrow"><span>铲齿微翅片</span><div class="bartrack"><div class="barfill teal" style="width:20%"></div></div><span>100</span></div>
+      <div class="barrow"><span>微通道 / MLCP</span><div class="bartrack"><div class="barfill" style="width:40%"></div></div><span>200</span></div>
+      <div class="barrow"><span>冲击射流</span><div class="bartrack"><div class="barfill warn" style="width:70%"></div></div><span>350</span></div>
+      <div class="barrow"><span>金刚石均热</span><div class="bartrack"><div class="barfill mute" style="width:0"></div></div><span>0*</span></div>
+      <div class="barrow"><span>纳米流体增益</span><div class="bartrack"><div class="barfill mute" style="width:0"></div></div><span>0*</span></div>
+    </div>
+    <p class="small">单位：典型商业热流 W/cm²。* 金刚石不提供对流热流，纳米流体是相对基液的增益。实验室：微通道约 790、射流杂交两相约 1127 W/cm²。</p>
+  </div>
+  <div>
+    <h4>产业化成熟度（1–5）</h4>
+    <div class="barwrap">
+      <div class="barrow"><span>铲齿微翅片</span><div class="bartrack"><div class="barfill teal" style="width:100%"></div></div><span>5.0</span></div>
+      <div class="barrow"><span>微通道 / MLCP</span><div class="bartrack"><div class="barfill" style="width:70%"></div></div><span>3.5</span></div>
+      <div class="barrow"><span>冲击射流</span><div class="bartrack"><div class="barfill" style="width:60%"></div></div><span>3.0</span></div>
+      <div class="barrow"><span>金刚石</span><div class="bartrack"><div class="barfill warn" style="width:40%"></div></div><span>2.0</span></div>
+      <div class="barrow"><span>纳米流体</span><div class="bartrack"><div class="barfill mute" style="width:30%"></div></div><span>1.5</span></div>
+    </div>
+    <p class="small">微通道处于高端导入与 MLCP 认证之间；纳米流体停留在实验室 / 中试。</p>
+  </div>
+</div>
+
+<h3>3.1 微通道（Microchannel / MLCP / MCL）</h3>
+<div class="papergrid">
+  <div class="pfig">
+    <img src="assets/src/chip_fig6_embedded_mc.jpg" alt="Embedded straight microchannel schematic">
+    <p class="figcap"><strong>论文原图 · 直微通道</strong> Tuckerman–Pease 路线：薄通道 + 肋导热。长通道后半段边界层变厚，这是平行槽的结构性短板。<span class="src">来源：Energies 2026, 19(14):3304，Fig. 6（CC BY）。调研材料抽出。</span></p>
+  </div>
+  <div class="pfig">
+    <img src="assets/src/chip_fig14_evolution.jpg" alt="Parallel microchannel vs 3D manifold MMC">
+    <p class="figcap"><strong>论文原图 · 平行微通道 → 3D 歧管微通道</strong> 左：一条长沟，出口侧先热。右：歧管把流程切短，进出口交错，压降和均温同时改善。<span class="src">来源：Energies 2026, 19(14):3304，Fig. 14（CC BY）。调研材料抽出。</span></p>
+  </div>
+</div>
+<div class="pfig">
+  <img src="assets/src/chip_fig9_integrated_mc.jpg" alt="Microchannel cooler integrated in chip module">
+  <p class="figcap"><strong>论文原图 · 封装内集成微通道（近 MLCP）</strong> 歧管 → 密封圈 → 硅微通道冷却器 → 银胶/焊料 → 热测试芯片。MLCP / MCL 走的就是取消独立冷板与 TIM2 的这条路。<span class="src">来源：Energies 2026, 19(14):3304，Fig. 9（CC BY）。调研材料抽出。</span></p>
+</div>
+<div class="prin">
+  <h4>原理详解</h4>
+  <p>对流热阻近似 <em>R</em><sub>conv</sub> ≈ 1 / (<em>h</em> · <em>A</em><sub>wet</sub>)。微通道同时做两件事：把水力直径压到 <strong>10 µm–1 mm</strong>，减薄热边界层以提高换热系数 <em>h</em>；把数百条薄铜肋立在底板上，把润湿面积 <em>A</em><sub>wet</sub> 放大一个数量级。Tuckerman–Pease 的经典水冷实验就是靠这条路做到约 790 W/cm²，代价是压降可到数百 kPa。</p>
+  <p>GPU 量产冷板里通道宽/高常见 <strong>0.2–1.0 mm</strong>，流速往往 &lt;0.1–1 m/s，雷诺数常 &lt;2000，<strong>多数是层流</strong>：换热靠“薄通道 + 铜肋导热”，不是靠湍流掺混。所以单纯把槽挖得更密，压降按水力直径的高次方上升，泵功和堵塞先到达，热阻不一定再降。</p>
+  <p>演进路径：直通道 → <strong>歧管微通道（MMC）</strong>缩短流程、降沿程温升 → 分形 / 叶脉 / 拓扑优化对准热点 → <strong>MLCP / MCL</strong> 盖板一体化取消 TIM2 → 硅内微流体取消更多界面。对规格的含义：微通道是冲 <em>R<sub>θ</sub></em> &lt;0.02 °C/W 的主路径，但必须带着 ≤20 kPa 压降窗和 25 μm 过滤一起设计。</p>
+</div>
+<div class="grid2">
+  <div class="note ok"><strong>优势</strong>
+    <ul class="tight">
+      <li>同等流量下换热显著高于宏观流道；Tuckerman &amp; Pease 经典水冷约 <strong>790 W/cm²</strong>（实验室、高压降）</li>
+      <li>可按热图定制通道密度，适配 chiplet / HBM</li>
+      <li>MLCP / MCL 取消 TIM2，是 2 kW 级 GPU 的现实路径</li>
+      <li>与射流、针肋、金刚石嵌件兼容，易形成结构组合保护</li>
+    </ul>
+  </div>
+  <div class="note risk"><strong>短板</strong>
+    <ul class="tight">
+      <li>压降随水力直径急剧上升；沿程温升导致出口侧结温偏高</li>
+      <li>堵塞敏感：钎料、颗粒、生物膜、纳米颗粒均可堵死 100 µm 级通道</li>
+      <li>盖板一体化后泄漏等于毁片，可靠性门槛跃升</li>
+      <li>只写“平行微通道”很难授权（IBM / Intel / Asetek 覆盖多年）</li>
+    </ul>
+  </div>
+</div>
+<table>
+  <tr><th>级别</th><th>典型工艺</th><th>适用</th><th>关键控制点</th></tr>
+  <tr><td>量产中端</td><td>CNC / 铲齿 + 真空钎焊或搅拌摩擦焊</td><td>0.3–1.0 mm 通道</td><td>钎料不溢入通道、平面度、氦检漏</td></tr>
+  <tr><td>高端 MLCP</td><td>化学蚀刻 / 光化学加工 + <strong>真空扩散焊</strong></td><td>30–200 µm 级、分支 / 波浪三维流道</td><td>无钎料堵孔、键合强度、残余应力、洁净度</td></tr>
+  <tr><td>封装 / 硅级</td><td>光刻 + DRIE + 硅-硅或硅-玻璃键合</td><td>芯片内或 lid 内微流体</td><td>蚀刻深宽比 vs 机械强度、密封、与 CoWoS 协同</td></tr>
+  <tr><td>新兴</td><td>纯铜电化学增材（ECAM）、选区激光熔化</td><td>拓扑流道、非直壁</td><td>表面粗糙度、残留粉末、耐压与腐蚀</td></tr>
+</table>
+<p>公开供应链评论指出：MLCP 需要<strong>半导体级光刻 / 蚀刻 + 真空扩散焊</strong>，传统铲齿到此基本失效。这也是大陆厂商与台湾认证产线的主要代差。</p>
+<table>
+  <tr><th>公开号</th><th>权利人</th><th>要点</th></tr>
+  <tr><td><a href="https://patents.google.com/patent/US12133357B2" target="_blank" rel="noopener">US12133357B2</a></td><td>Intel</td><td>冷板开孔与翅片架构</td></tr>
+  <tr><td><a href="https://patents.google.com/patent/US12477696" target="_blank" rel="noopener">US12477696</a></td><td>NVIDIA</td><td>微通道主动液冷 + 热管被动备份</td></tr>
+  <tr><td>US20200227341A1</td><td>Intel 体系（DLMJ）</td><td>微通道阵列上方叠加垂直微射流歧管</td></tr>
+  <tr><td><a href="https://patents.google.com/patent/CN109104844B" target="_blank" rel="noopener">CN109104844B</a></td><td>中航雷华</td><td>多级分配、微通道只经过一次，降流阻</td></tr>
+  <tr><td><a href="https://patents.google.com/patent/CN120597664A" target="_blank" rel="noopener">CN120597664A/B</a></td><td>广东蓝锐</td><td>主通道 + 旁通 + SMA 微执行器</td></tr>
+  <tr><td>CN122263715A</td><td>—</td><td>拓扑优化自动生成可制造微通道</td></tr>
+  <tr><td>WO2026103052A1</td><td>华为</td><td>同一冷板内按热密度分区，混用射流 / 微通道 / 拓扑</td></tr>
+</table>
+<p class="small">学术侧：叶脉分形 + PSO 可将仿真结温从约 128 °C 降至约 31 °C（<em>Materials</em> 2026, 19, 679，需实验复核）。Corintis Glacierware 相对直通道可降约 13% 温升或约 55% 压降。</p>
+<p><strong>专利布局特征：</strong>早期保护“有微通道”本身；现在保护流量分配、旁通、可制造拓扑、与封装盖板的一体化、主动控制。新进者应避开“平行直槽 + 盖板钎焊”。</p>
+
+<h3>3.2 微翅片（Micro-fin / 铲齿 / 针肋 / 微柱）</h3>
+<p class="small">调研 PDF 中没有单独的铲齿工艺剖视图（SciOpen 图 8 是径向分形通道，不是铲齿），故本节保留自绘示意；平行槽冷板本体见上一节 Energies Fig. 14 左图。</p>
+<div class="fig drawn">
+  <img src="assets/principle-skived-fin.png" alt="铲齿微翅片冷板：刀具刨起一体翅根，冷却液在翅间流动">
+</div>
+<p class="figcap"><strong>图 3-2 · 自绘示意</strong>（无对应原图）。刀具把铜“刨起”成肋，翅根与底板连续，没有钎缝热阻；盖板再真空钎焊封闭流道。针肋则把连续肋打断成柱阵，用尾迹扰流换均温。</p>
+<div class="prin">
+  <h4>原理详解</h4>
+  <p>微翅片走的是<strong>扩展表面</strong>：单位投影面积上的对流面积 = 底板 + 两侧肋壁。肋效率取决于肋高、肋厚和铜热导。铲齿（skiving / MDT）与铣削的本质差别是<strong>不切除材料、肋根无焊缝</strong>，底板导热路径连续，比“底板 + 焊接翅片”更接近铜的体材料极限。</p>
+  <p>流动上，直肋通道仍是平行层流占多数：入口边界层薄、沿程逐渐变厚，出口侧换热变差，这就是“沿程温升 + 热点不在几何中心”时铲齿容易失守的原因。加密节距能降热阻，但流阻近似随间隙缩小而急升。针肋 / 斜切成针（US9795057）用周期性分离破坏边界层，对非均匀热流更友好，加工和清洗更难。</p>
+  <p>对规格的含义：铲齿是当前 <em>R<sub>θ</sub></em> ≈ 0.025–0.045 °C/W 量产主力，能覆盖 H100 的 &lt;0.03 °C/W 和 B300 TGP 1100 W 的 &lt;0.030，到 B300 1400 W / B200 的 &lt;0.02 往往要靠<strong>非均匀节距 + 射流盖板或更细微通道</strong>接力。R100 2300 W 的 50 K 上限已是 0.022，铲齿单独很难再进。几何自由度低，是专利空间变窄的物理原因。</p>
+</div>
+<div class="grid2">
+  <div class="note ok"><strong>优势</strong>
+    <ul class="tight">
+      <li>工艺最成熟、成本最低、供应链最完整，当前默认形态</li>
+      <li>一体成型，肋根导热好，数据中心可靠性已验证</li>
+      <li>设计参数少，换型快，适合多芯片 SKU</li>
+      <li>可与射流盖板、倾斜射流、变肋宽组合，升级路径平滑</li>
+    </ul>
+  </div>
+  <div class="note risk"><strong>短板</strong>
+    <ul class="tight">
+      <li>几何自由度低，很难按热点做局部加密或三维分支</li>
+      <li>加密肋片抬高压降；直通道沿程温升对 HBM 边缘不友好</li>
+      <li>常规铜微加工难稳定做到约 100 µm 以下（见 US12494408）</li>
+      <li>浪潮公开指出铲齿“面积大但流阻大”，故转向射流冷板</li>
+    </ul>
+  </div>
+</div>
+<ul class="tight">
+  <li><strong>铲齿：</strong>刀具角度、进给、肋高一致性；去毛刺、电解抛光或化学清洗。</li>
+  <li><strong>封合：</strong>真空钎焊（成本低、有堵孔风险）或搅拌摩擦焊 / 激光焊。</li>
+  <li><strong>更高密度：</strong>双图案交替肋宽，通道约 100 µm。</li>
+  <li><strong>自适应肋：</strong>双金属片随温度弯曲分流（US12193201），疲劳寿命要求高。</li>
+  <li><strong>下一代：</strong>ECAM 非矩形肋，Illinois 公开数据称冷却最高约 +32%，同冷却下压降可降约 68%。</li>
+</ul>
+<table>
+  <tr><th>公开号</th><th>权利人</th><th>要点</th></tr>
+  <tr><td><a href="https://patents.google.com/patent/US9795057" target="_blank" rel="noopener">US9795057</a></td><td>—</td><td>铲齿成肋后再斜切成针，嵌入槽体</td></tr>
+  <tr><td>US5775187</td><td>MDT 基础</td><td>微变形铲削，不去除材料抬肋</td></tr>
+  <tr><td><a href="https://patents.google.com/patent/US12494408" target="_blank" rel="noopener">US12494408</a></td><td>—</td><td>交替肋宽双图案，突破铜微加工下限</td></tr>
+  <tr><td><a href="https://patents.google.com/patent/US12193201" target="_blank" rel="noopener">US12193201</a></td><td>—</td><td>双金属三维自适应流道</td></tr>
+  <tr><td>CN113871359A</td><td>浪潮</td><td>中心射流 + 离心肋片 + 阿基米德导流</td></tr>
+</table>
+<p><strong>专利布局特征：</strong>纯铲齿结构空间窄，价值转向变截面肋、针肋、自适应肋、铲齿与射流盖板组合、非均匀节距。对国内厂商，这是“守住出货、用结构升级换性能”的主战场。</p>
+
+<h3>3.3 冲击射流（Jet Impingement / Microjet）</h3>
+<div class="papergrid">
+  <div class="pfig">
+    <img src="assets/src/hussain_fig1_jet_regions.jpg" alt="Jet impingement flow regions">
+    <p class="figcap"><strong>论文原图 · 冲击射流三区</strong> 自由射流 / 驻点 / 壁面射流。驻点边界层最薄，局部 Nu 最高。这就是 Barewar / Hussain 参数框架的物理内核。<span class="src">来源：Hussain et al., Energies 2021, 14(20):6458，Fig. 1（CC BY）。调研材料抽出。</span></p>
+  </div>
+  <div class="pfig">
+    <img src="assets/src/nepcm_fig1_stagnation.jpg" alt="Axisymmetric stagnation flow of impinging jet">
+    <p class="figcap"><strong>论文原图 · 驻点速度剖面</strong> 轴向动量在壁面转为径向。液冷冷板要把 GPU 热点对准这块驻点，而不是对准“某个孔的几何中心”。<span class="src">来源：Energies 2022, 15:1034，Fig. 1（CC BY）。调研材料抽出。</span></p>
+  </div>
+</div>
+<div class="pfig">
+  <img src="assets/src/hussain_fig7_HD.jpg" alt="Heat transfer vs H/D">
+  <p class="figcap"><strong>论文原图 · <em>H/D</em> 对换热的影响</strong> 喷距太近展不开，太远势核耗尽。液冷工程窗常取 2–6。<span class="src">来源：Hussain et al., Energies 2021，Fig. 7（CC BY）。调研材料抽出。</span></p>
+</div>
+<div class="prin">
+  <h4>原理详解</h4>
+  <p>射流换热不是“多打几个孔”，而是四个参数族的折中（Barewar 等 2023）：<strong>几何</strong>（孔径 <em>D</em>、喷距 <em>H/D</em>、孔间距 <em>S/D</em>、靶面肋/针/凹坑）、<strong>流动</strong>（<em>Re</em>、倾角、限制空间高度）、<strong>激励</strong>（旋流、脉动、扫掠）、<strong>工质</strong>。滞止区局部 Nu 最高；相邻射流的交叉流会把下游滞止区“吹歪”，边缘密封占位会造成欠冷——这就是 US11310937 专门写 near-edge jets 的原因。</p>
+  <p>和微通道比：微通道用小流量换高压降；射流常用较大流量、压降集中在喷嘴。JetCool 公开口径称微射流换热系数可超 <strong>200,000 W/m²K</strong>、微通道约 20,000 W/m²K（<span class="tagw">厂商数据，需复测</span>）。Wiwynn 白皮书：射流冷板热阻相对传统冷板下降 <strong>20–48%</strong>，再叠加封装内流道最高约 <strong>53%</strong>。Sung &amp; Mudawar 把射流喷进微通道，两相工况做到约 1127 W/cm² 未达临界热流。</p>
+  <p>对规格的含义：射流适合把局部 150–500 W/cm² 的热点压下去，帮助整板冲 &lt;0.02 甚至讨论中的 &lt;0.012 °C/W。系统约束仍是 CDU 流量和喷嘴压降；直接接触方案还要过密封与电气隔离。</p>
+</div>
+<div class="grid2">
+  <div class="note ok"><strong>优势</strong>
+    <ul class="tight">
+      <li>热点针对性最强：可对准 SM、HBM 邻区、I/O 热点</li>
+      <li>限定压降或短流程时，往往优于长微通道</li>
+      <li>可做直接接触冷却（JetCool US11844193）</li>
+      <li>与微通道杂交：Sung &amp; Mudawar 两相实验约 <strong>1127 W/cm²</strong> 未达 CHF</li>
+    </ul>
+  </div>
+  <div class="note risk"><strong>短板</strong>
+    <ul class="tight">
+      <li>喷嘴压降集中；边缘密封占位导致边缘欠冷（US11310937）</li>
+      <li>侵蚀、震动、回流干涉造成温度花斑</li>
+      <li>流量需求通常大于微通道，对 CDU 更苛刻</li>
+      <li>直接冲击芯片背面时，密封、应力、电气隔离风险上升</li>
+    </ul>
+  </div>
+</div>
+<ul class="tight">
+  <li>喷嘴板：微钻孔 / 激光微孔 / 光刻电铸，孔径一致性与毛刺控制决定均匀性。</li>
+  <li>孔板刚度：高压差下防挠曲，常需厚板或支撑柱。</li>
+  <li>倾斜射流 + 肋化槽道需角度公差（US10244654）。</li>
+  <li>旁通孔降总压降并改善回流（US12255124）。</li>
+</ul>
+<table>
+  <tr><th>公开号</th><th>权利人</th><th>要点</th></tr>
+  <tr><td><a href="https://patents.google.com/patent/WO2020210587A1" target="_blank" rel="noopener">WO2020210587A1</a> / US12100643B2</td><td>JetCool</td><td>微射流喷嘴与电子元件共位</td></tr>
+  <tr><td><a href="https://patents.google.com/patent/US11844193" target="_blank" rel="noopener">US11844193</a></td><td>JetCool</td><td>直接接触流体模块</td></tr>
+  <tr><td><a href="https://patents.google.com/patent/US12002736" target="_blank" rel="noopener">US12002736</a></td><td>—</td><td>射流座 / 喷嘴对准功率器件热点</td></tr>
+  <tr><td><a href="https://patents.google.com/patent/US12255124" target="_blank" rel="noopener">US12255124</a></td><td>—</td><td>射流 + 旁通分流</td></tr>
+  <tr><td><a href="https://patents.google.com/patent/US10244654" target="_blank" rel="noopener">US10244654</a></td><td>—</td><td>倾斜射流 + 肋化槽道</td></tr>
+  <tr><td><a href="https://patents.google.com/patent/US11310937" target="_blank" rel="noopener">US11310937</a></td><td>—</td><td>近边缘射流歧管</td></tr>
+  <tr><td>CN113871359A</td><td>浪潮</td><td>中心淹没射流 + 离心微通道</td></tr>
+  <tr><td>WO2026103052A1</td><td>华为</td><td>高热流分区采用射流结构</td></tr>
+</table>
+<p><strong>专利布局特征：</strong>国际专利已较密（喷嘴阵列、旁通、近边缘、倾斜角、直接接触密封）。国内相对强在整机冷板形态，弱在微喷嘴板精密制造与直接接触密封。杂交结构仍是可写空间。</p>
+
+<h3>3.4 金刚石（CVD 片材 / 金刚石–铜复合材料）</h3>
+<div class="papergrid">
+  <div class="pfig">
+    <img src="assets/src/e6_fig1_k_compare_v2.jpg" alt="Diamond vs copper thermal conductivity">
+    <p class="figcap"><strong>论文原图 · 金刚石 vs 铜的导热位差</strong> Diafilm TM 系列约 1000–2200 W/(m·K)，铜约 400。这是扩散热阻的材料位差，把微通道再挖密也补不回来。<span class="src">来源：Element Six Diafilm 案例，Fig. 1。调研材料抽出。</span></p>
+  </div>
+  <div class="pfig">
+    <img src="assets/src/e6_fig1_k_compare.jpg" alt="Diamond heat spreader plus micro-jet microchannel stack">
+    <p class="figcap"><strong>论文原图 · 金刚石均热片 + 微射流/微通道</strong> 正确叠层：芯片 → 金刚石摊热 → 微射流打驻点 → 微通道排液。金刚石先做片，不是先开金刚石槽。<span class="src">来源：Element Six Diafilm 案例，Fig. 2。调研材料抽出。</span></p>
+  </div>
+</div>
+<div class="pfig">
+  <img src="assets/src/e6_p3_a.jpg" alt="Heat flux spreading with diamond">
+  <p class="figcap"><strong>论文原图 · 有金刚石时的上表面热流</strong> 摊热之后，冷板看到的局部 <em>q″</em> 下降，同一套对流就能压住热点。功率越高，温降收益越大（案例：4 → 45 °C）。<span class="src">来源：Element Six Diafilm 案例。调研材料抽出。</span></p>
+</div>
+<div class="prin">
+  <h4>原理详解</h4>
+  <p>导热热阻 <em>R</em><sub>spread</sub> 随材料热导率上升、随厚度和热点尺寸变化。CVD 金刚石室温热导约 <strong>900–2350 W/(m·K)</strong>（多晶到单晶），约为铜的 2–6 倍，且更接近各向同性。它把 0.1–1 kW/cm² 的尖峰摊成冷板对流能够对付的平均热流。Element Six 在约 9.3 kW/cm² 测试芯片上，热点温降随功率从 4 °C 增到 45 °C；键合专利的设计目标写到 ≥1 kW/cm²。</p>
+  <p>典型叠层：裸片 / TIM1 / <strong>金刚石片</strong> / 盖板或直接 Cu-Diamond 盖板 / TIM2 / 铜冷板。真正的工程瓶颈几乎总在<strong>界面</strong>：金刚石与铜不润湿，Ti/Pt/Au 常规金属化在高热流下界面热阻偏大，Element Six 改用铬层（WO2016087243A1）；国内专利则走磷酸盐玻璃梯度或 PVD 镀铜热压。没有把界面热阻做下去，体材料优势会被吃光。</p>
+  <p>对规格的含义：金刚石降低的是<strong>热点处的有效热流</strong>和扩热热阻，不是对流 <em>h</em>。它应与微通道 / 射流叠加，帮助 2 kW 级芯片在 ≤20 kPa 压降窗内仍够到 &lt;0.02 °C/W。单独一块金刚石片加宏观流道，解决不了单位面积换热量。</p>
+</div>
+<div class="grid2">
+  <div class="note ok"><strong>优势</strong>
+    <ul class="tight">
+      <li>把 chiplet 热点横向拉开，常比单纯加密流道更有效</li>
+      <li>Cu-Diamond 可沿用现有铜冷板加工路线（Element Six 口径）</li>
+      <li>与 1 kW/cm² 量级局部功率密度匹配（E6 键合专利设计目标）</li>
+      <li>公开报道称 H200 体系已出现金刚石导热部署；Samsung 2025 申请混合金刚石 interposer</li>
+    </ul>
+  </div>
+  <div class="note risk"><strong>短板</strong>
+    <ul class="tight">
+      <li>贵、脆、难加工、难金属化；界面热阻可吃掉体材料优势</li>
+      <li>CTE 不匹配导致翘曲、脱层；大尺寸薄片成品率是瓶颈</li>
+      <li>专利壁垒集中在界面：铬键合 vs 钛铂、磷酸盐玻璃梯度界面</li>
+      <li>不能单独替代冷板对流</li>
+    </ul>
+  </div>
+</div>
+<table>
+  <tr><th>路线</th><th>关键步骤</th><th>难点</th></tr>
+  <tr><td>CVD 金刚石片</td><td>MPCVD 生长 → 抛光 → 金属化（Cr/Au 或 Ti/Pt/Au）→ 键合</td><td>残余应力、界面热阻、大面积均匀性</td></tr>
+  <tr><td>金刚石 / 铜热压</td><td>镀铜或表面玻璃化 → 700–850 °C、30–50 MPa 热压</td><td>石墨化风险、孔隙、界面连续梯度</td></tr>
+  <tr><td>气压浸渗</td><td>镀膜金刚石预制体 + 铜熔渗</td><td>体积分数 60–85%、热导目标 1500 W/mK 级</td></tr>
+  <tr><td>冷板集成</td><td>复合材料 3D 打印流道或机加后激光焊盖板</td><td>可加工性、密封、与快接头连接</td></tr>
+</table>
+<table>
+  <tr><th>公开号</th><th>权利人</th><th>要点</th></tr>
+  <tr><td><a href="https://patents.google.com/patent/WO2016087243A1" target="_blank" rel="noopener">WO2016087243A1</a> / <a href="https://patents.google.com/patent/US10403557" target="_blank" rel="noopener">US10403557</a> / EP3227914</td><td>Element Six</td><td>金刚石上铬层 + 再金属层，面向 ≥1 kW/cm²</td></tr>
+  <tr><td>CN111500892B</td><td>—</td><td>大尺寸片状金刚石 / 铜，热导达约 1500 W/mK</td></tr>
+  <tr><td>CN122161445A</td><td>—</td><td>金刚石铜合金冷板，PVD 镀铜热压，3D 打印肋</td></tr>
+  <tr><td>CN122503683A</td><td>—</td><td>磷酸盐玻璃膜 + 低温热压，梯度界面</td></tr>
+  <tr><td>Samsung 2025 US/EP（公开报道）</td><td>Samsung</td><td>混合金刚石热中介层，逻辑 + HBM</td></tr>
+</table>
+<p><strong>专利布局特征：</strong>欧美控制高功率密度键合；中国申请密集在复合材料制备与冷板结构。规避 Element Six 时，应避开“金刚石 + 铬直接键合 + 高功率密度器件”的权利要求组合。FTO 必须单独做家族与等同原则分析。</p>
+
+<h3>3.5 纳米流体（Nanofluid / 磁流体 / 纳米相变胶囊）</h3>
+<div class="papergrid">
+  <div class="pfig">
+    <img src="assets/src/nano_fig2_air_liquid.jpg" alt="Air cooling vs liquid cooling schematic">
+    <p class="figcap"><strong>论文原图 · 风冷与液冷对照</strong> 液冷把换热从“空气+翅片”改成“水+冷板”。纳米流体综述用这张图开篇，但后文结论是：工质增益救不了微通道堵塞和电导率。<span class="src">来源：Energies 2024, 17(13):3151，Fig. 2（CC BY）。调研材料抽出。</span></p>
+  </div>
+  <div class="pfig">
+    <img src="assets/src/nano_fig11_future.jpg" alt="Nanofluid research future directions">
+    <p class="figcap"><strong>论文原图 · 数据中心用纳米流体的未关闭问题</strong> 稳定性、磨损腐蚀、电气绝缘都还没关。这是<strong>不把纳米流体写入 TCS 基线</strong>的直接依据。<span class="src">来源：Energies 2024, 17(13):3151，Fig. 11（CC BY）。调研材料抽出。</span></p>
+  </div>
+</div>
+<div class="prin">
+  <h4>原理详解</h4>
+  <p>纳米流体把纳米颗粒（Al₂O₃、Cu、石墨烯、CNT、Fe₃O₄ 等）分散进水 / 丙二醇 / 介电流体。换热增益来自三块：<strong>有效热导率上升</strong>（颗粒导热远高于基液）、<strong>边界层扰动</strong>（布朗运动、热泳）、以及磁流体在外场下的定点输运。综述普遍报告换热系数提升约 <strong>10–40%</strong>。磁流体专利（CN113488444B）用电磁阵列给热点加额外局部冷量；相变胶囊则靠潜热削峰。</p>
+  <p>主矛盾不在实验室增益，而在<strong>胶体稳定性与数据中心寿命</strong>。颗粒会沉降、团聚、流挂，再启动时堵微通道（CN118890850A 用空化溃灭再分散；CN122278447A 用三元流变抗流挂）。颗粒还磨损泵、快接头和通道壁，抬高电导、改变 pH，与 OCP 水基规范（低电导、低浊度、&lt;1 CFU/mL、铜缓蚀）冲突。粘度上升还会把压降顶出 20 kPa 窗。</p>
+  <p>对规格的含义：纳米流体是<strong>工质侧增益</strong>，不提高冷板结构上限。一次成功的流道改版或取消 TIM2，通常比 +20% HTC 更划算。不宜作为 TCS 基线工质；最多在一次侧或特种工况试点。专利应写稳定配方 + 防堵结构，而不是“加入纳米颗粒提高热导”。</p>
+</div>
+<div class="grid2">
+  <div class="note ok"><strong>优势</strong>
+    <ul class="tight">
+      <li>不改冷板模具即可尝试增益</li>
+      <li>文献与专利常报告 HTC 提升约 <strong>10–40%</strong></li>
+      <li>磁流体可对动态热点做额外局部制冷</li>
+      <li>与空化自分散、相变胶囊结合，可写“工质 + 结构”</li>
+    </ul>
+  </div>
+  <div class="note risk"><strong>短板（主矛盾）</strong>
+    <ul class="tight">
+      <li>沉降、团聚、流挂：停泵后再启动会堵微通道</li>
+      <li>颗粒磨损泵、快接头和微通道壁</li>
+      <li>电导率、腐蚀、微生物、缓蚀剂冲突，5–10 年寿命难证明</li>
+      <li>增益通常小于一次成功的流道改版；<strong>不宜作为产品主路径</strong></li>
+    </ul>
+  </div>
+</div>
+<ul class="tight">
+  <li>连续相：去离子水 + 丙二醇等；分散相：石墨烯、SWCNT、氧化物、磁性颗粒。</li>
+  <li>分散：球磨 / 超声 + PVP 等 + 流变改性，获得触变性与抗流挂。</li>
+  <li>微通道侧：空化喉部打散团聚（CN118890850A）；截面留堵塞裕度。</li>
+  <li>服役验证：高速泵送 ↔ 静置、冷热冲击、金属溶出、电气绝缘。</li>
+</ul>
+<table>
+  <tr><th>公开号</th><th>权利人</th><th>要点</th></tr>
+  <tr><td><a href="https://patents.google.com/patent/CN118890850A" target="_blank" rel="noopener">CN118890850A</a></td><td>—</td><td>水力空化流道，纳米流体自分散</td></tr>
+  <tr><td>CN122278447A</td><td>山东烯力</td><td>石墨烯 + SWCNT，三元流变体系，抗流挂</td></tr>
+  <tr><td>CN113488444B</td><td>华中科技大学</td><td>纳米磁流体 + 电磁阵列，热点定点冷却</td></tr>
+  <tr><td>202310386028</td><td>—</td><td>纳米相变胶囊 + 反向热泳微通道衬底</td></tr>
+  <tr><td>CN122055001A</td><td>—</td><td>冷板原位铜纳米线阵列替代涂覆 TIM（界面，非工质）</td></tr>
+</table>
+<p><strong>专利布局特征：</strong>中国高校与材料公司申请活跃，美欧数据中心主供应商很少把纳米流体写成产品核心——这本身说明工程化成熟度不足。应写“稳定配方 + 防堵结构 + 泵 / 滤兼容”，而不是“加入纳米颗粒提高热导”。</p>
+</section>
+
+<section id="hybrid">
+<h2>3.6 微通道融合冲击射流：已有方案与新专利推荐</h2>
+<p class="lead"><strong>结论：杂交已经存在，而且是当前最值得占的结构窗口。</strong>单纯“射流喷进直微通道”已被美欧基础专利和国内整机冷板覆盖。新申请必须带<strong>芯片热图分区（尤其 GPU vs HBM）、压降窗、可维护防堵、或盖板一体化工艺</strong>，不能只写“射流 + 微通道”。</p>
+
+<div class="papergrid">
+  <div class="pfig">
+    <img src="assets/src/chip_fig13_mmc.jpg" alt="Hierarchical manifold microchannel heat sink">
+    <p class="figcap"><strong>论文原图 · 分层歧管微通道</strong> 上层宽槽分配，下层短微通道换热。杂交冷板的“短通道排液”就是这条路，再在短槽上方加喷嘴即成射流–微通道。<span class="src">来源：Energies 2026, 19(14):3304，Fig. 13（CC BY）。调研材料抽出。</span></p>
+  </div>
+  <div class="pfig">
+    <img src="assets/src/chip_fig8_mmchs.jpg" alt="Additively manufactured manifold microchannel">
+    <p class="figcap"><strong>论文原图 · 增材歧管微通道</strong> 进出口分层、短流程，是铜冷板可制造版本的参照。与 Element Six 叠层图对照：歧管 / 射流 / 微通道可以是同一件。<span class="src">来源：Energies 2026, 19(14):3304，Fig. 8（CC BY）。调研材料抽出。</span></p>
+  </div>
+</div>
+<p class="small">射流 + 微通道 + 金刚石的叠层原图见第 3.4 节 Element Six Fig. 2，此处不重复贴。</p>
+
+<div class="prin">
+  <h4>为什么要融合，而不是二选一</h4>
+  <p>微通道的长处是<strong>小流量、大面积</strong>，短处是沿程温升和高压降。射流的长处是<strong>热点滞止区 <em>h</em> 极高</strong>，短处是交叉流、边缘欠冷、流量大。杂交的物理分工是：射流负责把热点边界层打断，短微通道负责把废液尽快带走并继续换热。Sung &amp; Mudawar 早年就把圆形/槽缝射流喷进微通道，单相做到约 305 W/cm²，两相约 <strong>1127 W/cm²</strong> 未达 CHF。北京大学宋柏组 2025 年在 <em>Nature Electronics</em> 用硅基“变截面歧管 + 微射流 + 锯齿微通道”单相水冷做到约 <strong>3000 W/cm²</strong>，单位面积泵功约 0.9 W/cm²（嵌入式 MEMS，不是数据中心铲齿冷板）。</p>
+</div>
+
+<h3>3.6.1 已公开的杂交架构（必须规避）</h3>
+<table>
+  <tr><th>架构类型</th><th>代表</th><th>核心结构</th><th>公开性能口径</th><th>对后进者的含义</th></tr>
+  <tr><td>射流供液 + 微通道排液</td><td>Sung &amp; Mudawar；US10244654</td><td>倾斜或阵列射流喷进肋化/微通道</td><td>单相约 305 W/cm²；两相约 1127 W/cm²</td><td>基础结构已公开，纯组合难授权</td></tr>
+  <tr><td>封装级 DLMJ</td><td>Intel US20200227341A1</td><td>微通道阵列上方再叠垂直微射流歧管</td><td>面向封装一体化</td><td>FTO 必查；不要再写“通道上加喷嘴板”</td></tr>
+  <tr><td>分形歧管 + 微射流 + 针肋</td><td>US12029008B2 / US20220232732A1</td><td>分形进液、面外抽吸、针肋靶面</td><td>面向均匀分配与降交叉流</td><td>分形 + 射流 + 抽吸孔组合已被占</td></tr>
+  <tr><td>折返式射流微通道</td><td>CN111328245B</td><td>射流孔与回流孔交替，冲击底壁后折返</td><td>强调分流均匀</td><td>交替进出孔 + 折返是雷区</td></tr>
+  <tr><td>中心射流 + 离心微通道</td><td>浪潮 CN113871359A</td><td>中心淹没射流 + 离心肋 + 阿基米德导流</td><td>匹配 CPU 径向热图</td><td>CPU 中心射流形态避开</td></tr>
+  <tr><td>无泵增压腔射流冷板</td><td>浪潮 2025 四架构（自称已授权）</td><td>中置扩散 / 太阳花 / 上下腔斜板 / 环形腔</td><td>0.8 L/min 下解热 +15–28%；同流量热量 +40%；芯片功耗上限 +28%</td><td>整机形态专利密；斜板防堵已被宣传</td></tr>
+  <tr><td>热密度分区混构</td><td>华为 WO2026103052A1</td><td>同一冷板按热密度混用射流 / 微通道 / 拓扑</td><td>降驱动功耗</td><td>“按热流分区用不同结构”本身已被占</td></tr>
+  <tr><td>四层射流 + 花瓣拓扑</td><td>中电 14 所 202410956672</td><td>一级集分液 + 过渡 + 二级集分液 + 花瓣绕流</td><td>自称散热 5–6 倍、流阻 −30%</td><td>多层歧管 + 拓扑花瓣避开</td></tr>
+  <tr><td>叠层微射流微通道</td><td>Appl. Sci. 2022 实验</td><td>~100 jets/cm²，槽缝 0.5 mm，叠铜片</td><td>400 W/cm²；0.11 K/W；13.5 kPa @ 1.9 L/min</td><td>高密度槽缝射流已有实验公开</td></tr>
+  <tr><td>硅基 JMC / sJMC</td><td>北大宋柏，Nature Electronics 2025</td><td>歧管–微射流–锯齿微通道，MEMS 三层</td><td>单相水 3000 W/cm²；面积热阻可至 0.036 K·cm²/W 量级</td><td>嵌入式硅级已发表，国内申请需查同族</td></tr>
+  <tr><td>进出交错单元</td><td>IMEC 等</td><td>单元胞 1 进 4 出，抑制交叉流</td><td>仿真 / 样品</td><td>1 进多出单元胞不要原样复用</td></tr>
+</table>
+<div class="note risk"><strong>浪潮口径要当工程锚点、不当保证点：</strong>在不改管路流量和压力的前提下用增压腔做“无泵射流”，0.8 L/min 时四种架构解热相对传统铲齿提升 15–28%。太阳花针对小面积 CPU 热点，中置扩散 / 环形腔针对大面积 AI 加速器，上下腔斜板最薄且宣传防堵。这是国内最接近量产的杂交产品线。</div>
+
+<h3>3.6.2 空白在哪里（还能写什么）</h3>
+<table>
+  <tr><th>已挤满</th><th>仍相对空</th></tr>
+  <tr><td>“射流 + 平行微通道”本身</td><td>GPU 与 HBM <strong>双物理分区</strong>：射流速度上限、HBM 冲蚀与力学隔离</td></tr>
+  <tr><td>分形歧管 + 抽吸孔 + 针肋</td><td>可更换喷嘴芯 + 在架反冲洗 + 颗粒阱（运维架构，不是再挖槽）</td></tr>
+  <tr><td>按热密度混用三种流道（华为）</td><td>盖板一体化（去 TIM2）的杂交，带翘曲补偿与镀层工艺</td></tr>
+  <tr><td>CPU 中心射流 + 离心肋（浪潮）</td><td>射流滞止点下的<strong>局部金刚石嵌币</strong>（不是整板金刚石，避开铬键合独立权项）</td></tr>
+  <tr><td>硅基 MEMS 三层 JMC（北大已发表）</td><td>铜冷板可制造版本：蚀刻喷嘴板 + 铲齿/短通道底板 + 扩散焊对位，压降 ≤20 kPa</td></tr>
+</table>
+
+<h3>3.6.3 推荐专利方案 A（首选）：GPU / HBM 双物理杂交冷板</h3>
+<p class="small">方案 A 是本报告建议的新权利要求结构，调研文献没有“GPU 射流 / HBM 禁射流 + 隔离肋”的现成原图，故用自绘。分区必要性见第 2.4.0 节 GB200 热图原图。</p>
+<div class="fig drawn">
+  <img src="assets/principle-gpu-hbm-hybrid.png" alt="GPU 区密射流+短微通道，HBM 区仅低速微通道，中间隔离肋">
+</div>
+<p class="figcap"><strong>图 3-7 · 自绘示意</strong>（无对应原图）。GPU 区：密射流 + 短微通道 + 局部抽吸，对准 SM 热点。HBM 区：只走低速平行微通道，限制近壁流速，避免冲蚀与机械疲劳。中间隔离肋切断高速射流对 HBM 的串流，并提供结构刚度。</p>
+<div class="prin">
+  <h4>要解决的矛盾</h4>
+  <p>AI 加速器不是均匀热源。GPU 逻辑区热流高、允许较高对流剪切；HBM 热流较低但结温更敏感、焊球与堆叠怕冲蚀和压装偏载。华为 WO2026103052A1 已写“按热密度用不同结构”，但没有把<strong>HBM 最大近壁速度、射流不得覆盖 HBM、隔离肋的力学功能</strong>写成必要技术特征。浪潮太阳花针对小面积 CPU，不是 chiplet 双区。</p>
+  <h4>独立权利要求建议（结构，草案）</h4>
+  <ol class="tight">
+    <li>一种液冷冷板，包括进液腔、出液腔和换热底板；换热底板在投影上划分为第一区（对应逻辑裸片）和第二区（对应高带宽存储器）。</li>
+    <li>第一区设喷嘴阵列与水力直径 D1、流程 L1 的短微通道，喷嘴将冷却液冲击第一区底壁后经短微通道进入出液腔；喷嘴密度随该区热流图单调增加。</li>
+    <li>第二区仅设水力直径 D2 &gt; D1、近壁设计流速低于预定上限 V2 的微通道，<strong>不设置射流喷嘴</strong>。</li>
+    <li>第一区与第二区之间设隔离肋，隔离肋同时构成流道隔墙和抗弯加强筋，使第二区冷却液不与第一区射流滞止区直接连通。</li>
+    <li>冷板在额定流量下总压降 ≤20 kPa（或项目 OEM 点）。</li>
+  </ol>
+  <p>从属权项：局部抽吸孔仅布置在第一区；第二区通道沿 HBM 长边均流；隔离肋与封装加强环对位；可做成独立冷板或 MLCP 盖板。</p>
+  <p><strong>规避要点：</strong>不要只写“分区用射流和微通道”（华为）；必须写 HBM 无喷嘴 + 流速上限 + 隔离肋的力学/流动双重功能 + 压降窗。</p>
+</div>
+
+<h3>3.6.4 推荐专利方案 B：可更换喷嘴芯 + 在架反冲洗杂交冷板</h3>
+<div class="prin">
+  <h4>要解决的矛盾</h4>
+  <p>杂交最怕堵：喷嘴堵则热点失守，微通道堵则整板报废。浪潮上下腔斜板宣传防堵，但是<strong>几何防堵</strong>。数据中心要的是 5–10 年可维护：不拆 GPU 也能反冲、换喷嘴板、抓住颗粒。这是工艺 + 运维方法专利，国内相对空。</p>
+  <h4>独立权利要求建议（装置 + 方法，草案）</h4>
+  <ol class="tight">
+    <li>冷板包括固定于服务器的微通道底板，以及可拆卸密封的喷嘴芯（孔板），喷嘴芯将进液分成射流束冲击底板后进入微通道。</li>
+    <li>进液和出液各设正洗口与反洗口；反洗时冷却液从出液侧进入微通道，经喷嘴反向喷出，将颗粒带入设于进液腔下游的可更换颗粒阱。</li>
+    <li>压差传感器跨接喷嘴芯两侧；压差超过阈值时发出反洗或更换喷嘴芯的信号。</li>
+    <li>方法权：服务器在架、冷板不与芯片分离的条件下完成反洗或更换喷嘴芯。</li>
+  </ol>
+  <p><strong>规避要点：</strong>不与浪潮斜板“防堵几何”抢形态；强调可更换芯、颗粒阱、压差阈值、在架操作。结构、方法、检测分三件申请。</p>
+</div>
+
+<h3>3.6.5 推荐专利方案 C：盖板内短通道射流 + 滞止点金刚石嵌币</h3>
+<div class="prin">
+  <h4>要解决的矛盾</h4>
+  <p>MLCP 取消 TIM2 之后，热点仍在盖板内侧。整板铺 CVD 金刚石太贵，也会撞上 Element Six 铬键合家族。把<strong>小面积金刚石嵌币</strong>只放在射流滞止点正下方（例如占盖板投影 &lt;15%），外围仍是铜短微通道，界面走梯度碳化物或玻璃相而不是铬独立层。</p>
+  <h4>独立权利要求建议（草案）</h4>
+  <ol class="tight">
+    <li>一种微通道盖板，盖板内含喷嘴和流程 ≤8 mm 的短微通道，冷却液在盖板内完成冲击与排出，盖板与芯片之间不设置独立 TIM2 层。</li>
+    <li>在预定热点投影处嵌装导热嵌件，嵌件平面面积之和小于盖板换热面的 15%，嵌件热导率高于铜，且与铜基体通过非铬主导的梯度界面结合。</li>
+    <li>每一嵌件中心与至少一喷嘴轴线对位，对位偏差小于预定值（如 0.2 mm）。</li>
+    <li>盖板采用蚀刻 + 真空扩散焊 + 镀层，并含翘曲补偿柔性环或双件盖结构。</li>
+  </ol>
+  <p><strong>规避要点：</strong>避开“金刚石 + 铬直接键合 + ≥1 kW/cm²”（E6）；避开 Intel DLMJ 的“微通道上方整层垂直歧管”独立权项表述；用面积比、对位、非铬界面、去 TIM2、扩散焊工艺把方案收窄到可授权。</p>
+</div>
+
+<h3>3.6.6 怎么落地（12 个月）</h3>
+<table>
+  <tr><th>顺序</th><th>动作</th><th>目的</th></tr>
+  <tr><td>1</td><td>对 Intel DLMJ、US12029008B2、US10244654、CN111328245B、CN113871359A、WO2026103052A1、浪潮四架构、北大 JMC 同族做权利要求对照表</td><td>正式 FTO，本表不能代替</td></tr>
+  <tr><td>2</td><td>先做方案 A 的铜样：铲齿/短通道底板 + 蚀刻喷嘴板，GPU/HBM 分区，压降点锁 20 kPa</td><td>最快能量产，差异化清楚</td></tr>
+  <tr><td>3</td><td>方案 B 与 A 捆绑：同一底板，喷嘴芯可拆</td><td>补运维护城河</td></tr>
+  <tr><td>4</td><td>方案 C 作为 12–24 个月 MLCP 预研，嵌币先用 Cu-Diamond 而不是整片 CVD</td><td>材料差异化，避开铬权项</td></tr>
+  <tr><td>5</td><td>国内发明公开后 12 个月内 PCT，指定 US/EP/JP/KR/TW；结构 / 工艺 / 反洗方法分三件</td><td>防止一件里又窄又易被分案</td></tr>
+</table>
+<div class="note"><strong>不推荐作为主申请：</strong>再写一条“倾斜射流 + 直微通道”；再写“分形进液 + 射流 + 针肋”；把北大硅基锯齿 JMC 原样搬到铜板上（已发表，新颖性风险高）。纳米流体不要塞进杂交主权项。</div>
+</section>
+
+<section id="process">
+<h2>3.7 加工工艺调研与总结：机加工与 3D 打印</h2>
+<p class="lead"><strong>结构专利写得出，工艺做不出就没有产品。</strong>NVIDIA / 台湾 MLCP 认证卡的是可制造性，不是再挖一条直槽。工艺必须拆成<strong>开流道</strong>和<strong>封流道</strong>两段，再按英伟达 SKU 选产线：B300 量产走机加工 + 钎焊；Rubin 级杂交走“机加底板 + 蚀刻/增材盖板”；整件金属 3D 打印目前更适合喷嘴、MMC 样件和拓扑验证，还不是 SXM 出货主线。</p>
+
+<h3>3.7.1 工艺地图：三条产线不要混成一个车间指标</h3>
+<table>
+  <tr><th>产线</th><th>开流道</th><th>封流道 / 成件</th><th>典型特征尺寸</th><th>当前角色</th></tr>
+  <tr>
+    <td><strong>机加工量产线</strong></td>
+    <td>铲齿、CNC 铣/微铣、针肋阵列、微钻</td>
+    <td>真空钎焊（质）或连续氮保护隧道炉（量）；搅拌摩擦焊 / 激光焊备选</td>
+    <td>通道 / 肋 0.2–1.0 mm；钎焊可封到约 200 μm</td>
+    <td><span class="tag">H100–B300 出货主力</span></td>
+  </tr>
+  <tr>
+    <td><strong>精密蚀刻 / 扩散焊线</strong></td>
+    <td>化学蚀刻、光化学加工、硅 DRIE（封装级）</td>
+    <td>真空扩散焊、镀金 / 镀镍；半导体级洁净</td>
+    <td>30–200 μm 级分支 / 波浪流道</td>
+    <td><span class="tagw">MLCP / Rubin 盖板认证</span></td>
+  </tr>
+  <tr>
+    <td><strong>金属增材线</strong></td>
+    <td>LPBF / SLM（Cu、CuCrZr）、粘结剂喷射、电化学增材（ECAM）</td>
+    <td>去粉、热等静压、机加密封面、氦检</td>
+    <td>喷嘴、内歧管、拓扑流道；孔口常 0.2–1 mm</td>
+    <td><span class="tagb">异形喷嘴 / MMC 样件 / 生成式流道</span></td>
+  </tr>
+</table>
+<p class="small">金刚石是第四条链：CVD + 抛光 / 激光 + 金属化键合，与铜冷板产线不要共用洁净指标。调研材料结论与技术调查报告第 7.7 节一致：<strong>真空钎焊保质，隧道炉保量，增材做异形。</strong></p>
+
+<h3>3.7.2 机加工族：铲齿、CNC、微钻、蚀刻与封合</h3>
+<table>
+  <tr><th>工序</th><th>能做什么</th><th>做不到什么</th><th>控制点</th><th>置信度</th></tr>
+  <tr>
+    <td>铲齿 / MDT</td>
+    <td>一体密肋，翅根无钎缝热阻；翅厚常见 0.2–0.5 mm</td>
+    <td>三维歧管、局部加密、变截面、内腔</td>
+    <td>刀具角度与进给、肋高一致性、去毛刺、电解抛光</td>
+    <td>高（SXM 事实工艺）</td>
+  </tr>
+  <tr>
+    <td>CNC 铣 / 微铣</td>
+    <td>直槽、阶梯槽、针肋阵列、进出液座；通道常见 0.3–1.0 mm</td>
+    <td>高深宽比窄槽（刀具折断）、封闭内流道、分形密分支</td>
+    <td>刀径 / 深宽比、铜粘刀、底部圆角（不是直角）、平面度</td>
+    <td>高</td>
+  </tr>
+  <tr>
+    <td>微钻 / 激光微孔</td>
+    <td>射流喷嘴板，孔径常见 0.3–1.5 mm</td>
+    <td>收敛 / 旋流 / 人字等三维孔型（激光可做锥孔，仍不如增材自由）</td>
+    <td>孔径一致性、孔口倒圆、毛刺、板挠曲</td>
+    <td>高</td>
+  </tr>
+  <tr>
+    <td>化学 / 光化学蚀刻</td>
+    <td>30–200 μm 级平面流道、波浪 / 分支</td>
+    <td>大深宽比立体歧管；侧壁近乎等方性</td>
+    <td>线宽补偿、侧蚀、残胶、与扩散焊对位</td>
+    <td>中–高</td>
+  </tr>
+  <tr>
+    <td>真空钎焊</td>
+    <td>盖板封闭、多层铜叠合；性能件首选</td>
+    <td>亚 100 μm 通道易被钎料堵死</td>
+    <td>钎料量、流淌方向、真空度、焊后去渣（真空钎可免焊剂）</td>
+    <td>高</td>
+  </tr>
+  <tr>
+    <td>隧道炉钎焊</td>
+    <td>H100 / H200 级放量</td>
+    <td>最细微通道、最高气密等级</td>
+    <td>气氛、带速、夹具；抽检氦检</td>
+    <td>中–高</td>
+  </tr>
+  <tr>
+    <td>真空扩散焊</td>
+    <td>无钎料堵孔，MLCP / 多层喷嘴必备</td>
+    <td>设备贵、节拍慢、对平面度极严</td>
+    <td>残余应力、键合率、洁净度、镀层</td>
+    <td>高（台湾认证壁垒）</td>
+  </tr>
+</table>
+<p>机加件出厂还必须做<strong>接触面后加工</strong>：平面度常见 ≤0.05 mm，<em>Ra</em> ≤0.8 μm（厂商资料，中置信）。TIM 一厚，对流再好也救不了结温。100% 气密（氦检）+ 流量–压降–红外三条曲线，是 NVIDIA 类送样的最低工艺包。</p>
+<div class="papergrid">
+  <div class="pfig">
+    <img src="assets/src/sciopen_fig8_fmhs.jpg" alt="Cover plate plus branched microchannel heat sink">
+    <p class="figcap"><strong>论文原图 · 盖板 + 底板的机加/封合件</strong> 流道开在底板（<em>H</em> = 0.50 mm），盖板厚度 <em>δ</em> = 0.25 mm。这是典型“开流道 + 封流道”两段工艺，可用 CNC / 蚀刻开槽再钎焊或扩散焊。径向分叉已经接近机加极限，再复杂就要增材。<span class="src">来源：SciOpen 微通道散热器传热增强，2025，图 8。调研材料抽出。</span></p>
+  </div>
+  <div class="pfig">
+    <img src="assets/src/chip_fig9_integrated_mc.jpg" alt="Manifold bonded to silicon microchannel cooler">
+    <p class="figcap"><strong>论文原图 · 歧管与微通道冷却器的装配栈</strong> 机加 / 蚀刻出的微通道板，必须再和歧管、密封圈、界面材料对位。MLCP 把这几层收进盖板，扩散焊替代图中的垫圈路径。<span class="src">来源：Energies 2026, 19(14):3304，Fig. 9（CC BY）。调研材料抽出。</span></p>
+  </div>
+</div>
+
+<h3>3.7.3 金属 3D 打印：几何自由换来的是粉末、粗糙度和导热折损</h3>
+<p>增材的价值不是“替代铲齿降成本”，而是做机加做不出来的东西：<strong>封闭内歧管、分层进出、异形 / 旋流 / 人字喷嘴、按 power map 生成的拓扑流道</strong>。Energies 2024 异形孔综述把增材当作换均温的主手段；Energies 2026 把增材 MMC 写成克服长通道失效的结构路径。</p>
+<table>
+  <tr><th>工艺</th><th>材料</th><th>适合冷板的部位</th><th>主要短板</th><th>置信度</th></tr>
+  <tr>
+    <td>LPBF / SLM（选区激光熔化）</td>
+    <td>Cu、CuCrZr、不锈钢</td>
+    <td>喷嘴板、MMC 内歧管、拓扑样件</td>
+    <td>粉末残留堵微通道；<em>Ra</em> 常数十 μm；纯铜激光吸收差、孔隙；体导热低于锻造 C110</td>
+    <td>中–高（文献与样品）</td>
+  </tr>
+  <tr>
+    <td>粘结剂喷射 + 烧结</td>
+    <td>铜粉</td>
+    <td>较大流道验证件</td>
+    <td>致密度和气密更差，不适合 NVIDIA 级氦检</td>
+    <td>中</td>
+  </tr>
+  <tr>
+    <td>电化学增材 ECAM</td>
+    <td>纯铜</td>
+    <td>非矩形肋、变截面</td>
+    <td>Illinois 公开：冷却最高约 +32%，同冷却下压降可降约 68%；产线成熟度低于 LPBF</td>
+    <td>中（实验室 / 中试）</td>
+  </tr>
+</table>
+<div class="note risk"><strong>增材件不能直接当量产冷板：</strong>① 微通道和喷嘴里的残留粉末等于预埋堵点，必须设计<strong>可冲洗死区</strong>并做 CT / 内窥。② 粗糙壁面能扰流增 <em>h</em>，但压降更容易顶破 ≤20 kPa 窗，密封面必须二次机加。③ 铜增材导热打折后，同样几何的 <em>R<sub>θ</sub></em> 会差于锻造铜铲齿件——对比必须写明材料状态。</div>
+<div class="papergrid">
+  <div class="pfig">
+    <img src="assets/src/sciopen_fig6_enhance.jpg" alt="SEM of additively manufactured micro holes">
+    <p class="figcap"><strong>论文原图 · 增材微孔的 SEM</strong> 孔口约 200 μm 量级，壁面粘附未熔粉末、台阶效应明显。这就是 LPBF 冷板必须去粉 + 后处理的原因：同一张图既解释“粗糙增换热”，也解释“易堵、压降高”。<span class="src">来源：SciOpen 微通道传热增强，2025，图 6。调研材料抽出。</span></p>
+  </div>
+  <div class="pfig">
+    <img src="assets/src/chip_fig8_mmchs.jpg" alt="Additively manufactured manifold microchannel">
+    <p class="figcap"><strong>论文原图 · 增材歧管微通道</strong> 上层 5 mm 歧管、下层 3 mm 微通道、入口针肋，流体在短槽里折返。整件一体才能做这种封闭内腔；机加只能拆成多层再钎焊，钎缝正好挡在热路上。<span class="src">来源：Energies 2026, 19(14):3304，Fig. 8（CC BY）。调研材料抽出。</span></p>
+  </div>
+</div>
+<div class="papergrid">
+  <div class="pfig">
+    <img src="assets/src/ssh_fig3_chevron.jpg" alt="Chevron nozzle geometry">
+    <p class="figcap"><strong>论文原图 · 人字 / 锯齿喷嘴</strong> 圆孔阵列留冷斑；人字、瓣形、旋流孔用增材换均温。1U 冷板落地时，喷嘴形状和回流路径比“再加密孔”更重要。机加只能稳定做直孔 / 简单锥孔。<span class="src">来源：Energies 2024, 17(17):4510，Fig. 3（CC BY）。调研材料抽出。</span></p>
+  </div>
+  <div class="pfig">
+    <img src="assets/src/gb200_fig2_generative.jpg" alt="Generative vs parallel cooling channels on GB200">
+    <p class="figcap"><strong>论文原图 · 平行槽 vs 生成式流道</strong> 左：机加友好的等宽直槽。右：按 GB200 三热源 power map 生成的局部加密流道，结温可从约 65–70 °C 降到约 30–40 °C（该文仿真边界）。几何自由是增材的理由；量产仍要把生成结果<strong>约束回可铣 / 可铲 / 可蚀刻</strong>的特征。<span class="src">来源：arXiv:2604.10941，Fig. 2（OA）。调研材料抽出。</span></p>
+  </div>
+</div>
+
+<h3>3.7.4 机加工 vs 3D 打印：对照总结</h3>
+<table>
+  <tr><th>维度</th><th>机加工（铲齿 / CNC / 微钻）</th><th>蚀刻 + 扩散焊</th><th>金属 3D 打印（LPBF 为主）</th></tr>
+  <tr><td>几何自由度</td><td>低：平行肋、直槽、直孔</td><td>中：平面复杂图形</td><td><strong>高</strong>：内歧管、异形孔、拓扑</td></tr>
+  <tr><td>最小稳定特征</td><td>约 0.2–0.3 mm（再细刀具与去毛刺失控）</td><td>约 30–200 μm</td><td>约 0.2–0.4 mm 实用；更细则粉末清不掉</td></tr>
+  <tr><td>表面</td><td>可精铣到 <em>Ra</em> ≤0.8 μm</td><td>由蚀刻液决定，较均匀</td><td>打印态数十 μm，密封面必须二次机加</td></tr>
+  <tr><td>铜导热</td><td>锻造 C110 / C1020，接近手册值</td><td>同锻铜</td><td>打印态常打折；需热处理 / HIP</td></tr>
+  <tr><td>气密与堵孔</td><td>钎料溢流是主风险</td><td>无钎料，键合率是主风险</td><td>孔隙 + 残粉是主风险</td></tr>
+  <tr><td>节拍 / 成本</td><td>量产后最低</td><td>高，认证长</td><td>单件快、批量贵</td></tr>
+  <tr><td>对准英伟达 SKU</td><td>H100 / B200 / B300 TGP 1100 W</td><td>Rubin MLCP、去 TIM2</td><td>喷嘴板、MMC 样件、生成式流道验证</td></tr>
+  <tr><td>专利更好写的点</td><td>变节距、铲齿+斜切针、可清洗最小间隙</td><td>对位、镀层、翘曲补偿</td><td>可去粉流道、打印+机加混合、异形孔参数窗</td></tr>
+</table>
+
+<h3>3.7.5 按英伟达 SKU 选工艺（不要一步跨到整板打印）</h3>
+<table>
+  <tr><th>SKU</th><th>热阻目标（见 2.4.0）</th><th>建议开流道</th><th>建议封合</th><th>3D 打印放哪里</th></tr>
+  <tr><td>H100 / H200 700 W</td><td>&lt;0.03 °C/W</td><td>铲齿或 CNC 直槽</td><td>隧道炉即可放量</td><td>不必</td></tr>
+  <tr><td>B300 TGP 1100 W</td><td>&lt;0.028–0.030</td><td>分区变翅距铲齿 / 短微通道</td><td>真空钎焊</td><td>可选：喷嘴盖板打样</td></tr>
+  <tr><td>B300 1400 W 报道档</td><td>&lt;0.022–0.025</td><td>机加底板 + 蚀刻/微钻喷嘴板</td><td>真空钎或扩散焊</td><td>异形孔喷嘴板验证</td></tr>
+  <tr><td>R100 1800–2300 W</td><td>≤0.022（50 K 上限）</td><td>短通道 / MMC；HBM 区只机加低速槽</td><td>扩散焊或分层钎焊</td><td>MMC 内歧管、人字孔；整板打印不作出货基线</td></tr>
+  <tr><td>Rubin Ultra ~3600 W</td><td>≤0.014</td><td>MLCP + 近结区，冷板级可能不够</td><td>半导体级键合</td><td>预研拓扑 / 两相腔</td></tr>
+</table>
+<div class="note"><strong>推荐的混合工艺（12–18 个月可交货）：</strong>锻造紫铜底板用铲齿或 CNC 做出 GPU / HBM 分区短通道 → 盖板用蚀刻或 LPBF 做喷嘴与回流孔 → 密封面精铣 → 真空钎焊或扩散焊 → 氦检 + 去粉 / 冲洗验证。这正是方案 A / B 能落地的工艺，而不是“整板 3D 打印一个冷板”。</div>
+
+<h3>3.7.6 对专利与产线的含义</h3>
+<ul class="tight">
+  <li>权利要求应带<strong>可制造约束</strong>：最小水力直径、钎料禁入区、可冲洗死区、接触面平面度、压降 ≤20 kPa。只写拓扑形状、不写怎么做出来，审查和量产都会被打回。</li>
+  <li>增材相关申请优先写：<strong>去粉通道与反冲洗</strong>（与方案 B 捆绑）、打印态粗糙度分区（对流面保留、密封面机加）、铜合金热处理恢复导热。不要只写“3D 打印微通道”。</li>
+  <li>生成式流道（arXiv 两篇）是设计方法，不是传热机制；专利应写“生成结果向机加 / 蚀刻特征投影”的约束算法，否则无法量产，也难与现有拓扑优化专利区分。</li>
+  <li>大陆相对台湾的缺口仍是<strong>蚀刻 + 真空扩散焊 + 半导体洁净</strong>，不是缺一台 SLM。买增材设备补不了 MLCP 认证。</li>
+</ul>
+</section>
+
+<section id="compare">
+<h2>4. 横向对比</h2>
+
+<h3>4.1 性能与工程约束（量级，非承诺指标）</h3>
+<table>
+  <tr>
+    <th>维度</th><th>微翅片 / 铲齿</th><th>微通道 / MLCP</th><th>冲击射流</th><th>金刚石</th><th>纳米流体</th>
+  </tr>
+  <tr><td>主要作用</td><td>扩展对流面积</td><td>极限对流 + 短热路</td><td>局部破边界层</td><td>横向均热</td><td>提高工质物性</td></tr>
+  <tr><td>商业热流能力</td><td>约 50–150 W/cm²</td><td>约 100–300；实验室 790</td><td>约 200–500；杂交两相 1100+</td><td>取决于下游对流；键合目标 1 kW/cm²</td><td>相对基液 +10–40% HTC</td></tr>
+  <tr><td>压降</td><td>中高</td><td>高（微米级很高）</td><td>喷嘴局部高、系统中等</td><td>不直接决定</td><td>粘度上升则升高</td></tr>
+  <tr><td>均温性</td><td>沿程较差</td><td>直通道较差，分形 / 歧管较好</td><td>滞止区好、阵列干涉差</td><td>最好（均热）</td><td>弱</td></tr>
+  <tr><td>堵塞风险</td><td>中</td><td><span class="tagw">高</span></td><td>中（喷嘴）</td><td>低</td><td><span class="tagr">很高</span></td></tr>
+  <tr><td>泄漏 / 可靠性</td><td>成熟</td><td>MLCP 极严</td><td>直接接触方案严</td><td>界面脱层</td><td>磨损与腐蚀</td></tr>
+  <tr><td>成本</td><td>低</td><td>中高</td><td>中高</td><td><span class="tagr">很高</span></td><td>中（流体）+ 高（验证）</td></tr>
+  <tr><td>产业化</td><td><span class="tag">已规模量产</span></td><td>高端导入 / MLCP 验证</td><td>小规模商用</td><td>导入期</td><td>实验室–中试</td></tr>
+  <tr><td>与 AI 2 kW 芯片匹配</td><td>需很大流量或液金 TIM</td><td><span class="tagb">主路径</span></td><td>热点补强</td><td><span class="tagb">强烈建议叠加</span></td><td>谨慎试点</td></tr>
+</table>
+
+<h3>4.2 工艺门槛对照</h3>
+<p class="small">开流道 / 封流道的完整调研、机加工与 3D 打印对照、按英伟达 SKU 选产线，见第 3.7 节。下表只保留五条技术路线的门槛对照。</p>
+<table>
+  <tr><th>工艺能力</th><th>铲齿冷板</th><th>微通道 MLCP</th><th>微射流</th><th>金刚石嵌件</th><th>纳米工质</th></tr>
+  <tr><td>微米级蚀刻</td><td>不必</td><td><strong>必须</strong></td><td>喷嘴板需要</td><td>抛光 / 图形化</td><td>否</td></tr>
+  <tr><td>真空扩散焊</td><td>可选</td><td><strong>必须（高端）</strong></td><td>视结构</td><td>金属化键合</td><td>否</td></tr>
+  <tr><td>真空钎焊</td><td><strong>主流</strong></td><td>中端可用</td><td>可用</td><td>慎用（污染界面）</td><td>否</td></tr>
+  <tr><td>半导体洁净</td><td>工业级</td><td><strong>半导体级</strong></td><td>高</td><td>高</td><td>配方洁净</td></tr>
+  <tr><td>材料科学</td><td>铜合金</td><td>铜 / 硅</td><td>铜 / 不锈钢</td><td><strong>CVD + 界面冶金</strong></td><td>胶体化学</td></tr>
+  <tr><td>认证周期</td><td>短</td><td>长（芯片厂 + GPU 厂）</td><td>中</td><td>长</td><td>很长（寿命）</td></tr>
+</table>
+
+<h3>4.3 杂交才是专利与产品的交汇点</h3>
+<p>公开文本里重复出现的“能写又能做”的组合：</p>
+<ol class="tight">
+  <li><strong>倾斜 / 阵列射流 + 肋化或微通道排液</strong>（US10244654，Sung-Mudawar 路线）</li>
+  <li><strong>中心射流 + 离心 / 分形微通道</strong>（浪潮 CN113871359A）</li>
+  <li><strong>按热图分区：射流 / 微通道 / 拓扑流道混用</strong>（华为 WO2026103052A1）</li>
+  <li><strong>金刚石或 Cu-Diamond 嵌件 + 铜微通道 / 铲齿</strong></li>
+  <li><strong>微通道 + 旁通 / SMA 或双金属自适应</strong>（CN120597664，US12193201）</li>
+  <li><strong>盖板微通道（去 TIM2）+ 液态金属 TIM1 + 金刚石均热</strong></li>
+</ol>
+<div class="note">单纯纳米流体与单纯直通道，授权和产品价值都偏低。</div>
+</section>
+
+<section id="geo">
+<h2>5. 地域、标准与供应链含义</h2>
+
+<h3>5.1 地域</h3>
+<table>
+  <tr><th>区域</th><th>含义</th></tr>
+  <tr><td>美国</td><td>结构与封装基础专利最厚（IBM、Intel、NVIDIA、JetCool），诉讼与许可风险最高</td></tr>
+  <tr><td>欧洲</td><td>EPO 数据完整；Element Six、IMEC、ABB、Google EP 家族需纳入监控</td></tr>
+  <tr><td>日本 / 韩国</td><td>材料、封装、金刚石 interposer（Samsung）值得单独建库</td></tr>
+  <tr><td>中国大陆</td><td>申请量大、系统级与应用结构强；<strong>制造工艺专利（扩散焊夹具、蚀刻液、在线检漏、微喷嘴板）相对少</strong>，这是可补空档</td></tr>
+  <tr><td>中国台湾</td><td>不一定专利数量最多，但卡在 NVIDIA 认证与 know-how，实际构成市场壁垒</td></tr>
+</table>
+
+<h3>5.2 标准与“事实标准”</h3>
+<ul class="tight">
+  <li>曙光数创牵头国标《数据中心冷板式液冷系统技术规范》，偏系统接口、安全、检测。</li>
+  <li>NVIDIA 供应商认证、漏液、洁净、压降–流量曲线，是比国标更硬的<strong>事实标准</strong>。</li>
+  <li>ASHRAE 液冷进液温度、ODCC / Open Compute 快接头与二次侧规范，决定冷板接口尺寸，间接影响“连接环 / 水嘴”权利要求。</li>
+</ul>
+
+<h3>5.3 大陆供应链的真实缺口</h3>
+<table>
+  <tr><th>环节</th><th>判断</th></tr>
+  <tr><td>快接头、歧管</td><td><span class="tag">国产突破较早</span></td></tr>
+  <tr><td>冷板本体（铲齿）</td><td>能做，性能上限不够</td></tr>
+  <tr><td>MLCP</td><td><span class="tagw">蚀刻 + 扩散焊 + 镀金双件盖板，仍主要在台湾认证产线</span></td></tr>
+  <tr><td>冷却液与纳米工质</td><td>专利多、上架少</td></tr>
+  <tr><td>金刚石</td><td>材料专利多，与 GPU lid 公差链、TIM1 共设计的系统专利少</td></tr>
+</table>
+</section>
+
+<section id="action">
+<h2>6. 空白点、风险与建议布局</h2>
+
+<h3>6.1 相对空白（更值得写、也更值得做）</h3>
+<ol class="tight">
+  <li><strong>可制造的拓扑 / 分形流道：</strong>算法专利已出现，缺的是“阈值化后仍能蚀刻 / 打印、能清洗、能检漏”的工艺权利要求。</li>
+  <li><strong>射流供液 + 微通道回流的一体化歧管</strong>，适配 chiplet 多热点、且压降落在现有 CDU 曲线内。</li>
+  <li><strong>Cu-Diamond 或 CVD 嵌件与铜微通道的低热阻连接</strong>（避开铬键合独立权项）。</li>
+  <li><strong>去 TIM2 盖板的翘曲–密封–镀层</strong>工艺（Rubin 供应链正在付费验证）。</li>
+  <li><strong>防堵设计：</strong>旁通、可反冲、可拆喷嘴板、对纳米或腐蚀产物不敏感的最小通道尺寸。</li>
+  <li><strong>在线热图感知 + 分区流量</strong>（传感器或无源自调节），比再申请一条蛇形槽更有区分度。</li>
+</ol>
+
+<h3>6.2 高风险雷区（申请前必须做 FTO）</h3>
+<div class="note risk">
+<ul class="tight">
+  <li>IBM / Intel 微通道与微射流歧管基础家族</li>
+  <li>Asetek / CoolIT 服务器冷板与快接头相关家族（视目标市场）</li>
+  <li>JetCool 微射流直接接触与喷嘴共位</li>
+  <li>Element Six 金刚石铬键合</li>
+  <li>NVIDIA 智能冷板与盖板一体化相关后续家族（持续监控）</li>
+</ul>
+</div>
+
+<h3>6.3 分阶段建议</h3>
+<table>
+  <tr><th>窗口</th><th>目标</th><th>动作</th></tr>
+  <tr>
+    <td><span class="tag">0–12 个月</span></td>
+    <td>守住出货</td>
+    <td>以铲齿 / CNC 微翅片为基线，做<strong>非均匀节距 + 中心射流盖板</strong>，对标浪潮射流冷板与 Intel 开孔架构，做中文 + PCT。同步建立氦检、颗粒度、离子、钎料溢流数据包，把 know-how 写成方法权项。增材只做喷嘴板 / MMC 样件，不出整板打印作为出货工艺。</td>
+  </tr>
+  <tr>
+    <td><span class="tagb">12–24 个月</span></td>
+    <td>跟上 MLCP</td>
+    <td>投资或联合蚀刻 + 扩散焊产线，目标通道 100–200 µm，先做独立冷板再做 lid 一体化。专利写“蚀刻–清洗–扩散焊–镀层–检漏”连续工艺。对 NVIDIA / AVC / Jentech 公开结构做家族监控，避免把认证规格直接写进权利要求。</td>
+  </tr>
+  <tr>
+    <td><span class="tagw">24–36 个月</span></td>
+    <td>材料差异化</td>
+    <td>金刚石 / 铜嵌件放在 GPU 热点正上方，外围仍用铜微通道；界面走梯度碳化物或玻璃相，规避 Cr 独立权项。纳米流体只做特种工况或军工 / 航天中试，数据中心主循环继续用成熟水–乙二醇配方。</td>
+  </tr>
+</table>
+<p><strong>申请策略：</strong>国内先发明公开，12 个月内 PCT，指定 US / EP / JP / KR / TW。结构、工艺、检测分三件。权利要求用热流密度分区、压降上限、可清洗最小水力直径等工程量限定，减少“效果型”表述。</p>
+</section>
+
+<section id="patents">
+<h2>7. 核心专利清单（抽样）</h2>
+<p class="small">检索日 2026-09-07。法律状态以官方库为准；下表不能作为授权结论。链接优先 Google Patents。</p>
+
+<h3>7.1 骨架专利速查</h3>
+<table>
+  <tr><th>方向</th><th>公开号</th><th>申请人 / 权利人</th><th>区域</th></tr>
+  <tr><td>微通道冷板架构</td><td><a href="https://patents.google.com/patent/US12133357B2" target="_blank" rel="noopener">US12133357B2</a></td><td>Intel</td><td>US</td></tr>
+  <tr><td>微通道 + 热管智能冷板</td><td><a href="https://patents.google.com/patent/US12477696" target="_blank" rel="noopener">US12477696</a></td><td>NVIDIA</td><td>US</td></tr>
+  <tr><td>封装级微射流 + 微通道</td><td>US20200227341A1</td><td>Intel 体系</td><td>US</td></tr>
+  <tr><td>旁通可控微通道</td><td><a href="https://patents.google.com/patent/CN120597664A" target="_blank" rel="noopener">CN120597664A/B</a></td><td>广东蓝锐</td><td>CN</td></tr>
+  <tr><td>多级分配微通道</td><td><a href="https://patents.google.com/patent/CN109104844B" target="_blank" rel="noopener">CN109104844B</a></td><td>中航雷华</td><td>CN</td></tr>
+  <tr><td>分区混构冷板</td><td>WO2026103052A1</td><td>华为</td><td>PCT</td></tr>
+  <tr><td>铲齿 / 针肋制法</td><td><a href="https://patents.google.com/patent/US9795057" target="_blank" rel="noopener">US9795057</a></td><td>—</td><td>US</td></tr>
+  <tr><td>交替微肋</td><td><a href="https://patents.google.com/patent/US12494408" target="_blank" rel="noopener">US12494408</a></td><td>—</td><td>US</td></tr>
+  <tr><td>自适应双金属肋</td><td><a href="https://patents.google.com/patent/US12193201" target="_blank" rel="noopener">US12193201</a></td><td>—</td><td>US</td></tr>
+  <tr><td>离心微通道 + 射流</td><td>CN113871359A</td><td>浪潮</td><td>CN</td></tr>
+  <tr><td>微射流共位</td><td><a href="https://patents.google.com/patent/WO2020210587A1" target="_blank" rel="noopener">WO2020210587A1</a></td><td>JetCool</td><td>PCT</td></tr>
+  <tr><td>直接接触微射流</td><td><a href="https://patents.google.com/patent/US11844193" target="_blank" rel="noopener">US11844193</a></td><td>JetCool</td><td>US</td></tr>
+  <tr><td>倾斜射流 + 肋槽</td><td><a href="https://patents.google.com/patent/US10244654" target="_blank" rel="noopener">US10244654</a></td><td>—</td><td>US</td></tr>
+  <tr><td>近边缘射流</td><td><a href="https://patents.google.com/patent/US11310937" target="_blank" rel="noopener">US11310937</a></td><td>—</td><td>US</td></tr>
+  <tr><td>射流 + 旁通</td><td><a href="https://patents.google.com/patent/US12255124" target="_blank" rel="noopener">US12255124</a></td><td>—</td><td>US</td></tr>
+  <tr><td>金刚石铬键合</td><td><a href="https://patents.google.com/patent/WO2016087243A1" target="_blank" rel="noopener">WO2016087243A1</a> / <a href="https://patents.google.com/patent/US10403557" target="_blank" rel="noopener">US10403557</a></td><td>Element Six</td><td>WO / US / EP</td></tr>
+  <tr><td>金刚石铜冷板</td><td>CN122161445A</td><td>—</td><td>CN</td></tr>
+  <tr><td>金刚石铜热压工艺</td><td>CN122503683A</td><td>—</td><td>CN</td></tr>
+  <tr><td>大尺寸金刚石 / 铜</td><td>CN111500892B</td><td>—</td><td>CN</td></tr>
+  <tr><td>纳米流体空化自分散</td><td><a href="https://patents.google.com/patent/CN118890850A" target="_blank" rel="noopener">CN118890850A</a></td><td>—</td><td>CN</td></tr>
+  <tr><td>抗流挂纳米流体</td><td>CN122278447A</td><td>山东烯力</td><td>CN</td></tr>
+  <tr><td>纳米磁流体热点</td><td>CN113488444B</td><td>华中科技大学</td><td>CN</td></tr>
+</table>
+
+<h3>7.2 建议正式库补充检索的申请人</h3>
+<table>
+  <tr><th>区域</th><th>申请人</th></tr>
+  <tr><td>国际</td><td>IBM, Intel, NVIDIA, Google, Microsoft, JetCool Technologies, CoolIT, Asetek, Boyd, Vertiv, IMEC, ABB, Element Six, Samsung, TSMC, Corintis, EmCool</td></tr>
+  <tr><td>中国大陆</td><td>浪潮信息 / 苏州浪潮, 曙光数创, 华为, 英维克, 中航光电, 立讯 / 领益, 广东蓝锐, 山东烯力, 华中科技大学</td></tr>
+  <tr><td>中国台湾</td><td>Jentech 健策, AVC 奇宏, Auras 双鸿, Cooler Master, Delta</td></tr>
+</table>
+</section>
+
+<section id="limit">
+<h2>8. 方法局限、下一步与来源</h2>
+
+<h3>8.1 局限</h3>
+<ol class="tight">
+  <li><strong>未做全库家族去重与引证网络。</strong>正式立项前，建议用智慧芽 / IncoPat / PatSnap / Derwent 按第 1.3 节检索式导出，做申请趋势、家族规模、法律状态、引证爆炸点、权利要求树。</li>
+  <li><strong>未做权利要求逐条比对</strong>，不能代替 FTO。进入开模或送样 NVIDIA / 华为 / 浪潮规格前，应委托专利律师对目标市场做无效检索。</li>
+  <li>厂商热流与热阻数据存在口径差（芯片面积、进液温度、流量、是否含 TIM）。对比时必须统一边界。</li>
+</ol>
+
+<h3>8.2 建议下一轮三份配套件</h3>
+<ul class="tight">
+  <li>目标产品的<strong>权利要求对照表</strong>（自家方案 vs 第 7 节骨架专利）</li>
+  <li><strong>工艺 FMEA</strong>（扩散焊堵孔、盖板泄漏、金刚石脱层、纳米沉降）</li>
+  <li><strong>监控清单</strong>（NVIDIA、Intel、JetCool、Element Six、华为、浪潮，月更）</li>
+</ul>
+
+<h3>8.3 主要公开信息来源</h3>
+<ol class="tight">
+  <li>Ott, Wenzel, Radgen, <em>Analysis of Cooling Technologies in the Data Center Sector on the Basis of Patent Applications</em>, Energies 2024, 17, 3615.</li>
+  <li>Future Market Insights, Direct-to-Chip Cold Plate Market（2026–2036 公开摘要）。</li>
+  <li>Tuckerman &amp; Pease, 1981；Sung &amp; Mudawar 杂交射流–微通道实验。</li>
+  <li>浪潮信息，2024-12-12，“布局四大专利群”。</li>
+  <li>曙光数创 2025 年报 / 研报公开专利与标准口径。</li>
+  <li>华为 WO2026103052A1；CloudMatrix 液冷拆解公开文。</li>
+  <li>JetCool SmartPlate 产品页及 WO2020210587A1、US11844193。</li>
+  <li>Element Six WO2016087243A1 / US10403557；公司热管理产品说明。</li>
+  <li>NVIDIA US12477696；Rubin / MLCP 供应链公开报道（ITES、fiisual 等）。</li>
+  <li>微软微流体冷却公开实验口径；Corintis Glacierware arXiv:2408.15024。</li>
+  <li>CNIPA / Google Patents 上列 CN、US、WO 公开文本。</li>
+  <li>PatSnap 公开景观文：液态金属冷却、金刚石功率器件与热管理（2025–2026）。</li>
+  <li>ToneCooling 公开选型表：H100/H200 &lt;0.03 °C/W，GB200 &lt;0.02 °C/W（中置信）。</li>
+  <li>NVIDIA Rubin 开发者博文：双计算 die、3360 亿晶体管、HBM4 288 GB / 22 TB/s、NVLink 6；<strong>该页未公布 TDP</strong>。</li>
+  <li>SemiAnalysis，<em>Vera Rubin – Extreme Co-Design</em>：R100 Max-Q 1800 W / Max-P 2300 W（软件功率档）；VR NVL72 机柜 180–220 kW（中置信）。</li>
+  <li>Lenovo Press LP2357：B300 TGP 1100 W；GB300 NVL72 135 kW TDP / 155 kW EDP；Grace 300 W；约 90/10 液/风。</li>
+  <li>NVIDIA DGX SuperPOD GB300 RA：约 142 kW/柜；本仓库《NVIDIA GB300 NVL72 冷却系统总体设计报告 v2.2》对齐。</li>
+  <li>NVIDIA DGX B300 User Guide：8×B300，系统功耗约 14.5–15.1 kW（整机，不是单 GPU TDP）。</li>
+  <li>OCP System Liquid Cooling Guidelines；Meta Tide / OAM 热阻栈公开文；OCP Project Deschutes CDU。</li>
+  <li>Barewar 等，<em>Thermal Science and Engineering Progress</em> 39 (2023) 101697（射流参数族）。</li>
+  <li>Wiwynn 射流冷板白皮书（热阻相对传统冷板 20–48%）。</li>
+  <li>浪潮信息 2025-05-28：四种射流冷板架构（中置扩散 / 太阳花 / 上下腔斜板 / 环形腔）。</li>
+  <li>Wu, Xiao, He, Wang, Song, <em>Nature Electronics</em> 2025：Jet-enhanced manifold microchannel，约 3000 W/cm²。</li>
+  <li>US12029008B2 Hybrid microjet liquid-cooled heat spreader；CN111328245B 折返式射流微通道。</li>
+  <li>配图优先采用同仓库调研材料 <code>coolingplate/papers/figures/</code> 抽出原图（Energies / ASHRAE / Element Six / arXiv / SciOpen，见各图题来源行）。无对应原图的仅保留 3 张自绘：热阻链分层、铲齿工艺、方案 A。</li>
+  <li>SciOpen 2025 微通道传热增强：图 6 增材 SEM、图 8 盖板+底板；Energies 2024, 17(17):4510 异形孔；arXiv:2604.10941 生成式流道。工艺结论与本仓库技术调查报告第 7.7 节对齐。</li>
+</ol>
+
+<div class="note risk"><strong>免责声明：</strong>本报告基于 2026-09-07 前可获得的公开专利与产业信息，用于研发与知识产权策略讨论。专利法律状态、权属、保护范围以官方登记与授权文本为准。实施任何结构或工艺前，应完成正式检索与律师评估。</div>
+</section>
+
+</main>
+
+<footer>
+  AI算力芯片液冷冷板技术专利分析报告 v1.4 · 2026-09-07 · 英伟达标尺 · 机加工/3D打印工艺专章 · 配图优先调研原图 · 非 FTO<br>
+  原图目录 assets/src/（自 papers/figures 复制）· 无原图处标注自绘示意 · Markdown 正文与专利清单
+</footer>
+</div>
+</body>
+</html>
