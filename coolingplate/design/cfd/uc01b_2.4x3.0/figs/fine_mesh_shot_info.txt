@@ -1,0 +1,5 @@
+fine uc01b_cht_fine.msh 4472280 HEXA
+center_slot first=2.5 um n_BL=10 growth<=1.2
+slot/slit BL first=2.5 um n_BL=10 growth<=1.2
+orifice h_orif=3 um n_ri=14  TIM nz=6  Cu nz=14  lid=solid_cu
+NOT CFD contours
