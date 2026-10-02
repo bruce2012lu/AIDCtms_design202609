@@ -1,0 +1,229 @@
+Auto-Transcript Start Time:  23:31:39, 27 Sep 2026 中国标准时间 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM"
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:22:05 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:60573 
+
+Node 0 connecting to the Host ... connection established.
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  59656  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  58812  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  50784  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  55020  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  53892  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd_HBM\\cleanup-fluent-DESKTOP-JHEHF28-53892.bat
+Note: Rank = 0: Process affinity not being set (6).
+Note: Rank = 1: Process affinity not being set (6).
+Note: Rank = 2: Process affinity not being set (6).
+Note: Rank = 3: Process affinity not being set (6).
+
+Graphics driver currently in use: dx11
+
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM\fluent\run_to_i200_gui.jou...
+
+> ; Continue the closed-slot solution from iteration 34 to iteration 200.
+; Convergence check is off so it does not stop early. Do not exit.
+/file/set-batch-options no no no
+
+> /file/confirm-overwrite yes
+
+> /file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h35_i400.cas.h5"Fast-loading "E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\fluent26.1.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h35_i400.cas.h5" in NODE0 mode ...
+  Reading mesh ...
+     5331600 cells,     3 cell zones ...
+        1555848 hexahedral cells,  zone id: 2
+        3559752 hexahedral cells,  zone id: 3
+         216000 hexahedral cells,  zone id: 4
+    16316085 faces,    14 face zones ...
+           1080 quadrilateral wall faces,  zone id: 16
+          19200 quadrilateral wall faces,  zone id: 15
+         601860 quadrilateral interior faces,  zone id: 14
+       10499073 quadrilateral interior faces,  zone id: 13
+        4572582 quadrilateral interior faces,  zone id: 5
+         168756 quadrilateral wall faces,  zone id: 6
+         168756 quadrilateral wall faces,  zone id: 18
+          36000 quadrilateral wall faces,  zone id: 7
+          36000 quadrilateral wall faces,  zone id: 17
+          10584 quadrilateral mass-flow-inlet faces,  zone id: 8
+          10584 quadrilateral pressure-outlet faces,  zone id: 9
+          36000 quadrilateral wall faces,  zone id: 10
+         130032 quadrilateral wall faces,  zone id: 11
+          25578 quadrilateral wall faces,  zone id: 12
+     5650710 nodes,     1 node zone  ...
+  Done.
+
+
+Building...
+     mesh
+	auto partitioning mesh by Metis (fast, Laplace, model-weighted),
+	distributing mesh
+		pairs....,
+		parts....,
+		faces....,
+		nodes....,
+		shadow nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 24216/6718 = 3.60464
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	wall_side:016
+	wall_adiabat:015
+	interior:014
+	interior:013
+	wall_tim_cu
+	wall_cu_fluid
+	interior
+	inlet
+	outlet
+	wall_heat
+	wall_adiabat
+	wall_side
+	solid_tim2
+	solid_cu
+	fluid
+     parallel,
+Done.
+
+Preparing mesh for display...
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h35_i400.dat.h5" in NODE0 mode ...
+
+
+  Reading results.
+Parallel variables...
+Done.
+
+
+> /display/mesh
+
+> /display/views/auto-scale
+
+> /solve/monitors/residual/print? yes
+
+> /solve/monitors/residual/plot? yes
+
+> /solve/monitors/residual/check-convergence? no
+Check convergence of x-velocity residuals? [yes] no
+Check convergence of y-velocity residuals? [yes] no
+Check convergence of z-velocity residuals? [yes] no
+Check convergence of energy residuals? [yes] no
+
+> /file/auto-save/root-name "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h35"
+
+> /file/auto-save/data-frequency 200
+
+> /file/auto-save/case-frequency
+Available options: ("if-case-is-modified" "each-time" "if-mesh-is-modified")
+Case save frequency ["each-time"] each-time
+
+> /solve/iterate 166
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    34  7.4687e-05  5.2248e-07  1.8376e-05  8.6112e-07  6.2816e-08  0:00:00  166
+!   34 solution is converged
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    35  5.1952e-05  3.8865e-07  1.2261e-05  6.1937e-07  7.3029e-08  2:44:59  165
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    36  4.4684e-05  3.5761e-07  1.0054e-05  5.2568e-07  6.1321e-08  2:32:55  164
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    37  7.0567e-05  4.6277e-07  9.5628e-06  6.3511e-07  6.0171e-08  2:13:50  163
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    38  4.3858e-05  3.0531e-07  6.3531e-06  4.1731e-07  5.9949e-08  1:57:06  162
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    39  2.9383e-05  2.4508e-07  5.0651e-06  3.3301e-07  5.9661e-08  1:47:14  161
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    40  2.0900e-05  1.8683e-07  3.5179e-06  2.5450e-07  1.0689e-07  1:45:09  160
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+ Reversed flow on 173 faces (0.2% area) of pressure-outlet 9.
+    41  1.0259e-02  6.9482e-05  1.9381e-03  1.6050e-04  7.4263e-08  1:34:10  159
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+ Reversed flow on 53 faces (0.0% area) of pressure-outlet 9.
+    42  5.4128e-03  2.9206e-05  6.0850e-04  9.8253e-05  6.9490e-08  1:26:47  158
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    43  3.1087e-03  1.7731e-05  4.9072e-04  6.6384e-05  6.7455e-08  1:20:43  157
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    44  1.6945e-03  9.4841e-06  3.1505e-04  3.5715e-05  6.4777e-08  1:15:32  156
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    45  8.7594e-04  5.0124e-06  1.9782e-04  1.9944e-05  6.2344e-08  1:11:58  155
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    46  4.6909e-04  2.7976e-06  1.1967e-04  1.1305e-05  6.1142e-08  1:08:35  154
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    47  2.7382e-04  1.7101e-06  7.2105e-05  6.6510e-06  6.0306e-08  1:06:06  153
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    48  1.6188e-04  1.0916e-06  4.3476e-05  4.0228e-06  5.9466e-08  1:02:04  152
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    49  1.2392e-04  8.5833e-07  2.6678e-05  2.5715e-06  5.8347e-08  1:01:37  151
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    50  7.3497e-05  5.7114e-07  1.7130e-05  1.7522e-06  5.8610e-08  1:17:38  150
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    51  4.1870e-05  3.4836e-07  1.1796e-05  1.1493e-06  5.7689e-08  1:33:57  149
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    52  2.5654e-05  2.3532e-07  8.3571e-06  7.6149e-07  5.7867e-08  1:32:39  148
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    53  1.6687e-05  1.7659e-07  5.9353e-06  5.2512e-07  5.7456e-08  1:28:08  147
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    54  1.1413e-05  1.4729e-07  4.3671e-06  3.7558e-07  5.6998e-08  1:37:25  146
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    55  1.4056e-05  1.5679e-07  3.8157e-06  2.8302e-07  5.6885e-08  1:28:47  145
+        Stabilizing pressure coupled to enhance linear solver robustness.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy     time/iter
+    56  9.9658e-06  1.2646e-07  2.5630e-06  2.1277e-07  5.6419e-08  1:22:21  144
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    57  7.4518e-06  1.0798e-07  1.6694e-06  1.6353e-07  5.6479e-08  1:16:11  143
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    58  5.8172e-06  9.9165e-08  1.1042e-06  1.2706e-07  5.7152e-08  1:12:31  142
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    59  4.9177e-06  8.7022e-08  8.3889e-07  9.7174e-08  5.6345e-08  1:08:46  141
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    60  4.4294e-06  8.1298e-08  6.5875e-07  7.9799e-08  5.6281e-08  1:05:37  140
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+    61  4.1560e-06  8.2478e-08  5.1727e-07  6.8974e-08  5.6922e-08  1:08:43  139
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    62  3.9611e-06  8.0645e-08  3.6194e-07  6.0093e-08  5.6835e-08  1:03:17  138
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    63  3.9937e-06  8.0972e-08  2.8561e-07  5.6202e-08  5.6595e-08  1:01:14  137
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    64  3.8271e-06  7.4444e-08  2.0806e-07  5.1028e-08  5.6523e-08  1:00:35  136
+        Stabilizing pressure coupled to enhance linear solver robustness.
+    65  3.7811e-06  7.7024e-08  1.4858e-07  4.8457e-08  5.6583e-08  1:03:15  135

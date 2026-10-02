@@ -1,0 +1,15 @@
+/file/start-transcript
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/logs/hbm_c_i200_tout.log
+/report/surface-integrals/mass-weighted-avg
+outlet_lo
+outlet_hi
+()
+temperature
+no
+/report/surface-integrals/area-weighted-avg
+outlet_lo
+outlet_hi
+()
+temperature
+no
+/file/stop-transcript

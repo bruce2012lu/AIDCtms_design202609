@@ -1,0 +1,8 @@
+; Show the counterflow mesh. Do not solve and do not exit.
+; The 200-step job is the other Fluent session.
+/file/set-batch-options
+no
+no
+no
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/mesh/hbm_cf_w08h20.msh"
+/mesh/check

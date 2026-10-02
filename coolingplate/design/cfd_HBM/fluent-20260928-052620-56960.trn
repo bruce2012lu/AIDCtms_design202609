@@ -1,0 +1,2598 @@
+Auto-Transcript Start Time:  05:26:20, 28 Sep 2026 �й���׼ʱ�� 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM"
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:22:05 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:62085 
+
+Node 0 connecting to the Host ... connection established.
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  68036  Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  52444  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  68012  Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  42204  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  66324  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd_HBM\\cleanup-fluent-DESKTOP-JHEHF28-66324.bat
+Note: Rank = 0: Process affinity not being set (6).
+Note: Rank = 1: Process affinity not being set (6).
+Note: Rank = 2: Process affinity not being set (6).
+Note: Rank = 3: Process affinity not being set (6).
+
+Graphics driver currently in use: dx11
+
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM\fluent\read_w08h20_gui.jou...
+
+> ; Open the 2 mm, 200-iteration HBM case in the GUI. Do not solve. Do not exit.
+/file/set-batch-options no no no
+
+> /file/confirm-overwrite yes
+
+> /file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h20_i200.cas.h5"Fast-loading "E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\fluent26.1.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h20_i200.cas.h5" in NODE0 mode ...
+  Reading mesh ...
+     4677600 cells,     3 cell zones ...
+        1121120 hexahedral cells,  zone id: 2
+        3340480 hexahedral cells,  zone id: 3
+         216000 hexahedral cells,  zone id: 4
+    14314630 faces,    14 face zones ...
+           1080 quadrilateral wall faces,  zone id: 16
+          19200 quadrilateral wall faces,  zone id: 15
+         601860 quadrilateral interior faces,  zone id: 14
+        9861658 quadrilateral interior faces,  zone id: 13
+        3287452 quadrilateral interior faces,  zone id: 5
+         136136 quadrilateral wall faces,  zone id: 6
+         136136 quadrilateral wall faces,  zone id: 18
+          36000 quadrilateral wall faces,  zone id: 7
+          36000 quadrilateral wall faces,  zone id: 17
+           7840 quadrilateral mass-flow-inlet faces,  zone id: 8
+           7840 quadrilateral pressure-outlet faces,  zone id: 9
+          36000 quadrilateral wall faces,  zone id: 10
+         125120 quadrilateral wall faces,  zone id: 11
+          22308 quadrilateral wall faces,  zone id: 12
+     4957438 nodes,     1 node zone  ...
+  Done.
+
+
+Building...
+     mesh
+	distributing mesh
+		pairs....,
+		parts....,
+		faces....,
+		nodes....,
+		shadow nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 6793/5829 = 1.16538
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	wall_side:016
+	wall_adiabat:015
+	interior:014
+	interior:013
+	wall_tim_cu
+	wall_cu_fluid
+	interior
+	inlet
+	outlet
+	wall_heat
+	wall_adiabat
+	wall_side
+	solid_tim2
+	solid_cu
+	fluid
+     parallel,
+Done.
+
+Preparing mesh for display...
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h20_i200.dat.h5" in NODE0 mode ...
+
+
+  Reading results.
+Parallel variables...
+Done.
+
+
+> /display/mesh
+
+> /display/views/auto-scale
+
+> 
+> (cx-gui-do cx-activate-item "Ribbon*Frame1*Frame6(Results)*Table1*Table3(Graphics)*PushButton2(Contours)")
+(cx-gui-do cx-activate-item "MenuBar*PopupMenuContours*New...")
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Frame2*List2(Surfaces)" '( 6))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Frame2*List2(Surfaces)")
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Table1*DropDownList1(Contours of)" '( 3))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Table1*DropDownList1(Contours of)")
+(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Frame2*List2(Surfaces)" '( 5 6))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Frame2*List2(Surfaces)")
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Frame2*List2(Surfaces)" '( 5 6 7))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Frame2*List2(Surfaces)")
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Frame2*List2(Surfaces)" '( 5 6 7 9))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Frame2*List2(Surfaces)")
+(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(handle-key "control ??")
+(cx-use-window-id 51)
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Frame2*List2(Surfaces)" '( 5 6 7 8 9))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Frame2*List2(Surfaces)")
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Frame2*List2(Surfaces)" '( 5 6 7 9))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Frame2*List2(Surfaces)")
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Frame2*List2(Surfaces)" '( 5 6 7 9 10))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Frame2*List2(Surfaces)")
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Frame2*List2(Surfaces)" '( 5 6 7 8 9 10))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Frame2*List2(Surfaces)")
+(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cx-set-camera-relative '(1.46569 -3.63075 -14.9763) '(0 0 0) '(0.967234 -0.758153 0.0773445) 0 0)
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Frame2*List2(Surfaces)" '( 2 5 6 7 8 9 10))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Frame2*List2(Surfaces)")
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Frame2*List2(Surfaces)" '( 2 3 5 6 7 8 9 10))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Frame2*List2(Surfaces)")
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Frame2*List2(Surfaces)" '( 2 3 4 5 6 7 8 9 10))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Frame2*List2(Surfaces)")
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Frame2*List2(Surfaces)" '( 2 3 5 6 7 8 9 10))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Frame2*List2(Surfaces)")
+(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")
+(cx-use-window-id 51)
+(cx-use-window-id 51)
+(cx-set-camera-relative '(-0.926417 -4.32514 6.33367) '(0 0 0) '(-1.02206 -0.165143 -1.0729) 0 0)
+(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton2(Cancel)")
+/file/read-journal
+Journal file names [()] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/sample_w08h20.jou
+Journal file names [()] ()
+
+Reading journal file D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/sample_w08h20.jou...
+
+> ; HBM 2 mm sample: XY wall, YZ channel, ZX stack. Do not solve. Do not exit.
+/preferences/graphics/colormap-settings/number-format-type
+Valid values: ("general" "float" "exponential")
+Number Format Type ["general"] general
+
+> /preferences/graphics/colormap-settings/number-format-precision
+Number Format Precision (0-9) [5] 5
+
+> /preferences/graphics/graphics-effects/grid-plane-enabled
+Ground plane grid [no] no
+
+> /display/set/picture/use-window-resolution?
+Use active window's resolution? [yes] no
+
+> (display "REPORT-BEGIN i200")
+REPORT-BEGIN i200
+
+> /report/surface-integrals/area-weighted-avg
+Available surfaces: (wall_side wall_heat inlet wall_tim_cu wall_cu_fluid outlet wall_adiabat wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] wall_heat
+Select surface names/ids(2) [()] ()
+
+area-weighted-avg of> temperature
+Write to file? [no] no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                       wall_heat            333.48854
+
+> /report/surface-integrals/facet-max
+Available surfaces: (wall_side wall_heat inlet wall_tim_cu wall_cu_fluid outlet wall_adiabat wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] wall_heat
+Select surface names/ids(2) [()] ()
+
+facet-max of> temperature
+Write to file? [no] no
+
+         Maximum of Facet Values
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                       wall_heat            336.96255
+
+> /report/surface-integrals/facet-min
+Available surfaces: (wall_side wall_heat inlet wall_tim_cu wall_cu_fluid outlet wall_adiabat wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] wall_heat
+Select surface names/ids(2) [()] ()
+
+facet-min of> temperature
+Write to file? [no] no
+
+         Minimum of Facet Values
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                       wall_heat            325.27155
+
+> /report/surface-integrals/area-weighted-avg
+Available surfaces: (wall_side wall_heat inlet wall_tim_cu wall_cu_fluid outlet wall_adiabat wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] wall_cu_fluid
+Select surface names/ids(2) [()] ()
+
+area-weighted-avg of> temperature
+Write to file? [no] no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                   wall_cu_fluid            328.76468
+
+> /report/surface-integrals/area-weighted-avg
+Available surfaces: (wall_side wall_heat inlet wall_tim_cu wall_cu_fluid outlet wall_adiabat wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] outlet
+Select surface names/ids(2) [()] ()
+
+area-weighted-avg of> temperature
+Write to file? [no] no
+
+           Area-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                          outlet            323.75007
+
+> /report/surface-integrals/mass-weighted-avg
+Available surfaces: (wall_side wall_heat inlet wall_tim_cu wall_cu_fluid outlet wall_adiabat wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] outlet
+Select surface names/ids(2) [()] ()
+
+mass-weighted-avg of> temperature
+Write to file? [no] no
+
+           Mass-Weighted Average
+              Static Temperature                  [K]
+-------------------------------- --------------------
+                          outlet            320.90033
+
+> /report/surface-integrals/area-weighted-avg
+Available surfaces: (wall_side wall_heat inlet wall_tim_cu wall_cu_fluid outlet wall_adiabat wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] inlet
+Select surface names/ids(2) [()] ()
+
+area-weighted-avg of> velocity-magnitude
+Write to file? [no] no
+
+           Area-Weighted Average
+              Velocity Magnitude                [m/s]
+-------------------------------- --------------------
+                           inlet           0.29761836
+
+> /report/surface-integrals/area
+Available surfaces: (wall_side wall_heat inlet wall_tim_cu wall_cu_fluid outlet wall_adiabat wall_adiabat:015 wall_side:016 wall_tim_cu-shadow wall_cu_fluid-shadow)
+Select surface names/ids(1) [()] wall_heat
+Select surface names/ids(2) [()] ()
+Write to file? [no] no
+
+                            Area                [m^2]
+-------------------------------- --------------------
+                       wall_heat             0.000484
+
+> (display "REPORT-END i200")
+REPORT-END i200
+
+> (display "ANNO-PICK")
+ANNO-PICK
+
+> /display/annotation/annotate
+Annotation Text [""] "z=-2.08 mm"
+Available options: ("None" "Date" "Time" "Version" "No. of Iterations" "No. of Timesteps" "Flowtime")
+Append Quantity ["None"] "None"
+Pick a screen location with the Left Mouse Button.
+Drag the mouse for an attachment line ...
+(cx-use-window-id 51)
+
+
+> (display "ANNO-PLACED")
+ANNO-PLACED
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> font-name
+Available options: ("黑体" "隶书" "等线 Light" "等线" "汉仪中黑 197" "楷体" "方正舒体" "方正姚体" "新宋体" "微软雅黑 Light" "微软雅黑" "幼圆" "宋体" "华文隶书" "华文行楷" "华文细黑" "华文琥珀" "华文楷体" "华文新魏" "华文彩云" "华文宋体" "华文仿宋" "华文中宋" "仿宋" "yyb" "Yu Gothic UI Semilight" "Yu Gothic UI Semibold" "Yu Gothic UI Light" "Yu Gothic UI" "Yu Gothic Medium" "Yu Gothic Light" "Yu Gothic" "Wingdings 3" "Wingdings 2" "Wingdings" "Wide Latin" "Webdings" "Vladimir Script" "Vivaldi" "Vineta BT" "Viner Hand ITC" "Verdana" "UniversalMath1 BT" "Ubuntu Mono Medium" "Ubuntu Mono" "Txt" "Tw Cen MT Condensed Extra Bold" "Tw Cen MT Condensed" "Tw Cen MT" "Trebuchet MS" "Times New Roman" "Terminal" "Tempus Sans ITC" "TechnicLite" "TechnicBold" "Technic" "Tahoma" "System" "Symusic" "Symeteo" "Symbol" "Symath" "Symap" "Sylfaen" "Syastro" "Swis721 LtEx BT" "Swis721 LtCn BT" "Swis721 Lt BT" "Swis721 Ex BT" "Swis721 Cn BT" "Swis721 BT" "Swis721 BlkOul BT" "Swis721 BlkEx BT" "Swis721 BlkCn BT" "Swis721 Blk BT" "Swis721 BdOul BT" "Swis721 BdCnOul BT" "SuperFrench" "Stylus BT" "Stencil" "Source Sans Pro Semibold" "Source Sans Pro Light" "Source Sans Pro ExtraLight" "Source Sans Pro Black" "Source Sans Pro" "Source Han Serif SC Heavy" "Source Han Serif SC" "Snap ITC" "Small Fonts" "Sitka Text Semibold" "Sitka Text" "Sitka Subheading Semibold" "Sitka Subheading" "Sitka Small Semibold" "Sitka Small" "Sitka Heading Semibold" "Sitka Heading" "Sitka Display Semibold" "Sitka Display" "Sitka Banner Semibold" "Sitka Banner" "Sitka" "SimSun-ExtG" "SimSun-ExtB" "Simplex" "Showcard Gothic" "Segoe UI Variable Text Semiligh" "Segoe UI Variable Text Semibold" "Segoe UI Variable Text Light" "Segoe UI Variable Text" "Segoe UI Variable Small Semilig" "Segoe UI Variable Small Semibol" "Segoe UI Variable Small Light" "Segoe UI Variable Small" "Segoe UI Variable Display Semil" "Segoe UI Variable Display Semib" "Segoe UI Variable Display Light" "Segoe UI Variable Display" "Segoe UI Variable" "Segoe UI Symbol" "Segoe UI Semilight" "Segoe UI Semibold" "Segoe UI Light" "Segoe UI Historic" "Segoe UI Emoji" "Segoe UI Black" "Segoe UI" "Segoe Script" "Segoe Print" "Segoe MDL2 Assets" "Segoe Fluent Icons" "ScriptS" "ScriptC" "Script MT Bold" "Script" "SansSerif" "Sans Serif Collection" "Rubik Medium" "Rubik Light" "Rubik Black" "Rubik" "Romantic" "RomanT" "RomanS" "RomanD" "RomanC" "Roman" "Rockwell Extra Bold" "Rockwell Condensed" "Rockwell" "Ravie" "Rage Italic" "Proxy 9" "Proxy 8" "Proxy 7" "Proxy 6" "Proxy 5" "Proxy 4" "Proxy 3" "Proxy 2" "Proxy 1" "Pristina" "Poor Richard" "PMingLiU-ExtB" "Playbill" "Perpetua Titling MT" "Perpetua" "Parchment" "Papyrus" "PanRoman" "Palatino Linotype" "Palace Script MT" "Open Sans SemiBold" "Open Sans Medium" "Open Sans Light" "Open Sans ExtraBold" "Open Sans" "Onyx" "Old English Text MT" "OCR A Extended" "Noto Serif SC SemiBold" "Noto Serif SC Medium" "Noto Serif SC Light" "Noto Serif SC ExtraLight" "Noto Serif SC Black" "Noto Serif SC" "Noto Sans SC Thin" "Noto Sans SC Medium" "Noto Sans SC Light" "Noto Sans SC DemiLight" "Noto Sans SC Black" "Noto Sans SC" "Nirmala UI Semilight" "Nirmala UI" "Niagara Solid" "Niagara Engraved" "Myanmar Text" "MV Boli" "MT Extra" "MS UI Gothic" "MS Serif" "MS Sans Serif" "MS Reference Specialty" "MS Reference Sans Serif" "MS PGothic" "MS Outlook" "MS Gothic" "Monotype Corsiva" "Monotxt" "Monospac821 BT" "Mongolian Baiti" "Modern No. 20" "Modern" "Mistral" "MingLiU_HKSCS-ExtB" "MingLiU-ExtB" "Microsoft Yi Baiti" "Microsoft YaHei UI Light" "Microsoft YaHei UI" "Microsoft YaHei" "Microsoft Uighur" "Microsoft Tai Le" "Microsoft Sans Serif" "Microsoft PhagsPa" "Microsoft New Tai Lue" "Microsoft JhengHei UI Light" "Microsoft JhengHei UI" "Microsoft JhengHei Light" "Microsoft JhengHei" "Microsoft Himalaya" "Matura MT Script Capitals" "Marlett" "Malgun Gothic Semilight" "Malgun Gothic" "Maiandra GD" "Magneto" "Lucida Sans Unicode" "Lucida Sans Typewriter" "Lucida Sans" "Lucida Handwriting" "Lucida Fax" "Lucida Console" "Lucida Calligraphy" "Lucida Bright" "Leelawadee UI Semilight" "Leelawadee UI" "Leelawadee" "Kunstler Script" "Kristen ITC" "Juice ITC" "Jokerman" "Javanese Text" "ItalicT" "ItalicC" "Italic" "ISOCTEUR" "ISOCT3" "ISOCT2" "ISOCT" "ISOCPEUR" "ISOCP3" "ISOCP2" "ISOCP" "Ink Free" "Informal Roman" "Imprint MT Shadow" "Impact" "HYZhongHei" "HoloLens MDL2 Assets" "High Tower Text" "Harrington" "Harlow Solid Italic" "Haettenschweiler" "GreekS" "GreekC" "Goudy Stout" "Goudy Old Style" "GothicI" "GothicG" "GothicE" "Gloucester MT Extra Condensed" "Gill Sans Ultra Bold Condensed" "Gill Sans Ultra Bold" "Gill Sans MT Ext Condensed Bold" "Gill Sans MT Condensed" "Gill Sans MT" "Gigi" "Georgia" "GENISO" "GDT" "Garamond" "Gadugi" "Gabriola" "French Script MT" "Freestyle Script" "Franklin Gothic Medium Cond" "Franklin Gothic Medium" "Franklin Gothic Heavy" "Franklin Gothic Demi Cond" "Franklin Gothic Demi" "Franklin Gothic Book" "Forte" "Footlight MT Light" "Fixedsys" "FFont-Family" "Felix Titling" "EuroRoman" "Eras Medium ITC" "Eras Light ITC" "Eras Demi ITC" "Eras Bold ITC" "Engravers MT" "Elephant" "Edwardian Script ITC" "Ebrima" "Dutch801 XBd BT" "Dutch801 Rm BT" "DengXian" "Curlz MT" "Courier New" "Courier" "CountryBlueprint" "Corbel Light" "Corbel" "Copperplate Gothic Light" "Copperplate Gothic Bold" "Cooper Black" "Constantia" "Consolas" "Complex" "CommercialScript BT" "CommercialPi BT" "Comic Sans MS" "Colonna MT" "CityBlueprint" "Chiller" "Century Schoolbook" "Century Gothic" "Century" "Centaur" "Castellar" "Cascadia Mono SemiLight" "Cascadia Mono SemiBold" "Cascadia Mono Light" "Cascadia Mono ExtraLight" "Cascadia Mono" "Cascadia Code SemiLight" "Cascadia Code SemiBold" "Cascadia Code Light" "Cascadia Code ExtraLight" "Cascadia Code" "Candara Light" "Candara" "Cambria Math" "Cambria" "Calisto MT" "Californian FB" "Calibri Light" "Calibri" "Brush Script MT" "Broadway" "Britannic Bold" "Bradley Hand ITC" "Bookshelf Symbol 7" "Bookman Old Style" "Book Antiqua" "Bodoni MT Poster Compressed" "Bodoni MT Condensed" "Bodoni MT Black" "Bodoni MT" "Blackadder ITC" "Bernard MT Condensed" "Berlin Sans FB Demi" "Berlin Sans FB" "Bell MT" "Bauhaus 93" "Baskerville Old Face" "BankGothic Md BT" "BankGothic Lt BT" "Bahnschrift SemiLight SemiConde" "Bahnschrift SemiLight Condensed" "Bahnschrift SemiLight" "Bahnschrift SemiCondensed" "Bahnschrift SemiBold SemiConden" "Bahnschrift SemiBold Condensed" "Bahnschrift SemiBold" "Bahnschrift Light SemiCondensed" "Bahnschrift Light Condensed" "Bahnschrift Light" "Bahnschrift Condensed" "Bahnschrift" "Artifakt Element Thin" "Artifakt Element Medium" "Artifakt Element Light" "Artifakt Element Heavy" "Artifakt Element Hair" "Artifakt Element Book" "Artifakt Element Black" "Artifakt Element" "Arial Unicode MS" "Arial Rounded MT Bold" "Arial Narrow" "Arial Black" "Arial" "AMGDT" "AmdtSymbols" "Algerian" "Alegreya Sans SC Thin" "Alegreya Sans SC Medium" "Alegreya Sans SC Light" "Alegreya Sans SC ExtraBold" "Alegreya Sans SC Black" "Alegreya Sans SC" "AIGDT" "Agency FB" "AcadEref")
+Text font family ["Rubik"] "Microsoft YaHei"
+
+//display/annotation/text-0> font-size
+Available options: ("6" "8" "9" "10" "11" "12" "14" "16" "18" "20" "24" "28" "32" "48" "64")
+Text font size ["11"] "24"
+
+//display/annotation/text-0> quit
+
+> /surface/plane-surface x550 yz 0.0055
+
+> /surface/plane-surface y185 zx 0.0185
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-2.08 mm"] "z=-2.08 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] wallheat
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] wall_heat
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "wallheat". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> wallheat
+
+> /display/set/picture/x-resolution
+Raster image width [960] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [720] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["perspective"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.01522239297628403] 0.0055
+Y (in [m]) [-0.2211165130138397] 0.025
+Z (in [m]) [-0.02304405905306339] 0.04792
+
+> /display/views/camera/target
+X (in [m]) [-0.00188959005754441] 0.0055
+Y (in [m]) [0.03133859485387802] 0.025
+Z (in [m]) [-0.002651365473866463] -0.00208
+
+> /display/views/camera/up-vector
+X (in [m]) [0.8871057033538818] -1
+Y (in [m]) [-0.4615662693977356] 0
+Z (in [m]) [0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/wall_heat_temperature.png
+
+> (display "SAVED wall_heat_temperature.png")
+SAVED wall_heat_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-2.08 mm"] "x=5.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] x550t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x550
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> x550t
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.00550000136718154] 0.0855
+Y (in [m]) [0.02500000223517418] 0.025
+Z (in [m]) [0.1314309984445572] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.00550000136718154] 0.0055
+Y (in [m]) [0.02500000223517418] 0.025
+Z (in [m]) [-0.002080000005662441] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [0] 0
+Y (in [m]) [-0.04456072300672531] 0
+Z (in [m]) [0.9990066885948181] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/x550_temperature.png
+
+> (display "SAVED x550_temperature.png")
+SAVED x550_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=5.5 mm"] "Y=18.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] y185t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] y185
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> y185t
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 1200
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.2000446170568466] 0.0055
+Y (in [m]) [0.02500001154839993] 0.0685
+Z (in [m]) [0.001959998859092593] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.02500001154839993] 0.0185
+Z (in [m]) [0.001959998859092593] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [-0] 0
+Y (in [m]) [0] 0
+Z (in [m]) [1] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/y185_temperature.png
+
+> (display "SAVED y185_temperature.png")
+SAVED y185_temperature.png
+
+> (display "SAMPLE-DONE")
+SAMPLE-DONE
+
+> 
+> 
+adjoint/                parallel/               server/
+define/                 parametric-study/       solve/
+display/                plot/                   surface/
+exit                    preferences/            turbo-setup/
+file/                   print-license-usage     views/
+mesh/                   report/
+
+> (cx-use-window-id 51)
+(handle-key "")
+(cx-use-window-id 51)
+(handle-key "")
+(cx-use-window-id 51)
+(handle-key "")
+/file/read-journal
+Journal file names [()] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/batch_w08h20.jou
+Journal file names [()] ()
+
+Reading journal file D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/batch_w08h20.jou...
+
+> ; Remaining HBM i200 pictures. Do not solve. Do not exit.
+(display "BATCH-BEGIN")
+BATCH-BEGIN
+
+> /surface/plane-surface zm1992 xy -0.001992
+
+> /surface/plane-surface zm1000 xy -0.001
+
+> /surface/plane-surface zm008 xy -0.000008
+
+> /surface/plane-surface z1000 xy 0.001
+
+> /surface/plane-surface z4000 xy 0.004
+
+> /surface/plane-surface x630 yz 0.0063
+
+> /surface/iso-clip
+
+iso-clip of> y-coordinate
+new surface id/name [clip-19] whc
+from surface [] wall_heat
+Enter Minimum: (in [m]) [0] 0.013
+Enter Maximum: (in [m]) [0.05000000074505806] 0.024
+
+> /surface/iso-clip
+
+iso-clip of> y-coordinate
+new surface id/name [clip-20] x550c
+from surface [] x550
+Enter Minimum: (in [m]) [-0.01142857130616903] 0.013
+Enter Maximum: (in [m]) [0.06142857298254967] 0.024
+
+> /surface/iso-clip
+
+iso-clip of> y-coordinate
+new surface id/name [clip-21] z1000c
+from surface [] z1000
+Enter Minimum: (in [m]) [-0.01142857130616903] 0.013
+Enter Maximum: (in [m]) [0.06142857298254967] 0.024
+
+> /surface/iso-clip
+
+iso-clip of> y-coordinate
+new surface id/name [clip-22] zm1992c
+from surface [] zm1992
+Enter Minimum: (in [m]) [-0.01142857130616903] 0.013
+Enter Maximum: (in [m]) [0.06142857298254967] 0.024
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["Y=18.5 mm"] "z=-2.08 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] whct
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] whc
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "whct". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> whct
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [1200] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [0.07599622011184692] 0.025
+Z (in [m]) [0.001959999790415168] 0.04792
+
+> /display/views/camera/target
+X (in [m]) [0.00549999950453639] 0.0055
+Y (in [m]) [0.01850000023841858] 0.025
+Z (in [m]) [0.001959999790415168] -0.00208
+
+> /display/views/camera/up-vector
+X (in [m]) [0.01636172458529472] -1
+Y (in [m]) [-0.9998661875724792] 0
+Z (in [m]) [0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/wall_heat_center_temperature.png
+
+> (display "SAVED wall_heat_center_temperature.png")
+SAVED wall_heat_center_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-2.08 mm center"] "z=-1.992 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] zm1992t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] zm1992
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> zm1992t
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.01850000210106373] 0.025
+Z (in [m]) [0.07619456201791763] 0.048008
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.01850000210106373] 0.025
+Z (in [m]) [-0.002080000005662441] -0.001992
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999975562095642] -1
+Y (in [m]) [-0.002231349004432559] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/zm1992_temperature.png
+
+> (display "SAVED zm1992_temperature.png")
+SAVED zm1992_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-1.992 mm"] "z=-1.992 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] zm1992ct
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] zm1992c
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> zm1992ct
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500002298504114] 0.0055
+Y (in [m]) [0.02500000409781933] 0.025
+Z (in [m]) [0.1925525516271591] 0.048008
+
+> /display/views/camera/target
+X (in [m]) [0.005500002298504114] 0.0055
+Y (in [m]) [0.02500000409781933] 0.025
+Z (in [m]) [-0.001992000034078956] -0.001992
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-4.673506381891457e-08] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/zm1992_center_temperature.png
+
+> (display "SAVED zm1992_center_temperature.png")
+SAVED zm1992_center_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-1.992 mm center"] "z=-1 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] zm1000t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] zm1000
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> zm1000t
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499996244907379] 0.0055
+Y (in [m]) [0.01849999465048313] 0.025
+Z (in [m]) [0.0762825608253479] 0.049
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.01850000210106373] 0.025
+Z (in [m]) [-0.001992000034078956] -0.001
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002232642378658056] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/zm1000_temperature.png
+
+> (display "SAVED zm1000_temperature.png")
+SAVED zm1000_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-1 mm"] "z=-0.008 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] zm008t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] zm008
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> zm008t
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500002298504114] 0.0055
+Y (in [m]) [0.02500000409781933] 0.025
+Z (in [m]) [0.1935445517301559] 0.049992
+
+> /display/views/camera/target
+X (in [m]) [0.005500002298504114] 0.0055
+Y (in [m]) [0.02500000409781933] 0.025
+Z (in [m]) [-0.001000000047497451] -8e-06
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/zm008_temperature.png
+
+> (display "SAVED zm008_temperature.png")
+SAVED zm008_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-0.008 mm"] "z=1 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] z1000t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] z1000
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> z1000t
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500002298504114] 0.0055
+Y (in [m]) [0.02500000409781933] 0.025
+Z (in [m]) [0.1945365518331528] 0.051
+
+> /display/views/camera/target
+X (in [m]) [0.005500002298504114] 0.0055
+Y (in [m]) [0.02500000409781933] 0.025
+Z (in [m]) [-7.999999979801942e-06] 0.001
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/z1000_temperature.png
+
+> (display "SAVED z1000_temperature.png")
+SAVED z1000_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=1 mm"] "z=1 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] z1000v
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] z1000
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> z1000v
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500002298504114] 0.0055
+Y (in [m]) [0.02500000409781933] 0.025
+Z (in [m]) [0.1955445557832718] 0.051
+
+> /display/views/camera/target
+X (in [m]) [0.005500002298504114] 0.0055
+Y (in [m]) [0.02500000409781933] 0.025
+Z (in [m]) [0.001000000047497451] 0.001
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-4.673506026620089e-08] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/z1000_velocity.png
+
+> (display "SAVED z1000_velocity.png")
+SAVED z1000_velocity.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=1 mm"] "z=1 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] z1000ct
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] z1000c
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> z1000ct
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499993450939655] 0.0055
+Y (in [m]) [0.02499999105930328] 0.025
+Z (in [m]) [0.1955445557832718] 0.051
+
+> /display/views/camera/target
+X (in [m]) [0.005500002298504114] 0.0055
+Y (in [m]) [0.02500000409781933] 0.025
+Z (in [m]) [0.001000000047497451] 0.001
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999974966049194] -1
+Y (in [m]) [-0.002268926240503788] 0
+Z (in [m]) [-4.673506026620089e-08] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/z1000_center_temperature.png
+
+> (display "SAVED z1000_center_temperature.png")
+SAVED z1000_center_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=1 mm center"] "z=1 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] z1000cv
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] z1000c
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> z1000cv
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499996244907379] 0.0055
+Y (in [m]) [0.01849999465048313] 0.025
+Z (in [m]) [0.07927456498146057] 0.051
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.01850000210106373] 0.025
+Z (in [m]) [0.001000000047497451] 0.001
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999975562095642] -1
+Y (in [m]) [-0.002231212565675378] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/z1000_center_velocity.png
+
+> (display "SAVED z1000_center_velocity.png")
+SAVED z1000_center_velocity.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=1 mm center"] "z=4 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] z4000t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] z4000
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> z4000t
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.01850000210106373] 0.025
+Z (in [m]) [0.07927456498146057] 0.054
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.01850000210106373] 0.025
+Z (in [m]) [0.001000000047497451] 0.004
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9999975562095642] -1
+Y (in [m]) [-0.002235305262729526] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/z4000_temperature.png
+
+> (display "SAVED z4000_temperature.png")
+SAVED z4000_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=4 mm"] "x=5.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] x550v
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x550
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> x550v
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500002298504114] 0.0855
+Y (in [m]) [0.02500000409781933] 0.025
+Z (in [m]) [0.1985445469617844] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005500002298504114] 0.0055
+Y (in [m]) [0.02500000409781933] 0.025
+Z (in [m]) [0.004000000189989805] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [-0] 0
+Y (in [m]) [-0.09044365584850311] 0
+Z (in [m]) [-0.9959015846252441] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/x550_velocity.png
+
+> (display "SAVED x550_velocity.png")
+SAVED x550_velocity.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=5.5 mm"] "x=5.5 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] x550ct
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x550c
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> x550ct
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.2000446170568466] 0.0855
+Y (in [m]) [0.02500001154839993] 0.025
+Z (in [m]) [0.001959998859092593] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.02500001154839993] 0.025
+Z (in [m]) [0.001959998859092593] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.0005000144010409713] 0
+Y (in [m]) [-0.002268926473334432] 0
+Z (in [m]) [0.9999973773956299] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/x550_center_temperature.png
+
+> (display "SAVED x550_center_temperature.png")
+SAVED x550_center_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=5.5 mm center"] "x=5.5 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] x550cv
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x550c
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> x550cv
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.06299620866775513] 0.0855
+Y (in [m]) [0.01849999278783798] 0.025
+Z (in [m]) [0.001988749019801617] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.01850000210106373] 0.025
+Z (in [m]) [0.001960000023245811] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [0] 0
+Y (in [m]) [-0.002254044637084007] 0
+Z (in [m]) [0.9999974966049194] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/x550_center_velocity.png
+
+> (display "SAVED x550_center_velocity.png")
+SAVED x550_center_velocity.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=5.5 mm center"] "x=6.3 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] x630t
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x630
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> x630t
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.06299622356891632] 0.0863
+Y (in [m]) [0.01850000023841858] 0.025
+Z (in [m]) [0.001959999790415168] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0063
+Y (in [m]) [0.01850000023841858] 0.025
+Z (in [m]) [0.001959999790415168] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [0] 0
+Y (in [m]) [-0.002293905941769481] 0
+Z (in [m]) [0.9999974370002747] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/x630_temperature.png
+
+> (display "SAVED x630_temperature.png")
+SAVED x630_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=6.3 mm"] "Y=18.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] y185v
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] y185
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> y185v
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 1200
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.2008446156978607] 0.0055
+Y (in [m]) [0.02500001154839993] 0.0685
+Z (in [m]) [0.001959998859092593] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.006300000008195639] 0.0055
+Y (in [m]) [0.02500001154839993] 0.0185
+Z (in [m]) [0.001959998859092593] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [-2.480744296917692e-05] 0
+Y (in [m]) [0] 0
+Z (in [m]) [1] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/y185_velocity.png
+
+> (display "SAVED y185_velocity.png")
+SAVED y185_velocity.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["Y=18.5 mm"] "Y=61.43 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] inlett
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] inlet
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> inlett
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [1200] 1200
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.07599817216396332] 0.11142857
+Z (in [m]) [0.001959999557584524] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.01850000023841858] 0.061428571
+Z (in [m]) [0.001959999557584524] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [0.002244119066745043] 0
+Y (in [m]) [0] 0
+Z (in [m]) [0.9999975562095642] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/inlet_temperature.png
+
+> (display "SAVED inlet_temperature.png")
+SAVED inlet_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["Y=61.43 mm"] "Y=61.43 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] inletv
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] inlet
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> inletv
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [1200] 1200
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [0.08919885754585266] 0.11142857
+Z (in [m]) [0.000999999581836164] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [0.06142857298254967] 0.061428571
+Z (in [m]) [0.000999999581836164] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [0.00226983311586082] 0
+Y (in [m]) [0] 0
+Z (in [m]) [0.9999974370002747] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/inlet_velocity.png
+
+> (display "SAVED inlet_velocity.png")
+SAVED inlet_velocity.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["Y=61.43 mm"] "Y=-11.43 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] outlett
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] outlet
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> outlett
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [1200] 1200
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [0.08919885754585266] 0.038571429
+Z (in [m]) [0.000999999581836164] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [0.06142857298254967] -0.011428571
+Z (in [m]) [0.000999999581836164] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [0.002273266669362783] 0
+Y (in [m]) [0] 0
+Z (in [m]) [0.9999974370002747] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/outlet_temperature.png
+
+> (display "SAVED outlet_temperature.png")
+SAVED outlet_temperature.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["Y=-11.43 mm"] "Y=-11.43 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-2] outletv
+
+Choose setting to change> field
+
+contours of> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] outlet
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> outletv
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [1200] 1200
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [0.01634171605110168] 0.038571429
+Z (in [m]) [0.000999999581836164] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [-0.01142857130616903] -0.011428571
+Z (in [m]) [0.000999999581836164] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [0.002269833348691463] 0
+Y (in [m]) [0] 0
+Z (in [m]) [0.9999974370002747] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/outlet_velocity.png
+
+> (display "SAVED outlet_velocity.png")
+SAVED outlet_velocity.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["Y=-11.43 mm"] "x=5.5 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] vector
+New object name [vector-1] vx550
+
+Choose setting to change> vector-field
+
+vector-of> velocity
+
+Choose setting to change> field
+
+colored by> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x550
+surface id/name(2) [()] ()
+
+Choose setting to change> vector-opt
+
+Choose setting to change/vector-opt> in-plane?
+In Plane? [no] yes
+
+Choose setting to change/vector-opt> fixed-length?
+Fixed Length? [no] yes
+
+Choose setting to change/vector-opt> quit
+
+Choose setting to change> scale
+
+Choose setting to change/scale> auto-scale?
+Auto Scale? [yes] no
+
+Choose setting to change/scale> scale-f
+Scale [1] 0.004
+
+Choose setting to change/scale> quit
+
+Choose setting to change> skip
+Skip [0] 24
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> x550v
+
+> /display/objects/add-to-graphics
+
+Object name> vx550
+
+> /display/set/picture/x-resolution
+Raster image width [1400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [1200] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999038875103] 0.0855
+Y (in [m]) [0.01634171605110168] 0.025
+Z (in [m]) [0.000999999581836164] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999038875103] 0.0055
+Y (in [m]) [-0.01142857130616903] 0.025
+Z (in [m]) [0.000999999581836164] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [0] 0
+Y (in [m]) [-0.005570210982114077] 0
+Z (in [m]) [0.9999845623970032] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/x550_velocity_vector.png
+
+> (display "SAVED x550_velocity_vector.png")
+SAVED x550_velocity_vector.png
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=5.5 mm"] "x=5.5 mm center"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] vector
+New object name [vector-1] vx550c
+
+Choose setting to change> vector-field
+
+vector-of> velocity
+
+Choose setting to change> field
+
+colored by> velocity-magnitude
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] x550c
+surface id/name(2) [()] ()
+
+Choose setting to change> vector-opt
+
+Choose setting to change/vector-opt> in-plane?
+In Plane? [no] yes
+
+Choose setting to change/vector-opt> fixed-length?
+Fixed Length? [no] yes
+
+Choose setting to change/vector-opt> quit
+
+Choose setting to change> scale
+
+Choose setting to change/scale> auto-scale?
+Auto Scale? [yes] no
+
+Choose setting to change/scale> scale-f
+Scale [1] 0.0012
+
+Choose setting to change/scale> quit
+
+Choose setting to change> skip
+Skip [0] 24
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> x550cv
+
+> /display/objects/add-to-graphics
+
+Object name> vx550c
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [560] 560
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.2096759378910065] 0.0855
+Y (in [m]) [0.0231965146958828] 0.025
+Z (in [m]) [0.001960000023245811] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.0055
+Y (in [m]) [0.0231965146958828] 0.025
+Z (in [m]) [0.001960000023245811] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [0] 0
+Y (in [m]) [-0.002279040170833468] 0
+Z (in [m]) [0.9999974370002747] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i200/x550_center_velocity_vector.png
+
+> (display "SAVED x550_center_velocity_vector.png")
+SAVED x550_center_velocity_vector.png
+
+> (display "CAPTURE-DONE")
+CAPTURE-DONE
+
+> 
+> 
+adjoint/                parallel/               server/
+define/                 parametric-study/       solve/
+display/                plot/                   surface/
+exit                    preferences/            turbo-setup/
+file/                   print-license-usage     views/
+mesh/                   report/
+
+> (cx-use-window-id 51)
+(handle-key "w")
+(cx-use-window-id 51)
+(handle-key "u")

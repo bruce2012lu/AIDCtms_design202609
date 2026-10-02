@@ -1,0 +1,26 @@
+; Mass-weighted and area-weighted static temperature on inlet and outlet. Read only. Exit.
+/file/set-batch-options yes no no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/logs/hbm_d_slit_lt9m_tout.log"
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_d_slit_lt9m_gpu_i200.cas.h5"
+/report/surface-integrals/mass-weighted-avg
+inlet
+outlet
+()
+temperature
+no
+/report/surface-integrals/area-weighted-avg
+inlet
+outlet
+()
+temperature
+no
+/report/fluxes/heat-transfer
+no
+inlet
+outlet
+wall_heat
+()
+/file/stop-transcript
+/exit
+yes

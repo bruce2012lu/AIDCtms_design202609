@@ -1,0 +1,214 @@
+; HBM one-side 7-channel closed slot 0.80 x 2.00 mm, lid 4.00 mm, fin 0.80 mm. Laminar conjugate, DP-A.
+; mdot = 0.20 L/min = 3.30733333e-3 kg/s. q'' = 205000 W/m2.
+; Water 40 C. First-order, coupled + pseudo-transient.
+; Save case+data every 200 iterations, and again when iterate stops (at least 200; convergence check off).
+; Two-sided wall_cu_fluid and wall_tim_cu stay at Fluent's coupled default.
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/logs/hbm_w08h20_run.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/mesh/hbm_w08h20.msh"
+/mesh/check
+/define/boundary-conditions/list-zones
+/define/models/energy yes
+no
+no
+no
+no
+/define/models/viscous/laminar yes
+/define/materials/copy fluid water-liquid
+/define/materials/copy solid copper
+/define/materials/change-create
+water-liquid
+water-liquid
+yes
+constant
+992.2
+yes
+constant
+4179
+yes
+constant
+0.631
+yes
+constant
+6.53e-4
+no
+no
+no
+/define/materials/change-create
+copper
+copper
+yes
+constant
+8960
+yes
+constant
+385
+yes
+constant
+390
+/define/materials/change-create
+aluminum
+tim2
+yes
+constant
+2800
+yes
+constant
+1000
+yes
+constant
+8.818342
+yes
+/define/boundary-conditions/fluid
+fluid
+yes
+water-liquid
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+no
+/define/boundary-conditions/solid
+solid_cu
+yes
+copper
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+/define/boundary-conditions/solid
+solid_tim2
+yes
+tim2
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+/define/boundary-conditions/zone-type inlet mass-flow-inlet
+/define/boundary-conditions/zone-type outlet pressure-outlet
+/define/boundary-conditions/zone-type wall_heat wall
+/define/boundary-conditions/zone-type wall_adiabat wall
+/define/boundary-conditions/zone-type wall_side wall
+/define/boundary-conditions/set/mass-flow-inlet inlet () mass-flow no 3.30733333e-3 t no 313.15 q
+/define/boundary-conditions/set/pressure-outlet outlet () t no 313.15 q
+/define/boundary-conditions/wall
+wall_heat
+no
+0
+no
+0
+no
+yes
+heat-flux
+no
+205000
+no
+no
+1
+/report/reference-values/temperature 313.15
+/define/operating-conditions/operating-pressure 101325
+/solve/set/p-v-coupling 24
+/solve/set/pseudo-transient yes
+yes
+1
+1
+0
+yes
+1
+/solve/set/discretization-scheme/pressure 10
+/solve/set/discretization-scheme/mom 0
+/solve/set/discretization-scheme/temperature 0
+/solve/monitors/residual/print? yes
+/solve/monitors/residual/plot? no
+/solve/monitors/residual/criterion-type 0
+; laminar: continuity, x, y, z, energy
+/solve/monitors/residual/check-convergence? no
+no
+no
+no
+no
+; criteria menu is empty while every equation check is off. Do not send 1e-4 here.
+; case+data every 200 iterations; each-time saves the case with every data file.
+; iterate also writes hbm_array_laminar_conv when it stops.
+/file/auto-save/root-name "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h20"
+/file/auto-save/data-frequency 200
+/file/auto-save/case-frequency
+each-time
+/solve/initialize/set-defaults/temperature 313.15
+/solve/initialize/initialize-flow
+; stops early when the residual criteria above are met, otherwise at 400
+/solve/iterate 200
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_w08h20_i200"
+(display "REPORT-BEGIN i400")
+/report/surface-integrals/area-weighted-avg
+wall_heat
+()
+temperature
+no
+/report/surface-integrals/facet-max
+wall_heat
+()
+temperature
+no
+/report/surface-integrals/area-weighted-avg
+inlet
+()
+pressure
+no
+/report/surface-integrals/area-weighted-avg
+outlet
+()
+pressure
+no
+/report/surface-integrals/mass-flow-rate
+inlet
+outlet
+()
+no
+(display "REPORT-END i400")
+/file/stop-transcript
+/exit yes
+

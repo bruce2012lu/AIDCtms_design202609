@@ -1,0 +1,27 @@
+; Probe z-heat-flux on an interior plane. Do not solve. Do not exit.
+/file/set-batch-options yes no no
+/file/confirm-overwrite yes
+/file/start-transcript D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/logs/hbm_cf_zq_probe.log
+/surface/plane-surface qz008 xy -0.000008
+/display/objects/create
+contour
+qzprobe
+field
+z-heat-flux
+surfaces-list
+qz008
+()
+coloring
+smooth
+node-values?
+yes
+range-option
+auto-range-on
+global-range?
+no
+quit
+quit
+/display/objects/display
+qzprobe
+(display "ZQ-DONE")
+/file/stop-transcript

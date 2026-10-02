@@ -1,0 +1,34 @@
+; Extra integrals for the counterflow iter-200 report. Do not solve. Do not exit.
+/file/set-batch-options yes no no
+/file/confirm-overwrite yes
+/file/start-transcript D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/logs/hbm_cf_extra.log
+/report/surface-integrals/facet-min
+wall_heat
+()
+temperature
+no
+/report/surface-integrals/area-weighted-avg
+wall_cu_fluid
+()
+temperature
+no
+/report/surface-integrals/mass-weighted-avg
+outlet_lo
+outlet_hi
+()
+temperature
+no
+/report/surface-integrals/area-weighted-avg
+outlet_lo
+outlet_hi
+()
+temperature
+no
+/report/surface-integrals/area-weighted-avg
+inlet_lo
+inlet_hi
+()
+velocity-magnitude
+no
+(display "EXTRA-DONE")
+/file/stop-transcript

@@ -1,0 +1,13 @@
+/file/set-batch-options no no no
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/tiny_cube.msh"
+/file/auto-save/data-frequency 200
+/file/auto-save/case-frequency
+(display "BARE-CF-OK") (newline)
+/solve/execute-commands/add-edit
+save-case
+1
+"/file/write-case-data D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/probe_save"
+iteration
+200
+(display "EXEC-OK") (newline)
+/exit yes

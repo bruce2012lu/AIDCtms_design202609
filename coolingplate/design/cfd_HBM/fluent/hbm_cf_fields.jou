@@ -1,0 +1,10 @@
+; List contour field names. Do not solve. Do not exit.
+/file/stop-transcript
+/file/set-batch-options yes no no
+/file/confirm-overwrite yes
+/file/start-transcript D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/logs/hbm_cf_fields.log
+/display/objects/create
+contour
+qfields
+field
+?

@@ -1,0 +1,210 @@
+; Scheme C: 11 x 0.45 mm. Side channels counterflow. Center three enter at Y=24 mm.
+; inlet_hi and inlet_lo are 4/11 of 0.20 L/min. inlet_mid is 3/11.
+; mdot total = 3.30733333e-3 kg/s. q'' = 205000 W/m2.
+; Check off. Do not stop before step 200. No GPU.
+/file/set-batch-options yes yes no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/logs/hbm_c_w045h20_gui_solve.log"
+/file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/mesh/hbm_c_w045h20.msh"
+/mesh/check
+/define/boundary-conditions/list-zones
+/define/models/energy yes
+no
+no
+no
+no
+/define/models/viscous/laminar yes
+/define/materials/copy fluid water-liquid
+/define/materials/copy solid copper
+/define/materials/change-create
+water-liquid
+water-liquid
+yes
+constant
+992.2
+yes
+constant
+4179
+yes
+constant
+0.631
+yes
+constant
+6.53e-4
+no
+no
+no
+/define/materials/change-create
+copper
+copper
+yes
+constant
+8960
+yes
+constant
+385
+yes
+constant
+390
+/define/materials/change-create
+aluminum
+tim2
+yes
+constant
+2800
+yes
+constant
+1000
+yes
+constant
+8.818342
+yes
+/define/boundary-conditions/fluid
+fluid
+yes
+water-liquid
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+no
+/define/boundary-conditions/solid
+solid_cu
+yes
+copper
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+/define/boundary-conditions/solid
+solid_tim2
+yes
+tim2
+no
+no
+no
+no
+0
+no
+0
+no
+0
+no
+0
+no
+0
+no
+1
+no
+no
+no
+/define/boundary-conditions/zone-type inlet_lo mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_hi mass-flow-inlet
+/define/boundary-conditions/zone-type inlet_mid mass-flow-inlet
+/define/boundary-conditions/zone-type outlet_lo pressure-outlet
+/define/boundary-conditions/zone-type outlet_hi pressure-outlet
+/define/boundary-conditions/zone-type wall_heat wall
+/define/boundary-conditions/zone-type wall_adiabat wall
+/define/boundary-conditions/zone-type wall_side wall
+/define/boundary-conditions/set/mass-flow-inlet inlet_lo () mass-flow no 1.20266667e-3 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_hi () mass-flow no 1.20266667e-3 t no 313.15 q
+/define/boundary-conditions/set/mass-flow-inlet inlet_mid () mass-flow no 9.02000000e-4 t no 313.15 q
+/define/boundary-conditions/set/pressure-outlet outlet_lo () t no 313.15 q
+/define/boundary-conditions/set/pressure-outlet outlet_hi () t no 313.15 q
+/define/boundary-conditions/wall
+wall_heat
+no
+0
+no
+0
+no
+yes
+heat-flux
+no
+205000
+no
+no
+1
+/report/reference-values/temperature 313.15
+/define/operating-conditions/operating-pressure 101325
+/solve/set/p-v-coupling 24
+/solve/set/pseudo-transient yes
+yes
+1
+1
+0
+yes
+1
+/solve/set/discretization-scheme/pressure 10
+/solve/set/discretization-scheme/mom 0
+/solve/set/discretization-scheme/temperature 0
+/solve/monitors/residual/print? yes
+/solve/monitors/residual/plot? yes
+/solve/monitors/residual/criterion-type 0
+/solve/monitors/residual/check-convergence? no
+no
+no
+no
+no
+/file/auto-save/root-name "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_c_w045h20"
+/file/auto-save/data-frequency 200
+/file/auto-save/case-frequency
+each-time
+/solve/initialize/set-defaults/temperature 313.15
+/solve/initialize/initialize-flow
+/solve/iterate 200
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_c_w045h20_i200"
+(display "REPORT-BEGIN i200")
+/report/surface-integrals/area-weighted-avg
+wall_heat
+()
+temperature
+no
+/report/surface-integrals/facet-max
+wall_heat
+()
+temperature
+no
+/report/surface-integrals/facet-min
+wall_heat
+()
+temperature
+no
+/report/surface-integrals/mass-flow-rate
+inlet_lo
+inlet_hi
+inlet_mid
+outlet_lo
+outlet_hi
+()
+no
+(display "REPORT-END i200")
+/file/stop-transcript

@@ -1,0 +1,560 @@
+Auto-Transcript Start Time:  21:56:43, 27 Sep 2026 �й���׼ʱ�� 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM"
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:22:05 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+
+*********************************************
+Info: Your license enables 4-way parallel execution.
+For faster simulations, please start the application with the appropriate parallel options.
+*********************************************
+
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:63430 
+
+Node 0 connecting to the Host ... connection established.
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0    DESKTOP-JHEHF28  1/32  Windows-x64  66900  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  62924  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd_HBM\\cleanup-fluent-DESKTOP-JHEHF28-62924.bat
+Note: Rank = 0: Process affinity not being set (6).
+
+Graphics driver currently in use: dx11
+
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd_HBM\fluent\read_i400_gui.jou...
+
+> ; Open the 400-iteration HBM case in the GUI. Do not solve. Do not exit.
+/file/set-batch-options no no no
+
+> /file/confirm-overwrite yes
+
+> /file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_array_laminar_i400.cas.h5"Fast-loading "E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\fluent26.1.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_array_laminar_i400.cas.h5" in NODE0 mode ...
+  Reading mesh ...
+     6429192 cells,     3 cell zones ...
+        3205248 hexahedral cells,  zone id: 2
+        2993904 hexahedral cells,  zone id: 3
+         230040 hexahedral cells,  zone id: 4
+    19644606 faces,    15 face zones ...
+           1080 quadrilateral wall faces,  zone id: 17
+          18224 quadrilateral wall faces,  zone id: 16
+          20448 quadrilateral wall faces,  zone id: 15
+         641016 quadrilateral interior faces,  zone id: 14
+        8797722 quadrilateral interior faces,  zone id: 13
+        9491808 quadrilateral interior faces,  zone id: 5
+         189856 quadrilateral wall faces,  zone id: 6
+         189856 quadrilateral wall faces,  zone id: 19
+          38340 quadrilateral wall faces,  zone id: 7
+          38340 quadrilateral wall faces,  zone id: 18
+          23568 quadrilateral mass-flow-inlet faces,  zone id: 8
+          23568 quadrilateral pressure-outlet faces,  zone id: 9
+          38340 quadrilateral wall faces,  zone id: 10
+         121560 quadrilateral wall faces,  zone id: 11
+          10880 quadrilateral wall faces,  zone id: 12
+     6783460 nodes,     1 node zone  ...
+Warning: reading 4 partition grid onto 1 compute node machine.
+         Combining every 4 partitions.
+  Done.
+
+
+Building...
+     mesh
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	wall_side:017
+	wall_side:016
+	wall_adiabat:015
+	interior:014
+	interior:013
+	wall_tim_cu
+	wall_cu_fluid
+	interior
+	inlet
+	outlet
+	wall_heat
+	wall_adiabat
+	wall_side
+	solid_tim2
+	solid_cu
+	fluid
+     parallel,
+Done.
+
+Preparing mesh for display...
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_array_laminar_i400.dat.h5" in NODE0 mode ...
+
+
+  Reading results.
+Parallel variables...
+Done.
+
+
+> /display/mesh
+
+> /display/views/auto-scale
+
+> 
+> /file/read-journal
+Journal file names [()] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/sample_i400.jou
+Journal file names [()] ()
+
+Reading journal file D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/sample_i400.jou...
+
+> ; HBM i400 sample contours. Case is already loaded. Do not solve. Do not exit.
+/preferences/graphics/graphics-effects/grid-plane-enabled
+Ground plane grid [no] no
+
+> /preferences/graphics/colormap-settings/number-format-type
+Valid values: ("general" "float" "exponential")
+Number Format Type ["general"] general
+
+> /preferences/graphics/colormap-settings/number-format-precision
+Number Format Precision (0-9) [5] 5
+
+> (display "ANNO-PICK")
+ANNO-PICK
+
+> /display/annotation/annotate
+Annotation Text [""] "z=-2.08 mm"
+Available options: ("None" "Date" "Time" "Version" "No. of Iterations" "No. of Timesteps" "Flowtime")
+Append Quantity ["None"] "None"
+Pick a screen location with the Left Mouse Button.
+Drag the mouse for an attachment line ...
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*Table3(Mesh)*PushButton4(Check)")
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*Table3(Mesh)*PushButton4(Check)")
+(cx-use-window-id 51)
+
+
+> (display "ANNO-PLACED")
+ANNO-PLACED
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> font-name
+Available options: ("黑体" "隶书" "等线 Light" "等线" "汉仪中黑 197" "楷体" "方正舒体" "方正姚体" "新宋体" "微软雅黑 Light" "微软雅黑" "幼圆" "宋体" "华文隶书" "华文行楷" "华文细黑" "华文琥珀" "华文楷体" "华文新魏" "华文彩云" "华文宋体" "华文仿宋" "华文中宋" "仿宋" "yyb" "Yu Gothic UI Semilight" "Yu Gothic UI Semibold" "Yu Gothic UI Light" "Yu Gothic UI" "Yu Gothic Medium" "Yu Gothic Light" "Yu Gothic" "Wingdings 3" "Wingdings 2" "Wingdings" "Wide Latin" "Webdings" "Vladimir Script" "Vivaldi" "Vineta BT" "Viner Hand ITC" "Verdana" "UniversalMath1 BT" "Ubuntu Mono Medium" "Ubuntu Mono" "Txt" "Tw Cen MT Condensed Extra Bold" "Tw Cen MT Condensed" "Tw Cen MT" "Trebuchet MS" "Times New Roman" "Terminal" "Tempus Sans ITC" "TechnicLite" "TechnicBold" "Technic" "Tahoma" "System" "Symusic" "Symeteo" "Symbol" "Symath" "Symap" "Sylfaen" "Syastro" "Swis721 LtEx BT" "Swis721 LtCn BT" "Swis721 Lt BT" "Swis721 Ex BT" "Swis721 Cn BT" "Swis721 BT" "Swis721 BlkOul BT" "Swis721 BlkEx BT" "Swis721 BlkCn BT" "Swis721 Blk BT" "Swis721 BdOul BT" "Swis721 BdCnOul BT" "SuperFrench" "Stylus BT" "Stencil" "Source Sans Pro Semibold" "Source Sans Pro Light" "Source Sans Pro ExtraLight" "Source Sans Pro Black" "Source Sans Pro" "Source Han Serif SC Heavy" "Source Han Serif SC" "Snap ITC" "Small Fonts" "Sitka Text Semibold" "Sitka Text" "Sitka Subheading Semibold" "Sitka Subheading" "Sitka Small Semibold" "Sitka Small" "Sitka Heading Semibold" "Sitka Heading" "Sitka Display Semibold" "Sitka Display" "Sitka Banner Semibold" "Sitka Banner" "Sitka" "SimSun-ExtG" "SimSun-ExtB" "Simplex" "Showcard Gothic" "Segoe UI Variable Text Semiligh" "Segoe UI Variable Text Semibold" "Segoe UI Variable Text Light" "Segoe UI Variable Text" "Segoe UI Variable Small Semilig" "Segoe UI Variable Small Semibol" "Segoe UI Variable Small Light" "Segoe UI Variable Small" "Segoe UI Variable Display Semil" "Segoe UI Variable Display Semib" "Segoe UI Variable Display Light" "Segoe UI Variable Display" "Segoe UI Variable" "Segoe UI Symbol" "Segoe UI Semilight" "Segoe UI Semibold" "Segoe UI Light" "Segoe UI Historic" "Segoe UI Emoji" "Segoe UI Black" "Segoe UI" "Segoe Script" "Segoe Print" "Segoe MDL2 Assets" "Segoe Fluent Icons" "ScriptS" "ScriptC" "Script MT Bold" "Script" "SansSerif" "Sans Serif Collection" "Rubik Medium" "Rubik Light" "Rubik Black" "Rubik" "Romantic" "RomanT" "RomanS" "RomanD" "RomanC" "Roman" "Rockwell Extra Bold" "Rockwell Condensed" "Rockwell" "Ravie" "Rage Italic" "Proxy 9" "Proxy 8" "Proxy 7" "Proxy 6" "Proxy 5" "Proxy 4" "Proxy 3" "Proxy 2" "Proxy 1" "Pristina" "Poor Richard" "PMingLiU-ExtB" "Playbill" "Perpetua Titling MT" "Perpetua" "Parchment" "Papyrus" "PanRoman" "Palatino Linotype" "Palace Script MT" "Open Sans SemiBold" "Open Sans Medium" "Open Sans Light" "Open Sans ExtraBold" "Open Sans" "Onyx" "Old English Text MT" "OCR A Extended" "Noto Serif SC SemiBold" "Noto Serif SC Medium" "Noto Serif SC Light" "Noto Serif SC ExtraLight" "Noto Serif SC Black" "Noto Serif SC" "Noto Sans SC Thin" "Noto Sans SC Medium" "Noto Sans SC Light" "Noto Sans SC DemiLight" "Noto Sans SC Black" "Noto Sans SC" "Nirmala UI Semilight" "Nirmala UI" "Niagara Solid" "Niagara Engraved" "Myanmar Text" "MV Boli" "MT Extra" "MS UI Gothic" "MS Serif" "MS Sans Serif" "MS Reference Specialty" "MS Reference Sans Serif" "MS PGothic" "MS Outlook" "MS Gothic" "Monotype Corsiva" "Monotxt" "Monospac821 BT" "Mongolian Baiti" "Modern No. 20" "Modern" "Mistral" "MingLiU_HKSCS-ExtB" "MingLiU-ExtB" "Microsoft Yi Baiti" "Microsoft YaHei UI Light" "Microsoft YaHei UI" "Microsoft YaHei" "Microsoft Uighur" "Microsoft Tai Le" "Microsoft Sans Serif" "Microsoft PhagsPa" "Microsoft New Tai Lue" "Microsoft JhengHei UI Light" "Microsoft JhengHei UI" "Microsoft JhengHei Light" "Microsoft JhengHei" "Microsoft Himalaya" "Matura MT Script Capitals" "Marlett" "Malgun Gothic Semilight" "Malgun Gothic" "Maiandra GD" "Magneto" "Lucida Sans Unicode" "Lucida Sans Typewriter" "Lucida Sans" "Lucida Handwriting" "Lucida Fax" "Lucida Console" "Lucida Calligraphy" "Lucida Bright" "Leelawadee UI Semilight" "Leelawadee UI" "Leelawadee" "Kunstler Script" "Kristen ITC" "Juice ITC" "Jokerman" "Javanese Text" "ItalicT" "ItalicC" "Italic" "ISOCTEUR" "ISOCT3" "ISOCT2" "ISOCT" "ISOCPEUR" "ISOCP3" "ISOCP2" "ISOCP" "Ink Free" "Informal Roman" "Imprint MT Shadow" "Impact" "HYZhongHei" "HoloLens MDL2 Assets" "High Tower Text" "Harrington" "Harlow Solid Italic" "Haettenschweiler" "GreekS" "GreekC" "Goudy Stout" "Goudy Old Style" "GothicI" "GothicG" "GothicE" "Gloucester MT Extra Condensed" "Gill Sans Ultra Bold Condensed" "Gill Sans Ultra Bold" "Gill Sans MT Ext Condensed Bold" "Gill Sans MT Condensed" "Gill Sans MT" "Gigi" "Georgia" "GENISO" "GDT" "Garamond" "Gadugi" "Gabriola" "French Script MT" "Freestyle Script" "Franklin Gothic Medium Cond" "Franklin Gothic Medium" "Franklin Gothic Heavy" "Franklin Gothic Demi Cond" "Franklin Gothic Demi" "Franklin Gothic Book" "Forte" "Footlight MT Light" "Fixedsys" "FFont-Family" "Felix Titling" "EuroRoman" "Eras Medium ITC" "Eras Light ITC" "Eras Demi ITC" "Eras Bold ITC" "Engravers MT" "Elephant" "Edwardian Script ITC" "Ebrima" "Dutch801 XBd BT" "Dutch801 Rm BT" "DengXian" "Curlz MT" "Courier New" "Courier" "CountryBlueprint" "Corbel Light" "Corbel" "Copperplate Gothic Light" "Copperplate Gothic Bold" "Cooper Black" "Constantia" "Consolas" "Complex" "CommercialScript BT" "CommercialPi BT" "Comic Sans MS" "Colonna MT" "CityBlueprint" "Chiller" "Century Schoolbook" "Century Gothic" "Century" "Centaur" "Castellar" "Cascadia Mono SemiLight" "Cascadia Mono SemiBold" "Cascadia Mono Light" "Cascadia Mono ExtraLight" "Cascadia Mono" "Cascadia Code SemiLight" "Cascadia Code SemiBold" "Cascadia Code Light" "Cascadia Code ExtraLight" "Cascadia Code" "Candara Light" "Candara" "Cambria Math" "Cambria" "Calisto MT" "Californian FB" "Calibri Light" "Calibri" "Brush Script MT" "Broadway" "Britannic Bold" "Bradley Hand ITC" "Bookshelf Symbol 7" "Bookman Old Style" "Book Antiqua" "Bodoni MT Poster Compressed" "Bodoni MT Condensed" "Bodoni MT Black" "Bodoni MT" "Blackadder ITC" "Bernard MT Condensed" "Berlin Sans FB Demi" "Berlin Sans FB" "Bell MT" "Bauhaus 93" "Baskerville Old Face" "BankGothic Md BT" "BankGothic Lt BT" "Bahnschrift SemiLight SemiConde" "Bahnschrift SemiLight Condensed" "Bahnschrift SemiLight" "Bahnschrift SemiCondensed" "Bahnschrift SemiBold SemiConden" "Bahnschrift SemiBold Condensed" "Bahnschrift SemiBold" "Bahnschrift Light SemiCondensed" "Bahnschrift Light Condensed" "Bahnschrift Light" "Bahnschrift Condensed" "Bahnschrift" "Artifakt Element Thin" "Artifakt Element Medium" "Artifakt Element Light" "Artifakt Element Heavy" "Artifakt Element Hair" "Artifakt Element Book" "Artifakt Element Black" "Artifakt Element" "Arial Unicode MS" "Arial Rounded MT Bold" "Arial Narrow" "Arial Black" "Arial" "AMGDT" "AmdtSymbols" "Algerian" "Alegreya Sans SC Thin" "Alegreya Sans SC Medium" "Alegreya Sans SC Light" "Alegreya Sans SC ExtraBold" "Alegreya Sans SC Black" "Alegreya Sans SC" "AIGDT" "Agency FB" "AcadEref")
+Text font family ["Rubik"] "Microsoft YaHei"
+
+//display/annotation/text-0> font-size
+Available options: ("6" "8" "9" "10" "11" "12" "14" "16" "18" "20" "24" "28" "32" "48" "64")
+Text font size ["11"] "24"
+
+//display/annotation/text-0> quit
+
+> (display "FONT24-DONE")
+FONT24-DONE
+
+> /display/set/picture/use-window-resolution?
+Use active window's resolution? [yes] no
+
+> /display/set/picture/x-resolution
+Raster image width [960] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [720] 480
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-2.08 mm"] "z=-2.08 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-1] wallheat
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] wall_heat
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] no
+
+WARNING: "Smooth" contours can't be displayed when node-values is set to off for "wallheat". Changing the Coloring type to "Banded".
+Choose setting to change> boundary-values?
+Boundary Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> wallheat
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["perspective"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.5934351682662964] 0.0055
+Y (in [m]) [0.8609536290168762] 0.025
+Z (in [m]) [0.5898857116699219] 0.04792
+
+> /display/views/camera/target
+X (in [m]) [0.003915831446647644] 0.0055
+Y (in [m]) [0.02724713832139969] 0.025
+Z (in [m]) [0.0003662357339635491] -0.00208
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.5773945450782776] -1
+Y (in [m]) [0.8164653182029724] 0
+Z (in [m]) [0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i400/wall_heat_temperature.png
+
+> (display "WALL-SAVED")
+WALL-SAVED
+
+> /surface/plane-surface yzch yz 0.00095
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [480] 320
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-2.08 mm"] "x=0.95 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-1] yztemp
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] yzch
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> yztemp
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005499999970197678] 0.08095
+Y (in [m]) [0.02500000596046448] 0.025
+Z (in [m]) [0.1315624266862869] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005499999970197678] 0.00095
+Y (in [m]) [0.02500000596046448] 0.025
+Z (in [m]) [-0.002080000005662441] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [0] 0
+Y (in [m]) [-0.04204540699720383] 0
+Z (in [m]) [0.9991157054901123] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i400/x095_temperature.png
+
+> (display "YZ-SAVED")
+YZ-SAVED
+
+> /surface/plane-surface xycu xy -0.001984
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 2400
+
+> /display/set/picture/y-resolution
+Raster image height [320] 480
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["x=0.95 mm"] "z=-1.984 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-1] xycu
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] xycu
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> xycu
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.1804126352071762] 0.0055
+Y (in [m]) [0.02500000596046448] 0.025
+Z (in [m]) [0.001959997927770019] 0.048016
+
+> /display/views/camera/target
+X (in [m]) [0.0009500000160187483] 0.0055
+Y (in [m]) [0.02500000596046448] 0.025
+Z (in [m]) [0.001959997927770019] -0.001984
+
+> /display/views/camera/up-vector
+X (in [m]) [-0.9997313022613525] -1
+Y (in [m]) [-0.02318327687680721] 0
+Z (in [m]) [-0] 0
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i400/zm1984_temperature.png
+
+> (display "XY-SAVED")
+XY-SAVED
+
+> /surface/plane-surface zxmid zx 0.025
+
+> /display/set/picture/x-resolution
+Raster image width [2400] 1400
+
+> /display/set/picture/y-resolution
+Raster image height [480] 1000
+
+> /display/annotation/edit
+annotation: ("text-0")
+Select annotation to edit ["text-0"] text-0
+
+//display/annotation/text-0> text
+Base Text ["z=-1.984 mm"] "Y=25 mm"
+
+//display/annotation/text-0> quit
+
+> /display/objects/create
+Object types: (contour mesh particle-tracks pathlines vector xy-plot scene lic volume)
+Object type [] contour
+New object name [contour-1] zxtemp
+
+Choose setting to change> field
+
+contours of> temperature
+
+Choose setting to change> surfaces-list
+surface id/name(1) [()] zxmid
+surface id/name(2) [()] ()
+
+Choose setting to change> coloring
+Options: (smooth banded)
+Coloring [smooth] smooth
+
+Choose setting to change> node-values?
+Node Values? [yes] yes
+
+Choose setting to change> range-option
+Options: (auto-range-on auto-range-off)
+Range [auto-range-on] auto-range-on
+
+Choose setting to change/range-option> global-range?
+ [yes] no
+
+Choose setting to change/range-option> quit
+
+Choose setting to change> annotations-list
+Number of Items [0] 1
+Set values for Item 1:
+ [""] text-0
+
+Choose setting to change> quit
+
+> /display/objects/display
+
+Object name> zxtemp
+
+> /display/views/camera/projection
+Available options: ("perspective" "orthographic")
+Projection type ["orthographic"] orthographic
+
+> /display/views/camera/position
+X (in [m]) [0.005500000901520252] 0.0055
+Y (in [m]) [0.02500000223517418] 0.075
+Z (in [m]) [0.1774785965681076] 0.002
+
+> /display/views/camera/target
+X (in [m]) [0.005500000901520252] 0.0055
+Y (in [m]) [0.02500000223517418] 0.025
+Z (in [m]) [-0.001983999973163009] 0.002
+
+> /display/views/camera/up-vector
+X (in [m]) [-1] 0
+Y (in [m]) [0] 0
+Z (in [m]) [0.000179646463948302] 1
+
+> /display/views/auto-scale
+
+> /display/views/camera/zoom-camera
+Zoom factor [1] 0.72
+
+> /display/views/camera/roll-camera
+Roll camera counter-clockwise angle (in [deg]) [0] -0.13
+
+> /display/save-picture
+File name [""] D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/figs/i400/y25_temperature.png
+
+> (display "CAPTURE-DONE")
+CAPTURE-DONE
+
+> 
+> 
+adjoint/                parallel/               server/
+define/                 parametric-study/       solve/
+display/                plot/                   surface/
+exit                    preferences/            turbo-setup/
+file/                   print-license-usage     views/
+mesh/                   report/
+
+> (cx-gui-do cx-activate-item "Annotate*PanelButtons*PushButton5(Show/Hide)")
+(cx-gui-do cx-activate-item "Annotate*PanelButtons*PushButton2(Cancel)")
+(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame6(Results)*Table1*Table3(Graphics)*PushButton2(Contours)")
+(cx-gui-do cx-activate-item "MenuBar*PopupMenuContours*New...")
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Table1*DropDownList1(Contours of)" '( 2))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Table1*DropDownList1(Contours of)")
+(cx-gui-do cx-set-list-selections "Contours*Table1*Frame3*Frame2*List2(Surfaces)" '( 14))
+(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Frame2*List2(Surfaces)")
+(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")

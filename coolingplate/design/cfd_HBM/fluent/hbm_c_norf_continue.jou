@@ -1,0 +1,36 @@
+; Continue from iter 200 after prevent-reverse-flow on both outlets.
+; Do not reinitialize. Do not exit. Do not stop before 200 more steps.
+/solve/iterate 200
+/file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/fluent/hbm_c_w045h20_norf_i400"
+(display "REPORT-BEGIN norf")
+/report/surface-integrals/mass-flow-rate
+inlet_lo
+inlet_hi
+inlet_mid
+outlet_lo
+outlet_hi
+()
+no
+/report/surface-integrals/mass-weighted-avg
+outlet_lo
+outlet_hi
+()
+temperature
+no
+/report/surface-integrals/area-weighted-avg
+wall_heat
+()
+temperature
+no
+/report/surface-integrals/facet-max
+wall_heat
+()
+temperature
+no
+/report/surface-integrals/facet-min
+wall_heat
+()
+temperature
+no
+(display "REPORT-END norf")
+/file/stop-transcript

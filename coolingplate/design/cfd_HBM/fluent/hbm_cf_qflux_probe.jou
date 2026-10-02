@@ -1,0 +1,28 @@
+; Probe heat-flux field names. Do not solve. Do not exit.
+/file/set-batch-options yes no no
+/file/confirm-overwrite yes
+/file/start-transcript D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd_HBM/logs/hbm_cf_qflux_probe.log
+/display/objects/create
+contour
+qprobe
+field
+heat-flux
+surfaces-list
+wall_tim_cu
+()
+coloring
+smooth
+node-values?
+no
+boundary-values?
+yes
+range-option
+auto-range-on
+global-range?
+no
+quit
+quit
+/display/objects/display
+qprobe
+(display "PROBE-DONE")
+/file/stop-transcript
