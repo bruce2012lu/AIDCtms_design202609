@@ -1,0 +1,10 @@
+﻿Form Factor,6U
+Length 950mm,
+Weight,105kg
+Fluid Temp. Range 10° to 70°C,
+Secondary Side Fluid,PG25
+"200-250 VAC,
+Electrical Supply
+Single-Phase",
+Comm Protocol,"TCP / IP, Redfish,
+SSH, Webserver"

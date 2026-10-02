@@ -1,0 +1,30 @@
+[
+  {
+    "file": "tables/p002_t0.csv",
+    "page": 2,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p013_t0.csv",
+    "page": 13,
+    "rows": 7,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p014_t0.csv",
+    "page": 14,
+    "rows": 7,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p014_t1.csv",
+    "page": 14,
+    "rows": 4,
+    "cols": 5,
+    "captions_on_page": []
+  }
+]

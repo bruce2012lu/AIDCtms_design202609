@@ -1,0 +1,11 @@
+{
+  "id": "ven-2026-jetcool-product-catalog",
+  "sha256": "96c7997e749896b75fe2f774e2fea8718bac4b6159637f90eaf4b58553895e84",
+  "source": "files/vendor_docs/ven-2026-jetcool-product-catalog.pdf",
+  "extracted_at": "2026-10-02T23:32:51",
+  "pages": 17,
+  "chars": 14550,
+  "chunks": 15,
+  "tables": 4,
+  "figures": 34
+}
