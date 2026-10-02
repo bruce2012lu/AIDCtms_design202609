@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<title>HBM 微通道冷板 · 一维设计报告 v1.0</title>
+<style>
+:root { --ink:#1c2430; --muted:#5c6b7a; --line:#d5dde6; --navy:#0e3a5d; --ok:#0d6b3a; --paper:#f6f4ef; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.65 "Microsoft YaHei","PingFang SC",sans-serif; }
+main { max-width:1040px; margin:0 auto; padding:32px 28px 72px; background:#fff; }
+h1 { font-size:28px; line-height:1.3; margin:0 0 8px; color:var(--navy); }
+h2 { font-size:20px; margin:32px 0 10px; padding-top:8px; border-top:2px solid var(--navy); color:var(--navy); }
+h3 { font-size:17px; margin:22px 0 8px; color:var(--navy); }
+.sub { color:var(--muted); margin:0 0 8px; }
+.meta { display:flex; flex-wrap:wrap; gap:8px 18px; font-size:13px; color:var(--muted); margin:8px 0 18px; }
+.lead { background:#f3f7fb; border-left:4px solid var(--navy); padding:12px 14px; }
+.note { border:1px solid #e3ca8d; background:#fff9e9; padding:12px 14px; margin:12px 0; }
+table { width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:14px; }
+th, td { border:1px solid var(--line); padding:6px 8px; vertical-align:top; text-align:left; }
+th { background:#eef3f8; }
+.num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.ok { color:var(--ok); font-weight:700; }
+code { font-family:Consolas,monospace; font-size:13px; }
+ul { margin:8px 0 8px 1.2em; }
+footer { margin-top:36px; font-size:13px; color:var(--muted); }
+@media print {
+  body { background:#fff; }
+  main { max-width:none; padding:0; }
+  h2, h3 { break-after:avoid; }
+  table, .note, .lead { break-inside:avoid; }
+  @page { size:A4; margin:14mm; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>HBM 微通道冷板 · 一维设计报告</h1>
+<p class="sub">单列四颗。当前采用方案 D：十一条槽并联，每颗中间进水、两侧出水，工质 PG25，每颗 0.15 L/min。</p>
+<div class="meta">
+  <span>HBM-1D-20260929</span>
+  <span>v1.0</span>
+  <span>日期 2026-09-29</span>
+  <span>一维筛选</span>
+</div>
+<p class="lead">当前采用方案 D。截面沿用方案 C：11 槽、槽宽 0.45 mm、肋宽 0.50 mm、岸宽 0.525 mm、槽高 2.00 mm。十一条槽全部并联，四颗 HBM 各自在芯片中点进水、向芯片两端出水。工质改为 PG25，每颗 0.15 L/min，四颗合计 0.60 L/min。铜厚仍是底 2 + 槽 2 + 盖 4 = 8.0 mm。本页其余各节的顺流、方案 A、方案 B、方案 C 仍是水、0.20 L/min 的筛选记录。</p>
+<h2>方案 D · 当前采用</h2>
+<p>四颗位置不变：Y = 0–11、13–24、26–37、39–50 mm。每颗中点是 Y = 5.5、18.5、31.5、44.5 mm。进水缝沿 Y 宽 1.0 mm，盖住全部 11 条槽，缝的范围是 5.0–6.0、18.0–19.0、31.0–32.0、44.0–45.0 mm。每条缝把该颗流量对半拆向低 Y 和高 Y。受热支路各长 5.0 mm。2 mm 间隙不再走槽，改成两侧出水的汇流位置：Y = 11–13、24–26、37–39 mm 各收相邻两支，列的两端 Y = 0 和 Y = 50 各收一支。</p>
+<table>
+<thead><tr><th>量</th><th class="num">数值</th><th>单位</th><th>用法</th></tr></thead>
+<tbody>
+<tr><td>密度</td><td class="num">1022.5</td><td>kg/m³</td><td>PG25，40 °C</td></tr>
+<tr><td>比热</td><td class="num">3900</td><td>J/(kg·K)</td><td>产品表 3.9 kJ/(kg·K)</td></tr>
+<tr><td>动力粘度</td><td class="num">0.00158</td><td>Pa·s</td><td>40 °C</td></tr>
+<tr><td>导热系数</td><td class="num">0.476</td><td>W/(m·K)</td><td>40 °C</td></tr>
+<tr><td>流量</td><td class="num">0.15</td><td>L/min</td><td>每颗</td></tr>
+<tr><td>四颗合计</td><td class="num">0.60</td><td>L/min</td><td>本列</td></tr>
+<tr><td>单颗 / 单支</td><td class="num">0.15 / 0.075</td><td>L/min</td><td>每颗再对半</td></tr>
+<tr><td>质量流量</td><td class="num">0.010225</td><td>kg/s</td><td>1022.5 × 0.60 / 60000</td></tr>
+<tr><td>功率</td><td class="num">99.22</td><td>W</td><td>四颗，热流密度仍是 205000 W/m²</td></tr>
+</tbody>
+</table>
+<p>物性取 DOWFROST LC 25 在 40 °C 的表值。这种液体是体积分数 25% 的丙二醇，产品页把它标成 PG25。比热在该行写成 3.9 kJ/(kg·K)，这里用 3900 J/(kg·K)。</p>
+<table>
+<thead><tr><th>量</th><th class="num">方案 D</th></tr></thead>
+<tbody>
+<tr><td>支路流速</td><td class="num">0.1263 m/s</td></tr>
+<tr><td>雷诺数</td><td class="num">60.0</td></tr>
+<tr><td>水力直径</td><td class="num">0.735 mm</td></tr>
+<tr><td>普朗特数</td><td class="num">12.95</td></tr>
+<tr><td>努塞尔数</td><td class="num">9.02</td></tr>
+<tr><td>换热系数</td><td class="num">5846 W/(m²·K)</td></tr>
+<tr><td>肋效率</td><td class="num">0.927</td></tr>
+<tr><td>流体温升</td><td class="num">2.488 K</td></tr>
+<tr><td>对流温差</td><td class="num">7.61 K</td></tr>
+<tr><td>支路压降</td><td class="num">17.2 Pa</td></tr>
+<tr><td>假定分流局部阻力</td><td class="num">12.2 Pa</td></tr>
+</tbody>
+</table>
+<p>支路流速用单支、单槽的流量除以密度和槽截面。0.1263 m/s 低于 0.80 m/s。努塞尔数仍用 max(4, 1.86 × Gz<sup>1/3</sup>)，长度取 5.0 mm 支路。流体温升 2.488 K = 99.22 / (0.010225 × 3900)，这是四颗热量全部由 0.60 L/min 带走时的温升。每颗 0.15 L/min 对半之后，半颗热量除以半支流量，商还是 2.488 K。</p>
+<p>17.2 Pa 是 5.0 mm 支路的 Shah 直槽压降。12.2 Pa 是 K = 1.5 乘支路动压，K 仍是假定。两者相加 29.4 Pa，只算槽内支路，不算进水腔、出水腔和竖直烟囱。</p>
+<p>铜节点来自分段网络，Y 向步长 0.5 mm，3200 步与 6400 步的平均温度和场温差相同。进水缝里的流体先吸热，再拆成两支，所以出口焓带上缝里的热量。八个出口温度是 42.480–42.501 °C，网络统计的带热量是 99.225 W，与 99.22 W 相差 0.005 W。</p>
+<table>
+<thead>
+<tr><th>对象</th><th class="num">铜最低</th><th class="num">铜平均</th><th class="num">铜最高</th><th class="num">场温差</th><th class="num">四颗跨度</th><th class="num">TIM 最低</th><th class="num">TIM 平均</th><th class="num">TIM 最高</th></tr>
+</thead>
+<tbody>
+<tr><td>方案 D</td><td class="num">46.040</td><td class="num">46.472</td><td class="num">46.818</td><td class="num">0.778</td><td class="num">0.001</td><td class="num">47.900</td><td class="num">48.332</td><td class="num">48.678</td></tr>
+</tbody>
+</table>
+<p>单位 °C。入口 40.00 °C。TIM 底面比铜节点高 1.860 °C。四颗跨度是四颗平均温度之差。</p>
+<table>
+<thead><tr><th>位置</th><th class="num">铜最低</th><th class="num">铜平均</th><th class="num">铜最高</th><th class="num">内部温差</th></tr></thead>
+<tbody>
+<tr><td>第1颗，Y = 0–11 mm</td><td class="num">46.040</td><td class="num">46.472</td><td class="num">46.817</td><td class="num">0.777</td></tr>
+<tr><td>第2颗，Y = 13–24 mm</td><td class="num">46.041</td><td class="num">46.472</td><td class="num">46.811</td><td class="num">0.770</td></tr>
+<tr><td>第3颗，Y = 26–37 mm</td><td class="num">46.041</td><td class="num">46.472</td><td class="num">46.811</td><td class="num">0.770</td></tr>
+<tr><td>第4颗，Y = 39–50 mm</td><td class="num">46.041</td><td class="num">46.473</td><td class="num">46.818</td><td class="num">0.778</td></tr>
+</tbody>
+</table>
+<p>方案 D 的一维铜场温差是 0.78 °C，四颗平均温度相差 0.001 °C。这是筛选读数。当前网格是 <code>mesh/hbm_d_x_lt10m.msh</code>，712 万单元。槽沿 X，横跨每颗芯片，中间进水、两侧出水。一维 0.78 °C 仍是 5 mm 支路的筛选温差。5 °C 目标没有被这页证明。</p>
+<p>温度来自 ny = 50 的分段网络，迭代到 6400 步。同一程序先算 3200 步再算 6400 步，四个方案的平均温度和场温差变化都小于 0.001 °C，低于 0.05 °C。正文取 6400 步。网络带欠松弛，步数不够时平均温度仍会漂；这一档已经稳住。体平均的流速、雷诺数、温升、对流温差和直槽压降是闭合公式，不靠这轮迭代。</p>
+
+<h2>1 目的与本次变更</h2>
+<p>目的是把单列芯片温差从现在的横流布置往下筛。用户给出的芯片温差是：单向 16 °C，当前横流 8 °C，目标不高于 5 °C。这三个数在本页原样保留。</p>
+<p>2026-09-29 增加两件事。第一，在保留截面上把中间三槽改成列中点进水、两端出水，用来和横流分开看流向的作用。第二，在中心进水下把槽改密，用来降低对流温差。采用的是第二套，也就是方案 C。</p>
+<p>本页是一维筛选。方案 B 和方案 C 还没有 CFD。5 °C 目标没有在本页被证明。</p>
+
+<h2>2 保留的输入</h2>
+<p>一侧、一列。水 40 °C。入口 40.00 °C。</p>
+<table>
+<thead><tr><th>量</th><th class="num">数值</th><th>单位</th><th>用法</th></tr></thead>
+<tbody>
+<tr><td>密度</td><td class="num">992.2</td><td>kg/m³</td><td>40 °C 水</td></tr>
+<tr><td>比热</td><td class="num">4179</td><td>J/(kg·K)</td><td>40 °C 水</td></tr>
+<tr><td>动力粘度</td><td class="num">0.000653</td><td>Pa·s</td><td>40 °C 水</td></tr>
+<tr><td>水导热系数</td><td class="num">0.631</td><td>W/(m·K)</td><td>40 °C 水</td></tr>
+<tr><td>铜导热系数</td><td class="num">390</td><td>W/(m·K)</td><td>底铜与肋</td></tr>
+<tr><td>流量</td><td class="num">0.20</td><td>L/min</td><td>单列</td></tr>
+<tr><td>功率</td><td class="num">99.22</td><td>W</td><td>单列</td></tr>
+<tr><td>列宽 × 列长</td><td class="num">11 × 50</td><td>mm</td><td>四颗沿列长</td></tr>
+<tr><td>单颗 / 间隙</td><td class="num">11 / 2</td><td>mm</td><td>四颗，三处间隙</td></tr>
+<tr><td>加热长度</td><td class="num">44</td><td>mm</td><td>间隙不加热</td></tr>
+<tr><td>热流密度</td><td class="num">205000</td><td>W/m²</td><td>99.22 / (0.011 × 0.044)</td></tr>
+<tr><td>槽高</td><td class="num">2.00</td><td>mm</td><td>本更新不改</td></tr>
+<tr><td>TIM 厚度</td><td class="num">0.080</td><td>mm</td><td>与 UC-01b 相同</td></tr>
+<tr><td>TIM 导热系数</td><td class="num">8.818342</td><td>W/(m·K)</td><td>与 UC-01b 相同</td></tr>
+</tbody>
+</table>
+<p>均匀热流下的 TIM 温降是 q″ × 0.000080 / 8.818342 = 205000 × 0.000080 / 8.818342 = 1.860 °C，文中记为 1.86 °C。这个温降加在每一个铜节点上。全场温差、四颗跨度、单颗内部温差都不变。下文同时给出铜节点和 TIM 底面，TIM 底面 = 铜节点 + 1.86 °C。</p>
+<p>四颗位置：Y = 0–11 mm、13–24 mm、26–37 mm、39–50 mm。列中点 Y = 25 mm，落在第 2 颗与第 3 颗之间的 2 mm 间隙里。左右各两颗，各 22 mm 受热长度。</p>
+
+<h2>3 四个计算对象</h2>
+<table>
+<thead><tr><th>对象</th><th>截面</th><th>流向</th><th>本页地位</th></tr></thead>
+<tbody>
+<tr><td>顺流对照</td><td>7 × 0.80 mm，肋 0.80 mm，岸 0.30 mm，高 2.00 mm</td><td>七槽全部自低 Y 流向高 Y</td><td>放在用户 16 °C 旁边的一维邻居</td></tr>
+<tr><td>方案 A</td><td>与顺流同一截面</td><td>横流。高 Y 进水 4 条，低 Y 进水 3 条</td><td>保留</td></tr>
+<tr><td>方案 B</td><td>与方案 A 同一截面</td><td>中间三槽中心进水，两侧仍对冲</td><td>只改流向</td></tr>
+<tr><td>方案 C</td><td>11 × 0.45 mm，肋 0.50 mm，岸 0.525 mm，高 2.00 mm</td><td>中间三槽中心进水，每侧四槽保持横流</td><td>采用</td></tr>
+</tbody>
+</table>
+<p>从低 X 侧数起，流向如下。</p>
+<table>
+<thead><tr><th>对象</th><th>槽 1 起</th></tr></thead>
+<tbody>
+<tr><td>顺流对照</td><td>1 低→高，2 低→高，3 低→高，4 低→高，5 低→高，6 低→高，7 低→高</td></tr>
+<tr><td>方案 A</td><td>1 高→低，2 低→高，3 高→低，4 低→高，5 高→低，6 低→高，7 高→低</td></tr>
+<tr><td>方案 B</td><td>1 高→低，2 低→高，3 中进两端出，4 中进两端出，5 中进两端出，6 低→高，7 高→低</td></tr>
+<tr><td>方案 C</td><td>1 高→低，2 低→高，3 高→低，4 低→高，5 中进两端出，6 中进两端出，7 中进两端出，8 低→高，9 高→低，10 低→高，11 高→低</td></tr>
+</tbody>
+</table>
+<p>方案 A 与现有横流 CFD 一致：第 1、3、5、7 槽自高 Y 流向低 Y，第 2、4、6 槽自低 Y 流向高 Y。高 Y 来流 4 条，低 Y 来流 3 条。方案 B 的七个流向是：高→低，低→高，中进两端出，中进两端出，中进两端出，低→高，高→低。方案 C 两侧各四槽按相邻对冲排，正中三槽中心进水。</p>
+<p>本次计算只用这两套截面。v2.0 里 0.60 mm × 1.50 mm 的八槽不进入本页的流速、压降和温度。</p>
+
+<h2>4 尺寸链</h2>
+<p>列宽链是独立输入的恒等式：2 × 岸 + 槽数 × 槽宽 + (槽数 − 1) × 肋宽 = 11.000 mm。岸宽是输入，不用列宽减去槽和肋再除以 2 来生成岸宽。</p>
+<h3>方案 A、方案 B、顺流对照</h3>
+<p>0.30 + 7 × 0.80 + 6 × 0.80 + 0.30 = 0.30 + 5.60 + 4.80 + 0.30 = 11.00 mm。<span class="ok">闭合</span></p>
+<table>
+<thead><tr><th>组成环</th><th class="num">mm</th></tr></thead>
+<tbody>
+<tr><td>左岸</td><td class="num">0.300</td></tr>
+<tr><td>7 条槽</td><td class="num">5.600</td></tr>
+<tr><td>6 条肋</td><td class="num">4.800</td></tr>
+<tr><td>右岸</td><td class="num">0.300</td></tr>
+<tr><td>之和</td><td class="num">11.000</td></tr>
+<tr><td>封闭环</td><td class="num">11.000</td></tr>
+</tbody>
+</table>
+<p>深宽比 2.00 / 0.80 = 2.50。肋 0.80 mm，岸 0.30 mm，槽宽 0.80 mm。</p>
+<h3>方案 C</h3>
+<p>0.525 + 11 × 0.45 + 10 × 0.50 + 0.525 = 0.525 + 4.950 + 5.000 + 0.525 = 11.000 mm。<span class="ok">闭合</span></p>
+<table>
+<thead><tr><th>组成环</th><th class="num">mm</th></tr></thead>
+<tbody>
+<tr><td>左岸</td><td class="num">0.525</td></tr>
+<tr><td>11 条槽</td><td class="num">4.950</td></tr>
+<tr><td>10 条肋</td><td class="num">5.000</td></tr>
+<tr><td>右岸</td><td class="num">0.525</td></tr>
+<tr><td>之和</td><td class="num">11.000</td></tr>
+<tr><td>封闭环</td><td class="num">11.000</td></tr>
+</tbody>
+</table>
+<p>深宽比 2.00 / 0.45 = 4.44。肋 0.50 mm，岸 0.525 mm，槽宽 0.45 mm。</p>
+<h3>列长、加热长、铜厚</h3>
+<p>4 × 11 + 3 × 2 = 44 + 6 = 50 mm，列长闭合。加热长 4 × 11 = 44 mm。铜厚 2 + 2 + 4 = 8.0 mm。TIM 0.080 mm 在铜板之外，不进这 8.0 mm。</p>
+
+<h2>5 体平均水力与换热</h2>
+<p>质量流量 ρQ/60000。单槽流量再除以槽数。满槽流速用单槽流量除以 ρ×槽宽×槽高。水力直径 Dh = 2wh/(w+h)。雷诺数用满槽流速。普朗特数 Pr = μcp/k。格雷兹数 Gz = Dh/L × Re × Pr，L 取加热长 44 mm。努塞尔数 Nu = max(4, 1.86 × Gz<sup>1/3</sup>)。换热系数 h = Nu × k / Dh。肋效率 η = tanh(mH)/(mH)，m = sqrt(2h/(k<sub>Cu</sub> × 肋宽))。每米有效换热长度是槽底、槽盖和两侧肋：2w + 2Hη。对流温差 = 功率 / (槽数 × h × 每米长度 × 加热长)。流体温升 = 功率 / (质量流量 × 比热)。出口壁面抬升 = 对流温差 + 流体温升，这是相对入口的体平均闭合，不是分段网络里的最高铜温。</p>
+<p>直槽压降用 Shah–London 矩形槽范宁摩擦：a 为短边/长边，fRe = 24 × (1 − 1.3553a + 1.9467a² − 1.7012a³ + 0.9564a⁴ − 0.2537a⁵)，Δp = fRe × μ × L × V / (2 Dh²)，L 取列长 50 mm，V 取满槽流速。</p>
+<table>
+<thead><tr><th>量</th><th class="num">截面 A/B 与顺流</th><th class="num">截面 C</th></tr></thead>
+<tbody>
+<tr><td>满槽流速 V</td><td class="num">0.2976 m/s</td><td class="num">0.3367 m/s</td></tr>
+<tr><td>雷诺数 Re</td><td class="num">516.8</td><td class="num">375.9</td></tr>
+<tr><td>水力直径 Dh</td><td class="num">1.143 mm</td><td class="num">0.735 mm</td></tr>
+<tr><td>普朗特数 Pr</td><td class="num">4.325</td><td class="num">4.325</td></tr>
+<tr><td>努塞尔数 Nu</td><td class="num">7.202</td><td class="num">5.590</td></tr>
+<tr><td>换热系数 h</td><td class="num">3976.4 W/(m²·K)</td><td class="num">4800.8 W/(m²·K)</td></tr>
+<tr><td>肋效率 η</td><td class="num">0.967</td><td class="num">0.939</td></tr>
+<tr><td>流体温升 ΔTf</td><td class="num">7.179 K</td><td class="num">7.179 K</td></tr>
+<tr><td>对流温差 ΔTconv</td><td class="num">14.81 K</td><td class="num">9.17 K</td></tr>
+<tr><td>出口壁面抬升</td><td class="num">21.99 K</td><td class="num">16.35 K</td></tr>
+<tr><td>fRe</td><td class="num">16.38</td><td class="num">18.64</td></tr>
+<tr><td>直槽压降</td><td class="num">60.9 Pa</td><td class="num">189.8 Pa</td></tr>
+</tbody>
+</table>
+<p>保留截面的闭合值：V = 0.2976 m/s，Re = 516.8，Dh = 1.143 mm，Nu = 7.202，h = 3976 W/(m²·K)，η = 0.967，ΔTconv = 14.81 K，ΔTf = 7.179 K，出口壁面抬升 = 21.99 K，直槽压降 = 60.9 Pa。方案 C：V = 0.337 m/s，Re = 376，Nu = 5.59，h = 4801 W/(m²·K)，η = 0.939，ΔTconv = 9.17 K，直槽压降 = 190 Pa。两套截面的整列流体温升都是 7.179 K，因为流量和功率没变。</p>
+<p>流速上限 0.80 m/s 用满槽流速。保留截面 0.298 m/s，方案 C 0.337 m/s，都在上限之下。中心进水的支路流速是满槽的一半，不拿支路流速去碰这道上限。</p>
+
+<h2>6 中心进水为什么不减小流体温升</h2>
+<p>中心进水不把流体温升减半。中间槽在列中点分成两支，每支流量是该槽流量的一半。列中点两侧各有两颗芯片，每支带走的热量也是该槽热量的一半。半热量除以半流量，温升仍是整列的 7.179 K，不会变成 3.59 K。工作簿第 31 行用半热量、半流量把这个商再算一遍，与整列温升的差是 0。</p>
+<p>平均铜温从方案 A 的 53.46 °C 到方案 B 的 53.49 °C，只差 0.04 °C。槽宽和肋宽没变，对流温差仍是 14.81 K。流向重排改变的是温差的形状，不是这 14.81 K。</p>
+<p>对流温差从 14.81 K 降到 9.17 K，靠的是方案 C 的截面：槽更多、槽更窄，换热面积和换热系数一起变，UA 变大。这和中心进水是两件事。方案 B 证明只改流向时平均温度几乎不动；方案 C 才把对流温差降下来。</p>
+<p>三通分流的局部阻力取 K = 1.5。这是假定，不是实测的 K。支路动压按支路流速算。保留截面上，半程直槽压降加上这个假定局部阻力，仍小于两侧满槽直槽的 60.9 Pa，并联取较大值时仍是 60.9 Pa。方案 C 上，半程加假定局部阻力仍小于两侧直槽的 190 Pa。正文的 60.9 Pa 和 190 Pa 都是满槽、全长的 Shah 直槽压降。</p>
+
+<h2>7 芯片温度</h2>
+<p>下表是 6400 步的受热铜节点。平均温度按各槽分担的宽度加权。场温差是受热节点最高减最低。四颗跨度是四颗平均温度的最大减最小。TIM 底面比铜节点高 1.86 °C，温差列与铜节点相同。</p>
+<table>
+<thead>
+<tr><th>对象</th><th class="num">铜最低</th><th class="num">铜平均</th><th class="num">铜最高</th><th class="num">场温差</th><th class="num">四颗跨度</th><th class="num">TIM 最低</th><th class="num">TIM 平均</th><th class="num">TIM 最高</th></tr>
+</thead>
+<tbody>
+<tr><td>顺流对照</td><td class='num'>46.947</td><td class='num'>53.745</td><td class='num'>59.486</td><td class='num'>12.539</td><td class='num'>10.460</td><td class='num'>48.807</td><td class='num'>55.605</td><td class='num'>61.346</td></tr>
+<tr><td>方案 A 横流</td><td class='num'>50.624</td><td class='num'>53.455</td><td class='num'>54.899</td><td class='num'>4.275</td><td class='num'>2.859</td><td class='num'>52.484</td><td class='num'>55.315</td><td class='num'>56.759</td></tr>
+<tr><td>方案 B 中心进水</td><td class='num'>51.665</td><td class='num'>53.492</td><td class='num'>54.325</td><td class='num'>2.660</td><td class='num'>1.064</td><td class='num'>53.524</td><td class='num'>55.352</td><td class='num'>56.185</td></tr>
+<tr><td>方案 C 采用</td><td class='num'>49.330</td><td class='num'>50.224</td><td class='num'>50.674</td><td class='num'>1.344</td><td class='num'>0.163</td><td class='num'>51.190</td><td class='num'>52.083</td><td class='num'>52.534</td></tr>
+</tbody>
+</table>
+<p>单位 °C。入口 40.00 °C。</p>
+
+<h3>顺流对照，铜节点</h3>
+<table>
+<thead><tr><th>位置</th><th class="num">最低</th><th class="num">平均</th><th class="num">最高</th><th class="num">内部温差</th></tr></thead>
+<tbody>
+<tr><td>第1颗，Y = 0–11 mm</td><td class='num'>46.947</td><td class='num'>48.270</td><td class='num'>49.530</td><td class='num'>2.583</td></tr>
+<tr><td>第2颗，Y = 13–24 mm</td><td class='num'>50.474</td><td class='num'>52.216</td><td class='num'>53.453</td><td class='num'>2.979</td></tr>
+<tr><td>第3颗，Y = 26–37 mm</td><td class='num'>54.256</td><td class='num'>55.765</td><td class='num'>56.774</td><td class='num'>2.518</td></tr>
+<tr><td>第4颗，Y = 39–50 mm</td><td class='num'>57.447</td><td class='num'>58.730</td><td class='num'>59.486</td><td class='num'>2.039</td></tr>
+</tbody>
+</table>
+<p>热量沿流动方向累积，第 1 颗最冷，第 4 颗最热。场温差 12.54 °C，四颗平均跨度 10.46 °C。</p>
+
+<h3>方案 A，铜节点</h3>
+<table>
+<thead><tr><th>位置</th><th class="num">最低</th><th class="num">平均</th><th class="num">最高</th><th class="num">内部温差</th></tr></thead>
+<tbody>
+<tr><td>第1颗，Y = 0–11 mm</td><td class='num'>52.293</td><td class='num'>53.209</td><td class='num'>53.763</td><td class='num'>1.470</td></tr>
+<tr><td>第2颗，Y = 13–24 mm</td><td class='num'>54.086</td><td class='num'>54.658</td><td class='num'>54.899</td><td class='num'>0.813</td></tr>
+<tr><td>第3颗，Y = 26–37 mm</td><td class='num'>53.190</td><td class='num'>54.155</td><td class='num'>54.561</td><td class='num'>1.371</td></tr>
+<tr><td>第4颗，Y = 39–50 mm</td><td class='num'>50.624</td><td class='num'>51.799</td><td class='num'>52.680</td><td class='num'>2.056</td></tr>
+</tbody>
+</table>
+<p>相邻槽对冲以后，四颗平均温度收在 51.80–54.66 °C。场温差 4.28 °C，四颗跨度 2.86 °C。</p>
+
+<h3>方案 B，铜节点</h3>
+<table>
+<thead><tr><th>位置</th><th class="num">最低</th><th class="num">平均</th><th class="num">最高</th><th class="num">内部温差</th></tr></thead>
+<tbody>
+<tr><td>第1颗，Y = 0–11 mm</td><td class='num'>53.628</td><td class='num'>54.000</td><td class='num'>54.227</td><td class='num'>0.599</td></tr>
+<tr><td>第2颗，Y = 13–24 mm</td><td class='num'>51.665</td><td class='num'>52.967</td><td class='num'>53.559</td><td class='num'>1.895</td></tr>
+<tr><td>第3颗，Y = 26–37 mm</td><td class='num'>51.668</td><td class='num'>52.970</td><td class='num'>53.550</td><td class='num'>1.882</td></tr>
+<tr><td>第4颗，Y = 39–50 mm</td><td class='num'>53.425</td><td class='num'>54.030</td><td class='num'>54.325</td><td class='num'>0.900</td></tr>
+</tbody>
+</table>
+<p>中间三槽从间隙中点向两端供冷水，四颗跨度收到 1.06 °C，场温差 2.66 °C。单颗内部仍有约 0.6–1.9 °C，因为截面还是 0.80 mm 那一套，对流温差没降。</p>
+
+<h3>方案 C，铜节点</h3>
+<table>
+<thead><tr><th>位置</th><th class="num">最低</th><th class="num">平均</th><th class="num">最高</th><th class="num">内部温差</th></tr></thead>
+<tbody>
+<tr><td>第1颗，Y = 0–11 mm</td><td class='num'>49.493</td><td class='num'>50.142</td><td class='num'>50.479</td><td class='num'>0.986</td></tr>
+<tr><td>第2颗，Y = 13–24 mm</td><td class='num'>49.331</td><td class='num'>50.305</td><td class='num'>50.674</td><td class='num'>1.343</td></tr>
+<tr><td>第3颗，Y = 26–37 mm</td><td class='num'>49.333</td><td class='num'>50.301</td><td class='num'>50.628</td><td class='num'>1.295</td></tr>
+<tr><td>第4颗，Y = 39–50 mm</td><td class='num'>49.330</td><td class='num'>50.146</td><td class='num'>50.514</td><td class='num'>1.184</td></tr>
+</tbody>
+</table>
+<p>四颗平均温度在 50.14–50.31 °C，跨度 0.16 °C。场温差 1.34 °C。单颗内部温差为 0.99–1.34 °C。</p>
+<h3>方案 C，TIM 底面</h3>
+<table>
+<thead><tr><th>位置</th><th class="num">最低</th><th class="num">平均</th><th class="num">最高</th><th class="num">内部温差</th></tr></thead>
+<tbody>
+<tr><td>第1颗，Y = 0–11 mm</td><td class='num'>51.353</td><td class='num'>52.002</td><td class='num'>52.339</td><td class='num'>0.986</td></tr>
+<tr><td>第2颗，Y = 13–24 mm</td><td class='num'>51.191</td><td class='num'>52.165</td><td class='num'>52.534</td><td class='num'>1.343</td></tr>
+<tr><td>第3颗，Y = 26–37 mm</td><td class='num'>51.193</td><td class='num'>52.161</td><td class='num'>52.488</td><td class='num'>1.295</td></tr>
+<tr><td>第4颗，Y = 39–50 mm</td><td class='num'>51.190</td><td class='num'>52.006</td><td class='num'>52.374</td><td class='num'>1.184</td></tr>
+</tbody>
+</table>
+<p>TIM 底面全场 51.19 / 52.08 / 52.53 °C，场温差仍是 1.34 °C。</p>
+
+<h2>8 和用户温差、CFD 面温并排</h2>
+<table>
+<thead><tr><th>读数</th><th>顺流</th><th>横流 / 本页方案</th></tr></thead>
+<tbody>
+<tr><td>用户给出的芯片温差</td><td>16 °C</td><td>当前横流 8 °C；目标不高于 5 °C</td></tr>
+<tr><td>CFD，TIM 面</td><td>约 11.7 K，325.27–336.96 K</td><td>横流 iter-200 约 6.5 K，329.317–335.815 K</td></tr>
+<tr><td>本页一维场温差</td><td>12.54 °C</td><td>方案 A 4.28 °C；方案 B 2.66 °C；方案 C 1.34 °C</td></tr>
+</tbody>
+</table>
+<p>顺流一维场温差 12.54 °C 放在用户的 16 °C 旁边，也放在顺流 CFD 约 11.7 K 旁边。12.54 °C 是这套一维模型的邻居，用户的 16 °C 仍是 16 °C。</p>
+<p>方案 A 的一维铜场温差是 4.28 °C。用户的当前横流是 8 °C。横流 CFD 面温跨度约 6.5 K，对应约 56.17–62.67 °C。方案 A 的 TIM 底面约是 52.48–56.76 °C。一维铜耦合比用户的 8 °C 更平，也比横流 CFD 的 6.5 K 更低、更平。方案 B 和方案 C 的 CFD 还没有算。</p>
+
+<h2>9 方案 C 相对 5 °C 的筛选读数</h2>
+<p>下面三行分开读。它们不合并成一条“已经达到 5 °C”的结论。</p>
+<table>
+<thead><tr><th>读数</th><th>算式</th><th class="num">结果</th></tr></thead>
+<tbody>
+<tr><td>原始一维场温差</td><td>方案 C 受热铜节点最高减最低</td><td class="num">1.34 °C</td></tr>
+<tr><td>比值读数</td><td>用户横流 8 °C ×（方案 C 一维场温差 / 方案 A 一维场温差）= 8 × 1.344 / 4.275</td><td class="num">2.515 °C</td></tr>
+<tr><td>CFD 偏差读数</td><td>方案 C 一维场温差 +（横流 CFD 跨度 6.5 K − 方案 A 一维场温差）</td><td class="num">3.569 °C</td></tr>
+<tr><td>可选直线映射</td><td>只用用户 16 °C 和 8 °C，对顺流一维场温差和横流一维场温差做直线，再代方案 C</td><td class="num">5.162 °C</td></tr>
+</tbody>
+</table>
+<p>直线映射约 5.16 °C，贴着 5 °C 目标线。它只说明：若用户的 16 °C 和 8 °C 与这两套一维跨度成直线，方案 C 的一维跨度会落到目标附近。这不是目标已经达到的证据。</p>
+<p>三行筛选都比 5 °C 低或贴着 5 °C，原因里有一条必须留着：一维铜耦合本身就比用户的 8 °C 和横流 CFD 的 6.5 K 更平。方案 C 还没有自己的 CFD，也没有试验。</p>
+
+<h2>10 为什么采用 0.45 mm / 0.50 mm</h2>
+<p>采用槽宽 0.45 mm、肋宽 0.50 mm、岸宽 0.525 mm、槽高 2.00 mm，有四条同时成立的理由。</p>
+<ul>
+<li>对流温差从保留截面的 14.81 K 降到 9.17 K。</li>
+<li>列宽链闭合：0.525 + 11 × 0.45 + 10 × 0.50 + 0.525 = 11.000 mm。</li>
+<li>满槽流速 0.337 m/s，低于 0.80 m/s。</li>
+<li>深宽比 4.44，离开铲齿上限。肋 0.50 mm 高于 0.30 mm，岸 0.525 mm 高于 0.30 mm，槽宽 0.45 mm 高于 0.40 mm。</li>
+</ul>
+<p>槽宽 0.40 mm 不采用。槽高固定 2.00 mm 时，0.40 mm 的深宽比是 2.00 / 0.40 = 5.0，落在铲齿上限上。工艺下限取自冷板规则：肋宽不低于 0.30 mm，槽深/槽宽不高于 5。槽宽不低于 0.40 mm；在槽高 2.00 mm 时，这道宽度下限和深宽比 5.0 是同一条边界。</p>
+
+<h2>11 制造与厚度栈</h2>
+<p>方案 C 的铲齿检查：深宽比 4.44，低于 5；肋 0.50 mm，不低于 0.30 mm；槽宽 0.45 mm，不低于 0.40 mm；岸 0.525 mm，不低于 0.30 mm。</p>
+<p>HBM 这一列的铜厚是 2 + 2 + 4 = 8.0 mm。GPU 冷板外形是 2 + 1.5 + 2 + 2.5 + 0.5 = 8.5 mm。8.0 mm 和 8.5 mm 是两条厚度栈。本更新把 HBM 槽高留在 2.00 mm，所以 HBM 铜栈保持 8.0 mm。两条栈还没有合成一条。</p>
+
+<h2>12 本文件的位置</h2>
+<p>本文件是一维筛选，用来比较流向和截面，并给下一轮 CFD 一个几何。它不是 CFD 证明，也不是试验结果。发布温度对应 ny = 50、6400 步；监视量相对 3200 步的变化小于 0.001 °C。体平均公式与同目录工作簿 <code>HBM微通道冷板_1D设计计算_20260929.xlsx</code> 一致，工作簿里的尺寸链、流速、雷诺数、水力直径、努塞尔数、换热系数、肋效率、流体温升、对流温差和 Shah 压降是活公式。</p>
+<footer>HBM-1D-20260929 · v1.0 · 2026-09-29。方案 D 来自 hbm_1d_parallel_pg25.py，PG25，每颗 0.15 L/min。同页水工质记录来自 hbm_1d_schemes_20260929.py，单列 0.20 L/min。入口 40.00 °C，99.22 W。</footer>
+</main>
+</body>
+</html>
