@@ -1,0 +1,427 @@
+Auto-Transcript Start Time:  23:01:22, 22 Sep 2026 ÖÐ¹ú±ê×¼Ê±¼ä 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0"
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:32:00 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+
+*********************************************
+Info: Your license enables 4-way parallel execution.
+For faster simulations, please start the application with the appropriate parallel options.
+*********************************************
+
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:64370 
+
+Node 0 connecting to the Host ... connection established.
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0    DESKTOP-JHEHF28  1/32  Windows-x64  20580  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  29644  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd\\uc01b_2.4x3.0\\cleanup-fluent-DESKTOP-JHEHF28-29644.bat
+
+DESKTOP-JHEHF28 has other FLUENT parallel processes running.                       Process affinity not being set.
+
+Graphics driver currently in use: dx11
+
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent\uc01b_cht_converge.jou...
+
+> ; UC-01b CHT converge â€” FINE conjugate mesh, VISIBLE GUI (no -gu, no /exit)
+; Mesh: uc01b_cht_fine_v2.msh  (4472280 HEXA; hex indices; RH normal toward c0)
+; fluid 2760804 / Cu 1533156 / TIM 178320
+; center slot walls first=2.5 um n_BL=10  orifice radial first=3.0 um
+; Do not loosen 1e-4 / 1e-6. Window stays open.
+;
+; vs stalled fluid-only (continuity 0.18-0.30 @ 400/800, SIMPLE default):
+;   coupled P-V, pseudo-transient, 1st-order startup then 2nd-order,
+;   residual CRITERIA (not a fixed 80/400 stop), UR documented below.
+; Targets (do not loosen): continuity/xyz-mom < 1e-4, energy < 1e-6
+; k/omega 1e-3 so turbulence does not block the required flow/energy stop.
+;
+/file/set-batch-options yes yes no
+
+> /file/confirm-overwrite yes
+
+> /file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_run7.log"
+Opening input/output transcript to file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_cht_v2_run7.log".
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  20580  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  29644  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_cht_fine_v2.msh"
+Reading "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_cht_fine_v2.msh"...
+
+Buffering for file scan...
+
+ 4547658 nodes.
+ 2760804 hexahedral cells, zone  2.
+ 1533156 hexahedral cells, zone  3.
+  178320 hexahedral cells, zone  4.
+13207306 quadrilateral interior faces, zone  5.
+    5500 quadrilateral velocity-inlet faces, zone  6.
+   24220 quadrilateral pressure-outlet faces, zone  7.
+   29720 quadrilateral wall faces, zone  8.
+    1600 quadrilateral wall faces, zone  9.
+  104892 quadrilateral wall faces, zone 10.
+   29720 quadrilateral wall faces, zone 11.
+   88804 quadrilateral symmetry faces, zone 12.
+
+Building...
+     mesh
+      interior -> interior (5) and interior:013 (13)
+      interior -> interior (5) and interior:014 (14)
+      return_slot -> return_slot (7) and return_slot:015 (15)
+      sym -> sym (12) and sym:016 (16)
+      sym -> sym (12) and sym:017 (17)
+Note: Separating interior zone 5 into zones 5 and 13. 
+Note: Separating interior zone 5 into zones 5 and 14. 
+Note: Separating pressure-outlet zone 7 into zones 7 and 15. 
+Note: Separating symmetry zone 12 into zones 12 and 16. 
+Note: Separating symmetry zone 12 into zones 12 and 17. 
+     materials,
+     interface,
+     domains,
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	sym:017
+	sym:016
+	return_slot:015
+	interior:014
+	interior:013
+	sym
+	wall_tim_cu
+	wall_cu_fluid
+	wall_orifice
+	wall_heat
+	return_slot
+	inlet_jet
+	interior
+	solid_tim2
+	solid_cu
+	fluid
+Warning: Flow boundary zone (return_slot:015) is adjacent to a solid zone (solid_cu). 
+ This problem MUST be fixed before 
+         solution can proceed!
+
+     parallel,
+Warning: Flow boundary zone (return_slot:015) is adjacent to a solid zone (solid_cu). 
+ This problem MUST be fixed before 
+         solution can proceed!
+
+Warning: Flow boundary zone (return_slot:015) is adjacent to a solid zone (solid_cu). 
+ This problem MUST be fixed before 
+         solution can proceed!
+
+Done.
+
+Preparing mesh for display...
+Done.
+
+
+> /mesh/check
+
+ Domain Extents:
+   x-coordinate: min (m) = -1.500000e-03, max (m) = 1.500000e-03
+   y-coordinate: min (m) = -1.200000e-03, max (m) = 1.200000e-03
+   z-coordinate: min (m) = -2.080000e-03, max (m) = 8.000000e-03
+ Volume statistics:
+   minimum volume (m3): 8.068593e-18
+   maximum volume (m3): 2.277646e-11
+     total volume (m3): 5.842729e-08
+ Face area statistics:
+   minimum face area (m2): 2.846122e-12
+   maximum face area (m2): 1.768929e-07
+ Checking mesh................................
+ Done.
+
+> /define/boundary-conditions/list-zones
+  id  name                       type                adj-zone-material     wall-material         kind
+----  -------------------------  ------------------  --------------------  --------------------  ----
+   2  fluid                      fluid               air                                         cell
+   3  solid_cu                   solid               aluminum                                    cell
+   4  solid_tim2                 solid               aluminum                                    cell
+   5  interior                   interior                                                        face
+   6  inlet_jet                  mass-flow-inlet                                                 face
+   7  return_slot                pressure-outlet                                                 face
+   8  wall_heat                  wall                aluminum              aluminum              face
+   9  wall_orifice               wall                air                   aluminum              face
+  10  wall_cu_fluid              wall                air                   aluminum              face
+  11  wall_tim_cu                wall                aluminum              aluminum              face
+  12  sym                        symmetry                                                        face
+  13  interior:013               interior                                                        face
+  14  interior:014               interior                                                        face
+  15  return_slot:015            pressure-outlet                                                 face
+  16  sym:016                    symmetry                                                        face
+  17  sym:017                    symmetry                                                        face
+  18  wall_tim_cu-shadow         wall                aluminum              aluminum              face
+  19  wall_cu_fluid-shadow       wall                aluminum              aluminum              face
+
+> /define/boundary-conditions/zone-type return_slot:015 wall
+
+> /define/models/energy yes
+Compute viscous energy work? [no] no
+Include pressure work in energy equation? [no] no
+Include kinetic energy in energy equation? [no] no
+Include diffusion at inlets? [yes] no
+
+> /define/models/viscous/kw-sst yes
+
+> /define/materials/copy fluid water-liquid
+
+Material "water-liquid" copied from database.
+
+
+> /define/materials/copy solid copper
+
+Material "copper" copied from database.
+
+
+> /define/materials/change-create
+
+material-name> water-liquid
+material name [water-liquid] water-liquid
+water-liquid is a fluid
+change Density? [no] yes
+
+Density
+methods: (constant ideal-gas incompressible-ideal-gas rgp-table real-gas-soave-redlich-kwong real-gas-peng-robinson real-gas-aungier-redlich-kwong real-gas-redlich-kwong real-gas-nist boussinesq piecewise-linear piecewise-polynomial polynomial expression compressible-liquid user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [998.2] 992.2
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined kinetic-theory)
+new method [constant] constant
+value (in [J/(kg K)]) [4182] 4179
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression kinetic-theory user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [0.6] 0.631
+
+change Viscosity? [no] yes
+
+Viscosity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression power-law sutherland kinetic-theory user-defined)
+new method [constant] constant
+value (in [kg/(m s)]) [0.001003] 6.53e-4
+
+change Molecular Weight? [no] no
+change Thermal Expansion Coefficient? [no] no
+change Speed of Sound? [no] no
+
+> /define/materials/change-create
+
+material-name> copper
+material name [copper] copper
+copper is a solid
+change Density? [no] yes
+
+Density
+methods: (constant expression user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [8978] 8960
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined)
+new method [constant] constant
+value (in [J/(kg K)]) [381] 385
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression cyl-orthotropic orthotropic anisotropic biaxial principal-axes-values user-defined-anisotropic-k user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [387.6] 390
+
+
+> /define/materials/change-create
+
+material-name> aluminum
+material name [aluminum] tim2
+tim2 is a solid
+change Density? [no] yes
+
+Density
+methods: (constant expression user-defined)
+new method [constant] constant
+value (in [kg/m^3]) [2719] 2800
+
+change Cp (Specific Heat)? [no] yes
+
+Cp (Specific Heat)
+methods: (constant piecewise-linear piecewise-polynomial polynomial nasa-9-piecewise-polynomial user-defined)
+new method [constant] constant
+value (in [J/(kg K)]) [871] 1000
+
+change Thermal Conductivity? [no] yes
+
+Thermal Conductivity
+methods: (constant piecewise-linear piecewise-polynomial polynomial expression cyl-orthotropic orthotropic anisotropic biaxial principal-axes-values user-defined-anisotropic-k user-defined)
+new method [constant] constant
+value (in [W/(m K)]) [202.4] 8.818342
+
+
+Change/Create material and Overwrite aluminum? [no] yes
+
+> /define/boundary-conditions/fluid
+(fluid)
+zone id/name [fluid] fluid
+material-name [air]: Change current value? [no] yes
+
+material-name [air]> water-liquid
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Enter yes or no to continue [no] no
+Laminar zone? [no] no
+Porous zone? [no] no
+3D Fan Zone? [no] no
+
+> /define/boundary-conditions/solid
+(solid_cu solid_tim2)
+zone id/name [solid_cu] solid_cu
+material-name [tim2]: Change current value? [no] yes
+
+material-name [tim2]> copper
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Solid Motion? [no] no
+Enter yes or no to continue [no] no
+
+> /define/boundary-conditions/solid
+(solid_cu solid_tim2)
+zone id/name [solid_cu] solid_tim2
+material-name [tim2]: Change current value? [no] yes
+
+material-name [tim2]> tim2
+Specify source terms? [no] no
+Specify fixed values? [no] no
+Frame Motion? [no] no
+Use Profile for Reference Frame X-Origin of Rotation-Axis? [no] no
+Reference Frame X-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Y-Origin of Rotation-Axis? [no] no
+Reference Frame Y-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame Z-Origin of Rotation-Axis? [no] no
+Reference Frame Z-Origin of Rotation-Axis (constant or expression) (in [m]) [0] 0
+Use Profile for Reference Frame X-Component of Rotation-Axis? [no] no
+Reference Frame X-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Y-Component of Rotation-Axis? [no] no
+Reference Frame Y-Component of Rotation-Axis (constant or expression) [0] 0
+Use Profile for Reference Frame Z-Component of Rotation-Axis? [no] no
+Reference Frame Z-Component of Rotation-Axis (constant or expression) [1] 1
+Mesh Motion? [no] no
+Solid Motion? [no] no
+Enter yes or no to continue [no] no
+
+> /define/boundary-conditions/zone-type inlet_jet mass-flow-inlet
+
+> /define/boundary-conditions/zone-type return_slot pressure-outlet
+
+> /define/boundary-conditions/zone-type SYM symmetry
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet () mass-flow no 0.0002067 t no 313.15 q
+
+> /define/boundary-conditions/set/pressure-outlet return_slot () t no 313.15 q
+
+> /define/boundary-conditions/wall
+(return_slot:015 wall_heat wall_orifice wall_cu_fluid wall_tim_cu wall_tim_cu-shadow wall_cu_fluid-shadow)
+zone id/name [return_slot:015] wall_heat
+Use Profile for Wall Thickness? [no] no
+Wall Thickness (constant or expression) (in [m]) [0] 0
+Use Profile for Heat Generation Rate? [no] no
+Heat Generation Rate (constant or expression) (in [W/m^3]) [0] 0
+material-name [tim2]: Change current value? [no] no
+Thermal BC Type [heat-flux]: Change current value? [no] yes
+
+Thermal BC Type [heat-flux]> heat-flux
+Use Profile for Heat Flux? [no] no
+Heat Flux (constant or expression) (in [W/m^2]) [0] 567460.3174603175
+Enable shell conduction? [no] no
+Use Profile for Convective Augmentation Factor? [no] no
+Convective Augmentation Factor (constant or expression) [1] 1
+
+> /report/reference-values/temperature 313.15
+
+> /define/operating-conditions/operating-pressure 101325
+
+> ; --- solver: coupled + pseudo-transient (fix for SIMPLE continuity stall) ---
+/solve/set/p-v-coupling 24
+
+> /solve/set/pseudo-transient yes
+Activate automatic time step size calculation? [yes] yes
+Length scale calculation methods: (0 1 2)
+0 - Aggressive 
+1 - Conservative 
+2 - User-Specified 
+Length Scale Calculation Method [1] /solve/set/p-v-controls
+
+Error: eval: unbound variable
+Error Object: /solve/set/p-v-controls
+
+Error: Invalid integer.
+Error Object: /solve/set/p-v-controls
+
+Transcript closed.
+Auto-Transcript Stop Time:  23:02:59, 22 Sep 2026 ÖÐ¹ú±ê×¼Ê±¼ä 
+Total Transcript Time: 1 Minute 36 Second.
