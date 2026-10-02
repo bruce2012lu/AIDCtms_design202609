@@ -1,0 +1,13 @@
+﻿Model,,XCRow040,XCRow080,XCRow160
+Heat Exchange Capacity,kW,40,80,160
+Primary Side Supply Liquid Temp,℃,35,,30
+Primary Side Coolant,/,Softened water,,
+Secondary Side Supply Liquid Temp,℃,40,,35
+Secondary Side Coolant,/,PG25,,
+Secondary Side Supply Liquid Flow Rate,L/min,60,99,160
+Secondary Side Filtration Accuracy,/,100 mesh,/,300 mesh
+Primary Side Port Type,/,1.5” chuck,,
+Secondary Side Port Type,/,1.5” chuck,,
+Circulating Pump Number,/,Dual pumps,,
+Dimensions (W*D*H),mm,450 * 850 * 175,535 * 850 * 165,537*805*190.5
+Power Supply,/,220V AC,48V DC,48V DC

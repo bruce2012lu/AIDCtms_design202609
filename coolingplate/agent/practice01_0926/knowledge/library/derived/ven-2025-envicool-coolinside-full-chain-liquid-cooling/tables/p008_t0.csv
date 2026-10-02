@@ -1,0 +1,19 @@
+﻿Model,XCRow0300,XCRow0600,XCRow0800,XCRow1400,XCRow2500
+"Rated Heat Exchange Capacity
+(kW)",300,600,800,1400,2500
+Rated Flow Rate (L/min),450,900,1000,1200,3700
+Flow Regulation,10%~100%,,,,
+"Primary Side Supply Liquid Temp
+(° C)",32,,,,
+Primary Side Coolant,"Softened water, PG25 aqueous solution, and EG25 aqueous solution",,,,
+"Secondary Side Supply Liquid
+Temp (° C)",36,,,,
+Secondary Side Coolant,"SoluKing Long-lasting coolant, PG25 aqueous solution, and EG25 aqueous solution",,,,
+Dimensions W*D*H (mm),600*1200*2200,800*2000*2200,1200*1200*2200,1200*1200*2200,1200*1200*2200
+Power Supply,380~480V 3Ph 50/60Hz,,,,
+Dual Power Input (Optional),Mains power/UPS/diesel power,,,,
+Storage Environment Temp,-20~70° C,,,,
+Storage Environment Hum,"No condensation at 5%-85% in long term
+No condensation at 5%-95% in short term",,,,
+Altitude,"When the altitude exceeds 1000 m, the ambient temperature decreases by 1° C for each additional 220 m normally.
+Max. Altitude: 2000m",,,,

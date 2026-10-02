@@ -1,0 +1,13 @@
+﻿Model,,XCRow016,XCRow020
+Heat Exchange Capacity,kW,16,20
+Primary Side Supply Air Temp,℃,25,
+Air Flow,m³/h,2600,3600
+Secondary Side Supply Liquid Temp,℃,40,
+Secondary Side Coolant,/,SoluKing PG25,
+Secondary Side Flow Rate,L/min,24,30
+Secondary Side Filtration Accuracy,/,100 mesh,
+Secondary Side Port Type,/,1.5” chuck,1.5” chuck
+Circulating Pump Number,/,Dual pumps,
+Dimensions (W*D*H),mm,450*860*350,523*858*378
+Rack Applicable,/,OCP ORV3 liquid cooling rack,
+Power Supply,/,220VAC/50 Hz,48V DC

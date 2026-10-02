@@ -1,0 +1,15 @@
+﻿Model,LCB12-A,LCB20-L,LCB24-L
+Rated Power,12kW,20kW,24kW
+Gear Design,"1kW, 1.5kW, 2kW, 2.5kW, 5kW","0.5kW, 0.5kW, 2kW, 2kW, 5kW, 10kW","Channel A: 1kW, 2kW, 2kW, 3kW
+Channel B: 1kW, 2kW, 2kW, 3kW
+Channel C: 1kW, 2kW, 2kW, 3kW"
+Emergency Stop,"Manual one-button forced unloading is available; loading is not allowed in the emergency stop locked state,
+and an audible and visual alarm is triggered",,
+Circuit Protection,"Branch circuits are equipped with miniature circuit breakers, which provide tripping
+protection in the event of a short circuit",,
+Temperature Protection,"When the temperature of the liquid cooling module, resistor chamber, or control chamber exceeds the safety
+threshold, automatic gradual unloading occurs, and an alarm is triggered; unloading time can be set",,
+Ground Protection,"The load input port is connected to the chassis with a ground wire, and the chassis body has a grounding
+terminal for user grounding",,
+Flow Resistance Simulation,"Built-in ball valve that can be manually adjusted to simulate difef rent flow resistance across each node
+within the server rack",,

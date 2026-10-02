@@ -1,0 +1,255 @@
+[
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 200,
+    "h": 517,
+    "captions_on_page": [
+      "Figure 1. Lenovo NVIDIA GB300 NVL72"
+    ]
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 901,
+    "h": 441,
+    "captions_on_page": [
+      "Figure 2. Compute tray front view"
+    ]
+  },
+  {
+    "file": "figures/p021_i0.jpg",
+    "page": 21,
+    "w": 901,
+    "h": 244,
+    "captions_on_page": [
+      "Figure 3. Compute tray rear view"
+    ]
+  },
+  {
+    "file": "figures/p022_i0.jpg",
+    "page": 22,
+    "w": 1803,
+    "h": 343,
+    "captions_on_page": [
+      "Figure 4. Compute tray top view",
+      "Figure 5. Management switch front view"
+    ]
+  },
+  {
+    "file": "figures/p022_i1.jpg",
+    "page": 22,
+    "w": 1126,
+    "h": 671,
+    "captions_on_page": [
+      "Figure 4. Compute tray top view",
+      "Figure 5. Management switch front view"
+    ]
+  },
+  {
+    "file": "figures/p023_i0.jpg",
+    "page": 23,
+    "w": 901,
+    "h": 237,
+    "captions_on_page": [
+      "Figure 6. Management switch rear view"
+    ]
+  },
+  {
+    "file": "figures/p024_i0.jpg",
+    "page": 24,
+    "w": 1352,
+    "h": 641,
+    "captions_on_page": [
+      "Figure 7. NVLink switch tray front view"
+    ]
+  },
+  {
+    "file": "figures/p026_i0.jpg",
+    "page": 26,
+    "w": 901,
+    "h": 211,
+    "captions_on_page": [
+      "Figure 8. NVLink switch tray rear view",
+      "Figure 9. Power shelf front view"
+    ]
+  },
+  {
+    "file": "figures/p026_i1.jpg",
+    "page": 26,
+    "w": 901,
+    "h": 247,
+    "captions_on_page": [
+      "Figure 8. NVLink switch tray rear view",
+      "Figure 9. Power shelf front view"
+    ]
+  },
+  {
+    "file": "figures/p027_i0.jpg",
+    "page": 27,
+    "w": 901,
+    "h": 140,
+    "captions_on_page": [
+      "Figure 10. Power shelf rear view"
+    ]
+  },
+  {
+    "file": "figures/p029_i0.jpg",
+    "page": 29,
+    "w": 469,
+    "h": 1265,
+    "captions_on_page": [
+      "Figure 11. Rack front view"
+    ]
+  },
+  {
+    "file": "figures/p030_i0.jpg",
+    "page": 30,
+    "w": 467,
+    "h": 1259,
+    "captions_on_page": [
+      "Figure 12. Rack rear view"
+    ]
+  },
+  {
+    "file": "figures/p031_i0.jpg",
+    "page": 31,
+    "w": 901,
+    "h": 540,
+    "captions_on_page": [
+      "Figure 13. Compute tray LEDs"
+    ]
+  },
+  {
+    "file": "figures/p033_i0.jpg",
+    "page": 33,
+    "w": 564,
+    "h": 333,
+    "captions_on_page": [
+      "Figure 14. Management switch LEDs"
+    ]
+  },
+  {
+    "file": "figures/p035_i0.jpg",
+    "page": 35,
+    "w": 676,
+    "h": 238,
+    "captions_on_page": [
+      "Figure 15. NVLink switch tray LEDs"
+    ]
+  },
+  {
+    "file": "figures/p036_i0.jpg",
+    "page": 36,
+    "w": 574,
+    "h": 374,
+    "captions_on_page": [
+      "Figure 16. Power shelf LEDs"
+    ]
+  },
+  {
+    "file": "figures/p040_i0.jpg",
+    "page": 40,
+    "w": 1463,
+    "h": 1463,
+    "captions_on_page": [
+      "Figure 17. Rack solution components"
+    ]
+  },
+  {
+    "file": "figures/p044_i0.jpg",
+    "page": 44,
+    "w": 800,
+    "h": 508,
+    "captions_on_page": [
+      "Figure 18. Location of the ID label",
+      "Figure 19. Locations of the MAC address labels"
+    ]
+  },
+  {
+    "file": "figures/p044_i1.jpg",
+    "page": 44,
+    "w": 793,
+    "h": 582,
+    "captions_on_page": [
+      "Figure 18. Location of the ID label",
+      "Figure 19. Locations of the MAC address labels"
+    ]
+  },
+  {
+    "file": "figures/p049_i0.jpg",
+    "page": 49,
+    "w": 893,
+    "h": 415,
+    "captions_on_page": [
+      "Figure 20. Firmware versions of the compute tray components"
+    ]
+  },
+  {
+    "file": "figures/p052_i0.jpg",
+    "page": 52,
+    "w": 789,
+    "h": 491,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p055_i0.jpg",
+    "page": 55,
+    "w": 901,
+    "h": 161,
+    "captions_on_page": [
+      "Figure 21. Compute tray BMC FFDC logs"
+    ]
+  },
+  {
+    "file": "figures/p055_i1.jpg",
+    "page": 55,
+    "w": 1794,
+    "h": 890,
+    "captions_on_page": [
+      "Figure 21. Compute tray BMC FFDC logs"
+    ]
+  },
+  {
+    "file": "figures/p056_i0.jpg",
+    "page": 56,
+    "w": 677,
+    "h": 655,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p057_i0.jpg",
+    "page": 57,
+    "w": 924,
+    "h": 236,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p057_i2.jpg",
+    "page": 57,
+    "w": 619,
+    "h": 538,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p058_i0.jpg",
+    "page": 58,
+    "w": 702,
+    "h": 238,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p063_i1.jpg",
+    "page": 63,
+    "w": 580,
+    "h": 700,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p064_i0.jpg",
+    "page": 64,
+    "w": 370,
+    "h": 418,
+    "captions_on_page": []
+  }
+]

@@ -1,0 +1,11 @@
+﻿Description,Value
+Processor Compatibility,"Intel 4th and 5th Gen Xeon (Sapphire & Emerald Rapids)
+AMD 4th Gen EPYC (Genoa)"
+SmartPlate Dimensions,"110mm(L) x 82mm (W) x 23mm (H)
+*length and width determined by socket size"
+System Weight,"1300g (1U form factor)
+2000g (2U form factor)"
+System Volume,"70in3 (1U form factor)
+350in3 (2U form factor)"
+Supply Power,"7W @ 12V (1U form factor)
+19W @ 12V (2U form factor)"

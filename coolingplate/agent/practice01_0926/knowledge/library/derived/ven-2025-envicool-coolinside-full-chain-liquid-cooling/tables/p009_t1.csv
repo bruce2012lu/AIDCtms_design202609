@@ -1,0 +1,10 @@
+﻿Model,,XCRoW120WCA2H1
+Heat Exchange Capacity,kW,120
+Primary Side inlet Air Temp,℃,25
+Secondary Side Inlet Liquid Temp,℃,< 45
+Secondary Side Filtration Accuracy,/,25μm
+Secondary Side Port Size,/,DN50
+Circulating Pump Q'ty,/,2
+Dimensions (WxDxH),mm,"600x1,200x2,200"
+Power Supply,/,"380~480V, 3ph, 50Hz"
+Power Consumption,kW,6

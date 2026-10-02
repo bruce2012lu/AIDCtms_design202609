@@ -1,0 +1,11 @@
+﻿Indicators,Properties,Units
+model,SK-E50-B,/
+Color,Blue clear liquid.,/
+Odor,Non-irritating Odor,/
+pH,8.2-9.1,/
+Conductivity,2400-3400,µS/cm
+Alkalinity Reserve,＞2.5,mL
+Turbidity,<1,NTU
+Freezing Point,-40,℃
+Thermal Conductivity @20℃,0.3524-0.4059,W/m.K
+Specific Heat Capacity @20℃,3.19,kJ/kg.K

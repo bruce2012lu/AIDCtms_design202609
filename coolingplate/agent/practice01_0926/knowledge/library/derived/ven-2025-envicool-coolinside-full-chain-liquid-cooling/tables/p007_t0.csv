@@ -1,0 +1,14 @@
+﻿Model,Specifications,Material,Connection Mode,Coolant
+MDU030S,30X30 (mm),"SUS304
+SUS316L",Quick connect,"Ethylene glycol, propylene glycol,
+deionized water"
+,40X40 (mm),,,
+,50X50 (mm),,,
+MDU030D,30X30 (mm),"SUS304
+SUS316L",Blind connect,"Ethylene glycol, propylene glycol,
+deionized water"
+,40X40 (mm),,,
+,50X50 (mm),,,
+,35×60(mm),"SUS304
+SUS316L",Blind connect,"Ethylene glycol,propylene glycol,
+deionized water"
