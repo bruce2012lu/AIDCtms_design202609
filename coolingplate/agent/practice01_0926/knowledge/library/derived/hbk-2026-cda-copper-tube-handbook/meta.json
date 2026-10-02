@@ -1,0 +1,11 @@
+{
+  "id": "hbk-2026-cda-copper-tube-handbook",
+  "sha256": "01182730b02a2245875eb7fbc94b3df3fdcf8e974660ba80c7094325abb98d2d",
+  "source": "files/handbooks/hbk-2026-cda-copper-tube-handbook.pdf",
+  "extracted_at": "2026-10-02T23:31:08",
+  "pages": 96,
+  "chars": 175394,
+  "chunks": 153,
+  "tables": 26,
+  "figures": 99
+}

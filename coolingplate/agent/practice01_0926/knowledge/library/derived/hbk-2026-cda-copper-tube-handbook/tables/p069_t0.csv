@@ -1,0 +1,25 @@
+﻿"Outside
+diameter","Inside
+diameter","Wall
+thickness","Cross
+sectional
+area of
+bore, sq.
+inches","Weight of
+tube only,
+pounds
+per linear
+ft.","Weight
+of tube
+& water,
+pounds
+per linear
+ft.",
+,,,,,,Cu ft.
+1.375,1.295,.040,1.32,.650,1.22,.00917
+1.625,1.541,.042,1.87,.809,1.62,.0130
+2.125,2.041,.042,3.27,1.07,2.48,.0227
+3.125,3.030,.045,7.21,1.69,4.81,.0501
+4.125,4.009,.058,11.6,2.87,7.88,.0806
+5.125,4.981,.072,19.5,4.43,12.9,.135
+6.125,5.959,.083,27.9,6.10,18.2,.194

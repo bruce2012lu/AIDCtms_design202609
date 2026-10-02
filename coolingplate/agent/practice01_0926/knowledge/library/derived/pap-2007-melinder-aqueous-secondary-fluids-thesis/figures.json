@@ -1,0 +1,49 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 241,
+    "h": 238,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p050_i0.jpg",
+    "page": 50,
+    "w": 339,
+    "h": 300,
+    "captions_on_page": [
+      "Figure 3.3. Results of pressure drop tests of calcium chloride -  water with property values from Stakelbeck [41]",
+      "Figure 3.4. Results of pressure drop tests of calcium chloride -  water with property values from author [79]"
+    ]
+  },
+  {
+    "file": "figures/p050_i1.jpg",
+    "page": 50,
+    "w": 336,
+    "h": 299,
+    "captions_on_page": [
+      "Figure 3.3. Results of pressure drop tests of calcium chloride -  water with property values from Stakelbeck [41]",
+      "Figure 3.4. Results of pressure drop tests of calcium chloride -  water with property values from author [79]"
+    ]
+  },
+  {
+    "file": "figures/p065_i0.jpg",
+    "page": 65,
+    "w": 280,
+    "h": 397,
+    "captions_on_page": [
+      "Figure 3.16. Höppler Falling  ball Viscosimeter.",
+      "Fig 3.17. Höppler viscosimeter and measurement equipment"
+    ]
+  },
+  {
+    "file": "figures/p065_i1.jpg",
+    "page": 65,
+    "w": 637,
+    "h": 503,
+    "captions_on_page": [
+      "Figure 3.16. Höppler Falling  ball Viscosimeter.",
+      "Fig 3.17. Höppler viscosimeter and measurement equipment"
+    ]
+  }
+]

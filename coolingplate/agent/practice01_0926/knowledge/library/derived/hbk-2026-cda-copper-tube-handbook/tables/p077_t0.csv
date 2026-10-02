@@ -1,0 +1,47 @@
+﻿Joining material 4,"Service
+temperature
+°F","Fitting
+type","Maximum working gage pressure (psi), for
+standard water tube sizes 1",,,,
+,,,"Nominal or standard size, inches",,,,
+,,,⅛ - 1,1¼ - 2,2¼ - 4,5 - 8,10 - 12
+Alloy Sn50 50-50 Tin-Lead Solder 5,100,Pressure 2,200,175,150,135,100
+,,DWV 3,-,95,80,70,-
+,150,Pressure 2,150,125,100,90,70
+,,DWV 3,-,70,55,45,-
+,200,Pressure 2,100,90,75,70,50
+,,DWV 3,-,50,40,35,-
+,250,Pressure 2,85,75,50,45,40
+,,DWV 3,-,-,-,-,-
+,Saturated steam,Pressure,15,15,15,15,15
+Alloy Sb5 95-5 Tin-Antimony Solder,100,Pressure 2,1090,850,705,660,500
+,,DWV 3,-,390,325,330,-
+,150,Pressure 2,625,485,405,375,285
+,,DWV 3,-,225,185,190,-
+,200,Pressure 2,505,395,325,305,230
+,,DWV 3,-,180,150,155,-
+,250,Pressure 2,270,210,175,165,125
+,,DWV 3,-,95,80,80,-
+,Saturated steam,Pressure,15,15,15,15,15
+Alloy E,100,Pressure 2,710,555,460,430,325
+,,DWV 3,-,255,210,215,-
+,150,Pressure 2,475,370,305,285,215
+,,DWV 3,-,170,140,140,-
+,200,Pressure 2,375,290,240,225,170
+,,DWV 3,-,135,110,115,-
+,250,Pressure 2,320,250,205,195,145
+,,DWV 3,-,115,95,95,-
+,Saturated steam,Pressure,15,15,15,15,15
+Alloy HB,100,Pressure 2,1035,805,670,625,475
+,,DWV 3,-,370,310,315,-
+,150,Pressure 2,710,555,460,430,325
+,,DWV 3,-,255,210,215,-
+,200,Pressure 2,440,345,285,265,200
+,,DWV 3,-,155,130,135,-
+,250,Pressure 2,430,335,275,260,195
+,,DWV 3,-,155,125,130,-
+,Saturated steam,Pressure,15,15,15,15,15
+"Joining materials melting at or above
+1100°F 6","Pressure-temperature ratings consistent with the materials and procedures employed
+(see Table 14.3, annealed)",,,,,,
+,Saturated steam,Pressure,120,120,120,120,120

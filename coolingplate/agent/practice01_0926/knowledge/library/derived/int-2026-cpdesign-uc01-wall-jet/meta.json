@@ -1,0 +1,11 @@
+{
+  "id": "int-2026-cpdesign-uc01-wall-jet",
+  "sha256": "697e221f84b6f47745829cc47f844f0dc61d72bdaff1bb3c4e6add15a000b598",
+  "source": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/UC01_壁面射流与三槽流路说明.html",
+  "extracted_at": "2026-10-02T23:18:23",
+  "pages": 1,
+  "chars": 2498,
+  "chunks": 1,
+  "tables": 0,
+  "figures": 0
+}

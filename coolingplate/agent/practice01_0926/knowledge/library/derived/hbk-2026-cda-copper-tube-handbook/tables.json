@@ -1,0 +1,234 @@
+[
+  {
+    "file": "tables/p024_t0.csv",
+    "page": 24,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p030_t0.csv",
+    "page": 30,
+    "rows": 10,
+    "cols": 4,
+    "captions_on_page": [
+      "TABLE 4.1. Bending Guide for  Copper Tube"
+    ]
+  },
+  {
+    "file": "tables/p065_t0.csv",
+    "page": 65,
+    "rows": 31,
+    "cols": 7,
+    "captions_on_page": [
+      "TABLE 14.1. Copper Tube: Types, Standards, Applications, Tempers, Lengths"
+    ]
+  },
+  {
+    "file": "tables/p066_t0.csv",
+    "page": 66,
+    "rows": 21,
+    "cols": 9,
+    "captions_on_page": [
+      "TABLE 14.2a. Dimensions and Physical Characteristics of Copper Tube: Type K"
+    ]
+  },
+  {
+    "file": "tables/p067_t0.csv",
+    "page": 67,
+    "rows": 21,
+    "cols": 9,
+    "captions_on_page": [
+      "TABLE 14.2b. Dimensions and Physical Characteristics of Copper Tube: Type L"
+    ]
+  },
+  {
+    "file": "tables/p068_t0.csv",
+    "page": 68,
+    "rows": 19,
+    "cols": 9,
+    "captions_on_page": [
+      "TABLE 14.2c. Dimensions and Physical Characteristics of Copper Tube: Type M"
+    ]
+  },
+  {
+    "file": "tables/p069_t0.csv",
+    "page": 69,
+    "rows": 9,
+    "cols": 7,
+    "captions_on_page": [
+      "TABLE 14.2d. Dimensions and Physical Characteristics of Copper Tube: DWV  (Drain, Waste and Vent)"
+    ]
+  },
+  {
+    "file": "tables/p070_t0.csv",
+    "page": 70,
+    "rows": 28,
+    "cols": 10,
+    "captions_on_page": [
+      "TABLE 14.2e. Dimensions and Physical Characteristics of Copper Tube: ACR  (Air-Conditioning and Refrigeration Field Service)"
+    ]
+  },
+  {
+    "file": "tables/p071_t0.csv",
+    "page": 71,
+    "rows": 34,
+    "cols": 9,
+    "captions_on_page": [
+      "TABLE 14.2f. Dimensons and Physical Characteristics of Copper Tube:  Medical Gas, K and L"
+    ]
+  },
+  {
+    "file": "tables/p072_t0.csv",
+    "page": 72,
+    "rows": 20,
+    "cols": 15,
+    "captions_on_page": [
+      "TABLE 14.3a. Calculated Rated Internal Working Pressures for Copper Tube:  Type K*"
+    ]
+  },
+  {
+    "file": "tables/p073_t0.csv",
+    "page": 73,
+    "rows": 20,
+    "cols": 15,
+    "captions_on_page": [
+      "TABLE 14.3b. Calculated Rated Internal Working Pressure for Copper Tube:  Type L*"
+    ]
+  },
+  {
+    "file": "tables/p074_t0.csv",
+    "page": 74,
+    "rows": 20,
+    "cols": 15,
+    "captions_on_page": [
+      "TABLE 14.3c. Calculated Rated Internal Working Pressure for Copper Tube:  Type M*"
+    ]
+  },
+  {
+    "file": "tables/p075_t0.csv",
+    "page": 75,
+    "rows": 8,
+    "cols": 13,
+    "captions_on_page": [
+      "TABLE 14.3d. Calculated Rated Internal Working Pressure for Copper Tube:  DWV*"
+    ]
+  },
+  {
+    "file": "tables/p076_t0.csv",
+    "page": 76,
+    "rows": 31,
+    "cols": 15,
+    "captions_on_page": [
+      "TABLE 14.3e. Calculated Rated Internal Working Pressure for Copper Tube:  ACR*** (Air Conditioning and Refrigeration Field Service)"
+    ]
+  },
+  {
+    "file": "tables/p077_t0.csv",
+    "page": 77,
+    "rows": 41,
+    "cols": 8,
+    "captions_on_page": [
+      "TABLE 14.4a. Pressure-Temperature Ratings of Soldered and Brazed Joints"
+    ]
+  },
+  {
+    "file": "tables/p078_t0.csv",
+    "page": 78,
+    "rows": 5,
+    "cols": 2,
+    "captions_on_page": [
+      "TABLE 14.4b. Pressure-Temperature Ratings of No-flame Joints"
+    ]
+  },
+  {
+    "file": "tables/p079_t0.csv",
+    "page": 79,
+    "rows": 12,
+    "cols": 6,
+    "captions_on_page": [
+      "TABLE 14.5. Actual Burst Pressures,1 Types K, L and M Copper Water Tube,  psi at Room Temperature"
+    ]
+  },
+  {
+    "file": "tables/p080_t0.csv",
+    "page": 80,
+    "rows": 20,
+    "cols": 24,
+    "captions_on_page": [
+      "TABLE 14.6. Pressure Loss of Water Due to Friction in Types K, L and M  Copper Tube (psi per linear foot of tube) (Part 1: ¼ through 2)"
+    ]
+  },
+  {
+    "file": "tables/p081_t0.csv",
+    "page": 81,
+    "rows": 40,
+    "cols": 25,
+    "captions_on_page": [
+      "TABLE 14.6. Pressure Loss of Water Due to Friction in Types K, L and M  Copper Tube (psi per linear foot of tube) (Part 2: 2½ through 12)"
+    ]
+  },
+  {
+    "file": "tables/p082_t0.csv",
+    "page": 82,
+    "rows": 18,
+    "cols": 10,
+    "captions_on_page": [
+      "TABLE 14.7. Pressure Loss in Fittings and Valves Expressed as Equivalent  Length of Tube, feet"
+    ]
+  },
+  {
+    "file": "tables/p083_t0.csv",
+    "page": 83,
+    "rows": 15,
+    "cols": 3,
+    "captions_on_page": [
+      "TABLE 14.7a. Pressure Loss in HVACR Elbows Expressed as Equivalent  Length of Tube, feet"
+    ]
+  },
+  {
+    "file": "tables/p084_t0.csv",
+    "page": 84,
+    "rows": 18,
+    "cols": 15,
+    "captions_on_page": [
+      "TABLE 14.8. Radii of Coiled Expansion Loops and Developed Lengths of  Expansion Offsets"
+    ]
+  },
+  {
+    "file": "tables/p085_t0.csv",
+    "page": 85,
+    "rows": 22,
+    "cols": 13,
+    "captions_on_page": [
+      "TABLE 14.9. Dimensions of Solder Joint Ends for Wrought (W) and Cast (C)  Pressure Fittings, inches"
+    ]
+  },
+  {
+    "file": "tables/p086_t0.csv",
+    "page": 86,
+    "rows": 20,
+    "cols": 13,
+    "captions_on_page": [
+      "TABLE 14.10. Solder Requirements for Solder Joint Pressure Fittings, length  in inches*"
+    ]
+  },
+  {
+    "file": "tables/p087_t0.csv",
+    "page": 87,
+    "rows": 20,
+    "cols": 6,
+    "captions_on_page": [
+      "TABLE 14.11. Typical Brazing Filler Metal Consumption"
+    ]
+  },
+  {
+    "file": "tables/p088_t0.csv",
+    "page": 88,
+    "rows": 16,
+    "cols": 10,
+    "captions_on_page": [
+      "TABLE 14.12. Filler Metals for Brazing"
+    ]
+  }
+]

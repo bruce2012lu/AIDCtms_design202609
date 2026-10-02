@@ -1,0 +1,11 @@
+{
+  "id": "int-2026-cpdesign-b300-report-v2-0",
+  "sha256": "fe1ee879b9951c1abf2a1228d53d00d3d5bb70042b01349698c4a367a8c44205",
+  "source": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/NVIDIA_B300_微通道冲击换热冷板设计报告_v2.0_20260914new.html",
+  "extracted_at": "2026-10-02T23:19:08",
+  "pages": 1,
+  "chars": 45230,
+  "chunks": 31,
+  "tables": 0,
+  "figures": 0
+}

@@ -1,0 +1,11 @@
+{
+  "id": "int-2026-cpdesign-grace-report-v1-0",
+  "sha256": "986a24e653074f95ebda9c9c53eaaffc877666fa3b0bc37646cd08909f6c9327",
+  "source": "repo:agents/AIDCtms/coolingplate/agent/practice01_0926/references/NVIDIA_Grace_GB300_冷板详细设计报告_v1.0_20260926.html",
+  "extracted_at": "2026-10-02T23:19:08",
+  "pages": 1,
+  "chars": 8711,
+  "chunks": 7,
+  "tables": 0,
+  "figures": 0
+}
