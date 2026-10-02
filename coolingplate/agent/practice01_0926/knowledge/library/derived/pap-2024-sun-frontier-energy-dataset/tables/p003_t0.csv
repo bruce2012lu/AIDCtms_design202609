@@ -1,0 +1,13 @@
+﻿Measured variable,Instruments,Range,Accuracy
+"Supply water temperature and
+cooling loop temperatures","TE-635AM-2, 1 K ohm platinum RTD;
+TE-6300W-102, 1 K ohm platinum RTD",−45.6 °C–104.4 °C,±[0.15 °C + 0.002*T (°C)]
+"Total cooling water mass flow
+rate","FT-3200 transmitter, electromagnetic
+flow meter (meter size = 12 in.)","128–43,200 L/min","±0.2% at 0.49 m/s~10.0 m/s;
+±0.001 m/s at <0.49 m/s"
+"Frontier and accessory power
+demand","™
+PowerLogic PM89M2600 and
+PM89M0024","Max voltage: 250 V AC; max
+current: 8 A at 250 V AC",0.3% full scale

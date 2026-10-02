@@ -1,0 +1,149 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 500,
+    "h": 175,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 1498,
+    "h": 877,
+    "captions_on_page": [
+      "Figure 1. Electricity consumption composition of data centers. Reprinted from [8], Copyright (2016), with permission from Elsevier.",
+      "Figure 2. Schematic diagram of conventional air cooling and liquid cooling."
+    ]
+  },
+  {
+    "file": "figures/p002_i1.jpg",
+    "page": 2,
+    "w": 1268,
+    "h": 918,
+    "captions_on_page": [
+      "Figure 1. Electricity consumption composition of data centers. Reprinted from [8], Copyright (2016), with permission from Elsevier.",
+      "Figure 2. Schematic diagram of conventional air cooling and liquid cooling."
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 379,
+    "h": 224,
+    "captions_on_page": [
+      "Figure 4. Effect of mass flow rate and particle concentration on convective heat transfer coefficient in water block. Reprinted from [43], Copyright (2007), with permission from Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p014_i0.jpg",
+    "page": 14,
+    "w": 539,
+    "h": 226,
+    "captions_on_page": [
+      "Figure 5. (a) Image of water block; (b) copper base with a thin-channel design and jet plate. Reprinted from [93], Copyright (2012), with permission from Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p014_i1.jpg",
+    "page": 14,
+    "w": 489,
+    "h": 338,
+    "captions_on_page": [
+      "Figure 5. (a) Image of water block; (b) copper base with a thin-channel design and jet plate. Reprinted from [93], Copyright (2012), with permission from Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p015_i0.jpg",
+    "page": 15,
+    "w": 539,
+    "h": 226,
+    "captions_on_page": [
+      "Figure 6. The aluminum foam heat sink used to remove heat from Intel core i7 CPU. Reprinted from [94], Copyright (2017), with permission from Elsevier.",
+      "Figure 7. Schematic picture of the combined heat exchanger and heating module structure. Reprinted from [95], Copyright (2013), with permission from Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p015_i1.jpg",
+    "page": 15,
+    "w": 489,
+    "h": 338,
+    "captions_on_page": [
+      "Figure 6. The aluminum foam heat sink used to remove heat from Intel core i7 CPU. Reprinted from [94], Copyright (2017), with permission from Elsevier.",
+      "Figure 7. Schematic picture of the combined heat exchanger and heating module structure. Reprinted from [95], Copyright (2013), with permission from Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p015_i2.jpg",
+    "page": 15,
+    "w": 332,
+    "h": 451,
+    "captions_on_page": [
+      "Figure 6. The aluminum foam heat sink used to remove heat from Intel core i7 CPU. Reprinted from [94], Copyright (2017), with permission from Elsevier.",
+      "Figure 7. Schematic picture of the combined heat exchanger and heating module structure. Reprinted from [95], Copyright (2013), with permission from Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p016_i0.jpg",
+    "page": 16,
+    "w": 1524,
+    "h": 884,
+    "captions_on_page": [
+      "Figure 8. Schematic representation of flow boiling in alumina nanofluid using a spiral microreactor. Reprinted from [103], Copyright (2024), open access article permits unrestricted use."
+    ]
+  },
+  {
+    "file": "figures/p016_i1.jpg",
+    "page": 16,
+    "w": 2758,
+    "h": 1627,
+    "captions_on_page": [
+      "Figure 8. Schematic representation of flow boiling in alumina nanofluid using a spiral microreactor. Reprinted from [103], Copyright (2024), open access article permits unrestricted use."
+    ]
+  },
+  {
+    "file": "figures/p017_i0.jpg",
+    "page": 17,
+    "w": 1524,
+    "h": 884,
+    "captions_on_page": [
+      "Figure 9. Grid structure of the computational domain. Reprinted from [104], Copyright (2024), open access article permits unrestricted use."
+    ]
+  },
+  {
+    "file": "figures/p017_i1.jpg",
+    "page": 17,
+    "w": 2758,
+    "h": 1627,
+    "captions_on_page": [
+      "Figure 9. Grid structure of the computational domain. Reprinted from [104], Copyright (2024), open access article permits unrestricted use."
+    ]
+  },
+  {
+    "file": "figures/p021_i0.jpg",
+    "page": 21,
+    "w": 953,
+    "h": 554,
+    "captions_on_page": [
+      "Figure 10. The instruments used to measure electrical conductivity. Reprinted from [136], Copyright (2016), with permission from Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p021_i1.jpg",
+    "page": 21,
+    "w": 953,
+    "h": 554,
+    "captions_on_page": [
+      "Figure 10. The instruments used to measure electrical conductivity. Reprinted from [136], Copyright (2016), with permission from Elsevier."
+    ]
+  },
+  {
+    "file": "figures/p022_i0.jpg",
+    "page": 22,
+    "w": 1523,
+    "h": 1093,
+    "captions_on_page": [
+      "Figure 11. Approaches to improve nanofluids and research directions in the future."
+    ]
+  }
+]

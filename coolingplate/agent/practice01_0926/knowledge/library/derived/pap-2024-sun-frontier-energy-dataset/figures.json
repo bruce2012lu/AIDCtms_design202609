@@ -1,0 +1,67 @@
+[
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 1900,
+    "h": 1066,
+    "captions_on_page": [
+      "Fig. 1  Frontier—the world’s fastest supercomputer—ushered in the exascale computing era. Frontier is located  at Oak Ridge National Laboratory’s Oak Ridge Leadership Computing Facility.",
+      "Fig. 2  Real computer components and their cooling hardware for the Frontier high-performance computing  system at Oak Ridge National Laboratory: (a) 74 compute rack cabinets; (b) 64 blades in each rack cabinet; (c)  coolant inlet and outlet in each blade; (d) two nodes in an open blade; (e) four GP"
+    ]
+  },
+  {
+    "file": "figures/p002_i1.jpg",
+    "page": 2,
+    "w": 1650,
+    "h": 1063,
+    "captions_on_page": [
+      "Fig. 1  Frontier—the world’s fastest supercomputer—ushered in the exascale computing era. Frontier is located  at Oak Ridge National Laboratory’s Oak Ridge Leadership Computing Facility.",
+      "Fig. 2  Real computer components and their cooling hardware for the Frontier high-performance computing  system at Oak Ridge National Laboratory: (a) 74 compute rack cabinets; (b) 64 blades in each rack cabinet; (c)  coolant inlet and outlet in each blade; (d) two nodes in an open blade; (e) four GP"
+    ]
+  },
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 1650,
+    "h": 1403,
+    "captions_on_page": [
+      "Fig. 3  Cooling architecture of the Frontier high-performance computing system at the Oak Ridge Leadership  Computing Facility at Oak Ridge National Laboratory. (HWR = heating water return; HWS = heating water  supply; WHRD = waste heat recovery device; CTS = cooling tower system; CTWP = cooling tow"
+    ]
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 1350,
+    "h": 1814,
+    "captions_on_page": [
+      "Fig. 4  Transient power demand characteristics of the Frontier supercomputer: (a) supercomputer power usage,  (b) accessory cooling system power demand, and (c) power usage effectiveness."
+    ]
+  },
+  {
+    "file": "figures/p005_i0.jpg",
+    "page": 5,
+    "w": 1900,
+    "h": 1686,
+    "captions_on_page": [
+      "Fig. 5  Power demand statistics of the Frontier supercomputer: (a) supercomputer total power demand, (b)  accessory (i.e., cooling) system power usage, and (c) power usage effectiveness."
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 1350,
+    "h": 1459,
+    "captions_on_page": [
+      "Fig. 6  Waste heat generation characteristics of Frontier supercomputer: (a) overall waste heat and individual  waste heat from the three cooling subloops, and (b) operation statistics of overall transient waste heat."
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 950,
+    "h": 2034,
+    "captions_on_page": [
+      "Fig. 7  Single-day profiles of the power demand, PUE, waste heat, and coolant flow and temperature on January  8th, 2023."
+    ]
+  }
+]

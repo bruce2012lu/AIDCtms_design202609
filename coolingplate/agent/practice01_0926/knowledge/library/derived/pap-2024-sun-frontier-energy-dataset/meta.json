@@ -1,0 +1,11 @@
+{
+  "id": "pap-2024-sun-frontier-energy-dataset",
+  "sha256": "f1c3fda04d66b57184bbe056c3def8e707888e2019077611dc302f3ec128089a",
+  "source": "files/papers/pap-2024-sun-frontier-energy-dataset.pdf",
+  "extracted_at": "2026-10-02T23:31:41",
+  "pages": 9,
+  "chars": 27017,
+  "chunks": 22,
+  "tables": 1,
+  "figures": 7
+}

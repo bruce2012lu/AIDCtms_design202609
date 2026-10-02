@@ -1,0 +1,36 @@
+[
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 563,
+    "h": 329,
+    "captions_on_page": [
+      "图1 实验装置",
+      "Fig.1 Experimental setup"
+    ]
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 575,
+    "h": 461,
+    "captions_on_page": [
+      "图3 乙二醇型冷却液比热容",
+      "Fig.3 Specific heat capacity of glycol coolant",
+      "图4 丙二醇型冷却液比热容",
+      "Fig.4 Specific heat capacity of propylene glycol coolant"
+    ]
+  },
+  {
+    "file": "figures/p004_i1.jpg",
+    "page": 4,
+    "w": 572,
+    "h": 455,
+    "captions_on_page": [
+      "图3 乙二醇型冷却液比热容",
+      "Fig.3 Specific heat capacity of glycol coolant",
+      "图4 丙二醇型冷却液比热容",
+      "Fig.4 Specific heat capacity of propylene glycol coolant"
+    ]
+  }
+]

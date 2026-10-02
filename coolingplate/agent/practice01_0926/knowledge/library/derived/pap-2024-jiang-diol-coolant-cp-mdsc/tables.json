@@ -1,0 +1,27 @@
+[
+  {
+    "file": "tables/p003_t0.csv",
+    "page": 3,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": [
+      "表4，温度范围 [33]为20~90℃。从表中可以看出乙二",
+      "表3　不同冰点二元醇冷却液编号对照",
+      "Table 3　Number of diol coolants at different freezing",
+      "表2　实验测得20℃下二元醇的比热容",
+      "Table 2　The specific heat capacity of diols measured at 20℃ by experiment",
+      "表1　实验测得纯净水的比热容",
+      "Table 1　The specific heat capacity of purified water measured by experiment"
+    ]
+  },
+  {
+    "file": "tables/p004_t0.csv",
+    "page": 4,
+    "rows": 2,
+    "cols": 11,
+    "captions_on_page": [
+      "表4　不同冰点二元醇型冷却液比热容",
+      "Table 4　Specific heat capacity of diols coolant at different freezing points"
+    ]
+  }
+]
