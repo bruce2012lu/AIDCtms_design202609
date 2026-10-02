@@ -1,0 +1,12 @@
+===A old 3ddp -g=== 
+'\" E:\cae\programfiles\Ansys2026\ANSYS "Inc261\v261\fluent\ntbin\win64\fluent.exe\' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+A_EXIT=0 
+===B user -r26.1.0 -gu -wait=== 
+'\E:\cae\programfiles\Ansys2026\ANSYS" "Inc261\v261\fluent\ntbin\win64\fluent.exe\' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+B_EXIT=0 
+===C 3ddp -r26.1.0 -g=== 
+'\E:\cae\programfiles\Ansys2026\ANSYS" "Inc261\v261\fluent\ntbin\win64\fluent.exe\' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+C_EXIT=0 

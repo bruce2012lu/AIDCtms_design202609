@@ -1,0 +1,110 @@
+
+Opening input/output transcript to file "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent\\fluent-20260921-073952-3892.trn".
+Auto-Transcript Start Time:  07:39:52, 21 Sep 2026 中国标准时间 
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:32:00 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+
+*********************************************
+Info: Your license enables 4-way parallel execution.
+For faster simulations, please start the application with the appropriate parallel options.
+*********************************************
+
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:49641 
+
+Node 0 connecting to the Host ... connection established.
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0    DESKTOP-JHEHF28  1/32  Windows-x64  19044  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  13740  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd\\uc01b_2.4x3.0\\fluent\\cleanup-fluent-DESKTOP-JHEHF28-13740.bat
+Note: Rank = 0: Process affinity not being set (6).
+
+Graphics driver currently in use: dx11
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file probe_assign.jou...
+
+> ; assign default water-liquid to et3d1; extra 0 for Inlet Fan Zone
+/file/set-batch-options yes yes no
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_fluent6.msh"
+Reading "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/mesh/uc01b_fluent6.msh"...
+
+Buffering for file scan...
+
+  128039 nodes.
+  116320 hexahedral cells, zone 10.
+  337392 quadrilateral interior faces, zone 11.
+     100 quadrilateral wall faces, zone 12.
+     960 quadrilateral wall faces, zone 13.
+    2472 quadrilateral wall faces, zone 14.
+    2420 quadrilateral wall faces, zone 15.
+     200 quadrilateral wall faces, zone 16.
+    8648 quadrilateral wall faces, zone 17.
+    8336 quadrilateral wall faces, zone 18.
+
+Building...
+     mesh
+     materials,
+     interface,
+     domains,
+     zones,
+	et2d8
+	et2d7
+	et2d6
+	et2d5
+	et2d4
+	et2d3
+	et2d2
+	int_et3d1
+	et3d1
+     parallel,
+Done.
+
+
+> /define/models/energy yes
+Compute viscous energy work? [no] no
+Include pressure work in energy equation? [no] no
+Include kinetic energy in energy equation? [no] no
+Include diffusion at inlets? [yes] no
+
+> /define/models/viscous/laminar yes
+
+> /define/materials/copy fluid water-liquid
+
+Material "water-liquid" copied from database.
+
+
+> /define/boundary-conditions/fluid (et3d1)
+et3d1 yes water-liquid no no no no 0 no 0 no 0 no 0 no 0 no 1 no no no yes 0
+Inlet Fan Zone [0] 
+Error: eval: unbound variable
+Error Object: /define/boundary-conditions/list-zones
+
+Error: Invalid integer.
+Error Object: /define/boundary-conditions/list-zones
+/define/boundary-conditions/list-zones
+Auto-Transcript Stop Time:  07:40:34, 21 Sep 2026 中国标准时间 
+Total Transcript Time: 0 Minute 42 Second.
+
+Automatic transcript closed.

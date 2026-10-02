@@ -1,0 +1,35 @@
+orifice CIRCLE D=0.40 mm (O-grid). NOT square 0.3545, NOT D=0.50
+level coarse
+cells_total 165112
+cells_fluid 126112
+cells_solid_cu 32216
+cells_solid_tim2 6784
+nodes 177771
+faces 510370
+xy_nodes 1803
+xy_quads 1696
+nz 106
+first_imp_mm 0.003
+n_bl 10
+growth_max 1.2
+n_ri 8
+n_side 8
+nz_tim 4
+yplus_est_laminar 0.774
+circle_R_mm 0.2
+circle_nodes 40
+circle_r_err_max_mm 1.978097e-04
+t_tim_um 80
+k_eff_R006 8.818342
+q_flux_Wm2 567460.317460
+P_cell_W 4.085714
+msh D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\mesh\uc01b_cht_coarse.msh
+zone interior 468252
+zone inlet_jet 376
+zone return_slot 312
+zone wall_heat 1696
+zone wall_lid 12584
+zone wall_orifice 728
+zone wall_cu_fluid 10354
+zone wall_tim_cu 1696
+zone SYM 14372

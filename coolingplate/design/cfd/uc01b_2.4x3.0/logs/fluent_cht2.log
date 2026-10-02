@@ -1,0 +1,4 @@
+AWP_ROOT261=E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261 
+FLUENT=E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\ntbin\win64\fluent.exe 
+CMD="E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\ntbin\win64\fluent.exe" -r26.1.0 -gu -wait 3ddp -t4 -i uc01b_cht.jou 
+FLUENT_EXIT=254 

@@ -1,0 +1,20 @@
+
+
+> /file/write-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900"
+Writing to DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.cas.h5" in NODE0 mode and compression level 1 ...
+Grouping cells for Laplace smoothing ...
+     4472280 cells,     3 zones ...
+    13626374 faces,    15 zones ...
+     4681156 nodes,     1 zone  ...
+  Done.
+Done.
+
+Additional data file quantities are not supported when writing in the default CFF format (.dat.h5 files).
+
+
+Writing to DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.dat.h5" in NODE0 mode and compression level 1 ...
+  Writing results.
+Done.
+
+
+> /exit y

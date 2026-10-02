@@ -1,0 +1,8 @@
+AWP=E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261 
+EXE=E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\ntbin\win64\fluent.exe 
+===A 3ddp -g === 
+A_EXIT=254 
+===B -r26.1.0 -gu -wait 3ddp === 
+B_EXIT=254 
+===C 3ddp -r26.1.0 -gu -wait === 
+C_EXIT=254 

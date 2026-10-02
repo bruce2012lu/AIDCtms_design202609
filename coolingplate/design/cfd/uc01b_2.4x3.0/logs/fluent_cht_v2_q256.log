@@ -1,0 +1,164 @@
+Transcript Start Time:  09:52:27, 25 Sep 2026 中国标准时间 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0"
+
+Build Time: Feb  2 2026 16:32:00 EST  Build Id: 10262 
+Executable Path: E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/ntbin/win64/fluent.exe
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n3    DESKTOP-JHEHF28  4/32  Windows-x64  3692   Intel(R) Core(TM) i9-14900KF      
+n2    DESKTOP-JHEHF28  3/32  Windows-x64  16512  Intel(R) Core(TM) i9-14900KF      
+n1    DESKTOP-JHEHF28  2/32  Windows-x64  6640   Intel(R) Core(TM) i9-14900KF      
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  24788  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  27580  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+Cortex Process ID: 25020 
+License Server Path: 1055@localhost 
+
+
+> /file/read-case "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.cas.h5"Fast-loading "E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\fluent26.1.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.cas.h5" in NODE0 mode ...
+  Reading mesh ...
+     4472280 cells,     3 cell zones ...
+        2760804 hexahedral cells,  zone id: 2
+        1533156 hexahedral cells,  zone id: 3
+         178320 hexahedral cells,  zone id: 4
+    13626374 faces,    15 face zones ...
+           3576 quadrilateral symmetry faces,  zone id: 17
+          27044 quadrilateral symmetry faces,  zone id: 16
+          17500 quadrilateral wall faces,  zone id: 15
+         503452 quadrilateral interior faces,  zone id: 14
+        4509890 quadrilateral interior faces,  zone id: 13
+        8193964 quadrilateral interior faces,  zone id: 5
+           5500 quadrilateral mass-flow-inlet faces,  zone id: 6
+           6720 quadrilateral pressure-outlet faces,  zone id: 7
+          29720 quadrilateral wall faces,  zone id: 8
+           1600 quadrilateral wall faces,  zone id: 9
+         104892 quadrilateral wall faces,  zone id: 10
+         104892 quadrilateral wall faces,  zone id: 19
+          29720 quadrilateral wall faces,  zone id: 11
+          29720 quadrilateral wall faces,  zone id: 18
+          58184 quadrilateral symmetry faces,  zone id: 12
+     4681156 nodes,     1 node zone  ...
+  Done.
+
+
+Building...
+     mesh
+	distributing mesh
+		pairs....,
+		parts....,
+		faces....,
+		nodes....,
+		shadow nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 697285/5346 = 130.431
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	sym:017
+	sym:016
+	interior:014
+	interior:013
+	wall_tim_cu
+	wall_cu_fluid
+	wall_orifice
+	wall_heat
+	interior
+	return_slot:015
+	inlet_jet
+	return_slot
+	sym
+	solid_tim2
+	solid_cu
+	fluid
+     parallel,
+Done.
+
+Preparing mesh for display...
+Done.
+
+
+> /file/read-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.dat.h5"
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_cht_v2_i7900.dat.h5" in NODE0 mode ...
+
+
+  Reading results.
+Parallel variables...
+Done.
+
+
+> /define/boundary-conditions/zone-type return_slot:015 wall
+
+> /define/boundary-conditions/zone-type return_slot pressure-outlet
+
+> /define/models/viscous/kw-sst yes
+
+> /define/boundary-conditions/set/mass-flow-inlet inlet_jet () mass-flow no 0.00010335416666666667 t no 313.15 q
+
+> /define/boundary-conditions/wall
+(return_slot:015 wall_heat wall_orifice wall_cu_fluid wall_tim_cu wall_tim_cu-shadow wall_cu_fluid-shadow)
+zone id/name [return_slot:015] wall_heat
+Use Profile for Wall Thickness? [no] no
+Wall Thickness (constant or expression) (in [m]) [0] 0
+Use Profile for Heat Generation Rate? [no] no
+Heat Generation Rate (constant or expression) (in [W/m^3]) [0] 0
+material-name [tim2]: Change current value? [no] no
+Thermal BC Type [heat-flux]: Change current value? [no] yes
+
+Thermal BC Type [heat-flux]> heat-flux
+Use Profile for Heat Flux? [no] no
+Heat Flux (constant or expression) (in [W/m^2]) [567460.3174603175] 477430.55555555556
+Enable shell conduction? [no] no
+Use Profile for Convective Augmentation Factor? [no] no
+Convective Augmentation Factor (constant or expression) [1] 1
+
+> /solve/monitors/residual/criterion-type Available options: (absolute none)
+0
+
+> /solve/monitors/residual/check-convergence? yes
+Check convergence of x-velocity residuals? [yes] yes
+Check convergence of y-velocity residuals? [yes] yes
+Check convergence of z-velocity residuals? [yes] yes
+Check convergence of energy residuals? [yes] yes
+Check convergence of k residuals? [yes] yes
+Check convergence of omega residuals? [yes] yes
+
+> /solve/monitors/residual/convergence-criteria
+continuity residual convergence criterion [0.0001] 1e-4
+x-velocity residual convergence criterion [0.0001] 1e-4
+y-velocity residual convergence criterion [0.0001] 1e-4
+z-velocity residual convergence criterion [0.0001] 1e-4
+energy residual convergence criterion [1e-06] 1e-6
+k residual convergence criterion [0.001] 1e-3
+omega residual convergence criterion [0.001] 1e-3
+
+> /solve/iterate 2000
+Preparing GPU solver, please wait ...
+------------------------------------------------------------------------------------------------------------------------
+Rank  PID    Core  OS     Host             Device  Name                     Version  Memory(GB)   Bandwidth  Cores      
+------------------------------------------------------------------------------------------------------------------------
+0     24788  1/32  win64  DESKTOP-JHEHF28  0/1     NVIDIA GeForce RTX 4090  8.9      23.99/22.44  961.395    128x128    
+1     6640   1/32  win64  DESKTOP-JHEHF28  0/1     NVIDIA GeForce RTX 4090  8.9      23.99/22.44  961.395    128x128    
+2     16512  1/32  win64  DESKTOP-JHEHF28  0/1     NVIDIA GeForce RTX 4090  8.9      23.99/22.44  961.395    128x128    
+3     3692   1/32  win64  DESKTOP-JHEHF28  0/1     NVIDIA GeForce RTX 4090  8.9      23.99/22.44  961.395    128x128    
+------------------------------------------------------------------------------------------------------------------------
+Bandwidth : 17.0361, 4.51515 GB/s
+Latency   : 0.1139, 22.5468 usec
+
+Upload restart solution data ...
+Apply restart data ... 
+
+  iter  continuity  x-velocity  y-velocity  z-velocity      energy           k       omega     time/iter
+  7900  4.0743e-07  4.9083e-07  6.5537e-07  1.1218e-06  9.5641e-07  6.8951e-07  2.2019e-04  0:00:00 2000

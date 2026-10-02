@@ -1,0 +1,19 @@
+UC-01b ICEM quality — only values ICEM computed
+source: Python Cartesian hex (same cells as mesh/uc01b.msh). ICEM tetra failed. No .blk.
+import: IcedNastran icem/uc01b.nas -> icem/uc01b.uns (readfluent rejected Fluent-26 msh)
+uns D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/icem/uc01b.uns
+cells_3d 116320
+hexa 116320
+tetra 0
+quad 0
+nodes 128039
+types HEXA_8
+families ORFN ET3D1
+Quality metric raw: 116320 0 0 1 1 116320
+  n_defined 116320
+  n_undef   0
+  n_bad     0
+  min       1
+  max       1
+  sum       116320
+histogram: NOT computed (can't read "uns_cur": no such variable)

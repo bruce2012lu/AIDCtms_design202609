@@ -1,0 +1,9 @@
+ANSYS root (user): E:\cae\programfiles\Ansys2026
+Resolved tree:    E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261
+Version:          2026 R1 / v261
+Package:          R261RC2P01  (builddate.txt Unified Package 202602040408P01)
+Fluent exe:       E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\ntbin\win64\fluent.exe
+ICEM bat:         E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\icemcfd\win64_amd\bin\icemcfd.bat
+AWP_ROOT / AWP_ROOT261 should be set to the v261 directory above.
+v242 under Inc261 contains only scdm (not used).
+Recorded: 2026-09-21

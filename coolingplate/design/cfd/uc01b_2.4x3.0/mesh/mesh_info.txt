@@ -1,0 +1,17 @@
+cells 116320
+nodes 128039
+faces 360528
+nx ny nz 58 60 52
+first_layer_z_mm 0.003000
+orifice_square_mm 0.35449
+circle_D_mm 0.4
+level run
+note equal-area square orifice; ICEM circle is the official geom
+zone interior 337392
+zone inlet_jet 100
+zone return_slot 960
+zone wall_imp 2472
+zone wall_lid 2420
+zone wall_orifice 200
+zone fin 8648
+zone SYM 8336

@@ -1,0 +1,10 @@
+sizeof(int) = 4
+sizeof(long) = 4
+sizeof(Cell) = 128
+sizeof(Vertex) = 104
+ICEM CFD Tetra  compiled on 1/9/2026 at 1:25 p.m.
+running on Windows (64 bit version)
+(c) Copyright 1991 - 2026 ANSYS Inc.
+reading surface model
+error opening surface file ""
+Invalid argument

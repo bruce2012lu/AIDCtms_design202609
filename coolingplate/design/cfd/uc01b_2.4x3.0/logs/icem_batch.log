@@ -1,0 +1,36 @@
+AWP_ROOT261=E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261 
+ICEM=E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\icemcfd\win64_amd\bin\icemcfd.bat 
+Checked out ansyslmd feature cfd_preppost, cfd_preppost_pro, cfd_base (product CFD PrepPost, CFD PrepPost Pro, CFD Base) from server 1055@localhost
+Customer number is 20120530
+UC01b: start OUTDIR=D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0
+Changed invalid part name "fluid" to "FLUID".
+Changed invalid part name "inlet_jet" to "INLET_JET".
+Changed invalid part name "wall_orifice" to "WALL_ORIFICE".
+Changed invalid part name "wall_lid" to "WALL_LID".
+Changed invalid part name "wall_imp" to "WALL_IMP".
+Changed invalid part name "fin" to "FIN".
+Changed invalid part name "return_slot" to "RETURN_SLOT".
+Running: "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/icemcfd/win64_amd/icemcfd/tetra" tetra_cmd.tmp
+Running: "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/icemcfd/win64_amd/icemcfd/tetra" tetra_cmd.tmp >& medlog0.tmp
+Program is running: pid = 18440
+sizeof(int) = 4
+sizeof(long) = 4
+sizeof(Cell) = 128
+sizeof(Vertex) = 104
+ICEM CFD Tetra  compiled on 1/9/2026 at 1:25 p.m.
+running on Windows (64 bit version)
+(c) Copyright 1991 - 2026 ANSYS Inc.
+reading surface model
+error opening surface file ""
+Invalid argument
+Application is finished.
+Error: tetra didn't create 
+UC01b: ic_run_tetra ok
+No mesh
+Writing tetin file D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/icem/uc01b.tin ...
+saving model ...
+Done saving tetin file.
+UC01b: ic_uns_write failed: invalid command name "ic_uns_write"
+Project settings file D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/icem/uc01b does not exist
+UC01b: done
+ICEM_EXIT=0 

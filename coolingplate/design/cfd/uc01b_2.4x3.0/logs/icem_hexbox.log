@@ -1,0 +1,157 @@
+Checked out ansyslmd feature cfd_preppost, cfd_preppost_pro, cfd_base (product CFD PrepPost, CFD PrepPost Pro, CFD Base) from server 1055@localhost
+Customer number is 20120530
+UC01b-hexbox: start
+no curve named "p000"
+no curve named "p000"
+    while executing
+"ic_geo_crv_length $crvs"
+    (procedure "comak_bsinterp_srf_from_crvs" line 21)
+    invoked from within
+"comak_bsinterp_srf_from_crvs $part $name $def"
+    ("default" arm line 5)
+    invoked from within
+"switch $method {
+		reappr {
+			#format: part name (1 word) or list of surfaces (>= 1 word)
+			# external: tol == geo_cad(toler) == topo tolerance
+			#..."
+    (procedure "ic_surface" line 36)
+    invoked from within
+"ic_surface 4-pt SRFS sbot {p000 p100 p110 p010}"
+    invoked from within
+"batch_interp eval ic_surface $args"
+UC01b-hexbox: surface sbot failed: no curve named "p000"
+no curve named "p001"
+no curve named "p001"
+    while executing
+"ic_geo_crv_length $crvs"
+    (procedure "comak_bsinterp_srf_from_crvs" line 21)
+    invoked from within
+"comak_bsinterp_srf_from_crvs $part $name $def"
+    ("default" arm line 5)
+    invoked from within
+"switch $method {
+		reappr {
+			#format: part name (1 word) or list of surfaces (>= 1 word)
+			# external: tol == geo_cad(toler) == topo tolerance
+			#..."
+    (procedure "ic_surface" line 36)
+    invoked from within
+"ic_surface 4-pt SRFS stop {p001 p011 p111 p101}"
+    invoked from within
+"batch_interp eval ic_surface $args"
+UC01b-hexbox: surface stop failed: no curve named "p001"
+no curve named "p000"
+no curve named "p000"
+    while executing
+"ic_geo_crv_length $crvs"
+    (procedure "comak_bsinterp_srf_from_crvs" line 21)
+    invoked from within
+"comak_bsinterp_srf_from_crvs $part $name $def"
+    ("default" arm line 5)
+    invoked from within
+"switch $method {
+		reappr {
+			#format: part name (1 word) or list of surfaces (>= 1 word)
+			# external: tol == geo_cad(toler) == topo tolerance
+			#..."
+    (procedure "ic_surface" line 36)
+    invoked from within
+"ic_surface 4-pt SRFS sxm {p000 p010 p011 p001}"
+    invoked from within
+"batch_interp eval ic_surface $args"
+UC01b-hexbox: surface sxm failed: no curve named "p000"
+no curve named "p100"
+no curve named "p100"
+    while executing
+"ic_geo_crv_length $crvs"
+    (procedure "comak_bsinterp_srf_from_crvs" line 21)
+    invoked from within
+"comak_bsinterp_srf_from_crvs $part $name $def"
+    ("default" arm line 5)
+    invoked from within
+"switch $method {
+		reappr {
+			#format: part name (1 word) or list of surfaces (>= 1 word)
+			# external: tol == geo_cad(toler) == topo tolerance
+			#..."
+    (procedure "ic_surface" line 36)
+    invoked from within
+"ic_surface 4-pt SRFS sxp {p100 p101 p111 p110}"
+    invoked from within
+"batch_interp eval ic_surface $args"
+UC01b-hexbox: surface sxp failed: no curve named "p100"
+no curve named "p000"
+no curve named "p000"
+    while executing
+"ic_geo_crv_length $crvs"
+    (procedure "comak_bsinterp_srf_from_crvs" line 21)
+    invoked from within
+"comak_bsinterp_srf_from_crvs $part $name $def"
+    ("default" arm line 5)
+    invoked from within
+"switch $method {
+		reappr {
+			#format: part name (1 word) or list of surfaces (>= 1 word)
+			# external: tol == geo_cad(toler) == topo tolerance
+			#..."
+    (procedure "ic_surface" line 36)
+    invoked from within
+"ic_surface 4-pt SRFS sym {p000 p001 p101 p100}"
+    invoked from within
+"batch_interp eval ic_surface $args"
+UC01b-hexbox: surface sym failed: no curve named "p000"
+no curve named "p010"
+no curve named "p010"
+    while executing
+"ic_geo_crv_length $crvs"
+    (procedure "comak_bsinterp_srf_from_crvs" line 21)
+    invoked from within
+"comak_bsinterp_srf_from_crvs $part $name $def"
+    ("default" arm line 5)
+    invoked from within
+"switch $method {
+		reappr {
+			#format: part name (1 word) or list of surfaces (>= 1 word)
+			# external: tol == geo_cad(toler) == topo tolerance
+			#..."
+    (procedure "ic_surface" line 36)
+    invoked from within
+"ic_surface 4-pt SRFS syp {p010 p110 p111 p011}"
+    invoked from within
+"batch_interp eval ic_surface $args"
+UC01b-hexbox: surface syp failed: no curve named "p010"
+model has no curves or surfaces!
+model has no curves or surfaces!
+    while executing
+"hexlib_interface__10 initialize_blocking {surface sbot surface stop surface sxm surface sxp surface sym surface syp} LIVE 1"
+    ("eval" body line 1)
+    invoked from within
+"eval $hexlib initialize_blocking $args "
+    (procedure "ic_hex_initialize_blocking" line 6)
+    invoked from within
+"ic_hex_initialize_blocking {surface sbot surface stop surface sxm surface sxp surface sym surface syp} LIVE 1"
+    invoked from within
+"batch_interp eval ic_hex_initialize_blocking $args"
+UC01b-hexbox: init blocking ents failed: model has no curves or surfaces!
+model has no curves or surfaces!
+model has no curves or surfaces!
+    while executing
+"hexlib_interface__10 initialize_mesh new_numbering new_blocking LIVE bbox -1.5 -1.2 0.0 1.5 1.2 8.0"
+    ("eval" body line 1)
+    invoked from within
+"eval $hexlib initialize_mesh $args"
+    (procedure "ic_hex_initialize_mesh" line 5)
+    invoked from within
+"ic_hex_initialize_mesh new_numbering new_blocking LIVE bbox -1.5 -1.2 0.0 1.5 1.2 8.0"
+    invoked from within
+"batch_interp eval ic_hex_initialize_mesh $args"
+UC01b-hexbox: init bbox failed: model has no curves or surfaces!
+UC01b-hexbox: create_mesh ok
+No mesh
+UC01b-hexbox: saved D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/icem/uc01b_box.uns
+UC01b-hexbox: skip fluent6 uns_exists=0 fl6_exists=0
+Writing tetin file D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/icem/uc01b_box.tin ...
+saving model ...
+Done saving tetin file.
+UC01b-hexbox: done

@@ -1,0 +1,12 @@
+===A old 3ddp -g=== 
+'\" E:\cae\programfiles\Ansys2026\ANSYS "Inc261\v261\fluent\ntbin\win64\fluent.exe\' �����ڲ����ⲿ���Ҳ���ǿ����еĳ���
+���������ļ���
+A_EXIT=0 
+===B user -r26.1.0 -gu -wait=== 
+'\E:\cae\programfiles\Ansys2026\ANSYS" "Inc261\v261\fluent\ntbin\win64\fluent.exe\' �����ڲ����ⲿ���Ҳ���ǿ����еĳ���
+���������ļ���
+B_EXIT=0 
+===C 3ddp -r26.1.0 -g=== 
+'\E:\cae\programfiles\Ansys2026\ANSYS" "Inc261\v261\fluent\ntbin\win64\fluent.exe\' �����ڲ����ⲿ���Ҳ���ǿ����еĳ���
+���������ļ���
+C_EXIT=0 

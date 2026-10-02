@@ -1,0 +1,6 @@
+AWP_ROOT261=E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261 
+FLUENT=E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\ntbin\win64\fluent.exe 
+CMD="E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\ntbin\win64\fluent.exe" -r26.1.0 -gu -wait 3ddp -t4 -i "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent\uc01b_cht_converge.jou" 
+START=2026/09/22 周二  7:53:09.35 
+FLUENT_EXIT=254 
+END=2026/09/22 周二  7:53:13.62 
