@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HBM 微通道冷板 · 结构布局说明</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1100px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:36px 48px 28px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.08em;color:#9db6d4}
+header h1{font-size:28px;line-height:1.3;margin:8px 0}
+.sub{color:#d7e6f5}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:3px 10px;font-size:12px}
+main{padding:28px 48px 48px}
+h2{font-size:20px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:6px;margin:28px 0 12px}
+h3{font-size:16px;color:#174f83;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:12px 16px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:10px 12px;background:var(--soft)}
+.card b{display:block;font-size:18px;color:var(--navy)}
+.card.warn{border-top-color:var(--warn)}
+.card.bad{border-top-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px}
+th,td{border:1px solid var(--line);padding:7px 8px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 14px;border-radius:7px;margin:12px 0}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.bad{border-color:#f0c2bc;background:#fdf4f3}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+.svgbox{border:1px dashed var(--line);border-radius:8px;padding:8px;background:#fff;margin:8px 0}
+.svgbox svg{width:100%;height:auto;display:block}
+.figcap{color:var(--muted);font-size:12px;margin:0 0 14px}
+code{font-family:Consolas,monospace;font-size:12px}
+footer{padding:16px 48px 28px;color:var(--muted);font-size:12px}
+@media(max-width:800px){header,main,footer{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">CP-B300-JM-01 · HBM 区 · 2026-09-29</div>
+  <h1>HBM 微通道冷板 · 结构布局说明</h1>
+  <div class="sub">左右两列、每列四颗。槽顶封死，相邻槽反向。</div>
+  <div class="meta"><span class="pill">现行截面 0.80×2.00</span><span class="pill">每侧 7 槽</span><span class="pill">无喷嘴</span></div>
+</header>
+<main>
+
+<p class="lead">HBM 微通道在同一块 CP-B300-JM-01 的左右两侧，各一列 4 颗 11 × 11 mm 堆叠。现行槽截面取 2026-09-28 修订和 <code>HBM_w08h20</code> 网格：0.80 × 2.00 mm，肋 0.80 mm，每侧 7 条。加热段槽顶封死，没有通长水缝，也没有喷嘴。</p>
+<div class="grid">
+  <div class="card"><b>左右各 4 颗</b>11 × 11，列长 50</div>
+  <div class="card"><b>7 条 / 侧</b>0.80 槽 + 0.80 肋</div>
+  <div class="card"><b>岸 0.30 × 2</b>加起来等于 11</div>
+  <div class="card warn"><b>槽深 2.0</b>深于 GPU 槽的 1.5</div>
+</div>
+<h2>1. 在 95 × 75 板上的位置</h2>
+<p>左列原点 X = 5，右列 X = 79。四颗的 Y 为 12.5、25.5、38.5、51.5，颗与颗之间空 2 mm。末颗顶边在 62.5，列长 50，上下各剩 12.5，板高 75。</p>
+<p>靠 die 的一侧是 2 mm 隔离肋：左肋 X 16.5–18.5，右肋 X 76.5–78.5，Y 12.5–62.5。肋的外侧离 HBM 外缘 0.5 mm，内侧离 die 也是 0.5 mm。HBM 区盖板不开射流孔。</p>
+<div class="svgbox">
+<svg viewBox="0 0 860 280" xmlns="http://www.w3.org/2000/svg">
+  <rect x="40" y="40" width="760" height="180" fill="#f6f1e4" stroke="#5c3a17"/>
+  <g fill="#c9a227">
+    <rect x="70" y="70" width="70" height="28"/><rect x="70" y="112" width="70" height="28"/>
+    <rect x="70" y="154" width="70" height="28"/><rect x="70" y="196" width="70" height="8"/>
+  </g>
+  <text x="250" y="80" font-size="14" fill="#182536" font-family="Microsoft YaHei">单侧 11 mm 宽，自下而上四颗。下图是其中一颗的槽，按宽度比例。</text>
+  <rect x="250" y="110" width="440" height="70" fill="#f4e0cf" stroke="#5c3a17"/>
+  <g fill="#1f6fb2">
+    <rect x="262" y="118" width="32" height="54"/>
+    <rect x="326" y="118" width="32" height="54"/>
+    <rect x="390" y="118" width="32" height="54"/>
+    <rect x="454" y="118" width="32" height="54"/>
+    <rect x="518" y="118" width="32" height="54"/>
+    <rect x="582" y="118" width="32" height="54"/>
+    <rect x="646" y="118" width="32" height="54"/>
+  </g>
+  <text x="470" y="210" text-anchor="middle" font-size="13" fill="#33404d" font-family="Microsoft YaHei">7 条槽。奇数 3 条一个流向，偶数 4 条反向。两岸各 0.30 mm。</text>
+</svg>
+</div>
+<p class="figcap">图 1. 上图只示意列的分段，不是板的全宽。下图 7 条槽等宽，肋与槽同宽，两岸留白。</p>
+<h2>2. 流向</h2>
+<p>列的长边是流动方向。7 条里偶数 4 条从一个端头进，奇数 3 条从另一端进。出流不从槽的远端水平离开：远端用铜封住，流体从槽顶的竖向口翻进上铜板里的汇流腔。低 Y 腔只收偶数槽，高 Y 腔只收奇数槽。同一端的进流槽没有这只竖向口，进出因此不串腔。</p>
+<h2>3. 厚度和 GPU 区的差别</h2>
+<p>加热段自芯片面起：底铜 2.0，槽高 2.0，上铜板 4.0，合计 8.0 mm，与整板腔体相同。上铜板内部是竖向口 1.0 mm 加上汇流腔 3.0 mm。外形仍写 8.5 mm，多出的 0.5 mm 是周边钎缝，不在这段加热网格里。</p>
+<p>GPU 区是余铜 2.0、槽 1.5、开口间隙 2.0、喷嘴板 2.5。HBM 把槽加深 0.5 mm，取消开口间隙，上板加厚到 4.0 mm。两套加法都等于 8.0，所以不能用一把槽深把整块底板铣完。</p>
+<div class="note">
+<p>修订前的正文仍写 0.60 × 1.50 mm、每侧 8 条、节距 1.30 mm。那一组也能在 11 mm 里闭合（两岸各 0.65 mm），但已被文首修订和 w08h20 网格替换。尺寸链以 0.80 × 2.00、7 条为准。旧链留在 Excel 的“不采用”表，不参与判定。</p>
+</div>
+<p class="small">来源：B300 报告文首“HBM 交错流修订 · 2026-09-28”，以及同目录 HBM_w08h20 结果报告所用网格。堆叠坐标仍用 §8.1。</p>
+
+</main>
+<footer>数值来自本目录五份 HTML。asm_0921 的 12.5 mm / 128 孔、UC01b 的孔径 0.40 mm、v1 参数集的段间铜岛，都不进入封闭环。平面坐标在盖板图到达前仍是候选。</footer>
+</div>
+</body>
+</html>

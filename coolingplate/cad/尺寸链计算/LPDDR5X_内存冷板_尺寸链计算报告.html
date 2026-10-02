@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LPDDR5X 内存冷板 · 尺寸链计算报告</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1100px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:36px 48px 28px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.08em;color:#9db6d4}
+header h1{font-size:28px;line-height:1.3;margin:8px 0}
+.sub{color:#d7e6f5}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:3px 10px;font-size:12px}
+main{padding:28px 48px 48px}
+h2{font-size:20px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:6px;margin:28px 0 12px}
+h3{font-size:16px;color:#174f83;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:12px 16px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:10px 12px;background:var(--soft)}
+.card b{display:block;font-size:18px;color:var(--navy)}
+.card.warn{border-top-color:var(--warn)}
+.card.bad{border-top-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px}
+th,td{border:1px solid var(--line);padding:7px 8px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 14px;border-radius:7px;margin:12px 0}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.bad{border-color:#f0c2bc;background:#fdf4f3}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+.svgbox{border:1px dashed var(--line);border-radius:8px;padding:8px;background:#fff;margin:8px 0}
+.svgbox svg{width:100%;height:auto;display:block}
+.figcap{color:var(--muted);font-size:12px;margin:0 0 14px}
+code{font-family:Consolas,monospace;font-size:12px}
+footer{padding:16px 48px 28px;color:var(--muted);font-size:12px}
+@media(max-width:800px){header,main,footer{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">CP-GRACE-MC-01 · 内存区 · 2026-09-29</div>
+  <h1>LPDDR5X 内存冷板 · 尺寸链计算报告</h1>
+  <div class="sub">窗口链在节距 8.00 mm 下闭合。边距是推算值。</div>
+  <div class="meta"><span class="pill">名义闭合</span><span class="pill">节距为核实取值</span><span class="pill">缝无坐标</span></div>
+</header>
+<main>
+
+<p class="lead">内存区与 CPU 共用整板的 200 mm 和 8.0 mm。本区自己要闭合的是 50 mm 窗口、82 mm 口带和 78 mm 润湿长度。节距按 8.00 mm 取值后，窗口链闭合。若节距只按“约 8”理解，边距 4.40 mm 就还不是图纸尺寸。</p>
+<h2>1. 名义尺寸链</h2>
+<table>
+<thead><tr><th>链</th><th>算式</th><th>结果</th><th>期望</th><th>差</th><th>判定</th><th>说明</th></tr></thead>
+<tbody><tr><td>整板 X（与 CPU 同一条）</td><td><code>6.5+7+0.5+50+16+40+16+50+0.5+7+6.5</code></td><td>200</td><td>200</td><td>0</td><td><span class="tag">闭合</span></td><td></td></tr><tr><td>左右窗对称</td><td><code>100−14 与 186−100</code></td><td>86</td><td>86</td><td>0</td><td><span class="tag">闭合</span></td><td>右窗外缘对板中心</td></tr><tr><td>窗间铜</td><td><code>80−64</code></td><td>16</td><td>16</td><td>0</td><td><span class="tag">闭合</span></td><td>右侧 136−120 同样是 16</td></tr><tr><td>槽场放入 50 mm 窗</td><td><code>41.2+2×4.4</code></td><td>50</td><td>50</td><td>0</td><td><span class="tag">闭合</span></td><td>节距取 8.00 才有这组边距</td></tr><tr><td>6 槽与 5 段肋</td><td><code>6×1.20+5×6.8+2×4.4</code></td><td>50</td><td>50</td><td>0</td><td><span class="tag">闭合</span></td><td>核实2 展开</td></tr><tr><td>口带</td><td><code>0.8+1.6+0.8+1.6+1.2+70+1.2+1.6+0.8+1.6+0.8</code></td><td>82</td><td>82</td><td>0</td><td><span class="tag">闭合</span></td><td>Y 19 到 101</td></tr><tr><td>奇数槽润湿</td><td><code>100.2−22.2</code></td><td>78</td><td>78</td><td>0</td><td><span class="tag">闭合</span></td><td></td></tr><tr><td>偶数槽润湿</td><td><code>97.8−19.8</code></td><td>78</td><td>78</td><td>0</td><td><span class="tag">闭合</span></td><td></td></tr><tr><td>内存场加上下边带</td><td><code>19+82+19</code></td><td>120</td><td>120</td><td>0</td><td><span class="tag">闭合</span></td><td>前端墙在 19，后端墙止于 101</td></tr><tr><td>下边带拆开</td><td><code>6+2+8+3</code></td><td>19</td><td>19</td><td>0</td><td><span class="tag">闭合</span></td><td>密封、到廊、廊高 8、到端墙</td></tr><tr><td>上边带拆开</td><td><code>2+9+2+6</code></td><td>19</td><td>19</td><td>0</td><td><span class="tag">闭合</span></td><td>到廊、廊高 9、到腔顶、密封</td></tr><tr><td>接头对内存供液口</td><td><code>(23+97)/2</code></td><td>60</td><td>60</td><td>0</td><td><span class="tag">闭合</span></td><td>前口中心 23，后口中心 97</td></tr><tr><td>槽深与通道层</td><td><code>1.20−0.80</code></td><td>0.4</td><td>0.4</td><td>0</td><td><span class="tag">闭合</span></td><td>差 0.40，不并成一条槽深</td></tr></tbody>
+</table>
+<h2>2. 核实2</h2>
+<p>左窗从 X = 14 起。若边距 4.40，第一条槽的左缘在 18.40，中心在 19.00。此后每 8.00 mm 一条，第六条中心在 59.00，右缘在 59.60，再到窗口右缘 64 仍是 4.40。右窗是左窗加 122 mm：14 + 122 = 136，64 + 122 = 186。</p>
+<p>Y 向口带从 19.0 加到 101.0，各段之和 82。奇数槽 22.2 到 100.2 为 78，偶数槽 19.8 到 97.8 为 78。前后廊一高 8、一高 9，上下边带却都是 19，板高仍是 120。廊不对称，整板链闭合。</p>
+<div class="note">
+<p>限流缝 0.80 × 1.20 × 12 没有坐标，不能放进窗口链。槽深 0.80 与通道层 1.20 相差 0.40，已按“从分型面向下铣”写入布局说明；在盖板图或剖面给出槽底 z 之前，这一读法保持为核实假设。</p>
+</div>
+<p class="small">Excel：<code>LPDDR5X_内存冷板_尺寸核实2计算.xlsx</code>。节距在输入格里，改掉 8.00 后边距和闭合差会重算。</p>
+
+</main>
+<footer>数值来自本目录五份 HTML。asm_0921 的 12.5 mm / 128 孔、UC01b 的孔径 0.40 mm、v1 参数集的段间铜岛，都不进入封闭环。平面坐标在盖板图到达前仍是候选。</footer>
+</div>
+</body>
+</html>

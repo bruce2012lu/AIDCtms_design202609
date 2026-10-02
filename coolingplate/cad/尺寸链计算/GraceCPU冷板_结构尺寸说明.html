@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<title>Grace CPU 冷板 · 结构尺寸说明</title>
+<style>
+:root { --ink:#1c2430; --muted:#5c6b7a; --line:#d5dde6; --navy:#0e3a5d; --ok:#0d6b3a; --bad:#9d1c1c; --wait:#8a5a00; --paper:#f6f4ef; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.65 "Microsoft YaHei","PingFang SC",sans-serif; }
+main { max-width:980px; margin:0 auto; padding:32px 28px 72px; background:#fff; }
+h1 { font-size:28px; line-height:1.3; margin:0 0 8px; color:var(--navy); }
+h2 { font-size:20px; margin:32px 0 10px; padding-top:8px; border-top:2px solid var(--navy); color:var(--navy); }
+h3 { font-size:17px; margin:22px 0 8px; }
+.sub { color:var(--muted); margin-bottom:18px; }
+.meta { display:flex; flex-wrap:wrap; gap:8px 18px; font-size:13px; color:var(--muted); margin:8px 0 18px; }
+.lead { background:#f3f7fb; border-left:4px solid var(--navy); padding:12px 14px; }
+table { width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:14px; }
+th, td { border:1px solid var(--line); padding:6px 8px; vertical-align:top; text-align:left; }
+th { background:#eef3f8; }
+.num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.ok { color:var(--ok); font-weight:700; }
+.bad { color:var(--bad); font-weight:700; }
+.wait { color:var(--wait); font-weight:700; }
+.src { font-size:13px; color:var(--muted); }
+.fig { margin:12px 0; overflow-x:auto; }
+.figcap { font-size:13px; color:var(--muted); margin-top:4px; }
+code { font-family:Consolas,monospace; font-size:13px; }
+ul { margin:8px 0 8px 1.2em; }
+footer { margin-top:36px; font-size:13px; color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+<h1>Grace CPU 冷板 · 结构尺寸说明</h1>
+<p class="sub">CPU 区尺寸。板宽链里的内存窗见 LLDDRAM 那一份的细部。</p>
+<div class="meta"><span>DC-CPU-DIM-01</span><span>日期 2026-09-29</span><span>状态：名义尺寸闭合，线性公差未给</span></div>
+<p class='lead'>肋场 38.8 mm 与 49×0.40+48×0.40 分开存放，核实页用公式核对二者。</p><h2>共用外形</h2><table><thead><tr><th>项目</th><th>尺寸 / mm</th><th>来源与说明</th></tr></thead><tbody><tr><td class="">长 × 宽 × 厚</td><td class="">200.000 × 120.000 × 8.000</td><td class="">平面仍是候选</td></tr><tr><td class="">密封边</td><td class="num">6.000</td><td class="">四周</td></tr><tr><td class="">干管宽</td><td class="num">7.000</td><td class="">左右各一，深 5，z 1–6</td></tr><tr><td class="">内存窗宽</td><td class="num">50.000</td><td class="">本页只作为板宽链的一环</td></tr><tr><td class="">区间间隙</td><td class="num">16.000</td><td class="">内存窗与 CPU 窗之间</td></tr></tbody></table><h2>CPU 区</h2><table><thead><tr><th>项目</th><th>尺寸 / mm</th><th>来源与说明</th></tr></thead><tbody><tr><td class="">窗</td><td class="">40.000 × 32.000</td><td class="">X 80–120，Y 44–76</td></tr><tr><td class="">条数</td><td class="num">48.000</td><td class="">奇偶各 24</td></tr><tr><td class="">肋数</td><td class="num">49.000</td><td class=""></td></tr><tr><td class="">槽宽 × 深</td><td class="">0.400 × 1.200</td><td class=""></td></tr><tr><td class="">肋厚</td><td class="num">0.400</td><td class="">节距 0.80</td></tr><tr><td class="">肋场宽</td><td class="num">38.800</td><td class=""></td></tr><tr><td class="">窗内岸</td><td class="num">0.600</td><td class="">两侧</td></tr><tr><td class="">润湿长度</td><td class="num">40.000</td><td class="">含端口</td></tr><tr><td class="">端墙 / 隔墙</td><td class="num">0.800</td><td class="">Y 向</td></tr><tr><td class="">Z 向口沿 Y</td><td class="num">1.600</td><td class="">沿 X 等于槽宽 0.40</td></tr><tr><td class="">口与窗之间的实铜</td><td class="num">1.200</td><td class="">原表未命名</td></tr><tr><td class="">口带起点 / 终点</td><td class="">38.000 / 82.000</td><td class="">前端墙外缘到后端墙外缘</td></tr></tbody></table><h2>厚度</h2><table><thead><tr><th>项目</th><th>尺寸 / mm</th><th>来源与说明</th></tr></thead><tbody><tr><td class="">底板</td><td class="num">2.000</td><td class=""></td></tr><tr><td class="">槽深</td><td class="num">1.200</td><td class=""></td></tr><tr><td class="">分型密封</td><td class="num">0.300</td><td class=""></td></tr><tr><td class="">内腔</td><td class="num">2.500</td><td class=""></td></tr><tr><td class="">盖顶</td><td class="num">2.000</td><td class=""></td></tr></tbody></table>
+<footer>生成脚本 build_dimchain_reports.py。改尺寸时改工作簿里的蓝色输入格，或改脚本后重跑。本页与同名尺寸核实2工作簿用同一组输入。</footer>
+</main>
+</body>
+</html>

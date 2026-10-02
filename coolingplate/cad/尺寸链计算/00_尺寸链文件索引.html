@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>冷板尺寸链文件索引</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1100px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:36px 48px 28px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.08em;color:#9db6d4}
+header h1{font-size:28px;line-height:1.3;margin:8px 0}
+.sub{color:#d7e6f5}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:3px 10px;font-size:12px}
+main{padding:28px 48px 48px}
+h2{font-size:20px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:6px;margin:28px 0 12px}
+h3{font-size:16px;color:#174f83;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:12px 16px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:10px 12px;background:var(--soft)}
+.card b{display:block;font-size:18px;color:var(--navy)}
+.card.warn{border-top-color:var(--warn)}
+.card.bad{border-top-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px}
+th,td{border:1px solid var(--line);padding:7px 8px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 14px;border-radius:7px;margin:12px 0}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.bad{border-color:#f0c2bc;background:#fdf4f3}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+.svgbox{border:1px dashed var(--line);border-radius:8px;padding:8px;background:#fff;margin:8px 0}
+.svgbox svg{width:100%;height:auto;display:block}
+.figcap{color:var(--muted);font-size:12px;margin:0 0 14px}
+code{font-family:Consolas,monospace;font-size:12px}
+footer{padding:16px 48px 28px;color:var(--muted);font-size:12px}
+@media(max-width:800px){header,main,footer{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">尺寸链计算 · 2026-09-29</div>
+  <h1>冷板尺寸链文件索引</h1>
+  <div class="sub">GPU、HBM、Grace CPU、LPDDR5X 四套说明与核实表。</div>
+  <div class="meta"><span class="pill">两块铜</span><span class="pill">四个区</span><span class="pill">核实2 为 Excel 公式</span></div>
+</header>
+<main>
+
+<p class="lead">四块冷板其实是两块铜上的四个区。GPU 与 HBM 在 CP-B300-JM-01（95 × 75 × 8.5）。CPU 与 LPDDR 在 CP-GRACE-MC-01（200 × 120 × 8.0）。每个区三份 HTML，外加一份用公式重算的尺寸核实2工作簿。</p>
+<table>
+<thead><tr><th>区</th><th>布局</th><th>尺寸</th><th>尺寸链</th><th>核实2</th></tr></thead>
+<tbody>
+<tr><td>GPU 射流</td><td><a href="GPU_射流冲击微通道冷板_结构布局说明.html">布局</a></td><td><a href="GPU_射流冲击微通道冷板_结构尺寸说明.html">尺寸</a></td><td><a href="GPU_射流冲击微通道冷板_尺寸链计算报告.html">尺寸链</a></td><td>GPU_射流冲击微通道冷板_尺寸核实2计算.xlsx</td></tr>
+<tr><td>HBM</td><td><a href="HBM_微通道冷板_结构布局说明.html">布局</a></td><td><a href="HBM_微通道冷板_结构尺寸说明.html">尺寸</a></td><td><a href="HBM_微通道冷板_尺寸链计算报告.html">尺寸链</a></td><td>HBM_微通道冷板_尺寸核实2计算.xlsx</td></tr>
+<tr><td>Grace CPU</td><td><a href="Grace_CPU冷板_结构布局说明.html">布局</a></td><td><a href="Grace_CPU冷板_结构尺寸说明.html">尺寸</a></td><td><a href="Grace_CPU冷板_尺寸链计算报告.html">尺寸链</a></td><td>Grace_CPU冷板_尺寸核实2计算.xlsx</td></tr>
+<tr><td>LPDDR5X</td><td><a href="LPDDR5X_内存冷板_结构布局说明.html">布局</a></td><td><a href="LPDDR5X_内存冷板_结构尺寸说明.html">尺寸</a></td><td><a href="LPDDR5X_内存冷板_尺寸链计算报告.html">尺寸链</a></td><td>LPDDR5X_内存冷板_尺寸核实2计算.xlsx</td></tr>
+</tbody>
+</table>
+<h2>计算时采纳的口径</h2>
+<table>
+<thead><tr><th>对象</th><th>采纳</th><th>不采纳</th></tr></thead>
+<tbody>
+<tr><td>GPU</td><td>v2.0 图纸：216 孔，Ø0.50，节距 3.0 × 2.4，槽 0.40 × 1.50，35 条/die，腔体 8.0，外形 8.5</td><td>asm_0921 的 12.5 mm 与 128 孔；UC01b 的 Ø0.40；v1 的 8×8 孔和 1 mm 铜岛</td></tr>
+<tr><td>HBM</td><td>2026-09-28：0.80 × 2.00，肋 0.80，每侧 7 条，岸 0.30，上板 4.0。堆叠坐标仍用 §8.1</td><td>正文旧值 0.60 × 1.50、每侧 8 条</td></tr>
+<tr><td>CPU</td><td>Grace 报告 §4：48 × 0.40 × 1.20，节距 0.80，肋场 38.8，厚度 8.0</td><td>不把 B300 的射流孔和 8.5 mm 厚度搬过来</td></tr>
+<tr><td>LPDDR</td><td>每侧 6 × 1.20 × 0.80。节距核实取值 8.00，边距由此算出</td><td>不把“约 8 mm”写成已经冻结的唯一值</td></tr>
+</tbody>
+</table>
+<div class="note">
+<p>名义链是闭合的。两件不能靠加法消掉：GPU 射流在 X 向与 die 等宽，±0.20 mm 对位会使 die 边缘露出；HBM 槽深 2.0 mm，GPU 槽深 1.5 mm，同一块底板要分区铣。</p>
+</div>
+
+</main>
+<footer>数值来自本目录五份 HTML。asm_0921 的 12.5 mm / 128 孔、UC01b 的孔径 0.40 mm、v1 参数集的段间铜岛，都不进入封闭环。平面坐标在盖板图到达前仍是候选。</footer>
+</div>
+</body>
+</html>

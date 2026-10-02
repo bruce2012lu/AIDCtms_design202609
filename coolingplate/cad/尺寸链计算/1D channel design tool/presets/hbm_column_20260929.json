@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "name": "HBM column 2026-09-29",
+    "side": "one column, one side",
+    "adopted_section": "adopted",
+    "note": "Scheme A keeps the 7 x 0.80 mm x 2.00 mm cross-flow section. Scheme C keeps center-feed and changes the section. K_split is assumed."
+  },
+  "fluid": {
+    "rho": 992.2,
+    "cp": 4179.0,
+    "mu": 0.000653,
+    "k": 0.631
+  },
+  "copper_k": 390.0,
+  "inlet_c": 40.0,
+  "flow_lpm": 0.2,
+  "power_w": 99.22,
+  "column_width_m": 0.011,
+  "column_length_m": 0.05,
+  "heated_length_m": 0.044,
+  "channel_height_m": 0.002,
+  "base_thickness_m": 0.002,
+  "lid_thickness_m": 0.004,
+  "stacks_m": [
+    [0.0, 0.011],
+    [0.013, 0.024],
+    [0.026, 0.037],
+    [0.039, 0.05]
+  ],
+  "limits": {
+    "min_rib_m": 0.0003,
+    "min_width_m": 0.0004,
+    "min_land_m": 0.0003,
+    "max_aspect": 5.0,
+    "velocity_cap_m_s": 0.8
+  },
+  "k_split": 1.5,
+  "sections": {
+    "retained": {
+      "role": "scheme A cross-flow section, also used for co-flow and scheme B",
+      "n": 7,
+      "width_m": 0.0008,
+      "rib_m": 0.0008,
+      "land_m": 0.0003,
+      "schemes": ["coflow", "cross", "center"]
+    },
+    "adopted": {
+      "role": "scheme C, center-feed, adopted 2026-09-29",
+      "n": 11,
+      "width_m": 0.00045,
+      "rib_m": 0.0005,
+      "land_m": 0.000525,
+      "schemes": ["center"]
+    }
+  },
+  "bulk_check": {
+    "section": "retained",
+    "dTf": 7.179,
+    "dTconv": 14.81,
+    "dP_Pa": 60.9,
+    "tolerance": 0.05
+  }
+}

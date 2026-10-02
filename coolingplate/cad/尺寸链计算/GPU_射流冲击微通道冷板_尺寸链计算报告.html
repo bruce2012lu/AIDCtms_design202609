@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GPU 射流冲击微通道冷板 · 尺寸链计算报告</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1100px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:36px 48px 28px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.08em;color:#9db6d4}
+header h1{font-size:28px;line-height:1.3;margin:8px 0}
+.sub{color:#d7e6f5}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:3px 10px;font-size:12px}
+main{padding:28px 48px 48px}
+h2{font-size:20px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:6px;margin:28px 0 12px}
+h3{font-size:16px;color:#174f83;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:12px 16px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:10px 12px;background:var(--soft)}
+.card b{display:block;font-size:18px;color:var(--navy)}
+.card.warn{border-top-color:var(--warn)}
+.card.bad{border-top-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px}
+th,td{border:1px solid var(--line);padding:7px 8px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 14px;border-radius:7px;margin:12px 0}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.bad{border-color:#f0c2bc;background:#fdf4f3}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+.svgbox{border:1px dashed var(--line);border-radius:8px;padding:8px;background:#fff;margin:8px 0}
+.svgbox svg{width:100%;height:auto;display:block}
+.figcap{color:var(--muted);font-size:12px;margin:0 0 14px}
+code{font-family:Consolas,monospace;font-size:12px}
+footer{padding:16px 48px 28px;color:var(--muted);font-size:12px}
+@media(max-width:800px){header,main,footer{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">CP-B300-JM-01 · GPU 区 · 2026-09-29</div>
+  <h1>GPU 射流冲击微通道冷板 · 尺寸链计算报告</h1>
+  <div class="sub">名义链全部闭合。X 向覆盖没有公差余量。</div>
+  <div class="meta"><span class="pill">名义闭合</span><span class="pill">X 向对位无余量</span><span class="pill">段间铜岛未给</span></div>
+</header>
+<main>
+
+<p class="lead">封闭环用增环相加，和报告里的期望值比较。差的绝对值小于 0.001 mm 记为闭合。另一路核实不重写这条加法，而是从原点累加，看中间站是否落到 §8.1 的坐标上。两路都在 Excel 里用公式重算。</p>
+<h2>1. 名义尺寸链</h2>
+<table>
+<thead><tr><th>链</th><th>算式</th><th>结果</th><th>期望</th><th>差</th><th>判定</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>X 向整板</td><td><code>5+11+0.5+2+0.5+27+3+27+0.5+2+0.5+11+5</code></td><td>95</td><td>95</td><td>0</td><td><span class="tag">闭合</span></td><td>边–HBM–缝–肋–缝–die–HBI–die–缝–肋–缝–HBM–边</td></tr><tr><td>Y 向 HBM 列所占高度</td><td><code>12.5+50+12.5</code></td><td>75</td><td>75</td><td>0</td><td><span class="tag">闭合</span></td><td>射流区上下肋不在这一条里</td></tr><tr><td>四颗堆叠加缝</td><td><code>4×11+3×2</code></td><td>50</td><td>50</td><td>0</td><td><span class="tag">闭合</span></td><td>列长</td></tr><tr><td>歧管展开的 Y 向</td><td><code>2+7+3.5+50+3.5+7+2</code></td><td>75</td><td>75</td><td>0</td><td><span class="tag">闭合</span></td><td>核实2：把 12.5 拆开</td></tr><tr><td>腔体厚度</td><td><code>2.0+1.5+2.0+2.5</code></td><td>8</td><td>8</td><td>0</td><td><span class="tag">闭合</span></td><td>不含钎缝</td></tr><tr><td>外形总厚</td><td><code>8.0+0.5</code></td><td>8.5</td><td>8.5</td><td>0</td><td><span class="tag">闭合</span></td><td>周边钎缝</td></tr><tr><td>射流中心距 X</td><td><code>(9−1)×3.0</code></td><td>24</td><td>24</td><td>0</td><td><span class="tag">闭合</span></td><td></td></tr><tr><td>射流中心距 Y</td><td><code>(12−1)×2.4</code></td><td>26.4</td><td>26.4</td><td>0</td><td><span class="tag">闭合</span></td><td></td></tr><tr><td>覆盖长度 X</td><td><code>9×3.0</code></td><td>27</td><td>27</td><td>0</td><td><span class="tag">闭合</span></td><td>与 die 宽相等</td></tr><tr><td>覆盖长度 Y</td><td><code>12×2.4</code></td><td>28.8</td><td>28.8</td><td>-0</td><td><span class="tag">闭合</span></td><td></td></tr><tr><td>Y 向超出 die</td><td><code>28.8−28</code></td><td>0.8</td><td>0.8</td><td>0</td><td><span class="tag">闭合</span></td><td>两侧各 0.4</td></tr><tr><td>Y 向板外包络</td><td><code>28+1.2</code></td><td>29.2</td><td>29.2</td><td>0</td><td><span class="tag">闭合</span></td><td>报告原式</td></tr><tr><td>外包络余量</td><td><code>29.2−28.8</code></td><td>0.4</td><td>0.4</td><td>0</td><td><span class="tag">闭合</span></td><td>两侧各 0.2</td></tr><tr><td>单 die 槽场</td><td><code>35×0.80</code></td><td>28</td><td>28</td><td>0</td><td><span class="tag">闭合</span></td><td>等于 die 高</td></tr><tr><td>槽场按肋槽重加</td><td><code>2×0.20+35×0.40+34×0.40</code></td><td>28</td><td>28</td><td>0</td><td><span class="tag">闭合</span></td><td>核实2</td></tr><tr><td>孔数</td><td><code>2×9×12</code></td><td>216</td><td>216</td><td>0</td><td><span class="tag">闭合</span></td><td></td></tr><tr><td>左隔离肋 X</td><td><code>5+11+0.5</code></td><td>16.5</td><td>16.5</td><td>0</td><td><span class="tag">闭合</span></td><td>与 §8.1 坐标一致</td></tr><tr><td>右隔离肋 X</td><td><code>49+27+0.5</code></td><td>76.5</td><td>76.5</td><td>0</td><td><span class="tag">闭合</span></td><td></td></tr><tr><td>孔阵与 die 中心</td><td><code>首孔+中心距/2</code></td><td>32.5</td><td>32.5</td><td>0</td><td><span class="tag">闭合</span></td><td>X。Y 同为 37.5</td></tr><tr><td>上下肋跨两 die</td><td><code>27+3+27</code></td><td>57</td><td>57</td><td>0</td><td><span class="tag">闭合</span></td><td>肋宽 57，X 19 到 76</td></tr>
+</tbody>
+</table>
+<h2>2. 核实2：从左边累加到图纸坐标</h2>
+<p>X 向每一站的累计值：0，5（左 HBM 起点），16（HBM 右缘），16.5（左肋），18.5，19（Die-A），46（HBI），49（Die-B），76，76.5（右肋），78.5，79（右 HBM），90，95。这些站和报告坐标一致，最后一站等于板宽。</p>
+<p>Die-A 首孔 20.5 比 die 左缘 19 大 1.5，正好是半个 X 向节距。覆盖因此从 19 铺到 46，X 向没有多出来的边。Y 向半节距是 1.2，覆盖从 23.1 到 51.9，die 是 23.5 到 51.5，每侧多 0.4 mm。</p>
+<h2>3. 公差落在哪一条链上</h2>
+<table>
+<thead><tr><th>项目</th><th>核算</th><th>结果</th></tr></thead>
+<tbody>
+<tr><td>X 向覆盖对 die</td><td>名义余量 0。对位公差 ±0.20</td><td><span class="tagr">公差下 die 边缘最多露出 0.20 mm</span></td></tr>
+<tr><td>Y 向覆盖对 die</td><td>每侧名义 0.40，减去 0.20</td><td><span class="tag">仍盖住，每侧剩 0.20</span></td></tr>
+<tr><td>Y 向覆盖对 29.2 外包络</td><td>每侧名义 0.20，减去对位 0.20</td><td><span class="tagw">余量被对位公差用尽，贴边</span></td></tr>
+<tr><td>H/D</td><td>H = 1.90–2.10，D = 0.50–0.53</td><td>3.58 – 4.2，仍在 2–6</td></tr>
+<tr><td>肋宽</td><td>节距按基本尺寸 0.80，槽宽 0.37–0.43</td><td>肋 0.37–0.43，高于 0.30</td></tr>
+<tr><td>整板 X、Y 各段</td><td>5、11、0.5、2、27 等没有分段公差</td><td>只做名义闭合。外形 ±0.15 是封闭环公差，不能反写成各段公差</td></tr>
+</tbody>
+</table>
+<div class="note bad">
+<p><strong>要单独记住的一件事：</strong>X 向射流覆盖和 die 等宽，名义链是闭合的，公差链并不保证 die 整面落在孔阵覆盖里。Y 向有 0.4 mm/侧，能吃掉 ±0.20 的对位公差。若要 X 向也留下同样的 0.20 mm，覆盖得比 die 宽，那就要改节距或孔数，本文件不改图纸。</p>
+</div>
+<h2>4. 和“短槽必须短”有关、但链上没有的数</h2>
+<p>流程设计值 3.0 mm 与 X 向节距相同，9 × 3.0 又等于 die 宽。若 9 段各自长 3.0 且首尾贴着 die，段与段之间就没有宽度可分配给铜岛。v2 没有另给铜岛尺寸。名义覆盖是闭合的；“每 3 mm 用一道墙切断交叉流”还缺这道墙的宽度。v1 参数集里的 1.0 mm 铜岛加回去，就不能同时满足 9 段、每段 3.0、总长 27。</p>
+<p class="small">Excel <code>GPU_射流冲击微通道冷板_尺寸核实2计算.xlsx</code> 的“尺寸链”和“核实2”两个表用输入格重算上表。改输入格后，闭合差会跟着变。</p>
+
+</main>
+<footer>数值来自本目录五份 HTML。asm_0921 的 12.5 mm / 128 孔、UC01b 的孔径 0.40 mm、v1 参数集的段间铜岛，都不进入封闭环。平面坐标在盖板图到达前仍是候选。</footer>
+</div>
+</body>
+</html>

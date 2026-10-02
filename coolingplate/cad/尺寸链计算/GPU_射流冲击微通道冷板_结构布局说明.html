@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GPU 射流冲击微通道冷板 · 结构布局说明</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1100px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:36px 48px 28px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.08em;color:#9db6d4}
+header h1{font-size:28px;line-height:1.3;margin:8px 0}
+.sub{color:#d7e6f5}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:3px 10px;font-size:12px}
+main{padding:28px 48px 48px}
+h2{font-size:20px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:6px;margin:28px 0 12px}
+h3{font-size:16px;color:#174f83;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:12px 16px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:10px 12px;background:var(--soft)}
+.card b{display:block;font-size:18px;color:var(--navy)}
+.card.warn{border-top-color:var(--warn)}
+.card.bad{border-top-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px}
+th,td{border:1px solid var(--line);padding:7px 8px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 14px;border-radius:7px;margin:12px 0}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.bad{border-color:#f0c2bc;background:#fdf4f3}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+.svgbox{border:1px dashed var(--line);border-radius:8px;padding:8px;background:#fff;margin:8px 0}
+.svgbox svg{width:100%;height:auto;display:block}
+.figcap{color:var(--muted);font-size:12px;margin:0 0 14px}
+code{font-family:Consolas,monospace;font-size:12px}
+footer{padding:16px 48px 28px;color:var(--muted);font-size:12px}
+@media(max-width:800px){header,main,footer{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">CP-B300-JM-01 · GPU 区 · 2026-09-29</div>
+  <h1>GPU 射流冲击微通道冷板 · 结构布局说明</h1>
+  <div class="sub">两颗 die 上的 216 孔射流和 35 条短槽。与 HBM 同板不同区。</div>
+  <div class="meta"><span class="pill">候选几何</span><span class="pill">图纸基准 Ø0.50</span><span class="pill">216 孔</span><span class="pill">待盖板图</span></div>
+</header>
+<main>
+
+<p class="lead">GPU 射流区在冷板 <strong>CP-B300-JM-01</strong> 中部，盖住两颗 27 × 28 mm 计算 die。它和两侧 HBM 区是同一块铜，不是另一块板。外形 95 × 75 × 8.5 mm。射流只打在 die 上：每颗 die 9 × 12 共 108 孔，两颗 216 孔，孔径 0.50 mm。HBM 区不开孔。</p>
+<div class="grid">
+  <div class="card"><b>95 × 75 × 8.5</b>整板外形 mm</div>
+  <div class="card"><b>216 × Ø0.50</b>两颗 die 的射流孔</div>
+  <div class="card"><b>3.0 × 2.4</b>孔距 mm，X × Y</div>
+  <div class="card"><b>0.40 × 1.50</b>短槽，节距 0.80，35 条/die</div>
+</div>
+<h2>1. 坐标和在板上的位置</h2>
+<p>原点在冷板左下角，X 向右，Y 向上，Z 从贴芯片的一面向上。图的上方是 +Y，进液歧管在上沿，出液歧管在下沿。</p>
+<div class="svgbox">
+<svg viewBox="0 0 860 700" xmlns="http://www.w3.org/2000/svg">
+  <rect x="40" y="40" width="760" height="600" fill="#f4e0cf" stroke="#5c3a17" stroke-width="2"/>
+  <rect x="104" y="140" width="632" height="56" fill="#d9e9f7" stroke="#1f6fb2"/>
+  <rect x="104" y="504" width="632" height="56" fill="#f6dcd8" stroke="#c0392b"/>
+  <rect x="80" y="140" width="88" height="400" fill="#efe6c9" stroke="#8a6a12"/>
+  <rect x="672" y="140" width="88" height="400" fill="#efe6c9" stroke="#8a6a12"/>
+  <rect x="172" y="140" width="16" height="400" fill="#1f4e79"/>
+  <rect x="652" y="140" width="16" height="400" fill="#1f4e79"/>
+  <rect x="192" y="228" width="216" height="224" fill="#f0c2b4" stroke="#b42318"/>
+  <rect x="432" y="228" width="216" height="224" fill="#f0c2b4" stroke="#b42318"/>
+  <rect x="192" y="212" width="456" height="16" fill="#1f4e79"/>
+  <rect x="192" y="452" width="456" height="16" fill="#1f4e79"/>
+  <text x="300" y="348" text-anchor="middle" font-size="16" fill="#b42318" font-family="Microsoft YaHei">Die-A 射流 9×12</text>
+  <text x="540" y="348" text-anchor="middle" font-size="16" fill="#b42318" font-family="Microsoft YaHei">Die-B 射流 9×12</text>
+  <text x="124" y="350" text-anchor="middle" font-size="13" fill="#8a6a12" font-family="Microsoft YaHei">HBM</text>
+  <text x="716" y="350" text-anchor="middle" font-size="13" fill="#8a6a12" font-family="Microsoft YaHei">HBM</text>
+  <text x="420" y="174" text-anchor="middle" font-size="14" fill="#1f6fb2" font-family="Microsoft YaHei">进液歧管 Y 66–73</text>
+  <text x="420" y="538" text-anchor="middle" font-size="14" fill="#c0392b" font-family="Microsoft YaHei">出液歧管 Y 2–9</text>
+  <text x="420" y="670" text-anchor="middle" font-size="13" fill="#33404d" font-family="Microsoft YaHei">+X 95 mm</text>
+</svg>
+</div>
+<p class="figcap">图 1. 俯视，1 mm 图上约 8 px。浅红是 die，浅黄是 HBM 列，深蓝是隔离肋。射流孔只落在两块浅红里。HBM 的槽不在这张图里展开，见 HBM 文件。</p>
+<p>Die-A 占 X 19–46、Y 23.5–51.5。Die-B 占 X 49–76，Y 与 Die-A 相同。中间 X 46–49 是 3 mm 的 NV-HBI 缝，不打密孔。左右隔离肋在 X 16.5–18.5 和 X 76.5–78.5，Y 12.5–62.5，把 GPU 腔和 HBM 腔隔开。die 上下各有一条 X 19–76、高 2 mm 的肋，下肋 Y 21.5–23.5，上肋 Y 51.5–53.5，正好贴着 die 的上下边。</p>
+<h2>2. 厚度方向</h2>
+<p>从贴芯片的一面数：余铜 2.0，短槽 1.5，射流间隙 2.0，喷嘴板 2.5。这四层是腔体 8.0 mm。外形再加周边钎缝 0.5 mm，到 8.5 mm。喷嘴是直孔，孔长等于喷嘴板厚 2.5 mm。冷却液在间隙里冲击槽顶一侧的铜，再进入短槽。</p>
+<p>HBM 加热段在 2026-09-28 修订后不再留这道 2.0 mm 通长水缝，上铜板改成 4.0 mm。两区腔体都是 8.0 mm，内部分配不同。GPU 文件只封闭 GPU 这一侧的 2.0 + 1.5 + 2.0 + 2.5。</p>
+<h2>3. 孔阵和短槽怎么摆</h2>
+<p>Die-A 首孔中心 (20.5, 24.3)，X 向 9 孔、节距 3.0，Y 向 12 孔、节距 2.4。Die-B 首孔 (50.5, 24.3)，节距相同。孔阵中心与 die 中心重合，都在 (32.5, 37.5) 和 (62.5, 37.5)。</p>
+<p>短槽沿 X，在 Y 向排 35 条，节距 0.80 mm，槽宽 0.40 mm，深 1.50 mm。35 个节距格铺满 die 的 28 mm 高度。报告把槽内流程写成 3.0 mm，与 X 向孔距相同，上限 8 mm。段间铜岛和抽吸孔径在 v2 正文里没有可相加的尺寸，这里不补。</p>
+<h2>4. 不放进这条布局的几何</h2>
+<div class="note">
+<p><code>asm_0921.stp</code> 是 95 × 75 × 12.5 mm 的三层铜，128 个 Ø0.50 孔。它是另一条厚度链。UC01b 网格把孔径做成 0.40 mm，用来看换热，不替换图纸上的 0.50 mm。v1 参数集里每 die 8 × 8 孔、段间 1.0 mm 铜岛，也不进入 v2 的布置。</p>
+</div>
+<p class="small">来源：B300 设计报告 v2.0 §5.2、§6.2、§8.1。HBM 修订只用来说明邻区上盖不同，不改 GPU 孔位。</p>
+
+</main>
+<footer>数值来自本目录五份 HTML。asm_0921 的 12.5 mm / 128 孔、UC01b 的孔径 0.40 mm、v1 参数集的段间铜岛，都不进入封闭环。平面坐标在盖板图到达前仍是候选。</footer>
+</div>
+</body>
+</html>

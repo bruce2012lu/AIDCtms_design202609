@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grace CPU 冷板 · 结构尺寸说明</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1100px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:36px 48px 28px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.08em;color:#9db6d4}
+header h1{font-size:28px;line-height:1.3;margin:8px 0}
+.sub{color:#d7e6f5}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:3px 10px;font-size:12px}
+main{padding:28px 48px 48px}
+h2{font-size:20px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:6px;margin:28px 0 12px}
+h3{font-size:16px;color:#174f83;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:12px 16px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:10px 12px;background:var(--soft)}
+.card b{display:block;font-size:18px;color:var(--navy)}
+.card.warn{border-top-color:var(--warn)}
+.card.bad{border-top-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px}
+th,td{border:1px solid var(--line);padding:7px 8px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 14px;border-radius:7px;margin:12px 0}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.bad{border-color:#f0c2bc;background:#fdf4f3}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+.svgbox{border:1px dashed var(--line);border-radius:8px;padding:8px;background:#fff;margin:8px 0}
+.svgbox svg{width:100%;height:auto;display:block}
+.figcap{color:var(--muted);font-size:12px;margin:0 0 14px}
+code{font-family:Consolas,monospace;font-size:12px}
+footer{padding:16px 48px 28px;color:var(--muted);font-size:12px}
+@media(max-width:800px){header,main,footer{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">CP-GRACE-MC-01 · CPU 区 · 2026-09-29</div>
+  <h1>Grace CPU 冷板 · 结构尺寸说明</h1>
+  <div class="sub">窗口、48 条槽、口带和 8.0 mm 厚度。公差报告未给。</div>
+  <div class="meta"><span class="pill">单位 mm</span><span class="pill">候选窗口</span><span class="pill">未给槽公差</span></div>
+</header>
+<main>
+
+<p class="lead">CPU 区尺寸都来自 Grace 报告 §4。报告没有给槽宽、节距、窗口的公差，表中不填写假定值。</p>
+<h2>1. 窗口和肋场</h2>
+<table>
+<thead><tr><th>特征</th><th>名义 mm</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>整板</td><td>200 × 120 × 8.0</td><td><span class="tagw">平面候选</span></td></tr>
+<tr><td>CPU 窗口</td><td>X 80–120，Y 44–76，即 40 × 32</td><td><span class="tagw">候选</span></td></tr>
+<tr><td>密封边</td><td>四周 6。空腔 X 6–194，Y 6–114</td><td>方案</td></tr>
+<tr><td>槽数</td><td>48。奇数 24 条 +Y，偶数 24 条 −Y</td><td>方案</td></tr>
+<tr><td>肋数</td><td>49，槽的两端都有肋</td><td>方案</td></tr>
+<tr><td>槽</td><td>0.40 × 1.20</td><td>方案</td></tr>
+<tr><td>节距</td><td>0.80，沿 X</td><td>方案</td></tr>
+<tr><td>肋场</td><td>38.8，位于 X 80.6–119.4</td><td>方案</td></tr>
+<tr><td>窗内边铜</td><td>每侧 0.6</td><td>由 40 与 38.8 相减</td></tr>
+<tr><td>受热长度</td><td>32，Y 44–76</td><td><span class="tagw">候选</span></td></tr>
+<tr><td>润湿长度</td><td>40，含两端的口</td><td>方案</td></tr>
+<tr><td>Z 向口</td><td>0.40 × 1.6</td><td>方案</td></tr>
+<tr><td>端墙、隔墙</td><td>沿 Y 0.8</td><td>方案</td></tr>
+</tbody>
+</table>
+<h2>2. 口的 Y 向位置</h2>
+<table>
+<thead><tr><th>位置</th><th>Y mm</th><th>哪一条通</th></tr></thead>
+<tbody>
+<tr><td>前端墙</td><td>38.0 – 38.8</td><td>偶数槽到此为止</td></tr>
+<tr><td>前侧回液口</td><td>38.8 – 40.4</td><td>偶数槽出口</td></tr>
+<tr><td>隔墙</td><td>40.4 – 41.2</td><td>两腔不相通</td></tr>
+<tr><td>前侧供液口</td><td>41.2 – 42.8</td><td>奇数槽入口</td></tr>
+<tr><td>到受热窗的间隔</td><td>42.8 – 44.0</td><td>1.2</td></tr>
+<tr><td>受热窗</td><td>44 – 76</td><td>槽顶封死</td></tr>
+<tr><td>后侧间隔</td><td>76.0 – 77.2</td><td>1.2</td></tr>
+<tr><td>后侧供液口</td><td>77.2 – 78.8</td><td>偶数槽入口</td></tr>
+<tr><td>隔墙</td><td>78.8 – 79.6</td><td></td></tr>
+<tr><td>后侧回液口</td><td>79.6 – 81.2</td><td>奇数槽出口</td></tr>
+<tr><td>后端墙</td><td>81.2 – 82.0</td><td>奇数槽到此为止</td></tr>
+</tbody>
+</table>
+<h2>3. 厚度和干管</h2>
+<table>
+<thead><tr><th>层</th><th>mm</th><th>z</th></tr></thead>
+<tbody>
+<tr><td>底板</td><td>2.0</td><td>0 – 2.0。干管处铣到 1.0</td></tr>
+<tr><td>通道</td><td>1.2</td><td>2.0 – 3.2</td></tr>
+<tr><td>分型</td><td>0.3</td><td>3.2 – 3.5，只在 Z 向口打开</td></tr>
+<tr><td>盖板内腔</td><td>2.5</td><td>3.5 – 6.0</td></tr>
+<tr><td>盖顶</td><td>2.0</td><td>6.0 – 8.0</td></tr>
+<tr><td>左干管</td><td>X 6.5–13.5，Y 18–102，z 1.0–6.0</td><td>宽 7，深 5</td></tr>
+<tr><td>右干管</td><td>X 186.5–193.5，同样断面</td><td>与左干管对称</td></tr>
+<tr><td>接头</td><td>外径 8，内径 6，中心 Y = 60</td><td>方案</td></tr>
+<tr><td>入口孔板</td><td>4 × Ø1.04，在进液接头里</td><td>配平计算值，托盘实测后冻结</td></tr>
+</tbody>
+</table>
+<p>孔板四孔的面积等效直径是 1.04 × √4 = 2.08 mm。报告写 2.09 mm，差 0.01 mm，按四舍五入，不单列尺寸环。</p>
+
+</main>
+<footer>数值来自本目录五份 HTML。asm_0921 的 12.5 mm / 128 孔、UC01b 的孔径 0.40 mm、v1 参数集的段间铜岛，都不进入封闭环。平面坐标在盖板图到达前仍是候选。</footer>
+</div>
+</body>
+</html>

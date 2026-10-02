@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NVIDIA Grace GB300 冷板详细设计报告 v1.0 · 2026-09-26，修订 2026-09-28</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1180px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:48px 58px 34px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.12em;color:#9db6d4}
+header h1{font-size:30px;line-height:1.25;margin:8px 0 10px}
+.sub{font-size:16px;color:#d7e6f5}
+.meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:4px 10px;font-size:12px}
+nav{padding:16px 58px;background:var(--soft);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav a{color:var(--blue);text-decoration:none;margin-right:12px;display:inline-block;font-size:13px}
+nav a:hover{text-decoration:underline}
+main{padding:30px 58px 58px}
+h2{font-size:22px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:7px;margin:34px 0 14px}
+h3{font-size:17px;color:#174f83;margin:22px 0 8px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:14px 17px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:12px;background:var(--soft)}
+.card b{display:block;font-size:22px;color:var(--navy)}
+.card.blue{border-top-color:var(--blue)}
+.card.warn{border-top-color:var(--warn)}
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13px}
+th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 15px;border-radius:7px;margin:12px 0}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+.svgbox{border:1px dashed var(--line);border-radius:9px;padding:12px 12px 4px;background:#fff;margin:14px 0 4px}
+.svgbox svg{display:block;width:100%;height:auto}
+.figcap{margin:0 2px 18px;color:var(--muted);font-size:12px;line-height:1.55}
+.figcap strong{color:var(--navy)}
+.svglabel{display:inline-block;font-size:11px;font-weight:700;color:var(--teal);border:1px solid #b7e0d4;background:#f3fbf8;border-radius:4px;padding:1px 6px;margin-right:6px}
+footer{padding:18px 58px;background:var(--navy);color:#d5e1ec;font-size:12px}
+code{font-family:Consolas,monospace;font-size:12px}
+@media(max-width:800px){
+  header,nav,main,footer{padding-left:22px;padding-right:22px}
+  .grid{grid-template-columns:1fr}
+  nav a{margin-bottom:6px}
+}
+@media print{body{background:#fff}.page{box-shadow:none}nav{display:none}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">COLD PLATE DETAILED DESIGN · GRACE ON GB300 NVL2</div>
+  <h1>NVIDIA Grace GB300<br>冷板详细设计报告</h1>
+  <div class="sub">一颗 Grace 一块铜。CPU 与两侧 LPDDR 的槽都沿 Y，相邻槽反向。型号 CP-GRACE-MC-01。</div>
+  <div class="meta">
+    <span class="pill">AIDC-GRACE-CP-MC-001</span>
+    <span class="pill">v1.0 · 2026-09-26</span>
+    <span class="pill">修订 2026-09-28 · 沿 Y 交错</span>
+    <span class="pill">单相水 · 紫铜 · 两层</span>
+    <span class="pill">300 W 含内存</span>
+  </div>
+</header>
+<nav>
+  <a href="#s0">0 结论</a>
+  <a href="#s1">1 范围</a>
+  <a href="#s2">2 热源</a>
+  <a href="#s3">3 方案</a>
+  <a href="#s4">4 几何</a>
+  <a href="#s5">5 热工水力</a>
+  <a href="#s6">6 工艺装配</a>
+  <a href="#s7">7 托盘接口</a>
+  <a href="#s8">8 待确认</a>
+</nav>
+<main>
+
+<section id="s0">
+<h2>0.　结论</h2>
+<p class="lead">GB300 计算托盘上的 Grace 仍用一块独立的两层铜冷板，型号 <strong>CP-GRACE-MC-01</strong>。热设计点 <strong>300 W，已经包含 LPDDR5X</strong>。2026-09-28 修订的是流路：槽仍沿 Y，从左数奇数槽流向后面板（+Y），偶数槽流向托盘前侧（−Y）。每条槽的 Y 向两端封死，冷却液从槽顶的 Z 向口进出。左右接头仍水平进出。板上不设微射流。</p>
+<div class="grid">
+  <div class="card"><b>300 W</b>单颗 Grace，含内存</div>
+  <div class="card blue"><b>0.55 L/min</b>设计流量 · 流体温升约 8 K</div>
+  <div class="card warn"><b>10 kPa</b>支路压降目标，靠入口孔板配平</div>
+  <div class="card"><b>0.2 K</b>交错后铜底沿 Y 的一维温差</div>
+</div>
+<div class="note"><strong>这一版能冻结的，和还不能冻结的：</strong>功率、工质、沿 Y 交错的拓扑、和 B300 冷板的水力关系可以冻结。平面外形、裸片窗口、螺孔还没有官方盖板图。下面标「候选」的尺寸等 ICD 替换。沿 Y 的 0.2 K 来自一维配对模型，发放前要用共轭计算复核。</div>
+</section>
+
+<section id="s1">
+<h2>1.　范围与口径</h2>
+<table>
+<thead><tr><th>项</th><th>口径</th></tr></thead>
+<tbody>
+<tr><td>对象</td><td>Lenovo GB300 NVL72 计算托盘上的一颗 NVIDIA Grace。一块冷板盖住该颗 CPU 及其板载 LPDDR5X。</td></tr>
+<tr><td>数量</td><td>每块 GB300 NVL2（一块 HPM）一颗 Grace、一块冷板。一个计算托盘两块。不覆盖 B300、CX-8、NVSwitch。</td></tr>
+<tr><td>坐标</td><td>原点在冷板左下角。+X 沿托盘宽度，从左接头指向右接头。+Y 沿托盘进深，指向后面板和 GPU。芯片面 z = 0，朝下；+z 指向盖板。</td></tr>
+<tr><td>来源底账</td><td><a href="参考_GB300_Grace_CPU与液冷边界_20260926.html">参考摘录</a>。功率以 Lenovo Press LP2357 为准。</td></tr>
+<tr><td>不用的口径</td><td>Grace CPU Superchip 的约 500 W 模块；Grace C1 的 140–250 W 档；宣传材料里的内存约 16 W；B300 冷板的 1100 W / 2.0 L/min / 128 孔。</td></tr>
+<tr><td>核算</td><td>一维水力加一对槽的集总铜温，脚本 <code>CP-GRACE-MC-01_calc.py</code>。对流用充分发展矩形槽 Nu = 4.8 的假设。这是方案筛选用的数量级，不是 CFD 证明。</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="s2">
+<h2>2.　热源</h2>
+<table>
+<thead><tr><th>项</th><th>设计采用</th><th>置信度</th></tr></thead>
+<tbody>
+<tr><td>整板功率</td><td><strong>300 W</strong>，Lenovo 写明含内存功耗</td><td><span class="tag">高</span></td></tr>
+<tr><td>形态</td><td>72 核 Arm Neoverse V2，BGA 焊在 HPM 上。内存是板载 LPDDR5X，最高 480 GB / 颗，峰值带宽最高 384 GB/s</td><td><span class="tag">高</span></td></tr>
+<tr><td>功率分工</td><td>CPU 裸片按 <strong>260 W</strong> 设计通道，两侧内存合计按 <strong>40 W</strong> 设计通道。两项相加仍是 300 W，不另加</td><td><span class="tagw">中低</span> 无官方功率地图。40 W 高于宣传材料里的约 16 W，用来给内存区留裕量</td></tr>
+<tr><td>热图形状</td><td>一颗 CPU 裸片在中部，LPDDR5X 在两侧。公开模组是这个格局；GB300 盖板图未公布，窗口尺寸是候选</td><td><span class="tagw">中</span></td></tr>
+<tr><td>面热流（候选窗口）</td><td>CPU 窗口 40 × 32 mm 上 260 W → <strong>20 W/cm²</strong>。一侧内存 50 × 70 mm 上 20 W → <strong>0.6 W/cm²</strong>。裸片若缩到 25 × 25 mm，CPU 热流约 42 W/cm²，仍由微通道承担</td><td><span class="tagw">随窗口变</span></td></tr>
+</tbody>
+</table>
+<p>进液按与 B300 冷板相同的计算温度 <strong>40 °C</strong>。结温上限公开页没有给死，本版不写保证结温，只给冷板侧的壳–进液目标。</p>
+</section>
+
+<section id="s3">
+<h2>3.　方案</h2>
+<p>B300 冷板用三层铜和 128 个微射流，是为了双 die 上大约 57 W/cm² 的平均热流。Grace 的整板只有 300 W，CPU 窗口上大约 20 W/cm²，板上仍然不设微射流。</p>
+<p>上一版 48 条槽全部从后侧进液腔流向前侧出液腔。水沿 Y 吸热，铜底后冷前热。流体焓升约 8 K；计入 2 mm 铜底沿 Y 的导热以后，一维模型里的铜底温差仍有约 4 K。这一版让相邻槽反向，使任一 Y 站上一条槽是冷端、邻槽是热端。铜在 0.80 mm 节距里把这两头拉平，沿 Y 的一次温差就消掉了。</p>
+<table>
+<thead><tr><th></th><th>CP-B300-JM-01</th><th>CP-GRACE-MC-01（本修订）</th></tr></thead>
+<tbody>
+<tr><td>热设计点</td><td>1100 W（不含 Grace）</td><td>300 W（含内存）</td></tr>
+<tr><td>结构</td><td>三层：底板、喷嘴板、静压箱盖。总厚 12.5 mm</td><td>两层：槽底板、盖板。总厚 8.0 mm。左右干管局部加深</td></tr>
+<tr><td>CPU / GPU 区</td><td>128 孔射流 + 短槽</td><td>48 条沿 Y 的微通道，24 条 +Y、24 条 −Y，没有喷嘴</td></tr>
+<tr><td>内存区</td><td>HBM 无喷嘴、限速</td><td>两侧各 6 条宽槽，同样奇偶反向，近壁速度约 0.1 m/s</td></tr>
+<tr><td>设计流量</td><td>2.0 L/min</td><td>0.55 L/min</td></tr>
+<tr><td>接头方向</td><td>进液边朝后面板，回液沿盖顶折返</td><td>左进右出，管子仍水平。板内再分到槽的前后两端，从 Z 向进出槽</td></tr>
+<tr><td>材料</td><td>三件都是 C11000 / TU1</td><td>两件都是 C11000 / TU1，与 GPU 冷板同材</td></tr>
+</tbody>
+</table>
+<p>从左向右数。第 1、3、5… 条在前侧（小 Y）进液，流向 +Y，在后侧汇出。第 2、4、6… 条在后侧进液，流向 −Y，在前侧汇出。槽的两端都有铜墙，水不能沿 Y 冲进前后大腔。该进的那一端，盖板里的供液腔从 Z 向落入槽顶；该出的那一端，水从 Z 向升入回液腔。</p>
+<p>整板的水仍从左侧水平进入左干管，从右侧水平离开右干管。左干管沿 Y 布置在板的左缘，同时喂给前侧奇数槽和后侧偶数槽，所以 CPU 和两侧内存仍吃到同一股进液。接头放在 Y = 60 mm，正好在前后两套口的中点，两条流向的供液路程对称。</p>
+<p>两块冷板在托盘歧管上并联。Grace 的通道本身大约 1.0 kPa，若直接并到约 10 kPa 的 GPU 支路，Grace 会把流量吸走。所以在 Grace 入口设孔板，把<strong>整条 Grace 支路</strong>配到 10 kPa。孔板负责配平，通道负责换热，两件事分开。</p>
+</section>
+
+<section id="s4">
+<h2>4.　几何</h2>
+<p>坐标：原点在冷板左下角，X 沿托盘宽度，Y 沿托盘进深、朝向后面板和 GPU。芯片面是 z = 0，朝下贴 Grace 模组。图 1 的上方是 +Y。</p>
+<h3>4.1　外形与厚度（候选平面，厚度按本方案）</h3>
+<table>
+<thead><tr><th>特征</th><th>尺寸</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>冷板外形</td><td>200 × 120 × 8.0 mm</td><td><span class="tagw">平面候选</span> 宽度对齐两块并排的 B300 冷板，待盖板图</td></tr>
+<tr><td>CPU 通道窗</td><td>X 80–120，Y 44–76，即 40 × 32 mm，居中</td><td><span class="tagw">候选</span></td></tr>
+<tr><td>左 / 右内存窗</td><td>各 50 × 70 mm，X 14–64 与 X 136–186，Y 25–95</td><td><span class="tagw">候选</span></td></tr>
+<tr><td>密封边</td><td>四周 6 mm 实铜。空腔停在 X 6–194、Y 6–114 以内</td><td>方案</td></tr>
+<tr><td>z 0–2.0</td><td>芯片侧底板。左右干管处局部铣到 z 1.0，干管深 5 mm</td><td>方案</td></tr>
+<tr><td>z 2.0–3.2</td><td>通道，深 1.2 mm。两端留墙，槽不铣通</td><td>方案</td></tr>
+<tr><td>z 3.2–3.5</td><td>分型密封面。只在 Z 向口处打开</td><td>方案</td></tr>
+<tr><td>z 3.5–6.0</td><td>盖板内腔，深 2.5 mm。供液腔和回液腔在 Y 向错开</td><td>方案</td></tr>
+<tr><td>z 6.0–8.0</td><td>盖板顶</td><td>方案</td></tr>
+</tbody>
+</table>
+
+<div class="svgbox">
+<svg viewBox="0 0 760 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Y-staggered Grace cold plate plan">
+  <defs>
+    <marker id="arrB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#1f6fb2"/>
+    </marker>
+    <marker id="arrR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#c0392b"/>
+    </marker>
+  </defs>
+  <rect x="40" y="40" width="600" height="360" fill="#f4e0cf" stroke="#5c3a17" stroke-width="2"/>
+  <rect x="82" y="115" width="150" height="210" fill="#efe6c9" stroke="#8a6a12" stroke-width="1.2"/>
+  <rect x="448" y="115" width="150" height="210" fill="#efe6c9" stroke="#8a6a12" stroke-width="1.2"/>
+  <rect x="280" y="172" width="120" height="96" fill="#f0c2b4" stroke="#b42318" stroke-width="1.4"/>
+  <g fill="none" stroke-width="1.6">
+    <path d="M300 250 V190" stroke="#1f6fb2" marker-end="url(#arrB)"/>
+    <path d="M318 190 V250" stroke="#c0392b" marker-end="url(#arrR)"/>
+    <path d="M336 250 V190" stroke="#1f6fb2" marker-end="url(#arrB)"/>
+    <path d="M354 190 V250" stroke="#c0392b" marker-end="url(#arrR)"/>
+    <path d="M372 250 V190" stroke="#1f6fb2" marker-end="url(#arrB)"/>
+    <path d="M390 190 V250" stroke="#c0392b" marker-end="url(#arrR)"/>
+    <path d="M120 300 V160" stroke="#1f6fb2" marker-end="url(#arrB)"/>
+    <path d="M150 160 V300" stroke="#c0392b" marker-end="url(#arrR)"/>
+    <path d="M180 300 V160" stroke="#1f6fb2" marker-end="url(#arrB)"/>
+    <path d="M490 300 V160" stroke="#1f6fb2" marker-end="url(#arrB)"/>
+    <path d="M530 160 V300" stroke="#c0392b" marker-end="url(#arrR)"/>
+    <path d="M570 300 V160" stroke="#1f6fb2" marker-end="url(#arrB)"/>
+  </g>
+  <rect x="59" y="70" width="22" height="280" fill="#d9e9f7" stroke="#1f6fb2"/>
+  <rect x="599" y="70" width="22" height="280" fill="#f6dcd8" stroke="#c0392b"/>
+  <rect x="80" y="52" width="500" height="16" fill="#d9e9f7" stroke="#1f6fb2"/>
+  <rect x="80" y="372" width="500" height="16" fill="#f6dcd8" stroke="#c0392b"/>
+  <rect x="8" y="186" width="32" height="28" fill="#1f6fb2"/>
+  <rect x="640" y="186" width="32" height="28" fill="#c0392b"/>
+  <text x="18" y="176" font-size="13" fill="#1f6fb2" font-family="Microsoft YaHei,Arial">进液</text>
+  <text x="648" y="176" font-size="13" fill="#c0392b" font-family="Microsoft YaHei,Arial">出液</text>
+  <text x="340" y="214" text-anchor="middle" font-size="13" fill="#b42318" font-family="Microsoft YaHei,Arial">CPU 奇 +Y / 偶 −Y</text>
+  <text x="157" y="250" text-anchor="middle" font-size="13" fill="#8a6a12" font-family="Microsoft YaHei,Arial">LPDDR 左</text>
+  <text x="523" y="250" text-anchor="middle" font-size="13" fill="#8a6a12" font-family="Microsoft YaHei,Arial">LPDDR 右</text>
+  <text x="70" y="64" font-size="12" fill="#1f6fb2" font-family="Microsoft YaHei,Arial">后供液廊</text>
+  <text x="300" y="390" text-anchor="middle" font-size="12" fill="#c0392b" font-family="Microsoft YaHei,Arial">前回液廊</text>
+  <text x="48" y="220" font-size="12" fill="#1f6fb2" font-family="Microsoft YaHei,Arial" transform="rotate(-90 48 220)">左干管</text>
+  <text x="612" y="250" font-size="12" fill="#c0392b" font-family="Microsoft YaHei,Arial" transform="rotate(90 612 250)">右干管</text>
+  <text x="340" y="450" text-anchor="middle" font-size="13" fill="#33404d" font-family="Microsoft YaHei,Arial">+X 200 mm，左接头 → 右接头</text>
+  <text x="20" y="230" font-size="13" fill="#33404d" font-family="Microsoft YaHei,Arial" transform="rotate(-90 20 230)">+Y 朝后 / GPU</text>
+</svg>
+</div>
+<p class="figcap"><span class="svglabel">自绘</span><strong>图 1 · 俯视，芯片面朝下，上方为 +Y。</strong>蓝箭是奇数槽，从前侧进、流向后面板。红箭是偶数槽，从后侧进、流向托盘前侧。左蓝条是供液干管，右红条是回液干管。后侧蓝廊把水送到右侧内存，前侧红廊把回液收进右干管。槽端的 Z 向口比这张图上的箭密，真实节距见第 4.2 节。</p>
+
+<div class="svgbox">
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Longitudinal section of one odd and one even channel">
+  <defs>
+    <marker id="a2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1f6fb2"/></marker>
+    <marker id="a3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c0392b"/></marker>
+  </defs>
+  <text x="40" y="28" font-size="13" fill="#33404d" font-family="Microsoft YaHei,Arial">奇数槽 · 流向 +Y · 前侧进、后侧出</text>
+  <rect x="70" y="48" width="620" height="28" fill="#e7c8a4" stroke="#5c3a17"/>
+  <rect x="110" y="76" width="500" height="22" fill="#f6dcd8" stroke="#c0392b"/>
+  <rect x="70" y="98" width="40" height="18" fill="#5c3a17"/>
+  <rect x="610" y="98" width="40" height="18" fill="#5c3a17"/>
+  <rect x="110" y="48" width="36" height="28" fill="#d9e9f7" stroke="#1f6fb2"/>
+  <rect x="574" y="48" width="36" height="28" fill="#f6dcd8" stroke="#c0392b"/>
+  <path d="M128 70 H560" stroke="#1f6fb2" stroke-width="2" marker-end="url(#a2)"/>
+  <text x="250" y="92" font-size="12" fill="#5c3a17" font-family="Microsoft YaHei,Arial">槽 z 2.0–3.2，两端铜墙，Y 向不通</text>
+  <text x="40" y="158" font-size="13" fill="#33404d" font-family="Microsoft YaHei,Arial">偶数槽 · 流向 −Y · 后侧进、前侧出</text>
+  <rect x="70" y="176" width="620" height="28" fill="#e7c8a4" stroke="#5c3a17"/>
+  <rect x="150" y="204" width="500" height="22" fill="#f6dcd8" stroke="#c0392b"/>
+  <rect x="110" y="226" width="40" height="18" fill="#5c3a17"/>
+  <rect x="650" y="226" width="40" height="18" fill="#5c3a17"/>
+  <rect x="150" y="176" width="36" height="28" fill="#f6dcd8" stroke="#c0392b"/>
+  <rect x="614" y="176" width="36" height="28" fill="#d9e9f7" stroke="#1f6fb2"/>
+  <path d="M600 198 H200" stroke="#c0392b" stroke-width="2" marker-end="url(#a3)"/>
+  <text x="70" y="270" font-size="12" fill="#33404d" font-family="Microsoft YaHei,Arial">左为托盘前侧（小 Y），右为后面板（+Y）。蓝块是供液腔落下的 Z 向口，红块是升入回液腔的 Z 向口。深色块是端墙。</text>
+</svg>
+</div>
+<p class="figcap"><span class="svglabel">自绘</span><strong>图 2 · 沿 Y 的剖面，一条奇数槽和一条偶数槽。</strong>两条槽的端墙不在同一个 Y 上，中间隔 0.8 mm，供液腔和回液腔因此错开。落到槽顶的口只开在该进或该出的那一条上，邻槽在这个 Y 上槽顶是封的。</p>
+
+<div class="svgbox">
+<svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Front end, alternating Z ports">
+  <rect x="80" y="36" width="600" height="36" fill="#e7c8a4" stroke="#5c3a17"/>
+  <rect x="80" y="72" width="92" height="28" fill="#d9e9f7" stroke="#1f6fb2"/>
+  <rect x="188" y="72" width="92" height="28" fill="#f4e0cf" stroke="#5c3a17"/>
+  <rect x="296" y="72" width="92" height="28" fill="#d9e9f7" stroke="#1f6fb2"/>
+  <rect x="404" y="72" width="92" height="28" fill="#f4e0cf" stroke="#5c3a17"/>
+  <rect x="512" y="72" width="92" height="28" fill="#d9e9f7" stroke="#1f6fb2"/>
+  <rect x="80" y="116" width="92" height="28" fill="#f4e0cf" stroke="#5c3a17"/>
+  <rect x="188" y="116" width="92" height="28" fill="#f6dcd8" stroke="#c0392b"/>
+  <rect x="296" y="116" width="92" height="28" fill="#f4e0cf" stroke="#5c3a17"/>
+  <rect x="404" y="116" width="92" height="28" fill="#f6dcd8" stroke="#c0392b"/>
+  <rect x="512" y="116" width="92" height="28" fill="#f4e0cf" stroke="#5c3a17"/>
+  <text x="126" y="90" text-anchor="middle" font-size="12" fill="#1f6fb2" font-family="Microsoft YaHei,Arial">1 进</text>
+  <text x="234" y="90" text-anchor="middle" font-size="12" fill="#5c3a17" font-family="Microsoft YaHei,Arial">2 封</text>
+  <text x="342" y="90" text-anchor="middle" font-size="12" fill="#1f6fb2" font-family="Microsoft YaHei,Arial">3 进</text>
+  <text x="450" y="90" text-anchor="middle" font-size="12" fill="#5c3a17" font-family="Microsoft YaHei,Arial">4 封</text>
+  <text x="558" y="90" text-anchor="middle" font-size="12" fill="#1f6fb2" font-family="Microsoft YaHei,Arial">5 进</text>
+  <text x="126" y="134" text-anchor="middle" font-size="12" fill="#5c3a17" font-family="Microsoft YaHei,Arial">1 封</text>
+  <text x="234" y="134" text-anchor="middle" font-size="12" fill="#c0392b" font-family="Microsoft YaHei,Arial">2 出</text>
+  <text x="342" y="134" text-anchor="middle" font-size="12" fill="#5c3a17" font-family="Microsoft YaHei,Arial">3 封</text>
+  <text x="450" y="134" text-anchor="middle" font-size="12" fill="#c0392b" font-family="Microsoft YaHei,Arial">4 出</text>
+  <text x="558" y="134" text-anchor="middle" font-size="12" fill="#5c3a17" font-family="Microsoft YaHei,Arial">5 封</text>
+  <text x="40" y="58" font-size="12" fill="#1f6fb2" font-family="Microsoft YaHei,Arial">后</text>
+  <text x="40" y="136" font-size="12" fill="#c0392b" font-family="Microsoft YaHei,Arial">前</text>
+  <text x="80" y="180" font-size="12" fill="#33404d" font-family="Microsoft YaHei,Arial">从前侧看过去的五条槽。上排是后侧口带：奇数槽通供液，偶数槽槽顶封死。下排是前侧口带：偶数槽通回液，奇数槽还没开始。两排在 Y 向隔着 0.8 mm 铜墙。后侧的奇偶关系与此对调。</text>
+</svg>
+</div>
+<p class="figcap"><span class="svglabel">自绘</span><strong>图 3 · 前侧两个口带，沿 X 的交替。</strong>供液腔可以沿 X 拉通，但槽顶的开口只落在奇数槽上。回液腔同理，只落在偶数槽上。口的平面尺寸是槽宽 × 1.6 mm，图上按槽序画宽了。</p>
+
+<h3>4.2　通道</h3>
+<p>肋场仍是上一版的位置。CPU 49 根肋、48 条槽，肋场宽 38.8 mm，居中于 X 80–120，即 X 80.6–119.4。第 1 条在小 X 侧。内存仍是每侧 6 条，节距约 8 mm，铺在 50 mm 窗内。条数是偶数，两个流向各一半。</p>
+<table>
+<thead><tr><th></th><th>CPU 区</th><th>每一侧内存区</th></tr></thead>
+<tbody>
+<tr><td>条数</td><td>48，奇数 24 条 +Y，偶数 24 条 −Y</td><td>6，奇数 3 条 +Y，偶数 3 条 −Y</td></tr>
+<tr><td>槽宽 × 深</td><td>0.40 × 1.20 mm</td><td>1.20 × 0.80 mm</td></tr>
+<tr><td>节距</td><td>0.80 mm，沿 X</td><td>约 8 mm，沿 X，铺在 50 mm 窗内</td></tr>
+<tr><td>受热长度</td><td>32 mm，Y 44–76</td><td>70 mm，Y 25–95</td></tr>
+<tr><td>润湿长度</td><td>40 mm，含两端口</td><td>78 mm，含两端口</td></tr>
+<tr><td>水力直径</td><td>0.60 mm</td><td>0.96 mm</td></tr>
+<tr><td>Z 向口</td><td>0.40 × 1.6 mm，只开在该进或该出的槽顶</td><td>1.20 × 1.6 mm，规则相同</td></tr>
+<tr><td>端墙</td><td>沿 Y 0.8 mm 实铜</td><td>沿 Y 0.8 mm 实铜</td></tr>
+<tr><td>入口限流</td><td>无。流量由整板入口孔板和通道自身阻力决定</td><td>每侧一条缝，放在供液分到前后口之前</td></tr>
+</tbody>
+</table>
+
+<h3>4.3　口的 Y 向位置</h3>
+<p>两个流向的润湿长度做成一样。前侧回液口在外，前侧供液口在内，中间 0.8 mm 铜墙；后侧对调。窗口若随 ICD 移动，这组口跟着窗口边缘平移，相对尺寸不变。</p>
+<table>
+<thead><tr><th>位置</th><th>CPU，Y / mm</th><th>每侧内存，Y / mm</th><th>哪一条通</th></tr></thead>
+<tbody>
+<tr><td>前端墙</td><td>38.0–38.8</td><td>19.0–19.8</td><td>偶数槽到此为止</td></tr>
+<tr><td>前侧 Z 向回液口</td><td>38.8–40.4</td><td>19.8–21.4</td><td>偶数槽，流向 −Y 的出口</td></tr>
+<tr><td>隔墙</td><td>40.4–41.2</td><td>21.4–22.2</td><td>盖板铜墙，两腔不相通</td></tr>
+<tr><td>前侧 Z 向供液口</td><td>41.2–42.8</td><td>22.2–23.8</td><td>奇数槽，流向 +Y 的入口</td></tr>
+<tr><td>受热窗</td><td>44–76</td><td>25–95</td><td>槽顶封死</td></tr>
+<tr><td>后侧 Z 向供液口</td><td>77.2–78.8</td><td>96.2–97.8</td><td>偶数槽，流向 −Y 的入口</td></tr>
+<tr><td>隔墙</td><td>78.8–79.6</td><td>97.8–98.6</td><td>盖板铜墙</td></tr>
+<tr><td>后侧 Z 向回液口</td><td>79.6–81.2</td><td>98.6–100.2</td><td>奇数槽，流向 +Y 的出口</td></tr>
+<tr><td>后端墙</td><td>81.2–82.0</td><td>100.2–101.0</td><td>奇数槽到此为止</td></tr>
+</tbody>
+</table>
+<p>盖板里的供液腔、回液腔从口带向背离邻腔的一侧加宽到 8 mm，深 2.5 mm，用来把指槽里的速度降下来。落到槽上的开口仍是上表的尺寸。半边 CPU 流量走过这条 8 mm 腔，速度约 0.20 m/s，压降约 0.03 kPa。</p>
+<h3>4.4　干管、廊和孔板</h3>
+<table>
+<thead><tr><th>特征</th><th>尺寸</th><th>作用</th></tr></thead>
+<tbody>
+<tr><td>左供液干管</td><td>X 6.5–13.5，Y 18–102，z 1.0–6.0</td><td>整板进水。宽 7 mm、深 5 mm，全速满长的压降约 0.05 kPa</td></tr>
+<tr><td>右回液干管</td><td>X 186.5–193.5，Y 18–102，z 1.0–6.0</td><td>整板出水，断面与左干管相同</td></tr>
+<tr><td>后供液廊</td><td>Y 103–112，X 13.5–187，z 3.5–6.0</td><td>把左干管的水送到右内存的前后供液口。廊在后端墙之外</td></tr>
+<tr><td>前回液廊</td><td>Y 8–16，X 14–187，z 3.5–6.0</td><td>把两侧内存和 CPU 的前回液收到右干管。廊在前端墙之外</td></tr>
+<tr><td>内存缝</td><td>每侧一条，0.80 × 1.20 mm，长 12 mm</td><td>放在该侧供液分成前后两路之前，两条流向一起限流</td></tr>
+</tbody>
+</table>
+<p>左右两侧各一个管接头，外径 8 mm、内径 6 mm，钎在侧面，高度对准干管。接头中心在 Y = 60 mm。0.55 L/min 时管内流速约 0.32 m/s。Y = 60 到 CPU 前口（约 Y 42）和后口（约 Y 78）的路程相同，奇数槽和偶数槽的供液压差因此成对。</p>
+<p>入口孔板做在进液接头里，送样用可换镶件。<strong>4 个直径 1.04 mm 的孔</strong>，等效于一个直径 2.09 mm 的锐边孔（流量系数按 0.62）。四孔是为了避免单孔堵塞把整板切断。孔板在 0.55 L/min 下大约承担 9.0 kPa，加上 CPU 通道约 1.0 kPa，支路合计约 10 kPa。直径在托盘实测后冻结，本数是配平计算值。</p>
+</section>
+
+<section id="s5">
+<h2>5.　热工水力</h2>
+<p>水按 40 °C：密度 992 kg/m³，比热 4179 J/kg·K，粘度 6.53×10⁻⁴ Pa·s，导热系数 0.632 W/m·K。300 W、流体温升 8 K 时，体积流量为 0.543 L/min，设计取 <strong>0.55 L/min</strong>。包络流量 <strong>0.70 L/min</strong>，留给 PG25 或内存占比高于 40 W 的情况。B300 冷板在 2.0 L/min、1100 W 下的流体温升也是大约 8 K，两块板的温升口径一致。</p>
+<table>
+<thead><tr><th>量</th><th>CPU 通道</th><th>单侧内存通道</th></tr></thead>
+<tbody>
+<tr><td>分配流量</td><td>0.47 L/min</td><td>0.036 L/min</td></tr>
+<tr><td>槽内流速</td><td>0.34 m/s</td><td>0.11 m/s</td></tr>
+<tr><td>雷诺数</td><td>310</td><td>153</td></tr>
+<tr><td>通道压降</td><td>0.96 kPa</td><td>0.20 kPa，缝再补 0.76 kPa</td></tr>
+<tr><td>对流系数</td><td>约 5100 W/m²·K</td><td>约 3200 W/m²·K</td></tr>
+<tr><td>对流温升</td><td>260 W 下约 12 K</td><td>20 W 下约 5 K</td></tr>
+<tr><td>该路流体温升</td><td>8 K</td><td>8 K</td></tr>
+</tbody>
+</table>
+<p>压降用充分发展层流 f = 64/Re。每个 Z 向转弯按 K = 1.5 计入，一进一出合计 3.0，速度用槽内速度。没有计入发展段的额外摩阻，所以 0.96 kPa 仍是通道压降的下限量级。即便发展段把它抬高一两倍，仍然远低于 10 kPa 的支路目标，差额继续由孔板承担。</p>
+<p>对流用 Nu = 4.8（三边受热、深宽比 3 的充分发展矩形槽的量级假设）。换热面积按受热段的两侧壁加槽底，CPU 是 32 mm，不是 40 mm 润湿长度。这个 12 K 只是铜–流体，不含硅、TIM 和沿 Y 的分布。</p>
+<p>沿 Y 的铜底温差用一对槽的集总模型来看。铜导热系数取 C11000 的 390 W/m·K，底板 2.0 mm，肋 0.40 × 1.20 mm。热量均匀进 32 mm 受热段，槽外铜在模型里是绝热的。同向时，两条槽都从前往后流，铜底前侧比进液高 13.4 K、后侧高 17.5 K，沿 Y 相差 <strong>4.1 K</strong>。交错时，一条 +Y、一条 −Y，前后都比进液高 15.7 K，沿 Y 相差 <strong>0.2 K</strong>。流体焓升仍是 8 K，只是相邻两槽一冷一热，平均值不再沿 Y 爬升。</p>
+
+<div class="svgbox">
+<svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Base temperature rise along Y">
+  <line x1="70" y1="30" x2="70" y2="190" stroke="#33404d"/>
+  <line x1="70" y1="190" x2="680" y2="190" stroke="#33404d"/>
+  <polyline fill="none" stroke="#c0392b" stroke-width="2.4" points="70,148 140,143 210,132 280,119 350,104 420,90 490,78 560,69 630,66"/>
+  <polyline fill="none" stroke="#1f6fb2" stroke-width="2.4" points="70,102 140,101 210,100 280,99 350,98 420,99 490,100 560,101 630,102"/>
+  <text x="40" y="40" font-size="11" fill="#33404d" font-family="Microsoft YaHei,Arial">19 K</text>
+  <text x="40" y="194" font-size="11" fill="#33404d" font-family="Microsoft YaHei,Arial">12 K</text>
+  <text x="70" y="214" font-size="12" fill="#33404d" font-family="Microsoft YaHei,Arial">前 · 小 Y</text>
+  <text x="590" y="214" font-size="12" fill="#33404d" font-family="Microsoft YaHei,Arial">后 · +Y</text>
+  <line x1="500" y1="36" x2="540" y2="36" stroke="#c0392b" stroke-width="2.4"/>
+  <text x="548" y="40" font-size="12" fill="#c0392b" font-family="Microsoft YaHei,Arial">同向 4.1 K</text>
+  <line x1="500" y1="56" x2="540" y2="56" stroke="#1f6fb2" stroke-width="2.4"/>
+  <text x="548" y="60" font-size="12" fill="#1f6fb2" font-family="Microsoft YaHei,Arial">交错 0.2 K</text>
+</svg>
+</div>
+<p class="figcap"><span class="svglabel">自绘</span><strong>图 4 · 铜底比 40 °C 进液高出的温度，沿受热段的 Y。</strong>红线是 48 条全部同向。蓝线是奇偶反向。纵轴从 12 K 到 19 K，绝对高度里含约 12 K 的对流温升。这张图是一维筛算，用来比较两种流路，不代替共轭结果。</p>
+
+<p><strong>冷板侧目标：</strong>CPU 区壳–进液热阻 &lt; 0.080 °C/W（260 W 下小于 21 K）。一维对流约占 0.046 °C/W，剩下留给 TIM2 和扩热。这是目标，要等共轭仿真和热测试件闭合。内存区 0.6 W/cm²，5 K 量级的对流温升不是设计驱动项，驱动项是速度和分流。</p>
+<div class="note ok"><strong>和托盘的水力关系：</strong>Grace 支路目标压降 10 kPa，窗口 8–12 kPa，与 B300 冷板的设计压降同一档。送样上限沿用 GPU 冷板的 18 kPa，极限 20 kPa。左干管约 0.05 kPa、供液腔约 0.03 kPa，都远小于通道的 0.96 kPa，左右槽和两个流向的分配由此保持接近。</div>
+</section>
+
+<section id="s6">
+<h2>6.　材料、工艺与装配</h2>
+<table>
+<thead><tr><th>项</th><th>推荐</th><th>原因</th></tr></thead>
+<tbody>
+<tr><td>材料</td><td>底板、盖板都用 C11000 / TU1</td><td>与 B300 冷板同材，避免电偶、钎料和膨胀不一致</td></tr>
+<tr><td>底板</td><td>送样 CNC，铣不通槽</td><td>槽沿 Y 仍是直槽，但两端必须留 0.8 mm 墙。铲齿会把槽铣通，量产若用铲齿，随后要把 Y 向两端封死</td></tr>
+<tr><td>Z 向口</td><td>CNC，只打开该进或该出的槽顶</td><td>口宽等于槽宽，不另收窄。邻槽在同一 Y 上槽顶保持封闭</td></tr>
+<tr><td>盖板</td><td>CNC 铣干管、廊和加宽的供液腔、回液腔</td><td>相邻两腔之间留 0.8 mm 铜墙。没有微孔</td></tr>
+<tr><td>送样装配</td><td>螺钉 + 密封圈，孔板镶件可换</td><td>配平孔的直径要在托盘上改。垫片在 Z 向口处开让孔，不能把口堵上</td></tr>
+<tr><td>量产装配</td><td>真空钎焊，焊后精铣贴芯片面</td><td>与 B300 冷板同一条产线逻辑。钎料槽躲开 0.40 mm 的口和内存缝</td></tr>
+<tr><td>贴芯片面</td><td>平面度 ≤ 0.05 mm，Ra ≤ 0.8 μm</td><td>与 B300 冷板同一进厂要求</td></tr>
+<tr><td>过滤</td><td>回路仍按 ≤ 25 μm</td><td>最窄仍是 0.40 mm 槽宽。Z 向口不比槽更窄。限制孔仍是 B300 的 0.50 mm 射流孔</td></tr>
+</tbody>
+</table>
+<p>去离子水和 PG25 都要做流量–压降曲线。孔板若只在水上配平，换成 PG25 后支路压降会升高，托盘分流要重看。</p>
+</section>
+
+<section id="s7">
+<h2>7.　在托盘上的放法</h2>
+<p>芯片面朝下。冷板放在每块 NVL2 的前侧，两块 B300 冷板靠后面板。进液管沿 PCB 左缘从后面板供液歧管下来，接入左接头；出液管沿 PCB 右缘回到后面板回液歧管。管子在 GPU 冷板外侧，不从 GPU 冷板上面跨过。板内从左干管分到前后两端，这一段不露出板外。</p>
+<p>零件只做一种手性。若两块 NVL2 在托盘上镜像，由管子对调左右，不另做一块镜像铜板。奇偶编号跟着零件的小 X 侧走，不跟着托盘的左右走。</p>
+<p>单板 0.55 L/min 是冷板设计流量。托盘实际分到 Grace 的流量由歧管和孔板共同决定，要以托盘水力 ICD 为准。若四块 GPU 冷板实际是串联或半串联，Grace 仍应从供液歧管单独取水，避免吃到 GPU 的预热。</p>
+</section>
+
+<section id="s8">
+<h2>8.　待确认</h2>
+<table>
+<thead><tr><th>#</th><th>事项</th><th>现在的处理</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>盖板图、裸片与 LPDDR 坐标、螺孔</td><td>200 × 120 外形和两个窗口都是候选。窗口移动时，口带跟着边缘平移，节距和奇偶规则不变</td></tr>
+<tr><td>2</td><td>CPU / 内存功率地图</td><td>260 / 40 是设计分工，总和锁在 300 W</td></tr>
+<tr><td>3</td><td>结温与 TIM2</td><td>只给壳–进液目标 0.080 °C/W。TIM 品牌按整机</td></tr>
+<tr><td>4</td><td>托盘串并联与单板实分流量</td><td>冷板按并联、0.55 L/min、支路 10 kPa 设计。ICD 若不同，只改孔板，不改槽和口</td></tr>
+<tr><td>5</td><td>堆高</td><td>外形仍是 8.0 mm。左右干管铣到 z 1.0，该处底板余量 1.0 mm，要核对刚度和密封边</td></tr>
+<tr><td>6</td><td>共轭仿真与热测试件</td><td>沿 Y 的 0.2 K 和通道 0.96 kPa 都是一维估算。<code>cfd_grace_cpu</code> 的网格是同向单槽，没有 Z 向口，不能当作这一版的证据。发放前按一对反向槽重做共轭计算，并用热测试件核对壳温</td></tr>
+</tbody>
+</table>
+<p class="small">核算脚本：<code>CP-GRACE-MC-01_calc.py</code>。概念几何：<code>make_grace_concept.py</code>（源码已按交错流修改；<code>out/grace/step</code> 里现有的 STEP 仍是同向模型，本机未重新导出）。记忆：<code>memory/semantic/cp-grace-mc01.md</code>。来源：<code>参考_GB300_Grace_CPU与液冷边界_20260926.html</code>。</p>
+</section>
+
+</main>
+<footer>
+  CP-GRACE-MC-01 详细设计报告 v1.0 · 2026-09-26，修订 2026-09-28 · AIDCtms / coolingplate / design<br>
+  功率来自 Lenovo GB300 公开规格。平面尺寸为候选。流路为沿 Y 交错。热阻、压降和沿 Y 温差是一维估算，未经 CFD 与实件验证。
+</footer>
+</div>
+</body>
+</html>

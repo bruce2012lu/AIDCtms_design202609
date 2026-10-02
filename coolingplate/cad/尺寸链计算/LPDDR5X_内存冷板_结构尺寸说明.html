@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LPDDR5X 内存冷板 · 结构尺寸说明</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1100px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:36px 48px 28px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.08em;color:#9db6d4}
+header h1{font-size:28px;line-height:1.3;margin:8px 0}
+.sub{color:#d7e6f5}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:3px 10px;font-size:12px}
+main{padding:28px 48px 48px}
+h2{font-size:20px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:6px;margin:28px 0 12px}
+h3{font-size:16px;color:#174f83;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:12px 16px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:10px 12px;background:var(--soft)}
+.card b{display:block;font-size:18px;color:var(--navy)}
+.card.warn{border-top-color:var(--warn)}
+.card.bad{border-top-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px}
+th,td{border:1px solid var(--line);padding:7px 8px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 14px;border-radius:7px;margin:12px 0}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.bad{border-color:#f0c2bc;background:#fdf4f3}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+.svgbox{border:1px dashed var(--line);border-radius:8px;padding:8px;background:#fff;margin:8px 0}
+.svgbox svg{width:100%;height:auto;display:block}
+.figcap{color:var(--muted);font-size:12px;margin:0 0 14px}
+code{font-family:Consolas,monospace;font-size:12px}
+footer{padding:16px 48px 28px;color:var(--muted);font-size:12px}
+@media(max-width:800px){header,main,footer{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">CP-GRACE-MC-01 · 内存区 · 2026-09-29</div>
+  <h1>LPDDR5X 内存冷板 · 结构尺寸说明</h1>
+  <div class="sub">窗口、6 条槽、口带。节距 8.00 mm 是核实取值。</div>
+  <div class="meta"><span class="pill">单位 mm</span><span class="pill">边距 4.40 为推算</span><span class="pill">缝的坐标未给</span></div>
+</header>
+<main>
+
+<p class="lead">窗口坐标是候选。节距在报告里是“约 8 mm”。下表把核实用的 8.00 mm 和由此算出的边距分开写，避免把推算值写成已经冻结的图纸尺寸。</p>
+<table>
+<thead><tr><th>特征</th><th>名义 mm</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>左窗</td><td>X 14–64，Y 25–95，50 × 70</td><td><span class="tagw">候选</span></td></tr>
+<tr><td>右窗</td><td>X 136–186，Y 25–95</td><td><span class="tagw">候选</span></td></tr>
+<tr><td>每侧条数</td><td>6。奇数 3 条 +Y，偶数 3 条 −Y</td><td>方案</td></tr>
+<tr><td>槽</td><td>宽 1.20 × 深 0.80</td><td>方案。深小于通道层 1.20</td></tr>
+<tr><td>节距</td><td>约 8。核实取值 8.00</td><td><span class="tagw">未冻结到 0.01</span></td></tr>
+<tr><td>肋（按节距 8.00）</td><td>6.8</td><td>8.00 − 1.20，推算</td></tr>
+<tr><td>槽场外宽（按 8.00）</td><td>41.2</td><td>5×8.00+1.20</td></tr>
+<tr><td>窗内每侧边距</td><td>4.4</td><td>居中推算，不是报告原句</td></tr>
+<tr><td>受热长度</td><td>70，Y 25–95</td><td><span class="tagw">候选</span></td></tr>
+<tr><td>润湿长度</td><td>78</td><td>方案</td></tr>
+<tr><td>Z 向口</td><td>1.20 × 1.6</td><td>方案</td></tr>
+<tr><td>端墙、隔墙</td><td>0.8</td><td>方案</td></tr>
+<tr><td>限流缝</td><td>0.80 × 1.20，长 12，每侧一条</td><td>位置未给坐标</td></tr>
+</tbody>
+</table>
+<h3>口的 Y 向位置</h3>
+<table>
+<thead><tr><th>位置</th><th>Y mm</th><th>通哪一条</th></tr></thead>
+<tbody>
+<tr><td>前端墙</td><td>19.0 – 19.8</td><td>偶数槽终端</td></tr>
+<tr><td>前侧回液口</td><td>19.8 – 21.4</td><td>偶数槽</td></tr>
+<tr><td>隔墙</td><td>21.4 – 22.2</td><td></td></tr>
+<tr><td>前侧供液口</td><td>22.2 – 23.8</td><td>奇数槽</td></tr>
+<tr><td>间隔</td><td>23.8 – 25.0</td><td>1.2</td></tr>
+<tr><td>受热窗</td><td>25 – 95</td><td></td></tr>
+<tr><td>间隔</td><td>95.0 – 96.2</td><td>1.2</td></tr>
+<tr><td>后侧供液口</td><td>96.2 – 97.8</td><td>偶数槽</td></tr>
+<tr><td>隔墙</td><td>97.8 – 98.6</td><td></td></tr>
+<tr><td>后侧回液口</td><td>98.6 – 100.2</td><td>奇数槽</td></tr>
+<tr><td>后端墙</td><td>100.2 – 101.0</td><td>奇数槽终端</td></tr>
+</tbody>
+</table>
+<p>后供液廊 Y 103–112，高 9。前回液廊 Y 8–16，高 8。两廊不等高，尺寸说明照录，不改成对称。</p>
+
+</main>
+<footer>数值来自本目录五份 HTML。asm_0921 的 12.5 mm / 128 孔、UC01b 的孔径 0.40 mm、v1 参数集的段间铜岛，都不进入封闭环。平面坐标在盖板图到达前仍是候选。</footer>
+</div>
+</body>
+</html>

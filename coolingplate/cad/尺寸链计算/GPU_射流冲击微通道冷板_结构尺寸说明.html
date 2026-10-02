@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GPU 射流冲击微通道冷板 · 结构尺寸说明</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1100px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:36px 48px 28px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.08em;color:#9db6d4}
+header h1{font-size:28px;line-height:1.3;margin:8px 0}
+.sub{color:#d7e6f5}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:3px 10px;font-size:12px}
+main{padding:28px 48px 48px}
+h2{font-size:20px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:6px;margin:28px 0 12px}
+h3{font-size:16px;color:#174f83;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:12px 16px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:10px 12px;background:var(--soft)}
+.card b{display:block;font-size:18px;color:var(--navy)}
+.card.warn{border-top-color:var(--warn)}
+.card.bad{border-top-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px}
+th,td{border:1px solid var(--line);padding:7px 8px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 14px;border-radius:7px;margin:12px 0}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.bad{border-color:#f0c2bc;background:#fdf4f3}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+.svgbox{border:1px dashed var(--line);border-radius:8px;padding:8px;background:#fff;margin:8px 0}
+.svgbox svg{width:100%;height:auto;display:block}
+.figcap{color:var(--muted);font-size:12px;margin:0 0 14px}
+code{font-family:Consolas,monospace;font-size:12px}
+footer{padding:16px 48px 28px;color:var(--muted);font-size:12px}
+@media(max-width:800px){header,main,footer{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">CP-B300-JM-01 · GPU 区 · 2026-09-29</div>
+  <h1>GPU 射流冲击微通道冷板 · 结构尺寸说明</h1>
+  <div class="sub">名义尺寸、报告中的公差，以及没有给出公差的项。</div>
+  <div class="meta"><span class="pill">单位 mm</span><span class="pill">公差只录报告原文</span><span class="pill">孔径基准 0.50</span></div>
+</header>
+<main>
+
+<p class="lead">下表是 GPU 区用来画图和做尺寸链的名义尺寸。状态按报告原话：封装坐标待冻结，厚度和孔槽是本方案的图纸基准。公差只列报告写了的。</p>
+<h2>1. 整板和 die</h2>
+<table>
+<thead><tr><th>特征</th><th>名义</th><th>公差</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>外形</td><td>95 × 75 × 8.5 mm</td><td>长宽 ±0.15，总厚 ±0.10</td><td><span class="tagw">候选，待冻结</span></td></tr>
+<tr><td>Die-A</td><td>原点 (19, 23.5)，27 × 28</td><td>与孔阵对位 ±0.20</td><td><span class="tagw">候选</span></td></tr>
+<tr><td>NV-HBI</td><td>X 46–49，宽 3，高 28</td><td>未给</td><td><span class="tagw">候选</span></td></tr>
+<tr><td>Die-B</td><td>原点 (49, 23.5)，27 × 28</td><td>同 Die-A</td><td><span class="tagw">候选</span></td></tr>
+<tr><td>左右隔离肋</td><td>X 16.5 与 76.5，2.0 × 50，Y 从 12.5 起</td><td>未给</td><td>方案</td></tr>
+<tr><td>上下隔离肋</td><td>X 19，宽 57，高 2；Y 21.5 与 51.5</td><td>未给</td><td>方案</td></tr>
+<tr><td>进液歧管</td><td>X 8，Y 66，79 × 7</td><td>未给</td><td>方案</td></tr>
+<tr><td>出液歧管</td><td>X 8，Y 2，79 × 7</td><td>未给</td><td>方案</td></tr>
+<tr><td>安装孔</td><td>中心距边 4.5，Ø3.4，四角</td><td>未给</td><td><span class="tagw">待冻结</span></td></tr>
+</tbody>
+</table>
+<h2>2. 厚度</h2>
+<table>
+<thead><tr><th>层</th><th>厚度 mm</th><th>Z 范围（贴芯片面为 0）</th><th>公差</th></tr></thead>
+<tbody>
+<tr><td>接触面余铜</td><td>2.0</td><td>0 – 2.0</td><td>未单列；总厚 ±0.10</td></tr>
+<tr><td>短槽</td><td>1.5</td><td>2.0 – 3.5</td><td>槽宽另有公差，槽深未单列</td></tr>
+<tr><td>射流间隙 H</td><td>2.0</td><td>3.5 – 5.5</td><td>±0.10，平行度 0.05</td></tr>
+<tr><td>喷嘴板</td><td>2.5</td><td>5.5 – 8.0</td><td>未单列</td></tr>
+<tr><td>腔体</td><td>8.0</td><td>0 – 8.0</td><td>—</td></tr>
+<tr><td>周边钎缝</td><td>0.5</td><td>8.0 – 8.5</td><td>未单列</td></tr>
+<tr><td>外形总厚</td><td>8.5</td><td>0 – 8.5</td><td>±0.10</td></tr>
+</tbody>
+</table>
+<h2>3. 射流孔</h2>
+<table>
+<thead><tr><th>特征</th><th>名义</th><th>公差</th></tr></thead>
+<tbody>
+<tr><td>孔径</td><td>Ø0.50 mm</td><td>+0.03 / 0，轴线垂直度 0.05</td></tr>
+<tr><td>每 die 个数</td><td>9 × 12 = 108，两 die 216</td><td>—</td></tr>
+<tr><td>节距</td><td>X 3.0，Y 2.4</td><td>孔位加工 ±0.10；与 die 对位 ±0.20</td></tr>
+<tr><td>中心距</td><td>X 24.0，Y 26.4</td><td>—</td></tr>
+<tr><td>Die-A 首孔</td><td>(20.5, 24.3)</td><td>—</td></tr>
+<tr><td>Die-B 首孔</td><td>(50.5, 24.3)</td><td>—</td></tr>
+<tr><td>覆盖</td><td>X 27.0（与 die 等宽），Y 28.8（比 die 宽 0.8）</td><td>见尺寸链报告的对位核算</td></tr>
+<tr><td>孔长</td><td>2.5，等于喷嘴板厚</td><td>—</td></tr>
+<tr><td>无量纲</td><td>H/D = 4.0；Sx/D = 6.0；Sy/D = 4.8</td><td>H 与 D 的公差见核实表</td></tr>
+</tbody>
+</table>
+<p>孔总面积 216 × π × 0.25² = 42.41 mm²，与报告 42.41 mm² 一致。这是面积复核，不是尺寸环。</p>
+<h2>4. 短槽</h2>
+<table>
+<thead><tr><th>特征</th><th>名义</th><th>公差</th></tr></thead>
+<tbody>
+<tr><td>截面</td><td>宽 0.40 × 深 1.50</td><td>宽 ±0.03；深未单列</td></tr>
+<tr><td>节距 / 肋</td><td>0.80 / 0.40</td><td>节距未单列</td></tr>
+<tr><td>条数</td><td>35 条/die，两 die 70 条</td><td>—</td></tr>
+<tr><td>Y 向槽场</td><td>35 × 0.80 = 28.0，等于 die 高</td><td>—</td></tr>
+<tr><td>流程</td><td>设计值 3.0，上限 8</td><td>段间铜岛未给</td></tr>
+</tbody>
+</table>
+<div class="note">
+<p>槽宽收到 0.43 mm 时，肋变为 0.37 mm，仍高于工艺下限 0.30 mm。槽深 / 最小槽宽 = 4.05，低于报告所用的倒齿上限 5。</p>
+</div>
+<p class="small">来源：B300 设计报告 v2.0 §6.2、§6.5、§8.1。工艺下限 0.30 mm 见同目录 CAD 规则，只用于和公差后的肋宽比较。</p>
+
+</main>
+<footer>数值来自本目录五份 HTML。asm_0921 的 12.5 mm / 128 孔、UC01b 的孔径 0.40 mm、v1 参数集的段间铜岛，都不进入封闭环。平面坐标在盖板图到达前仍是候选。</footer>
+</div>
+</body>
+</html>

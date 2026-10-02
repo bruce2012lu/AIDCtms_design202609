@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LPDDR5X 内存冷板 · 结构布局说明</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1100px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:36px 48px 28px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.08em;color:#9db6d4}
+header h1{font-size:28px;line-height:1.3;margin:8px 0}
+.sub{color:#d7e6f5}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:3px 10px;font-size:12px}
+main{padding:28px 48px 48px}
+h2{font-size:20px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:6px;margin:28px 0 12px}
+h3{font-size:16px;color:#174f83;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:12px 16px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:10px 12px;background:var(--soft)}
+.card b{display:block;font-size:18px;color:var(--navy)}
+.card.warn{border-top-color:var(--warn)}
+.card.bad{border-top-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px}
+th,td{border:1px solid var(--line);padding:7px 8px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 14px;border-radius:7px;margin:12px 0}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.bad{border-color:#f0c2bc;background:#fdf4f3}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+.svgbox{border:1px dashed var(--line);border-radius:8px;padding:8px;background:#fff;margin:8px 0}
+.svgbox svg{width:100%;height:auto;display:block}
+.figcap{color:var(--muted);font-size:12px;margin:0 0 14px}
+code{font-family:Consolas,monospace;font-size:12px}
+footer{padding:16px 48px 28px;color:var(--muted);font-size:12px}
+@media(max-width:800px){header,main,footer{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">CP-GRACE-MC-01 · 内存区 · 即 LLDDRAM · 2026-09-29</div>
+  <h1>LPDDR5X 内存冷板 · 结构布局说明</h1>
+  <div class="sub">左右各一个 50 × 70 mm 窗口，每侧 6 条交错槽。</div>
+  <div class="meta"><span class="pill">与 CPU 同板</span><span class="pill">节距约 8 mm</span><span class="pill">每侧一条限流缝</span></div>
+</header>
+<main>
+
+<p class="lead">LPDDR 冷板是 CP-GRACE-MC-01 左右两个内存窗里的槽，也就是所问的 LLDDRAM 冷板。它和 CPU 共用一块 200 × 120 × 8.0 mm 的铜，共用左右干管和前后廊。每侧 6 条槽，截面 1.20 × 0.80 mm，奇数 3 条流向 +Y，偶数 3 条流向 −Y。</p>
+<div class="grid">
+  <div class="card"><b>50 × 70</b>每侧窗口，候选</div>
+  <div class="card"><b>6 槽 / 侧</b>1.20 × 0.80</div>
+  <div class="card"><b>节距 8</b>报告写“约 8”，核实按 8.00</div>
+  <div class="card"><b>两侧各 4.40</b>按 8.00 居中后的边距</div>
+</div>
+<h2>1. 窗口</h2>
+<p>左窗 X 14–64，右窗 X 136–186，Y 都是 25–95。两窗关于板中心 X = 100 对称：14 到 100 的距离是 86，100 到 186 也是 86。CPU 窗在 X 80–120，左窗右缘 64 到 CPU 左缘 80 有 16 mm 铜，右侧同样 16 mm。</p>
+<p>槽沿 Y。节距沿 X，铺在 50 mm 窗内。报告写节距约 8 mm，没有更细的数。核实计算把节距取为 8.00 mm，6 条槽居中。这 8.00 是核实取值，窗口一旦按盖板图移动，节距规则不变，边距会跟着变。</p>
+<h2>2. 流向和限流缝</h2>
+<p>奇偶规则与 CPU 相同，口的 Y 向位置不同。每侧在供液分成前后两路之前有一条缝，断面 0.80 × 1.20 mm，长 12 mm。缝比槽窄，深度用满通道层的 1.20 mm。报告没有给缝的 X、Y 坐标，布局只确定它在分叉之前，尺寸链不给它一个编造的位置。</p>
+<h2>3. 和 CPU 槽深的差别</h2>
+<p>通道层是 z 2.0–3.2，深 1.2 mm，CPU 槽把这一层铣满。内存槽深只有 0.80 mm。从分型面 z = 3.2 向下铣 0.80，槽底在 z = 2.4，其下到 z = 2.0 仍有 0.40 mm 铜。若从 z = 2.0 向上只做 0.80 高的肋，槽顶就到不了分型面。两种读法报告都没有画成剖面。尺寸说明采用前一种：从分型面向下铣，因为 CPU 槽就是这样铣满 1.20 mm 的。这一条在尺寸链里单独标成读法，不和 1.20 的通道层加在一起。</p>
+<p class="small">来源：Grace 报告 §4.1–§4.4。功率分工（内存合计 40 W）不进入尺寸链。</p>
+
+</main>
+<footer>数值来自本目录五份 HTML。asm_0921 的 12.5 mm / 128 孔、UC01b 的孔径 0.40 mm、v1 参数集的段间铜岛，都不进入封闭环。平面坐标在盖板图到达前仍是候选。</footer>
+</div>
+</body>
+</html>

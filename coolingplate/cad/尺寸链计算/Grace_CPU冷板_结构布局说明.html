@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grace CPU 冷板 · 结构布局说明</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1100px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:36px 48px 28px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.08em;color:#9db6d4}
+header h1{font-size:28px;line-height:1.3;margin:8px 0}
+.sub{color:#d7e6f5}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:3px 10px;font-size:12px}
+main{padding:28px 48px 48px}
+h2{font-size:20px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:6px;margin:28px 0 12px}
+h3{font-size:16px;color:#174f83;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:12px 16px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:10px 12px;background:var(--soft)}
+.card b{display:block;font-size:18px;color:var(--navy)}
+.card.warn{border-top-color:var(--warn)}
+.card.bad{border-top-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px}
+th,td{border:1px solid var(--line);padding:7px 8px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 14px;border-radius:7px;margin:12px 0}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.bad{border-color:#f0c2bc;background:#fdf4f3}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+.svgbox{border:1px dashed var(--line);border-radius:8px;padding:8px;background:#fff;margin:8px 0}
+.svgbox svg{width:100%;height:auto;display:block}
+.figcap{color:var(--muted);font-size:12px;margin:0 0 14px}
+code{font-family:Consolas,monospace;font-size:12px}
+footer{padding:16px 48px 28px;color:var(--muted);font-size:12px}
+@media(max-width:800px){header,main,footer{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">CP-GRACE-MC-01 · CPU 区 · 2026-09-29</div>
+  <h1>Grace CPU 冷板 · 结构布局说明</h1>
+  <div class="sub">中部 48 条沿 Y 的交错槽。左右内存区见 LPDDR 文件。</div>
+  <div class="meta"><span class="pill">候选平面</span><span class="pill">无射流</span><span class="pill">奇 +Y / 偶 −Y</span></div>
+</header>
+<main>
+
+<p class="lead">Grace 的 CPU 冷板是 <strong>CP-GRACE-MC-01</strong> 中部的槽区，不是单独一块铜。整板 200 × 120 × 8.0 mm，左右还带着 LPDDR 窗口。CPU 窗口 X 80–120、Y 44–76，即 40 × 32 mm。48 条槽沿 Y，节距沿 X。奇数槽流向 +Y，偶数槽流向 −Y。没有微射流。</p>
+<div class="grid">
+  <div class="card"><b>40 × 32</b>CPU 窗口 mm，候选</div>
+  <div class="card"><b>48 槽</b>0.40 × 1.20，节距 0.80</div>
+  <div class="card"><b>38.8</b>肋场宽，窗内两侧各余 0.6</div>
+  <div class="card"><b>8.0</b>整板厚，两层铜</div>
+</div>
+<h2>1. 坐标</h2>
+<p>原点在冷板左下角。X 从左接头到右接头，Y 朝后面板，芯片面 z = 0。进液在左侧干管，出液在右侧干管。接头中心 Y = 60，放在前后两套口的中点。</p>
+<div class="svgbox">
+<svg viewBox="0 0 760 460" xmlns="http://www.w3.org/2000/svg">
+  <rect x="40" y="40" width="640" height="384" fill="#f4e0cf" stroke="#5c3a17" stroke-width="2"/>
+  <rect x="85" y="88" width="160" height="224" fill="#efe6c9" stroke="#8a6a12"/>
+  <rect x="475" y="88" width="160" height="224" fill="#efe6c9" stroke="#8a6a12"/>
+  <rect x="296" y="147" width="128" height="102" fill="#f0c2b4" stroke="#b42318"/>
+  <rect x="61" y="70" width="22" height="300" fill="#d9e9f7" stroke="#1f6fb2"/>
+  <rect x="637" y="70" width="22" height="300" fill="#f6dcd8" stroke="#c0392b"/>
+  <text x="360" y="205" text-anchor="middle" font-size="14" fill="#b42318" font-family="Microsoft YaHei">CPU 48 槽</text>
+  <text x="165" y="200" text-anchor="middle" font-size="14" fill="#8a6a12" font-family="Microsoft YaHei">LPDDR 左</text>
+  <text x="555" y="200" text-anchor="middle" font-size="14" fill="#8a6a12" font-family="Microsoft YaHei">LPDDR 右</text>
+  <text x="360" y="450" text-anchor="middle" font-size="13" fill="#33404d" font-family="Microsoft YaHei">+X 200 mm。CPU 窗在正中。</text>
+</svg>
+</div>
+<p class="figcap">图 1. 俯视比例。CPU 肋场比窗口窄，两侧各 0.6 mm。左右浅黄是内存窗，尺寸见 LPDDR 文件。蓝条、红条是左右干管。</p>
+<h2>2. 槽和口</h2>
+<p>从左数，第 1、3、5… 条在前侧进液，流向 +Y，在后侧出。第 2、4、6… 条在后侧进液，流向 −Y，在前侧出。槽的 Y 向两端是 0.8 mm 铜墙，水不能沿 Y 冲进前后大腔。该进或该出的一端，盖板上有一个与槽同宽、长 1.6 mm 的 Z 向口。邻槽在同一个 Y 上槽顶是封的。</p>
+<p>前侧从外到内是：端墙、偶数槽回液口、隔墙、奇数槽供液口，然后才是受热窗。后侧把供液和回液对调。两个流向的润湿长度都是 40 mm。</p>
+<h2>3. 厚度</h2>
+<p>z 0–2.0 底板，2.0–3.2 通道，3.2–3.5 分型面，3.5–6.0 盖板内腔，6.0–8.0 盖板顶。左右干管把底板局部铣到 z = 1.0，干管深 5 mm，占到 z = 6.0。干管处底板只剩 1.0 mm。</p>
+<p class="small">来源：Grace 冷板详细设计报告 v1.0（2026-09-28 流路修订）§4。外形和窗口是候选。</p>
+
+</main>
+<footer>数值来自本目录五份 HTML。asm_0921 的 12.5 mm / 128 孔、UC01b 的孔径 0.40 mm、v1 参数集的段间铜岛，都不进入封闭环。平面坐标在盖板图到达前仍是候选。</footer>
+</div>
+</body>
+</html>

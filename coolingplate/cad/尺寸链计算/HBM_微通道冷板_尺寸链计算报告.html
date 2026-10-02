@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HBM 微通道冷板 · 尺寸链计算报告</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.page{max-width:1100px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:36px 48px 28px;background:var(--navy);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.08em;color:#9db6d4}
+header h1{font-size:28px;line-height:1.3;margin:8px 0}
+.sub{color:#d7e6f5}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pill{border:1px solid #ffffff55;border-radius:16px;padding:3px 10px;font-size:12px}
+main{padding:28px 48px 48px}
+h2{font-size:20px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:6px;margin:28px 0 12px}
+h3{font-size:16px;color:#174f83;margin:18px 0 8px}
+p{margin:8px 0 12px}
+.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:12px 16px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:10px 12px;background:var(--soft)}
+.card b{display:block;font-size:18px;color:var(--navy)}
+.card.warn{border-top-color:var(--warn)}
+.card.bad{border-top-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px}
+th,td{border:1px solid var(--line);padding:7px 8px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f8fafc}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 14px;border-radius:7px;margin:12px 0}
+.ok{border-color:#b7e0d4;background:#f3fbf8}
+.bad{border-color:#f0c2bc;background:#fdf4f3}
+.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}
+.tagr{background:#fde8e6;color:var(--red)}
+.small{color:var(--muted);font-size:12px}
+.svgbox{border:1px dashed var(--line);border-radius:8px;padding:8px;background:#fff;margin:8px 0}
+.svgbox svg{width:100%;height:auto;display:block}
+.figcap{color:var(--muted);font-size:12px;margin:0 0 14px}
+code{font-family:Consolas,monospace;font-size:12px}
+footer{padding:16px 48px 28px;color:var(--muted);font-size:12px}
+@media(max-width:800px){header,main,footer{padding-left:18px;padding-right:18px}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">CP-B300-JM-01 · HBM 区 · 2026-09-29</div>
+  <h1>HBM 微通道冷板 · 尺寸链计算报告</h1>
+  <div class="sub">11 mm、50 mm、8.0 mm 三条名义链闭合。槽深与 GPU 区不同。</div>
+  <div class="meta"><span class="pill">名义闭合</span><span class="pill">槽深分区</span><span class="pill">旧 8 槽不采用</span></div>
+</header>
+<main>
+
+<p class="lead">HBM 区有三条必须同时成立的链：11 mm 里排下 7 条槽，50 mm 里排下 4 颗堆叠，加热段厚度等于整板腔体 8.0 mm。三条名义链都闭合。槽深和 GPU 区不一致，这是结构事实，不是加法错误。</p>
+<h2>1. 名义尺寸链</h2>
+<table>
+<thead><tr><th>链</th><th>算式</th><th>结果</th><th>期望</th><th>差</th><th>判定</th><th>说明</th></tr></thead>
+<tbody><tr><td>单侧槽场宽</td><td><code>0.30+7×0.80+6×0.80+0.30</code></td><td>11</td><td>11</td><td>0</td><td><span class="tag">闭合</span></td><td>两岸 + 槽 + 肋</td></tr><tr><td>条数</td><td><code>4+3</code></td><td>7</td><td>7</td><td>0</td><td><span class="tag">闭合</span></td><td>偶数与奇数</td></tr><tr><td>四颗加三道缝</td><td><code>4×11+3×2</code></td><td>50</td><td>50</td><td>0</td><td><span class="tag">闭合</span></td><td></td></tr><tr><td>列在板高中的位置</td><td><code>12.5+50+12.5</code></td><td>75</td><td>75</td><td>0</td><td><span class="tag">闭合</span></td><td></td></tr><tr><td>左列右缘到左肋</td><td><code>16.5−16</code></td><td>0.5</td><td>0.5</td><td>0</td><td><span class="tag">闭合</span></td><td></td></tr><tr><td>左肋右缘到 Die-A</td><td><code>19−18.5</code></td><td>0.5</td><td>0.5</td><td>0</td><td><span class="tag">闭合</span></td><td></td></tr><tr><td>加热段厚度</td><td><code>2.0+2.0+4.0</code></td><td>8</td><td>8</td><td>0</td><td><span class="tag">闭合</span></td><td>等于腔体，不含钎缝</td></tr><tr><td>上铜板内部分配</td><td><code>1.0+3.0</code></td><td>4</td><td>4</td><td>0</td><td><span class="tag">闭合</span></td><td>竖向口 + 汇流腔</td></tr><tr><td>与 GPU 腔体对比</td><td><code>2+1.5+2+2.5</code></td><td>8</td><td>8</td><td>0</td><td><span class="tag">闭合</span></td><td>总数相同，槽深不同</td></tr><tr><td>整板 X（与 GPU 同一条）</td><td><code>5+11+0.5+2+0.5+27+3+27+0.5+2+0.5+11+5</code></td><td>95</td><td>95</td><td>0</td><td><span class="tag">闭合</span></td><td></td></tr><tr><td>旧 8 槽宽度（不采用）</td><td><code>0.65×2+7×1.30+0.60</code></td><td>11</td><td>11</td><td>0</td><td><span class="tag">闭合</span></td><td>能闭合，但不是现行截面</td></tr></tbody>
+</table>
+<h2>2. 核实2</h2>
+<p>左列从 X = 5 加到 16，加 0.5 到肋的 16.5，再加肋宽 2 到 18.5，再加 0.5 到 die 的 19。右列从板宽倒推：95 − 5 − 11 = 79，与右列原点一致。</p>
+<p>Y 向从 12.5 起，每加 11 再加 2，得到 25.5、38.5、51.5。51.5 + 11 = 62.5。62.5 + 12.5 = 75。颗间 2 mm 是后一颗原点减前一颗顶边，不是另设的一条肋宽。</p>
+<p>宽度重加：岸 0.30，然后槽、肋交替。7 个槽是 5.60，6 个肋是 4.80，两岸 0.60，合计 11.00。没有剩余，也没有负值。</p>
+<h2>3. 不能做的公差叠加</h2>
+<p>0.80、0.30、2.00、4.0 都没有公差。名义闭合不能外推成极值闭合。整板外形 ±0.15、总厚 ±0.10 写在 GPU 尺寸说明里，没有分配到 HBM 的岸和肋上。</p>
+<div class="note">
+<p>加工时槽深要分区：GPU 1.5 mm，HBM 2.0 mm。若误用同一槽深，要么 HBM 的 2.0 mm 链被破坏，要么 GPU 的射流间隙被铣深。两条厚度链各自等于 8.0，合不到同一个槽深上。</p>
+</div>
+<p class="small">Excel：<code>HBM_微通道冷板_尺寸核实2计算.xlsx</code>。</p>
+
+</main>
+<footer>数值来自本目录五份 HTML。asm_0921 的 12.5 mm / 128 孔、UC01b 的孔径 0.40 mm、v1 参数集的段间铜岛，都不进入封闭环。平面坐标在盖板图到达前仍是候选。</footer>
+</div>
+</body>
+</html>

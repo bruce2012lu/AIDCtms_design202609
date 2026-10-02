@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<title>HBM 微通道冷板 · 结构布局说明</title>
+<style>
+:root { --ink:#1c2430; --muted:#5c6b7a; --line:#d5dde6; --navy:#0e3a5d; --ok:#0d6b3a; --bad:#9d1c1c; --wait:#8a5a00; --paper:#f6f4ef; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.65 "Microsoft YaHei","PingFang SC",sans-serif; }
+main { max-width:980px; margin:0 auto; padding:32px 28px 72px; background:#fff; }
+h1 { font-size:28px; line-height:1.3; margin:0 0 8px; color:var(--navy); }
+h2 { font-size:20px; margin:32px 0 10px; padding-top:8px; border-top:2px solid var(--navy); color:var(--navy); }
+h3 { font-size:17px; margin:22px 0 8px; }
+.sub { color:var(--muted); margin-bottom:18px; }
+.meta { display:flex; flex-wrap:wrap; gap:8px 18px; font-size:13px; color:var(--muted); margin:8px 0 18px; }
+.lead { background:#f3f7fb; border-left:4px solid var(--navy); padding:12px 14px; }
+table { width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:14px; }
+th, td { border:1px solid var(--line); padding:6px 8px; vertical-align:top; text-align:left; }
+th { background:#eef3f8; }
+.num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.ok { color:var(--ok); font-weight:700; }
+.bad { color:var(--bad); font-weight:700; }
+.wait { color:var(--wait); font-weight:700; }
+.src { font-size:13px; color:var(--muted); }
+.fig { margin:12px 0; overflow-x:auto; }
+.figcap { font-size:13px; color:var(--muted); margin-top:4px; }
+code { font-family:Consolas,monospace; font-size:13px; }
+ul { margin:8px 0 8px 1.2em; }
+footer { margin-top:36px; font-size:13px; color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+<h1>HBM 微通道冷板 · 结构布局说明</h1>
+<p class="sub">单侧一列。截面 w08h20，足迹 v2.0。</p>
+<div class="meta"><span>DC-HBM-LAY-01</span><span>日期 2026-09-29</span><span>状态：名义尺寸闭合，线性公差未给</span></div>
+
+<p class="lead">HBM 微通道冷板在这里指 B300 冷板左右两列的冷却区，不是另一块外形 95×75 的铜板。截面按本目录 w08h20 结果报告：单侧 7 条封闭槽，0.80 mm × 2.00 mm。列的位置仍用 v2.0 的锁定坐标。</p>
+<h2>1　平面</h2>
+<p>左列占 X 5–16，右列占 X 79–90。每列 Y 向从 12.5 到 62.5，长 50 mm，里面四颗 11 mm 高的堆叠，颗与颗之间 2 mm 不加热。四颗的 y 是 12.5、25.5、38.5、51.5。列和 GPU die 之间是 0.5 mm 缝、2.0 mm 隔离肋、再 0.5 mm 缝。</p>
+<p>水沿列的长向走。7 条槽并排，节距 1.60 mm，两岸各 0.30 mm。偶数槽和奇数槽在交错流方案里反向，汇流腔做在端部上铜板里。那些腔是流路，列的外形仍是 11×50 mm。</p>
+<div class="fig"><svg viewBox="0 0 520 280" width="520" xmlns="http://www.w3.org/2000/svg"><rect width="520" height="280" fill="#fbfaf7"/><rect x="80.0" y="172.0" width="308.0" height="44.0" fill="#e7c8a4" stroke="#33404d" stroke-width="1"/><rect x="88.4" y="128.0" width="22.4" height="44.0" fill="#d9e9f7" stroke="#1f6fb2" stroke-width="1"/><rect x="110.8" y="128.0" width="22.4" height="44.0" fill="#e7c8a4" stroke="#33404d" stroke-width="1"/><rect x="133.2" y="128.0" width="22.4" height="44.0" fill="#d9e9f7" stroke="#1f6fb2" stroke-width="1"/><rect x="155.6" y="128.0" width="22.4" height="44.0" fill="#e7c8a4" stroke="#33404d" stroke-width="1"/><rect x="178.0" y="128.0" width="22.4" height="44.0" fill="#d9e9f7" stroke="#1f6fb2" stroke-width="1"/><rect x="200.4" y="128.0" width="22.4" height="44.0" fill="#e7c8a4" stroke="#33404d" stroke-width="1"/><rect x="222.8" y="128.0" width="22.4" height="44.0" fill="#d9e9f7" stroke="#1f6fb2" stroke-width="1"/><rect x="245.2" y="128.0" width="22.4" height="44.0" fill="#e7c8a4" stroke="#33404d" stroke-width="1"/><rect x="267.6" y="128.0" width="22.4" height="44.0" fill="#d9e9f7" stroke="#1f6fb2" stroke-width="1"/><rect x="290.0" y="128.0" width="22.4" height="44.0" fill="#e7c8a4" stroke="#33404d" stroke-width="1"/><rect x="312.4" y="128.0" width="22.4" height="44.0" fill="#d9e9f7" stroke="#1f6fb2" stroke-width="1"/><rect x="334.8" y="128.0" width="22.4" height="44.0" fill="#e7c8a4" stroke="#33404d" stroke-width="1"/><rect x="357.2" y="128.0" width="22.4" height="44.0" fill="#d9e9f7" stroke="#1f6fb2" stroke-width="1"/><rect x="80.0" y="40.0" width="308.0" height="88.0" fill="#e7c8a4" stroke="#33404d" stroke-width="1"/><text x="234.0" y="28.0" font-size="13" fill="#5c3a17" text-anchor="middle" font-family="Microsoft YaHei,Arial">上铜板 4.0</text><text x="234.0" y="250.0" font-size="13" fill="#5c3a17" text-anchor="middle" font-family="Microsoft YaHei,Arial">底铜 2.0    列宽 11</text><text x="40.0" y="140.0" font-size="13" fill="#1f6fb2" text-anchor="start" font-family="Microsoft YaHei,Arial">槽 0.80×2.00，肋 0.80，两岸 0.30</text></svg><p class="figcap">图 1 · 单侧一列的横截面。蓝色是水，其余是铜。槽顶封死，加热段没有通长水缝。</p></div>
+<h2>2　厚度</h2>
+<p>底铜 2.0 mm，槽高 2.0 mm，上铜板 4.0 mm，铜厚 8.0 mm。槽顶在加热段是封的，肋从槽底接到上铜板。TIM 0.080 mm 贴在底铜之下，不算板厚。</p>
+<p>GPU 区的外形是 8.5 mm，并且带 1.5 mm 开槽和 2.0 mm 喷距。HBM 区这套是 8.0 mm 封闭深槽。两套各自加得拢，还没有合成同一块铜的一个厚度栈。出图前要先定共用底板的 z，不能把 0.60 mm 八槽和 0.80 mm 七槽铣在同一列里。</p>
+<h2>3　对照截面</h2>
+<p>v2.0 计算表里的 HBM 槽是 0.60×1.50 mm、节距 1.30 mm、单侧 8 条、岸 0.65 mm。那一套加起来也是 11.00 mm。尺寸链报告里把它列为对照链：算术闭合，但不作为本 HBM 冷板的出图截面。</p>
+
+<footer>生成脚本 build_dimchain_reports.py。改尺寸时改工作簿里的蓝色输入格，或改脚本后重跑。本页与同名尺寸核实2工作簿用同一组输入。</footer>
+</main>
+</body>
+</html>
