@@ -1,0 +1,14 @@
+# ICEM CFD Project Settings
+# UC-01b CHT fine coupon geometry (millimetres). Not the Fluent volume mesh.
+# File → Open Project in the ALREADY OPEN ICEM. Do not start a second ICEM.
+
+array set file_name {
+    domain {}
+    tetin uc01b_cht_fine.tin
+    settings uc01b_cht_fine.prj
+    project_dir .
+    family_boco {}
+    attributes {}
+    blocking {}
+    domains_dir .
+}

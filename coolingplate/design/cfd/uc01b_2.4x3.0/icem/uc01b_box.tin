@@ -1,0 +1,26 @@
+// tetin file version 1.1
+// written by ICEM CFD - version 26.1 on Mon Sep 21 00:38:30 2026
+
+set_triangulation_tolerance 0.001
+# In ICEM CFD 4.2 the family_boco file is no longer tied to tetin
+# read_family_boco family_boco
+define_family LIVE color 5911547
+define_family INLET_JET color 4652601
+define_family RETURN_SLOT color 6748211
+define_family WALL_IMP color 15694643
+define_family WALL_LID color 3407183
+define_family FIN color 3406177
+define_family SYM color 15434803
+define_family POINT color 14392627
+
+prescribed_point -1.5 -1.2 0 family POINT name p000
+prescribed_point 1.5 -1.2 0 family POINT name p100
+prescribed_point 1.5 1.2 0 family POINT name p110
+prescribed_point -1.5 1.2 0 family POINT name p010
+prescribed_point -1.5 -1.2 8 family POINT name p001
+prescribed_point 1.5 -1.2 8 family POINT name p101
+prescribed_point 1.5 1.2 8 family POINT name p111
+prescribed_point -1.5 1.2 8 family POINT name p011
+affix 0
+define_model 1e+10 reference_size 1
+return

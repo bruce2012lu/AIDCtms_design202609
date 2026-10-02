@@ -1,0 +1,454 @@
+// tetin file version 1.1
+// UC-01b CHT fine coupon, MILLIMETRES. Circle D=0.40. Geometry, not the volume mesh.
+set_triangulation_tolerance 0.001
+define_family FLUID color 12109107
+define_family SOLID_CU color 16763904
+define_family SOLID_TIM2 color 16711680
+define_family INLET_JET color 4652601
+define_family WALL_ORIFICE color 16663101
+define_family SYM color 15434803
+define_family GEOM color 16663866
+define_family POINT color 14392627
+define_family CRV color 3362046
+prescribed_point -1.5 -1.2 -2.08 family POINT name t00
+prescribed_point 1.5 -1.2 -2.08 family POINT name t10
+prescribed_point 1.5 1.2 -2.08 family POINT name t11
+prescribed_point -1.5 1.2 -2.08 family POINT name t01
+prescribed_point -1.5 -1.2 -2 family POINT name u00
+prescribed_point 1.5 -1.2 -2 family POINT name u10
+prescribed_point 1.5 1.2 -2 family POINT name u11
+prescribed_point -1.5 1.2 -2 family POINT name u01
+prescribed_point -1.5 -1.2 0 family POINT name i00
+prescribed_point 1.5 -1.2 0 family POINT name i10
+prescribed_point 1.5 1.2 0 family POINT name i11
+prescribed_point -1.5 1.2 0 family POINT name i01
+prescribed_point -1.5 -1.2 1.5 family POINT name r00
+prescribed_point 1.5 -1.2 1.5 family POINT name r10
+prescribed_point 1.5 1.2 1.5 family POINT name r11
+prescribed_point -1.5 1.2 1.5 family POINT name r01
+prescribed_point -1.5 -1.2 3.5 family POINT name l00
+prescribed_point 1.5 -1.2 3.5 family POINT name l10
+prescribed_point 1.5 1.2 3.5 family POINT name l11
+prescribed_point -1.5 1.2 3.5 family POINT name l01
+prescribed_point -1.5 -1.2 6 family POINT name d00
+prescribed_point 1.5 -1.2 6 family POINT name d10
+prescribed_point 1.5 1.2 6 family POINT name d11
+prescribed_point -1.5 1.2 6 family POINT name d01
+prescribed_point -1.5 -1.2 8 family POINT name n00
+prescribed_point 1.5 -1.2 8 family POINT name n10
+prescribed_point 1.5 1.2 8 family POINT name n11
+prescribed_point -1.5 1.2 8 family POINT name n01
+prescribed_point 0 0 -2.04 family SOLID_TIM2 name p_tim
+prescribed_point 0 0 -1 family SOLID_CU name p_cu
+prescribed_point 0 0 0.75 family FLUID name p_fluid
+prescribed_point 0.2 0 3.5 family WALL_ORIFICE name oL0
+prescribed_point 0.14142136 0.14142136 3.5 family WALL_ORIFICE name oL1
+prescribed_point 1.2246468e-17 0.2 3.5 family WALL_ORIFICE name oL2
+prescribed_point -0.14142136 0.14142136 3.5 family WALL_ORIFICE name oL3
+prescribed_point -0.2 2.4492936e-17 3.5 family WALL_ORIFICE name oL4
+prescribed_point -0.14142136 -0.14142136 3.5 family WALL_ORIFICE name oL5
+prescribed_point -3.6739404e-17 -0.2 3.5 family WALL_ORIFICE name oL6
+prescribed_point 0.14142136 -0.14142136 3.5 family WALL_ORIFICE name oL7
+prescribed_point 0.2 0 6 family WALL_ORIFICE name oD0
+prescribed_point 0.14142136 0.14142136 6 family WALL_ORIFICE name oD1
+prescribed_point 1.2246468e-17 0.2 6 family WALL_ORIFICE name oD2
+prescribed_point -0.14142136 0.14142136 6 family WALL_ORIFICE name oD3
+prescribed_point -0.2 2.4492936e-17 6 family WALL_ORIFICE name oD4
+prescribed_point -0.14142136 -0.14142136 6 family WALL_ORIFICE name oD5
+prescribed_point -3.6739404e-17 -0.2 6 family WALL_ORIFICE name oD6
+prescribed_point 0.14142136 -0.14142136 6 family WALL_ORIFICE name oD7
+prescribed_point 0.2 0 8 family WALL_ORIFICE name oN0
+prescribed_point 0.14142136 0.14142136 8 family WALL_ORIFICE name oN1
+prescribed_point 1.2246468e-17 0.2 8 family WALL_ORIFICE name oN2
+prescribed_point -0.14142136 0.14142136 8 family WALL_ORIFICE name oN3
+prescribed_point -0.2 2.4492936e-17 8 family WALL_ORIFICE name oN4
+prescribed_point -0.14142136 -0.14142136 8 family WALL_ORIFICE name oN5
+prescribed_point -3.6739404e-17 -0.2 8 family WALL_ORIFICE name oN6
+prescribed_point 0.14142136 -0.14142136 8 family WALL_ORIFICE name oN7
+prescribed_point -1.5 -0.2 0 family POINT name s0ym20
+prescribed_point 1.5 -0.2 0 family POINT name s1ym20
+prescribed_point -1.5 0.2 0 family POINT name s0yp20
+prescribed_point 1.5 0.2 0 family POINT name s1yp20
+prescribed_point -1.5 -0.6 0 family POINT name s0ym60
+prescribed_point 1.5 -0.6 0 family POINT name s1ym60
+prescribed_point -1.5 0.6 0 family POINT name s0yp60
+prescribed_point 1.5 0.6 0 family POINT name s1yp60
+prescribed_point -1.5 -1 0 family POINT name s0ym100
+prescribed_point 1.5 -1 0 family POINT name s1ym100
+prescribed_point -1.5 1 0 family POINT name s0yp100
+prescribed_point 1.5 1 0 family POINT name s1yp100
+define_curve family CRV tetra_size 1e+10 name et0 vertex1 t00 vertex2 t10
+bspline
+2,2,0
+0,0,1,1
+-1.5,-1.2,-2.08
+1.5,-1.2,-2.08
+define_curve family CRV tetra_size 1e+10 name et1 vertex1 t10 vertex2 t11
+bspline
+2,2,0
+0,0,1,1
+1.5,-1.2,-2.08
+1.5,1.2,-2.08
+define_curve family CRV tetra_size 1e+10 name et2 vertex1 t11 vertex2 t01
+bspline
+2,2,0
+0,0,1,1
+1.5,1.2,-2.08
+-1.5,1.2,-2.08
+define_curve family CRV tetra_size 1e+10 name et3 vertex1 t01 vertex2 t00
+bspline
+2,2,0
+0,0,1,1
+-1.5,1.2,-2.08
+-1.5,-1.2,-2.08
+define_curve family CRV tetra_size 1e+10 name eu0 vertex1 u00 vertex2 u10
+bspline
+2,2,0
+0,0,1,1
+-1.5,-1.2,-2
+1.5,-1.2,-2
+define_curve family CRV tetra_size 1e+10 name eu1 vertex1 u10 vertex2 u11
+bspline
+2,2,0
+0,0,1,1
+1.5,-1.2,-2
+1.5,1.2,-2
+define_curve family CRV tetra_size 1e+10 name eu2 vertex1 u11 vertex2 u01
+bspline
+2,2,0
+0,0,1,1
+1.5,1.2,-2
+-1.5,1.2,-2
+define_curve family CRV tetra_size 1e+10 name eu3 vertex1 u01 vertex2 u00
+bspline
+2,2,0
+0,0,1,1
+-1.5,1.2,-2
+-1.5,-1.2,-2
+define_curve family CRV tetra_size 1e+10 name ei0 vertex1 i00 vertex2 i10
+bspline
+2,2,0
+0,0,1,1
+-1.5,-1.2,0
+1.5,-1.2,0
+define_curve family CRV tetra_size 1e+10 name ei1 vertex1 i10 vertex2 i11
+bspline
+2,2,0
+0,0,1,1
+1.5,-1.2,0
+1.5,1.2,0
+define_curve family CRV tetra_size 1e+10 name ei2 vertex1 i11 vertex2 i01
+bspline
+2,2,0
+0,0,1,1
+1.5,1.2,0
+-1.5,1.2,0
+define_curve family CRV tetra_size 1e+10 name ei3 vertex1 i01 vertex2 i00
+bspline
+2,2,0
+0,0,1,1
+-1.5,1.2,0
+-1.5,-1.2,0
+define_curve family CRV tetra_size 1e+10 name er0 vertex1 r00 vertex2 r10
+bspline
+2,2,0
+0,0,1,1
+-1.5,-1.2,1.5
+1.5,-1.2,1.5
+define_curve family CRV tetra_size 1e+10 name er1 vertex1 r10 vertex2 r11
+bspline
+2,2,0
+0,0,1,1
+1.5,-1.2,1.5
+1.5,1.2,1.5
+define_curve family CRV tetra_size 1e+10 name er2 vertex1 r11 vertex2 r01
+bspline
+2,2,0
+0,0,1,1
+1.5,1.2,1.5
+-1.5,1.2,1.5
+define_curve family CRV tetra_size 1e+10 name er3 vertex1 r01 vertex2 r00
+bspline
+2,2,0
+0,0,1,1
+-1.5,1.2,1.5
+-1.5,-1.2,1.5
+define_curve family CRV tetra_size 1e+10 name el0 vertex1 l00 vertex2 l10
+bspline
+2,2,0
+0,0,1,1
+-1.5,-1.2,3.5
+1.5,-1.2,3.5
+define_curve family CRV tetra_size 1e+10 name el1 vertex1 l10 vertex2 l11
+bspline
+2,2,0
+0,0,1,1
+1.5,-1.2,3.5
+1.5,1.2,3.5
+define_curve family CRV tetra_size 1e+10 name el2 vertex1 l11 vertex2 l01
+bspline
+2,2,0
+0,0,1,1
+1.5,1.2,3.5
+-1.5,1.2,3.5
+define_curve family CRV tetra_size 1e+10 name el3 vertex1 l01 vertex2 l00
+bspline
+2,2,0
+0,0,1,1
+-1.5,1.2,3.5
+-1.5,-1.2,3.5
+define_curve family CRV tetra_size 1e+10 name ed0 vertex1 d00 vertex2 d10
+bspline
+2,2,0
+0,0,1,1
+-1.5,-1.2,6
+1.5,-1.2,6
+define_curve family CRV tetra_size 1e+10 name ed1 vertex1 d10 vertex2 d11
+bspline
+2,2,0
+0,0,1,1
+1.5,-1.2,6
+1.5,1.2,6
+define_curve family CRV tetra_size 1e+10 name ed2 vertex1 d11 vertex2 d01
+bspline
+2,2,0
+0,0,1,1
+1.5,1.2,6
+-1.5,1.2,6
+define_curve family CRV tetra_size 1e+10 name ed3 vertex1 d01 vertex2 d00
+bspline
+2,2,0
+0,0,1,1
+-1.5,1.2,6
+-1.5,-1.2,6
+define_curve family CRV tetra_size 1e+10 name en0 vertex1 n00 vertex2 n10
+bspline
+2,2,0
+0,0,1,1
+-1.5,-1.2,8
+1.5,-1.2,8
+define_curve family CRV tetra_size 1e+10 name en1 vertex1 n10 vertex2 n11
+bspline
+2,2,0
+0,0,1,1
+1.5,-1.2,8
+1.5,1.2,8
+define_curve family CRV tetra_size 1e+10 name en2 vertex1 n11 vertex2 n01
+bspline
+2,2,0
+0,0,1,1
+1.5,1.2,8
+-1.5,1.2,8
+define_curve family CRV tetra_size 1e+10 name en3 vertex1 n01 vertex2 n00
+bspline
+2,2,0
+0,0,1,1
+-1.5,1.2,8
+-1.5,-1.2,8
+define_curve family CRV tetra_size 1e+10 name v0 vertex1 t00 vertex2 n00
+bspline
+2,2,0
+0,0,1,1
+-1.5,-1.2,-2.08
+-1.5,-1.2,8
+define_curve family CRV tetra_size 1e+10 name v1 vertex1 t10 vertex2 n10
+bspline
+2,2,0
+0,0,1,1
+1.5,-1.2,-2.08
+1.5,-1.2,8
+define_curve family CRV tetra_size 1e+10 name v2 vertex1 t11 vertex2 n11
+bspline
+2,2,0
+0,0,1,1
+1.5,1.2,-2.08
+1.5,1.2,8
+define_curve family CRV tetra_size 1e+10 name v3 vertex1 t01 vertex2 n01
+bspline
+2,2,0
+0,0,1,1
+-1.5,1.2,-2.08
+-1.5,1.2,8
+define_curve family CRV tetra_size 1e+10 name cL0 vertex1 oL0 vertex2 oL1
+bspline
+2,2,0
+0,0,1,1
+0.2,0,3.5
+0.14142136,0.14142136,3.5
+define_curve family CRV tetra_size 1e+10 name cL1 vertex1 oL1 vertex2 oL2
+bspline
+2,2,0
+0,0,1,1
+0.14142136,0.14142136,3.5
+1.2246468e-17,0.2,3.5
+define_curve family CRV tetra_size 1e+10 name cL2 vertex1 oL2 vertex2 oL3
+bspline
+2,2,0
+0,0,1,1
+1.2246468e-17,0.2,3.5
+-0.14142136,0.14142136,3.5
+define_curve family CRV tetra_size 1e+10 name cL3 vertex1 oL3 vertex2 oL4
+bspline
+2,2,0
+0,0,1,1
+-0.14142136,0.14142136,3.5
+-0.2,2.4492936e-17,3.5
+define_curve family CRV tetra_size 1e+10 name cL4 vertex1 oL4 vertex2 oL5
+bspline
+2,2,0
+0,0,1,1
+-0.2,2.4492936e-17,3.5
+-0.14142136,-0.14142136,3.5
+define_curve family CRV tetra_size 1e+10 name cL5 vertex1 oL5 vertex2 oL6
+bspline
+2,2,0
+0,0,1,1
+-0.14142136,-0.14142136,3.5
+-3.6739404e-17,-0.2,3.5
+define_curve family CRV tetra_size 1e+10 name cL6 vertex1 oL6 vertex2 oL7
+bspline
+2,2,0
+0,0,1,1
+-3.6739404e-17,-0.2,3.5
+0.14142136,-0.14142136,3.5
+define_curve family CRV tetra_size 1e+10 name cL7 vertex1 oL7 vertex2 oL0
+bspline
+2,2,0
+0,0,1,1
+0.14142136,-0.14142136,3.5
+0.2,0,3.5
+define_curve family CRV tetra_size 1e+10 name cD0 vertex1 oD0 vertex2 oD1
+bspline
+2,2,0
+0,0,1,1
+0.2,0,6
+0.14142136,0.14142136,6
+define_curve family CRV tetra_size 1e+10 name cD1 vertex1 oD1 vertex2 oD2
+bspline
+2,2,0
+0,0,1,1
+0.14142136,0.14142136,6
+1.2246468e-17,0.2,6
+define_curve family CRV tetra_size 1e+10 name cD2 vertex1 oD2 vertex2 oD3
+bspline
+2,2,0
+0,0,1,1
+1.2246468e-17,0.2,6
+-0.14142136,0.14142136,6
+define_curve family CRV tetra_size 1e+10 name cD3 vertex1 oD3 vertex2 oD4
+bspline
+2,2,0
+0,0,1,1
+-0.14142136,0.14142136,6
+-0.2,2.4492936e-17,6
+define_curve family CRV tetra_size 1e+10 name cD4 vertex1 oD4 vertex2 oD5
+bspline
+2,2,0
+0,0,1,1
+-0.2,2.4492936e-17,6
+-0.14142136,-0.14142136,6
+define_curve family CRV tetra_size 1e+10 name cD5 vertex1 oD5 vertex2 oD6
+bspline
+2,2,0
+0,0,1,1
+-0.14142136,-0.14142136,6
+-3.6739404e-17,-0.2,6
+define_curve family CRV tetra_size 1e+10 name cD6 vertex1 oD6 vertex2 oD7
+bspline
+2,2,0
+0,0,1,1
+-3.6739404e-17,-0.2,6
+0.14142136,-0.14142136,6
+define_curve family CRV tetra_size 1e+10 name cD7 vertex1 oD7 vertex2 oD0
+bspline
+2,2,0
+0,0,1,1
+0.14142136,-0.14142136,6
+0.2,0,6
+define_curve family CRV tetra_size 1e+10 name cN0 vertex1 oN0 vertex2 oN1
+bspline
+2,2,0
+0,0,1,1
+0.2,0,8
+0.14142136,0.14142136,8
+define_curve family CRV tetra_size 1e+10 name cN1 vertex1 oN1 vertex2 oN2
+bspline
+2,2,0
+0,0,1,1
+0.14142136,0.14142136,8
+1.2246468e-17,0.2,8
+define_curve family CRV tetra_size 1e+10 name cN2 vertex1 oN2 vertex2 oN3
+bspline
+2,2,0
+0,0,1,1
+1.2246468e-17,0.2,8
+-0.14142136,0.14142136,8
+define_curve family CRV tetra_size 1e+10 name cN3 vertex1 oN3 vertex2 oN4
+bspline
+2,2,0
+0,0,1,1
+-0.14142136,0.14142136,8
+-0.2,2.4492936e-17,8
+define_curve family CRV tetra_size 1e+10 name cN4 vertex1 oN4 vertex2 oN5
+bspline
+2,2,0
+0,0,1,1
+-0.2,2.4492936e-17,8
+-0.14142136,-0.14142136,8
+define_curve family CRV tetra_size 1e+10 name cN5 vertex1 oN5 vertex2 oN6
+bspline
+2,2,0
+0,0,1,1
+-0.14142136,-0.14142136,8
+-3.6739404e-17,-0.2,8
+define_curve family CRV tetra_size 1e+10 name cN6 vertex1 oN6 vertex2 oN7
+bspline
+2,2,0
+0,0,1,1
+-3.6739404e-17,-0.2,8
+0.14142136,-0.14142136,8
+define_curve family CRV tetra_size 1e+10 name cN7 vertex1 oN7 vertex2 oN0
+bspline
+2,2,0
+0,0,1,1
+0.14142136,-0.14142136,8
+0.2,0,8
+define_curve family CRV tetra_size 1e+10 name slym20 vertex1 s0ym20 vertex2 s1ym20
+bspline
+2,2,0
+0,0,1,1
+-1.5,-0.2,0
+1.5,-0.2,0
+define_curve family CRV tetra_size 1e+10 name slyp20 vertex1 s0yp20 vertex2 s1yp20
+bspline
+2,2,0
+0,0,1,1
+-1.5,0.2,0
+1.5,0.2,0
+define_curve family CRV tetra_size 1e+10 name slym60 vertex1 s0ym60 vertex2 s1ym60
+bspline
+2,2,0
+0,0,1,1
+-1.5,-0.6,0
+1.5,-0.6,0
+define_curve family CRV tetra_size 1e+10 name slyp60 vertex1 s0yp60 vertex2 s1yp60
+bspline
+2,2,0
+0,0,1,1
+-1.5,0.6,0
+1.5,0.6,0
+define_curve family CRV tetra_size 1e+10 name slym100 vertex1 s0ym100 vertex2 s1ym100
+bspline
+2,2,0
+0,0,1,1
+-1.5,-1,0
+1.5,-1,0
+define_curve family CRV tetra_size 1e+10 name slyp100 vertex1 s0yp100 vertex2 s1yp100
+bspline
+2,2,0
+0,0,1,1
+-1.5,1,0
+1.5,1,0
+affix 0
+define_model 1e+10 reference_size 1
+return
