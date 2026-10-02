@@ -1,0 +1,49 @@
+; Export T and velocity components from the 21 Sep uc01b_R case.
+; Visible GUI. No /exit. Does not touch solve PID 7688 or plot PID 25976.
+/file/set-batch-options yes no no
+/file/confirm-overwrite yes
+/file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/logs/fluent_R_vectors.log"
+/file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/fluent/uc01b_R"
+/surface/iso-surface
+x-coordinate
+rvec_x0
+,
+,
+0
+()
+/surface/iso-surface
+y-coordinate
+rvec_y0
+,
+,
+0
+()
+/surface/iso-surface
+z-coordinate
+rvec_z075
+,
+,
+0.00075
+()
+/surface/iso-surface
+z-coordinate
+rvec_z01
+,
+,
+0.0001
+()
+/surface/iso-surface
+x-coordinate
+rvec_xslit
+,
+,
+-0.0013
+()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/rvec_x0.prof" rvec_x0 () temperature x-velocity y-velocity z-velocity ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/rvec_y0.prof" rvec_y0 () temperature x-velocity y-velocity z-velocity ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/rvec_z075.prof" rvec_z075 () temperature x-velocity y-velocity z-velocity ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/rvec_z01.prof" rvec_z01 () temperature x-velocity y-velocity z-velocity ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/rvec_xslit.prof" rvec_xslit () temperature x-velocity y-velocity z-velocity ()
+/file/write-profile "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0/figs/rvec_wall.prof" et2d4 () temperature x-velocity y-velocity z-velocity ()
+/file/stop-transcript
+; no /exit
