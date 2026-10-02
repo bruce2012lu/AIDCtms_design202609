@@ -1,0 +1,117 @@
+start
+globals Accuracy, AddGeometryToBlocking, AddGeometryToBlockingResult, AddToBlockMaterial, AddToBlockMaterialResult, AdjacentFacesInfo, AlignBlockVertices, AlignBlockVerticesOptions, AlignBlockVerticesResult, AlignVerticesType, AnalysisEdgeControlSizeMode, AnalysisMeshControlBiasType, AnalysisSizeControlBehavior, AnalysisType, AngleBetweenObjectsInfo, ApplicationHelper, ArcSense, ArrangeStructureTreeType, ArrowProfile, AssociateBlocking, AssociateBlockingOptions, AssociateBlockingResult, AutoSkin, AutoSkinResult, AutoUpdateHelper, Axis, AxisCushion, AxisType, BaselineOptions, Beam, BeamConnectionProblemArea, BeamProfile, BeamProperty, BeamResult, BeamSplitProblemArea, BeamSplitsOptions, BeamSplitsResult, BendCurve, BendOptions, BiasOptions, BlockBody, BlockBodyResult, BlockEdge, BlockEdgeParams, BlockEdgeParamsOptions, BlockEdgeParamsResult, BlockFace, BlockFaceParams, BlockFaceParamsOptions, BlockFaceParamsResult, BlockMaterial, BlockMaterialOptionType, BlockMeshAnalysis, BlockVertex, BlockVolume, Blocking, BlockingBlend, BlockingBlendOptions, BlockingBlendResult, BlockingDecompositionType, BlockingType, Body, BodyExtremaInfo, BodyItem, BodyPowerSelection, BodySelection, BodySmartVariableWrapper, BodyWeightHelper, BoltHoleItem, BoltHoleSelection, Box, BoxEnclosureCushion, BoxUV, BoxWorkpieceCushion, CM, CM2, CM3, CalculateProjectedArea, CalculateProjectedAreaResult, CartesianGridSpacingType
+Point Create, Equals, GetHashCode, GetType, Item, MemberwiseClone, Origin, Position, ReferenceEquals, ToString, Vector, X, Y, Z
+Direction ArbitraryPerpendicular, Create, Cross, DirX, DirY, DirZ, Equals, GetHashCode, GetType, IsParallel, IsPerpendicular, IsZero, Item, MemberwiseClone, ReferenceEquals, ToString, UnitVector, X, Y, Z, Zero
+name hits ImportOptions, ExportOptions, ViewHelper, PowerSelectOptions, BiasOptions, BlockMaterialOptionType, CommandOptions, DatumOriginCreator, IcepakViewHelper, InflationOptions, MatchTransformationOptions, AlignBlockVerticesOptions, AssociateBlockingOptions, BaselineOptions, BeamSplitsOptions, BendOptions, BlockEdgeParamsOptions, BlockFaceParamsOptions, BlockingBlendOptions, ChamferOptions, CombineOptions, CommandOptionsBase, ComputeBlockingMeshOptions, ConstantRoundOptions, ConvertBlockElementOrderOptions, ConvertBlockElementShapeOptions, ConvertBlockFaceOptions, ConvertBlockVolumeOptions, CreateBlockingOptions, CreateBoundaryLayersOptions, CreateEdgeSizeControlOptions, CreateFaceSizeControlOptions, CreateMatchControlOptions, CreateMeshOptions, CreateOGridOptions, DeleteBlockMeshOptions, DeleteBlocksOptions, DeleteMeshOptions, DraftOptions, EnclosureOptions, ExtrudeBlockEdgeOptions, ExtrudeBlockFaceOptions, ExtrudeEdgeOptions, ExtrudeFaceOptions, ExtrudePointCommandOptions, FacetAutoFixOptions, FacetConvertOptions, FacetExtrudeOptions, FacetFixHolesOptions, FacetFixSharpsOptions, FacetIntersectOptions, FacetMergeOptions, FacetReduceOptions, FacetRemeshOptions, FacetSeparateOptions, FacetShellOptions, FacetSmoothOptions, FacetSplitOptions, FacetSubtractOptions, FacetThickenOptions, FillOptions, FindConvexConcaveOption, FindStandardHoleOptions, FindVerticesEdgesOption, FitCurvesOptions, FixBeamConnectionsOptions, FixCurveGapsOptions, FixDuplicateFacesOptions, FixExtendableSurfacesOptions, FixGapsOptions, FixIdentifyIcepakOptions, FixImprintOptions, FixInterferenceOptions, FixMissingFacesOptions, FixShortEdgesOptions, FixSmallCurvesOptions, FixSmallFacesOptions, FixSplitEdgesOptions, FixUnshareOptions, FixWeldSurfaceOptions, ForceShareOptions, GeometryCommandOptions, IcepakEnclosureOptions, IcepakGrilleOptions, IcepakSimplifyLevelOneOptions, IcepakSimplifyLevelTwoOptions, IcepakSimplifyLevelZeroOptions, LinkBlockEdgeShapeOptions, LoftOptions, MakeCurvesOptions, MakeSolidsOptions, MatchBlockFacesOptions, MergeBlockVerticesOptions, MergeBodiesOptions, MidsurfaceOptions, MirrorOptions, ModificationOptions, ModifyBlockEdgeShapeOptions, MoveImprintEdgeOptions, MoveOptions, OffsetEdgesOptions, OffsetFaceOptions, ProjectToSketchOptions, ProjectToSolidOptions, PullCurvePointOptions, ReplaceFacesWithFaceOptions, RevolveBlockFaceOptions, RevolveFaceOptions, RevolveHelixPointCommandOptions, SetColorOptions, SetFaceMeshTypeOptions, SharePrepOptions, ShareTopologyNamedSelectionOptions, ShareTopologyOptions, ShrinkwrapOptions, Sketch2DRoundOptions, SketchArcOptions, SketchCircleOptions, SketchCornerOptions, SketchEllipseOptions, SketchOffsetOptions, SketchOnSolidOptions, SketchPolygonOptions, SplitBlockByEdgesOptions, SplitBlockByPlaneOptions, SplitBlockEdgeOptions, SplitBlockExtendEdgeOptions, SplitBodyByFacesOptions, SplitBodyOptions, SplitFaceOptions, StandardHolesOptions, StitchOptions, STLExportOptions, StlImportExportOptionsHelper, STLImportOptions, StlInputOptions, StlOutputOption, SuppressEdgesOptions, SweepBlockFacesOptions, SweepCommandOptions, SweepPointCommandOptions, SymmetricConstraintOptions, ThickenFaceOptions, TrimSketchCurveOptions, VolumeExtractOptions, WorkpieceOptions, WrapOptions, DatumOriginResult
+options failed
+Traceback (most recent call last):
+  File "5bb31322-2f47-4888-9a44-f0c7ff1cb00a", line 115, in main
+TypeError: GetType() takes exactly 1 argument (0 given)
+
+import D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\step_layout\plate_pkg.stp
+  body COMPOUND
+imported plate_pkg.stp
+import D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\step_layout\plate_die.stp
+  body COMPOUND
+  body COMPOUND
+imported plate_die.stp
+import D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\step_layout\plate_hbm.stp
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+imported plate_hbm.stp
+import D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\step_layout\plate_cu.stp
+  body SOLID
+  body SOLID
+  body SOLID
+imported plate_cu.stp
+import D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\step_layout\plate_supply.stp
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+imported plate_supply.stp
+import D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\step_layout\plate_return.stp
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+imported plate_return.stp
+maximized forms 1
+window size {Width=2308, Height=821}
+exported D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\fig11_plate3d_raw.png
+import D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\step_layout\tray_pcb.stp
+  body COMPOUND
+  body COMPOUND
+imported tray_pcb.stp
+import D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\step_layout\tray_grace.stp
+  body COMPOUND
+  body COMPOUND
+imported tray_grace.stp
+import D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\step_layout\tray_gpu.stp
+  body SOLID
+  body SOLID
+  body SOLID
+imported tray_gpu.stp
+import D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\step_layout\tray_supply.stp
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+imported tray_supply.stp
+import D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\step_layout\tray_return.stp
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+  body COMPOUND
+imported tray_return.stp
+import D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\step_layout\tray_rear.stp
+  body COMPOUND
+imported tray_rear.stp
+maximized forms 1
+exported D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\fig12_board3d_raw.png
+exported D:\agents2026\agents2026\agents\AIDCtms\coolingplate\cad\out\asm0921\fig13_tray_top_raw.png
+done
