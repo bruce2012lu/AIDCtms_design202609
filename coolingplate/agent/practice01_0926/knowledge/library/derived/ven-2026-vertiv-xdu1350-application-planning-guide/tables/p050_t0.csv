@@ -1,0 +1,33 @@
+﻿Instance Number,Object Name,Access
+229,Alarm A28: Valve 1 Fault,RO
+230,Alarm A29: Valve 2 Fault,RO
+231,Alarm A30: Primary Fluid Low Flow,RO
+232,Alarm A31: Primary Fluid No Flow,RO
+233,Alarm A32: Primary Filter Dirty,RO
+234,Alarm A33: Primary Fluid Low Temp,RO
+235,Alarm A34: Primary Fluid High Temp,RO
+236,Alarm A35: Secondary Fluid Low Temp,RO
+237,Alarm A36: Secondary Fluid High Temp,RO
+238,Alarm A37: Leak - Unit,RO
+239,Alarm A38: Leak - Under floor,RO
+240,Alarm A39: PS1 Difference Out Of Limits,RO
+241,Alarm A40: PS2 Difference Out Of Limits,RO
+242,Alarm A41: Secondary Over pressure,RO
+243,Alarm A42: System Low Pressure,RO
+244,Alarm A43: Insufficient Fluid Level,RO
+245,Alarm A44: Level Sensor – No Fluid Detected,RO
+246,Alarm A45: Illegal Fluid Sensor Condition,RO
+247,Alarm A46: Group Control Network Fault,RO
+248,Alarm A47: Group Control Insufficient Units Available,RO
+249,Alarm A48: Secondary Filter 1 Dirty,RO
+250,Alarm A49: Secondary Filter 2 Dirty,RO
+251,Alarm A50: Secondary Filter 3 Dirty,RO
+252,Alarm A51: Secondary Temperature T2a Diff Fault,RO
+253,Alarm A52: Secondary Temperature T2b Diff Fault,RO
+254,Alarm A53: Secondary Temperature T2c Diff Fault,RO
+255,Alarm A54: Reservoir Tank Fluid Required,RO
+256,Alarm A55: Reservoir Tank Empty,RO
+257,Alarm A56: Below Dewpoint,RO
+258,Alarm A57: Auxiliary Input Module Communications Fault,RO
+259,Alarm A58: Secondary Fluid Quality – PH Sensor Fault,RO
+260,Alarm A59: Secondary Fluid Quality – Conductivity Sensor Fault,RO

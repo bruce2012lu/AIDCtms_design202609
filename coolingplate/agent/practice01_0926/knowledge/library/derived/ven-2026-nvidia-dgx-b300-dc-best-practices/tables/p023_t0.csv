@@ -1,0 +1,20 @@
+﻿Phase,"Distribution
+Voltage",Line Voltage,Amps,"Breaker
+Derating***","Number of
+Circuits
+Provisioned
+Per Utility
+Source","Rack Power
+Capacity kVA*","Maximum
+Supported
+DGX B300
+Systems per
+Rack"
+3Φ,400,240,63,80.0%,4,141,4
+3Φ,415,240,60,80.0%,4,139,4
+3Φ,380,219,60,100.0%,4,160,4
+3Φ,400,230,63,100.0%,4,176,4
+3Φ,415,240,60,100.0%,4,174,4
+* 0.99 power factor.,,,,,,,
+"*** Article 210.20 (A) of the NEC (NFPA 70) in the United States requires the rating of the overcurrent device to be 125% of the continuous load.
+Therefore, the maximum usable circuit capacity is 80% of the breaker’s rated capacity. A similar requirement applies in Canada.",,,,,,,

@@ -1,0 +1,23 @@
+﻿Unit voltage rating,,"Vertiv™
+XDU1350
+without ATS
+3 pumps","Vertiv™
+XDU1350 with
+ATS
+3 pumps","Vertiv™
+XDU1350
+without ATS
+2 pumps","Vertiv™
+XDU1350 with
+ATS
+2 pumps"
+"400 V ±10 %, 3 PH, 50/60 Hz",FLA,38.5,39,26,26.5
+,WSA,41,42,29,30
+,OPD,50,50,40,40
+"480 V ±5 %, 3 PH, 60 Hz",FLA,37,37.5,25,25.5
+,WSA,41,42,29,30
+,OPD,50,50,40,40
+"Definitions:
+l FLA: Full load ampere
+l WSA: Wire sizing ampere
+l OPD: Overcurrent protection device",,,,,

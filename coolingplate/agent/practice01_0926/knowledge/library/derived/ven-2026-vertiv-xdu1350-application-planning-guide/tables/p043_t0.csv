@@ -1,0 +1,32 @@
+﻿Register Number,Register Description,"Vertiv™XDU1350
+Alarm Code"
+1,"Critical Alarm (0 means Inactive, 1 means Active)",-
+2,"Non-Critical Alarm (0 means Inactive, 1 means Active)",-
+3,Alarm : T1 Primary Temperature Sensor Fault,A01
+4,Alarm : T2a Secondary Supply Temperature Sensor Fault,A02
+5,Alarm : T2b Secondary Supply Temperature Sensor Fault,A03
+6,Alarm : T2c Secondary Supply Temperature Sensor Fault,A04
+7,Alarm : T3 Temperature Sensor Fault,A05
+8,Alarm : T4 Secondary Return Temperature Sensor Fault,A06
+9,Alarm : T5 Primary Return Temperature Sensor Fault,A07
+10,Alarm : RH Relative Humidity Sensor Fault,A08
+11,Alarm : PS1a Secondary Return Pressure Sensor Fault,A09
+12,Alarm : PS1b Secondary Return Pressure Sensor Fault,A10
+13,Alarm : PS2a Secondary Supply Pressure Sensor Fault,A11
+14,Alarm : PS2b Secondary Supply Pressure Sensor Fault,A12
+15,Alarm : PS3 Primary Supply Pressure Sensor Fault,A13
+16,Alarm : PS4 Primary Return Pressure Sensor Fault,A14
+17,Alarm : PS5a Secondary Filter Inlet Pump 1 Pressure Sensor Fault,A15
+18,Alarm : PS5b Secondary Filter Inlet Pump 2 Pressure Sensor Fault,A16
+19,Alarm : PS5c Secondary Filter Inlet Pump 3 Pressure Sensor Fault,A17
+20,Alarm : Secondary Flow Meter Sensor Fault,A18
+21,Alarm : Primary Flow Meter Sensor Fault,A19
+22,Alarm : microSD Card Fault,A20
+23,Alarm : P1 Inverter Fault,A21
+24,Alarm : P2 Inverter Fault,A22
+25,Alarm : P3 Inverter Fault,A23
+26,Alarm : Inverter 1 Communications Error,A24
+27,Alarm : Inverter 2 Communications Error,A25
+28,Alarm: Inverter 3 Communications Error,A26
+29,Alarm : Pump Low Flow,A27
+30,Alarm : Valve 1 Fault,A28

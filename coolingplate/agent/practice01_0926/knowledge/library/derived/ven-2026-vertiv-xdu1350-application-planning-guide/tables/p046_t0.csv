@@ -1,0 +1,34 @@
+﻿Register Number,Description,Units,Scaling,Data Type
+12,Secondary Supply Temperature T2a,°C,0.1,Signed
+13,Secondary Supply Temperature T2b,°C,0.1,Signed
+14,Secondary Supply Temperature T2c,°C,0.1,Signed
+15,Secondary Supply Temperature T2,°C,0.1,Signed
+16,Room Temperature T3,°C,0.1,Signed
+17,Room Relative Humidity RH,% RH,0.1,Unsigned
+18,Dew Point DW,°C,0.1,Signed
+19,Secondary Return Temperature T4,°C,0.1,Signed
+20,Primary Return Temperature T5,°C,0.1,Signed
+21,Secondary Return Pressure PS1a,Bar,0.01,Signed
+22,Secondary Return Pressure PS1b,Bar,0.01,Signed
+23,Secondary Return Pressure PS1,Bar,0.01,Signed
+24,Secondary Supply Pressure PS2a,Bar,0.01,Signed
+25,Secondary Supply Pressure PS2b,Bar,0.01,Signed
+26,Secondary Supply Pressure PS2,Bar,0.01,Signed
+27,Secondary Differential Pressure (PS2 – PS1),Bar,0.01,Signed
+28,Primary Inlet/Filter Inlet Pressure PS3,Bar,0.01,Signed
+29,Primary Inlet/Filter Outlet Pressure PS4,Bar,0.01,Signed
+30,Primary Filter Differential Pressure (PS3 – PS4),Bar,0.01,Signed
+31,Primary Flow Rate,L/min,1,Unsigned
+32,Secondary Flow Rate,L/min,1,Unsigned
+33,Secondary Duty,kW,1,Unsigned
+34,Temperature Setpoint,°C,0.1,Signed
+35,Pump P1 Runtime,Hours,1,Unsigned
+36,Pump P2 Runtime,Hours,1,Unsigned
+37,Pump P3 Runtime,Hours,1,Unsigned
+38,Secondary Filter 1 Inlet Pressure PS5a,Bar,0.01,Signed
+39,Secondary Filter 2 Inlet Pressure PS5b,Bar,0.01,Signed
+40,Secondary Filter 3 Inlet Pressure PS5c,Bar,0.01,Signed
+41,Secondary Filter 1 Differential Pressure (PS5a – PS2),Bar,0.01,Signed
+42,Secondary Filter 2 Differential Pressure (PS5b – PS2),Bar,0.01,Signed
+43,Secondary Filter 3 Differential Pressure (PS5c - PS2),Bar,0.01,Signed
+44,Controller Software Version Number,N/A,0.01,Unsigned

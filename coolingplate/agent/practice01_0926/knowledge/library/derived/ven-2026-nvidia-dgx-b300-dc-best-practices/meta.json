@@ -1,0 +1,11 @@
+{
+  "id": "ven-2026-nvidia-dgx-b300-dc-best-practices",
+  "sha256": "79714b043959d5465dcf5acbf1f163e258d6ead0c44351bab5443abe6b75516b",
+  "source": "files/vendor_docs/ven-2026-nvidia-dgx-b300-dc-best-practices.pdf",
+  "extracted_at": "2026-10-02T23:32:26",
+  "pages": 33,
+  "chars": 19744,
+  "chunks": 21,
+  "tables": 21,
+  "figures": 61
+}

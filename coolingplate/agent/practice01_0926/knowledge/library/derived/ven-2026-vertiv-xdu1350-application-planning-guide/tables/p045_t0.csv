@@ -1,0 +1,5 @@
+﻿Register Number,Register Description,"Vertiv™XDU1350
+Alarm Code"
+63,Alarm : Secondary Fluid Quality – pH Out of Limits,A61
+64,Alarm : Secondary Fluid Quality – Conductivity Out of Limits,A62
+65,Alarm : Secondary Fluid Quality – Turbidity Out of Limits,A63

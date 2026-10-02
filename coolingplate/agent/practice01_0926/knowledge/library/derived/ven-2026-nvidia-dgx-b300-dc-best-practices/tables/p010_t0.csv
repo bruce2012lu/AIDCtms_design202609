@@ -1,0 +1,6 @@
+﻿Component,Qty,Total Average Power,Total Peak Power
+DGX B300 Racks,16,820Kva,1228Kva
+Network Management & Storage Racks,8,104Kva,105Kva
+CDUs,2,24Kva,70Kva
+RDHx Units,24,27Kva,47Kva
+Totals,,975Kva,1450Kva

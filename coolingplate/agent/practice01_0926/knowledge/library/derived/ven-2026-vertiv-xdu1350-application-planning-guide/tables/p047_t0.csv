@@ -1,0 +1,18 @@
+﻿Register Number,Description,Units,Scaling,Data Type
+,"Format is x.yy where x means major version number, yy means minor version
+number",,,
+45,Controller Up-time,Mins,1,Unsigned
+46,System (Group) Average secondary Differential Pressure,Bar,0.01,Signed
+47,System (Group) Total secondary Flow Rate,L/min,1,Unsigned
+48,Primary Duty,kW,1,Unsigned
+49,Pump 1 Input Power,kW,0.1,Unsigned
+50,Pump 2 Input Power,kW,0.1,Unsigned
+51,Pump 3 Input Power,kW,0.1,Unsigned
+52,"Automatic Transfer Switch (ATS) Status
+0 means no ATS
+1 means On A, B available
+2 means On A, B not available
+3 means On B (A not available)",N/A,1,Unsigned
+53,Secondary Fluid Quality - Turbidity,NTU,1,Unsigned
+54,Secondary Fluid Quality - pH,PH,0.01,Unsigned
+55,Secondary Fluid Quality - Conductivity,µS/cm,1,Unsigned

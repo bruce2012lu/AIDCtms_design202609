@@ -1,0 +1,30 @@
+﻿Instance Number,Object Name,Access
+200,Critical Alarm,RO
+201,Non-critical Alarm,RO
+202,Alarm A01: T1 Temperature Sensor Fault,RO
+203,Alarm A02: T2a Temperature Sensor Fault,RO
+204,Alarm A03: T2b Temperature Sensor Fault,RO
+205,Alarm A04: T2c Temperature Sensor Fault,RO
+206,Alarm A05: T3 Temperature Sensor Fault,RO
+207,Alarm A06: T4 Temperature Sensor Fault,RO
+208,Alarm A07: T5 Temperature Sensor Fault,RO
+209,Alarm A08: RH Relative Humidity Sensor Fault,RO
+210,Alarm A09: PS1a Pressure Sensor Fault,RO
+211,Alarm A10: PS1b Pressure Sensor Fault,RO
+212,Alarm A11: PS2a Pressure Sensor Fault,RO
+213,Alarm A12: PS2b Pressure Sensor Fault,RO
+214,Alarm A13: PS3 Pressure Sensor Fault,RO
+215,Alarm A14: PS4 Pressure Sensor Fault,RO
+216,Alarm A15: PS5a Pressure Sensor Fault,RO
+217,Alarm A16: PS5b Pressure Sensor Fault,RO
+218,Alarm A17: PS5c Pressure Sensor Fault,RO
+219,Alarm A18: Secondary Flow Meter Sensor Fault,RO
+220,Alarm A19: Primary Flow Meter Sensor Fault,RO
+221,Alarm A20: microSD Card Fault,RO
+222,Alarm A21: P1 Inverter Fault,RO
+223,Alarm A22: P2 Inverter Fault,RO
+224,Alarm A23: P3 Inverter Fault,RO
+225,Alarm A24: Inverter 1 Communications Error,RO
+226,Alarm A25: Inverter 2 Communications Error,RO
+227,Alarm A26: Inverter 3 Communications Error,RO
+228,Alarm A27: Pump Low Flow,RO

@@ -1,0 +1,8 @@
+﻿SU Count,"Cluster Size # of
+nodes","Cluster Size # of
+GPUs",Leaf Switch Count,"Spine Switch
+Count",Node-Leaf,Leaf-Spine
+1,72,576,8,4,576,576
+2,144,1152,16,8,1152,1152
+4,288,2304,32,18,2304,2304
+8,576,4608,64,36,4608,4608

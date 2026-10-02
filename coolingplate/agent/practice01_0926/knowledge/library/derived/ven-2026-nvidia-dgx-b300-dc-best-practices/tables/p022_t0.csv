@@ -1,0 +1,17 @@
+﻿"High Density Deployment Pattern
+4 DC B300 Systems Per Rack",,
+Power Source,,"DC Busbar with Power Shelves
+Four 1U 33kW DC Power Shelves per Rack"
+Power Demand*,,"58kW Average
+76kW Peak"
+"Power Shelf
+Redundancy",,"N+1 (4 B300 Systems requires at
+least 3 active Power Shelves)"
+"Power Circuit
+Redundancy Per
+Power Shelf",,"2N ( Each Shelf has redundant
+power inputs)"
+"Circuit Provisioning
+Requirements",,"4 60amp Three Phase Circuits per
+utility source ( 400V minimum)"
+,,

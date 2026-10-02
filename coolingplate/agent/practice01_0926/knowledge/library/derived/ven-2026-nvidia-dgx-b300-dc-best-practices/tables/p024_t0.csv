@@ -1,0 +1,17 @@
+﻿Phase,"Distribution
+Voltage",Line Voltage,Amps,"Breaker
+Derating","Number of
+Circuits
+Provisioned
+Per Utility
+Source","Rack Power
+Capacity kVA*","Maximum
+Supported
+DGX B300
+Systems per
+Rack"
+3Φ,380,219,60,100.0%,1,39.9,2
+3Φ,400,230,63,100.0%,1,44.1,2
+3Φ,415,240,60,100.0%,1,43.6,2
+* 0.99 power factor.,,,,,,,
+,,,,,,,

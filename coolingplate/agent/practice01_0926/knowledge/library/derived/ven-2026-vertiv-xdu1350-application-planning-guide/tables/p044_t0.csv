@@ -1,0 +1,33 @@
+﻿Register Number,Register Description,"Vertiv™XDU1350
+Alarm Code"
+31,Alarm: Valve 2 Fault,A29
+32,Alarm : Primary Fluid Low Flow,A30
+33,Alarm : Primary Fluid No Flow,A31
+35,Alarm : Primary Fluid Low Temp,A33
+36,Alarm : Primary Fluid High Temp,A34
+37,Alarm : Secondary Fluid Low Temp,A35
+38,Alarm : Secondary Fluid High Temp,A36
+39,Alarm : Leak - Unit,A37
+40,Alarm : Leak - Under floor,A38
+41,Alarm : PS1 Difference Out Of Limits,A39
+42,Alarm : PS2 Difference Out Of Limits,A40
+43,Alarm : Secondary Over pressure,A41
+44,Alarm : System Low Pressure,A42
+45,Alarm : Insufficient Fluid Level,A43
+46,Alarm : Level Sensor – No Fluid Detected,A44
+47,Alarm : Illegal Fluid Sensor Condition,A45
+48,Alarm : Group Control Network Fault,A46
+49,Alarm : Group Control Insufficient Units Available,A47
+50,Alarm : Secondary Filter 1 Dirty,A48
+51,Alarm : Secondary Filter 2 Dirty,A49
+52,Alarm: Secondary Filter 3 Dirty,A50
+53,Alarm : Secondary Temperature T2a Diff Fault,A51
+54,Alarm : Secondary Temperature T2b Diff Fault,A52
+55,Alarm : Secondary Temperature T2c Diff Fault,A53
+56,Alarm : Reservoir Tank Fluid Required,A54
+57,Alarm : Reservoir Tank Empty,A55
+58,Alarm : Below Dewpoint,A56
+59,Alarm : Auxiliary Input Module Communications Fault,A57
+60,Alarm : Secondary Fluid Quality – PH Sensor Fault,A58
+61,Alarm : Secondary Fluid Quality – Conductivity Sensor Fault,A59
+62,Alarm : Secondary Fluid Quality – Turbidity Sensor Fault,A60

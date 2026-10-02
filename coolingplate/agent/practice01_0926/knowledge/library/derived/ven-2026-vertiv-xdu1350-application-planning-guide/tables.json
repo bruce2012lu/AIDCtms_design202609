@@ -1,0 +1,343 @@
+[
+  {
+    "file": "tables/p015_t0.csv",
+    "page": 15,
+    "rows": 4,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 3.1 Submittals"
+    ]
+  },
+  {
+    "file": "tables/p016_t0.csv",
+    "page": 16,
+    "rows": 2,
+    "cols": 27,
+    "captions_on_page": [
+      "Table 3.2 Standard Model Number",
+      "Table 3.3 Model Number Definitions"
+    ]
+  },
+  {
+    "file": "tables/p016_t1.csv",
+    "page": 16,
+    "rows": 6,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 3.2 Standard Model Number",
+      "Table 3.3 Model Number Definitions"
+    ]
+  },
+  {
+    "file": "tables/p017_t0.csv",
+    "page": 17,
+    "rows": 32,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 3.3 Model Number Definitions (continued)"
+    ]
+  },
+  {
+    "file": "tables/p018_t0.csv",
+    "page": 18,
+    "rows": 3,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 3.4 Ship Loose Accessories"
+    ]
+  },
+  {
+    "file": "tables/p019_t0.csv",
+    "page": 19,
+    "rows": 12,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 4.1 Vertiv™XDU1350 Specifications",
+      "Table 4.2 Dimensions",
+      "Table 4.3 Weight"
+    ]
+  },
+  {
+    "file": "tables/p019_t1.csv",
+    "page": 19,
+    "rows": 4,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 4.1 Vertiv™XDU1350 Specifications",
+      "Table 4.2 Dimensions",
+      "Table 4.3 Weight"
+    ]
+  },
+  {
+    "file": "tables/p019_t2.csv",
+    "page": 19,
+    "rows": 3,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 4.1 Vertiv™XDU1350 Specifications",
+      "Table 4.2 Dimensions",
+      "Table 4.3 Weight"
+    ]
+  },
+  {
+    "file": "tables/p020_t0.csv",
+    "page": 20,
+    "rows": 9,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 4.4 Circuit Fluid Volume",
+      "Table 4.5 Noise Level",
+      "Table 4.6 Unit Voltage Rating"
+    ]
+  },
+  {
+    "file": "tables/p020_t1.csv",
+    "page": 20,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 4.4 Circuit Fluid Volume",
+      "Table 4.5 Noise Level",
+      "Table 4.6 Unit Voltage Rating"
+    ]
+  },
+  {
+    "file": "tables/p020_t2.csv",
+    "page": 20,
+    "rows": 8,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 4.4 Circuit Fluid Volume",
+      "Table 4.5 Noise Level",
+      "Table 4.6 Unit Voltage Rating"
+    ]
+  },
+  {
+    "file": "tables/p021_t0.csv",
+    "page": 21,
+    "rows": 3,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 4.7 Pressure Limitations"
+    ]
+  },
+  {
+    "file": "tables/p023_t0.csv",
+    "page": 23,
+    "rows": 12,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 4.8 Primary Circuit—Wetted Materials"
+    ]
+  },
+  {
+    "file": "tables/p024_t0.csv",
+    "page": 24,
+    "rows": 25,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 4.9 Secondary Circuit—Wetted Materials"
+    ]
+  },
+  {
+    "file": "tables/p029_t0.csv",
+    "page": 29,
+    "rows": 4,
+    "cols": 2,
+    "captions_on_page": [
+      "Table B.1 Submittals"
+    ]
+  },
+  {
+    "file": "tables/p030_t1.csv",
+    "page": 30,
+    "rows": 8,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p031_t0.csv",
+    "page": 31,
+    "rows": 9,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p032_t0.csv",
+    "page": 32,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p033_t0.csv",
+    "page": 33,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p033_t1.csv",
+    "page": 33,
+    "rows": 3,
+    "cols": 7,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p033_t2.csv",
+    "page": 33,
+    "rows": 9,
+    "cols": 7,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p034_t0.csv",
+    "page": 34,
+    "rows": 2,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p035_t0.csv",
+    "page": 35,
+    "rows": 8,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p043_t0.csv",
+    "page": 43,
+    "rows": 31,
+    "cols": 3,
+    "captions_on_page": [
+      "Table F.1 Discrete Inputs"
+    ]
+  },
+  {
+    "file": "tables/p044_t0.csv",
+    "page": 44,
+    "rows": 32,
+    "cols": 3,
+    "captions_on_page": [
+      "Table F.1 Discrete Inputs (continued)"
+    ]
+  },
+  {
+    "file": "tables/p045_t0.csv",
+    "page": 45,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": [
+      "Table F.1 Discrete Inputs (continued)",
+      "Table F.2 Input Registers"
+    ]
+  },
+  {
+    "file": "tables/p045_t1.csv",
+    "page": 45,
+    "rows": 12,
+    "cols": 5,
+    "captions_on_page": [
+      "Table F.1 Discrete Inputs (continued)",
+      "Table F.2 Input Registers"
+    ]
+  },
+  {
+    "file": "tables/p046_t0.csv",
+    "page": 46,
+    "rows": 34,
+    "cols": 5,
+    "captions_on_page": [
+      "Table F.2 Input Registers (continued)"
+    ]
+  },
+  {
+    "file": "tables/p047_t0.csv",
+    "page": 47,
+    "rows": 13,
+    "cols": 5,
+    "captions_on_page": [
+      "Table F.2 Input Registers (continued)",
+      "Table F.3 Coils",
+      "Table F.4 Holding Registers"
+    ]
+  },
+  {
+    "file": "tables/p047_t1.csv",
+    "page": 47,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": [
+      "Table F.2 Input Registers (continued)",
+      "Table F.3 Coils",
+      "Table F.4 Holding Registers"
+    ]
+  },
+  {
+    "file": "tables/p047_t2.csv",
+    "page": 47,
+    "rows": 4,
+    "cols": 5,
+    "captions_on_page": [
+      "Table F.2 Input Registers (continued)",
+      "Table F.3 Coils",
+      "Table F.4 Holding Registers"
+    ]
+  },
+  {
+    "file": "tables/p049_t0.csv",
+    "page": 49,
+    "rows": 30,
+    "cols": 3,
+    "captions_on_page": [
+      "Table G.1 Binary Values"
+    ]
+  },
+  {
+    "file": "tables/p050_t0.csv",
+    "page": 50,
+    "rows": 33,
+    "cols": 3,
+    "captions_on_page": [
+      "Table G.1 Binary Values (continued)"
+    ]
+  },
+  {
+    "file": "tables/p051_t0.csv",
+    "page": 51,
+    "rows": 7,
+    "cols": 3,
+    "captions_on_page": [
+      "Table G.1 Binary Values (continued)",
+      "Table G.2 Multi-State Values"
+    ]
+  },
+  {
+    "file": "tables/p051_t1.csv",
+    "page": 51,
+    "rows": 7,
+    "cols": 3,
+    "captions_on_page": [
+      "Table G.1 Binary Values (continued)",
+      "Table G.2 Multi-State Values"
+    ]
+  },
+  {
+    "file": "tables/p052_t0.csv",
+    "page": 52,
+    "rows": 30,
+    "cols": 4,
+    "captions_on_page": [
+      "Table G.3 Analogue Values"
+    ]
+  },
+  {
+    "file": "tables/p053_t0.csv",
+    "page": 53,
+    "rows": 24,
+    "cols": 4,
+    "captions_on_page": [
+      "Table G.3 Analogue Values (continued)"
+    ]
+  }
+]

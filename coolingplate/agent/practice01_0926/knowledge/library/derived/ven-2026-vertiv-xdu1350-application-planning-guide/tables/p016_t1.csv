@@ -1,0 +1,6 @@
+﻿Digit,Feature,Value,Description
+"1, 2, 3",Family name,XDU,Product family
+"4, 5, 6, 7",Unit model,1350,Model
+8,Revision,B,Product revision
+9,Voltage,A,"480 V, 3 PH, 60 Hz"
+,,Q,"400 V, 3 PH, 50/60 Hz"

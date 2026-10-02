@@ -1,0 +1,27 @@
+﻿DGX B300 System Specifications,,,
+,,DC Busbar Version***,AC Rack PDU
+Estimated System Power,14.5 kW**,,15 kW**
+Estimated Peak System Power,19 kW**,,19.7 kW**
+Estimated System Weight,>271.2 lbs. (123 kgs)*,,>370.4 lbs. (168 kgs)*
+System Dimensions,"10 Rack Units (RU)
+Height: 17.5 in (444 mm)
+Width: 19.0 in (482.2 mm)
+Length: 35.3 in (897.1 mm)
+* Does not include Heat Exchanger",,"10 Rack Units (RU)
+Height: 17.5 in (444 mm)
+Width: 19.0 in (482.2 mm)
+Length: 35.3 in (897.1 mm)"
+Operating Temperature,10ºC to 35ºC (50ºF to 95ºF),,10ºC to 35ºC (50ºF to 95ºF)
+Cooling Media,Active Rear Door Heat Exchanger,,Air
+"Maximum Operating Altitude
+Above Sea Level","3048 meters (10,000 feet) maximum
+10° to 30°C: altitude 0 – 1000 ft
+10° to 25°C: altitude 0 – 5000 ft
+10° to 20°C: altitude 0 – 10000 ft",,"3048 meters (10,000 feet) maximum
+10° to 30°C: altitude 0 – 1000 ft
+10° to 25°C: altitude 0 – 5000 ft
+10° to 20°C: altitude 0 – 10000 ft"
+"Estimated Acoustic
+Noise Operating","Acoustic Power (LWA,m)**
+25 ˚C /77 ˚F = 95 dB",,"Acoustic Power (LWA,m)**
+25 ˚C /77 ˚F = 92 dB"

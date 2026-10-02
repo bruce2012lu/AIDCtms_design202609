@@ -1,0 +1,149 @@
+[
+  {
+    "file": "tables/p002_t0.csv",
+    "page": 2,
+    "rows": 3,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p003_t0.csv",
+    "page": 3,
+    "rows": 6,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p007_t0.csv",
+    "page": 7,
+    "rows": 10,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p008_t0.csv",
+    "page": 8,
+    "rows": 9,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p008_t1.csv",
+    "page": 8,
+    "rows": 9,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p010_t0.csv",
+    "page": 10,
+    "rows": 6,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p022_t0.csv",
+    "page": 22,
+    "rows": 7,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p022_t1.csv",
+    "page": 22,
+    "rows": 5,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p023_t0.csv",
+    "page": 23,
+    "rows": 8,
+    "cols": 8,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p024_t0.csv",
+    "page": 24,
+    "rows": 6,
+    "cols": 8,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p025_t0.csv",
+    "page": 25,
+    "rows": 3,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p025_t1.csv",
+    "page": 25,
+    "rows": 2,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p025_t2.csv",
+    "page": 25,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p025_t3.csv",
+    "page": 25,
+    "rows": 2,
+    "cols": 9,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p025_t4.csv",
+    "page": 25,
+    "rows": 2,
+    "cols": 9,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p025_t5.csv",
+    "page": 25,
+    "rows": 2,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p025_t6.csv",
+    "page": 25,
+    "rows": 2,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p025_t7.csv",
+    "page": 25,
+    "rows": 2,
+    "cols": 7,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p025_t8.csv",
+    "page": 25,
+    "rows": 2,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p025_t10.csv",
+    "page": 25,
+    "rows": 2,
+    "cols": 7,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p027_t0.csv",
+    "page": 27,
+    "rows": 5,
+    "cols": 7,
+    "captions_on_page": []
+  }
+]

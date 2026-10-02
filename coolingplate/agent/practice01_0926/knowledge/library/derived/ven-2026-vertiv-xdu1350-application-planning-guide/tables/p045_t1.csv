@@ -1,0 +1,29 @@
+﻿Register Number,Description,Units,Scaling,Data Type
+1,"Mode:
+0 = not configured,
+1 = shutdown – remote start/stop
+2 = shutdown - network
+3 = full manual control
+4 = standby
+5 = online (running)
+6 = online (filling)
+7 = filling
+8 = shutdown – fault
+9 = group standby
+10 = not used
+11 = not used
+12 = tank filling",N/A,1,Unsigned
+2,"Group Control Mode:
+0 = standalone
+1 = primary
+2 = secondary
+3 = independent (due to network fault)",N/A,1,Unsigned
+3,Pump 1 Speed,%,1,Unsigned
+4,Pump 2 Speed,%,1,Unsigned
+5,Pump 3 Speed,%,1,Unsigned
+6,Cooling Demand,%,1,Unsigned
+7,Control Valve 1 (Cooling) Demand,%,1,Unsigned
+8,Control Valve 1 Feedback,%,1,Unsigned
+9,Control Valve 2 Demand,-,1,Unsigned
+10,Control Valve 2 Feedback,%,1,Unsigned
+11,Primary Supply Temperature T1,°C,0.1,Signed

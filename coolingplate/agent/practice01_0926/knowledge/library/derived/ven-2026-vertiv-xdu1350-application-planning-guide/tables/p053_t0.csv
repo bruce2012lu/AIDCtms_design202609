@@ -1,0 +1,24 @@
+﻿Instance Number,Object Name,Units,Access
+29,Secondary Flow Rate,L/min / US gpm,RO
+30,Secondary Duty,kW,RO
+31,Primary Duty,kW,RO
+32,Temperature Setpoint,°C/°F,RO
+33,Secondary Filter 1 Inlet Pressure PS5a,Bar/psi,RO
+34,Secondary Filter 2 Inlet Pressure PS5b,Bar/psi,RO
+35,Secondary Filter 3 Inlet Pressure PS5c,Bar/psi,RO
+36,Secondary Filter 1 Differential Pressure (PS5a – PS2),Bar/psi,RO
+37,Secondary Filter 2 Differential Pressure (PS5b – PS2),Bar/psi,RO
+38,Secondary Filter 3 Differential Pressure (PS5c – PS2),Bar/psi,RO
+39,System (Group) Average Secondary Differential Pressure,Bar/psi,RO
+40,System (Group) Total Secondary Flow Rate,L/min / US gpm,RO
+41,Pump 1 Input Power,kW,RO
+42,Pump 2 Input Power,kW,RO
+43,Pump 3 Input Power,kW,RO
+44,Number of Active Alarms,-,RO
+45,P301 Cooling Setpoint,°C/°F,RW
+46,P203 DP Setpoint,bar/psi,RW
+47,P202 Flow Setpoint,L/min / US gpm,RW
+48,CDU Input Power,kW,RO
+49,Secondary Fluid Quality - Turbidity,NTU,RO
+50,Secondary Fluid Quality - PH,PH,RO
+51,Secondary Fluid Quality - Conductivity,µS/cm,RO

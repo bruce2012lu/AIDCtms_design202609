@@ -1,0 +1,36 @@
+﻿"Unit dimensions (H x W x D),
+mm (in)",2000 x 600 x 1200 (78.7 x 23.6 x 47.2),2122 x 900 x 1243 (83.5 x 35.4 x 48.9),2400 x 1200 x 1200 (94.5 x 48 x 48)
+"Weight (wet), kg (lbs) 550 (1212) 1086 (2394) 1793 (3953)
+Deployment type",,,
+Application support,"Enterprise
+Single-pod","Enterprise
+Large-scale","Large scale
+Multi-pod
+Campus"
+Performance data,,,
+Nominal cooling capacity*,600kW @ 4°C ATD,1350kW @ 4°C ATD,2300kW @ 4°C ATD
+Fluid circuit data,,,
+Primary fluid type,Chilled water or glycol mixture,,
+Secondary fluid type Treated water or propylene glycol mix,,,
+Primary fluid filtration,Factory fitted 500µ,Field supplied 500µ,Field supplied 500µ
+Secondary fluid filtration 25µ or 50µ 25µ or 50µ 25µ or 50µ,,,
+"Primary piping connections,
+top or bottom","2.5"" sanitary flange","4"" sanitary flange","6"" sanitary flange"
+"Secondary piping connections, 2.5"" sanitary flange
+4"" sanitary flange 6"" sanitary flange
+top or bottom 1"" hose barb for optional 6-way manifold",,,
+System resiliency,"Redundant pumps, sensors, component / unit failover protocols",,
+Electrical data,,,
+Power supply,"400V, 50/60Hz
+480V, 60Hz","400V, 50/60Hz
+480V, 60Hz","400V, 50/60Hz
+480V, 60Hz"
+"Nominal power consumption 9.0kW 20.5kW 47.8kW
+Controls data",,,
+Communication protocols,Modbus RTU (RS485) and TCP/IP protocols,,
+Ambient conditions,,,
+Operating conditions,"0 to 40C (0 - 104F), 10 to 90% RH (non-condensing)",,
+"Storage conditions -40 to 70C (-40 - 158F), 5 to 93% RH (non-condensing)",,,
+Service access required,Front / Rear,Front / Rear,Front / Rear
+Compliance,,,
+Safety compliance,"CE, cULus, RoHS","CE, cULus, RoHS","CE, cULus, RoHS"

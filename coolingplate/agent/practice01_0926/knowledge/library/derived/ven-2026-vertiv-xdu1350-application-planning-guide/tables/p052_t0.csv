@@ -1,0 +1,30 @@
+﻿Instance Number,Object Name,Units,Access
+0,Pump 1 Speed,%,RO
+1,Pump 2 Speed,%,RO
+2,Pump 3 Speed,%,RO
+3,Cooling Demand,%,RO
+4,Control Valve 1 Demand,%,RO
+5,Control Valve 1 Feedback,%,RO
+6,Control Valve 2 Demand,%,RO
+7,Control Valve 2 Feedback,%,RO
+8,Primary Supply Temperature T1,°C/°F,RO
+9,Secondary Supply Temperature T2a,°C/°F,RO
+10,Secondary Supply Temperature T2b,°C/°F,RO
+11,Secondary Supply Temperature T2c,°C/°F,RO
+12,Secondary Supply Temperature T2,°C/°F,RO
+13,Room Temperature T3,°C/°F,RO
+14,Room Relative Humidity RH,% RH,RO
+15,Dew Point DW,°C/°F,RO
+16,Secondary Return Temperature T4,°C/°F,RO
+17,Primary Return Temperature T5,°C/°F,RO
+18,Secondary Return Pressure PS1a,Bar/psi,RO
+19,Secondary Return Pressure PS1b,Bar/psi,RO
+20,Secondary Return Pressure PS1,Bar/psi,RO
+21,Secondary Supply Pressure PS2a,Bar/psi,RO
+22,Secondary Supply Pressure PS2b,Bar/psi,RO
+23,Secondary Supply Pressure PS2,Bar/psi,RO
+24,Secondary Differential Pressure (PS2 – PS1),Bar/psi,RO
+25,Primary Inlet Pressure PS3,Bar/psi,RO
+26,Primary Outlet Pressure PS4,Bar/psi,RO
+27,Primary Filter Differential Pressure (PS3 – PS4),Bar/psi,RO
+28,Primary Flow Rate,L/min / US gpm,RO

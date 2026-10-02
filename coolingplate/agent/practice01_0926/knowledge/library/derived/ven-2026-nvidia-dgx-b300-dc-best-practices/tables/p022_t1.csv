@@ -1,0 +1,14 @@
+﻿"Low Density Deployment Pattern
+2 AC B300 Systems Per Rack",,
+Power Source,,AC Rack PDUs
+Power Demand*,,"30kW Average
+39.4kW Peak"
+"Rack PDU
+Redundancy
+)",,"2N (each B300 System has
+Redundant PSUs)"
+"Circuit
+Provisioning
+Requirements",,"1 60amp Three Phase Circuit
+per utility source (400V
+Minimum)"

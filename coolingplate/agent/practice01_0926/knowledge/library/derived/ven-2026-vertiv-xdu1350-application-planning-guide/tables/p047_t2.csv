@@ -1,0 +1,4 @@
+﻿Register Number,Description,Units,Scaling,Data Type
+1,Secondary Temperature Setpoint (P301),°C,0.1,Unsigned
+2,Secondary DP Setpoint (P203),Bar,0.1,Unsigned
+3,Secondary Flow Setpoint (P202),L/min,1,Unsigned

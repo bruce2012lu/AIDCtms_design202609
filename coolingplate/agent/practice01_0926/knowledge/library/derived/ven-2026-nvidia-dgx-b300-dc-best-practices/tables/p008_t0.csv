@@ -1,0 +1,20 @@
+﻿"High Density
+4 B300 Systems Per Rack",,
+Power Source,,"DC Busbar with Power Shelves
+Four 1U 33kW DC Power Shelves per Rack"
+Power Demand*,,"58kW Average
+76kW Peak"
+"Rack Dimensions
+(Excluding Rear Door Heat Exchanger)",,"48U
+Height 2236mm (88 Inches)
+Width 600mm (24 Inches)
+Depth 1068mm (42 Inches)"
+"Rack Weight*
+(Excluding Rear Door Heat Exchanger)",,1122kg (2474 lbs)
+Cooling Media,,"Air Cooling with Active Rear Door
+Heat Exchanger"
+"Supply
+Temperature",,"Inlet10-35°C (50-95ºF)
+Delta T at 25°C SAT: 20.6°C (69°F)"
+Cooling Demand*,,6200cfm
+*Estimated. Actual specification may vary,,

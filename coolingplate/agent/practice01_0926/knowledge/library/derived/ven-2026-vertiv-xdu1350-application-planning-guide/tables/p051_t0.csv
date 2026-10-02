@@ -1,0 +1,7 @@
+﻿Instance Number,Object Name,Access
+261,Alarm A60: Secondary Fluid Quality – Turbidity Sensor Fault,RO
+262,Alarm A61: Secondary Fluid Quality – PH Out of Limits,RO
+263,Alarm A62: Secondary Fluid Quality – Conductivity Out of Limits,RO
+264,Alarm A63: Secondary Fluid Quality – Turbidity Out of Limits,RO
+265,CDU enable/disable,RW
+266,Alarm Reset,RW

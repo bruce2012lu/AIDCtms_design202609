@@ -1,0 +1,36 @@
+﻿Digit,Feature,Value,Description
+10,ATS,0,Standard power termination enclosure
+,,1,"Power termination enclosure with automatic transfer switch
+(ATS) 400 V or 480 V"
+11,Controller,A,Standard controller
+12,Communication,1,"Protocol: Modbus, BACnet, SNMPv2/3, HTTP(s), Web Server,
+NTP, SSH-CLI, SFTP"
+13,Display,7,7-in. touchscreen display
+14,Secondary circuit fluid monitoring,0,None
+,,A,"pH + Conductivity (0–10,000 µS/cm range) + Turbidity (0–100
+NTU)"
+15,Pump configuration,3,Three pumps
+16,EMC filter,0,Standard EMC filter for NAM
+,,1,Standard EMC filter for EMEA
+,,2,No EMC filter
+17,Primary connection from facility,T,Top connection
+,,B,Bottom connection
+18,Primary filtration,0,None
+19,Primary control valve,H,Standard two-way valve
+20,Secondary connection to equipment,T,Top connection
+,,B,Bottom connection
+21,Secondary filtration,0,None
+,,1,Factory fitted (50 microns)
+,,2,Factory fitted (25 microns)
+22,"Pressure relief valve—Secondary circuit to
+equipment",3,3 bar pressure
+,,4,4 bar pressure
+,,5,5 bar pressure
+,,6,6 bar pressure
+23,Reservoir,N,SS Reservoir with three-stage fluid level detection
+,,K,Flexible makeup container
+24,Packaging,S,Seaworthy
+25,SCCR,L,5 kA
+,,0,65 kA
+26,ETO,-,ETO
+"27, 28, 29",Factory digits,-,Factory digits
