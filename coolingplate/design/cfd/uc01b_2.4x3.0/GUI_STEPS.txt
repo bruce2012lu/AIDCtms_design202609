@@ -1,0 +1,34 @@
+UC-01b CHT — ICEM is already open. Do NOT start icemcfd.bat or a second med.exe.
+Do NOT read mesh/uc01b_cht_fine.msh or mesh/uc01b_cht_fine_hex.msh.
+
+UNITS
+  ICEM tin / replay : MILLIMETRES
+  Fluent msh       : METRES
+  Do not overlay the tin and the msh.
+
+------------------------------------------------
+1) ICEM (already open)
+------------------------------------------------
+  File → Open Project
+    D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\icem\uc01b_cht_v2.prj
+  Loads icem\uc01b_cht_v2.tin (mm): 3.0×2.4 coupon, circle D=0.40,
+  TIM 0.080 (z=-2.08..-2.00), Cu base to z=0, channel, lid, inlet z=8.
+  Then Fit (F9).
+
+  Or File → Replay Scripts → Replay
+    D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\icem\replay_cht_v2.rpl
+  Fit (F9).
+
+  This tin is geometry. The volume mesh is mesh\uc01b_cht_v2.msh (4472280 HEXA).
+
+------------------------------------------------
+2) Fluent (visible window, no -gu)
+------------------------------------------------
+  Journal:
+    fluent\uc01b_cht_v2.jou
+  Mesh:
+    mesh\uc01b_cht_v2.msh
+  Water 40 °C, Cu k=390, TIM k=8.818, mdot=2.067e-4 kg/s,
+  q''=56.746 W/cm², Tref=313.15 K.
+  Residual plot on. continuity and xyz-momentum < 1e-4, energy < 1e-6.
+  Iteration cap 300 + 4000. The journal does not /exit.

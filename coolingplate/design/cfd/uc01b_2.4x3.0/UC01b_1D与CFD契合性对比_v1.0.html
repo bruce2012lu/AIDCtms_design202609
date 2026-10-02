@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UC-01b 一维设计与 CFD 契合性对比 v1.0</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#5d6b80;--line:#d7e0ec;--bg:#eef3f8;--soft:#f7fafd;--warn:#a65b00;--red:#b42318;--good:#1f7a4d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:14.5px/1.72 "Microsoft YaHei","PingFang SC","Segoe UI",Arial,sans-serif}
+.page{max-width:1240px;margin:auto;background:#fff;box-shadow:0 8px 34px #102a4c1f}
+header{padding:52px 62px 36px;background:linear-gradient(145deg,#0b2748,#123a68);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.16em;color:#93b2d6;text-transform:uppercase}
+header h1{font-size:31px;line-height:1.28;margin:12px 0;font-weight:700}
+header .sub{font-size:15.5px;color:#d7e6f5;max-width:980px}
+header a{color:#d3f5ef}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.pill{border:1px solid #ffffff4d;border-radius:14px;padding:4px 11px;font-size:12px;background:#ffffff12}
+.pill.hot{background:#b4231833;border-color:#ff9f9a80;color:#ffd9d6}
+.pill.warn{background:#a65b0033;border-color:#f0c36e80;color:#ffe7b8}
+.pill.ok2{background:#008b7a33;border-color:#7fd8cb80;color:#d3f5ef}
+.docbar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:26px;border-top:1px solid #ffffff2e;padding-top:16px}
+.docbar div{font-size:12px;color:#9db6d4}
+.docbar div b{display:block;font-size:14px;color:#fff;margin-top:3px}
+nav{padding:11px 62px;background:var(--soft);border-bottom:1px solid var(--line);position:sticky;top:0;display:flex;flex-wrap:wrap;gap:4px}
+nav a{color:#17518f;text-decoration:none;font-size:12.5px;padding:3px 8px;border-radius:5px}
+main{padding:26px 62px 60px}
+h2{font-size:23px;color:var(--navy);border-bottom:2.5px solid var(--navy);padding-bottom:8px;margin:44px 0 16px}
+h3{font-size:17px;color:var(--navy);margin:22px 0 8px}
+p{margin:9px 0}
+.lead{border-left:5px solid var(--blue);background:#eff6ff;padding:15px 19px;border-radius:8px}
+.note{border:1px solid #e3ca8d;background:#fffcf2;padding:13px 17px;border-radius:8px;margin:14px 0}
+.note.risk{border-color:#eab4b0;background:#fff6f5}
+table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:13px}
+th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tbody tr:nth-child(even) td{background:#fafcfe}
+.bad{color:var(--red);font-weight:700}
+.good{color:var(--good);font-weight:700}
+.warn{color:var(--warn);font-weight:700}
+code{background:#eef2f7;padding:1px 5px;border-radius:4px;font-family:Consolas,monospace;font-size:12.5px;color:#1f3a5f}
+footer{padding:24px 62px;background:var(--navy);color:#c9d8e8;font-size:12.5px;line-height:1.8}
+footer b{color:#fff}
+@media(max-width:1000px){header,nav,main,footer{padding-left:24px;padding-right:24px}.docbar{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">AIDC-B300-CFD-UC01b-CMP-001 · 对照 · 不关闭设计</div>
+  <h1>UC-01b 一维设计与 CFD<br>契合性对比 v1.0</h1>
+  <div class="sub">DP-A、圆孔 D=0.40 mm、iter 529。CFD 来自 <code>uc01b_cht_v2_n216_q105_sym</code>。TIM 底 341.9268 K（68.78 °C）。X=0.556 mm 上 ±Y 温差中位 0.631 K，流场不能称为对称。</div>
+  <div class="meta">
+    <span class="pill">2026-09-25</span>
+    <span class="pill ok2">边界契合</span>
+    <span class="pill ok2">U / Re 契合</span>
+    <span class="pill warn">静压部分契合</span>
+    <span class="pill hot">能量未闭合</span>
+    <span class="pill warn">R_c-in 未关闭</span>
+  </div>
+  <div class="docbar">
+    <div>施加 q''<b>57.928 W/cm²</b></div>
+    <div>CFD 静压<b>1085.97 Pa</b></div>
+    <div>能量比<b>0.951</b></div>
+    <div>R(T_TIM−T_in)<b>0.031942</b></div>
+  </div>
+</header>
+<nav>
+  <a href="#verdict">1 分条结论</a>
+  <a href="#table">2 对照表</a>
+  <a href="#chain">3 两条热阻</a>
+  <a href="#dp">4 压差</a>
+  <a href="#src">5 引用</a>
+</nav>
+<main>
+<div class="note">X=0 上 ±Y 温差中位 0.0018 K，但 X=0.556 mm 上 ±Y 温差中位 0.631 K、最大 5.64 K，<strong>流场不能称为对称</strong>。CFD 列是 iter 529，场 <code>uc01b_cht_v2_n216_q105_sym</code>。</div>
+<section id="verdict">
+<h2>1.　分条结论</h2>
+<p class="lead">一维设计点仍是整板 1100 W、2.0 L/min。两 die GPU 热 858 W，GPU 支路 1.60 L/min。216 孔名义 q''=55.170 W/cm²。施加边界 ×1.05 = 57.928 W/cm²，这是边界冗余，不改 1100 W。单孔流量 0.007407 L/min，ṁ=1.2249382716049385×10⁻⁴ kg/s。</p>
+<p>Re_D=597.1，低于 Martin 1977 的 Re≥2000，不引用 Martin h。能量比 0.951，未闭合，热阻不写成设计已关闭。R(T_TIM−T_in)=0.031942 K/W 已含导热，不再加 R_TIM2 与 R_wall。</p>
+</section>
+<section id="table">
+<h2>2.　对照表</h2>
+<table>
+<thead><tr><th>项目</th><th>一维设计点</th><th>CFD iter 529</th></tr></thead>
+<tbody>
+<tr><td>整板</td><td>1100 W，2.0 L/min</td><td>本胞不是整板</td></tr>
+<tr><td>两 die GPU</td><td>858 W，1.60 L/min</td><td>边界功率 900.9 W（858×1.05）</td></tr>
+<tr><td>孔数 / 单孔流量</td><td>216；0.007407 L/min</td><td>同一口径。质量流量积分未再打印</td></tr>
+<tr><td>q''</td><td>名义 55.170 W/cm²</td><td>施加 579282.4074074075 W/m²（57.928 W/cm²）</td></tr>
+<tr><td>TIM 底</td><td>—</td><td>341.9268 K（68.78 °C），本面 341.905–341.947 K</td></tr>
+<tr><td>铜–水 / 出口</td><td>—</td><td>326.8120 K / 320.8987 K</td></tr>
+<tr><td>入口</td><td>313.15 K</td><td>313.15 K</td></tr>
+<tr><td>静压差</td><td>本页不另造孔口损失</td><td>1085.97 Pa（入口邻接流体 1085.97 Pa，出口约 0）</td></tr>
+<tr><td>U / Re_D</td><td>Re&lt;2000，Martin 不用</td><td>0.9824 m/s / 597.1</td></tr>
+<tr><td>R(T_TIM−T_in)</td><td>—</td><td>0.031942 K/W（除以 900.9 W，不加 R_TIM2、R_wall）</td></tr>
+<tr><td>R_conv / R_c-in</td><td>—</td><td>0.015165 / 0.022557–0.026557 K/W</td></tr>
+<tr><td>能量</td><td>—</td><td>7.74875 / 8.14772 = 0.951，未闭合</td></tr>
+</tbody>
+</table>
+</section>
+<section id="chain">
+<h2>3.　热阻两条链</h2>
+<p>场链 0.031942 K/W 与构造链 0.022557–0.026557 K/W 不能相加。总压差这场没有导出。</p>
+</section>
+<section id="dp">
+<h2>4.　压差</h2>
+<p>iter 529 的静压差是 1085.97 Pa。总压没有导出，不与静压混比。</p>
+</section>
+<section id="src">
+<h2>5.　引用</h2>
+<p>收敛句在 <code>logs/fluent_cht_v2_n216_q105_sym.log</code>：529 solution is converged。喷孔 |V| 0.034–1.627 m/s，两侧导流槽 |V| 0.00053–0.111 m/s。槽中水 z=0.750 mm 为 313.40–332.32 K。dat 里的面热流数组不是 W/m²，施加值仍是 579282.4074074075。未导出：GCI、y+、质量流量积分。</p>
+</section>
+</main>
+<footer>
+<b>AIDCtms / uc01b_2.4x3.0</b> · 1D 与 CFD 契合性对比 v1.0 · 2026-09-25<br>
+数值来自 iter 529 场 uc01b_cht_v2_n216_q105_sym。X=0.556 mm 上 ±Y 温差中位 0.631 K，流场不能称为对称。
+</footer>
+</div>
+</body>
+</html>

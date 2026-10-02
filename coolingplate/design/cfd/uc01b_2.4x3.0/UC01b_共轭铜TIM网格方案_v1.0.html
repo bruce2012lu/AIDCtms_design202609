@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UC-01b 共轭铜 + TIM2 网格方案 v1.0</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#5d6b80;--line:#d7e0ec;--bg:#eef3f8;--soft:#f7fafd;--warn:#a65b00;--red:#b42318;--good:#1f7a4d;--cu:#c9a227;--tim:#c0392b;--wat:#4aa3d9}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:14.5px/1.72 "Microsoft YaHei","PingFang SC","Segoe UI",Arial,sans-serif}
+.page{max-width:1280px;margin:auto;background:#fff;box-shadow:0 8px 34px #102a4c1f}
+header{padding:48px 56px 32px;background:linear-gradient(145deg,#0b2748,#123a68);color:#fff}
+header .kicker{font-size:12px;letter-spacing:.16em;color:#93b2d6;text-transform:uppercase}
+header h1{font-size:30px;line-height:1.28;margin:12px 0;font-weight:700}
+header .sub{font-size:15.5px;color:#d7e6f5;max-width:1000px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.pill{border:1px solid #ffffff4d;border-radius:14px;padding:4px 11px;font-size:12px;background:#ffffff12}
+.pill.ok2{background:#008b7a33;border-color:#7fd8cb80;color:#d3f5ef}
+.docbar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:22px;border-top:1px solid #ffffff2e;padding-top:14px}
+.docbar div{font-size:12px;color:#9db6d4}
+.docbar div b{display:block;font-size:14px;color:#fff;margin-top:3px}
+nav{padding:10px 56px;background:var(--soft);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:3px}
+nav a{color:#17518f;text-decoration:none;font-size:12.5px;padding:3px 8px;border-radius:5px}
+main{padding:22px 56px 56px}
+h2{font-size:22px;color:var(--navy);border-bottom:2.5px solid var(--navy);padding-bottom:8px;margin:40px 0 14px}
+h3{font-size:16.5px;color:#14507f;margin:22px 0 8px;padding-left:11px;border-left:4px solid var(--teal)}
+p{margin:9px 0}
+.lead{border-left:5px solid var(--blue);background:#eff6ff;padding:14px 18px;border-radius:8px}
+.note{border:1px solid #e3ca8d;background:#fffcf2;padding:12px 16px;border-radius:8px;margin:14px 0}
+.note.ok{border-color:#a8dcca;background:#f2fbf7}
+.note.risk{border-color:#eab4b0;background:#fff6f5}
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13px}
+th,td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--navy);color:#fff}
+tbody tr:nth-child(even) td{background:#fafcfe}
+code{background:#eef2f7;padding:1px 5px;border-radius:4px;font-family:Consolas,monospace;font-size:12.5px;color:#1f3a5f}
+.formula{background:#f7fafd;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:7px;padding:12px 16px;margin:12px 0}
+.formula code{background:none;font-size:14px;color:#123a68;font-weight:600;display:block}
+.grid{display:grid;gap:12px;margin:14px 0}
+.g2{grid-template-columns:1fr 1fr}
+figure{margin:16px 0 20px;border:1px solid var(--line);border-radius:10px;padding:12px 14px 8px;background:#fcfdff}
+svg.svgfig{display:block;width:100%;height:auto}
+figure img.meshshot{display:block;width:100%;height:auto;border:1px solid #e6edf5;border-radius:6px;background:#fff}
+figcaption{margin-top:8px;font-size:12.5px;color:var(--muted);line-height:1.6}
+pre.steps{background:#f7fafd;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font:13px/1.7 Consolas,monospace;overflow:auto;color:#1b3d66}
+footer{padding:22px 56px;background:var(--navy);color:#c9d8e8;font-size:12.5px;line-height:1.8}
+footer b{color:#fff}
+@media(max-width:1000px){header,nav,main,footer{padding-left:20px;padding-right:20px}.g2,.docbar{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">AIDC-B300-CFD-UC01b-CHT-PLAN-001 · 详细方案 · 不是结果</div>
+  <h1>UC-01b 共轭铜 + TIM2<br>网格与计算方案 v1.0</h1>
+  <div class="sub">单孔单元胞共轭传热（CHT）：水 + 铜底座/肋 + TIM2 各占一体区。
+  喷孔冻结 <strong>圆 D = 0.40 mm</strong>（不是 0.50，不是等面积方孔）。
+  TIM <strong>t = 80 μm</strong>，<strong>k<sub>eff</sub> = 8.818 W/mK</strong>（R<sub>TIM2</sub>=0.006，两 die）。
+  下列图是几何示意 SVG，<strong>不是</strong> Fluent 云图。</div>
+  <div class="meta">
+    <span class="pill">CHT-PLAN-001</span>
+    <span class="pill">2026-09-22</span>
+    <span class="pill ok2">圆孔 D=0.40</span>
+    <span class="pill ok2">t=80 μm / k_eff=8.818</span>
+    <span class="pill ok2">ICEM+Fluent GUI 已开</span>
+  </div>
+  <div class="docbar">
+    <div>胞<b>3.0 × 2.4 mm</b></div>
+    <div>P_cell 名义<b>3.9722 W</b></div>
+    <div>ṁ 单孔<b>1.225×10⁻⁴ kg/s</b></div>
+    <div>medium HEXA<b>425320</b></div>
+  </div>
+</header>
+<nav>
+  <a href="#s0">0 冻结</a><a href="#s1">1 几何</a><a href="#s2">2 为何共轭</a>
+  <a href="#s3">3 三维</a><a href="#s4">4 三向剖面</a><a href="#s4m">4b 实网格</a>
+  <a href="#s4c">4c 细化</a><a href="#s4d">规范</a>
+  <a href="#s5">5 TIM/热流</a>
+  <a href="#s6">6 网格</a><a href="#s7">7 零件与 BC</a><a href="#s8">8 GUI 步骤</a>
+</nav>
+<main>
+
+<section id="s0">
+<h2>0.　冻结结论</h2>
+<p class="lead">数值只来自 <code>calc/model.py</code> 与已写出的网格计数。本页不写 Fluent 残差、ΔT、y⁺ 实测、GCI。那些只能进结果报告，且必须来自已开 GUI 的实跑。</p>
+<table>
+<thead><tr><th>项</th><th>冻结</th><th>出处 / 禁止项</th></tr></thead>
+<tbody>
+<tr><td>单元胞</td><td>S<sub>x</sub>=<strong>3.0 mm</strong>（沿槽）× S<sub>y</sub>=<strong>2.4 mm</strong>（跨槽）</td><td>UC-01b；S_jet=3.0；三槽刚好 3×0.80</td></tr>
+<tr><td>喷孔</td><td><strong>圆 D=0.40 mm</strong></td><td>不是 GEO 默认 0.50；不是方孔 0.3545</td></tr>
+<tr><td>槽 / 肋</td><td>ch_w=0.40，ch_h=1.50，pitch=0.80，肋厚 0.40</td><td>GEO；Y 向 3 槽 + 2 满肋 + 2 半肋 = 2.40</td></tr>
+<tr><td>间隙 / 盖 / 箱</td><td>H_jet=2.0；t_lid=2.5（流体建孔，盖实体不建）；H_plenum=2.0</td><td>GEO</td></tr>
+<tr><td>回液</td><td>物理缝 0.80 mm 在 ±X，本胞各见半缝 0.40</td><td>与 X 邻胞共享；上抽</td></tr>
+<tr><td>铜</td><td>base_cu=2.0 mm + 肋（肋顶 z=1.50）；k=390 W/mK</td><td>K_CU / GEO['base_cu']</td></tr>
+<tr><td>TIM2</td><td>t=80 μm；k_eff=8.818 W/mK（R=0.006）</td><td>k=t/(R·A_2DIE)；A=1512 mm²</td></tr>
+<tr><td>封装</td><td>实体不建；R_pkg=0.008–0.012 一维外叠</td><td>model.py R_PKG</td></tr>
+<tr><td>热流</td><td>q''=56.746 W/cm² 在 TIM 底</td><td>DP-A die 面平均；不是热点、不是 HBM</td></tr>
+<tr><td>流量</td><td>ṁ=2.067×10⁻⁴ kg/s</td><td>GPU <strong>1.60 L/min</strong> / 128。2.0 L/min 是整板 DP-A，不是单孔</td></tr>
+<tr><td>压降窗</td><td>冷板本体 20 kPa</td><td><strong>不含 UQD</strong></td></tr>
+<tr><td>工质</td><td>DI 水 40 °C，Tref=313.15 K</td><td>WATER40：ρ=992.2，cp=4179，k=0.631，μ=6.53e-4</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="s1">
+<h2>1.　几何（model.py 为权威）</h2>
+<p>坐标系：原点在<strong>中槽底面中心</strong>；+X 沿槽；+Y 跨槽；+Z 向上（射流 −Z 打到槽底 / 铜顶）。</p>
+<h3>1.1 平面装填</h3>
+<p>Y：<code>3×0.40 槽 + 2×0.40 满肋 + 2×0.20 半肋 = 2.40 mm</code>。侧槽中心距孔轴 0.80 mm = 2.0 D。</p>
+<table>
+<thead><tr><th>Y (mm)</th><th>零件</th><th>X (mm)</th><th>零件</th></tr></thead>
+<tbody>
+<tr><td>[−1.20, −1.00]</td><td>半肋（SYM）</td><td>[−1.50, −1.10]</td><td>−X 半缝（上抽）</td></tr>
+<tr><td>[−1.00, −0.60]</td><td>侧槽 −</td><td>[−1.10, +1.10]</td><td>三槽 + 间隙主体</td></tr>
+<tr><td>[−0.60, −0.20]</td><td>满肋</td><td>[+1.10, +1.50]</td><td>+X 半缝</td></tr>
+<tr><td>[−0.20, +0.20]</td><td>中槽（对孔）</td><td></td><td></td></tr>
+<tr><td>[+0.20, +1.20]</td><td>满肋 / 侧槽+ / 半肋</td><td></td><td>与上表对称</td></tr>
+</tbody>
+</table>
+<h3>1.2 Z 堆叠（共轭）</h3>
+<table>
+<thead><tr><th>Z (mm)</th><th>体区</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>−2.080 → −2.000</td><td><code>solid_tim2</code></td><td>80 μm 全胞 XY；底面 = q''</td></tr>
+<tr><td>−2.000 → 0</td><td><code>solid_cu</code> 底座</td><td>2.0 mm 余铜</td></tr>
+<tr><td>0 → 1.50</td><td>槽/缝 = fluid；肋 = Cu</td><td>肋顶 z=1.50</td></tr>
+<tr><td>1.50 → 3.50</td><td>fluid 间隙</td><td>H=2.0，壁面射流贴肋顶</td></tr>
+<tr><td>3.50 → 6.00</td><td>圆孔流体 + 回液缝</td><td>盖板实体不建；孔壁 = 圆柱 D=0.40</td></tr>
+<tr><td>6.00 → 8.00</td><td>短静压箱</td><td>顶面 inlet_jet</td></tr>
+</tbody>
+</table>
+<p>流路不改口：<strong>下射 → 驻点（仅中槽底）→ 壁面射流沿 ±X 并扫入侧槽 → ±X 缝向上抽。</strong> 禁止 bank 长槽、禁止 1/4 对称。</p>
+</section>
+
+<section id="s2">
+<h2>2.　为什么必须共轭（不能再用 Cu 壳）</h2>
+<p><code>model.py</code> 湿润面积增益：单 die 35 槽，A_fin=35×2×1.50×27 mm²，A_bot=35×0.40×27，A_wet/A_die = <strong>AREA_GAIN ≈ 4.25</strong>。热从 TIM 底进入后要在 2 mm 铜里横向扩展，再经肋导入三槽。Option A 把 q'' 打在流体底再加 2 mm <strong>壳</strong>，铜内没有真实肋导热路径，也没有 TIM 厚向网格。</p>
+<div class="formula">
+  <code>R_wall = t_base / (k_Cu · A_2DIE) = 0.002 / (390 × 1.512e-3) = 0.003392 °C/W</code>
+  <code>R_c-in = R_TIM2 + R_wall + R_conv　　R_j-in = R_pkg + R_c-in</code>
+  <code>R_TIM2 默认 0.006（链区间 0.004–0.008）　　R_pkg = 0.008–0.012</code>
+</div>
+<p>CHT 把 TIM 与铜建成实体：界面 <code>wall_tim_cu</code>、<code>wall_cu_fluid</code> 耦合。才能看到 spreading 和 AREA_GAIN，而不是壳上的一维 ΔT=q''·t/k。</p>
+</section>
+
+<section id="s3">
+<h2>3.　三维示意（SVG，不是 CFD）</h2>
+<figure>
+<svg class="svgfig" viewBox="0 0 820 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="isometric coupon">
+  <rect width="820" height="520" fill="#f4f8fc"/>
+  <text x="20" y="28" fill="#0b2748" font-size="16" font-weight="700">图 3-1　单元胞等轴测（示意）　Sx=3.0　Sy=2.4　D=0.40 圆孔</text>
+  <!-- simple cabinet: X right, Y into page, Z up -->
+  <!-- TIM -->
+  <polygon points="180,430 520,430 590,392 250,392" fill="#c0392b" stroke="#7b241c"/>
+  <polygon points="520,430 590,392 590,382 520,420" fill="#922b21" stroke="#7b241c"/>
+  <text x="600" y="412" fill="#922b21" font-size="12">TIM 80 μm</text>
+  <!-- Cu base -->
+  <polygon points="180,420 520,420 590,382 250,382" fill="#d4a017" stroke="#7d6608"/>
+  <polygon points="180,420 250,382 250,330 180,368" fill="#b7950b" stroke="#7d6608"/>
+  <polygon points="520,420 590,382 590,330 520,368" fill="#b7950b" stroke="#7d6608"/>
+  <text x="600" y="360" fill="#7d6608" font-size="12">Cu base 2.0 mm</text>
+  <!-- fins (three ribs) -->
+  <polygon points="210,368 250,346 250,290 210,312" fill="#d4a017" stroke="#7d6608"/>
+  <polygon points="300,368 340,346 340,290 300,312" fill="#d4a017" stroke="#7d6608"/>
+  <polygon points="390,368 430,346 430,290 390,312" fill="#d4a017" stroke="#7d6608"/>
+  <polygon points="470,368 500,350 500,294 470,312" fill="#d4a017" stroke="#7d6608"/>
+  <text x="600" y="310" fill="#7d6608" font-size="12">Cu 肋 1.50</text>
+  <!-- water gap -->
+  <polygon points="180,312 520,312 590,274 250,274" fill="#5dade2" fill-opacity=".55" stroke="#1a5276"/>
+  <text x="600" y="268" fill="#14507f" font-size="12">水间隙 H=2.0</text>
+  <!-- lid plane + circular jet -->
+  <polygon points="180,220 520,220 590,182 250,182" fill="#aed6f1" stroke="#1a5276"/>
+  <ellipse cx="385" cy="201" rx="18" ry="10" fill="#2980b9" stroke="#1a5276"/>
+  <rect x="376" y="120" width="18" height="82" fill="#2980b9" stroke="#1a5276"/>
+  <ellipse cx="385" cy="120" rx="18" ry="10" fill="#1abc9c" stroke="#0e6655"/>
+  <text x="410" y="125" fill="#0e6655" font-size="12">inlet_jet　D=0.40</text>
+  <!-- return slits -->
+  <rect x="180" y="182" width="28" height="38" fill="#e67e22" stroke="#a04000"/>
+  <rect x="562" y="182" width="28" height="38" fill="#e67e22" stroke="#a04000"/>
+  <text x="20" y="200" fill="#a04000" font-size="12">return 半缝 0.40</text>
+  <text x="20" y="500" fill="#5d6b80" font-size="12">金=Cu　红=TIM　蓝=水　橙=回液　绿顶=质量入口　盖板实体未建</text>
+</svg>
+<figcaption>图 3-1　等轴测示意。尺寸来自 model.py / UC-01b 冻结。不是网格云图，也不是 Fluent 场。</figcaption>
+</figure>
+<figure>
+<svg class="svgfig" viewBox="0 0 820 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="exploded stack">
+  <rect width="820" height="400" fill="#f4f8fc"/>
+  <text x="20" y="28" fill="#0b2748" font-size="16" font-weight="700">图 3-2　分层爆炸（Z 向上分开画，便于认层）</text>
+  <rect x="220" y="48" width="280" height="36" fill="#aed6f1" stroke="#1a5276"/>
+  <ellipse cx="360" cy="66" rx="16" ry="8" fill="#1abc9c" stroke="#0e6655"/>
+  <text x="520" y="70" fill="#14507f" font-size="13">静压箱顶 inlet　z=6–8　圆孔继续向下</text>
+  <rect x="220" y="100" width="280" height="28" fill="#85c1e9" stroke="#1a5276"/>
+  <ellipse cx="360" cy="114" rx="16" ry="7" fill="#2980b9"/>
+  <text x="520" y="118" fill="#14507f" font-size="13">盖段圆孔 D=0.40　z=3.5–6　盖实体不建</text>
+  <rect x="220" y="148" width="280" height="40" fill="#5dade2" stroke="#1a5276"/>
+  <text x="520" y="172" fill="#14507f" font-size="13">水间隙 H=2.0　z=1.5–3.5</text>
+  <rect x="220" y="204" width="36" height="44" fill="#5dade2" stroke="#1a5276"/>
+  <rect x="256" y="204" width="32" height="44" fill="#d4a017" stroke="#7d6608"/>
+  <rect x="288" y="204" width="40" height="44" fill="#5dade2" stroke="#1a5276"/>
+  <rect x="328" y="204" width="32" height="44" fill="#d4a017" stroke="#7d6608"/>
+  <rect x="360" y="204" width="40" height="44" fill="#5dade2" stroke="#1a5276"/>
+  <rect x="400" y="204" width="32" height="44" fill="#d4a017" stroke="#7d6608"/>
+  <rect x="432" y="204" width="36" height="44" fill="#5dade2" stroke="#1a5276"/>
+  <rect x="468" y="204" width="32" height="44" fill="#d4a017" stroke="#7d6608"/>
+  <text x="520" y="230" fill="#7d6608" font-size="13">槽水 / 肋铜　z=0–1.5</text>
+  <rect x="220" y="268" width="280" height="44" fill="#d4a017" stroke="#7d6608"/>
+  <text x="520" y="294" fill="#7d6608" font-size="13">Cu 底座 2.0 mm　z=−2–0</text>
+  <rect x="220" y="328" width="280" height="14" fill="#c0392b" stroke="#7b241c"/>
+  <text x="520" y="338" fill="#922b21" font-size="13">TIM2 80 μm　底面 q''</text>
+  <path d="M360 380 L360 344" stroke="#b42318" stroke-width="3" marker-end="url(#ar)"/>
+  <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#b42318"/></marker></defs>
+  <text x="370" y="378" fill="#b42318" font-size="12">q''=56.746 W/cm²　wall_heat</text>
+</svg>
+<figcaption>图 3-2　爆炸堆叠。热从 TIM 底进入，经铜扩展与肋，再交给水。封装层不建。</figcaption>
+</figure>
+</section>
+
+<section id="s4">
+<h2>4.　三向二维剖面（材料 + BC + 网格意图）</h2>
+<p>下列剖面标材料分区、边界、以及<strong>打算怎么加密</strong>。不是算出的 T/|V|。独立 SVG：<code>figs/scheme_iso.svg</code>、<code>scheme_explode.svg</code>、<code>scheme_yz.svg</code>、<code>scheme_xz.svg</code>、<code>scheme_zcuts.svg</code>。</p>
+<figure>
+<svg class="svgfig" viewBox="0 0 760 520" xmlns="http://www.w3.org/2000/svg">
+  <rect width="760" height="520" fill="#f7fafd"/>
+  <text x="16" y="26" fill="#0b2748" font-size="15" font-weight="700">图 4-1　X=0（过射流 / YZ）　跨三槽 Sy=2.4</text>
+  <!-- axes Y horizontal -1.2..1.2 → 80..680 ; Z -2.08..8 → 470..50 -->
+  <!-- TIM -->
+  <rect x="80" y="468" width="600" height="10" fill="#c0392b"/>
+  <!-- Cu base -->
+  <rect x="80" y="408" width="600" height="60" fill="#d4a017"/>
+  <!-- slots Y: -1..-0.6, -0.2..0.2, 0.6..1.0  mapped: Y' = 380 + y*250 -->
+  <!-- Y=-1.2→80, scale=600/2.4=250, y0=380 -->
+  <rect x="80" y="333" width="50" height="75" fill="#d4a017"/>
+  <rect x="130" y="333" width="100" height="75" fill="#5dade2"/>
+  <rect x="230" y="333" width="100" height="75" fill="#d4a017"/>
+  <rect x="330" y="333" width="100" height="75" fill="#5dade2"/>
+  <rect x="430" y="333" width="100" height="75" fill="#d4a017"/>
+  <rect x="530" y="333" width="100" height="75" fill="#5dade2"/>
+  <rect x="630" y="333" width="50" height="75" fill="#d4a017"/>
+  <!-- gap -->
+  <rect x="80" y="233" width="600" height="100" fill="#5dade2"/>
+  <!-- lid / orifice column at y=0 → x=380 -->
+  <rect x="355" y="58" width="50" height="175" fill="#2980b9"/>
+  <text x="412" y="70" fill="#0e6655" font-size="12">圆孔 D=0.40</text>
+  <text x="16" y="64" fill="#1abc9c" font-size="12">inlet</text>
+  <text x="16" y="478" fill="#b42318" font-size="12">q'' TIM 底</text>
+  <text x="80" y="508" fill="#5d6b80" font-size="12">Y −1.2　　−0.8 槽　　0 中槽+孔　　+0.8 槽　　+1.2　| 蓝水 金铜 红 TIM　虚线=近壁加密</text>
+  <rect x="328" y="400" width="104" height="8" fill="none" stroke="#1769e0" stroke-dasharray="3 2"/>
+  <rect x="353" y="58" width="54" height="175" fill="none" stroke="#1769e0" stroke-dasharray="3 2"/>
+</svg>
+<figcaption>图 4-1　X=0。中槽对准圆孔。虚线：冲击底与孔壁打算做 Δy≤3 μm、增长≤1.2 的边界层。</figcaption>
+</figure>
+<div class="grid g2">
+<figure>
+<svg class="svgfig" viewBox="0 0 520 480" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="480" fill="#f7fafd"/>
+  <text x="12" y="22" fill="#0b2748" font-size="14" font-weight="700">图 4-2　Y=0（沿槽 / XZ）Sx=3.0</text>
+  <rect x="40" y="430" width="440" height="10" fill="#c0392b"/>
+  <rect x="40" y="372" width="440" height="58" fill="#d4a017"/>
+  <!-- slit left/right fluid from z=0 -->
+  <rect x="40" y="300" width="58" height="72" fill="#5dade2"/>
+  <rect x="98" y="300" width="324" height="72" fill="#5dade2"/>
+  <rect x="422" y="300" width="58" height="72" fill="#5dade2"/>
+  <rect x="40" y="208" width="440" height="92" fill="#5dade2"/>
+  <!-- orifice at x=0 center 260 -->
+  <rect x="238" y="48" width="44" height="160" fill="#2980b9"/>
+  <rect x="40" y="88" width="58" height="120" fill="#e67e22"/>
+  <rect x="422" y="88" width="58" height="120" fill="#e67e22"/>
+  <text x="12" y="56" fill="#0e6655" font-size="11">inlet D=0.40</text>
+  <text x="12" y="100" fill="#a04000" font-size="11">回液上抽</text>
+  <text x="12" y="444" fill="#b42318" font-size="11">q''</text>
+  <text x="40" y="468" fill="#5d6b80" font-size="11">X −1.5　缝　槽长　缝　+1.5</text>
+</svg>
+<figcaption>图 4-2　Y=0。左右半缝上抽；中间圆孔下射。壁面射流沿 ±X。</figcaption>
+</figure>
+<figure>
+<svg class="svgfig" viewBox="0 0 520 480" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="480" fill="#f7fafd"/>
+  <text x="12" y="22" fill="#0b2748" font-size="14" font-weight="700">图 4-3　水平切　三张叠画</text>
+  <text x="12" y="48" fill="#14507f" font-size="12">上：Z=4.75 盖内（只见圆孔+缝）</text>
+  <rect x="60" y="56" width="200" height="160" fill="#f4f6f7" stroke="#bbb"/>
+  <rect x="60" y="56" width="28" height="160" fill="#5dade2"/>
+  <rect x="232" y="56" width="28" height="160" fill="#5dade2"/>
+  <circle cx="160" cy="136" r="16" fill="#2980b9" stroke="#0b2748"/>
+  <text x="148" y="140" fill="#fff" font-size="9">D</text>
+  <text x="280" y="48" fill="#14507f" font-size="12">中：Z=0.75 槽中</text>
+  <rect x="280" y="56" width="200" height="160" fill="#d4a017" stroke="#7d6608"/>
+  <rect x="280" y="76" width="200" height="28" fill="#5dade2"/>
+  <rect x="280" y="122" width="200" height="28" fill="#5dade2"/>
+  <rect x="280" y="168" width="200" height="28" fill="#5dade2"/>
+  <text x="12" y="250" fill="#14507f" font-size="12">下：Z=−2.04 TIM 内（整面固体）　Z=−1 Cu 座同形</text>
+  <rect x="60" y="260" width="200" height="160" fill="#c0392b" stroke="#7b241c"/>
+  <rect x="280" y="260" width="200" height="160" fill="#d4a017" stroke="#7d6608"/>
+  <text x="120" y="340" fill="#fff" font-size="12">TIM</text>
+  <text x="350" y="340" fill="#5d4037" font-size="12">Cu</text>
+  <text x="12" y="450" fill="#5d6b80" font-size="11">圆孔只出现在盖段/箱；槽层是三道水；TIM/Cu 是满铺。</text>
+</svg>
+<figcaption>图 4-3　Z 向三刀：圆孔平面、槽中、TIM/Cu。网格意图：孔用 O-grid，槽角与缝唇加密。</figcaption>
+</figure>
+</div>
+</section>
+
+<section id="s4m">
+<h2>4b.　实网格截图（medium HEXA，不是云图）</h2>
+<p class="lead">下列 PNG 画的是 <code>mesh/uc01b_cht_medium.msh</code> 的<strong>单元边</strong>。源：同一套 <code>write_cht_circle_msh.py</code>（<code>UC01B_MESH=medium</code>）。体网格 <strong>425320 HEXA</strong>（fluid 321168 / Cu 88264 / TIM 15888）。msh 单位是<strong>米</strong>；图上坐标标成 mm 方便看。蓝=水，金=Cu，红=TIM。<strong>不是</strong>速度 / 温度 / 热流云图。没有 ICEM 导出 <code>uc01b_cht_icem.msh</code>。coarse 165112、fine 709664 同拓扑，本页只画 medium。</p>
+<figure>
+  <img class="meshshot" src="figs/mesh3d_iso.png" alt="3D isometric mesh cutaway of UC-01b CHT HEXA">
+  <figcaption>图 4b-1　三维等轴测：X=0 剖面上 18416 个 HEXA 面 + 5 层真实 XY 网格（17464 个 quad）。共 143520 条边。TIM 底（红）、Cu 座（金）、槽/间隙（蓝）、盖段只剩圆孔。0.50 mm 比例尺。不是 CFD 场。</figcaption>
+</figure>
+<div class="grid g2">
+<figure>
+  <img class="meshshot" src="figs/mesh_cut_x0.png" alt="X=0 mesh cut through the jet">
+  <figcaption>图 4b-2　X=0（过射流 / YZ）。<strong>18416</strong> 个被切 HEXA 面。三槽 + 中间圆孔柱 + TIM 底条。0.40 mm 比例尺。</figcaption>
+</figure>
+<figure>
+  <img class="meshshot" src="figs/mesh_cut_y0.png" alt="Y=0 mesh cut along the slot">
+  <figcaption>图 4b-3　Y=0（沿槽 / XZ）。<strong>15352</strong> 个被切 HEXA 面。左右回液半缝上抽，中间圆孔下射。</figcaption>
+</figure>
+</div>
+<div class="grid g2">
+<figure>
+  <img class="meshshot" src="figs/mesh_cut_z_orifice.png" alt="Z cut at orifice plane">
+  <figcaption>图 4b-4　Z 切盖段 zc=<strong>4.625 mm</strong>（层 k=106）。<strong>1576</strong> 个 quad：中心圆孔 O-grid + ±X 回液缝。盖实体未建，故中间空白。</figcaption>
+</figure>
+<figure>
+  <img class="meshshot" src="figs/mesh_cut_z_gap.png" alt="Z cut at mid-gap">
+  <figcaption>图 4b-5　Z 切间隙 zc=<strong>2.500 mm</strong>（层 k=78）。<strong>3972</strong> 个 quad，全是水。中心仍是圆孔 O-grid 投影。</figcaption>
+</figure>
+</div>
+<div class="grid g2">
+<figure>
+  <img class="meshshot" src="figs/mesh_cut_z_slot.png" alt="Z cut at mid-slot">
+  <figcaption>图 4b-6　Z 切槽中 zc=<strong>0.750 mm</strong>（层 k=34）。<strong>3972</strong> 个 quad。蓝=三槽+缝，金=肋/半肋。圆虚线是 r=0.20 参考，不是孔壁（此高度孔已结束）。</figcaption>
+</figure>
+<figure>
+  <img class="meshshot" src="figs/mesh_cut_z_timcu.png" alt="Z cut through TIM slab">
+  <figcaption>图 4b-7　Z 切 TIM2 zc=<strong>−2.050 mm</strong>（层 k=1，TIM–Cu 界面邻层）。<strong>3972</strong> 个 quad，整面 TIM。XY 网格与上面各层共形。</figcaption>
+</figure>
+</div>
+<figure>
+  <img class="meshshot" src="figs/mesh_bl_zoom.png" alt="Boundary layer and orifice lip mesh zooms">
+  <figcaption>图 4b-8　加密局部。左：X=0 驻点，|Y|&lt;0.22，<strong>1440</strong> 个切面单元；首层 Δz=<strong>2.5 μm</strong>（≤3 μm，y⁺&lt;1 意图，未测）。右：孔唇 O-grid，zc=4.625 mm，<strong>736</strong> 个 quad，节点在 r=0.20 mm 上。50 μm / 80 μm 比例尺。</figcaption>
+</figure>
+<p class="note">脚本：<code>mesh/plot_cht_mesh_shots.py</code>。计数见 <code>figs/mesh_shot_info.txt</code>。未启动 fluent.exe / icemcfd。</p>
+</section>
+
+<section id="s4c">
+<h2>4c.　细化 fine 网格（含导流/回液槽壁面边界层）</h2>
+<p class="lead">已检查的体网格是 <code>mesh/uc01b_cht_v2.msh</code>（4472280 HEXA，圆孔 D=0.40 mm）。下面孔板切面来自该文件的真实单元面，不是方孔，也不是云图。中心小方块是 O-grid 内 H。</p>
+<figure>
+  <img class="meshshot" src="figs/v2mesh_z_orifice.png" alt="v2 circular orifice mesh">
+  <figcaption>当前网格　z = 4.711 mm，<code>uc01b_cht_v2.msh</code>。喷孔边界为圆 D=0.40 mm。等面积方孔图已不用。</figcaption>
+</figure>
+<p class="lead">源：<code>mesh/uc01b_cht_fine.msh</code>（米），<code>write_cht_circle_msh.py</code> <code>UC01B_MESH=fine</code>。
+<strong>4472280 HEXA</strong>（fluid 2760804 / Cu 1533156 / TIM 178320）。medium 425320 保留不覆盖。
+圆孔 D=0.40 O-grid，孔壁径向首层 <strong>3.0 μm</strong>（800 条边实测 min=max=3.0）、≥10 层、增长≤1.2；孔周过渡到 r≈0.85 mm。
+<strong>中槽</strong> y∈[−0.20,0.20] 两侧壁 + 底/顶：首层 <strong>2.5 μm</strong>、<strong>n_BL=10</strong>、增长≤1.2（沿 ±X 贯穿单元胞，不只圆孔）。
+侧槽与 ±X 回液缝同样 2.5 μm / 10 层。TIM 厚向 <strong>6</strong> 层；Cu 座 <strong>14</strong> 层；盖板 <code>solid_cu</code>。
+射流核 Δx=2.8 μm。图是单元边，<strong>不是</strong>云图。无 Fluent y⁺。方孔 coupon（116320 HEXA）不是本节。</p>
+<figure>
+  <img class="meshshot" src="figs/fine_mesh3d_iso.png" alt="fine CHT isometric mesh">
+  <figcaption>图 4c-1　fine 三维等轴测（X=0 抽层 + 3 个真实 Z 层）。4472280 HEXA。msh 米 / 图 mm。不是 CFD。</figcaption>
+</figure>
+<div class="grid g2">
+<figure>
+  <img class="meshshot" src="figs/fine_mesh_cut_x0.png" alt="fine X=0 mesh">
+  <figcaption>图 4c-2　X=0 网格边。三槽 + 圆孔柱 + 盖铜 + TIM。</figcaption>
+</figure>
+<figure>
+  <img class="meshshot" src="figs/fine_mesh_cut_y0.png" alt="fine Y=0 mesh">
+  <figcaption>图 4c-3　Y=0 网格边。左右回液缝上抽，中间圆孔。</figcaption>
+</figure>
+</div>
+<div class="grid g2">
+<figure>
+  <img class="meshshot" src="figs/fine_mesh_cut_z_orifice.png" alt="fine Z orifice">
+  <figcaption>图 4c-4　Z 切盖段：圆孔 O-grid + 回液缝 + 盖铜（不再空白）。</figcaption>
+</figure>
+<figure>
+  <img class="meshshot" src="figs/fine_mesh_cut_z_slot.png" alt="fine Z slot">
+  <figcaption>图 4c-5　Z 切槽中 zc=0.789 mm。三槽水 + Cu 肋。中槽 y=±0.20 沿 X 有壁面簇（笛卡尔段）；圆孔 O-grid 只占 |x|,|y|&lt;0.38。侧槽不是中槽的替代。</figcaption>
+</figure>
+</div>
+<figure>
+  <img class="meshshot" src="figs/fine_mesh_bl_zoom.png" alt="orifice and impact BL">
+  <figcaption>图 4c-6　孔壁 / 驻点。左：冲击底首层 <strong>2.5 μm</strong>、n_BL=10。右：圆孔壁径向首层 <strong>3.0 μm</strong>（800 条边实测），≥10 层，节点在 r=0.20。不是 y⁺ 实测。</figcaption>
+</figure>
+<figure>
+  <img class="meshshot" src="figs/fine_mesh_solid_zoom.png" alt="TIM and Cu layers">
+  <figcaption>图 4c-7　固体多层。TIM <strong>6</strong> 层（80 μm）、Cu 座 <strong>14</strong> 层，偏 TIM–Cu 与 Cu–水。</figcaption>
+</figure>
+<figure>
+  <img class="meshshot" src="figs/fine_mesh_slot_bl.png" alt="return slit and drainage slot BL">
+  <figcaption>图 4c-8　回液缝 + <strong>侧槽</strong>（不是中槽）。左：Y=0 过 −X 回液唇 x=−1.10。右：X=0.80 过侧槽 y∈[0.60,1.00]。两侧首层 <strong>2.5 μm</strong>，<strong>n_BL=10</strong>，增长≤1.2。</figcaption>
+</figure>
+<figure>
+  <img class="meshshot" src="figs/fine_mesh_center_slot_bl.png" alt="center drainage slot wall BL">
+  <figcaption>图 4c-9　<strong>中槽</strong>流体边界层（从 msh 的 Y/Z 节点量，不是口号）。左：Z 切 zc=0.789 mm，X∈[0.42,1.12]（笛卡尔段，躲开 O-grid），Y∈[−0.60,0.60]；红虚线 y=±0.20。右：X=0.80 的 YZ，两侧壁 + 底 z=0 + 顶 z=1.50。实测首层 <strong>2.5 μm</strong>，<strong>n_BL=10</strong>，增长≤1.2。50 μm 比例尺。</figcaption>
+</figure>
+<figure>
+  <img class="meshshot" src="figs/fine_mesh_orif_trans.png" alt="orifice and transition annulus">
+  <figcaption>图 4c-10　喷孔 + 周边过渡。左：盖段 zc=4.75，实线 r=0.20、虚线 r=0.85。右：0.80 mm 窗口，孔壁径向簇（首层 3.0 μm）。</figcaption>
+</figure>
+<figure>
+  <img class="meshshot" src="figs/fine_mesh_orif_trans_xz.png" alt="orifice vertical transition">
+  <figcaption>图 4c-11　Y=0 过孔竖切：轴向孔柱 + 径向过渡（虚线 x=±0.20）。</figcaption>
+</figure>
+<p class="note ok"><strong>CFD 状态：</strong>iter <strong>7900</strong> 已收敛（continuity <strong>4.0743e-07</strong>，日志 <code>solution is converged</code>）。场是 <code>fluent/uc01b_cht_v2_i7900.cas.h5</code> / <code>.dat.h5</code>。圆孔 D=0.40。静压 ΔP = <strong>2227.11 Pa = 2.227 kPa</strong>（表压，iter 7900，已收敛；见结果报告第 4 节）。方孔 0.048 与 iter 3861 / 1439 不是当前结果。云图见结果报告第 8 节。</p>
+</section>
+
+<section id="s4d">
+<h2>4d.　网格规范与缺口</h2>
+<p>冻结规范（本档 fine，从 <code>uc01b_cht_fine.msh</code> 同源的 XY/Z 节点量；<strong>不是</strong> Fluent y⁺）。旧 medium 盘上文件未重写：中槽 Y 向当时是 O-square 均匀段，中槽壁 <strong>FAIL</strong>（见图 4b-6）。</p>
+<table>
+<thead><tr><th>位置</th><th>规范</th><th>fine 实测</th><th>结果</th></tr></thead>
+<tbody>
+<tr><td>圆孔壁径向</td><td>≤3 μm，增长≤1.2，≥10 层</td><td>3.0 μm（800 边），环向≥10</td><td>PASS</td></tr>
+<tr><td>射流核 r&lt;0.20</td><td>间距 10–20 μm 量级</td><td>Δx=2.8 μm（更细）</td><td>PASS</td></tr>
+<tr><td>孔周过渡 r=0.20→0.6–1.0</td><td>增长≤1.2，无 3 μm→0.1 mm 单跳</td><td>外环 + 笛卡尔到 T_ANN=0.85 mm</td><td>PASS</td></tr>
+<tr><td>冲击底 / 中槽底</td><td>≤3 μm，≤1.2，≥8 层</td><td>2.5 μm，10 层</td><td>PASS</td></tr>
+<tr><td>中槽两侧壁 y=±0.20</td><td>≤3 μm，≤1.2，≥8 层，沿 X</td><td>2.5 μm，10 层（笛卡尔 |x|&gt;0.38）</td><td>PASS</td></tr>
+<tr><td>中槽顶（肋顶 z=1.50）</td><td>≤3 μm，≤1.2，≥8 层</td><td>2.5 μm，10 层</td><td>PASS</td></tr>
+<tr><td>侧槽壁 / 回液缝</td><td>同上</td><td>2.5 μm，10 层</td><td>PASS</td></tr>
+<tr><td>TIM 厚向</td><td>≥4</td><td>6</td><td>PASS</td></tr>
+<tr><td>Cu 座厚向</td><td>≥6</td><td>14</td><td>PASS</td></tr>
+</tbody>
+</table>
+<p class="note">O-grid 外框半边 S_FR=0.38 mm &gt; 孔半径 0.20，圆与中槽同宽，O-grid 岛内 y=±0.20 不能再铺一套正交槽壁；槽壁边界层在笛卡尔段沿 X 贯通（图 4c-9）。无 y⁺ 数字。</p>
+</section>
+
+<section id="s5">
+<h2>5.　TIM2、热流、流量（只重复已冻结公式）</h2>
+<p>A<sub>2DIE</sub>=27×28×2=<strong>1512 mm²</strong>。t=80 μm 固定。k<sub>eff</sub>=t/(R·A)。</p>
+<table>
+<thead><tr><th>R_TIM2</th><th>k_eff</th><th>角色</th></tr></thead>
+<tbody>
+<tr><td>0.004</td><td>13.228 W/mK</td><td>乐观</td></tr>
+<tr><td><strong>0.006</strong></td><td><strong>8.818 W/mK</strong></td><td>默认 CHT</td></tr>
+<tr><td>0.008</td><td>6.614 W/mK</td><td>保守</td></tr>
+</tbody>
+</table>
+<p>k_eff 把键合线导热 + 接触/空洞捆在 80 μm 一层，用来收回报告热阻，<strong>不是牌号 k</strong>。q''=1100×0.39/(27×28 mm)=<strong>56.746 W/cm²</strong>，P_cell=4.0857 W。这是 die <strong>面平均</strong>；热点 1.5–2.5×、HBM≈20.5 W/cm² 本胞不加。ṁ=ρ·(1.60 L/min)/128=<strong>2.067×10⁻⁴ kg/s</strong>。圆孔 V=ṁ/(ρA)≈<strong>1.66 m/s</strong>，Re_D≈1008（设计估计，用来定首层，不是 Fluent 打印）。</p>
+</section>
+
+<section id="s6">
+<h2>6.　网格意图与三档计划（无 GCI 数字）</h2>
+<p>圆孔必须 O-grid / 圆柱，节点在 r=0.20 mm 上。相对旧 116k 流体笛卡尔：先加密近壁与射流核，不三向同时 8×。增长硬顶 1.2。换热墙（冲击、肋、槽、孔）首层 Δy≤3 μm，设计目标 y⁺&lt;1（<strong>Fluent 打印以前只是估计</strong>）。TIM ≥4 层；孔径向 ≥8–12。</p>
+<table>
+<thead><tr><th>档</th><th>文件</th><th>HEXA</th><th>fluid / Cu / TIM</th><th>Δy / n_BL / 径向</th></tr></thead>
+<tbody>
+<tr><td>coarse</td><td><code>uc01b_cht_coarse.msh</code></td><td>165112</td><td>126112 / 32216 / 6784</td><td>3.0 μm / 10 / 8</td></tr>
+<tr><td>medium</td><td><code>uc01b_cht_medium.msh</code></td><td>425320</td><td>321168 / 88264 / 15888</td><td>2.5 μm / 12 / 10</td></tr>
+<tr><td>fine</td><td><code>uc01b_cht_fine.msh</code></td><td>4472280</td><td>2760804 / 1533156 / 178320</td><td>2.5 μm / 10 / 3.0 μm 孔壁</td></tr>
+</tbody>
+</table>
+<p class="note risk">GCI / ΔP / T_w / R_conv 三档表：<strong>等 GUI 跑完再写</strong>。§10 门槛：相邻档 R_conv（两 die）变化 &lt;3%。未跑完不填。</p>
+<p>Python 圆孔 hex（米）已写出，给已开 Fluent 直接读。ICEM tetin（毫米）给已开 ICEM 做 O-grid / Fluent V6 导出；<strong>不要把 tin 和 msh 叠在同一视图</strong>。</p>
+</section>
+
+<section id="s7">
+<h2>7.　零件、材料、界面</h2>
+<table>
+<thead><tr><th>Zone</th><th>类型</th><th>材料 / BC</th></tr></thead>
+<tbody>
+<tr><td><code>fluid</code></td><td>cell</td><td>water-liquid 40 °C（992.2 / 4179 / 0.631 / 6.53e-4）</td></tr>
+<tr><td><code>solid_cu</code></td><td>cell</td><td>copper k=390</td></tr>
+<tr><td><code>solid_tim2</code></td><td>cell</td><td>tim2 k=8.818</td></tr>
+<tr><td><code>inlet_jet</code></td><td>mass-flow-inlet</td><td>2.067e-4 kg/s，T=313.15</td></tr>
+<tr><td><code>return_slot</code></td><td>pressure-outlet</td><td>T=313.15 回流</td></tr>
+<tr><td><code>wall_heat</code></td><td>wall</td><td>q''=567460.32 W/m²</td></tr>
+<tr><td><code>wall_tim_cu</code></td><td>coupled wall</td><td>TIM–Cu</td></tr>
+<tr><td><code>wall_cu_fluid</code></td><td>coupled wall</td><td>Cu–水（槽底/肋）</td></tr>
+<tr><td><code>wall_orifice</code></td><td>wall</td><td>圆柱 D=0.40</td></tr>
+<tr><td><code>wall_lid</code> / <code>SYM</code></td><td>绝热 / 对称</td><td>盖下；±X±Y</td></tr>
+</tbody>
+</table>
+<p>SST（主）；层流可作包络。Tref=313.15 K。20 kPa 是板内窗，不含 UQD。</p>
+</section>
+
+<section id="s8">
+<h2>8.　已开 ICEM / 已开 Fluent — 只 Replay / Read Journal</h2>
+<p class="note ok"><strong>不要再启动</strong> <code>icemcfd.bat</code> 或 <code>fluent.exe</code>。许可证已在两个 GUI 里。</p>
+<pre class="steps">短清单：GUI_STEPS.txt
+
+ICEM（毫米 tin）
+  File → Replay Scripts → Replay
+  D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\icem\replay_cht_circle.rpl
+  等价 Tcl：icem\replay_cht_circle.tcl
+  Fit (F9) → 应看到胞盒 + 圆 D=0.40 + TIM/Cu 点 + 槽/缝线
+  （可选）Hexa O-grid 围圆，首层 ≤0.003 mm，增长 ≤1.2
+  Output → Fluent V6（ICEM fluent6 写出器，勿再启 fluent.exe）
+       → mesh\uc01b_cht_icem.msh
+  详细：icem\OPEN_ICEM_THEN_FLUENT.txt
+
+Fluent（米 msh）
+  File → Read → Journal
+  D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0\fluent\uc01b_cht_gui.jou
+  默认读 mesh\uc01b_cht_medium.msh（圆孔 Python hex）
+  若 ICEM 已导出 icem.msh，先改 journal 里的 read-case 再读
+  Journal 不 /exit。80 步后写 fluent\uc01b_CHT
+</pre>
+<p>ICEM：<code>...\v261\icemcfd\win64_amd\bin\icemcfd.bat</code>（已开，勿再启）。Fluent：<code>...\fluent\ntbin\win64\fluent.exe -r26.1.0</code>（已开；journal 里不要写 -shortcut）。</p>
+</section>
+</main>
+<footer>
+  <b>AIDC-B300-CFD-UC01b-CHT-PLAN-001 · 2026-09-22</b><br>
+  圆 D=0.40 · TIM 80 μm / 8.818 W/mK · 图 3–4 为 SVG 示意不是云图 · 无 GCI 数字 · 不 commit
+</footer>
+</div>
+</body>
+</html>

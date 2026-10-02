@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UC-01b 单孔单元胞 ICEM / Fluent 工作方案与计划 v1.0</title>
+<meta name="description" content="UC-01b 各向异性单孔流体单元胞：几何冻结、ICEM 工作流、Fluent 设置、闸门 G0–G4">
+<style>
+:root{
+  --navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;
+  --muted:#5d6b80;--line:#d7e0ec;--bg:#eef3f8;--soft:#f7fafd;
+  --warn:#a65b00;--red:#b42318;--good:#1f7a4d;--cu:#b97a45;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:14.5px/1.72 "Microsoft YaHei","PingFang SC","Segoe UI",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.page{max-width:1240px;margin:auto;background:#fff;
+  box-shadow:0 8px 34px #102a4c1f}
+header{padding:52px 62px 36px;background:linear-gradient(145deg,#0b2748,#123a68);
+  color:#fff}
+header .kicker{font-size:12px;letter-spacing:.16em;color:#93b2d6;
+  text-transform:uppercase}
+header h1{font-size:31px;line-height:1.28;margin:12px 0 12px;font-weight:700}
+header .sub{font-size:15.5px;color:#d7e6f5;max-width:960px;line-height:1.75}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.pill{border:1px solid #ffffff4d;border-radius:14px;padding:4px 11px;
+  font-size:12px;background:#ffffff12}
+.pill.hot{background:#b4231833;border-color:#ff9f9a80;color:#ffd9d6}
+.pill.ok2{background:#008b7a33;border-color:#7fd8cb80;color:#d3f5ef}
+.pill.warn{background:#a65b0033;border-color:#f0c36e80;color:#ffe7b8}
+.docbar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin-top:26px;border-top:1px solid #ffffff2e;padding-top:16px}
+.docbar div{font-size:12px;color:#9db6d4}
+.docbar div b{display:block;font-size:14px;color:#fff;margin-top:3px;
+  font-weight:600}
+nav{padding:11px 62px;background:var(--soft);border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:2px 4px}
+nav a{color:#17518f;text-decoration:none;font-size:12.5px;padding:3px 8px;
+  border-radius:5px;white-space:nowrap}
+nav a:hover{background:#e3edf9;color:var(--blue)}
+main{padding:26px 62px 60px}
+section{margin-bottom:8px}
+h2{font-size:23px;color:var(--navy);border-bottom:2.5px solid var(--navy);
+  padding-bottom:8px;margin:44px 0 16px;font-weight:700}
+h2:first-of-type{margin-top:12px}
+h3{font-size:17.5px;color:#14507f;margin:28px 0 10px;font-weight:600;
+  padding-left:11px;border-left:4px solid var(--teal)}
+h4{font-size:15px;color:#1b3d66;margin:18px 0 7px;font-weight:600}
+p{margin:9px 0}
+.lead{border-left:5px solid var(--blue);background:#eff6ff;padding:15px 19px;
+  border-radius:8px;margin:14px 0 18px}
+.note{border:1px solid #e3ca8d;background:#fffcf2;padding:13px 17px;
+  border-radius:8px;margin:14px 0}
+.note.risk{border-color:#eab4b0;background:#fff6f5}
+.note.ok{border-color:#a8dcca;background:#f2fbf7}
+ul.tight,ol.tight{margin:10px 0 14px 1.4em;padding:0}
+ul.tight li,ol.tight li{margin:6px 0}
+code{background:#eef2f7;padding:1px 5px;border-radius:4px;
+  font-family:Consolas,"Courier New",monospace;font-size:12.5px;
+  color:#1f3a5f}
+.grid{display:grid;gap:11px;margin:16px 0}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{border:1px solid var(--line);border-top:4px solid var(--teal);
+  border-radius:8px;padding:13px 14px;background:var(--soft);
+  font-size:12.5px;color:var(--muted)}
+.card b{display:block;font-size:22px;color:var(--navy);line-height:1.2;
+  margin-bottom:4px}
+.card.blue{border-top-color:var(--blue)}
+.card.warn{border-top-color:var(--warn)}
+.card.red{border-top-color:var(--red)}
+.card.ok{border-top-color:var(--good)}
+table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:13px}
+th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top;
+  text-align:left;line-height:1.6}
+th{background:var(--navy);color:#fff;font-weight:600;font-size:12.5px}
+tbody tr:nth-child(even) td{background:#fafcfe}
+tr.grp td{background:#e8eef6 !important;font-weight:700;color:var(--navy);
+  font-size:12.5px;letter-spacing:.04em}
+td strong{color:var(--navy)}
+.tag{display:inline-block;padding:1px 7px;border-radius:4px;font-size:11px;
+  background:#e6f6f2;color:var(--teal);font-weight:700;white-space:nowrap}
+.tag.tagw{background:#fff3d6;color:var(--warn)}
+.tag.tagr{background:#fde8e6;color:var(--red)}
+.tag.tagb{background:#e7f0fb;color:var(--blue)}
+.good{color:var(--good);font-weight:700}
+.bad{color:var(--red);font-weight:700}
+.warn2{color:var(--warn);font-weight:700}
+.formula{background:#f7fafd;border:1px solid var(--line);border-left:4px solid
+  var(--blue);border-radius:7px;padding:12px 16px;margin:13px 0}
+.formula code{background:none;padding:0;font-size:14px;color:#123a68;
+  font-weight:600;display:block;line-height:1.85}
+.formula .fres{display:block;margin-top:7px;color:var(--teal);
+  font-weight:700;font-size:14px}
+.formula .fnote{display:block;margin-top:6px;color:var(--muted);
+  font-size:12.5px;line-height:1.65}
+figure{margin:18px 0 22px;border:1px solid var(--line);border-radius:10px;
+  padding:14px 16px 10px;background:#fff}
+figure.svgbox{background:#fcfdff}
+svg.svgfig{display:block;width:100%;height:auto;margin:0}
+figcaption{margin-top:10px;font-size:12.5px;color:var(--muted);line-height:1.65}
+figcaption strong{color:var(--navy)}
+figcaption .cap{display:block;margin-top:3px}
+footer{padding:24px 62px;background:var(--navy);color:#c9d8e8;font-size:12.5px;
+  line-height:1.8}
+footer b{color:#fff}
+pre.tree{background:#f7fafd;border:1px solid var(--line);border-radius:8px;
+  padding:14px 18px;font:12.5px/1.65 Consolas,"Courier New",monospace;
+  overflow:auto;color:#1b3d66}
+@media(max-width:1000px){
+  header,nav,main,footer{padding-left:24px;padding-right:24px}
+  .g4,.g3,.g2{grid-template-columns:1fr}
+  .docbar{grid-template-columns:1fr 1fr}
+  table{font-size:12px}
+}
+@media print{
+  body{background:#fff;font-size:10.5pt}
+  .page{box-shadow:none;max-width:none}
+  nav{display:none}
+  header{padding:24px 0}
+  main{padding:0}
+  h2{page-break-after:avoid;margin-top:22px}
+  table,figure,.card,.note,.lead,.formula{page-break-inside:avoid}
+  @page{size:A4;margin:13mm}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="kicker">AIDC-B300-CFD-UC01b-PLAN-001 · 方案 + 计划 · 不是结果报告</div>
+  <h1>UC-01b 单孔单元胞<br>ICEM / Fluent 工作方案与计划</h1>
+  <div class="sub">
+    各向异性流体 coupon：S<sub>x</sub>=3.0 mm（沿槽）× S<sub>y</sub>=2.4 mm（跨槽）。
+    <strong>2026-09-25 DP-A 已收敛：</strong>iter 8587，4 核 GPU。
+    施加 q''=579282.4074074075 W/m²，ṁ=1.2249382716049385×10⁻⁴ kg/s。
+    场 <code>uc01b_cht_v2_n216_q105</code>（cas 12:15:11，dat 12:15:19）。
+    残差 1.6618e-07 / 1.3524e-07 / 1.7518e-07 / 2.5383e-07 / 9.9436e-07 / 5.8504e-07 / 2.4913e-04。
+    TIM 底 341.9327 K，铜–水 326.81594 K，出口 320.90048 K，入口 313.15 K，静压差 1088.1265 Pa。
+    R(T_TIM−T_in)=0.031949 K/W（900.9 W），不再加 R_TIM2 与 R_wall。R_conv=0.015169 K/W，R_c-in=0.022561–0.026561 K/W。出口温升 7.75048 K / 能量 8.14772 K = 0.951，能量未闭合。
+    当前入口是 ṁ=1.224938×10⁻⁴ kg/s，U=0.9824 m/s，Re_D=597.1。
+    三槽 0.40×1.50 节距 0.80，D=<strong>0.40</strong> mm（GEO 默认 0.50 仅作对照），
+    H=2.0 mm，±X 回液缝 0.80 上抽。
+    单孔 ṁ = 1.224938×10<sup>−4</sup> kg/s（1.60 L/min ÷ 216）。
+  </div>
+  <div class="meta">
+    <span class="pill">文档 PLAN-001</span>
+    <span class="pill">版本 v1.0</span>
+    <span class="pill">2026-09-21</span>
+    <span class="pill ok2">ANSYS 2026 R1 / v261</span>
+    <span class="pill">D = 0.40 mm</span>
+    <span class="pill">2.4 × 3.0 mm</span>
+    <span class="pill warn">Re<sub>D</sub>=597 &lt; 2000</span>
+    <span class="pill hot">禁止整板起步</span>
+  </div>
+  <div class="docbar">
+    <div>保证点 DP-A<b>1100 W @ 2.0 L/min（整板）</b></div>
+    <div>单孔 ṁ<b>1.224938e-4 kg/s</b></div>
+    <div>冷板压降窗<b>20 kPa，不含 UQD</b></div>
+    <div>第一案模型<b>层流 · 水 40 °C</b></div>
+  </div>
+</header>
+<nav>
+  <a href="#exec">0 结论</a>
+  <a href="#scope">1 目标</a>
+  <a href="#geo">2 几何冻结</a>
+  <a href="#anchor">3 锚点</a>
+  <a href="#icem">4 ICEM</a>
+  <a href="#fluent">5 Fluent</a>
+  <a href="#gates">6 闸门</a>
+  <a href="#risk">7 风险</a>
+  <a href="#ok">8 成功判据</a>
+  <a href="#tree">9 文件树</a>
+  <a href="#hours">10 工时</a>
+  <a href="#seq">11 四步</a>
+  <a href="#rel">12 关系</a>
+</nav>
+<main>
+
+<section id="exec">
+<h2>0.　结论（先读这一页）</h2>
+<p class="lead">本算例只做<strong>一孔 + 三短槽 + ±X 回液缝上抽</strong>的流体单元胞。
+禁止 95×75 mm 整板、禁止 128 孔共轭、禁止把槽当成「一条长河」的 bank 流。
+<strong>2.0 L/min 是整板总流量，不是单孔。20 kPa 是冷板本体窗，不含 UQD。</strong>
+本文是开工令，不是仿真报告；结果报告必须等 Fluent 至少写出残差。</p>
+<div class="grid g4">
+  <div class="card blue"><b>2.4 × 3.0</b>S<sub>y</sub> 跨槽 × S<sub>x</sub> 沿槽，mm</div>
+  <div class="card"><b>⌀0.40</b>主孔径（GEO 默认 0.50 不覆盖）</div>
+  <div class="card warn"><b>597</b>iter 8587 的 Re<sub>D</sub>，Martin 下限 2000</div>
+  <div class="card ok"><b>四步锁死</b>方案 → 网格 → 求解 → 报告</div>
+</div>
+<div class="note ok"><strong>ANSYS 已定位（2026 R1 / v261）。</strong>
+<code>AWP_ROOT261</code> =
+<code>E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261</code>。
+ICEM：<code>icemcfd\win64_amd\bin\icemcfd.bat</code>。
+Fluent：<code>fluent\ntbin\win64\fluent.exe</code>。
+许可证能否 checkout 要到批处理时才知道。</div>
+</section>
+
+<section id="scope">
+<h2>1.　目标、范围、非目标</h2>
+<h3>1.1　目标</h3>
+<ol class="tight">
+  <li>ICEM 建出与 <code>calc/model.py</code> GEO 及
+      <code>UC01_壁面射流与三槽流路说明.html</code> / <code>fig_walljet.py</code>
+      对齐的单孔流体域。</li>
+  <li>打出 Fluent 可读网格：优先结构化 hex（孔 O-grid + 槽 H 网格）；不行则 tet/prism 并声明。</li>
+  <li>TUI journal 启动 Fluent：层流、水 40 °C、ṁ = 1.224938e-4 kg/s、回液缝压力出口。已收敛场是 iter 8587。</li>
+  <li>至少得到残差与若干监视器（ΔP，若可能则 wall_imp 面平均 h）。不要求过夜收敛。</li>
+  <li>用实测残差/监视器写结果报告。禁止编造云图。</li>
+</ol>
+<h3>1.2　非目标（本周禁止）</h3>
+<ul class="tight">
+  <li>整板、128 孔、HBM、静压箱+水嘴全模；</li>
+  <li>用本单元胞 h 外推整板 R<sub>θ,c-in</sub>（设计报告 v2.0 §10.3）；</li>
+  <li>1/4 对称；长槽 bank 流；</li>
+  <li>PG25 / 热点 2.5× / 堵塞 20%；</li>
+  <li>把 2.0 L/min 当单孔流量；把 20 kPa 当「含 UQD 的接口压降」。</li>
+</ul>
+<h3>1.3　责任</h3>
+<table>
+<thead><tr><th>角色</th><th>责任</th></tr></thead>
+<tbody>
+<tr><td>Agent</td><td>方案、replay/Tcl、journal、批处理、日志、对照表；不编造未跑出的场</td></tr>
+<tr><td>人（仿真）</td><td>许可证、ICEM GUI 救阻塞、目视网格、过夜收敛、是否开 SST</td></tr>
+<tr><td>人（热设计）</td><td>出口定义改口、D=0.40 是否回写 GEO</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="geo">
+<h2>2.　几何冻结表</h2>
+<p>坐标系：原点在中槽底面中心；<strong>+X 沿槽</strong>；<strong>+Y 跨槽</strong>；<strong>+Z 向上</strong>（射流 −Z 打壁）。</p>
+<h3>2.1　与代码 / 说明页对照</h3>
+<table>
+<thead><tr><th>量</th><th>符号</th><th>UC-01b 本算例</th><th>GEO 默认</th><th>出处</th></tr></thead>
+<tbody>
+<tr><td>沿槽节距</td><td>S<sub>x</sub></td><td><strong>3.0 mm</strong></td><td>S_jet = 3.0</td><td>用户冻结；GEO</td></tr>
+<tr><td>跨槽节距</td><td>S<sub>y</sub></td><td><strong>2.4 mm</strong></td><td>（说明页顶视曾按 3.0）</td><td>用户冻结；三槽装满</td></tr>
+<tr><td>孔径</td><td>D</td><td><strong>0.40 mm</strong></td><td>0.50 mm</td><td>用户取值；说明页</td></tr>
+<tr><td>间隙</td><td>H</td><td>2.0 mm</td><td>同左</td><td>GEO</td></tr>
+<tr><td>H/D</td><td>—</td><td><strong>5.0</strong></td><td>4.0</td><td>派生</td></tr>
+<tr><td>S<sub>x</sub>/D，S<sub>y</sub>/D</td><td>—</td><td><strong>7.5，6.0</strong></td><td>6.0，6.0</td><td>派生</td></tr>
+<tr><td>相对喷嘴面积</td><td>f</td><td><strong>0.01745</strong></td><td>0.02182</td><td>A<sub>jet</sub>/(S<sub>x</sub>S<sub>y</sub>)</td></tr>
+<tr><td>盖板厚</td><td>t_lid</td><td>2.5 mm（流体建孔段）</td><td>2.5</td><td>GEO</td></tr>
+<tr><td>短静压箱</td><td>H_plenum</td><td>≥ 2.0 mm（能建就建）</td><td>≥4D 建议</td><td>本方案</td></tr>
+<tr><td>短槽</td><td>w×h，p</td><td>0.40×1.50，节距 0.80</td><td>同左</td><td>GEO / fig_walljet</td></tr>
+<tr><td>回液缝物理宽</td><td>w_slit</td><td>0.80 mm</td><td>同左</td><td>fig_walljet</td></tr>
+<tr><td>本胞可见半缝</td><td>w_slit/2</td><td><strong>0.40 mm × 2</strong></td><td>周期缝各见一半</td><td>冻结</td></tr>
+<tr><td>余铜</td><td>t_base,cu</td><td>不建（流体-only）</td><td>2.0 mm</td><td>UC-02 才共轭</td></tr>
+</tbody>
+</table>
+<h3>2.2　Y 向三槽装填（2.4 mm 刚好）</h3>
+<p>3×槽 + 2×满肋 + 2×半肋 = 1.20 + 0.80 + 0.40 = <strong>2.40 mm</strong>。</p>
+<table>
+<thead><tr><th>Y 区间 (mm)</th><th>零件</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>[−1.20, −1.00]</td><td>半肋</td><td>周期/对称面，邻胞共享</td></tr>
+<tr><td>[−1.00, −0.60]</td><td>侧槽 −</td><td>中心 Y=−0.80，r/D≈2</td></tr>
+<tr><td>[−0.60, −0.20]</td><td>满肋</td><td></td></tr>
+<tr><td>[−0.20, +0.20]</td><td><strong>中槽</strong></td><td>正对孔，驻点在槽底</td></tr>
+<tr><td>[+0.20, +0.60]</td><td>满肋</td><td></td></tr>
+<tr><td>[+0.60, +1.00]</td><td>侧槽 +</td><td>中心 Y=+0.80</td></tr>
+<tr><td>[+1.00, +1.20]</td><td>半肋</td><td>周期/对称面</td></tr>
+</tbody>
+</table>
+<h3>2.3　X 向回液</h3>
+<table>
+<thead><tr><th>X 区间 (mm)</th><th>零件</th></tr></thead>
+<tbody>
+<tr><td>[−1.50, −1.10]</td><td>−X 半缝（上抽）</td></tr>
+<tr><td>[−1.10, +1.10]</td><td>三槽 + 间隙主体，槽长 2.20 mm</td></tr>
+<tr><td>[+1.10, +1.50]</td><td>+X 半缝（上抽）</td></tr>
+</tbody>
+</table>
+<p>备选「缝宽 0.80 全部落在本胞」记为 UC-01b-isolated，<strong>本方案不采用</strong>。</p>
+<h3>2.4　Z 向堆叠</h3>
+<table>
+<thead><tr><th>Z (mm)</th><th>域</th><th>网格要点</th></tr></thead>
+<tbody>
+<tr><td>0 → 1.50</td><td>三槽腔 + 缝根</td><td>槽底 = wall_imp</td></tr>
+<tr><td>1.50 → 3.50</td><td>间隙 H=2.0</td><td>肋顶 = 壁面射流贴壁，加密</td></tr>
+<tr><td>3.50 → 6.00</td><td>盖板孔段 ⌀0.40</td><td>轴向 ≥8，径向 ≥8–12</td></tr>
+<tr><td>6.00 → 8.00</td><td>短静压箱 ≥2 mm</td><td>顶面 = inlet_jet</td></tr>
+</tbody>
+</table>
+<figure class="svgbox">
+<svg class="svgfig" viewBox="0 0 1100 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UC-01b 单元胞示意">
+  <rect x="8" y="8" width="1084" height="344" rx="8" fill="#fcfdff" stroke="#d7e0ec"/>
+  <text x="28" y="34" font-size="14" font-weight="700" fill="#0b2748" font-family="Microsoft YaHei,sans-serif">图 2-1　UC-01b 流体 coupon（不是 95×75 mm 整板）</text>
+  <rect x="70" y="56" width="420" height="36" rx="2" fill="#e7f0fb" stroke="#1769e0"/>
+  <text x="280" y="79" text-anchor="middle" fill="#14507f" font-size="12" font-family="Microsoft YaHei,sans-serif">短静压箱 ≥2 mm　inlet_jet ṁ₁</text>
+  <rect x="248" y="92" width="64" height="40" fill="#90cdf4" stroke="#1769e0"/>
+  <text x="280" y="117" text-anchor="middle" fill="#0b2748" font-size="11" font-family="Microsoft YaHei,sans-serif">⌀0.40</text>
+  <rect x="70" y="132" width="420" height="56" fill="#bee3f8" stroke="#1769e0"/>
+  <text x="280" y="157" text-anchor="middle" fill="#14507f" font-size="12" font-family="Microsoft YaHei,sans-serif">间隙 H = 2.0　　壁面射流贴肋顶 → ±X</text>
+  <text x="280" y="176" text-anchor="middle" fill="#5d6b80" font-size="11" font-family="Microsoft YaHei,sans-serif">Y 面 SYM / periodic @ ±1.2 mm</text>
+  <rect x="70" y="188" width="36" height="70" fill="#f6ad55" stroke="#c05621"/>
+  <rect x="454" y="188" width="36" height="70" fill="#f6ad55" stroke="#c05621"/>
+  <rect x="118" y="198" width="72" height="50" fill="#9ae6d8" stroke="#008b7a"/>
+  <rect x="208" y="198" width="144" height="50" fill="#2f9e94" stroke="#008b7a"/>
+  <rect x="370" y="198" width="72" height="50" fill="#9ae6d8" stroke="#008b7a"/>
+  <text x="280" y="228" text-anchor="middle" fill="#fff" font-size="11" font-family="Microsoft YaHei,sans-serif">中槽驻点</text>
+  <text x="88" y="268" text-anchor="middle" fill="#c05621" font-size="10" font-family="Microsoft YaHei,sans-serif">↑缝</text>
+  <text x="472" y="268" text-anchor="middle" fill="#c05621" font-size="10" font-family="Microsoft YaHei,sans-serif">↑缝</text>
+  <line x1="70" y1="300" x2="490" y2="300" stroke="#0b2748" stroke-width="1.2"/>
+  <text x="280" y="322" text-anchor="middle" fill="#0b2748" font-size="12" font-family="Microsoft YaHei,sans-serif">S<sub>x</sub> = 3.0 mm（沿槽）　半缝 0.40 + 槽长 2.20 + 半缝 0.40</text>
+  <rect x="540" y="56" width="530" height="260" rx="7" fill="#f7fafd" stroke="#d7e0ec"/>
+  <text x="560" y="84" fill="#0b2748" font-size="13" font-weight="700" font-family="Microsoft YaHei,sans-serif">冻结数字</text>
+  <text x="560" y="112" fill="#182536" font-size="12.5" font-family="Microsoft YaHei,sans-serif">工质　DI 水 40 °C　ρ=992.2　μ=6.53e-4　k=0.631</text>
+  <text x="560" y="136" fill="#182536" font-size="12.5" font-family="Microsoft YaHei,sans-serif">ṁ₁ = 1.2249e-04 kg/s　= 1.60 L/min / 216</text>
+  <text x="560" y="160" fill="#182536" font-size="12.5" font-family="Microsoft YaHei,sans-serif">D=0.40　U=0.982 m/s　Re<sub>D</sub>=597</text>
+  <text x="560" y="184" fill="#182536" font-size="12.5" font-family="Microsoft YaHei,sans-serif">f = 0.01745　H/D = 5.0　S<sub>y</sub>/D = 6.0</text>
+  <text x="560" y="208" fill="#b42318" font-size="12.5" font-weight="700" font-family="Microsoft YaHei,sans-serif">Re 仍低于 Martin 2000　→ 设计点是外推</text>
+  <text x="560" y="232" fill="#182536" font-size="12.5" font-family="Microsoft YaHei,sans-serif">孔口 ΔP（K=1.8）≈ 2.45 kPa（不是 20 kPa）</text>
+  <text x="560" y="256" fill="#182536" font-size="12.5" font-family="Microsoft YaHei,sans-serif">首层 ≤ 3 μm　hex 目标 0.8–2.5 M</text>
+  <text x="560" y="286" fill="#14507f" font-size="12.5" font-family="Microsoft YaHei,sans-serif">流路：下射 → 驻点 → 壁面射流 ±X → 缝上抽</text>
+</svg>
+<figcaption><strong>图 2-1</strong>　单孔各向异性单元胞
+<span class="cap">橙条 = 回液上抽。青块 = 三槽。禁止改成沿槽长出流。</span></figcaption>
+</figure>
+<h3>2.5　流路（禁止改口）</h3>
+<p><strong>下射 → 驻点 → 壁面射流沿 ±X（并扫入侧槽）→ 回液缝向上。</strong>
+自由射流不是壁面射流；槽底导管流也不是。Y=±1.2 mm 处邻孔相撞，预期喷泉。</p>
+<h3>2.6　命名零件</h3>
+<table>
+<thead><tr><th>Part</th><th>类型</th><th>位置</th></tr></thead>
+<tbody>
+<tr><td><code>inlet_jet</code></td><td>mass-flow-inlet</td><td>静压箱顶</td></tr>
+<tr><td><code>wall_orifice</code></td><td>wall</td><td>孔圆柱壁</td></tr>
+<tr><td><code>wall_lid</code></td><td>wall</td><td>盖板下表面</td></tr>
+<tr><td><code>wall_imp</code></td><td>wall，等温 50 °C</td><td>槽底 / 驻点</td></tr>
+<tr><td><code>fin</code></td><td>wall</td><td>肋侧 + 肋顶</td></tr>
+<tr><td><code>return_slot</code></td><td>pressure-outlet</td><td>两条缝顶面</td></tr>
+<tr><td><code>periodic_y</code> 或 <code>SYM</code></td><td>periodic / symmetry</td><td>Y=±1.2</td></tr>
+<tr><td><code>fluid</code></td><td>cell zone</td><td>全部流体</td></tr>
+</tbody>
+</table>
+<h3>2.7　D=0.40 不换 0.50</h3>
+<p>仅当 0.40 的 O-grid 数值病态时允许用 0.50 <em>调试</em> blocking，但必须交付 0.40 主文件，并写原因。
+本方案判断两者难度同量级，<strong>不换直径</strong>。</p>
+</section>
+
+<section id="anchor">
+<h2>3.　水力 / 热力锚点（DP-A）</h2>
+<p>工质 <code>WATER40</code>：ρ=992.2，μ=6.53×10<sup>−4</sup>，k=0.631，c<sub>p</sub>=4179，Pr=4.325。</p>
+<h3>3.1　流量拆分</h3>
+<table>
+<thead><tr><th>量</th><th>值</th><th>含义</th></tr></thead>
+<tbody>
+<tr><td>冷板总流量</td><td><strong>2.00 L/min</strong></td><td>整板，<span class="bad">不是单孔</span></td></tr>
+<tr><td>GPU 份额</td><td>80% → <strong>1.60 L/min</strong></td><td>SPLIT_GPU</td></tr>
+<tr><td>孔数</td><td><strong>128</strong></td><td>默认；176 须书面改口</td></tr>
+<tr><td>单孔体积流</td><td>0.0125 L/min</td><td>1.60/128</td></tr>
+<tr><td>单孔质量流</td><td><strong>1.224938×10<sup>−4</sup> kg/s</strong></td><td>Fluent 入口，iter 8587</td></tr>
+</tbody>
+</table>
+<div class="formula">
+<code>ṁ₁ = ρ × Q_GPU / N_jet / 60000 = 992.2 × 1.60 / 128 / 60000</code>
+<span class="fres">1.224938×10⁻⁴ kg/s</span>
+<span class="fnote">176 孔备选为 1.503×10⁻⁴ kg/s，本算例不用。</span>
+</div>
+<h3>3.2　射流状态</h3>
+<table>
+<thead><tr><th></th><th>D=0.50（报告 §9）</th><th>D=0.40（本算例）</th></tr></thead>
+<tbody>
+<tr><td>U</td><td>1.061 m/s</td><td><strong>0.9824 m/s</strong>（iter 8587，ṁ=1.224938×10⁻⁴ kg/s）</td></tr>
+<tr><td>Re<sub>D</sub></td><td>806</td><td><strong>597.1</strong></td></tr>
+<tr><td>孔口 ΔP（K=1.8）</td><td>1.01 kPa</td><td><strong>2.45 kPa</strong></td></tr>
+<tr><td>Martin 窗</td><td>外推</td><td><strong>仍外推</strong></td></tr>
+</tbody>
+</table>
+<p>V4 锚定（本几何）：ṁ≈6.15×10<sup>−4</sup> kg/s 使 Re<sub>D</sub>=3000。本周不必跑。</p>
+<h3>3.3　一维对照带</h3>
+<table>
+<thead><tr><th>模型</th><th>h 或 h_eff</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>乐观 Martin（报告，D=0.50）</td><td>51470 W/m²K</td><td>Re 外推</td></tr>
+<tr><td>保守 短槽+驻点核</td><td>27460 W/m²K</td><td>h_ch≈6379，h_stag≈32181</td></tr>
+<tr><td>Martin 改用本几何 D=0.40</td><td>~64600 W/m²K</td><td>仍外推，仅作量级</td></tr>
+<tr><td>整板 R<sub>θ,c-in</sub></td><td>0.0202–0.0355 °C/W</td><td><span class="bad">单元胞不可比</span></td></tr>
+</tbody>
+</table>
+<div class="note risk"><strong>两句硬约束。</strong>
+（1）20 kPa 是冷板本体窗（目标 18），<strong>不含 UQD</strong>；单元胞孔口只有约 1–3 kPa。
+（2）2.0 L/min 是整板总流量。把 2.0 填进 mass-flow-inlet 视为计划失败。</div>
+</section>
+
+<section id="icem">
+<h2>4.　ICEM 工作流</h2>
+<p>顺序锁死：<strong>几何 → 命名 parts → blocking → 网格 → 质量表 → Fluent msh</strong>。不得先加密再补面名。</p>
+<h3>4.1　几何</h3>
+<p>ICEM 内点/线/面/体素构造，布尔成单一流体体，与 §2 误差 &lt; 0.01 mm。孔必须是圆；应急网格允许等面积方孔（边长 0.3545 mm），主 replay 仍建圆孔。</p>
+<div class="formula">
+<code>set AWP_ROOT261=E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261</code>
+<code>"%AWP_ROOT261%\icemcfd\win64_amd\bin\icemcfd.bat" -batch -script build_uc01b.rpl</code>
+<span class="fnote">GUI：File → Replay Scripts → 打开本目录 .rpl。</span>
+</div>
+<h3>4.2–4.3　Parts 与 blocking</h3>
+<p>Parts 见 §2.6。孔+箱 O-grid；间隙 H 网格；三槽各一砖；回液竖砖与槽端对接；Y 两侧点数一致。
+O-grid 失败则 tet+prism（首层仍 ≤3 μm），日志写明「非 hex」。</p>
+<h3>4.4　网格指标</h3>
+<table>
+<thead><tr><th>指标</th><th>目标</th><th>第一案可接受</th></tr></thead>
+<tbody>
+<tr><td>壁面第一层</td><td>≤ 3 μm</td><td>必须</td></tr>
+<tr><td>驻点法向层数</td><td>≥ 15</td><td>≥10 可开算</td></tr>
+<tr><td>孔径向 / 轴向</td><td>≥8–12 / ≥8</td><td>8 / 8</td></tr>
+<tr><td>间隙法向</td><td>≥ 20</td><td>12</td></tr>
+<tr><td>单元数（hex）</td><td>0.8–2.5 M</td><td>出残差可先 0.2–0.8 M</td></tr>
+<tr><td>正交质量</td><td>min &gt; 0.15</td><td>负体积 = 失败</td></tr>
+<tr><td>y⁺（设计点）</td><td>&lt; 1</td><td>3 μm 约 0.5–1.2</td></tr>
+</tbody>
+</table>
+<div class="note">未跑通 ICEM 不得声称网格已质量检查。许可证挡住则留脚本 + 完整错误日志。</div>
+</section>
+
+<section id="fluent">
+<h2>5.　Fluent 设置（必做）</h2>
+<div class="formula">
+<code>"%AWP_ROOT261%\fluent\ntbin\win64\fluent.exe" 3ddp -t8 -g -i fluent\uc01b_laminar.jou</code>
+<span class="fres">无 GUI 双精度；核数不得超过许可证</span>
+</div>
+<table>
+<thead><tr><th>项</th><th>第一案（必跑）</th><th>第二案（有时间）</th></tr></thead>
+<tbody>
+<tr><td>名称</td><td>UC-01b-L-1008</td><td>UC-01b-S-1008</td></tr>
+<tr><td>粘性</td><td><strong>层流</strong></td><td>k-ω SST 低 Re</td></tr>
+<tr><td>ṁ / T_in</td><td>1.224938e-4 kg/s　313.15 K</td><td>同左</td></tr>
+<tr><td>出口</td><td>return_slot，P<sub>g</sub>=0</td><td>同左</td></tr>
+<tr><td>wall_imp</td><td>等温 323.15 K</td><td>同左</td></tr>
+<tr><td>Y 面</td><td>先 SYM</td><td>同左</td></tr>
+<tr><td>迭代</td><td>50–200 步交差</td><td>同左</td></tr>
+</tbody>
+</table>
+<p>监视：残差、入口平均静压、质量不平衡、wall_imp 面平均 h（参考 T<sub>in</sub>）。
+写出 <code>residual.out</code> / <code>monitors.csv</code>。
+过夜标准（连续/动量 &lt;1e-4，能量 &lt;1e-6）本周不强制。
+<strong>未迭代出的云图不得进结果报告。</strong></p>
+</section>
+
+<section id="gates">
+<h2>6.　闸门 G0–G4</h2>
+<table>
+<thead><tr><th>闸门</th><th>Go 条件</th><th>未满足时允许</th><th>禁止</th></tr></thead>
+<tbody>
+<tr><td><strong>G0 环境</strong></td><td>ICEM+Fluent 可执行文件；许可 ≥4 核</td><td>写方案与脚本</td><td>声称 CFD 已完成</td></tr>
+<tr><td><strong>G1 几何</strong></td><td>尺寸=冻结表，parts 齐全</td><td>改 replay</td><td>宣称网格合格</td></tr>
+<tr><td><strong>G2 网格</strong></td><td>有 msh、无负体积、单元数已记</td><td>粗网格出残差</td><td>未求解就报 y⁺</td></tr>
+<tr><td><strong>G3 短算</strong></td><td>层流起步，残差落盘</td><td>写真实残差</td><td>编造 Nu / 云图</td></tr>
+<tr><td><strong>G4 对照</strong></td><td>报出 ΔP 与（若有）h</td><td>指出超带原因</td><td>改孔径、外推整板 R</td></tr>
+</tbody>
+</table>
+<p>G5 扩阵（8×8）本算例不做。V4 Martin 锚定本周不是交货门。</p>
+</section>
+
+<section id="risk">
+<h2>7.　风险与开放项</h2>
+<table>
+<thead><tr><th>编号</th><th>风险</th><th>等级</th><th>缓解</th></tr></thead>
+<tbody>
+<tr><td>RK-Y1</td><td>Y=±1.2 mm 喷泉/上洗，侧槽 h 被歪</td><td><span class="bad">高</span></td><td>先 SYM；不把 UC h 当边缘孔</td></tr>
+<tr><td>RK-Re</td><td>Re<sub>D</sub>=597.1 &lt; 2000（iter 8587）</td><td><span class="bad">高</span></td><td>只报数字与带宽；V4 另案</td></tr>
+<tr><td>RK-HEX</td><td>圆孔+三槽 hex Tcl 易失败</td><td><span class="warn2">中</span></td><td>tet/prism 或等面积方孔应急</td></tr>
+<tr><td>RK-LIC</td><td>许可证拒绝</td><td><span class="bad">高</span></td><td>全文保留错误</td></tr>
+<tr><td>RK-BC</td><td>回液建成 X 周期或 bank 出流</td><td><span class="bad">高</span></td><td>parts 写死，只许上抽</td></tr>
+<tr><td>RK-Q</td><td>入口误填 2.0 L/min</td><td><span class="bad">高</span></td><td>journal 写死 1.224938e-4</td></tr>
+<tr><td>RK-dP</td><td>用单元胞 ΔP 对 20 kPa</td><td><span class="warn2">中</span></td><td>20 kPa 不含 UQD，且含歧管</td></tr>
+</tbody>
+</table>
+<p>开放项默认：O-01 半缝上抽；O-02 ICEM hex 优先；O-03 Y 先 SYM；O-04 128 孔；O-05 D=0.40。</p>
+</section>
+
+<section id="ok">
+<h2>8.　成功判据（对 1D 的 h、ΔP）</h2>
+<table>
+<thead><tr><th>提取</th><th>对照</th><th>本周通过线</th></tr></thead>
+<tbody>
+<tr><td>残差文件</td><td>—</td><td>journal 启动且迭代 ≥1</td></tr>
+<tr><td>入口–出口 ΔP</td><td>2.45 kPa（K=1.8，D=0.40）</td><td>量级 0.5–8 kPa 可讨论</td></tr>
+<tr><td>wall_imp 面平均 h</td><td>2.7e4–5.1e4（报告带）；本几何 ~6.5e4</td><td>能提取就对照</td></tr>
+<tr><td>层流 vs SST</td><td>差 &gt;20% 只给区间</td><td>只跑层流须声明</td></tr>
+<tr><td>整板 R</td><td>0.0202–0.0355 °C/W</td><td><span class="bad">禁止用本算例关闭</span></td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="tree">
+<h2>9.　文件树</h2>
+<pre class="tree">design/cfd/uc01b_2.4x3.0/
+  UC01b_ICEM_Fluent_工作方案_v1.0.html
+  UC01b_ICEM_Fluent_工作方案_v1.0.md
+  README.md
+  icem/     build_uc01b.rpl .tcl   （.prj/.msh 跑通才有）
+  mesh/     write_hex_msh.py       （应急笛卡尔 hex）
+  fluent/   uc01b_laminar.jou
+  logs/     ansys_paths.txt  icem_batch.log  fluent_batch.log
+  UC01b_ICEM_Fluent_结果报告_v1.0.html / .md   ← 步骤 4，Fluent 起步后才写</pre>
+</section>
+
+<section id="hours">
+<h2>10.　谁跑什么、工时</h2>
+<table>
+<thead><tr><th>步骤</th><th>内容</th><th>谁</th><th>工时</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>本方案 HTML+MD</td><td>Agent</td><td>1–1.5 h</td></tr>
+<tr><td>2a–c</td><td>ICEM 几何/网格/QA</td><td>Agent；人救 GUI</td><td>5–11 h</td></tr>
+<tr><td>3a</td><td>Fluent 层流短残差</td><td>Agent 批处理</td><td>1–3 h</td></tr>
+<tr><td>3b</td><td>SST（可选）</td><td>Agent / 人</td><td>+1–2 h</td></tr>
+<tr><td>3c</td><td>过夜收敛</td><td>人</td><td>另排</td></tr>
+<tr><td>4</td><td>结果报告（只写真实输出）</td><td>Agent</td><td>1–2 h</td></tr>
+<tr class="grp"><td colspan="4">本周最小闭环合计约 8–16 h；正式三套网格 + V4 + SST 再 +1–2 工作日</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="seq">
+<h2>11.　执行顺序（冻结，四步）</h2>
+<ol class="tight">
+  <li><strong>方案+计划</strong>（本 HTML / 配套 MD）。</li>
+  <li><strong>ICEM 几何 + 网格</strong>。失败留日志。</li>
+  <li><strong>Fluent 计算（必做）</strong>。层流第一，至少数十步残差。</li>
+  <li><strong>结果报告 HTML+MD</strong>。只引用步骤 3。没有残差就不能写第 4 步。</li>
+</ol>
+</section>
+
+<section id="rel">
+<h2>12.　与既有文档的关系</h2>
+<table>
+<thead><tr><th>文档</th><th>关系</th></tr></thead>
+<tbody>
+<tr><td><code>calc/model.py</code></td><td>数值唯一源。本算例 D、S<sub>y</sub> 按用户冻结覆盖 GEO</td></tr>
+<tr><td>设计报告 v2.0 §9 / §10</td><td>Q1 局部 h；C01 整板不在本周</td></tr>
+<tr><td>CFD-AI Agent 能力评估 v1.0</td><td>能力边界与 G0–G5；本文是 UC-01b 开工令</td></tr>
+<tr><td>UC01 壁面射流说明</td><td>流路与三区；S<sub>y</sub> 已从 3.0 收到 2.4</td></tr>
+</tbody>
+</table>
+<div class="note ok">同目录 Markdown 与本文内容对等，可脱离浏览器阅读。结果报告是另一对 HTML+MD，必须在 Fluent 起步之后写。</div>
+</section>
+
+</main>
+<footer>
+  <b>AIDC-B300-CFD-UC01b-PLAN-001 · 工作方案 v1.0 · 2026-09-21</b><br>
+  型号 CP-B300-JM-01　|　DP-A 1100 W @ 2.0 L/min（整板）　|
+  GPU 1.60 L/min / 216　|　ṁ<sub>jet</sub> = 1.224938e-4 kg/s　|　iter 8587<br>
+  20 kPa 冷板窗<strong>不含 UQD</strong>。本文不是仿真报告，不是许可证申请书。<br>
+  ANSYS 2026 R1 / v261　|
+  <code>E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261</code>
+</footer>
+</div>
+</body>
+</html>
