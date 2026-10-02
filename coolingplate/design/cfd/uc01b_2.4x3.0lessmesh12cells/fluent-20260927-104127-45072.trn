@@ -1,0 +1,591 @@
+Auto-Transcript Start Time:  10:41:27, 27 Sep 2026 中国标准时间 
+Current Directory: "D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0lessmesh12cells"
+
+              Welcome to ANSYS Fluent 2026 R1
+
+              Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Feb  2 2026 16:22:05 EST  Build Id: 10262  
+ 
+Connected License Server List:	1055@localhost
+
+*********************************************
+Info: Your license enables 4-way parallel execution.
+For faster simulations, please start the application with the appropriate parallel options.
+*********************************************
+
+Host spawning Node 0 on machine "DESKTOP-JHEHF28" (win64).
+Host waiting for connection from Node 0 at 127.0.0.1:49813 
+
+Node 0 connecting to the Host ... connection established.
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0    DESKTOP-JHEHF28  1/32  Windows-x64  60824  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  62528  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+------------------------------------------------------------------------------------
+
+Cleanup script file is D:\\agents2026\\agents2026\\agents\\AIDCtms\\coolingplate\\design\\cfd\\uc01b_2.4x3.0lessmesh12cells\\cleanup-fluent-DESKTOP-JHEHF28-62528.bat
+Note: Rank = 0: Process affinity not being set (6).
+
+Graphics driver currently in use: dx11
+
+
+Loading "C:\Users\Administrator/.fluent"
+Fast-loading "E:/cae/programfiles/Ansys2026/ANSYS Inc261/v261/fluent/fluent26.1.0/addons/rbfmorph/radial_basis.bin"
+Done.
+Done.
+
+Reading journal file D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0lessmesh12cells\fluent\uc01b_cht_less_12y_gui_sections.jou...
+
+> ; Open the iter-300 first-order field and leave Fluent's own section contours on screen.
+; Do not exit. The graphics window stays for inspection.
+/file/set-batch-options yes no no
+
+> /file/start-transcript "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/logs/fluent_gui_section_i300.log"
+Opening input/output transcript to file "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/logs/fluent_gui_section_i300.log".
+
+------------------------------------------------------------------------------------
+ID    Hostname         Core  O.S.         PID    CPU Model Name                    
+------------------------------------------------------------------------------------
+n0*   DESKTOP-JHEHF28  1/32  Windows-x64  60824  Intel(R) Core(TM) i9-14900KF      
+host  DESKTOP-JHEHF28        Windows-x64  62528  Intel(R) Core(TM) i9-14900KF      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+------------------------------------------------------------------------------------
+
+
+> /file/read-case-data "D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/fluent/uc01b_cht_less_12y_i300.cas.h5"Fast-loading "E:\cae\programfiles\Ansys2026\ANSYS Inc261\v261\fluent\fluent26.1.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/fluent/uc01b_cht_less_12y_i300.cas.h5" in NODE0 mode ...
+  Reading mesh ...
+    28005504 cells,     3 cell zones ...
+       12679440 hexahedral cells,  zone id: 2
+       14441328 hexahedral cells,  zone id: 3
+         884736 hexahedral cells,  zone id: 4
+    85673816 faces,   131 face zones ...
+            512 mixed interior faces,  zone id: 201
+          10196 mixed interior faces,  zone id: 198
+           5292 mixed interior faces,  zone id: 195
+            512 mixed interior faces,  zone id: 192
+          10196 mixed interior faces,  zone id: 189
+           5292 mixed interior faces,  zone id: 186
+            512 mixed interior faces,  zone id: 183
+          10196 mixed interior faces,  zone id: 180
+           5292 mixed interior faces,  zone id: 177
+            512 mixed interior faces,  zone id: 174
+          10196 mixed interior faces,  zone id: 171
+           5292 mixed interior faces,  zone id: 168
+            512 mixed interior faces,  zone id: 165
+          10196 mixed interior faces,  zone id: 162
+           5292 mixed interior faces,  zone id: 159
+            512 mixed interior faces,  zone id: 156
+          10196 mixed interior faces,  zone id: 153
+           5292 mixed interior faces,  zone id: 150
+            512 mixed interior faces,  zone id: 147
+          10196 mixed interior faces,  zone id: 144
+           5292 mixed interior faces,  zone id: 141
+            512 mixed interior faces,  zone id: 138
+          10196 mixed interior faces,  zone id: 135
+           5292 mixed interior faces,  zone id: 132
+            512 mixed interior faces,  zone id: 129
+          10196 mixed interior faces,  zone id: 126
+           5292 mixed interior faces,  zone id: 123
+            512 mixed interior faces,  zone id: 120
+          10196 mixed interior faces,  zone id: 117
+           5292 mixed interior faces,  zone id: 114
+            512 mixed interior faces,  zone id: 111
+          10196 mixed interior faces,  zone id: 108
+           5292 mixed interior faces,  zone id: 103
+          10176 quadrilateral symmetry faces,  zone id: 100
+         109392 quadrilateral symmetry faces,  zone id: 99
+            512 quadrilateral wall faces,  zone id: 98
+            512 quadrilateral wall faces,  zone id: 97
+         130704 quadrilateral wall faces,  zone id: 96
+        2421792 quadrilateral interior faces,  zone id: 95
+       42630672 quadrilateral interior faces,  zone id: 94
+       37482744 quadrilateral interior faces,  zone id: 5
+           3724 quadrilateral mass-flow-inlet faces,  zone id: 6
+           3724 quadrilateral mass-flow-inlet faces,  zone id: 7
+           3724 quadrilateral mass-flow-inlet faces,  zone id: 8
+           3724 quadrilateral mass-flow-inlet faces,  zone id: 9
+           3724 quadrilateral mass-flow-inlet faces,  zone id: 10
+           3724 quadrilateral mass-flow-inlet faces,  zone id: 11
+           3724 quadrilateral mass-flow-inlet faces,  zone id: 12
+           3724 quadrilateral mass-flow-inlet faces,  zone id: 13
+           3724 quadrilateral mass-flow-inlet faces,  zone id: 14
+           3724 quadrilateral mass-flow-inlet faces,  zone id: 15
+           3724 quadrilateral mass-flow-inlet faces,  zone id: 16
+           3724 quadrilateral mass-flow-inlet faces,  zone id: 17
+           5292 quadrilateral interface faces,  zone id: 18
+           5292 quadrilateral interface faces,  zone id: 19
+          10196 quadrilateral interface faces,  zone id: 20
+          10196 quadrilateral interface faces,  zone id: 21
+            512 quadrilateral interface faces,  zone id: 22
+            512 quadrilateral interface faces,  zone id: 23
+           5292 quadrilateral interface faces,  zone id: 24
+           5292 quadrilateral interface faces,  zone id: 25
+          10196 quadrilateral interface faces,  zone id: 26
+          10196 quadrilateral interface faces,  zone id: 27
+            512 quadrilateral interface faces,  zone id: 28
+            512 quadrilateral interface faces,  zone id: 29
+           5292 quadrilateral interface faces,  zone id: 30
+           5292 quadrilateral interface faces,  zone id: 31
+          10196 quadrilateral interface faces,  zone id: 32
+          10196 quadrilateral interface faces,  zone id: 33
+            512 quadrilateral interface faces,  zone id: 34
+            512 quadrilateral interface faces,  zone id: 35
+           5292 quadrilateral interface faces,  zone id: 36
+           5292 quadrilateral interface faces,  zone id: 37
+          10196 quadrilateral interface faces,  zone id: 38
+          10196 quadrilateral interface faces,  zone id: 39
+            512 quadrilateral interface faces,  zone id: 40
+            512 quadrilateral interface faces,  zone id: 41
+           5292 quadrilateral interface faces,  zone id: 42
+           5292 quadrilateral interface faces,  zone id: 43
+          10196 quadrilateral interface faces,  zone id: 44
+          10196 quadrilateral interface faces,  zone id: 45
+            512 quadrilateral interface faces,  zone id: 46
+            512 quadrilateral interface faces,  zone id: 47
+           5292 quadrilateral interface faces,  zone id: 48
+           5292 quadrilateral interface faces,  zone id: 49
+          10196 quadrilateral interface faces,  zone id: 50
+          10196 quadrilateral interface faces,  zone id: 51
+            512 quadrilateral interface faces,  zone id: 52
+            512 quadrilateral interface faces,  zone id: 53
+           5292 quadrilateral interface faces,  zone id: 54
+           5292 quadrilateral interface faces,  zone id: 55
+          10196 quadrilateral interface faces,  zone id: 56
+          10196 quadrilateral interface faces,  zone id: 57
+            512 quadrilateral interface faces,  zone id: 58
+            512 quadrilateral interface faces,  zone id: 59
+           5292 quadrilateral interface faces,  zone id: 60
+           5292 quadrilateral interface faces,  zone id: 61
+          10196 quadrilateral interface faces,  zone id: 62
+          10196 quadrilateral interface faces,  zone id: 63
+            512 quadrilateral interface faces,  zone id: 64
+            512 quadrilateral interface faces,  zone id: 65
+           5292 quadrilateral interface faces,  zone id: 66
+           5292 quadrilateral interface faces,  zone id: 67
+          10196 quadrilateral interface faces,  zone id: 68
+          10196 quadrilateral interface faces,  zone id: 69
+            512 quadrilateral interface faces,  zone id: 70
+            512 quadrilateral interface faces,  zone id: 71
+           5292 quadrilateral interface faces,  zone id: 72
+           5292 quadrilateral interface faces,  zone id: 73
+          10196 quadrilateral interface faces,  zone id: 74
+          10196 quadrilateral interface faces,  zone id: 75
+            512 quadrilateral interface faces,  zone id: 76
+            512 quadrilateral interface faces,  zone id: 77
+           5292 quadrilateral interface faces,  zone id: 78
+           5292 quadrilateral interface faces,  zone id: 79
+          10196 quadrilateral interface faces,  zone id: 80
+          10196 quadrilateral interface faces,  zone id: 81
+            512 quadrilateral interface faces,  zone id: 82
+            512 quadrilateral interface faces,  zone id: 83
+          45792 quadrilateral wall faces,  zone id: 84
+           5292 quadrilateral pressure-outlet faces,  zone id: 85
+           5292 quadrilateral pressure-outlet faces,  zone id: 86
+         221184 quadrilateral wall faces,  zone id: 87
+          14592 quadrilateral wall faces,  zone id: 88
+         680640 quadrilateral wall faces,  zone id: 89
+         680640 quadrilateral wall faces,  zone id: 102
+         221184 quadrilateral wall faces,  zone id: 90
+         221184 quadrilateral wall faces,  zone id: 101
+          10196 quadrilateral wall faces,  zone id: 91
+          10196 quadrilateral wall faces,  zone id: 92
+         198432 quadrilateral symmetry faces,  zone id: 93
+    29307243 nodes,     1 node zone  ...
+Warning: reading 4 partition grid onto 1 compute node machine.
+         Combining every 4 partitions.
+  Done.
+
+
+Building...
+     mesh
+  Reading NCI Node Coordinates ...
+  Done.
+
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	wall_cu_fluid-shadow
+	wall_tim_cu-shadow
+	sym:100
+	sym:099
+	wall_y_back:098
+	wall_y_front:097
+	interior:095
+	interior:094
+	wall_tim_cu
+	wall_cu_fluid
+	wall_orifice
+	wall_heat
+	interior
+	inlet_jet_01
+	inlet_jet_02
+	inlet_jet_03
+	inlet_jet_04
+	inlet_jet_05
+	inlet_jet_06
+	inlet_jet_07
+	inlet_jet_08
+	inlet_jet_09
+	inlet_jet_10
+	inlet_jet_11
+	inlet_jet_12
+	return_slot
+	return_slot:096
+	outlet_y_front
+	outlet_y_back
+	wall_y_front
+	wall_y_back
+	sym
+	ifl_01a
+	ifl_01b
+	icu_01a
+	icu_01b
+	itm_01a
+	itm_01b
+	ifl_02a
+	ifl_02b
+	icu_02a
+	icu_02b
+	itm_02a
+	itm_02b
+	ifl_03a
+	ifl_03b
+	icu_03a
+	icu_03b
+	itm_03a
+	itm_03b
+	ifl_04a
+	ifl_04b
+	icu_04a
+	icu_04b
+	itm_04a
+	itm_04b
+	ifl_05a
+	ifl_05b
+	icu_05a
+	icu_05b
+	itm_05a
+	itm_05b
+	ifl_06a
+	ifl_06b
+	icu_06a
+	icu_06b
+	itm_06a
+	itm_06b
+	ifl_07a
+	ifl_07b
+	icu_07a
+	icu_07b
+	itm_07a
+	itm_07b
+	ifl_08a
+	ifl_08b
+	icu_08a
+	icu_08b
+	itm_08a
+	itm_08b
+	ifl_09a
+	ifl_09b
+	icu_09a
+	icu_09b
+	itm_09a
+	itm_09b
+	ifl_10a
+	ifl_10b
+	icu_10a
+	icu_10b
+	itm_10a
+	itm_10b
+	ifl_11a
+	ifl_11b
+	icu_11a
+	icu_11b
+	itm_11a
+	itm_11b
+	ifl_01a-non-overlapping
+	ifl_01b-non-overlapping
+	ifl-01:01:ifl_01b::ifl_01a
+	icu-01:01:icu_01b::icu_01a
+	icu_01b-non-overlapping
+	icu_01a-non-overlapping
+	itm-01:01:itm_01b::itm_01a
+	itm_01b-non-overlapping
+	itm_01a-non-overlapping
+	ifl-02:01:ifl_02b::ifl_02a
+	ifl_02b-non-overlapping
+	ifl_02a-non-overlapping
+	icu-02:01:icu_02b::icu_02a
+	icu_02b-non-overlapping
+	icu_02a-non-overlapping
+	itm-02:01:itm_02b::itm_02a
+	itm_02b-non-overlapping
+	itm_02a-non-overlapping
+	ifl-03:01:ifl_03b::ifl_03a
+	ifl_03b-non-overlapping
+	ifl_03a-non-overlapping
+	icu-03:01:icu_03b::icu_03a
+	icu_03b-non-overlapping
+	icu_03a-non-overlapping
+	itm-03:01:itm_03b::itm_03a
+	itm_03b-non-overlapping
+	itm_03a-non-overlapping
+	ifl-04:01:ifl_04b::ifl_04a
+	ifl_04b-non-overlapping
+	ifl_04a-non-overlapping
+	icu-04:01:icu_04b::icu_04a
+	icu_04b-non-overlapping
+	icu_04a-non-overlapping
+	itm-04:01:itm_04b::itm_04a
+	itm_04b-non-overlapping
+	itm_04a-non-overlapping
+	ifl-05:01:ifl_05b::ifl_05a
+	ifl_05b-non-overlapping
+	ifl_05a-non-overlapping
+	icu-05:01:icu_05b::icu_05a
+	icu_05b-non-overlapping
+	icu_05a-non-overlapping
+	itm-05:01:itm_05b::itm_05a
+	itm_05b-non-overlapping
+	itm_05a-non-overlapping
+	ifl-06:01:ifl_06b::ifl_06a
+	ifl_06b-non-overlapping
+	ifl_06a-non-overlapping
+	icu-06:01:icu_06b::icu_06a
+	icu_06b-non-overlapping
+	icu_06a-non-overlapping
+	itm-06:01:itm_06b::itm_06a
+	itm_06b-non-overlapping
+	itm_06a-non-overlapping
+	ifl-07:01:ifl_07b::ifl_07a
+	ifl_07b-non-overlapping
+	ifl_07a-non-overlapping
+	icu-07:01:icu_07b::icu_07a
+	icu_07b-non-overlapping
+	icu_07a-non-overlapping
+	itm-07:01:itm_07b::itm_07a
+	itm_07b-non-overlapping
+	itm_07a-non-overlapping
+	ifl-08:01:ifl_08b::ifl_08a
+	ifl_08b-non-overlapping
+	ifl_08a-non-overlapping
+	icu-08:01:icu_08b::icu_08a
+	icu_08b-non-overlapping
+	icu_08a-non-overlapping
+	itm-08:01:itm_08b::itm_08a
+	itm_08b-non-overlapping
+	itm_08a-non-overlapping
+	ifl-09:01:ifl_09b::ifl_09a
+	ifl_09b-non-overlapping
+	ifl_09a-non-overlapping
+	icu-09:01:icu_09b::icu_09a
+	icu_09b-non-overlapping
+	icu_09a-non-overlapping
+	itm-09:01:itm_09b::itm_09a
+	itm_09b-non-overlapping
+	itm_09a-non-overlapping
+	ifl-10:01:ifl_10b::ifl_10a
+	ifl_10b-non-overlapping
+	ifl_10a-non-overlapping
+	icu-10:01:icu_10b::icu_10a
+	icu_10b-non-overlapping
+	icu_10a-non-overlapping
+	itm-10:01:itm_10b::itm_10a
+	itm_10b-non-overlapping
+	itm_10a-non-overlapping
+	ifl-11:01:ifl_11b::ifl_11a
+	ifl_11b-non-overlapping
+	ifl_11a-non-overlapping
+	icu-11:01:icu_11b::icu_11a
+	icu_11b-non-overlapping
+	icu_11a-non-overlapping
+	itm-11:01:itm_11b::itm_11a
+	itm_11b-non-overlapping
+	itm_11a-non-overlapping
+	solid_tim2
+	solid_cu
+	fluid
+     mesh interfaces,
+     parallel,
+Done.
+
+Preparing mesh for display...
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Note: zone-surface: cannot create surface from sliding interface zone.
+Creating empty surface.
+Done.
+
+Reading from DESKTOP-JHEHF28:"D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/fluent/uc01b_cht_less_12y_i300.dat.h5" in NODE0 mode ...
+
+
+  Reading results.
+Parallel variables...
+Done.
+
+
+> /surface/plane-surface slot-z xy 0.00067
+
+> /surface/plane-surface cut-x0 yz 0
+
+> /surface/plane-surface slot-y zx 0.0012
+
+> /display/set/picture/driver png
+
+> /display/set/picture/x-resolution 1400
+
+> /display/set/picture/y-resolution 900
+
+> /display/objects/create contour wh-T temperature 
+Error: invalid command
+Error Object: "temperature"
+
+Warning: An error or interrupt occurred while reading the journal file.
+Some commands may not have been completed.
+
+
+> (cx-gui-do cx-activate-item "Information*OK")
+(cx-gui-do cx-activate-item "MenuBar*ReadSubMenu*Case...")
+(cx-gui-do cx-activate-item "Question*Cancel")

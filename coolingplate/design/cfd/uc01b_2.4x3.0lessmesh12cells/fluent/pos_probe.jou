@@ -1,0 +1,8 @@
+(display "HELP2")
+/display/annotation/edit
+text-0
+?
+?
+quit
+quit
+(display "HELP2-DONE")

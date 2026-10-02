@@ -1,0 +1,15 @@
+; Front orthographic fit of the current contour, then save a picture.
+/display/views/camera/projection
+orthographic
+/display/views/camera/up-vector
+0 0 1
+/display/views/camera/target
+0 0 0.003
+/display/views/camera/position
+0.05 0 0.003
+/display/views/auto-scale
+/display/set/picture/use-window-resolution?
+yes
+/display/save-picture
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/fluent_native/i300_x0_T_fit.png
+(display "FIT-VIEW-DONE")

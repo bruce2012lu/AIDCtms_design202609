@@ -1,0 +1,5 @@
+(display "POS")
+/display/annotation/edit
+text-0
+position
+(display "POS-NEXT")

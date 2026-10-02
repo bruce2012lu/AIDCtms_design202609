@@ -1,0 +1,7 @@
+(display "FONT")
+/display/annotation/edit
+text-0
+font-size
+"24"
+quit
+(display "FONT-DONE")

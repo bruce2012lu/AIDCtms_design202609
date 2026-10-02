@@ -1,0 +1,6 @@
+; Lower the right end so Z is straight up. Measured tilt is 0.46 deg.
+/display/views/camera/roll-camera
+0.46
+/display/save-picture
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/fluent_native/i300_x0_T_roll.png
+(display "ROLL-DONE")

@@ -1,0 +1,9 @@
+(display "DEL")
+/display/annotation/delete
+text-0
+()
+yes
+(display "DEL-DONE")
+/display/annotation/annotate
+"x=0 mm"
+"None"

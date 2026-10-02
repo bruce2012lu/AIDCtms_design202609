@@ -1,0 +1,6 @@
+; Shrink the view so the colormap and labels sit in the margin.
+/display/views/camera/zoom-camera
+0.72
+/display/save-picture
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/fluent_native/i300_x0_T_zup_clear.png
+(display "CLEAR-DONE")

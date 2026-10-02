@@ -1,0 +1,4 @@
+/file/set-batch-options no yes no
+/mesh/separate/help
+/mesh/modify-zones/help
+/exit yes

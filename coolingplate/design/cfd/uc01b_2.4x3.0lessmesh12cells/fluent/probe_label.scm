@@ -1,0 +1,6 @@
+(ti-menu-load-string "/display/objects/edit")
+(ti-menu-load-string "p001t")
+(ti-menu-load-string "name")
+(ti-menu-load-string "wall_heat")
+(ti-menu-load-string "quit")
+(display "LABEL-TRIED")

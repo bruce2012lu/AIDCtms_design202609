@@ -1,0 +1,15 @@
+(display "DECOR-BEGIN")
+/preferences/graphics/graphics-effects/grid-plane-enabled
+no
+(display "GRID-OFF")
+/display/objects/display
+px0t
+/display/save-picture
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/i600/probe_x0_temperature.png
+yes
+(display "GRID-PIC")
+/display/annotation/edit
+text-0
+?
+quit
+(display "ANNO-MENU-DONE")

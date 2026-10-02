@@ -1,0 +1,7 @@
+(display "ANNO-PROBE")
+/display/annotation/create
+sectnote
+text
+"x=0 mm"
+quit
+(display "ANNO-CREATED")

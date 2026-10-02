@@ -1,0 +1,35 @@
+(display "NOLINE")
+/display/annotation/edit
+text-0
+font-name
+"Microsoft YaHei"
+font-size
+"24"
+text
+"x=0 mm"
+quit
+/display/objects/display
+px0t
+/display/views/camera/projection
+orthographic
+/display/views/camera/position
+0.08
+0
+0.003
+/display/views/camera/target
+0
+0
+0.003
+/display/views/camera/up-vector
+0
+0
+1
+/display/views/auto-scale
+/display/views/camera/zoom-camera
+0.72
+/display/views/camera/roll-camera
+-0.13
+/display/save-picture
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/i600/probe_x0_temperature.png
+yes
+(display "NOLINE-PIC")

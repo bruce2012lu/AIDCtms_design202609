@@ -1,0 +1,7 @@
+(display "TEXT-SET-BEGIN")
+/display/annotation/edit
+text-0
+text
+"x=0 mm"
+quit
+(display "TEXT-SET-DONE")

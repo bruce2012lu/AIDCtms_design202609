@@ -1,0 +1,38 @@
+(display "ANNO-TRIAL")
+/display/annotation/edit
+text-0
+font-name
+"Microsoft YaHei"
+font-size
+"24"
+quit
+/display/annotation/edit
+text-0
+text
+"z=-2.08 mm µ×Ãæ"
+quit
+/display/objects/display
+annochk
+/display/views/camera/projection
+orthographic
+/display/views/camera/position
+0
+0
+0.04792
+/display/views/camera/target
+0
+0
+-0.00208
+/display/views/camera/up-vector
+-1
+0
+0
+/display/views/auto-scale
+/display/views/camera/zoom-camera
+0.72
+/display/views/camera/roll-camera
+-0.13
+/display/save-picture
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/i300/anno_check.png
+yes
+(display "ANNO-TRIAL-DONE")

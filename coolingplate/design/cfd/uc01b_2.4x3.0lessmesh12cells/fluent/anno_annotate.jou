@@ -1,0 +1,4 @@
+(display "ANNO-ANNOTATE")
+/display/annotation/annotate
+"x=0 mm"
+(display "ANNO-ANNOTATE-DONE")

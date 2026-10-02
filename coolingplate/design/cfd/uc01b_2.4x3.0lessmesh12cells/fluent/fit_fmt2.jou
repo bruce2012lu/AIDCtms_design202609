@@ -1,0 +1,10 @@
+; Colormap labels: general format, 5 significant figures, no scientific notation.
+/results/graphics/colormap-settings/number-format-type
+general
+/results/graphics/colormap-settings/number-format-precision
+5
+/display/objects/display
+contour-2
+/display/save-picture
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/fluent_native/i300_x0_T_zup_f5.png
+(display "FMT2-DONE")

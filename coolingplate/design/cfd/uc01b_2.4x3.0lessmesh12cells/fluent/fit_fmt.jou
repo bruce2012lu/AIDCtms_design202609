@@ -1,0 +1,7 @@
+; Temperature color scale: fixed point, 5 significant figures (313.15).
+/display/set/windows/scale/format
+%0.2f
+/display/re-render
+/display/save-picture
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/fluent_native/i300_x0_T_zup_f5.png
+(display "FMT-DONE")

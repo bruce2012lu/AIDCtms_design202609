@@ -1,0 +1,20 @@
+(display "MESH5")
+/display/objects/edit
+mx0c
+coloring
+manual
+faces
+red
+edges
+black
+quit
+quit
+/display/objects/display
+mx0c
+/display/views/auto-scale
+/display/views/camera/zoom-camera
+0.72
+/display/save-picture
+D:/agents2026/agents2026/agents/AIDCtms/coolingplate/design/cfd/uc01b_2.4x3.0lessmesh12cells/figs12cells/mesh/mesh_x0_fluent.png
+yes
+(display "MESH5-DONE")
