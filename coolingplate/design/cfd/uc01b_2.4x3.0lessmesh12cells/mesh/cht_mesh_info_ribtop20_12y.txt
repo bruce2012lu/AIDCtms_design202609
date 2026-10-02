@@ -1,0 +1,31 @@
+12 connected ribtop jet units along Y
+level ribtop20
+Sy_mm 2.4
+n_units 12
+y_min_mm -14.399999999999999
+y_max_mm 14.399999999999999
+return floor at rib top z=1.50; X-ends below 1.50 are copper
+outer Y fluid: outlet_y_front / outlet_y_back pressure-outlet
+outer Y solid: wall_y_front / wall_y_back wall
+X faces remain SYM
+cells_total 17545680
+cells_fluid 6206112
+cells_solid_cu 10825488
+cells_solid_tim2 514080
+nodes 17851385
+faces 52941324
+zone interior 51651540
+zone inlet_jet 22320
+zone return_slot 149040
+zone outlet_y_front 3274
+zone outlet_y_back 3274
+zone wall_heat 171360
+zone wall_lid 0
+zone wall_orifice 4320
+zone wall_cu_fluid 509856
+zone wall_tim_cu 171360
+zone wall_other 0
+zone wall_y_front 9986
+zone wall_y_back 9986
+zone SYM 235008
+msh D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0lessmesh12cells\mesh\uc01b_cht_less_ribtop_12y_ch2.msh

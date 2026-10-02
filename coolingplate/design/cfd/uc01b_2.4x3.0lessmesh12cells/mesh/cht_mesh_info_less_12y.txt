@@ -1,0 +1,108 @@
+12 connected less jet units along Y; boundary layer 7 layers, first cell 0.0025 mm; Y joins are interface pairs (fluid/copper/tim); each inlet_jet_XX is one hole; half-ribs at each Y join are 4 uniform 0.05 mm cells
+level less
+Sy_mm 2.4
+n_units 12
+y_min_mm -14.399999999999999
+y_max_mm 14.399999999999999
+return floor at rib top z=1.50; X-ends below 1.50 are copper
+outer Y fluid: outlet_y_front / outlet_y_back pressure-outlet
+outer Y solid: wall_y_front / wall_y_back wall
+X faces remain SYM
+cells_total 28005504
+cells_fluid 12679440
+cells_solid_cu 14441328
+cells_solid_tim2 884736
+nodes 28410606
+faces 84595992
+zone interior 82535208
+zone inlet_jet_01 3724
+zone inlet_jet_02 3724
+zone inlet_jet_03 3724
+zone inlet_jet_04 3724
+zone inlet_jet_05 3724
+zone inlet_jet_06 3724
+zone inlet_jet_07 3724
+zone inlet_jet_08 3724
+zone inlet_jet_09 3724
+zone inlet_jet_10 3724
+zone inlet_jet_11 3724
+zone inlet_jet_12 3724
+zone ifl_01a 5292
+zone ifl_01b 5292
+zone icu_01a 10196
+zone icu_01b 10196
+zone itm_01a 512
+zone itm_01b 512
+zone ifl_02a 5292
+zone ifl_02b 5292
+zone icu_02a 10196
+zone icu_02b 10196
+zone itm_02a 512
+zone itm_02b 512
+zone ifl_03a 5292
+zone ifl_03b 5292
+zone icu_03a 10196
+zone icu_03b 10196
+zone itm_03a 512
+zone itm_03b 512
+zone ifl_04a 5292
+zone ifl_04b 5292
+zone icu_04a 10196
+zone icu_04b 10196
+zone itm_04a 512
+zone itm_04b 512
+zone ifl_05a 5292
+zone ifl_05b 5292
+zone icu_05a 10196
+zone icu_05b 10196
+zone itm_05a 512
+zone itm_05b 512
+zone ifl_06a 5292
+zone ifl_06b 5292
+zone icu_06a 10196
+zone icu_06b 10196
+zone itm_06a 512
+zone itm_06b 512
+zone ifl_07a 5292
+zone ifl_07b 5292
+zone icu_07a 10196
+zone icu_07b 10196
+zone itm_07a 512
+zone itm_07b 512
+zone ifl_08a 5292
+zone ifl_08b 5292
+zone icu_08a 10196
+zone icu_08b 10196
+zone itm_08a 512
+zone itm_08b 512
+zone ifl_09a 5292
+zone ifl_09b 5292
+zone icu_09a 10196
+zone icu_09b 10196
+zone itm_09a 512
+zone itm_09b 512
+zone ifl_10a 5292
+zone ifl_10b 5292
+zone icu_10a 10196
+zone icu_10b 10196
+zone itm_10a 512
+zone itm_10b 512
+zone ifl_11a 5292
+zone ifl_11b 5292
+zone icu_11a 10196
+zone icu_11b 10196
+zone itm_11a 512
+zone itm_11b 512
+zone return_slot 176496
+zone outlet_y_front 5292
+zone outlet_y_back 5292
+zone wall_heat 221184
+zone wall_lid 0
+zone wall_orifice 14592
+zone wall_cu_fluid 680640
+zone wall_tim_cu 221184
+zone wall_other 0
+zone wall_y_front 10708
+zone wall_y_back 10708
+zone SYM 318000
+msh D:\agents2026\agents2026\agents\AIDCtms\coolingplate\design\cfd\uc01b_2.4x3.0lessmesh12cells\mesh\uc01b_cht_less_12y.msh
