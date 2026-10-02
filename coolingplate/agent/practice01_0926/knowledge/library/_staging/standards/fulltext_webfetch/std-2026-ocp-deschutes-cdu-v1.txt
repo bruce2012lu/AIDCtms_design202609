@@ -1,0 +1,3310 @@
+.
+
+### Project Deschutes: Data Center Facilities
+
+1.0.0
+
+Specification Effective Feb 26, 2026
+
+Authors: Google
+
+##### Version History
+
+Initial Release
+
+Date Version # Authors Description 01 July25 0.75.0 Google: Jorge Padilla, Madhu Iyengar, Vijay Soundararajan, Gaurav Soni, Scott McCauley
+
+Added validation plans
+
+29 July 25 0.8 Google: Jorge Padilla, Madhu Iyengar, Vijay Soundararajan, Gaurav Soni, Scott McCauley, Thomas Fitzgerald, Siva Sivasankar
+
+| 8 Aug 25 0.8 Google: | Jorge | Padilla, Madhu | | Updated Table | of |
+| --- | --- | --- | --- | --- | --- |
+| Iyengar, | Vijay Soundararajan, | | | Contents | |
+| Gaurav | Soni, Scott | McCauley, | | | |
+| | Thomas Fitzgerald, | Siva | | Added Glossary | of |
+| | Sivasankar | | | terms in Appendix | |
+| | | | | Updated Controls | |
+
+sections
+
+26 Feb 2026 1 Google: Hussam Kabbani, Jorge Padilla, Madhu Iyengar,Vijay Soundararajan, Gaurav Soni, Scott McCauley, Thomas Fitzgerald, Siva Sivasankar
+
+Update Drawings 
+Updated Dimensions 
+Updated VFD 
+Serviceability 
+Added Expansion 
+Tank Serviceability 
+Updated pump 
+reliability 
+
+## Table of Contents
+
+Version History ... 2 
+1.1 Open Web Foundation (OWF) CLA ... 8 
+Acknowledgements ... 9 
+2. Compliance with OCP Tenets ... 9 
+2.1 Openness ... 9 
+2.2 Efficiency ... 9 
+2.3 Impact ... 9 
+2.4 Scale ... 10 
+2.5 Sustainability ... 10 
+3. Compliance with OCP Tenets ... 11 
+3.1 Technical specification Summary Table ... 11 
+3.2 Product requirements ... 12 
+3.3 Project Deschutes CDU v0.75 design overview and features ... 13 
+4 CDU Physical Dimensions & Mechanical Data ... 16 
+4.1 Overall Dimensions ... 16 
+4.2 Mechanical Features ... 16 
+4.3 CDU weight stack-up ... 17 
+4.4 Mechanical: Shock and Vibration ... 17 
+5 Performance Specifications (Thermal/Hydraulic) ... 18 
+5.1 CDU hydraulic characteristics ... 19 
+5.2 Coolant Specifications ... 21 
+5.3 Heat Exchanger Performance ... 21 
+5.4 Operational Modes ... 23 
+6 Functional Specifications ... 23 
+6.1 Pump ... 23 
+6.2 Heat Exchanger ... 24 
+6.3 Valves ... 24 
+6.4 Piping and Manifolds ... 24 
+6.5 Sensors and Instrumentation ... 24 
+6.7 Control System ... 25 
+7 Electrical Specifications ... 25 
+7.1 Power ... 25 
+7.2 Power - maintenance and hotswap requirements ... 25 
+7.3 Dual feed power architecture block diagram ... 26 
+7.2 Controls ... 26 
+7.2.1 System Feedback: ... 26 
+7.2.2 Controllable Parameters via PLC: ... 27 
+7.2.3 Internet Protocol ... 27 
+Date: Feb 26, 2026 Page 3 
+Open Compute Project • Project Deschutes 
+Dual-Stack IP Support ... 27 
+IPv4 ... 27 
+IPv6 ... 28 
+7.3 VFD ... 28 
+7.4 Power specification summary ... 28 
+8 Safety and Compliance ... 29 
+8.1 Standards ... 29 
+8.2 Certifications ... 29 
+8.3 EMC ... 30 
+8.3 Environmental ... 31 
+9 CAD ... 31 
+10 BOM ... 32 
+11 Tools for Assembly ... 32 
+12 Manufacturing ... 32 
+12.1 Mechanical fittings selected failure modes and testing methodologies ... 35 
+12.1 Assembly Instructions ... 38 
+12.2 Quality Checks ... 38 
+13 Maintenance/service ... 39 
+13.1 Power - maintenance and hotswap requirements ... 39 
+13.2 Pumps ... 39 
+13.3 Filters ... 41 
+13.4 Secondary/technical loop flow meter ... 43 
+13.5 Variable frequency drive (VFD) ... 44 
+13.6 Expansion Tanks ... 45 
+13.7 Control panel ... 45 
+14 Documentation requirements ... 46 
+15 Packaging requirements ... 46 
+16 Shipping requirements ... 46 
+17 Barcode Label Specification for Liquid Cooling Systems & Components ... 46 
+18 Redmond: Hot Aisle Containment (HAC) Interface ... 53 
+18.1 IT Rack Dimensions ... 54 
+18.2 Redmond HAC Interface ... 54 
+18.3 Floor Layout ... 55 
+18.4 Elevations ... 56 
+18.5 Redmond Structure ... 59 
+18.6 Containment ... 60 
+18.7 Busduct Placement ... 60 
+18.8 Power Interface ... 61 
+18.9 Rear Door Heat Exchanger (RDHx) Details ... 61 
+18.10 Rear Door Heat Exchanger (RDHx) Dimensions ... 62 
+Date: Feb 26, 2026 Page 4 
+Open Compute Project • Project Deschutes 
+18.11 Power Whip Routing Through RDHx to Feed Power into IT Racks ... 64 
+18.12 PCW Piping for RDHx ... 64 
+18.13 CDU Placement ... 65 
+19.0 General validation requirements ... 67 
+19.1 Data reporting ... 67 
+19.2 Coolants ... 67 
+19.3 Nomenclature ... 67 
+19.4 General validation suite ... 67 
+19.4.1 Transportation and Weight ... 67 
+19.4.2 Shelf Life ... 68 
+19.4.3 Thermal Shock ... 68 
+19.4.4 COG Analysis ... 68 
+19.4.5 Finite Element Analysis ... 68 
+19.4.8 Agency ... 68 
+20.0 Component validation ... 69 
+20.1 Facility water pipe kits ... 69 
+General ... 69 
+Hydraulic ... 69 
+20.2 Secondary side side kits ... 69 
+General ... 69 
+Hydraulic ... 70 
+20.3 Modular wall manifold kit ... 70 
+General ... 70 
+Hydraulic ... 70 
+20.4 Heat exchanger ... 70 
+General ... 70 
+Thermal-hydraulic ... 71 
+20.5 Primary and secondary filters ... 71 
+General ... 71 
+Hydraulic ... 72 
+Impulse ... 72 
+20.6 Microfiltration ... 72 
+General ... 72 
+Hydraulic ... 72 
+Impulse ... 72 
+20.7 CDU primary side actively controlled valve ... 73 
+General ... 73 
+Hydraulic ... 73 
+20.8 Expansion tank ... 73 
+General ... 73 
+Date: Feb 26, 2026 Page 5 
+Open Compute Project • Project Deschutes 
+Impedance ... 73 
+Leak Check ... 74 
+Pressure Cycle ... 74 
+System Functional ... 74 
+20.9 Flow meter ... 74 
+General ... 74 
+Flow Accuracy ... 75 
+20.10 Leak detection system: cable and controller ... 75 
+General ... 75 
+Functional ... 75 
+20.11 Pressure and temperature telemetry ... 75 
+20.12 Valves and clamps, general ... 75 
+20.13 Pumps functional ... 75 
+Pump Temperature Shut-off Test ... 76 
+Pump Motor Lock Test ... 76 
+Non-Ideal Power Test ... 76 
+20.14 Variable Frequency Drive (VFD) functional ... 78 
+20.15 Programmable Logic Controller (PLC) ... 78 
+20.16 Power distribution unit (PDU) ... 78 
+20.17 Threaded Studs ... 78 
+20.18 Loctite Joints ... 79 
+21.0 Assembly validation ... 79 
+21.1 CDU ... 79 
+21.1.1 CDU hydraulic ... 79 
+CDU primary side ... 79 
+CDU secondary side ... 79 
+21.1.2 CDU thermal ... 79 
+21.1.4 PLC functional ... 80 
+21.1.5 Firmware update ... 80 
+21.1.6 Modbus communication ... 80 
+21.1.7 Electronics enclosures active component temperature ... 80 
+21.1.8 Acoustic ... 80 
+Acoustic report ... 81 
+21.1.9 Non-Operational Shock ... 82 
+21.1.10 Operational Shock and Sine ... 82 
+21.1.11 1” CDU Service Port Side Load ... 82 
+21.1.12 Stability ... 82 
+Threshold Impact ... 82 
+Roll-Off ... 82 
+10-Degree Tip Test ... 83 
+Date: Feb 26, 2026 Page 6 
+Open Compute Project • Project Deschutes 
+21.1.13 General ... 83 
+21.2 Modular wall manifold + drip pan + side kits assembly ... 83 
+21.2.1 Ground Bond ... 83 
+22.0 System validation ... 84 
+22.1 System “Dry Fit” ... 84 
+22.2 System hydrostatic pressure testing ... 84 
+22.3 System commissioning: flushing, purging, filling procedures ... 84 
+22.4 System commissioning: deaeration, i.e. “burn-in” ... 84 
+22.5 System commissioning: power, electrical ... 85 
+22.6 System commissioning: communications ... 85 
+22.7 System “wet” functional testing ... 85 
+Commissioning ... 85 
+Hydraulic ... 85 
+22.8 Field Replaceable Units (FRUs) ... 86 
+22.9 Vibration and Seismic ... 93 
+23.9.1 Loading Dock Rough Surfaces ... 93 
+22.9.2 Seismic loading ... 94 
+22.10 Pressurization & Temperature Displacement ... 96 
+22.11 Programmable Logic Controller (PLC) and HMI ... 96 
+23.0 Reliability ... 96 
+23.1 CDU reliability ... 96 
+23.1.1 Full System Pressure Testing ... 98 
+23.1.2 Component Reliability Pressure Testing ... 100 
+23.1.3 Pump Reliability Testing ... 107 
+23.1.4 PLC and PDU Reliability Testing ... 111 
+23.2 Wall manifold ... 112 
+23.2.1 Wall Manifold (WMF) overview ... 112 
+23.2.2 Wall-Manifold (WMF) overview ... 112 
+23.2.3 Wall-Manifold (WMF) Potential Building-blocks ... 114 
+23.2.4 Reliability test suite ... 116 
+23.3 Availability ... 122 
+23.4 Flammability Resistance ... 122 
+23.6 Fracture Toughness and Material Stability ... 123 
+23.7 Hoses and Gaskets (on fittings): ... 124 
+23.8 Derating of Electronics: ... 124 
+24.0 Full system summary and quantities ... 124 
+Appendix ... 125 
+Glossary of terms ... 125 
+Date: Feb 26, 2026 Page 7 
+
+1.1 Open Web Foundation (OWF) CLA
+
+Contributions to this Specification are made under the terms and conditions set forth in Modified Open Web Foundation Agreement 0.9 (OWFa 0.9). (As of October 16, 2024) (“Contribution License”) by:
+
+Google 
+Usage of this Specification is governed by the terms and conditions set forth in Modified OWFa 
+0.9 Final Specification Agreement (FSA) (As of October 16, 2024) (“Specification 
+License”). 
+You can review the applicable Specification License(s) referenced above by the contributors to 
+this Specification on the OCP website at 
+https://www.opencompute.org/contributions/templates-agreements. 
+For actual executed copies of either agreement, please contact OCP directly. 
+Notes: 
+The above license does not apply to the Appendix or Appendices. The information in the 
+Appendix or Appendices is for reference only and non-normative in nature. 
+NOTWITHSTANDING THE FOREGOING LICENSES, THIS SPECIFICATION IS PROVIDED 
+BY OCP "AS IS" AND OCP EXPRESSLY DISCLAIMS ANY WARRANTIES (EXPRESS, 
+IMPLIED, OR OTHERWISE), INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, 
+NON-INFRINGEMENT, FITNESS FOR A PARTICULAR PURPOSE, OR TITLE, RELATED TO 
+THE SPECIFICATION. NOTICE IS HEREBY GIVEN, THAT OTHER RIGHTS NOT GRANTED 
+AS SET FORTH ABOVE, INCLUDING WITHOUT LIMITATION, RIGHTS OF THIRD PARTIES 
+WHO DID NOT EXECUTE THE ABOVE LICENSES, MAY BE IMPLICATED BY THE 
+IMPLEMENTATION OF OR COMPLIANCE WITH THIS SPECIFICATION. OCP IS NOT 
+RESPONSIBLE FOR IDENTIFYING RIGHTS FOR WHICH A LICENSE MAY BE REQUIRED IN 
+ORDER TO IMPLEMENT THIS SPECIFICATION. THE ENTIRE RISK AS TO IMPLEMENTING 
+OR OTHERWISE USING THE SPECIFICATION IS ASSUMED BY YOU. IN NO EVENT WILL 
+OCP BE LIABLE TO YOU FOR ANY MONETARY DAMAGES WITH RESPECT TO ANY 
+CLAIMS RELATED TO, OR ARISING OUT OF YOUR USE OF THIS SPECIFICATION, 
+INCLUDING BUT NOT LIMITED TO ANY LIABILITY FOR LOST PROFITS OR ANY 
+CONSEQUENTIAL, INCIDENTAL, INDIRECT, SPECIAL OR PUNITIVE DAMAGES OF ANY 
+CHARACTER FROM ANY CAUSES OF ACTION OF ANY KIND WITH RESPECT TO THIS 
+
+SPECIFICATION, WHETHER BASED ON BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE, AND EVEN IF OCP HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+##### Acknowledgements
+
+The Contributors of this Specification would like to acknowledge the following for their feedback: Nvidia
+
+##### 2. Compliance with OCP Tenets
+
+2.1 Openness
+
+Google is contributing the fifth-generation cooling distribution unit “Project Deschutes” 
+specification to help accelerate adoption of liquid cooling industry wide. This is the first 
+CDU specification submission to OCP. The specification provides technical design 
+details, manufacturing quality, maintenance and service procedures and identifies the 
+supply ecosystem for system components. 
+This version of the specification includes reliability and uptime, deployment procedures 
+and operational excellence that are informed by the 7+ years of liquid cooling at scale 
+experience at Google. 
+Finally, one of the objectives of opening the specification to the industry is to collect 
+end-to-end feedback to align to a CDU design that can be used widely in first and third 
+party data centers. 
+
+2.2 Efficiency
+
+The Project Deschutes CDU is targeted to support ~2 MW heat loads which would be among the highest CDU thermal capacities available in the industry. Similarly, the hydraulic capacity targets of 500 GPM at 80-90 psi are among the highest in the industry. The performance targets are intended to enable more efficient cooling of the next generation AI/ML workloads.
+
+2.3 Impact
+
+The specification will enable any CDU supplier in the industry to develop, manufacture and improve upon the “Project Deschutes” design which is informed by more than 7
+
+years of scale liquid cooling experience at Google. Furthermore,1st party hyperscalers and 3rd party data center owners alike all over the world would be able purchase a CDU based on the “Project Deschutes” specification.
+
+2.4 Scale
+
+The “Project Deschutes” CDU is assembled from components that are sourced from multiple vendors that are widely known in the industry. Custom components in the CDU are intended to be manufactureable by well-known processes. Beyond supply chain considerations, installation and maintenance procedures are shared to enable fast deployments of reliable equipment. The processes and best practices shared by Google are based on the 7+ years of scale liquid cooling experience.
+
+2.5 Sustainability
+
+Liquid cooling generally requires less electrical power and physical data center space to cool IT hardware compared to air cooling. As such, the “Project Deschutes” performance targets would enable cooling high IT heat loads in the industry with less electricity consumption and/or less data center space. Furthermore, since the specification is available to CDU manufacturers globally, data center owners would be able to source CDUs manufactured relatively near to their location.
+
+##### 3. Compliance with OCP Tenets
+
+This specification defines the requirements for the 2MW Next-Generation Cooling Distribution Unit (CDU), intended for high-power, dense IT pods, including AI/ML ASICs. The CDU is designed to be compatible with both DI water and PG25 coolants.
+
+3.1 Technical specification Summary Table
+
+SPECIFICATIONS 
+IT flow (GPM) 500 
+Facility flow @ 0.25 GPM/kW 500 
+Facility GPM/kW 0.25 
+IT dP available (psi) 80-90 
+Facility dP (psi) 15-30 
+Operating pressure (psig) 0-130 
+Thermal load (kW) 2000 
+Approach temperature (°C) 3 
+CDU weight, wet (lbs) 6900 
+CDU weight, dry (lbs) 5300 
+Power consumption (kW) 74 
+Pump voltage (Vac) 380-416 
+Heat exchanger Liquid to liquid 
+(dual pass recommended) 
+Liquids DI water, PG25 
+CDU dimensions (inches) 
+W x H x D 65.25 x 91.44 x 42.29 
+
+Figure 3.1.1: 3D CAD rendition of Project Deschutes prototype design.
+
+3.2 Product requirements
+
+1. Weight (wet, max): 6900 lbs 
+2. Weight (dry, max): 5310 lbs 
+3. Maximum height with packaging: 100 inches 
+4. N+1 (pump and accessories) 
+5. Pump serviceability (front & rear, front preferred) 
+6. Filtration, front serviceable (25-44 micron) 
+7. Side stream (i.e. bypass/parallel) filtration, front serviceable (0.2 micron), ~3 GPM 
+8. Spirovent (air separator) 
+9. Flow-through expansion tank, front serviceable 
+10. Leak rope detection (detected through PLC, 3 zones) 
+11. Telemetry (temperature & pressure on both sides, CDU flow, pump speed, pump power) 
+12. Flow meter (+/- 0.5% of reading) 
+13. Wetted materials: stainless steel, copper, EPDM 
+14. Fill and purge ports 
+15. PLC (IPv6 & IPv4) with HMI 
+16. PDU (Dual feed), 416 AC (see power section) 
+17. Coolant options (DI water & PG25) 
+18. Pump & pump drive reliability 
+19. Sealless pump 
+20. UL/CE certification 
+21. Seismic considerations (bracing, modeling, test) 
+22. Operating pressure: 0-130 psi 
+Date: Feb 26, 2026 Page 12 
+
+23. Pressure relief @ 130 psi 
+24. GFCI, 10mA-30mA 
+25. Quick disconnects for hotswap telemetry, e.g. pressure: Parker NSP-251 with ORB6 
+fitting 
+26. Coolant telemetry: pH and electrical conductivity 
+
+3.3 Project Deschutes CDU v0.75 design overview and features
+
+Figure 3.3.1: Project Deschutes CDU overview
+
+Figure 3.3.2: Project Deschutes secondary (technical or IT) flow loop features.
+
+Figure 3.3.3: Project Deschutes primary (facility) flow loop features.
+
+Figure 3.3.4: Optimized mix of Victaulic and Tri-clamp fittings to minimize integration risk, reduce pressure drop, and simplify system touch points.
+
+##### 4 CDU Physical Dimensions & Mechanical Data
+
+4.1 Overall Dimensions
+
+The 2MW “Project Deschutes” CDU has the following approximate dimensions and weight:
+
+● CDU Dimensions (W X H X D): 65.25” X 91.44” X 42.29” 
+● CDU Weight, wet: 6900 lbs 
+● CDU Weight, dry: 5300 lbs 
+● Maximum height with packaging: 100” 
+
+4.2 Mechanical Features
+
+● Frame 
+● Casters 
+● Mounting Brackets 
+● Fittings: An optimized mix of Victaulic and Tri-clamp fittings is used to minimize integration risk, reduce pressure drop, and simplify system touch points. 
+● Primary side strainer: 500 μm 
+● Secondary side filtration: 25-44 μm 
+● Secondary side side stream microfiltration: 0.2 μm 
+● Flow-through expansion Tank 
+
+4.3 CDU weight stack-up
+
+4.4 Mechanical: Shock and Vibration
+
+● Shock: 
+○ Operating: Must operate through maintenance shocks without interruption. ■ AC cables shall not disconnect, ■ These shocks can be represented as (Ref spec IEC 60068-2-27 Test Ea), 10 +/- shocks, 3.5G, 11 msec half-sine, in the x-y- and z- axes. 
+○ Non-operating: As installed assembly must survive through 3 positive and 3 negative 30G shocks 11ms half sine. 
+○ All internal connections must stay intact during non-operating tests. 
+● Vibration: 
+○ Operating: Reference spec (IEC 60068-2-6 Test Fc) suggests .17G z-axis: .12G x- and y- axes swept from 5-500-5 Hz, 5 sweeps in all, at 1 octave/min. ■ Equipment should be running diagnostic test while sweep is going on. 
+○ Non-operating: Unit must survive 3 pos 3 neg 30G 1/2 sine shocks. 
+● Transportation Non-Operational Shock and Vibration: 
+○ As packaged must meet ASTM D4169 Vibration Schedule E Level III, 2 hrs Air spectrum/1 hr truck spectrum 
+○ As packaged, it must meet ASTM D4169 Pallet Drops per Schedule A Level III. 
+
+##### 5 Performance Specifications (Thermal/Hydraulic)
+
+Specification IT flow (GPM) 500 Facility flow @ 0.25 GPM/kW 500 Facility GPM/kW 0.25 IT dP available (psi) 80-90 Facility dP (psi) 15-30 Operating pressure (psig) 0-130 Operating liquid temperature (°C) 18-55 Thermal load (kW) 2000 Approach temperature (°C) 3 Heat exchanger Liquid to liquid (dual pass recommended) Liquids DI water, PG25
+
+5.1 CDU hydraulic characteristics
+
+Figure 5.1.1: Project Deschutes CDU secondary (IT) side hydraulic performance, i.e. available pressure, with 2 pump (N+1) operation. Fluid is PG25
+
+Figure 5.1.2: Project Deschutes CDU secondary (IT) side hydraulic performance, i.e. available pressure, with 1 pump (N) operation. Fluid is PG25.
+
+Figure 5.1.3: Project Deschutes CDU primary side dP vs flow at 100% Control Valve Position.
+
+5.2 Coolant Specifications
+
+Wetted materials shall be compatible and certified for use with: ChemTreat CL2002: 95% DI water, 5% chemical Garratt-Callahan FM5666-LT: 98% DI water, 2% chemical Veolia (Suez) SV5520: 97% DI water, 3% chemical Propylene Glycol 25% (PG25)
+
+The exact formulation of those coolants is considered proprietary to the coolant vendors.
+
+Nickel plated brass is not allowed on the secondary side of the “Project Deschutes” system.
+
+Nickel plated brass should be avoided on the CDU primary/facility circuit, but vendor should confirm with customer whether nickel plated brass is allowable on a case-by-case basis.
+
+5.3 Heat Exchanger Performance
+
+The CDU utilizes three dual-pass heat exchangers in parallel for lower pressure drop and improved thermal performance.
+
+The approach temperature target for the CDU is 3°C with a 2000 MW heat load and 500 GPM on the secondary and primary sides of the heat exchanger.
+
+First source vendor: Alfa Laval, part number CB210-276AH, Item 30751 6274 3
+
+Table 5.3: Heat exchanger thermal performance vs heat load and flow for various operating points.
+
+Operating point
+
+Flow (GPM)
+
+Total liquid 
+load 
+(kW) 
+
+Approach temperature 2-pass HX (°C) 1 234 922 1.8 2 389 1536 2.1 3 467 1843 2.2 4 545 2150 2.3 5 623 2458 2.4 6 162 640 1.6 7 324 1280 1.9
+
+Figure 5.3.1: Project Deschutes CDU heat exchanger secondary side dP vs flow
+
+Figure 5.3.2: Project Deschutes CDU heat exchanger thermal performance with a 2 MW heat load. Approach temperature vs flow. Same flow on primary and secondary sides of the heat exchanger.
+
+5.4 Operational Modes
+
+N+1 pump operation, providing redundancy.
+
+##### 6 Functional Specifications
+
+6.1 Pump
+
+● First source vendor: SPECK 
+● Model: TOEMA065200 
+● 500 GPM @ 112 psi 
+● 37 kW 
+● Seal less design 
+● N+1 operation 
+● Pump will be mounted on simple low friction pads to allow movement and lifting out of unit. 
+● Pump will slide out the side or front of unit. Determined by pillar interference. 
+
+● Pump will have controlled break points at inlet and outlet connections for ease of removal. 
+● Front and rear access is required access break points of pump. Pillar interference on rear will cause that pump to be removed from the side. 
+● Connectorized power or breakout box will be used to disconnect power. 
+● Separate power panels with disconnects and breakers will allow for pump isolation during replacement. 
+● Isolation valves and drain ports at pump inlet and outlet. 
+
+6.2 Heat Exchanger
+
+● First source vendor: Alfa Laval 
+● Model: CB210-276AH 
+● Two pass heat exchanger 
+● 3 heat exchangers in parallel for lower pressure drop and thermal performance 
+
+6.3 Valves
+
+● There shall be a flow control valve on the primary side of the CDU, Belimo B6500 
+● There shall be isolation valves on equipment that will be serviced 
+● There shall be check valves to prevent back flow where appropriate 
+
+6.4 Piping and Manifolds
+
+Content for the plumbing outside of the CDU will be added as examples in subsequent versions of this spec.
+
+6.5 Sensors and Instrumentation
+
+6.7 Control System
+
+● Controls equipment shall be compatible with IPv4 and IPv6 
+● Controls shall allow for CDUs to be operated in parallel, i.e. hydraulically connected to a common header. 
+● More details on the controls will be added in subsequent versions of the spec. 
+
+##### 7 Electrical Specifications
+
+7.1 Power
+
+● Input power: 
+○ Voltage range 380Vac-416Vac nominal, available as either: ■ 3phase Delta (4-wire) distribution ■ 3phase Wye (5-wire) distribution ■ Operational range must include 90% to 110% over above “nominal” voltage range 
+○ Upstream feeds offer 100A class J (UL) / gG (CE) fusing on each line 
+○ 50Hz/60Hz nominal, operational from 47Hz-63Hz (+/-5%) 
+○ Internal VFD & PSU holdup compliant with CBEMA curves (this is used to ride-thru line disturbances, fast switchgear transitions) 
+○ THD is generally guided by IEEE 519: ■ Voltage THD should be <8%, <5% for any individual harmonic ■ Current THD should be <20% ■ Above specs to apply from roughly 50% to 100% loading (aggregated pump/fan/control loading). 
+○ GFCI on incoming AC is required for protection of personnel (10mA) 
+● Redundancy of input feeds: 
+○ At least 1N feed redundancy support, 2N feed redundancy is desired 
+
+7.2 Power - maintenance and hotswap requirements
+
+| ○ | Redundant individual subcomponents (e.g. pumps) must be replaceable during |
+| --- | --- |
+| | continuous normal operation. |
+| ○ | Non-critical individual subcomponents which are not required for coolant flow |
+| | delivery (such as HMI panel, possibly the Controller/CPU) must be replaceable during continuous normal operation. |
+| ○ | Critical non-redundant components (for example, the PDU in a single-AC feed |
+
+● CDU output water is a high-availability resource, and as such maintenance downtime must be minimized. CDU) must be replaceable with a minimum of scheduled downtime. 
+● Components that are replaceable during continuous normal operation must have 
+
+Open Compute Project • Project Deschutes appropriate interlocks to prevent:
+
+○ Safety risks to maintenance personnel ■ finger-safe connectors ■ guaranteed de-energizing via mechanical interlocks or connector “shortpins” where necessary 
+○ Disruptive transients on electrical feeds ■ connector shortpins should be used as enables to prevent connector current flow and arcing conditions during engage/disengage 
+○ Disruptive fluid pressure or flow conditions ■ manual stop valves, and/or check valves and/or leak-free disconnects 
+● Vendor must provide proposed maintenance procedures for any Field-Replaceable-Unit for review 
+
+7.3 Dual feed power architecture block diagram
+
+Figure 7.3.1: Dual feed power architecture block diagram.
+
+7.2 Controls
+
+7.2.1 System Feedback:
+
+● Absolute pressure and temperature on each CDU manifold (Rack Water Return, Rack Water Supply, Process Chill Water Return, Process Chill Water Supply) 
+● Pump speed in RPM and percent 
+● Power consumption for each pump 
+● Valve position of primary circuit control valve 
+● Alarms for detected leaks and motor overtemp. 
+
+7.2.2 Controllable Parameters via PLC:
+
+● Pump Speed 
+○ DEFAULT: Fixed pressure drop control → control pump speed to maintain fixed pressure differential between liquid supply pressure sensor and liquid return sensor 
+○ Additional selectable pump controls ■ Fixed flow ■ Fixed supply temperature ■ Fixed return temperature ■ Fixed speed 
+● Pump enable/disable 
+● Primary circuit control valve position 
+○ DEFAULT: Approach temperature control → control valve opening to maintain fixed approach temperature as defined below based on inlet/supply liquid temperature and outlet/supply liquid temperature measurements ■ ∆ is defined 
+
+as:ℎ∆ ℎ = , − , ○ Additional selectable valve controls ■ Fixed opening ■ Fixed secondary supply temperature ● CDU shall be controllable individually or as part of a group of CDUs connected in parallel.
+
+7.2.3 Internet Protocol Dual-Stack IP Support The PLC concurrently supports both IPv4 and IPv6 network stacks. This dual-stack capability ensures seamless communication and interoperability with both legacy IPv4-only devices and modern IPv6 infrastructure, facilitating a gradual and non-disruptive transition to IPv6.
+
+The controller shall read/write Modbus/TCP over IPv6 and IPv4.
+
+IPv4
+
+● Maintains full compatibility with existing IPv4 networks and devices. 
+● Supports standard IPv4 addressing and subnetting. 
+● Can be configured with a static IPv4 address or obtain one dynamically via a standard DHCP server. 
+
+IPv6 The device incorporates a comprehensive set of IPv6 features
+
+● DHCPv6 (Dynamic Host Configuration Protocol for IPv6): The PLC can automatically obtain an IPv6 address, DNS server information, and other network configuration parameters from a DHCPv6 server. This simplifies network management and reduces the need for manual static address assignment. 
+● SLAAC (Stateless Address Autoconfiguration): The device can independently generate its own globally unique IPv6 address based on network information provided by a local router. This allows for plug-and-play functionality on IPv6 networks without requiring a DHCPv6 server. 
+● Neighbor Discovery Protocol (NDP): Replaces the broadcast-based ARP (Address Resolution Protocol) protocol used in IPv4. NDP is more efficient for discovering other devices on the local network, finding routers, and maintaining reachability information, resulting in reduced network overhead. 
+● Expanded Address Space: With 128-bit addresses, IPv6 provides a virtually limitless number of unique IP addresses, eliminating the address exhaustion issues of IPv4 and allowing every device to have a unique global IP. 
+
+7.3 VFD
+
+● First Source Vendor VFD: ABB ACH580-31-065A-4 
+● Option: +B056 (NEMA Type 12) 
+● Using 2 pumps, each with own VFD 
+
+7.4 Power specification summary
+
+● VFD is rated at 50HP (37.3kW) with a power factor of between 0.98 to 1.00 
+○ Apparent power requirement can be rounded up to 38kW 
+● Nominal voltage range 380Vac-416Vac nominal (Line-Line) 
+○ Requirement is to operate at +/- 10% of nominal 
+○ Minimum voltage is therefore 342VAC and maximum is 458VAC 
+● Maximum current draw will be at minimum voltage at full load 
+○ 38kW 3-phase at 342VAC will give a phase current of ~64A 
+● Fusing should be well above this number if using fast-acting J-Type fuses 
+○ Initial selection will be an 80A fuse 
+○ If inadvertent tripping is detected, then a backup of 100A should be the max 
+● Fuse Blocks and Disconnects should be rated to 100A with a SCCR of 100kA 
+
+##### 8 Safety and Compliance
+
+8.1 Standards
+
+USA/Canada Global Market Access (Outside of USA/Canada) UL 62368-1 IEC/EN 62368-1
+
+8.2 Certifications
+
+● UL/cUL 
+● CB 
+● CE Mark 
+● Scope 
+○ UL Listing/CE Mark of CDU system from rack manifold to CDU rack PCWS/R connections 
+○ UL Recognition/CE Mark of all sub-assemblies of CDU rack system 
+○ Single Model Designation for CDU rack system and sub-assemblies that is independent of MPNs and GPNs Miscellaneous Items 
+● SCCR Rating (input to CDU rack system) 100kA 
+● SCCR Rating (output of C13 outlets on PDU) 5kA 
+● IP ratings 
+○ IP66 connectors 
+○ IP55 pump/motor/drive 
+● Drive for pump/motor shall have a safeguard, eg, enclosure, that reduces the risk of harmful ingress of liquid 
+● Ground fault protector/interrupter - 20mA 
+● Grounding shall be per UL 60335-1, Section 27.5DV.1 (D1 National Difference) 
+● Minimum V0 flammability rating for all plastic material; hoses shall have both V0 and VW-1 flammability ratings 
+● Minimum VW-1 flammability rating for all cable and wiring 
+
+● Minimum CL2P flammability rating for water sense cable 
+● Pressure relief valve 
+○ One of the two options below: ■ UL certified component rated for the application and suitability approved by UL, or ■ ASME test report for the pressure relief valve showing compliance with the Boiler and Pressure Vessel Code, Section VII, bear the UV symbol and be stamped with the set pressure, capacity, and pipe size; and “Start-To-Discharge” tested by UL per UL - Commercial Refrigerators and Freezers, Section 70; excerpt inserted below. 
+
+8.3 EMC
+
+● EMC Laboratory shall meet the basic accreditation requirement by A2LA or NvLAP. 
+● Supplier to ensure this product meets FCC, ICES, CE compliance. 
+● EMC requirements are specified in the EMC specification document. EMC specification varies depending on the power input type as specified in the EMC specification document from the customer. 
+● Customer internal EMC design requirements may, in some cases, exceed the formal product compliance certification requirements. 
+○ Detailed EMC test procedures and conditions should be discussed with Customer's EMC design engineer. 
+○ The EUT (Equipment Under Test) must meet the EMC requirements when operating under typical load conditions and with all ports fully loaded. 
+● Summary of the EMC tests and limits that CDU must meet. 
+
+● Supplier is responsible for all aspects of EMC design, utilizing high-level design specifications and inputs provided by Customer. 
+● Supplier to review schematics, layout and mechanical enclosure designs to assess EMC risks, request design changes as needed and monitor design changes that could impact EMC performance. Supplier will provide written documentation for the design review process. 
+● Supplier is responsible for performing all EMC-validation tests as per Test Plan approved by Customer and sharing written test results with customer. 
+● Supplier shall provide a report demonstrating that CDU meets the EMC requirements. 
+● Supplier shall provide manufacturer's EMC compliance reports for each sub-components of the CDU. 
+
+8.3 Environmental
+
+● Ambient Temperature 
+○ Operating: ■ Sea level to 1700 ft: 15-40 °C ■ 7600 ft: 15-32 °C 
+
+● Humidity ○ 8-80% RH non-condensing
+
+##### 9 CAD
+
+Project Deschutes CAD (dated May 23, 2025) is located in a folder. Please contact Google for link details.
+
+##### 10 BOM
+
+##### 11 Tools for Assembly
+
+● More details on the critical tools will be added in subsequent versions of the spec.
+
+##### 12 Manufacturing
+
+Relevant industry standards for welding includes ASME B31.3 for process piping and AWS 
+D18.1. ASME B31.3 relates to piping typically found in power generating stations, 
+pharmaceutical, semiconductor, chemical, textile, etc. The intent of this code is to set forth 
+engineering requirements deemed necessary for the safe design and construction of piping 
+installations. AWS D18.1 provides the requirements for welds in tubing systems in dairy and 
+other food processing plants. The document addresses qualifications, fabrication, extent of 
+visual examination, acceptance criteria, and documentation requirements. For Project 
+Deschutes it is required to follow the ASME B31.3 standard. The AWS standard can be 
+considered for evaluation if requested by the vendor. 
+Discoloration requirement: The latest ASME BPE standard shall apply based on the type of 
+piping used. The standards are BPE-MP - Discoloration Acceptance Criteria for Welds and 
+Heat-Affected Zones on Mechanically Polished UNS S31603 Tubing or BPE-EP - Discoloration 
+Acceptance Criteria for Welds and Heat-Affected Zones on Electropolished UNS S31603 
+Tubing. The below text may be used as quick reference with the aforementioned standards 
+taking precedence. 
+The weld beads shown in the photographs below are the weld beads on the I.D. of the tubing. 
+The area for comparison in each photograph is the area inside the red circle. 
+● The weld bead shall have no discoloration. 
+
+● Weld heat-affected zones on mechanically polished UNS S31603 tubing with discoloration levels no worse than Samples #1 through #3 in the as-welded condition are acceptable. 
+● Heat-affected zone discoloration levels more severe than that shown in Sample #3 are unacceptable. 
+● Samples #4 and #5 show unacceptable weld and heat-affected zone discoloration levels for comparison. The user is cautioned that the colors observed during direct visual examination or borescope examination will be different viewing directly down (90 deg) at the surface compared with viewing at a lower angle along the edges. The user is cautioned that electronic versions or photocopies of these acceptance criteria shall not be used for evaluation of sample or production welds since subtle differences in color can influence weld acceptability. 
+
+Figure 12.1: Weldment samples and discoloration requirements.
+
+● The table below summarizes the visual examination acceptance criteria for groove welds on metallic parts. 
+
+Discontinuities Welds on Process Contact Surfaces Welds on Non–Process Contact Surfaces
+
+Discoloration level shall be agreed on between the owner/user and contractor. Postweld conditioning may be allowed to meet discoloration requirements at the discretion of the owner/user.
+
+Heat-affected zone (HAZ) may be permitted to have light straw to light blue color (see Figs of Sample #2 and Sample #3 above). Any discoloration present must be tightly adhering to the surface such that normal operations will not remove it. In any case, the HAZ shall have no evidence of rust, free iron, or sugaring.
+
+Discoloration (heat-affected zone)
+
+Passivation requirement:
+
+● Cleaning requirement: ASTM A380 cleaning section Passivation Technique: ASTM A967 
+
+| Table | | 12.0.1 | Selected | Failure | Modes | & Testing Methodologies | - Metallurgical | | Joints | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | Joint | | Issue | | Risk | Causes | | Corrective | Action | | Recommended |
+| | Type | | | | | | | | | | Test |
+| Welded | | | Porosity | | Crack | Contaminated base | | | | | Visual Inspection, |
+| | | | | | propagation | material surface | Clean | base material | and or | | Metallography, |
+| | | | | | and small | or Solidification is | too fast, filler | material. | | | X-Ray |
+| | | | | | large leak | not allowing time | for gas Slow | the cooling | process down, | | |
+| | | | | | | to escape. | or | reduce the travel | speed of | | |
+
+the weld. 
+Preheat base material. 
+
+Welded Incomplete (Lack of) Fusion
+
+Visual Inspection, Metallography Radiography SEM
+
+Wrong angle of laser 
+beam or GTAW tungsten 
+Too fast of a travel speed 
+Base material 
+Contaminated base 
+material or filler 
+
+Slow travel speed Use correct head/tip or laser beam in relation to the weld joint Clean base material prior to welding or brazing
+
+Welded Microbiologica lly Induced Corrosion Keep system flowing. Reduce surface roughness. Monitor piping systems for bacterial growth. Identify what type of bacteria is present. Remove bacteria food source if possible. Fe, Sulphides,... If observed,
+
+| | | | | | | | Remove | bacteria | food | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | source | if possible. | Fe, | | |
+| | | | | | | | Sulphides,... | | If observed, | | |
+
+Open Compute Project • Project Deschutes treat with appropriate biocide. Focus attention to weld areas. Bacteria tend to colonize in the HAZ around welds.
+
+| Cracking Welded | | | Small | or large | Weld parameters, | part | Test | weld | parameters, ensure | Visual | Inspection, |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | leak | and | heating, | part fit up | tight | part | fit up | Metallography, | Dye |
+| | | | structural | | | | | | | Penetration | |
+
+failure
+
+12.1 Mechanical fittings selected failure modes and testing methodologies Table 12.1.1 Selected Failure Modes & Testing Methodologies - Fittings etc.
+
+| Joint Type Issue | | | Risk | Causes | | Corrective | Action | | Recommended | Test | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Poor NPT | | | Small | Poor application | | Ensure clean | parts, | | N2 Pressure | Test, He Leak | Test, |
+| Sealing, | | | leak | or curing | of the | ensure the | correct | | Torque Test. | visual inspection | |
+| | | | | thread | sealer, | amount of | filler is applied, | | | | |
+| | | | | wrong | torque | ensure parts | are not | | | | |
+| | | | | applied, | | moved before | partial | cure | | | |
+| | | | | misalignment, | | and not used | before | full | | | |
+| | | | | damaged | thread | cure, ensure | correct | | | | |
+
+torque, inspect threads before assembly.
+
+| | | | | | | before assembly. | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Poor BSPP/ORB | | | Small | Incorrect | | Check torque | wrench | | N2 Pressure | Test, He Leak | Test, |
+| Sealing, | | | leak | assembly | torque, | process/calibration, | | | Torque Test,visual | inspection, | |
+| | | | | O-ring | or seal | Check O-ring | and | mating | alignment check | | |
+| | | | | failure, | | surfaces, | ensure proper | | | | |
+| | | | | misalignment | | alignment | before | | | | |
+| | | | | caused | pinching | tightening. | | | | | |
+
+O-ring
+
+| Hose Hose Barb | | | Large | Insufficient | | Check hose | barb | | Mechanical | tolerance stack | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Slip/Blo | | | leak | mechanical | | geometry | and clamp | | analysis, N2 | Pressure Test, | |
+| w | | | | retention | of the | pressure, | ensure proper | | Burst Pressure | Test, Pressure | |
+| Off/Clam | | | | hose | | insertion | depth, and | | Cycling Test, | High Speed Video | |
+| p Failure | | | | | | torque | | | + Burst Test, | pull-off test, visual | |
+
+inspection.
+
+Material Porosity
+
+Small leak
+
+Porosity in cast or molded parts
+
+Visual Inspection, Metallography, X-Ray
+
+Fitting & Hose Barb
+
+Correct casting or injection process or use billet instead of casting
+
+| Gasket | Poor | Small Debris | on mating | | Check | | | | for | | mating surface | Visual | Inspection, | He Leak, |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Seal | Sealing | leak surfaces, | | | condition, | | | | | | check clamp | Mechanical | Tolerance | Stack |
+| | | parallelism | of | | forces, | | | | | | | Analysis, | compression | set test, |
+| | | mating | surfaces, | | | | | | | | | creep | test | |
+
+Debris on mating surfaces, parallelism of mating surfaces, surface finish, seal material choice, clamp force, loss of elasticity over time
+
+| | | material | choice, | | | | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | clamp | force, | loss | | | | | | | | | | |
+| | | of elasticity | over | | | | | | | | | | | |
+
+Table 12.1.2 High level Manufacturing Qualification Requirement Test Description Quantity Destructive ? Target Test Duration
+
+1 Dimensional - FAI & CpK 32 No < 3 days 
+2 Cross Fixture/Machine Qual 32 No < 1 week 
+3 
+
+8-16 No < 3 days
+
+Braze or Weld Analysis (Metallography, X-Ray, CT Scan, Penetrant Dye, Microscopy)
+
+4 Fixture Poka-Yoke Check 3-5 No < 3 days 5 Test Equipment GR&R 10 No < 3 days 6 Fault Injection into Check Fixtures and Test Equipment 1 No < 3 days
+
+| | production line | test equipment (N2 | high | | | | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | pressure test (max | operating pressure | | | | | | | | | | | | |
+| 7 | | | | | | 32 | or | | 100 | | | No | | <3 Days |
+| | per product specification), | He leak, | | | | | | | | | | | | |
+| | Functional Test | (Thermal, Flow, | | | | | | | | | | | | |
+
+Outgoing Quality Control data from Pressure Drop)
+
+| 8 | Control Build for | mechanical fit check | in | 32, 100, | 3000, | | | 5000 | | | loop level | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | 1-3 | | systems | | | | | No | | < 2 weeks |
+| | machine trays or | data center clusters | | | | | | | | | | | | |
+| 9 | FPY Over 98% | | | | | 32 | or | | 100 | | | No | | < 2 Weeks |
+
+Notes
+
+Table 12.1.3 “Project Deschutes” Component and System Manufacturing Qualification Summary Gate Item Objective Build Plan and Min Qty Estimated Completion Date & Result
+
+| EVT Complete | DFM, DFA, | | | Design | and assy | | | EVT, 1-3 Components | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| PFMEA, PMP, | key | | | process | iterations, | , | | - 3 pcs FAI | |
+| component | level | | | determine | process | | | - Functional Test | Data - 10 |
+| testing, new | parts | | | risks | | | | pcs | |
+| evalution, | | | | | | | | - Leak Testing - 10 | pcs |
+
+- Assembly Evaluation - 10 
+pcs 
+- 1-3 pcs for Shock and 
+Vibe 
+
+| DVT Component | FAI & | | | Establish | initial | | | DVT, 1-3 systems, | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| CpK, Functional | Test | | | equipment | and | | | components: | |
+| Data, Hose | | | | process | capability | for | | - 3 pcs FAI, 32 pcs | Cpk |
+| Connection | Testing | | | piece parts | and | | | - Functional Test | Data - |
+| for Tension | and Shear | | | assembly. | Determine | | | 100% | |
+| (Max and | Leak Limit), | | | Mechanical | Corner | | | - Leak Testing - 100% | |
+| Connector | Testing, | | | Cases OK | from Assy | | | - DC Initial Qual | - 16 pcs |
+| Implement | MES (Mfg | | | Stack. RCCA | (Root | | | - Assy Evaluation | - 100% |
+| Equipment | System) | | | Cause Corrective | | | | | |
+| and traceability, | Spec | | | Action) Failures | and | | | | |
+| Validation/Corner | | | | Process | Defects. | | | | |
+| Case Builds | | | | Define SPC | Charts. | | | | |
+| Piece Part | Tolerance | | | Targets: | FAI All Pass, | | | | |
+| Validation | | | | CpK >0.5 | | | | | |
+| | | | | Establish | IPQC | | | | |
+| PVT FAI & CpK | Data, | | | Establish | initial | | | PVT - 10-20 components | |
+| Thermal Performance | | | | equipment | and | | | - 3 pcs FAI, 32 pcs | Cpk |
+| Data, IPQC | Data, | | | process | capability. | | | - 100% Functional | Test |
+| OQC (Outgoing | | | | Check for | corner | | | Data | |
+| Quality Control) Data | | | | cases. RCCA | Failures | | | - 100% Leak Testing | |
+| | | | | and Process | Defects. | | | - 32 pcs long term | |
+| | | | | Define SPC | Charts. | | | storage/pressure | drop |
+| | | | | Targets: | FAI All Pass, | | | testing (as required) | |
+| | | | | CpK >1.0 | | | | - SPC across different | |
+
+days/shifts - Assy process evaluation
+
+| Ramp FAI & CpK | Data, | | | Ramp production, | | | | Ramp - 50-100 components | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Thermal Performance | | | | check for | corner | | | - 32 pcs FAI, CpK | |
+| Data, IPQC | Data, | | | cases, FOD. | RCCA | | | - 100% Functional | Test |
+| OQC Data | | | | Failures | and Process | | | Data across different | days |
+| | | | | Defects. | Check SPC | | | - 100% pcs Leak | Testing |
+| | | | | Charts. | Targets: FAI | All | | - SPC across different | |
+| | | | | Pass, CpK | >1.34 | | | days/shifts | |
+
+Table 12.1.4 “Project Deschutes” Component and System Manufacturing Qualification Plan Test Description (at Vendor) Target/Objective Qty Destructive Test
+
+Target Test Duration
+
+ECD
+
+| Dimensional - FAI | & CpK | | DVT: | CpK | > 1 | | 8-32 | | | | | | No | | < 3 | days | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | PVT: | CpK | > 1 | | | | | | | | | | | | | | |
+| Cross Fixture/Machine | Qual | Find | | Failures | Line | | | | | | | | | | | | | | |
+| | | | | Failures | | | 8-32 | | | | | | No | | < 1 week | | | | |
+| Braze or Weld Analysis | (Metallography, | | | | | | | | | | | | | | | | | | |
+| | | | Find | Process | | | | | | | | | | | | | | | |
+| X-Ray, CT Scan, | Penetrant Dye, | | | Failures | | | 1-3 | | | | | | No | | < 3 | days | | | |
+
+EVT: CpK >0.5 Microscopy)
+
+Fixture Poka-Yoke Check Verify Function 3-5 No < 3 days
+
+| | | | | Qual | | 5 | samples | | | x | 3 | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Test Equipment | Expanded GR&R | | Measurement | | | | operators | | | | | | No | | < 3 | days | | | |
+| | | | | Equipment | | | | | | | | | | | | | | | |
+| Fault Injection into | Check Fixtures and | Test | | | | | | | | | | | | | | | | | |
+| Equipment | | | Verify | Function | | | | 1 | | | | | No | | < 3 | days | | | |
+| Traceability NG | (Not Good) Part Gate | | | | | | | | | | | | | | | | | | |
+| Check | | | Verify | Function | | | | 1 | | | | | No | | <1 | Day | | | |
+
+Traceability NG (Not Good) Part Gate 
+Check Verify Function 1 No <1 Day 
+Outgoing Quality Control data from 
+production line test equipment (N2 high 
+pressure test (max operating pressure per 
+product specification), He leak, Functional 
+Test (Thermal, Flow, Pressure Drop) 
+
+EVT: CpK >0.5 
+DVT: CpK > 1 
+PVT: CpK > 1 
+
+8-32 No <3 Days
+
+Control Build for mechanical fit check in machine trays or data center clusters
+
+Verify System Fit/Function 1 system No < 2 weeks FPY Over 98% Verify Yield 8+ No < 2 Weeks
+
+12.1 Assembly Instructions ● More details will be added in subsequent versions of the spec.
+
+12.2 Quality Checks ● More details will be added in subsequent versions of the spec.
+
+##### 13 Maintenance/service
+
+13.1 Power - maintenance and hotswap requirements
+
+● Please refer to section 7.2
+
+13.2 Pumps
+
+Figure 13.2.1: Pump “A” service from front of CDU.
+
+Figure 13.2.2: Pump “A” clearance requirements for service from front of CDU
+
+Figure 13.2.3: Pump “B” service from rear of CDU.
+
+Figure 13.2.4: Pump “B” clearance requirements for service from rear of CDU
+
+13.3 Filters
+
+Figure 13.3.1: Secondary/technical loop filter service from front of CDU.
+
+Figure 13.3.2: Clearance requirements for secondary/technical loop filter service from front of CDU.
+
+Figure 13.3.3: Primary/facility loop filter service from front of CDU.
+
+13.4 Secondary/technical loop flow meter
+
+Figure 13.4.1: Secondary/technical loop flow meter service from front of CDU. Flow meter service requires powering off the CDU.
+
+13.5 Variable frequency drive (VFD)
+
+Figure 13.5.1: Variable frequency drive (VFD) service and clearance requirements from front of CDU.
+
+Figure 13.5.2: Variable frequency drive (VFD) accessories to facilitate Serviceability
+
+13.6 Expansion Tanks
+
+Figure 13.5.3: Control panel service and clearance requirements from front of CDU.
+
+13.7 Control panel
+
+Figure 13.5.4: Control panel service and clearance requirements from front of CDU.
+
+##### 14 Documentation requirements
+
+● Data center installation guides 
+● Fill & purge procedures with quantities of DI water 
+● Tool requirements 
+● Repair procedures with photos 
+● Replacement procedures with photos 
+● Line drawings of the PDU and PLC. 
+
+##### 15 Packaging requirements
+
+● The supplier shall provide Packaging Design & Validation. 
+○ The supplier shall apply best practices to design packaging for “ergonomically friendly” loading and unloading of equipment into and out of packaging, respectively 
+○ The supply shall follow applicable guidelines from the Customer 
+● All product FRUs shall have an individual part packaging solution for shipment. 
+
+##### 16 Shipping requirements
+
+● The equipment shall be purged of liquid, dried and charged with nitrogen gas at a pressure of 10 psi before packaging and shipment. 
+● The CDU shall not ship with more than a prescribed lbs of residual water from end of line testing. The amount of acceptable residual water can be discussed with the customer. 
+
+##### 17 Barcode Label Specification for Liquid Cooling Systems & Components
+
+1) OBJECTIVE 
+Please receive customer information that outlines the standardization of barcode labels for liquid 
+cooling system components used in customer data centers. Examples provided below. 
+2) SCOPE 
+This specification applies to all coolant distribution systems, supporting components, and cold 
+plate loops under both Prototype/Development and Production states. 
+3) AUTHORITY 
+Program teams (design engineering, manufacturing engineering, and quality engineering) shall 
+be responsible for the definition of label location on products to meet requirements set by 
+
+internal stakeholders and customers. Program teams are responsible to not disclose the full 
+Manufacturer ID List & Manufacturer Codes. 
+4) REFERENCES 
+1. More details will be added in subsequent versions of the spec. 
+
+5) PROCEDURE a) Multi-Supplier Label Consistency i) Suppliers shall use the same label format provided by vendor and adhere to the defined construction called out in this document. ii) Barcode labels shall be placed consistently in the same locations on products across multiple sources or vendors. iii) Product teams shall be responsible to ensure label consistency via documentation such as product specs, 2D DWGs, and graphical summaries.
+
+b) Materials & Construction i) Base Label
+
+● 3M 7331 - .002” WHITE GLOSS TT POLYESTER 
+● .0008" 300 ADHESIVE 
+● .0032" 55LB DK LINER 
+● .006" TOTAL ii) Label must meet UL requirements for construction c) Label Size i) 2.125" x 1.375" d) Colors i) Black Text ii) Yellow background (PMS 803C) e) Font & Text Size i) Arial Font ii) Font size no smaller than 7.5 point for main text iii) Refer to Figure 3 for reference font sizes f) Label placement shall be defined via documentation in order of preference: 
+
+1. product specs 2. 2D DWGs 3. graphical summaries such as Slides or PowerPoint 4. photos to clearly call out label location and placement on products. g) Label Contents i) Manufacturer Name
+
+● Equipment or Component Manufacturer or Vendor identification 
+● Optional if a company logo or vendor logo that clearly identifies the manufacturer is placed on the label in the Vendor Supplied Data space identified in Figure 1. 
+● If a vendor logo is supplied, the Manufacturer Name line may be used for additional space for the Component Name. ii) Component Name 
+● Product or assembly name from Customer PLM system 
+● Product or assembly name may be abbreviated with Google approval to fit within the label. 
+● Reference Note: The combined Manufacturer Name and Component Name lines provide approximately 70 character spaces. iii) GPN & Revision iv) Barcodes must read the following: 
+● GPN human readable: GPN: 1034567-01 
+● GPN barcode should scan: 1034567-01 
+● Revision references not used at this time. v) Manufacturer Part Number 
+● Barcodes must read the following: (a) MPN human readable: MPN: ABC1234-051 Rev A (b) MPN barcode should scan: ABC1234-051 (c) Revision references are optional for use by vendors and should not be coded for scanning. Revision numbers shall be placed further right in the reserved space for vendor use. 
+
+vi) Serial Number
+
+● Barcodes must read the following: (a) SN human readable: SN: PPPPPABC191000001 (b) SN barcode should scan: PPPPPABC191000001 
+
+Open Compute Project • Project Deschutes vii) COO: Country of Origin for component ● Two letter country code or Full Name of Country
+
+Figure 17.1: Space for Vendor Logo and Vendor Specified Data 
+h) Dangerous Goods 
+i) Dangerous goods labeling requirements are not governed by barcode 
+labeling requirements. 
+ii) Refer to dangerous goods requirements for product transport and specific 
+labeling. 
+i) UL/CE Requirements 
+i) The UL and CE Mark do NOT need to be on the same label as the P/N & 
+S/N. 
+ii) The UL and CE Mark are applied only when the certified product is initially 
+manufactured and before leaving the authorized manufacturing site. UL 
+and CE markings may appear on another, manufacturer-specified label. 
+iii) General UL and CE marking requirements: 
+● UL - The following items are required by UL if not included in the current UL certification marking requirements: (a) Certification model designation (b) Company name or UL file number (c) Proper UL symbol 
+
+● CE - CE markings do not need to be on the serial number label as long as there is an identification element, such as the model number. The following items are the general minimum requirements from CE: (a) Manufacturer name (b) Model name (c) regulatory markings (CE mark, must be 5mm proportioned appropriately) (d) country of origin recommended 
+
+j) Serial Number Format i) System components shall have a unique asset-tag label. The asset number must be unique across all different system components. ii) The label must contain the following fields exactly as shown in Figure 2: 1123787 Liquid Cooling Label iii) Product Type (five characters) assigned and controlled by Google as noted below. Format: PPPPP with 0 used as a place holders at the end where needed. Items controlled for barcode serialization and deployment traceability:
+
+● CDU00 - CDU Rack 
+● WMFMA - Wall Manifold Main Assembly 
+● WMF2R - Wall Manifold 2 Rack Modular Section 
+● RMFLD - Rack Manifold 
+● PLC00 - PLC 
+● PDU00 - PDU 
+● RSSKT - Right Side System Manifold (Side Kit) 
+● LSSKT - Left Side System Manifold (Side Kit) 
+● RSSI0 - Right Side System Installation Hose Kit (IRS Side Kit) 
+● LSSIA - Left Side System Installation Hose Kit A (IRS Side Kit) 
+● LSSIB - Left Side System Installation Hose Kit B (IRS Side Kit) 
+● RSSRF - Right Side System Raised Floor (Side Kit) 
+● LSSRF - Left Side System Raised Floor (Side Kit) 
+● RSSBS - Right Side System (Building S Side Kit) 
+● LSSBS - Left Side System (Building S Side Kit) 
+● RSSA0 - Right Side System Kit (D2.0 A Configuration) 
+● LSSA0 - Left Side System Kit (D2.0 A Configuration) 
+● RSS00 -Right Side System Kit (D2.0 Configuration) 
+● LSS00 - Left Side System Kit (D2.0 Configuration) 
+
+● LSSAT - Left Side System Kit (D2.0 A Configuration w/Tri-Clamp) Items controlled for labeling but currently not requiring deployment traceability at Google: 
+● HOSKP - Hose Kit Primary 
+● CHGTL - Charge Tool 
+● FEEDK - Feeder Kit Toom (More details will be added in subsequent versions of the spec) 
+● DIGDG - Tray Feeder Tool (More details will be added in subsequent versions of the spec.) iv) Items not currently covered under this specification: 
+● CDUTF - CDU Test Fixture 
+● CDRPN - Common Drain Pan 
+● HOSKC - Hose Kit Contingency (3.0 Only) 
+● RWSM0 - Return/Rack Water Supply CDU Manifold 
+● RWRM0 - Return/Rack Water Return CDU Manifold 
+● PCWRM - Primary/Processed Chilled Water Return Manifold 
+● PCWSM - Primary/Processed Chilled Water Supply Manifold 
+● CLDPL - Cold Plate 
+● Component Filters (a) Filters shall be given a Part Number, date code, and product description and shall be identified by such on product packaging. (b) Part marking on individual parts with individual serialization will not be required given COTS status and nature as consumable item. 
+● 1" Hose Kits - 2.5, 3, 3.5 feet (a) Components consisting of hose assemblies will not be serialized as the hose is traceable only to large lots. v) Manufacturer ID (three characters) assigned and controlled by Google. Format: ABC vi) Manufacturing Date. Format: YYWW. YY = Year (20, 21, 22, etc), WW = Work Week (01 to 53). Note: No Hyphen after WW. vii) Sequential number (6 digits). Format = XXXXXX, starting with 00001. 
+
+Figure 17.2: Liquid Cooling Label
+
+Figure 17.3: GPN 1123787 Liquid Cooling Label Font & Text Size Reference.
+
+##### 18 Redmond: Hot Aisle Containment (HAC) Interface
+
+This HAC interface specification, named Redmond, is being provided to the OCP community so that they can support the deployment of high density liquid cooled racks. The main features of this interface are as follows:
+
+● Designed to support shoulder-to-shoulder deployment of IT racks which are 28” wide, up to 50” deep, and up to 90.55 inch tall. 
+● Allows the IT racks of different depths to be deployed in a front justified manner. The differences in depth are absorbed by the containment plenums. 
+● Allows the IT racks of different heights to be deployed in a shoulder-to-shoulder manner. The differences in depth are absorbed by the containment plenums. 
+● Accommodates rear door heat exchangers (RDHx) behind each IT rack. The RDHx is assumed to be anchored into the floor, with no physical support from the IT rack itself. 
+● Allows placement of 8x 600 Amp bus ducts in the hot aisle, 4 per side. This helps deliver power to high density IT racks in a “4 makes 3” configuration. 
+● Specifies hard requirements such as the elevations of fiber baskets, and fungible requirements such as the placement of busducts and PCW pipes. 
+● The minimum HAC height of 14’ is easily accommodated by worldwide Colo data centers. The scope of this document is limited to providing guidance on: 
+● Hard Interface Specifications: Defining the keepouts and physical connection points between the racks / cable trays / wall manifold / CDU and the Colo facility's structure. 
+● Rack Layout and Elevations: Recommending optimal rack placement and elevation plan. 
+● Wall Manifold Placement: Specifying the location and mounting requirements for the liquid cooling wall manifold. 
+● Weight of Components: Weight of each component to be supported (WMFs, drip trays, cable trays, etc.). 
+● Interface Requirements for Fungible Components: Defining the necessary interface points for fungible components, such as 4X busways, without detailing their specific support or placement. The following items are explicitly excluded from the scope of this document: 
+● Structural Qualification for Static and Dynamic Loads: The data center owner is solely responsible for engaging qualified structural engineers to perform all necessary analyses and design work to ensure the structural integrity of the facility, including but not limited to: 
+○ Assessment of the structure for static loads. 
+○ Assessment of the structure for dynamic loads, including seismic loading. 
+○ Design and implementation of appropriate bracing and anchoring. 
+● Fungible Component Support and Placement: While the requirement for 4X busways 
+
+(600A per machine row) is noted here, the specific design, support, and placement of these components are the sole responsibility of the Colo vendor.
+
+● Hot Aisle Containment: If hot aisle containment is required, the data center owner is responsible for designing, procuring, and installing all necessary containment panels and integrating them into the overall structural design Dimensions shown in this document are categorized as either critical or non-critical (fungible). 
+● Critical Dimensions: These dimensions are essential for the proper physical fit and functionality of the liquid cooling infrastructure. Critical dimensions will be highlighted and clearly marked. 
+● Non-Critical (Fungible) Dimensions: These dimensions are provided for reference and may be adjusted by the data center owners to optimize their design, provided they do not interfere with the critical interfaces. 
+
+18.1 IT Rack Dimensions
+
+● Rack Width: 28” (711 mm) 
+● Rack Depth: 50” (1270 mm) max 
+● Rack Height: Min 80.7” (2050mm), Max 90.55” (2300 mm) 
+● Packaged Height: 100” (2540 mm) 
+
+18.2 Redmond HAC Interface
+
+| Interface | | Requirement | |
+| --- | --- | --- | --- |
+| Cold | Aisle width | 54” (1372mm) minimum | |
+| Hot | Aisle width | 68.4” (1737mm) minimum | |
+
+The Redmond HAC interface is described in Table 18.2.1 below: 
+Table 18.2.1: Redmond HAC interface 
+with RHx (measured between rear 
+RHx faces) 
+102” (2210mm) maximum 
+without RHx (measured between rear 
+rack faces) 
+Min bay width 121” (3073.36mm) 
+
+Min row length 46’ (14.02m)
+
+Transport aisle width
+
+6ft (1800mm) clearance in at least 1 transport row 10ft (3.048m) clearance in the other transport row Min ceiling height 14’ (4.26m)
+
+18.3 Floor Layout
+
+The Redmond HAC interface is based on the following floor layout shown in the following figure. This layout shows one repeatable bay of the Redmond structure. Each bay permits four 28” wide IT racks to be deployed on each side of the hot aisle, with a 5 mm gap between the neighboring racks. The bay is bounded by four vertical posts, which are 5” by 5” in size. Below each post is a base plate which is 12” by 8.5” in size. The available width between the base plates is 114” which is sufficient to deploy four IT racks. The gap between the IT racks, which formulates the hot aisle, is 68.4” with RDHx, and 102” without them.
+
+Figure 18.3.1: The Redmond HAC interface is based on the floor layout shown in this figure. All dimensions in this figure are critical.
+
+18.4 Elevations
+
+The overall height of Redmond HAC is 168” or 14’ above the finished floor, which could be slab 
+or raised. To support it on a raised floor, extension columns need to be installed below 
+the finished floor. 
+Four essential items need to be supported on each cold aisle side, namely: 
+● Level 1: “Project Deschutes” Wall Manifold (WMF) pipes. Elevation: 100.5”. 
+● Level 2: cabling, Elevation: 115.5” 
+● Level 3: cabling. Elevation: 127.5” 
+● Level 4: cabling. Elevation: 139.5” 
+● All these four elevations are critical, i.e. cannot be changed. 
+
+● The space above the fourth elevation (139.5”) is available to the Colo providers for any items not shown here, such as the PCW piping for RDHx. 
+● These elevations are illustrated in the subsequent figure. This figure also shows the outline of the rear door heat exchangers (RHDx). The gap between the RDHx units cannot be lower than 68.4”. 
+
+Figure 18.4: Various Elevations of Redmond HAC Interface. All dimensions above the finished floor are critical. The dimensions below the finished floor are up to the data center owner. A more detailed view of these elevations is shown in Figure 18.5:
+
+Figure 18.5: Detailed view of elevations referenced in Figure 18.4 The loads imposed by these four elevations are shown in the table below. This information can be used for the structural design and analysis.
+
+Level Description
+
+Ht. over floor [in]
+
+Wire Basket [in]
+
+Cable wt. [lbs/ft]
+
+Basket wt. [lbs/ft]
+
+Design wt. [lbs/ft]
+
+1 “Project Deschutes” Wall Manifold
+
+100.5 0 0 31.66 31.7
+
+2 Cabling 115.5 24x4 27 2.95 29.9
+
+| 3 Cabling | | 127.5 | | 24x4 | | 27 | | 2.95 | | 29.9 | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 4-(1) Cabling | | 139.5 | | 24x4 | | 10.8 | | 2.95 | | 13.8 | |
+| 4-(2) Cabling | | 139.5 | | 4x4 | | 13.4 | | 1.12 | | 14.5 | |
+
+Table 18.4.1: Various Elevations and the Corresponding Loads of Redmond HAC Interface
+
+18.5 Redmond Structure
+
+Figure 18.5.1 shows the hangers and unistruts for supporting the items described in the previous section. The “Project Deschutes” Wall Manifold (WMF) is mounted on unistruts supported on the lateral X-beams. The other three elevations are mounted on “Cable Tray Hangers” attached to the vertical posts. The vertical posts are supported by the base plates. The two sides are connected to each other with beams which span the hot aisle. These beams provide structural rigidity and also allow mounting of busducts (not shown).
+
+Figure 18.5.1: Redmond HAC Structure
+
+18.6 Containment
+
+The data center owner will design the containment to separate the hot and cold aisle. The exact details of containment is outside the scope of this document.
+
+18.7 Busduct Placement
+
+The busducts will be placed inside the hot aisle, four 600A busducts on each side of the aisle, allowing “4 makes 3” power feed configuration for IT racks. Exact placement and attachment details for these busducts are up to the owner of the data center, i.e. they are fungible or non-critical for the purpose of this document. These details are outside the scope of this document.
+
+Figure 18.7: Budget placement inside hot aisle. Shown for reference only. Exact placement and attachment details are up to the data center owner.
+
+18.8 Power Interface
+
+Table 18.8.1 shows the power interface requirements for IT racks. These must be facilitated 
+using the HAC interface described in this document. 
+Table 18.8.1: Power interface requirements for IT racks 
+Connector interface IEC60309 5 pin, 30/32A, 230/240Vac 
+Supported line voltage Three phase, 230/240Vac (Wye): 
+EMEA, NA, Japan (all locations) 
+Tap box protection 32A 3phase breakers and/or fuses+disconnect (one per outlet) 
+# of outlets/feed Each feed shall have two outlets per rack spot (in 4-feed 
+configuration) 
+# of feeds, redundancy 4 feeds with independent UPS support, 
+3+1 redundancy (aka “4 makes 3”) 
+load power support 90kW per rack spot (1 second timescales, 3 of 4 feeds 
+operational) 
+
+Legacy single-phase rack support
+
+3phase tapboxes should be capable of being swapped out with single-phase tapboxes on a per-rack spot basis
+
+Facility -> Load power architecture - 2N feed redundancy - N+1 feed redundancy
+
+Feed redundancy at the rack = 3+1 
+UPS redundancy >= Feed redundancy (min: one UPS per feed) 
+Generator redundancy >= Feed redundancy (entire load must 
+be supported with (TBD) Generators in repair) 
+
+18.9 Rear Door Heat Exchanger (RDHx) Details
+
+The data center owner will decide if rear door heat exchangers are needed to provide cooling to 
+the rack. If needed, the RDHx units will be anchored into the floor without requiring any 
+physical support from the IT racks or the Redmond structure. The RDHx vendor will 
+design the mounting structure for the RDHx units. 
+The data center owner will also be responsible to design the containment around the RDHx. 
+Such containment will include the following: 
+● Top Containment Panel 
+● Front Seal 
+● Side panels for both sides 
+● Cutouts for power whip routing to feed power into the IT racks 
+
+Figure 18.9.1: RDHx Solution
+
+18.10 Rear Door Heat Exchanger (RDHx) Dimensions
+
+The following dimensions include both the RDHx and its mounting solution for anchoring it into the floor.
+
+● Height: 94.401” (2397.78mm) 
+● Width: 28.189” (716mm, which is 5 mm wider than the IT rack of 711mm) 
+● Depth: 13.067” (331.91mm) 
+● Minimum gap between RDHx and IT rack: 3.733” (94.81mm) The relative placement of RDHx and the IT rack with respect to each other is shown in the figure below. 
+
+Figure 18.10.1: Placement of RDHx and IT rack with respect to each other.
+
+18.11 Power Whip Routing Through RDHx to Feed Power into IT Racks
+
+Since the RDHx acts as a physical barrier between the hot aisle and the IT rack, the power whips must needle through the RDHx containment panels to reach the IT racks. Cutouts will be required in the RDHx containment panels to pass these whips. The most appropriate places for these cutouts are the top panel and the rear faces of the mounting solution. These routes were shown in Figure 18.10.1.
+
+18.12 PCW (Process Chilled Water) Piping for RDHx
+
+The data center owner will decide the placement of PCW piping for RDHx. They are free to use the space above the 139.5” elevation in the cold aisle, as shown in Figure 18.12.1. If such an arrangement is chosen, a drip pan with a leak detection system must be provided. The leak detection must be integrated with the BMS system for alarming purposes.
+
+Figure 18.12.1: PCW Piping placement for RDHx
+
+18.13 CDU Placement
+
+Figure 18.13.1: Project Deschutes CDU showing placement on Floor with primary and secondary piping connections
+
+Figure 18.13.2: Project Deschutes CDU from Hot Aisle showing the dimensions of CDU placement relative to Structure post and primary piping interface
+
+##### 19.0 General validation requirements
+
+The following sections define the engineering validation requirements of the “Project Deschutes” 
+liquid cooling components, assemblies and full system. 
+The validation requirements outlined in this document must be completed and documented by 
+the vendor and shared with the customer. 
+
+19.1 Data reporting
+
+● Reports shall be provided in Google Docs and/or .pdf formats. 
+● Raw data shall be provided in Google Sheets format. 
+● Presentations shall be provided in Google Slides and/or .pdf formats. 
+● Temperature data shall be reported in °C. 
+● Pressure data shall be reported in psi. 
+● Power data shall be reported in kW. 
+● Flow rate shall be reported in GPM. 
+
+19.2 Coolants
+
+All wet testing, i.e. testing with coolants, shall be conducted with DI water and PG25. Any one of the DI water based coolants can be selected for testing with DI water. Testing with PG25 shall be done with the PG25 coolant listed below.
+
+● ChemTreat CL2002: 95% DI water, 5% chemical 
+● Garratt-Callahan FM5666-LT: 98% DI water, 2% chemical 
+● Veolia (Suez) SV5520: 97% DI water, 3% chemical 
+● Propylene Glycol 25% (PG25) 
+
+19.3 Nomenclature
+
+● The term “customer” used in this document refers to 1st party hyperscalers and 3rd party data center owners alike all over the world would be able to purchase a CDU based on the “Project Deschutes Specification” 
+● The term “vendor” used in this document refers to the CDU provider. 
+
+19.4 General validation suite
+
+19.4.1 Transportation and Weight
+
+● Measure the dry and wet weight of an unpackaged assembly 
+● Each packaged assembly shall be subject to the following tests: 
+○ Level 2 Shock/Drop Testing [ASTM D4169 Schedule A] 
+○ Level 2 Vibration Testing, 60minTruck & 120 min/air [ASTM D 4169 Schedule E] 
+
+19.4.2 Shelf Life
+
+Qty 1 packaged assembly shall be filled with nitrogen gas at 10 psig and monitored for pressure decay during a period of 4 months to determine shelf life of the product. Note: shelf life is not considered a gating qualification test.
+
+19.4.3 Thermal Shock
+
+Qty 1 packaged assembly shall be subjected to thermal shock/low temp exposure testing per Telecordia GR-63, Issue 4, Section 5.1.1 as described below:
+
+● Decrease chamber temperature to -40°C at a rate of 30°C/hr. 
+● Dwell at -40°C for 72 hours. 
+● After 72 hours, raise the temperature to ambient in less than 5 min. 
+● Allow the unit to thaw for 12 hours. 
+● Ensure that shipping nitrogen charge is retained. 
+● Perform a 50 psig helium sweep. Helium leak rate must be < 1.0x10-5 atm cc/sec. 
+● Pressurize to 150 psig and inspect for signs of water leaks. 
+
+19.4.4 COG Analysis
+
+● The center of gravity (COG) will be calculated via CAD analysis for each assembly in the position that it would be oriented in a fully-installed system. 
+● COG shall be determined for both filled and dry configurations. 
+
+19.4.5 Finite Element Analysis
+
+● All system assemblies (i.e. wall manifolds and mounting, side kits, CDU) shall be assessed through Finite Element Analysis (FEA) to identify points and/or regions of mechanical stress or deformation and confirm the mechanical integrity of the design. 
+● Seismic loading as per ASCE (Americal Society for Civil Engineers) 7-16 for Sds 2.273; Eqv static design loading: lateral acc V 0.9g, vertical acc Av 0.45g 
+● All models with results shall be provided by the vendor to the customer in Ansys compatible format. 
+
+19.4.8 Agency
+
+USA/Canada Global Market Access (Outside of USA/Canada) UL 62368-1 IEC/EN 62368-1
+
+All testing shall be done with the UL 62368-1 or IEC/EN 62368-1 equivalents of the following: ● Leakage Current per IEC/UL 60335-1, Sec. 13.2
+
+● Rated Current Test per IEC/UL 60335-1, Section 10.2 
+● Ground Continuity per IEC/UL 60335-1, Sec 27.5 
+● Electric Strength per IEC/UL 60335-1, Sec. 13.3 
+● Starting Current Test per IEC/UL 60335-1, Sec. 9DV.4 
+● Heating Test per IEC/UL 60335-2-40, Section 11 
+
+##### 20.0 Component validation
+
+20.1 Facility water pipe kits
+
+The facility water pipe kits enable flow between the data center facility water piping and the primary side of the CDU.
+
+General
+
+The facility water pipe kits shall be subjected to the following general testing requirements outlined in the “General validation suite”:
+
+● Transportation and Weight - qty. 1, packaged 
+● Shelf Life - qty. 1, packaged 
+● Thermal Shock - qty. 1, packaged 
+● COG Analysis 
+● FEA 
+● Supplemental reliability - qty. 8 of each joint, clamp, valve and other component in the assembly 
+● Agency, if applicable 
+
+Hydraulic
+
+● Measure dP vs flow at flows of 100-600 GPM in 100 GPM increments. 
+● Liquid temperature shall be 25 ± 1°C 
+● Validation shall be done with DI water and PG25 coolants 
+
+20.2 Secondary side side kits
+
+The secondary side kits enable flow between the CDU and the wall manifold assembly.
+
+General
+
+The secondary side kits shall be subjected to the following general testing requirements outlined in the “General validation suite”:
+
+● Transportation and Weight - qty. 1 packaged wall manifold kit 
+● Shelf Life - qty. 1 packaged wall manifold kit 
+● Thermal Shock - qty. 1 packaged wall manifold kit 
+
+● COG Analysis 
+● FEA 
+● Supplemental reliability - qty. 8 of each joint, clamp, valve and other component in the assembly 
+● Agency, if applicable 
+
+Hydraulic
+
+● Measure dP vs flow at flows of 100-600 GPM in 100 GPM increments 
+● Liquid temperature shall be 25 ± 1°C 
+● Validation shall be done with DI water and PG25 coolants 
+
+20.3 Modular wall manifold kit
+
+The wall manifold assembly consists of modular wall manifold sections. The wall manifolds distribute liquid flow to the IT machine racks. The modular wall manifold kit may include drip pans.
+
+General
+
+The modular wall manifolds shall be subjected to the following general testing requirements outlined in the “General validation suite”:
+
+● Transportation and Weight - qty. 1 packaged wall manifold kit 
+● Shelf Life - qty. 1 packaged wall manifold kit 
+● Thermal Shock - qty. 1 packaged wall manifold kit 
+● COG Analysis 
+● FEA 
+● Supplemental reliability - qty. 8 of each joint, clamp, valve and other component in the assembly 
+● Agency, if applicable 
+
+Hydraulic
+
+● Measure dP vs flow at flows of 200-1600 GPM on qty 1 modular wall manifold. 
+● Liquid temperature shall be 25 ± 1°C 
+● Validation shall be done with DI water and PG25 coolants 
+
+20.4 Heat exchanger
+
+General
+
+The component shall be subjected to the following general testing requirements outlined in the “General validation suite”:
+
+● Transportation and Weight - qty. 1 packaged wall manifold kit 
+● Shelf Life - qty. 1 packaged wall manifold kit 
+● Thermal Shock - qty. 1 packaged wall manifold kit 
+● COG Analysis 
+● FEA 
+● Supplemental reliability - qty. 8 of each joint, clamp, valve and other component in the assembly 
+● Agency, if applicable 
+
+Thermal-hydraulic
+
+● Measure the approach temperature and the primary and secondary side pressure drop at the combination of conditions outlined in the table below. 
+● Total number of test points is 4 x 4 x 5 = 80. 
+● If the vendor is unable to procure equipment to deliver the indicated heat loads please inform the customer as soon as possible. 
+● Validation shall be done with DI water and PG25 coolants 
+
+Table 20.2.1: heat exchanger thermal-hydraulic test parameters Secondary side water dT (°C)
+
+Primary side water dT (°C)
+
+Heat loads 
+(kW) 
+10 10 250 
+15 15 333 
+20 20 500 
+25 25 667 
+833 
+
+20.5 Primary and secondary filters
+
+General
+
+The filters shall be subjected to the following general testing requirements outlined in the “General validation suite”:
+
+● Transportation and Weight - qty. 1, packaged 
+● Shelf Life - qty. 1, packaged 
+● Thermal Shock - qty. 1, packaged 
+
+● FEA 
+● Supplemental reliability - qty. 8 of each joint, clamp, valve and other component in the assembly 
+● Agency, if applicable 
+
+Hydraulic
+
+● Measure dP vs flow of filter assemblies 
+● Vendor to provide guidance on alert/alarm thresholds for maintenance 
+● Validation shall be done with DI water and PG25 coolants 
+
+Impulse
+
+● Qty 3 filter samples 
+● A filter housing will be pressurized to 150 psig, then a ball valve will be suddenly opened–allowing for the water to escape through the housing outlet and create an impulse condition. 
+● The filter cartridge will be removed and inspected for damage. 
+
+20.6 Microfiltration
+
+General
+
+The filters shall be subjected to the following general testing requirements outlined in the “General validation suite”:
+
+● Transportation and Weight - qty. 1, packaged 
+● Shelf Life - qty. 1, packaged 
+● Thermal Shock - qty. 1, packaged 
+● FEA 
+● Supplemental reliability - qty. 8 of each joint, clamp, valve and other component in the assembly 
+● Agency, if applicable 
+
+Hydraulic
+
+● Measure dP vs flow of filter assemblies 
+● Vendor to provide guidance on alert/alarm thresholds for maintenance 
+● Validation shall be done with DI water and PG25 coolants 
+
+Impulse
+
+● Qty 3 filter cartridge samples
+
+● A microfiltration housing will be pressurized to 150 psig, then a ball valve will be suddenly opened–allowing for the water to escape through the housing outlet and create an impulse condition. 
+● The filter cartridge will be removed and inspected for damage. 
+
+20.7 CDU primary side actively controlled valve
+
+General
+
+The CDU primary side actively controlled valve shall be subjected to the following general testing requirements outlined in the “General validation suite”:
+
+● Transportation and Weight - qty. 1, packaged 
+● Shelf Life - qty. 1, packaged 
+● Thermal Shock - qty. 1, packaged 
+● FEA 
+● Supplemental reliability - qty. 8 of each joint, clamp, valve and other component in the assembly 
+● Agency, if applicable 
+
+Hydraulic
+
+● Measure dP vs flow at 100-600 GPM in increments of 100 GPM @ valve openings of 25%, 40%, 60%, 80% and 100% 
+● Validation shall be done with DI water and PG25 coolants 
+
+20.8 Expansion tank
+
+General
+
+The expansion tank shall be subjected to the following general testing requirements outlined in the “General validation suite”:
+
+● Transportation and Weight - qty. 1, packaged 
+● Shelf Life - qty. 1, packaged 
+● Thermal Shock - qty. 1, packaged 
+● FEA 
+● Supplemental reliability - qty. 8 of each joint, clamp, valve and other component in the assembly 
+● Agency, if applicable 
+
+Impedance
+
+● Sample qty.: 1 flow-through expansion tank.
+
+● Determine the dP vs flow through the expansion tank at bladder pressures of 30, 45 and 60 psig at 5-20 GPM in increments of 5 GPM. 
+● Validation shall be done with DI water and PG25 coolants 
+
+Leak Check
+
+● Qty. 5 flow-through expansion tank samples. 
+● Charge tank bladder to 50 psig, then perform helium leak test according to the guidelines in the “Supplemental reliability” section above. 
+● Charge tank bladder to 30 psig, then perform helium leak test according to the guidelines in the “Supplemental reliability” section above. 
+
+Pressure Cycle
+
+● Qty. 5 expansion tanks samples 
+● Each sample is subjected to 0-300 psig, 1 min/cycle, for 5000 cycles with 1 hr, 150 psig hydrostatic tests every 1000 cycles. 
+● If the maximum pressure of the expansion tank is found to be <300 psig during high pressure testing, cycle pressure will be reduced to 150 psig. 
+
+System Functional
+
+The following test shall be performed on a CDU assembly:
+
+● Qty 2 expansion tank samples 
+● Pre-charge expansion tank bladder to 30 psig, fill and purge the CDU 
+● Pressurize the CDU to 20 psi, 40 psi and 60 psi and confirm that the expansion tank bladder pressure is the same as the system pressure. 
+● The test shall be performed with coolant temperatures of 25 °C and 55 °C. 
+
+20.9 Flow meter
+
+General
+
+The expansion tank shall be subjected to the following general testing requirements outlined in the “General validation suite”:
+
+● Transportation and Weight - qty. 1, packaged 
+● Shelf Life - qty. 1, packaged 
+● Thermal Shock - qty. 1, packaged 
+● FEA 
+● Supplemental reliability - qty. 8 of each joint, clamp, valve and other component in the assembly 
+● Agency, if applicable 
+
+Flow Accuracy
+
+● Qty. 1 flowmeter will be run in series with a calibrated flow meter to validate flow accuracy. 
+● Validation shall be done with DI water and PG25 coolants 
+
+20.10 Leak detection system: cable and controller
+
+General
+
+The expansion tank shall be subjected to the following general testing requirements outlined in the “General validation suite”:
+
+● Transportation and Weight - qty. 1, packaged 
+● Thermal Shock - qty. 1, packaged 
+● Agency, if applicable 
+
+Functional
+
+● The vendor shall validate functionality of the leak detection system with the CDU PLC
+
+20.11 Pressure and temperature telemetry
+
+All telemetry shall be confirmed to be calibrated and meet the accuracy indicated in the telemetry datasheets
+
+20.12 Valves and clamps, general
+
+All valves and clamps shall be subjected to the following general testing requirements outlined in the “General validation suite”:
+
+● Transportation and Weight - qty. 1, packaged 
+● Shelf Life - qty. 1, packaged 
+● Thermal Shock - qty. 1, packaged 
+● FEA 
+● Supplemental reliability - qty. 8 of each joint, clamp, valve and other component in the assembly 
+● Agency, if applicable 
+
+20.13 Pumps functional
+
+● Pump functional and performance shall be tested individually and as part of the CDU assembly.
+
+Pump Temperature Shut-off Test
+
+| ● Samples | 1 CDU. Needed: |
+| --- | --- |
+| ● Procedure: | |
+| | ● A pump in the CDU is assembled into a short hydraulic loop. |
+| | ● Unit is run continuously at 100% speed until the water heats up, causing |
+| | the drive to throw an over-temperature fault and shut off the pump. |
+| ● Note: | The exact temperature at which an over-temperature fault occurs needs to |
+| be | determined. |
+
+Pump Motor Lock Test
+
+| ● Samples | 1 Pump with no fluid inside and 1 Pump VFD drive Needed: |
+| --- | --- |
+| ● Procedure: | |
+| | ● The rotor of the pump motor is physically locked. |
+| | ● The pump is then commanded to run at 100% speed. |
+| | ● The drive is expected to trigger a fault alert via Modbus (or other |
+| | communication protocol) and shut off the pump. |
+
+Non-Ideal Power Test
+
+● Samples Needed: 1 Pump with no fluid inside and 1 Pump VFD drive 
+● Purpose: To test the pump under non-ideal power conditions, such as those caused by bad weather. 
+● Details: Refer to the full test description are listed below This text below outlines two tests for Pump to ensure it operates correctly under "non-ideal" power conditions, such as those that might occur during severe weather. The main goal is to confirm the pump's continued operation without damage or user intervention, even if its speed varies. General Information for Both Tests: 
+● Purpose: To ensure the pump continues to operate and avoids damage when the power supply is "messy." 
+● Acceptable Outcome: Variations in pump operating speed are okay, as long as no damage occurs and no user intervention is needed for the pump to return to normal operation when power stabilizes. 
+● Equipment: A programmable AC power source (e.g., Chroma model 6400). 
+● Logging: During testing, continuously record status parameters from the motor controller and PLC, as well as pump behavior, system pressures, and flow rates. 
+● Review: After the test, review logs for any pump malfunctions or 
+
+Open Compute Project • Project Deschutes unacceptable hydraulic conditions (like water hammer).
+
+● Test A: Consistent Source, but with Low Power Quality This test simulates power fluctuations from a single source. 
+● Objective: To test pump resilience against various voltage variations and durations. 
+● Number of Cycles: 25 
+● Pump Speeds Tested: 50%, 75%, 95%. 
+● Nominal Power Settings: ■ Voltage range 380Vac-416Vac nominal, available as either: ■ 3phase Delta (4-wire) distribution ■ 3phase Wye (5-wire) distribution ■ Operational range must include 90% to 110% over above “nominal” voltage range ■ 50Hz/60Hz nominal, operational from 47Hz-63Hz (+/-5%) 
+● Duration of Voltage Variations: 1, 3, 6, 10, 30, 50 cycles; 2, 5, 10, 20 seconds. 
+● Voltage Variations Tested: 110%, 80%, 40%, 0% (off) Test Procedure Overview: 
+○ Cycle through pump commanded speeds (50%, 75%, 95%). 
+○ Cycle through nominal voltage/frequency settings 
+○ Cycle through various "duration of voltage variation" times. 
+○ Cycle through different "voltage variations" (110%, 80%, 40%, 0%). 
+
+1. Initialize: Start the pump at 380V/50Hz and let hydraulics settle for a few minutes. 2. Outer Loop (25 times): Repeat the entire test sequence. 3. Inner Loops: 4. Event Execution: For each combination, apply the specific voltage variation for the specified duration. 5. Recovery: Return power to normal voltage for 30 seconds after each event. 6. Shutdown: Continue running at 216 Vac/60Hz until the system is properly shut down. Estimated Duration: Approximately 2.5 days (6,000 non-ideal power events).
+
+Test B: Changing Between Two Sources This test confirms the pump's ability to switch between 50Hz and 60Hz power sources.
+
+● Objective: To verify the pump's performance when switching between different frequency power sources with varying off-times. 
+● Number of Cycles: 100 
+● Off-Time Durations: 30, 50 cycles; 2, 3, 4, 5, 6, 8, 10, 20 seconds. 
+● Nominal Power Settings: ■ Voltage range 380Vac-416Vac nominal, available as either: ■ 3phase Delta (4-wire) distribution ■ 3phase Wye (5-wire) distribution ■ Operational range must include 90% to 110% over above “nominal” voltage range ■ 50Hz/60Hz nominal, operational from 47Hz-63Hz (+/-5%) Test Procedure Overview: 
+○ Cycle through various "off-time durations." 
+○ Cycle between the two nominal voltage/frequency settings 4. Operation: Operate at the selected voltage/frequency for 30 seconds. 
+
+1. Initialize: Start the pump at 380V/50Hz and let hydraulics settle for a few minutes. 2. Outer Loop (100 times): Repeat the entire test sequence. 3. Inner Loops: 5. Event Execution: Drop power to "off" for the specified duration, then turn it back on at the other voltage/frequency. 6. Shutdown: Continue running at 416 Vac/60Hz until the system is properly shut down. Estimated Duration: Approximately 0.5 days (1,000 frequency switches).
+
+20.14 Variable Frequency Drive (VFD) functional ● VFD functional and performance shall be tested as part of the CDU assembly.
+
+20.15 Programmable Logic Controller (PLC)
+
+See “System Validation” section.
+
+20.16 Power distribution unit (PDU)
+
+See “System Validation” section.
+
+20.17 Threaded Studs
+
+Measure breaking strength of threaded studs and ring-weld projection studs, sample qty. 8.
+
+20.18 Loctite Joints
+
+Measure breaking strength of all joints with Loctite, sample qty. 8.
+
+##### 21.0 Assembly validation
+
+21.1 CDU
+
+21.1.1 CDU hydraulic
+
+CDU primary side
+
+● Measure dP vs flow at pump speeds of 25%, 40%, 60%, 80% and 100% and at primary side valve openings of 10%, 25%, 40%, 60%, 80% and 100% opening 
+● An external valve can be used to modulate flow restriction 
+● Pressure is measured at the CDU sensors at the CDU supply and discharge 
+● Validation shall be done with one and two pumps in operation 
+● Validation shall be done with DI water and PG25 coolants 
+
+CDU secondary side
+
+● Generate performance curve for secondary side of CDU at pump speeds of 25%, 40%, 60%, 80% and 100% pump speeds. 
+● Pressure is measured at the CDU sensors at the CDU supply and discharge 
+● An external valve can be used to modulate flow restriction. 
+● Validation shall be done with one and two pumps in operation 
+● Validation shall be done with DI water and PG25 coolants 
+
+21.1.2 CDU thermal
+
+● Measure the approach temperature and the primary and secondary side pressure drop at the combination of conditions outlined in the table below. 
+● Total number of test points is 4 x 4 x 5 = 80. 
+● If the vendor is unable to procure equipment to deliver the indicated heat loads please inform the customer as soon as possible. 
+● Validation shall be done with DI water and PG25 coolants 
+
+Table 21.1.1: CDU thermal-hydraulic test parameters Secondary side water dT (°C)
+
+CDU primary side flow @ sensor (psi)
+
+Heat loads (kW) 10 15 750 15 20 1000 20 25 1500 25 30 2000 2500 Note: Empty cells indicate that a specific test condition is not applicable to the defined 4 x 4 x 5 test matrix.
+
+21.1.4 PLC functional
+
+All functions of the PLC will be functionally tested via the HMI
+
+● Pump commands and feedback 
+● Valve commands and feedback 
+● Flowmeter feedback 
+● Pressure and temperature telemetry feedback 
+
+21.1.5 Firmware update
+
+The functionality of an in-field and remote PLC firmware update shall be verified.
+
+21.1.6 Modbus communication
+
+All functions of the PLC will be functionally tested via the Modbus control through IPv4 and IPv6 connections
+
+● Pump commands and feedback 
+● Valve commands and feedback 
+● Flowmeter feedback 
+● Pressure and temperature telemetry feedback 
+
+21.1.7 Electronics enclosures active component temperature
+
+● All electronics enclosures shall be operated for 24 hours while monitoring the temperatures of the active components. 
+● Record ambient temperature throughout the experiment 
+● Confirm all active component temperatures do not exceed temperature limits after adjusting for ambient temperatures of ~40 °C. 
+
+21.1.8 Acoustic
+
+● Qty 1 CDU shall be subjected to acoustic testing in an acoustic chamber 
+● Testing shall be conducted with one and two pumps running at 25%, 40%, 60%, 80% and 100%. 
+● Acoustic requirement for front and rear of the rack 
+○ Applicable scenarios: ■ Device start up condition for all devices within the rack ■ Fans in all subcomponents are functioning at nominal condition with all fans working. 
+○ Locations of measurement (2 on front and 2 at rear of rack): ■ 100cm and 158cm up from ground 
+● 38 cm away from the rack front and rear surface 
+○ Max limit ≤ 95dBA 
+○ Preferred limit ≤ 85dBA 
+
+Acoustic report The report must contain the following information:
+
+● UUT (Unit under Test) Description 
+○ Make and Model 
+○ Fan and pump Model Numbers 
+○ Qty and Location of fans and pumps 
+○ Any other relevant information about UUT 
+○ Links to product data sheets 
+○ Pictures of the UUT 
+● Test Location 
+○ Date of Test 
+○ Lab address if it can be shared 
+○ Pictures 
+● Test Setup 
+○ Type of chamber or room 
+○ Ambient noise 
+○ Microphone setup 
+○ Instruments (Acoustic measurement instruments) 
+○ Measurement Positions (specify the height, distance etc.) 
+○ Pictures of the test setup 
+● Test Methodology 
+○ Duration of each test 
+○ Method of analysis 
+● Comprehensive Data Tables 
+
+○ Avg A-Weighted SPL values in all included measurement positions for all measured fan PWMs 
+○ [Optional] Max and Min A-Weighted SPL values if reporting 
+○ [Optional] Prominent Tone Identification and Tone-to-Noise Ratio Analysis 
+
+21.1.9 Non-Operational Shock
+
+Qty. 1 CDU with and without pumps installed shall be charged with nitrogen and subjected to the following handling tests without packaging:
+
+● 1x 0.5” flat drop 
+● 4x 1.0” corner drops (1 per bottom corner) 
+● 4x 1.0” edge drops (1 per bottom edge) The CDU shall then be subjected to standard end-of-line leak and functional testing to ensure no impact to performance. 
+
+21.1.10 Operational Shock and Sine
+
+Qty. 1 CDU with pumps shall be subjected to the below IEC 60068 tests:
+
+● Operational Shock Testing per IEC 60068-2-27 Test Ea 
+● Sinusoidal Vibration Testing per IEC 60068-2-6 Test Fc The CDU shall then be subjected to standard end-of-line leak and functional testing to ensure no impact to performance. 
+
+21.1.11 1” CDU Service Port Side Load
+
+● Qty. 1 representative sample of a 1” CDU service manifold port will undergo side-load testing. 
+● Side load shall be 500 lbs at 36 inches (18,000 lb-in) or until failure or leak occurs. 
+
+21.1.12 Stability
+
+Threshold Impact
+
+● This test shall be performed on qty 1 CDU rack with pumps uninstalled and pumps installed. 
+● The CDU rack shall be run into 1.25" tall threshold at a speed of 2.8 ft/s. 
+● Confirm that there is no damage that affects form, fit, or function. 
+
+Roll-Off
+
+● This test shall be performed on qty 1 CDU rack with pumps uninstalled and pumps installed. 
+
+Open Compute Project • Project Deschutes ● The CDU rack shall be rolled off 0.75" high step in two directions ● Confirm there is no damage that affects form, fit, or function.
+
+10-Degree Tip Test
+
+● This test shall be performed on qty 1 CDU rack with pumps uninstalled and pumps installed. 
+● The CDU rack shall be tipped by 10 degrees in each direction and confirm it does not tip over. 
+
+21.1.13 General
+
+The CDU shall be subjected to the following general testing requirements outlined in the “General validation suite”
+
+● Transportation and Weight - qty. 1 
+● Shelf Life - qty. 1 
+● Thermal Shock - qty. 1 
+● FEA 
+● Supplemental reliability 
+● Agency 
+
+21.2 Modular wall manifold + drip pan + side kits assembly
+
+● The vendor shall erect a “mock data center” with the data center interfaces provided by the customer. 
+● A wall manifold assembly shall be installed onto the “mock data center”. 
+● The wall manifold assembly shall consist of modular wall manifolds to enable a total assembly length of ~50 feet and the drip pan. 
+● The vendor shall provide documentation of the installation procedure for the following: 
+○ Assembly of modular wall manifolds and installation onto mock data center structure 
+○ Connection of side kits to wall manifold assembly 
+● The vendor shall perform the ground bond test outlined above with qty. 1 wall manifold assembly 
+● The vendor shall complete and report the results of FEA for the wall manifold assembly according to the requirements outlined above. 
+● The vendor shall perform supplemental reliability tests of qty 8 joints in the wall manifold assembly according to the requirements outlined above. 
+● The vendor shall perform a hydrostatic test of the wall manifold + side kits assembly at a pressure of 120 psi for 1 hour. 
+
+21.2.1 Ground Bond
+
+● Secondary side kits and a wall manifold assembly measuring a total of ~50 ft shall be subjected to ground bond tests. 
+● Ground bond testing shall be done with the UL 62368-1 or IEC/EN 62368-1 equivalents of UL60335-1, Sec 27.5 using National Deviation 27.5DV.1. 
+
+##### 22.0 System validation
+
+22.1 System “Dry Fit”
+
+● The vendor shall erect a “mock data center” with the data center interfaces provided by the customer. 
+● A full system assembly consisting of CDU + primary pipe kits + secondary side kits + wall manifolds shall be installed onto the “mock data center” in the vendor’s laboratory to confirm that data center interfaces are met. 
+● The vendor shall provide documentation of the installation procedure for the following 
+○ Assembly of modular wall manifolds and installation onto mock data center structure 
+○ Connection of side kits to wall manifold assembly and CDU 
+○ Installation of CDU and connection to primary and secondary side/pipe kits 
+○ Connection of primary pipe kits to facility water and CDU 
+
+22.2 System hydrostatic pressure testing
+
+● The vendor shall perform a hydrostatic test of the secondary side of the full system, i.e. CDU secondary side + secondary side kits + wall manifold assembly. The assembly shall be pressurized to 120 psig for 1 hour. 
+○ The wall manifold assembly shall consist of modular wall manifolds to enable a total assembly length of ~50 feet. 
+● The vendor shall perform a hydrostatic test of the primary side of the full system, i.e. CDU primary side + pipe kits. The assembly shall be pressurized to 150 psig for 1 hour. 
+
+22.3 System commissioning: flushing, purging, filling procedures
+
+● The vendor shall validate and provide documentation on flushing, purging and filling the full system assembly, i.e. CDU + primary pipe kits + secondary side kits + wall manifold assemblies. 
+● The wall manifold assembly shall consist of modular wall manifolds to enable a total assembly length of ~50 feet. 
+
+22.4 System commissioning: deaeration, i.e. “burn-in”
+
+● The vendor shall validate and provide documentation on the procedure to deaerate a full system assembly, i.e. CDU + primary pipe kits + secondary side kits + wall manifold assemblies. 
+
+22.5 System commissioning: power, electrical
+
+● The vendor shall validate and provide documentation on the procedure to connect the CDU to facility power supplies. 
+● The vendor shall validate and provide documentation on the procedure power up (on) and power down (off) the CDU power distribution unit (PDU) and other electrical/power components. 
+● The vendor shall validate and provide documentation on the procedure to ground the full system assembly, i.e. CDU + primary pipe kits + secondary side kits + wall manifold assemblies. 
+● The vendor shall validate and provide documentation of power & electrical functional tests in the form of a checklist to confirm power & electrical functionality in the data center. 
+
+22.6 System commissioning: communications
+
+● The vendor shall validate and provide documentation on the procedure to connect the CDU controls to the facility controls infrastructure. 
+● The vendor shall validate and provide documentation of controls functional tests in the form of a checklist to confirm controls functionality in the data center. 
+
+22.7 System “wet” functional testing
+
+Commissioning
+
+● The vendor shall validate and provide documentation on “wet” functional testing of the full system assembly, i.e. CDU + primary pipe kits + secondary side kits + wall manifold assemblies, and of the CDU only with the secondary side supply and return “jumpered” together at pump speeds of 25%, 50%, 75% and 100%. 
+○ The data to be reported are: ■ Pump speed in RPM ■ Pump power in kW ■ Flow rate in GPM. ■ Pressure drop in GPM. 
+● The wall manifold assembly shall consist of modular wall manifolds to enable a total assembly length of ~50 feet. The wall manifold supply and return sections shall be connected, i.e. “jumpered”, with EPDM hoses. 
+
+Open Compute Project • Project Deschutes ● Validation shall be done with DI water and PG25 coolants
+
+Hydraulic
+
+● The vendor shall replace the EPDM “jumper hoses” on the wall manifold assembly with qty 6 “rack simulators” which represent the customer IT machine racks. 
+● The flow characteristics (i.e. dP vs flow or Cv) of the “rack simulators” shall be provided by the customer. 
+● The vendor shall fabricate or procure “rack simulators” that meet the flow characteristics provided by the customer. 
+● The vendor shall operate the CDU at pump speeds of 25%, 40%, 60%, 80% and 100% and report the following: 
+○ Pump speed in RPM 
+○ Pump power in kW 
+○ Flow rate in GPM. 
+○ Pressure drop in GPM. 
+
+22.8 Field Replaceable Units (FRUs)
+
+● The vendor shall validate and provide documentation on procedures to install, remove and service Field Replaceable Units (FRUs) 
+● The vendor shall confirm that all relevant ergonomic guidelines below are met. 
+
+##### Guideline
+
+##### Force Actual
+
+Optimal Recommend ed Acceptable max (lbs) max (lbs) max (lbs) Back 24.9 Shoulder / elbow
+
+| Shoulder | / elbow | | | | |
+| --- | --- | --- | --- | --- | --- |
+| Push out shoulder height | Freque nt (≥2/min at ) (1 | | 6.8 | 9.9 | 10.2 |
+| hand) | Infrequ ent (<2/min ) | | 9.9 | 17 | 22.1 |
+| Push out height (1 | Freque nt at elbow (≥2/min hand) ) | | 7.4 | 9.9 | 11.1 |
+
+Infrequ 
+ent 
+(<2/min 
+) 9.9 18.5 24.1 
+
+Push out at elbow height (2 hand)
+
+Freque 
+nt 
+(≥2/min 
+) 11.8 14.9 17.7 
+Infrequ 
+ent 
+(<2/min 
+) 14.9 29.5 38.3 
+
+Pull in at shoulder height (1 hand)
+
+Freque 
+nt 
+(≥2/min 
+) 7 9.9 10.5 
+Infrequ 
+ent 
+(<2/min 
+) 9.9 17.6 22.8 
+
+Pull in at elbow height (1 hand)
+
+Freque 
+nt 
+(≥2/min 
+) 7.5 9.9 11.2 
+Infrequ 
+ent 
+(<2/min 
+) 9.9 18.7 24.3 
+
+Pull in at elbow height (2 hand)
+
+Freque 
+nt 
+(≥2/min 
+) 13.1 14.9 19.6 
+Infrequ 
+ent 
+(<2/min 
+) 14.9 32.7 42.4 
+
+Pull down from overhead (2 hands)
+
+Freque 
+nt 
+(≥2/min 
+) 14.9 17.9 26.8 
+
+Infrequ 
+ent 
+(<2/min 
+) 14.9 44.7 58.1 
+
+Pull up from knee height (1 hand)
+
+Freque 
+nt 
+(≥2/min 
+) - 6.3 9.5 
+Infrequ 
+ent 
+(<2/min 
+) 9.9 15.8 20.5 
+
+Pull across body (lateral) at waist height (1 hand), elbow fully extended
+
+Freque 
+nt 
+(≥2/min 
+) - 2.5 3.8 
+Infrequ 
+ent 
+(<2/min 
+) - 6.3 8.2 
+
+Pull across body (lateral) at waist height (1 hand), elbow at 90
+
+Freque 
+nt 
+(≥2/min 
+) - 3.3 5 
+Infrequ 
+ent 
+(<2/min 
+) 8.4 9.9 10.8 
+
+| | | | | | | (≥2/min | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Lift | | up at shoulder | | | | | ) | | - 4.7 | | | 7 | | |
+| | height | (2 | hands) | | | Infrequ | | | | | | | | |
+
+Freque 
+nt 
+ent 
+(<2/min 
+) 11.7 14.9 15.3 
+Freque 
+nt 
+(≥2/min 
+) - 7.7 11.5 
+
+Lift up at elbow height (2 hands)
+
+Infrequ 
+ent 
+(<2/min 
+) 14.9 19.1 24.9 
+
+Press down at elbow height (2 hands)
+
+Freque 
+nt 
+(≥2/min 
+) 12.8 14.9 19.2 
+Infrequ 
+ent 
+(<2/min 
+) 14.9 30 41.6 
+
+other motion not listed above (1 hand) 9.9 other motion not listed above (2 hands) 14.9
+
+Hand
+
+| | | | (≥2/min | | | | | | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Finger | press | (1 | | ) | | 1.9 | | 3.4 | | | | | 5 | | | |
+| | index finger) | | Infrequ | | | | | | | | | | | | | |
+
+Freque 
+nt 
+ent 
+(<2/min 
+) 1.9 8.6 11.2 
+Freque 
+nt 
+(≥2/min 
+) 1.9 5 7.5 
+Infrequ 
+ent 
+(<2/min 
+) 1.9 12.5 16.3 
+
+Finger press (2 fingers, same hand)
+
+Finger press (2 fingers, different hand)
+
+Freque 
+nt 
+(≥2/min 
+) 1.9 11 16.5 
+Infrequ 
+ent 1.9 27.5 35.8 
+
+(<2/min )
+
+Finger pull (1 finger)
+
+Freque 
+nt 
+(≥2/min 
+) 1.9 3.9 6 
+Infrequ 
+ent 
+(<2/min 
+) 1.9 9.6 12.5 
+
+Finger pull (2 fingers, same hand)
+
+Freque 
+nt 
+(≥2/min 
+) 1.9 8.4 12.5 
+Infrequ 
+ent 
+(<2/min 
+) 1.9 20.9 27.1 
+
+Thumb press (1 thumb)
+
+Freque 
+nt 
+(≥2/min 
+) 1.9 5.3 8 
+Infrequ 
+ent 
+(<2/min 
+) 1.9 13.3 17.3 
+
+Thumb press (2 thumb)
+
+Freque 
+nt 
+(≥2/min 
+) 1.9 10 15 
+Infrequ 
+ent 
+(<2/min 
+) 1.9 25 32.5 
+
+Pinch grip (chuck grip, with wrist deviation)
+
+Freque 
+nt 
+(≥2/min 
+) - 2 2.4 
+Infrequ 
+ent 1.9 4 5.1 
+
+(<2/min )
+
+Pinch grip (chuck grip, without wrist deviation)
+
+Freque 
+nt 
+(≥2/min 
+) 1.9 3.2 4.7 
+Infrequ 
+ent 
+(<2/min 
+) 1.9 7.9 10.3 
+
+Pinch grip (key grip, with wrist deviation)
+
+Freque 
+nt 
+(≥2/min 
+) - 2 2.9 
+Infrequ 
+ent 
+(<2/min 
+) 1.9 4.8 6.3 
+
+Pinch grip (key grip, without wrist deviation)
+
+Freque 
+nt 
+(≥2/min 
+) 1.9 3.9 6 
+Infrequ 
+ent 
+(<2/min 
+) 1.9 9.7 12.6 
+
+Power Grip (1 hand, with wrist deviation)
+
+Freque 
+nt 
+(≥2/min 
+) - 6.4 9.5 
+Infrequ 
+ent 
+(<2/min 
+) 9.9 15.9 20.7 
+Power Grip (1 
+hand, without wrist 
+deviation) 
+Freque 
+nt 
+(≥2/min 
+) 9.9 12.7 19.1 
+Infrequ 
+ent 9.9 31.8 41.3 
+
+(<2/min )
+
+Freque 
+nt 
+(≥2/min 
+) - 9 13.5 
+Infrequ 
+ent 
+(<2/min 
+) 9.9 22.6 29.3 
+
+Power Grip (2 hands, with wrist deviation)
+
+Power grip (2 hands, without wrist deviation)
+
+Freque 
+nt 
+(≥2/min 
+) 9.9 18 27.1 
+Infrequ 
+ent 
+(<2/min 
+) 9.9 45.1 58.6 
+Freque 
+nt 
+(≥2/min 
+) - 6.7 10.1 
+Infrequ 
+ent 
+(<2/min 
+) 9.9 16.9 21.9 
+
+Insertion/Removal w/ 1-handed grip (plastic surface)
+
+| | | | | | (≥2/min | | | | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | Insertion/Removal | | | | | | | | | | | | | | | |
+| | | | | | | ) | | - | | | 8 | | | 12 | | |
+| | w/ | 1-handed | grip | | | | | | | | | | | | | |
+| | | | | | Infrequ | | | | | | | | | | | |
+| | (rubber | surface) | | | | | | | | | | | | | | |
+| | | | | | ent | | | | | | | | | | | |
+| | | | | | (<2/min | | | | | | | | | | | |
+| | | | | | | ) | | 9.9 | | | 20 | | | 25.9 | | |
+| Other | | considerations: | | | | | If any | of the | below | | conditions | | | | | |
+| are | | true, | requires | | | further | discussion/consideration | | | | | | | | Yes | / No |
+| Will | | the person | | have | | to hold | an awkward | | posture | for | a | | duration | (i.e. | | |
+| work | | with | fasteners/cabling | | | | while | bent over) | | | | | | | | |
+| Will | | the person | | have | | apply | a force | while | in an awkward | | | | posture? | | | |
+| Date: | | Feb | 26, 2026 | | | | | | | | | | | | | Page 92 |
+
+Freque nt
+
+Will the person have to hold an awkward posture or apply a force 
+multiple times during the operation? 
+Will the person have to squat or sit on the floor? 
+Will the person have to stand on a ladder? 
+Are there other concerns not captured in this list? 
+
+22.9 Vibration and Seismic
+
+● The CDU rack shall undergo the Loading Dock Rough Surfaces and Seismic Loading tests according to the Vibration and Seismic Test Specification below. 
+● Seismic loading testing shall be performed in accordance with the requirements listed in AC-156. If the vendor is able to perform seismic analysis per ASCE7-13, testing may be waived contingent upon the results of the analysis. 
+
+23.9.1 Loading Dock Rough Surfaces
+
+● Rough surface testing shall be conducted on a CDU rack 
+● The rack shall be able to sustain “Loading Dock Rough Surfaces” without damage or reduced mobility/functionality. 
+● The loads are listed below: 
+○ Sine sweep loads: .6G z-axis: .3G x- and y- axes swept from 5-500-5 Hz, 5 sweeps in all at 1 octave/min. 
+○ Random Profile of 0.96 Grms for 2 min, breakpoints listed below: 
+
+Figure 22.9.1: Load requirements for Loading Dock Rough Surfaces test
+
+22.9.2 Seismic loading
+
+● Seismic testing shall be conducted on a CDU rack 
+● The rack shall sustain seismic loading per the following parameters: 
+○ (Note: ASCE7-16 is applicable. Test parameters and response spectrum specified in AC156) 
+
+Figure 22.9.2: Seismic loading test requirements .
+
+22.10 Pressurization & Temperature Displacement
+
+● A full system will be measured before and after pressurization to capture movement (e.g. sliding, bowing, flexing) of flexible hoses, side kits and CDU and wall manifolds during pressurization (45 psig and 100 psig pressures to be tested) and ensure that movement does not exceed gasket/seal compression limits. 
+● The test shall be done with coolant temperatures of 25 °C and 55 °C. 
+● Validation shall be done with DI water and PG25 coolants 
+
+22.11 Programmable Logic Controller (PLC) and HMI
+
+● The vendor shall validate and provide documentation for powering on and powering off the PLC. 
+● The vendor shall validate and provide documentation for the operation of the HMI. 
+● The vendor shall confirm all telemetry is available from the PLC through the HMI and Modbus communication 
+● The vendor shall validate the functionality of manual and automatic controls via HMI and Modbus communication. 
+● The vendor shall validate “pump fail safe”, i.e. when one pump fails the remaining functional pump reacts according to the pump fail safe specification. 
+● The vendor shall validate power and electrical component redundancy during failure scenarios. 
+
+##### 23.0 Reliability
+
+23.1 CDU reliability
+
+This document outlines the Reliability Testing Requirements for the CDU (Coolant Distribution Unit) system during the New Product Introduction (NPI) process. This section focuses on the CDU and pressure testing to detect leaks. It does not cover:
+
+● Performance testing of the CDU 
+● System safety certifications (such as UL, Underwriters Laboratory) 
+● Seismic Testing 
+Important: Suppliers are required to develop and manufacture one single CDU design 
+that is compatible with both Veolia SV5520 and PG25 coolants. 
+1. Hoses and Gaskets (on fittings): 
+
+● Wetted materials compatibility: Suppliers must use hoses and gaskets that are compatible with Google Coolants under expected operating conditions (temperature, pressure, flow). ■ Google Coolant 1: Veolia SV5520 (deionized water + additives or reverse osmosis water) ■ Google Coolant 2: DowFrost LC25 (PG25) 
+● Pressure Rating: 
+● Select hoses and fittings rated for 150 psi operating range. 
+● Hoses selected by the equipment supplier must be able to withstand pressures exceeding 450 psi, failing only at three times 150 psi or higher. 2. Derating of Electronics: 
+● Compliance: Suppliers must design electronic equipment to comply with the latest version of Google’s “Component Derating and Application Guidelines” (GPN: 1107042). 
+● Requesting Guidelines: Suppliers should request a copy of these guidelines from Google before designing any electronic equipment. 
+● Final Report: A final report demonstrating Derating compliance must be submitted before the electronics design is finalized. 3. CDU Weight, Shipping, and Handling: 
+● Weight: The CDU is significantly heavier than conventional CDUs. 
+● Special Attention Required For: 
+● Caster selection. 
+● Design of seismic constraints. 
+● Transportation testing. 
+● Shipping Height: The total height of the CDU shipment (including the shipping crate and pallet) must be kept below 100 inches to allow for international shipments. 
+
+23.1.1 Full System Pressure Testing
+
+Testing a fully constructed CDU should be performed per the schedule below.
+
+Table 23.1: Reliability Testing for CDUs by EVT, DVT and PVT.
+
+Comment EVT DVT PVT
+
+Category Testing Fluid Test Suite Equipment Count for REL (Reliability) testing
+
+RO water (Reverse Osmosis)
+
+Pressure hold --> Pressure cycle --> Burst
+
+Perform 
+pressure hold 
+testing 
+
+Perform Pressure Cycling and Burst testing
+
+1 CDU Use the same CDU for all tests on this row
+
+Fully 
+assembled 
+CDU 
+Reliability 
+Testing 
+
+PG-25 Pressure hold --> Pressure cycle --> Burst
+
+Perform 
+pressure hold 
+testing 
+
+Perform Pressure Cycling and Burst testing
+
+1 CDU Use Same CDU for all tests on this row
+
+Fully 
+assembled 
+CDU 
+Reliability 
+Testing 
+
+| | ● ● ● ● | It does not leak during service. It can withstand pressure fluctuations. It does not shift or move significantly during operation. It will remain stable under normal operating conditions |
+| --- | --- | --- |
+| Tests | | Performed to the completed CDU (entire fluid path): |
+| | ● ● ● | Pressure Hold Test Pressure Cycle Test Burst Test |
+| Notes | | on Pressure testing: |
+| | ● ● ● | Manifolds and hoses must be pressurized while attached to the CDU Manifolds: CDU, not as standalone components. Place water leak test paper under the equipment before Leak Detection: pressurizing. Inspect the paper for color changes after the test. All tests must use reverse osmosis water, and all air must be removed Fluid: from the system. |
+
+Purpose of Testing: To confirm the CDU's reliability by ensuring:
+
+| | ■ | Close the CDU butterfly valves, fill the system (complete fluid path) with |
+| --- | --- | --- |
+| | | deionized (reverse osmosis) water, remove all entrapped air. |
+| | ■ | The primary side and secondary side manifolds can be pressurized and |
+| ● Success | ■ ■ ■ ■ ■ | tested at the same time. Pressurize the system to 150 psi and allow the pressure to stabilize. After 24 hours, record the pressure. Criteria: No leaks observed. Pressure drop is no more than 10% from the initial reading. No equipment damage. |
+| | ■ | No deformation at joints (e.g., gasket extrusion, loose tri-clamp fasteners, |
+
+● Their system will have an automatic pressure relief valve on the secondary loop that will release system pressure slightly below 150 psi. To run pressure tests, that valve should be deactivated (e.g. removed and a cap installed). Details of Pressure Hold Test for CDU 
+● Procedure: hoses slipping of hose-barbs). ■ Record any movement observed during testing. 
+
+| | | ● | Fill with RO water, remove entrapped air and Cycle the pressure from 0 to |
+| --- | --- | --- | --- |
+| | | ● ● | 150 psi as a triangle wave. Each cycle should take 1 to 2 minutes. Perform a total of 1,000 cycles |
+| | | ● | The primary side and secondary side manifolds can be pressurized and |
+| Details | ● Success ● Equipment: ● Procedure: | ● ● ● ● of Pressure | tested at the same time. Criteria: No leaks observed. No equipment damage. No deformation at joints. Record any movement during testing. Burst Test for CDU Re-use the CDU from the Pressure Cycle Test (above). |
+| | | ● | Fill the system with RO water, and remove all entrapped air. Increase the |
+| | | | pressure in 50 psi increments until the CDU fails or reaches 390 psi. |
+| | | ● | The primary side and secondary side manifolds can be pressurized and |
+
+Details of Pressure Cycle Test for CDU
+
+● Equipment: Re-use the CDU from the Pressure Hold Test (above).. 
+● Procedure: tested at the same time. 
+
+● Success Criteria: 
+○ No breakage or leaking below 250 psi. 
+● Purpose of Burst Testing: Burst testing primarily helps identify the weakest points in the assembly. 
+
+Final Report
+
+● Suppliers are expected to submit detailed reports showing how the tests were performed, photos of the equipment, data collected during the tests, and post-testing results . 
+● Any CDU used in reliability testing MUST NOT be shipped to customers. 
+
+23.1.2 Component Reliability Pressure Testing
+
+Tests Performed CDU components:
+
+● Pressure Hold Test 
+● Pressure Cycle Test 
+● Burst Test 
+● Water Hammer 
+
+The Coolant Distribution Unit (CDU) consists of the following components that will make contact with coolant and be pressurized in use conditions (BOM subject to change).
+
+● Two pumps 
+● Three heat exchangers 
+● Filters 
+● Valves 
+● A secondary flow meter 
+● Primary control valve 
+● Primary strainer 
+● Victaulic and Tri-clamp fittings 
+● Seismic interface 
+● Stainless steel piping (primary, secondary cooling loop) 
+● EPDM hoses (internal to CDU) * Notes on Pressure testing: 
+● Pressure testing is required on all of the components that are in the pressurized fluid path. If Table in this specification does not reflect the final BOM, the supplier must adjust the reliability test matrix accordingly. 
+● Testing of the components can be performed as individual components, or as sub-assemblies with components daisy-chained together in the order in the CDU. 
+● Sample tested in pressure hold testing can be re-used for pressure cycling testing 
+
+| | Notes | on Pressure | testing: |
+| --- | --- | --- | --- |
+| | ● | Pressure | testing is required on all of the components that are in the pressurized |
+| | | fluid | path. If Table in this specification does not reflect the final BOM, the supplier |
+| | | must | adjust the reliability test matrix accordingly. |
+| | ● | Testing | of the components can be performed as individual components, or as |
+| | | sub-assemblies | with components daisy-chained together in the order in the CDU. |
+| | ● | Sample | tested in pressure hold testing can be re-used for pressure cycling |
+| | | testing | |
+
+● Water hammer testing shall be performed on “100% brand new” components that have NOT been exposed to other reliability tests. 
+● Water hammer tests are faster and more severe than pressure cycling tests. Water hammer testing is generally not feasible when assembled with large volumes. Therefore, water hammer testing only at the component level is recommended. House assemblies should not be water hammer tested, but rather pressure cycle tested. 
+● Special attention should be paid to the number of teeth, and tooth length on hose barbs, the clamp dimensions and the clamping forces on hoses. It is NOT acceptable for the hose to slip on the barb during pressure testing. 
+
+| | ● ● ● | Samples component. Procedure: Pass/Fail cc/sec. | | Needed: 4 representative samples of each unqualified joint or Perform a 50 psig helium sweep. Criteria: The helium leak rate must be less than 1.0 x 10^-5 atm |
+| --- | --- | --- | --- | --- |
+| 2. | Hydrostatic | | | Leak Check (pressure hold test) |
+| | ● ● ● | Samples component. Procedure: inspected Success | | Needed: 4 representative samples of each unqualified joint or Samples are pressurized to 150 psig for 1 hour and visually for water leaks. Criteria: |
+| 3. | Pressure | | ● ● ● ● ● Cycle | No leaks observed. Pressure drop is no more than 10% from the initial reading. No equipment damage. No deformation at joints (e.g., gasket extrusion, loose tri-clamp fasteners, hoses slipping of hose-barbs). Record any movement observed during testing. Test |
+| | ● ● ● | Samples component. Procedure: 300 Note: during psig. | psig. | Needed: 4 representative samples of each unqualified joint or Each sample is subjected to 5,000 pressure cycles from 0 to Each cycle lasts 1 -2 minutes. If the maximum pressure of a part is found to be less than 300 psig the high pressure test, the cycle pressure will be reduced to 150 |
+
+Additional Detail on Pressure testing: This section details reliability tests performed on individual components and joints in the fluid path that will experience pressure in the CDU. 1. Helium Leak Check (performed first, before any testing)
+
+| | ● ● ● ● | Samples unqualified Procedure: whichever Record (e.g. Success | Needed: Samples Needed: 4 representative samples of each joint or component. The sample is pressurized to 500 psig or until failure, happens first. pressure where failure occurs, and document the failure mode with photos) Criteria: |
+| --- | --- | --- | --- |
+| 5. | Water | Hammer | ● No breakage or leaking below 250 psi. Test |
+| | ● ● ● ● | Samples component. Procedure: 15 Note: during psig. Success | Needed: 4 representative samples of each unqualified joint or Each sample is subjected to 10,000 cycles of pressure from to 375 psig. Each cycle lasts 2 seconds. If the maximum pressure of a part is found to be less than 300 psig the high pressure test, the cycle pressure will be reduced to 150 Criteria: |
+| Note: reliability and Water | the | Water and type Hammer | ● No breakage or leaking hammer and pressure cycle tests are both used to assess the durability of components, but they differ in how pressure is applied of stress they induce. Test: |
+| | ● ● ● ● | Applies Involves 0.025 Cycles The occur | a rapid pressure surge or shock to the component. a sudden increase in pressure within a very short time (e.g., seconds) followed by a return to atmospheric pressure. are typically faster, for example, 2 seconds per cycle. test is intended to simulate the effects of hydraulic shock, which can in systems due to sudden valve closures or pump starts. |
+| Pressure | | | Cycle Test: |
+| | ● | Applies points. | a gradual increase and decrease in pressure between 2 set |
+
+● Success Criteria: 
+● No leaks observed. 
+● No equipment damage. 
+● No deformation at joints. 
+● Record any movement during testing. 4. Burst Test 
+
+● Cycles are usually slower compared to water hammer tests, for example, 1-2 minutes per cycle. 
+● These tests are designed to evaluate the component's ability to withstand repeated pressure fluctuations over time. 
+
+Table 23.2: Reliability Testing for components by EVT, DVT and PVT.
+
+Test Comment EVT DVT PVT
+
+Category Component Testing Fluid
+
+| Component Testing | Heat exchangers | RO water | Pressure hold, Pressure cycle | tests can start must be completed DVT | at EVT, Start by EVT, possible | at 4 if | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Component Testing | Heat exchangers | RO water | Burst | tests can start must be completed DVT | at EVT, Start by EVT, possible | at 4 if | |
+| Component Testing | Heat exchangers | RO water | water hammer | tests can start must be completed DVT | at EVT, Start by EVT, possible | at 4 if | |
+
+4
+
+Secondary filter + housing
+
+Component Testing
+
+tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+RO water Pressure hold, Pressure cycle
+
+4
+
+Secondary filter + housing
+
+Component Testing
+
+RO water Burst tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+4
+
+Secondary filter + housing
+
+RO water water hammer
+
+Component Testing
+
+tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+| Component Testing | A secondary flow meter | RO water | Pressure hold, Pressure cycle | tests can start must be completed DVT | at EVT, Start by EVT, possible | at 4 if | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Component Testing | A secondary flow meter | RO water | Burst | tests can start must be completed DVT | at EVT, Start by EVT, possible | at 4 if | |
+| Component Testing | A secondary flow meter | RO water | water hammer | tests can start must be completed DVT | at EVT, Start by EVT, possible | at 4 if | |
+
+4
+
+Primary control valve
+
+Component Testing
+
+tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+RO water Pressure hold, Pressure cycle
+
+4
+
+Primary control valve
+
+Component Testing
+
+RO water Burst tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+4
+
+Primary control valve
+
+RO water water hammer
+
+Component Testing
+
+tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+4
+
+Primary strainer + Housing
+
+Component Testing
+
+RO water Pressure hold, Pressure tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+| | | | cycle | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Component Testing | Primary strainer + Housing | RO water | Burst | tests can start must be completed DVT | at EVT, Start by EVT, possible | at 4 if | |
+| Component Testing | Primary strainer + Housing | RO water | water hammer | tests can start must be completed DVT | at EVT, Start by EVT, possible | at 4 if | |
+
+Victaulic and Tri-clamp fittings
+
+Component Testing
+
+tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+4 per fitting size
+
+RO water Pressure hold, Pressure cycle
+
+Victaulic and Tri-clamp fittings
+
+Component Testing
+
+RO water Burst tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+4 per fitting size
+
+Victaulic and Tri-clamp fittings
+
+RO water water hammer
+
+Component Testing
+
+tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+4 per fitting size
+
+| Component Testing | Victaulic Tri-clamp | and PG-25 fittings | Pressure hold, Pressure cycle | tests can start must be completed DVT | at EVT, Start by EVT, possible | at 4 per if fitting size | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Component Testing | Victaulic Tri-clamp | and PG-25 fittings | Burst | tests can start must be completed DVT | at EVT, Start by EVT, possible | at 4 per if fitting size | |
+| Component Testing | Victaulic Tri-clamp | and PG-25 fittings | water hammer | tests can start must be completed DVT | at EVT, Start by EVT, possible | at 4 per if fitting size | |
+
+4
+
+Component Testing
+
+tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+Stainless Steel Piping (inlet, outlet, internal) piping
+
+RO water Pressure hold, Pressure cycle
+
+4
+
+Component Testing
+
+RO water Burst tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+Stainless Steel Piping (inlet, outlet, internal) piping
+
+4
+
+RO water water hammer
+
+Component Testing
+
+tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+Stainless Steel Piping (inlet, outlet, internal) piping
+
+| Component | EPDM hoses | RO water | Pressure | | | | tests can start | at EVT, | Start | at | 4 per | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Testing | (internal | to CDU) | | hold, | | | must be completed | by | EVT, | if | hose | |
+| | + Hose Barb | * | Pressure | | | | DVT | | possible | | type | |
+| | | | | cycle | | | | | | | | |
+| Component | EPDM hoses | RO water | | Burst | | | tests can start | at EVT, | Start | at | 4 per | |
+| Testing | (internal | to CDU) | | | | | must be completed | by | EVT, | if | hose | |
+| | + Hose Barb | * | | | | | DVT | | possible | | type | |
+| Component | EPDM hoses | PG-25 | Pressure | | | | tests can start | at EVT, | Start | at | 4 per | |
+| Testing | (internal | to CDU) | | hold, | | | must be completed | by | EVT, | if | hose | |
+| | + Hose Barb | * | Pressure | | | | DVT | | possible | | type | |
+| | | | | cycle | | | | | | | | |
+
+Component Testing
+
+EPDM hoses (internal to CDU) + Hose Barb *
+
+PG-25 Burst tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+4 per hose type
+
+Component Testing
+
+Pumps RO water Pressure hold, Pressure cycle tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+4
+
+Component Testing
+
+Pumps RO water Burst tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+4
+
+23.1.3 Pump Reliability Testing
+
+Long term-tests 
+Long-term tests can be run on a suitable pump test-stand, ideally at the pump supplier’s 
+factory. Ideally this should be a closed loop system, where pumps are connected to CDU 
+hose, where precise control of the pump speed, pump pressure, flow rate and working 
+fluid temperature. The test bed should be automated and continuously collect data over 
+the full span of each test. 
+Long term tests are designed to span the range of expected use conditions: 
+- Temperature of the incoming fluid (secondary loop coolant), 25 °C and 55 °C 
+- Pump Working fluid, Water-based and PG25 
+- VFD (Variable Frequency Drive) power 
+- CDU Hose Material 
+Why is this testing important? 
+● “At 25°C, PG25 is approximately 3x more viscous than deionized water. Both fluids exhibit decreasing viscosity with increasing temperature”. 
+● Internal wear within the pump and pump energy consumption will depend on the fluid type and fluid temperature. 
+● Degradation of the EPDM hose can occur with PG-25 and water-based coolant if an inferior hose supplier or hose type is chosen. The risk is higher at elevated temperatures. 
+● Suppliers are strongly encouraged to use peroxide-cured EPDM, as it generally has better chemical resistance than sulfur-cured EPDM and is less subject to the “press-set” of the EPDM. “"Press set degradation refers to the deterioration of the material's ability to recover its original shape after being held under compression for an extended period, particularly at elevated temperatures”. 
+● Example of Peroxide Cured hose designed for Data Center Applications https://www.gates.com/us/en/innovations-and-solutions/innovations/data-master hose-line.html Pump testing will be performed using two types of coolants: 
+● Veolia SV5520 (deionized water + additives) or reverse osmosis water 
+● DowFrost LC25 (PG25) 
+
+Table 23.3: Long Term Reliability Tests on CDU Pumps (Marathon Tests)
+
+Details on Marathon Tests Purpose: A long-term test (at least one year) at 100% pump speed to assess general wear and tear, and the longevity of the pump and its drive (Variable Frequency Drive - VFD) and degradation of the attached hose. Monitoring Requirements for the the long-term Marathon tests:
+
+| | ● ● ● ● ● | Pressure Flow Rotational speed Power consumption Pump temperature (ideally measured in the pump stator windings) |
+| --- | --- | --- |
+| Success | | Criteria: |
+| | ● ● ● ● | Ability to maintain P (pressure) / Q (flow) setpoint after one year in service with no increase in power consumption greater than 5% No significant signs of internal wear on sliding internal components after 1 year. The pump would need to be disassembled after 1 year No hose degradation or blistering, or hose components leading in the testing fluid. Hoses need to be removed and inspected after 1 year. No Leakage |
+| Regarding | | Fans to Cool the Pump Motors |
+| | ● ● | If Cooling Fans are used on the pump motors, then the L10 bearing life should be documented (data supplied by fan manufacturer). If Cooling Fans are used on the pump motors, then the expected noise level of the fan should be documented with data supplied by the fan manufacturer with actual measurements in DB. |
+
+Suppliers will monitor pump performance during all 3 tests listed above, including:
+
+Short term-tests
+
+Short-term tests can be run on a suitable pump test-stand, ideally at the pump supplier’s factory. After testing pumps should be disassembled and inspected for wear and signs of degradation.
+
+EVT DVT PVT
+
+Category Component Testing Fluid Test Conditions
+
+| Short term tests | Reliability Repeated On-Plateau-Off | RO water Test | Fluid Room | at Temp 4 | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| Short term tests | Reliability Repeated On-Plateau-Off | RO water Test | Fluid at | 55C 4 | | |
+| Short term tests | Reliability Repeated On-Plateau-Off | PG-25 Test | Fluid Room | at Temp 4 | | |
+| Short term tests | Reliability Repeated On-Plateau-Off | PG-25 Test | Fluid at | 55C 4 | | |
+| Short term tests | Reliability Transportation (Pumps in Shipping | Test Crates) | See Specification | 4 | | |
+
+1. Repeated On-Plateau-Off Test (Internal Wear Test)
+
+| | ● Purpose: To simulate the wear on pump bearings from repeatedly |
+| --- | --- |
+| | turning the pump on and off. This might happen a few times a |
+| | year. |
+| | ● Test Duration: The test will run for a total of 500 cycles. |
+| | ● Success Criteria: No failures after 500 cycles |
+| | |
+| | ● Sample Size n=4 for water testing at 25C |
+| | ● Sample Size n=4 for water testing at 55C |
+| | ● Sample Size n=4 for PG25 testing at 25C |
+| | ● Sample Size n=4 for PG25 testing at 55C |
+| | |
+
+Figure 23.1 Schematic of Repeated On-Plateau-Off Test for CDU pumps
+
+2. Transportation Test (Pumps in Shipping Crates)
+
+● Samples Needed: Minimum of 4 pumps, in packaging representative of a production shipment. 
+● Procedure: 
+● Perform Level 2 Shock/Drop Testing (ASTM D4169 Schedule A). 
+● Perform Level 2 Vibration Testing (ASTM D 4169 Schedule E): 60 minutes for truck transport, 120 minutes for air transport. 
+● The pump supplier will perform helium and hydrostatic leak tests before and after. 
+● Pass/Fail Criteria: 
+● No hydrostatic leaks observed. 
+● Must pass the supplier's final forming gas leak test. 
+● Must pass the supplier's final pump functional test. 
+
+23.1.4 PLC and PDU Reliability Testing
+
+Table 23.4: Reliability Testing for PDU and PLC by EVT, DVT and PVT.
+
+Category Componen t
+
+Testing Fluid
+
+Test Comment EVT DVT PVT
+
+Component Testing
+
+PDU N/A power cycling tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+2
+
+Component Testing
+
+PLC N/A power cycling tests can start at EVT, must be completed by DVT
+
+Start at EVT, if possible
+
+2
+
+● The supplier is responsible for testing the Power Delivery Units (PDUs) to confirm that circuit breakers and Ground Fault Circuit Interrupters (GFCIs) operate correctly, tripping at their specified current levels. 
+● Reliability testing for each breaker on the PDU requires 100 trips without any observed degradation in performance. 
+● Throughout the PDU testing, the Programmable Logic Controllers (PLCs) should remain powered on and their functionality, along with the CDU Human-Machine Interface (HMI), must be verified both before and after power cycling. 
+
+23.2 Wall manifold
+
+23.2.1 Wall Manifold (WMF) overview
+
+● This section defines the Reliability Testing Requirements for the Wall Manifold during the NPI (new product introduction) process. 
+● This document focuses on pressure testing of the Wall-Manifold leak avoidance, materials and components options, as well as quality. 
+● The suppliers of the wall-manifolds may use the “Google-reference” design, or develop and use their own designs, provided the Wall-Manifold design meets all requirements, including dimensions, reliability, and has flammability rating allowed in the data center 
+
+23.2.2 Wall-Manifold (WMF) overview
+
+The Wall-Manifold (WMF) includes:
+
+● Two manifolds: One supplies coolant to the cooling racks, and the other returns warm coolant from the IT racks to the CDU. 
+● Multiple piping segments: These are about 3 meters long, shipped in crates, and assembled on-site to create wall manifolds up to 30 meters or more in total length. 
+● A drip tray: This catches and redirects any small leaks from the wall manifolds. 
+● Mounting blocks: In some cases, these connect the wall manifold to the drip tray. 
+● Piping Inner diameter: of 4 inches (or larger) Conditions the Manifold Experiences: 
+● Maximum Temperature of coolant in wall manifold 55 °C 
+● Minimum Temperature of coolant in wall manifold 15 °C 
+● Maximum working pressure for wall manifold: 130 psi 
+
+● Maximum differential pressure (between manifold supply and return): 80-90 psi 
+● A leak detection system monitors the front of server racks, the wall manifold, the Wall-Manifold rack, and each individual Wall-Manifold. 
+
+23.2.3 Wall-Manifold (WMF) Potential Building-blocks
+
+The design is still under development at this time. Representative images shown below for reference only
+
+Figure 23.2.1 Drip tray installed beneath a wall-manifold in a Google Data Center. Note: The wall manifold design may be different from the example shown.
+
+Figure 23.2.2: Image above shows a wall manifold positioned above a drip tray in a Google Data Center. The wall manifold design may be different from the example shown.
+
+Figure 23.2.3: Google WMF designs typically incorporate Danfoss FD-83 valves, in both 1-inch and 2-inch configurations, connected to each wall manifold segment. Various connection methods to the wall manifold are possible.
+
+Figure 23.2.4: Various joining methods can be used for wall manifolds, provided they meet spec and diemsional requirements. The Victaulic collectors on stainless steel piping shown above may be suitable for the WMF design.
+
+https://h2oglobalnews.com/victaulic-returns-to-ifat-2024-with-innovative-pipe-joini ng-solutions-for-the-water-industry
+
+Figure 23.2.5: This image, sourced from the internet, shows a stainless steel piping assembly featuring Victaulic fittings.
+
+Figure 23.2.6: Shows an older-generation Google wall manifold design. This wall manifold design (2 inches in diameter) is easy to install. However, this assembly is prone to slight expansion when pressurized. Suitable cam locks in stainless steel up the 4 inch inner diameter (rated to 150 psi) are commercially available from several sources.
+
+23.2.4 Reliability test suite
+
+#### FULL SYSTEM
+
+This section outlines the reliability testing suite for the Coolant Distribution Unit 
+(Wall-Manifold) during its New Product Introduction (NPI) phase. A central focus is on 
+pressure testing to ensure the Wall-Manifold does not leak, can withstand pressure 
+changes, and can remain stable during operation. 
+This document does not cover performance testing, electrical systems, or safety 
+certifications (e.g., UL). 
+
+Table 23.5: Reliability Testing of full-scale assembled Wall Manifold (EVT, DVT and PVT)
+
+EVT DVT PVT
+
+Category Testing Fluid
+
+Fluid Temperature
+
+Test Conditions
+
+Sample Size
+
+| Fully assembled WMF Pressure Testing | RO water | Room Temp (~20 to 25 | Pressure C) --> Pressure cycle --> | hold 1 WMF Burst | Perform pressure testing | Perform hold Pressure Testing and Burst testing. | Cycle |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Fully assembled WMF Pressure Testing | PG25 | Room Temp (~20 to 25 | Pressure C) --> Pressure cycle --> | hold 1 WMF Burst | Perform pressure testing | Perform hold Pressure Testing and Burst testing. | Cycle |
+| Fully assembled WMF Pressure Testing | RO water | Heated Water (55 C) | Pressure --> Pressure cycle --> | hold 1 WMF Burst | Perform pressure testing | Perform hold Pressure Testing and Burst testing. | Cycle |
+| Fully assembled WMF Pressure Testing | PG25 | Heated Water (55 C) | Pressure --> Pressure cycle --> | hold 1 WMF Burst | Perform pressure testing | Perform hold Pressure Testing and Burst testing. | Cycle |
+
+Purpose of Testing: To confirm the Wall-Manifold's reliability by ensuring:
+
+● It does not leak during service. 
+● It can withstand pressure fluctuations. 
+● It does not shift or move significantly during operation. Tests Performed: 
+● Pressure Hold Test 
+● Pressure Cycle Test 
+● Burst Test 
+Note on Water Hammer Testing: 
+Water hammer testing is not required for the full Wall-Manifold manifolds, Wall Manifolds, 
+or side kits due to their large water volume. However,water hammer testing are required 
+for individual key components, Water hammer tests are faster and more severe than 
+pressure cycling. 
+
+Purpose of Burst Testing: Burst testing primarily helps identify the weakest points in the assembly.
+
+Post-Test Inspection: 
+Both Wall-Manifolds used for reliability testing must be inspected after testing and cannot 
+be shipped to customers. 
+
+| | ● ● ● ● | Number fully Testing Manifold constructed, shortened. Leak pressurizing. Fluid: from | conducted the | Two complete Wall-Manifolds are required for testing. The of Units: wall manifolds are roughly 30 meter long when fully constructed. will need to be performed in a large testing facility. Wall Manifolds must be pressurized and are fully Connection: full-scale Wall-Manifolds, and not as standalone components or Place water leak test paper under the equipment before Detection: Inspect the paper for color changes after the test. All tests must use reverse osmosis water, and all air must be removed system. |
+| --- | --- | --- | --- | --- |
+| Detailed | | Test | | Procedures:1. Pressure Hold Test |
+| | ● ● | Equipment: Procedure: | | 1 Wall-Manifold |
+| | | | ● ● ● | Close the WMF valves and fill the system with deionized (reverse osmosis) water, removing all entrapped air. Pressurize the system to 150 psi and allow the pressure to stabilize. After 24 hours, record the pressure. |
+| | ● | Success | | Criteria: |
+
+##### Test Setup:
+
+Detailed Test Procedures:1. Pressure Hold Test
+
+● Equipment: 1 Wall-Manifold 
+● Procedure: 
+● Close the WMF valves and fill the system with deionized (reverse osmosis) water, removing all entrapped air. 
+● Pressurize the system to 150 psi and allow the pressure to stabilize. 
+● After 24 hours, record the pressure. 
+● Success Criteria: 
+● No leaks observed. 
+● Pressure drop is no more than 10% from the initial reading. 
+● No equipment damage. 
+● No deformation at joints (e.g., gasket extrusion, loose tri-clamp fasteners). 
+● Record any movement during testing. 2. Pressure Cycle Test 
+● Equipment: Re-use the Wall-Manifold from the Pressure Hold Test. 
+● Procedure: 
+● Fill with RO water, remove entrapped air and Cycle the pressure from 0 to 150 psi. 
+● Each cycle should take 1 to 2 minutes. 
+● Perform a total of 1,000 cycles. 
+● Success Criteria: 
+● No leaks observed. 
+● No equipment damage. 
+● No deformation at joints. 
+● Record any movement during testing. 3. Pressure Burst Test 
+● Equipment: 1 Wall-Manifold. Re-use the Wall-Manifold from the Pressure 
+
+Cycling Test.
+
+● Procedure: 
+● Fill with RO water, and remove all entrapped air. Increase the pressure in 50 psi increments until the Wall-Manifold fails or reaches 390 psi. 
+● Success Criteria: 
+● No breakage or leaking below 250 psi. 
+
+#### COMPONENT TESTING
+
+This section details reliability tests performed on all of the individual components and joints in the fluid path that will experience pressure in the Wall-Manifold.
+
+| Table 23.6: | Reliability | Testing of | Wall Manifold | Components | | (EVT, DVT | and PVT) | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Category | Component | Testing Fluid | Fluid Temperatu re | Test Condition s | Sample Size | EVT | | DVT | PVT |
+| Component | Testing Stainless Steel Piping segments supply | RO water - | Room 20-25C | Temp Pressure hold, Pressure cycle | 4 | Complete pressure | Complete hold test Cycle | Pressure and Burst | Test |
+| Component | Testing Stainless Steel Piping segments supply | RO water - | Room 20-25C | Temp Burst | 4 | Complete pressure | Complete hold test Cycle | Pressure and Burst | Test |
+| Component | Testing Stainless Steel Piping segments supply | RO water - | Room 20-25C | Temp water hammer | 4 | Complete pressure | Complete hold test Cycle | Pressure and Burst | Test |
+| Component | Testing Stainless Steel Piping segments return | RO water - | Room 20-25C | Temp Pressure hold, Pressure cycle | 4 | Complete pressure | Complete hold test Cycle | Pressure and Burst | Test |
+| Component | Testing Stainless Steel Piping segments return | RO water - | Room 20-25C | Temp Burst | 4 | Complete pressure | Complete hold test Cycle | Pressure and Burst | Test |
+| Component | Testing Stainless Steel Piping segments return | RO water - | Room 20-25C | Temp water hammer | 4 | Complete pressure | Complete hold test Cycle | Pressure and Burst | Test |
+| Component | Testing Valves (e.g. Butterfly) | RO water | Room 20-25C | Temp Pressure hold, Pressure cycle | 4 | Complete pressure | Complete hold test Cycle | Pressure and Burst | Test |
+| Component | Testing Valves (e.g. Butterfly) | RO water | Room 20-25C | Temp Burst | 4 | Complete pressure | Complete hold test Cycle | Pressure and Burst | Test |
+| Component | Testing Valves (e.g. Butterfly) | RO water | Room 20-25C | Temp water hammer | 4 | Complete pressure | Complete hold test Cycle | Pressure and Burst | Test |
+| Component | Testing Valves (e.g. Butterfly) | RO water | Heated 55C | Water Pressure hold, Pressure cycle | 4 | Complete pressure | Complete hold test Cycle | Pressure and Burst | Test |
+
+Complete Pressure Cycle and Burst Test
+
+4 Complete pressure hold test
+
+Complete Pressure Cycle and Burst Test
+
+4 Complete pressure hold test
+
+Complete Pressure Cycle and Burst Test
+
+Complete Pressure Cycle and Burst Test
+
+4 Complete pressure hold test
+
+Complete Pressure Cycle and Burst Test
+
+4 Complete pressure hold test
+
+Complete Pressure Cycle and Burst Test
+
+Complete Pressure Cycle and Burst Test
+
+4 Complete pressure hold test
+
+Complete Pressure Cycle and Burst Test
+
+| Component | Testing Valves (e.g. Butterfly) | RO water | Heated 55C | Water Burst | 4 Complete pressure hold test |
+| --- | --- | --- | --- | --- | --- |
+| Component | Testing Valves (e.g. Butterfly) | RO water | Heated 55C | Water water hammer | 4 Complete pressure hold test |
+| Component | Testing Valves (e.g. Butterfly) | PG25 | Room 20-25C | Temp Pressure hold, Pressure cycle | 4 Complete pressure hold test |
+| Component | Testing Valves (e.g. Butterfly) | PG25 | Room 20-25C | Temp Burst | 4 Complete pressure hold test |
+| Component | Testing Valves (e.g. Butterfly) | PG25 | Room 20-25C | Temp water hammer | 4 Complete pressure hold test |
+| Component | Testing Valves (e.g. Butterfly) | PG25 | Heated 55C | Water Pressure hold, Pressure cycle | 4 Complete pressure hold test |
+| Component | Testing Valves (e.g. Butterfly) | PG25 | Heated 55C | Water Burst | 4 Complete pressure hold test |
+| Component | Testing Valves (e.g. Butterfly) | PG25 | Heated 55C | Water water hammer | 4 Complete pressure hold test |
+| Component | Testing EPDM hoses connects WMF CDU) | (kit RO water to | Room 20-25C | Temp Pressure hold, Pressure cycle | 4 Complete pressure hold test |
+| Component | Testing EPDM hoses connects WMF CDU) | (kit RO water to | Room 20-25C | Temp Burst | 4 Complete pressure hold test |
+| Component | Testing EPDM hoses connects WMF CDU) | (kit PG25 to | Room 20-25C | Temp Pressure hold, Pressure cycle | 4 Complete pressure hold test |
+| Component | Testing EPDM hoses connects WMF CDU) | (kit PG25 to | Room 20-25C | Temp Burst | 4 Complete pressure hold test |
+| Component | Testing EPDM hoses connects WMF CDU) | (kit RO water to | Heated 55C | Water Pressure hold, Pressure cycle | 4 Complete pressure hold test |
+| Component | Testing EPDM hoses connects WMF CDU) | (kit RO water to | Heated 55C | Water Burst | 4 Complete pressure hold test |
+| Component | Testing EPDM hoses connects WMF CDU) | (kit PG25 to | Heated 55C | Water Pressure hold, Pressure cycle | 4 Complete pressure hold test |
+
+4 Complete pressure hold test
+
+Complete Pressure Cycle and Burst Test
+
+Complete Pressure Cycle and Burst Test
+
+4 Complete pressure hold test
+
+Complete Pressure Cycle and Burst Test
+
+Complete Pressure Cycle and Burst Test
+
+4 Complete pressure hold test
+
+Complete Pressure Cycle and Burst Test
+
+Complete Pressure Cycle and Burst Test
+
+4 Complete pressure hold test
+
+Complete Pressure Cycle and Burst Test
+
+1. Helium Leak Check
+
+● Samples Needed: 3 representative samples of each unqualified joint or component. 
+● Procedure: Perform a 50 psig helium sweep. 
+
+| ● | Samples | Needed: | 3 representative samples of each unqualified joint or |
+| --- | --- | --- | --- |
+| | component. | | |
+| ● | Procedure: | Samples | are pressurized to 150 psig for 1 hour and visually inspected |
+| | for water | leaks. | |
+
+| ● | Samples | Needed: | 1 representative sample of each unqualified joint or |
+| --- | --- | --- | --- |
+| | component. | | |
+| ● | Procedure: | The | sample is pressurized to 500 psig or until failure, whichever |
+| | happens | first. | |
+
+● Pass/Fail Criteria: The helium leak rate must be less than 1.0 x 10^-5 atm cc/sec. 2. Hydrostatic Leak Check 
+● Samples Needed: 3 representative samples of each unqualified joint or component. 
+● Procedure: Samples are pressurized to 150 psig for 1 hour and visually inspected for water leaks. 3. High Pressure Test 
+● Samples Needed: 1 representative sample of each unqualified joint or component. 
+● Procedure: The sample is pressurized to 500 psig or until failure, whichever happens first. 4. Pressure Cycle Test 
+● Samples Needed: 4 representative samples of each unqualified joint or component. 
+● Procedure: Each sample is subjected to 5,000 pressure cycles from 0 to 300 psig. Each cycle lasts 1 minute. 
+● Note: If the maximum pressure of a part is found to be less than 300 psig during the high pressure test, the cycle pressure will be reduced to 150 psig. 5. Water Hammer Test 
+● Samples Needed: 4 representative samples of each unqualified joint or component. 
+● Procedure: Each sample is subjected to 10,000 cycles of pressure from 15 to 375 psig. Each cycle lasts 2 seconds. 
+● Note: If the maximum pressure of a part is found to be less than 300 psig during the high pressure test, the cycle pressure will be reduced to 150 psig. 
+
+| ● | Samples | Needed: 4 representative samples of each unqualified joint or |
+| --- | --- | --- |
+| | component. | |
+| ● | Procedure: | Each sample is subjected to 5,000 pressure cycles from 0 to 300 |
+| | psig. Each | cycle lasts 1 minute. |
+| ● | Note: If | the maximum pressure of a part is found to be less than 300 psig during |
+| | the high | pressure test, the cycle pressure will be reduced to 150 psig. |
+
+| ● | Samples | Needed: 4 representative samples of each unqualified joint or |
+| --- | --- | --- |
+| | component. | |
+| ● | Procedure: | Each sample is subjected to 10,000 cycles of pressure from 15 to 375 |
+| | psig. Each | cycle lasts 2 seconds. |
+| ● | Note: If | the maximum pressure of a part is found to be less than 300 psig during |
+| | the high | pressure test, the cycle pressure will be reduced to 150 psig. |
+
+Note: Water hammer and pressure cycle tests are both used to assess the reliability and 
+durability of components, but they differ in how pressure is applied and the type of stress 
+they induce. 
+Water Hammer Test: 
+● Applies a rapid pressure surge or shock to the component. 
+● Involves a sudden increase in pressure within a very short time (e.g., 0.025 seconds) followed by a return to atmospheric pressure. 
+● Cycles are typically faster, for example, 2 seconds per cycle. 
+
+● The test is intended to simulate the effects of hydraulic shock, which can occur in systems due to sudden valve closures or pump starts. 
+● Additional details: 
+● Water hammer testing shall be performed on “100% brand new” components that have NOT been exposed to other reliability tests. 
+● Water hammer tests are faster and more severe than pressure cycling tests. Water hammer testing is generally not feasible when assembled with large volumes. Therefore, water hammer testing only at the component level is recommended. House assemblies should not be water hammer tested, but rather pressure cycle tested. 
+● Special attention should be paid to the number of teeth, and tooth length on hose barbs, the clamp dimensions and the clamping forces on hoses. It is NOT acceptable for the hose to slip on the barb during pressure testing. Pressure Cycle Test: 
+● Applies a gradual increase and decrease in pressure between two set points. 
+● Cycles are usually slower compared to water hammer tests, for example, 1 minute per cycle. 
+● The test is designed to evaluate the component's ability to withstand repeated pressure fluctuations over time. 
+
+23.3 Availability
+
+The availability target is (full system including CDU) is 99.999%
+
+23.4 Flammability Resistance
+
+All materials used in Google data center wall manifolds must meet specific flammability standards to ensure safety.
+
+Material-Specific Requirements:
+
+● Plastic Materials: Must pass UL 94-HB flammability test (Horizontal Burning). 
+● Plastic Materials: Must have a minimum V0 flammability rating. 
+● Hoses: Require both V0 and VW-1 flammability ratings. 
+● Cables and Wiring: Must have a minimum VW-1 flammability rating. 
+● Water Sense Cable: Requires a minimum CL2P flammability rating. 
+
+23.6 Fracture Toughness and Material Stability
+
+On rare occasions, wall manifold materials may be accidentally dropped in the data 
+center during installation. For copper and stainless steel piping, any damage is usually 
+visible, and such segments are not installed. 
+If non-metal materials are proposed and used for wall manifolds, the supplier must 
+ensure that the Flammability Resistance specification is met and that the material does 
+not creep, fatigue, or crack under expected use conditions. 
+
+Any chosen piping material must not crack, chip, or fracture if it experiences an accidental fall in the data center. To meet this requirement, piping materials with high fracture toughness, high strength, and reasonable ductility should be selected. This is important because if a piping segment drops on the floor and develops a small, undetected, or invisible crack or tear, and the part is subsequently installed, it may fail later during use.
+
+Most metal pipes would also suffer some damage, such as plastic deformation, from such a fall. However, a crack in metal is less likely.
+
+Table 23.7: Drop and Fracture Testing of Wall Manifold Components (EVT, DVT and
+
+PVT)
+
+Details Count for drop testing
+
+Drop pipe from 2 meters onto concrete floor (end down), inspect for cracks 1 Drop pipe from 4 meters onto concrete floor (end down), inspect for cracks 1 Drop pipe from 2 meters onto concrete floor (side down), inspect for cracks 1 Drop pipe from 4 meters onto concrete floor (side down), inspect for cracks 1
+
+| | ○ Veolia SV5520 (deionized water + additives) or reverse osmosis water |
+| --- | --- |
+| | ○ DowFrost LC25 (PG25) |
+| ● Important: | Suppliers are expected to develop and manufacture CDU design that is one |
+| compatible | with coolants (Veolia SV5520 and PG25). Reliability testing should be both |
+| performed | on a single equipment design. |
+| ● Suppliers | should select hoses and fittings rated to psi". use-conditions of "150 |
+| However | the component supplier should design and manufacture the component so that |
+| it | fails (>450 psi). 3x that level |
+
+23.7 Hoses and Gaskets (on fittings):
+
+● The Supplier must use hoses and gaskets that are compatible with both Google Coolants at the expected use conditions (temperature, pressure, flow) 
+
+23.8 Derating of Electronics:
+
+● The Supplier is expected to design electronic equipment such that complies with the latest version of Google’s “Component Derating and Application Guidelines), GPN: 1107042. The Supplier should request a copy from Google before designing any electronic equipment. Supplier is required to submit a final report showing compliance before locking-in the design. 
+
+##### 24.0 Full system summary and quantities
+
+EVT DVT PVT
+
+@ Supplier lab 
+CDU + wall manifold + 
+hydraulic racks 
+DC mech interfaces qual at 
+supplier lab 
+@ Supplier lab 
+CDU + wall manifold + hydraulic racks 
+DC mech interfaces qual at supplier lab 
+UL, safety & compliance certs, 
+reliability 
+Supplier A @ supplier lab 
+Second source components (pumps, 
+HXs, WMFs) 
+
+Reliability, transportation
+
+@ Supplier lab 
+CDU physical qual (mechanical, 
+thermal, power, controls, Ops) with 
+simulated hydraulic and ~1.6 MW 
+thermal load 
+Full system qual with wall manifold 
+and rack hydraulic simulators 
+DC mech interfaces qual at 
+supplier lab 
+WMF supplier to ship to CDU 
+supplier lab (if different suppliers) 
+@ Wall manifold (WMF) lab 
+Mechanical assembly, hydraulic 
+Qty 1 system 
+
+| @ Wall | manifold (WMF) | lab | | | | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | Qty 3 systems | | | |
+| Mechanical | assembly, | hydraulic | | Qty 4 systems | | | | | | | |
+| | | | | | | | | (1 each for engineering | & second | | |
+| | | | | (1 for engineering, | | 2 for | | | | | |
+| | | | | | | | | source components, | 2 for reliability) | | |
+| Qty | 1 system | | | reliability, | 1 transportation) | | | | | | |
+
+Appendix Glossary of terms
+
+● AI: Artificial Intelligence 
+● ANSI: American National Standards Institute 
+● ASME: American Society of Mechanical Engineers 
+● BOM: Bill of Materials 
+● CAD: Computer-Aided Design 
+● CB: Certification Body 
+● CDU: Coolant Distribution Unit 
+● CE: Conformité Européenne 
+● CHGTL: Charge Tool 
+● CLDPL: Cold Plate 
+● COG: Center of Gravity 
+● Colo: Colocation data center 
+● COO: Country of Origin 
+● DI: Deionized (water) 
+● DIGDG: Tray Feeder Tool 
+● DWG: Drawing 
+● EMC: Electromagnetic Compatibility 
+● EPDM: Ethylene Propylene Diene Terpolymer 
+● EVT: Engineering Validation Test 
+● EYFS: Early Years Foundation Stage 
+● FAI: First Article Inspection 
+● FCC: Federal Communications Commission 
+● FEA: Finite Element Analysis 
+● FEEDK: Feeder Kit Tool 
+● FOD: Fiber on Demand 
+● FPY: First Pass Yield 
+● FRUs: Field Replaceable Units 
+● GPN: Google Part Number 
+● HAC: Hot Aisle Containment 
+● HMI: Human Machine Interface 
+● HOSKC: Hose Kit Contingency 
+● HOSKP: Hose Kit Primary 
+● ICES: Interference-Causing Equipment Standard 
+● ICI: Intra-Cabinet Interconnect 
+● IEC: International Electrotechnical Commission 
+● IP: Ingress Protection 
+● IPQC: In-Process Quality Control 
+● IT: Information Technology (Equipment) 
+
+● LSSA0: Left Side System Kit (D2.0 A Configuration) 
+● LSSAT: Left Side System Kit (D2.0 A Configuration w/Tri-Clamp) 
+● LSSBS: Left Side System (Building S Side Kit) 
+● LSSIA: Left Side System Installation Hose Kit A (IRS Side Kit) 
+● LSSIB: Left Side System Installation Hose Kit B (IRS Side Kit) 
+● LSSKT: Left Side System Manifold (Side Kit) 
+● LSSRF: Left Side System Raised Floor (Side Kit) 
+● LSS00: Left Side System Kit (D2.0 Configuration) 
+● MES: Manufacturing Execution System 
+● ML: Machine Learning 
+● MPN: Manufacturer Part Number 
+● NvLAP: National Voluntary Laboratory Accreditation Program 
+● OCP: Open Compute Project 
+● OQC: Outgoing Quality Control 
+● PCW: Process Cooling Water / Process Chill Water 
+● PDU: Power Distribution Unit 
+● PFMEA: Process Failure Mode and Effects Analysis 
+● PLC: Programmable Logic Controller 
+● PLM: Product Lifecycle Management 
+● PMP: Production Management Plan 
+● PPPPP: Product Type 
+● PVT: Production Validation Test 
+● Qty: Quantity 
+● RCCA: Root Cause Corrective Action 
+● RDHx: Rear Door Heat Exchanger 
+● RH: Relative Humidity 
+● RMFLD: Rack Manifold 
+● RWRM0: Return/Rack Water Return CDU Manifold 
+● RWSM0: Return/Rack Water Supply CDU Manifold 
+● SCCR: Short Circuit Current Rating 
+● Sds: Design Spectral Response Acceleration Parameter at Short Periods 
+● SEM: Scanning Electron Microscope 
+● SN: Serial Number 
+● SPC: Statistical Process Control 
+● THD: Total Harmonic Distortion 
+● TOR: Top of Rack 
+● UL: Underwriters Laboratory 
+● UPS: Uninterruptible Power Supply 
+● UUT: Unit Under Test 
+● VFD: Variable Frequency Drive 
+● WMF: Wall Manifold 
+● WMF2R: Wall Manifold 2 Rack Modular Section 
+
+● WMFMA: Wall Manifold Main Assembly 
+● WW: Work Week 
+● YY: Year 
+

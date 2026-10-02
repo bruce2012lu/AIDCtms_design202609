@@ -1,0 +1,4 @@
+case,N1,N2,N3,r21,r32,phi1,phi2,phi3,p,phi_ext21,ea21_pct,eext21_pct,GCI_fine21_pct,source
+reattachment length (monotonic),18000,8000,4500,1.5,1.333,6.063,5.972,5.863,1.53,6.1685,1.5,1.7,2.2,Celik 2008 PDF p.9 Table 1
+axial velocity x/H=8 y=0.0526 (p<1),18000,4500,980,2.0,2.143,10.7880,10.7250,10.6050,0.75,10.8801,0.6,0.9,1.1,Celik 2008 PDF p.9 Table 1
+axial velocity x/H=8 y=0.0526 (oscillatory),18000,4500,980,2.0,2.143,6.0042,5.9624,6.0909,1.51,6.0269,0.7,0.4,0.5,Celik 2008 PDF p.9 Table 1

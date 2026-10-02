@@ -1,0 +1,1286 @@
+
+===== p.1 =====
+Contents lists available at ScienceDirect
+Applied Thermal Engineering
+journal homepage: www.elsevier.com/locate/apthermeng
+Experimental and numerical investigation of direct liquid jet impinging
+cooling using 3D printed manifolds on lidded and lidless packages for 2.5D
+integrated systems
+T.W. Weia,b, H. Oprinsa, V. Chermana, E. Beynea, M. Baelmansb
+a imec Belgium, Kapeldreef 75, 3001 Leuven, Belgium
+b KU Leuven, Department of Mechanical Engineering, Celestijnenlaan 300 box 2421, 3001 Leuven, Belgium
+H I G H L I G H T S
+• A scalable impingement cooling solution for multi-chip packages is proposed.
+• A novel 3D printed lateral delivery manifold with low pressure drop is presented.
+• Experimental performance benchmarking for lidded and lidless packages is performed.
+• Very low inter-chip thermal coupling (4%) is measured for the bare die cooling.
+A R T I C L E I N F O
+Keywords:
+Package level
+Thermal interface
+Jet impingement cooling
+2.5D
+3D printing
+Manifold
+A B S T R A C T
+Package level bare die jet impingement cooling on the chip backside has been previously demonstrated as a
+highly eﬃcient jet cooling solution for high power devices, by eliminating the thermal interface material.
+However, bare die jet impingement cooling is a disruptive cooling technology requiring direct access to the
+backside of the semiconductor device. A less disruptive cooling implementation in which the impingement
+cooling is applied on the lid is now investigated as an intermediate step. In this work, the ﬁrst comparison of the
+cooling performance with the liquid micro-jet array impingement cooling on lidded and bare die package is
+conducted and experimentally characterized for polymer coolers fabricated by additive manufacturing. The
+thermal characterization is performed on a 2.5D integrated system that contains two advanced thermal test dies.
+In addition, besides the reference cooler with vertical coolant supply channel, an improved design of 3D printed
+ﬂuid delivery manifold with lateral inlet/outlet channels is introduced and benchmarked. The experimental and
+numerical comparison show that the cooler with the lateral feeding manifold requires 60% less pumping power
+with respect to the vertical feeding manifold for the same high thermal performance while reducing the overall
+thickness of the cooling solution by a factor of 2.
+1. Introduction
+1.1. Need for advanced cooling solutions for 2.5D Si interposer packages
+Three-dimensional through-Si via (TSV) integration has great po-
+tential to improve the performance, power consumption, and package
+footprint by vertically integrating multiple dies [1]. However, the
+vertical integration with 3D stacked dies will elevate the power density
+and chip temperature, which requires expensive packaging and cooling
+solutions [2]. This is due to the thermal bottleneck of the die-die in-
+terface materials with low thermal conductivities [3]. Alternatively,
+2.5D Si interposer packages with multiple dies integrated side by side,
+enable more cooling potential for applications combining high power
+components such as logic, GPU and FPGA, and temperature sensitive
+components (DRAM, SerDes). This Si interposer implementation shows
+potential for high performance systems with high-bandwidth and high-
+power applications [4], as demonstrated by the release of Xilinx’s FPGA
+[5] and the AMD Fury X GPU [6].
+For typical 2.5D Si interposer packages, a metal lid or heat spreader
+is attached on the substrate using lid adhesive [7,8]. In literature [7],
+several thermal solutions are mounted on top of the lidded package to
+minimize the thermal resistance, such as ﬁn heat sinks, and fan cooled
+heat sink with or without embedded heat pipes. However, the major
+thermal bottleneck for conventional cooling solutions is the presence of
+https://doi.org/10.1016/j.applthermaleng.2019.114535
+Received 26 June 2019; Received in revised form 7 October 2019; Accepted 13 October 2019
+E-mail address: tiwei.wei@imec.be (T.W. Wei).
+Applied Thermal Engineering 164 (2020) 114535
+Available online 15 October 2019
+1359-4311/ © 2019 Elsevier Ltd. All rights reserved.
+T
+
+===== p.2 =====
+the thermal interface material (TIM). The thermal resistivity of the most
+widely used TIMs such as greases, gels, and phase-change materials
+(PCMs), can be as low as 10 mm2-K/W [9]. For the state of art nano-
+TIM, the thermal resistivity can be lower and even in the range of
+1 mm2-K/W with GE’s copper nanospring [10]. However, it is also
+found that the interfacial thermal resistance (ITR) between TIM and
+heat sink can vary from 2 mm2-K/W to 20 mm2-K/W due to the me-
+chanical compliance of the TIM [11]. Recently, several embedded
+cooling techniques without the use of the TIM have been applied on the
+2.5D Si interposer packages. In [12] an embedded thermoelectric cooler
+(TEC) combined with silicon interposer for the electrical path is studied
+for hot spot cooling, but the power consumption of the TEC driver is a
+big challenge. In [13–15], microﬂuidic cooling delivery channels are
+embedded within an interposer package with high aspect ratio TSVs,
+and microﬂuidic chip I/Os. However, the I/O density is insuﬃcient for
+high-bandwidth devices. Moreover, the temperature gradient across
+and along the channels is hard to avoid, resulting in an uneven tem-
+perature distribution.
+1.2. Overview of the 3D distributed manifold techniques
+Impingement jet cooling is a potential solution for the high-per-
+formance system. Over the last decades, the heat transfer and ﬂow
+dynamics physics and correlations of jet impingement cooling with
+electronics and modules were investigated systematically [16–19]. As
+shown in Fig. 1, a scalable multiple impingement jet cooling system
+with liquid distributed manifold is applied directly on the die surface.
+For the microchannel cooling heat sink, it is shown that the design of
+manifold microchannel (MMC) heat sink with alternating inlet and
+outlet channels has big impact on the system pressure drop and thermal
+performance [20,21]. The experimental study shows that the thermal
+resistance of the MMC heat sink is approximately 35% lower than the
+traditional microchannel heat sink [21]. In literature [22], numerical
+simulation results indicate that an optimized manifold design can re-
+duce the thermal resistance by 50% compared to a traditional micro-
+channel heat sink. Moreover, a numerical study by Boteler et al. [23]
+indicate a more uniform ﬂow distribution and lower pressure drop by as
+much as 97% for a 3D manifold design compared to a traditional mi-
+crochannel design. Therefore, the manifold level design of this micro-
+ﬂuidic cooler is very important for the overall cooler performance, since
+it determines the ﬂow uniformity, and system level pressure and
+thermal resistance, especially for large area die size applications.
+For the manufacturing of the impingement jet cooling system with
+3D distribution manifold, diﬀerent fabrication techniques were in-
+vestigated, such as plastic [24], metal micromachining [25] and Si deep
+reactive-ion etching (DRIE) microfabrication [26], multilayer ceramic
+technology (MLC) [27]. However, these fabrication techniques are all
+very expensive. In our previous research, a high eﬃciency polymer
+cooler has been demonstrated using mechanical micromachining pro-
+cess [28]. Fig. 1 shows the schematic of this cooling concept. However,
+the diﬀerent structural layers shown in Fig. 1(a) have to be fabricated
+separately, increasing the reliability concerns of the assembly.
+With the recent development of the high resolution of additive
+manufacturing technology, lots of studies move to the 3D manifold with
+liquid delivery system, fabricated by 3D printing. Robinson et al., de-
+monstrated a hybrid micro heat sink using impinging micro-jet arrays
+and microchannels using MICA Freeform process [29], with a predicted
+eﬀective thermal conductance of 400 kW/m2 K for a ﬂow rate of 0.5 L/
+min. In [30], we demonstrated for a bare die single chip package that
+additive manufacturing, or 3D printing can be used to fabricate a highly
+performant cooler with high density nozzle array and complex internal
+geometries. Moreover, 3D printing of the cooler shows the potential to
+integrate the cooling jets directly targeted on each device in the multi-
+chip module, which can drastically reduce the thermal coupling be-
+tween diﬀerent devices. Furthermore, the required pumping power can
+be signiﬁcantly reduced due to a streamlined internal channel design
+which can be fabricated using additive manufacturing, but not with
+conventional fabrication techniques.
+In this paper, we present the evaluation of the cooling performance
+of a package level jet impingement cooling solution on dual-chip
+packages by means of full cooler computational ﬂuid dynamics simu-
+lations (CFD) and experiments on test vehicles. For this study the single
+chip cooler design [30] has been optimized for the packages containing
+two thermal test chips. Furthermore, an improved cooler design of the
+3D printed ﬂuid manifold is introduced and benchmarked. Since jet
+impingement cooling on the bare die is a disruptive cooling technology
+requiring direct access to the backside of the Si chip, we also consider a
+less disruptive cooling implementation in which the impingement
+cooling is applied on the lid. For cooling on the lidded package, the
+cooling surface area of the lid is larger compared to cooling on the bare
+die surface. Moreover, the presence of the lid enhances the lateral heat
+spreading eﬀects inside the package. However, the drawback of this
+lidded approach is the signiﬁcant thermal resistance of the TIM be-
+tween the chip and the lid. The trade-oﬀbetween the beneﬁcial and
+detrimental eﬀect of the lid, will determine whether the bare die
+cooling will outperform the cooling on the lidded package.
+The paper is organized as follows: the cooler design considerations
+are discussed in Section 2. The fabricated cooler, the assembly and the
+experimental set-up for the thermal and hydraulic characterization are
+presented in Section 3. In Section 4, the experimental characterization
+of the package level impingement cooler is analyzed for the bare die
+and lidded package conﬁgurations, including the thermal coupling
+between the dies in the package. Finally, Section 5 discusses the ex-
+perimental and numerical characterization of the novel cooler design
+with smaller form factor and the comparison with the reference cooler.
+Fig. 1. Scalable impingement jet cooling system with 3D liquid distributed manifold: (a) cross section view of the cooler on single chip; (b) top view of the nozzle
+plate with scalable nozzle array.
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+2
+
+===== p.3 =====
+2. Design of multi-jet impingement cooler
+This section introduces the design considerations for the impinge-
+ment cooler of the dual-chip package. Firstly, the lidded and bare die
+thermal test vehicles on 2.5D interposer are introduced. Secondly, the
+concept of nozzle array scalability with the chip area is introduced in
+order to estimate the cooler performance based on the extrapolation of
+previous cooler designs. Next, the diﬀerent design concepts for the
+package level impingement cooler are discussed. Finally, the package
+level CFD modeling approach is presented to study the ﬂow and tem-
+perature distribution inside the cooler and the overall cooler perfor-
+mance in detail for the diﬀerent proposed cooler designs.
+2.1. Lidded and bare die dual-chip test vehicle
+In order to compare the performance between the bare die cooling
+and lidded package cooling, an advanced thermal test vehicle with
+lidded package and bare die package versions is introduced. As shown
+in Fig. 2, a 35 × 35 mm2 ball grid array (BGA) package is used, con-
+taining a 20 × 10 mm2 Si interposer with 100 µm thickness and two
+identically 8 × 8 mm2 thermal test chips, referred to as PTCQ (Packa-
+ging Test Chip version Q) [31,32]. The interposer stacks are ﬂip-chip
+soldered on the organic substrate, allowing the cooling solution to be
+directly applied to the backside of the chips, or on the lid. The sche-
+matic of the bare die package is illustrated in Fig. 2(a). As for the lidded
+packages shown in Fig. 2(b), a Cu lid with a thickness of 0.3 mm is
+attached on the thermal test dies with additional thermal interface
+material. The thermal interface material is a standard silicone based
+material with a speciﬁed thermal conductivity of 1.9 W/m K and a
+targeted thickness of 80 μm.
+The details of the 8 × 8 mm2 PTCQ thermal test chip are shown in
+Fig. 3. The dedicated thermal test chip with an array of 32 × 32 in-
+dividually controllable cells can be programmed to generate a custom
+power map, ranging from localized hot spots to distribution with quasi-
+uniform heating, with 75% area uniformity shown in Fig. 3(b). The full
+temperature map can be measured with a 32 × 32 array of diodes
+across the 8 × 8 mm2 area of the chip. The voltage drop across the
+diode for a constant current is used as the temperature sensitive para-
+meter of the sensor. The 95% conﬁdence interval of the calibrated
+sensitivity is −1.55 ± 0.02 mV/°C for a current of 5 μA in the tem-
+perature range between 10 and 75 °C. The chip temperature sensors
+allow absolute temperature measurements with an accuracy of ± 2–3
+°C. The test chip can generate a maximum power 150 W/cm2 in each
+heater cell or 80 W in the whole test chip for all heater cells activated.
+The layout of the heater cells is shown in Fig. 3(c).
+2.2. Nozzle array scalability
+As shown in Fig. 1, the nozzle array pattern is a scalable system of
+repeated unit cells with a centered inlet and outlets in the corners
+serving for the neighboring cells too, under the assumption of identical
+thermal performance for all unit cells. The nozzle array of unit cells
+scales with the chip area. Therefore, the thermal and hydraulic per-
+formance metrics can be reported as area independent thermal re-
+sistance and pump power to represent the intrinsic thermal and hy-
+draulic behavior. The overall thermal performance of the cooler is
+expressed in terms of the thermal resistance Rth and the pump power
+Wp.
+=
+−
+R
+T
+T
+Q
+th
+avg
+in
+heater
+(1)
+= V
+Wp
+̇. ΔP
+(2)
+where Tavg is the measured average chip temperature, Tin is the coolant
+inlet temperature, and Qheater is the heat generated in the heater cells
+based on the measured electrical current and heater voltage. ΔP is de-
+ﬁned as the pressure diﬀerence between the inlet and outlet of the
+cooler. V̇ represents the volumetric ﬂow rate. The thermal resistance
+Rth in this work also includes the heat losses through the cooler material
+into the ambient, and also the heat losses through the bottom side of the
+assembled test board. Therefore, the deﬁnitions of normalized thermal
+resistance
+∗
+Rth
+and normalized pump power
+∗
+Wp
+are respectively de-
+ﬁned as:
+Fig. 2. Bare die package and lidded package: (a) two thermal test chips on Si interposer without lid; (b) thermal test chips on Si interposer with lid.
+Fig. 3. Details of the single PTCQ thermal test chip: (a) overview of single thermal test die; (b) layout of the thermal test die; (c) heater cell overview.
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+3
+
+===== p.4 =====
+=
+−
+∗
+R
+T
+T
+A
+Q
+(
+)·
+th
+heater
+avg
+in
+(3)
+∗= V
+V
+̇/A
+(4)
+∗=
+W
+W /A
+p
+p
+(5)
+The normalized thermal performance represents the intrinsic thermal
+performance, independent of the chip and package area. This means
+that the thermal performance of the dual-chip package cooler in terms
+of absolute thermal resistance Rth can be predicted based on the results
+from the single chip cooler [30] if the same cooling cell dimensions are
+used (nozzle diameter and pitch, nozzle plate thickness). This normal-
+ization concept for the thermal resistance based on the chip area has
+been introduced in literature, to compare the thermal performance of
+diﬀerent cold plates, with diﬀerent sizes of heat sources at diﬀerent
+ﬂow rates [33–35]. In our design with the dual-chip cooler, the same
+nozzle array geometry properties are used, and the normalization
+concept is experimentally validated in Section 4.2.
+Moreover, to generalize the results, the overall thermal performance
+is also deﬁned as the dimensionless Nusselt number Nuavg. They are
+primarily a function of the Reynolds number Red:
+=
+Nu
+h
+d
+k
+·
+i
+f
+avg
+avg
+(6)
+=
+−
+h
+Q
+T
+T
+A
+(
+)·
+heater
+avg
+avg
+in
+(7)
+where is Nuavg is the averaged Nusselt number, havg is deﬁned as the
+average heat transfer coeﬃcient and kf is the thermal conductivity of
+the ﬂuid. The correlation between the Nu and Re will be shown in
+Section 5.2.
+= ρ d V
+μ
+Re
+·
+·
+d
+i
+in
+(8)
+where the Red is deﬁned as the Reynolds number based on the jet inlet
+nozzle diameter, and the Vin is deﬁned as the averaged inlet nozzle
+velocity, di is the inlet nozzle diameter, ρ is the density of the ﬂuid, and
+μ is the dynamic viscosity of the ﬂuid. Moreover, the characteristic
+length scale used in the full cooler level model is based on the jet inlet
+nozzle diameter di, rather than the inlet diameter of the global collector
+of the cooler.
+2.3. 3D printed dual-chip package cooler design
+For the cooler design of the dual-chip package, the objectives are
+listed as below:
+• Targeted cooling for both chips;
+• High cooling performance and low pressure drop;
+• Small form factor of the cooler;
+Moreover, the design constraints such as ﬂow loop connections,
+cooler size limitations, assembly constraints and the manufacturing
+capabilities should be taken into account. Thanks to the recent ad-
+vancements in additive manufacturing, this fabrication method be-
+comes an interesting fabrication option for these coolers with typical
+nozzle diameters of several 100 µm. Additive manufacturing, or 3D
+printing enables to use low cost materials for the cooler fabrication, to
+print the whole geometry in one piece, to customize the design to match
+the nozzle array to the chip power map and to fabricate very complex
+internal structures. This last feature allows the design of complex cooler
+cavities that cannot be fabricated with convectional fabrication tech-
+niques. Moreover, the inlet and outlet divider structures can be printed
+as hollow cylinders, which can signiﬁcantly reduce the pressure drop
+compared to square shape dividers and reduce the number of layers
+required in the cooler design.
+The schematic concepts of the direct jet impingement cooler for the
+dual-chip module are shown in Fig. 4, containing four main parts: inlet
+plenum, outlet plenum, nozzle plate and impingement cavity. Fig. 4(a)
+shows the reference cooler design with vertical coolant supply con-
+nectors. The details of the main parts in the cooler structure of vertical
+feeding design are indicated in Fig. 5. This design is an extension from
+single die cooler shown in Fig. 1. Since the optimized geometry para-
+meters for the jet nozzle array of the single die cooler are already in-
+vestigated in our previous study [28], the design of the package level
+cooler the for dual-chip module will use the same nozzle array (4 × 4
+inlet nozzle array and 5 × 5 outlet nozzle array with 600 µm diameter)
+as for the single chip package cooler, targeted at each of the chips in the
+module. Fig. 5 shows the geometry information tabulated in Table 1.
+Table 1 lists the geometry comparison between the single chip cooler
+and the dual-chip module cooler. The cooler is designed to match to the
+package area of 35 × 35 mm2. The cavity height of the cooler (i.e. the
+distance between the nozzle plate and the chip surface) is 0.6 mm. The
+cooler is placed over the stacked chips on the interposer, as shown
+schematically in Fig. 6, which also indicates the position of the sealing
+rings between the cooler and the package substrate. Moreover, the O-
+Fig. 4. Cooler schematics for the dual-chip module: (a) vertical feeding design; b) lateral feeding design.
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+4
+
+===== p.5 =====
+ring can also act as a buﬀer for the mechanical assembly of the cooler,
+especially for large die packages to compensate for the potential war-
+page of the assembly.
+As an alternative design, the lateral feeding design is introduced
+taking full advantage of the additional design options enabled by 3D
+printing. As shown in Fig. 4(b), the inlet coolant ﬂow enters the cooler
+at one side and spreads in the inlet plenum to be distributed over all the
+nozzles of both chips. This design allows to improve the ﬂow uniformity
+over the nozzles, to reduce the pressure drop in the cooler through an
+optimized internal design and to reduce the overall cooler thickness
+signiﬁcantly.
+Fig. 7 shows the cross-sections of the inside delivery manifold for
+the 2 cooler conﬁgurations. In the case of the vertical feeding conﬁg-
+uration with an inlet and an outlet plenum above each other (Fig. 7a
+and b), the overall cooler thickness is 12.6 mm including the tube
+connection. In the case of the lateral feeding conﬁguration (Fig. 7d), the
+cooler thickness can be signiﬁcantly reduced since the two plenums can
+be integrated on the same level. The enlarged view with the details of
+nozzle arrays and inlet chamber is shown in Fig. 7(e). The overall cooler
+thickness for this conﬁguration is 6.6 mm, which realizes a reduction of
+the cooler thickness by a factor of two compared to the standard cooler
+conﬁguration. The experimental and numerical comparison of the
+thermal and hydraulic performance of both cooler concepts will be
+discussed in Section 5.
+2.4. Full cooler level model
+In order to investigate the thermal and hydraulic performance of the
+coolers in more detail, conjugate heat transfer and ﬂuid ﬂow simula-
+tions are used in this study. The numerical simulations of the full cooler
+model are based on the commercial software ANSYS Fluent 18.0. The
+material used for the solid domain is silicon and the water used for the
+ﬂuid domain. The physical property of the materials used in the nu-
+merical simulation are listed in Table 2.
+The meshing details of the CFD models for both cooler designs are
+shown in Fig. 8(a) and (b), containing typically 5 million elements. The
+ﬁrst layer thickness of the boundary layers is 1 μm, which is calculated
+from the Y plus number (Y+ < 1). The maximum boundary layer
+number is set as 10 with a growth rate of 1.1. The mesh independency
+of the simulation results has been assessed using the Richardson ex-
+trapolation resulting in a truncation error for the chip temperature in
+the stagnation point of 0.3%. Moreover, the turbulent model used in the
+CFD modeling is transition SST model [36], which can capture the ﬂow
+behaviors between the laminar ﬂow and turbulent ﬂow. The “SIMPLE”
+Fig. 5. Cooler geometry parameters for vertical feeding design: 1-nozzle array; 2-inlet chamber; 3-Outlet chamber; 4-Cavity height; 5-Nozzle plate; 6-O-ring.
+Table 1
+Geometry comparison between single die cooler and dual-chip module cooler.
+Geometry
+Single chip cooler
+Dual-chip cooler
+Nozzle array
+N
+4 × 4
+4 × 4 per die
+Inlet chamber height
+2.5 mm
+2.5 mm
+Inlet diameter
+di
+0.6 mm
+0.6 mm
+Outlet diameter
+do
+0.6 mm
+0.6 mm
+Cavity height
+H
+0.6 mm
+0.6 mm
+Nozzle plate thickness
+t
+0.55 mm
+0.55 mm
+Cooler size
+x, y, z
+14 × 14 × 8.7 (mm3)
+35 × 35 × 12.6 (mm3)
+Fig. 6. CAD design of the two diﬀerent coolers: (a) vertical feeding design; (b) lateral feeding design.
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+5
+
+===== p.6 =====
+algorithm is used as the solution method. The QUICK scheme is selected
+as the numerical scheme. The convergence criteria were set at 1e−5 for
+continuity, 1 e−6 for energy and 1e−6 for k, ω and momentum (x, y and
+z components of velocity), respectively.
+For the boundary conditions of the CFD model, uniform power
+dissipation is applied as a constant heat ﬂux in the active die while
+there is no power in the passive die. The bottom part under the active
+die and bottom die, such as the Cu pillars and underﬁll material, the
+package substrate, the solder balls and the PCB are neglected, based on
+our previous study [32]. The ambient temperature is considered to be at
+25 °C. The inlet temperature for the CFD model is set to 10 °C. The ﬂow
+boundary condition for the inlet is based on the velocity inlet with a
+speciﬁed constant velocity value across the inlet area. The boundary
+condition for the outlet is set as ‘pressure out’ (Pout = 0). For all the
+simulations, the net imbalance of overall mass, momentum and energy
+is kept below 0.02%. The CFD models for the bare die package cooling
+will be used in Section 5.2 for the thermal and hydraulic performance
+comparison of the reference cooler design and the improved design.
+3. Cooler assembly and experimental set-up
+3.1. Fabricated cooler assembly
+The cooler is printed as a single part by stereolithography (SLA),
+layer by layer by curing the photosensitive polymer material with ex-
+posure of a UV light source. The chosen polymer material, Somos
+WaterShed XC is a water-resistant material, which shows ABS-like
+Fig. 7. Cross-section schematics of the two impingement jet cooler conﬁgurations: (a) vertical feeding design with cross section A-A; (b) vertical feeding design with
+cross section B-B; (c) full CAD model of vertical feeding design; (b) cross section of lateral feeding design; (e) enlarged view of the nozzle array and inlet chamber.
+Table 2
+The physical property parameters of materials used in CFD simulation.
+Material
+Density
+Speciﬁc heat
+Thermal
+conductivity
+Viscosity
+Temperature
+Unit
+kg/m3
+J/(kg k)
+W/(m K)
+Kg/(m s)
+°C
+Silicon
+2329
+556
+149
+0.1
+–
+Water-liquid
+999.7
+4197
+0.6
+0.0013
+10
+Fig. 8. Details of the CFD model for vertical and lateral cooler design with (a) vertical feeding manifold and (b) lateral feeding manifold.
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+6
+
+===== p.7 =====
+properties and good temperature resistance. The heat deﬂection tem-
+perature (HDT) of ‘Somos WaterShed XC’ is around 60 °C [37].
+Therefore, the temperature of the coolant should be below 60 °C to
+remain in the safe temperature range for the cooler material. The
+printed coolers are shown in Fig. 9. The measured average nozzle
+diameter is 570 µm ± 20 µm which only deviates 5% from the nominal
+design values of 600 µm. The uncured resin in the cavity needs be re-
+moved using a chemical solvent after all the parts are ﬁnished. Since the
+cooler is printed as a single part, there is no visual access to check for
+internal defects or blocked nozzles. Therefore, the Scanning Acoustic
+Microscopy technique (SAM) is introduced in our research to evaluate
+the cooler quality [30]. The cooler is ﬁnally assembled onto the thermal
+test board. The ﬁnal process ﬂow of the dual-chip module cooler with
+lateral feeding design is shown in Fig. 10.
+3.2. Experimental set-up
+Fig. 11 shows the experimental set-up for the two diﬀerent coolers,
+where the assembled dual-chip module cooler packages are placed in a
+socket to perform the thermal measurements. A known amount of
+power is generated in a chosen distribution, in this case all the heating
+elements on the chip are activated, while the full chip area temperature
+distribution is measured in the diodes of the PTCQ test chips. The
+temperatures are reported as temperature diﬀerences with respect to
+the coolant inlet temperature. The coolant used in this study is DI
+(deionized water) water. The cooler is connected in a closed loop, in-
+cluding the pump, ﬂow, pressure and temperature sensors, ﬁlters and a
+heat exchanger. All the sensors in the set-up are connected and con-
+trolled by LabView, allowing operation of the ﬂow loop either in a
+controlled mass ﬂow rate mode or a controlled pressure mode [32]. The
+accuracy of the mini Cori ﬂow meter is ± 0.2% RD (percentage of
+reading). A diﬀerential pressure gauge that can withstand a static
+pressure of 10 bar and measure a pressure drop between 0.2 bar and
+5 bar. The accuracy is < ± 0.5% FS (full scale). A stainless-steel basket
+ﬁlter is used for the pump with a screen of 25 μm. Thermocouples are
+used to measure the outlet temperature with an accuracy of ± 0.3 ℃.
+For the accuracy of the thermal test chip, the calibrated sensitivity of
+the temperature sensor on the test chip is −1.55 ± 0.02 mV/°C for a
+current of 5 µA in the temperature range between 10 and 75 °C with
+95% conﬁdence interval. The propagated measurement uncertainty
+results in a value of ± 1.8% for the reported thermal resistance mea-
+surements [32]. Moreover, the uncertainty of the Nusselt number Nuavg
+shown in Eq. (6) is ± 5.3%. The calculation of this measurement un-
+certainty is based on the propagation of the of the uncertainties of the
+measured chip power (±0.1%), the average chip temperature mea-
+surement (±1.5%), inlet temperature measurement (±1%), and the
+measured nozzle diameter (±3.5%). The thermal performance estima-
+tion of the assembled cooling solution also includes the heat losses
+through the cooler material into the ambient and the heat losses
+through the bottom side of the assembly, through the test board.
+4. Characterization of standard cooler
+4.1. Reference temperature measurement
+One of the objective of the study is to compare the eﬀect of the
+impingement cooling solution on bare die and lidded packages in terms
+of the thermal resistance of the heated chip and the thermal coupling
+between the two chips in the package. Since the package type (with lid
+and without lid) is diﬀerent, this might have an impact of the heat
+conduction inside the chip package and consequently on the thermal
+resistance and the thermal coupling. Therefore, the packages are ﬁrst
+measured without any active liquid cooling applied. There are two
+main thermal paths towards the ambient for the heat generated in a
+chip in the package: one is from the top side of the package, through the
+cooler (Rcooler); the second parallel thermal path is downward through
+the package substrate and PCB (Rbottom). The overall thermal resistance
+is the parallel connection between the two thermal paths. In the ﬁrst
+reference measurements, the top side of the package is insulated, and
+the heat is removed through the bottom part of the package, enabling
+the characterization of the bottom thermal part, as shown in Fig. 12(a).
+The thermal resistance network is shown in Fig. 12(b) for the
+Fig. 9. Dual-chip module cooler demonstrators: sideview (a) and bottom view
+(b) of vertical feeding cooler; sideview (c) and bottom view (d) of lateral
+feeding cooler.
+Fig. 10. Design ﬂow for the dual-chip module cooler: lateral feeding design.
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+7
+
+===== p.8 =====
+illustration of the heat ﬂow simpliﬁed in thermal paths. Fig. 12(c)
+shows the measured temperature distribution in the test chip for a
+power dissipation of 1.7 W. This corresponds to an average thermal
+resistance of 15.1 K/W, or an average area-normalized thermal re-
+sistance of 9.6 cm2 K/W for the bottom thermal path through the
+package substrate and PCB.
+4.2. Bare die versus lidded package cooling
+For the thermal measurements with the applied cooling, 50 W
+power is dissipated in each chip of the dual-chip package, while the full
+temperature map of the chips is measured for a ﬂow rate of 1000 ml/
+min (for cooler, thus 500 ml/min per chip). The thermal performance of
+the 3D printed cooler is compared for the lidded and the lidless
+packages in this section. The measured chip temperature distribution
+maps for both packages are shown in Fig. 13. The temperature proﬁle at
+the center of the chips is shown in Fig. 14 to allow a more detailed
+comparison of the thermal behavior. The comparison of the tempera-
+ture proﬁles of the two package reveals a signiﬁcant diﬀerence for both
+the heated chips. The overall thermal resistance of the logic chip is a
+factor or 2 to 3 higher in case of the lidded package compared to the
+lidless package. This large diﬀerence is mainly caused by the presence
+of the thermal interface material.
+The measurement results for the lidded and lidless packages are
+summarized in Table 3 for diﬀerent ﬂow rates. The presence of the lid
+(and mainly the TIM) results in a higher chip temperature, where the
+relative impact of the lid increases as the ﬂow rate increases since the
+convective thermal resistance decreases with the ﬂow rate. The
+Fig. 11. Experimental set-up for (a) vertical and (b) lateral feeding cooler.
+Fig. 12. Reference temperature measurement with thermal insulation: (a) schematic view of the measurement setup with thermal isolation on top of the die surface;
+(b) thermal resistance network of the thermal path of the interposer package; (c) temperature increase map of the interposer package with thermal insulation.
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+8
+
+===== p.9 =====
+additional thermal resistance of the TIM and lid can be estimated as
+0.45 cm2 K/W. The thermal conductivity of the TIM is calibrated as
+1.9 W/m K and a targeted thickness of 80 μm. The reported overall
+thermal resistance values are the result of the combined heat removal
+through the cooling solution and the heat losses through the package.
+By combining the results with the reference measurements, the heat
+losses through the package can be estimated. The relative values for the
+heat losses are shown in Table 3 for the two packages for diﬀerent
+coolant ﬂow rate values. These results show that the heat losses are
+limited to values from 2% for a high ﬂow rate to 5% for a low coolant
+ﬂow rate and therefore the majority of the heat is removed through the
+cooling solution on top of the package. Table 3 also shows the thermal
+resistance values for the top heat ﬂow part only, after correction for the
+heat losses. Since the heat losses through the bottom package are small,
+the type of packaging does not have a signiﬁcant impact on the thermal
+resistance values and the thermal coupling in the packages.
+4.3. Comparison with single die
+The dual-chip module cooler has been characterized for an overall
+ﬂow rate of 600 ml/min (divided over both chips in the module) and for
+a power dissipation of 50 W in the left chip and no power dissipation in
+the right chip. The normalized thermal resistance for vertical feeding of
+the cooler is shown in Fig. 15 for a horizontal proﬁle across the two
+chips. The cooling performance for the single chip cooler [28] with the
+same nozzle array and the same normalized ﬂow rate, in this case of
+300 ml/min per chip, shown in the same ﬁgure, results in a similar
+value of 0.35 cm2 K/W. This comparison shows that the average nor-
+malized thermal resistance can be used to extrapolate the thermal
+performance for diﬀerent chip sizes or multiple chips, supporting the
+approach of a scalable cooling solution with a constant intrinsic thermal
+performance for the unit cooling cell with constant ﬂow rate per unit
+cell. Therefore, this scalable approach can be used to design speciﬁc
+nozzle arrays for diﬀerent chip sizes in the module, as discussed in
+Section 2.1. It should be noted that there is a discrepancy between the
+single chip and dual-chip cooling for the actual temperature proﬁle.
+These local diﬀerences are due to the designs of the inlet/outlet
+chamber in the plenum level resulting in diﬀerent local ﬂow distribu-
+tion.
+4.4. Thermal coupling eﬀects
+In the next step, the thermal coupling between the active die and
+passive die in the dual-chip module cooled by the package level im-
+pingement cooler is investigated. Therefore, the power dissipation in
+the left chip referred as “logic die” is set as 50 W while no power dis-
+sipation is applied in the right chip referred as “Memory die”. The
+temperature distribution map of the bare die cooling with vertical
+feeding cooler and of the lidded package cooling are shown in Fig. 16(a)
+Fig. 13. Temperature distribution on two heated die with (a) lidless cooling
+and
+(b)
+lidded
+package
+cooling
+(left
+chip
+power = 50 W,
+right
+chip
+power = 50 W, ﬂow rate = 1000 ml/min, vertical feeding cooler).
+Fig. 14. Thermal measurement comparison between the lidless package cooling
+and lidded package cooling (single chip power = 50 W, ﬂow rate = 1000 ml/
+min, vertical feeding cooler).
+Table 3
+Thermal comparison between the lidded and lidless packages.
+Flow
+rate (ml/
+min)
+Average thermal
+resistance-Total (cm2
+K/W)
+Average thermal
+resistance of cooler (cm2
+K/W)
+Relative heat loss
+Lidded
+Lidless
+Lidded
+Lidless
+Lidded
+Lidless
+300
+0.85
+0.47
+0.93
+0.49
+9.71%
+5.15%
+400
+0.80
+0.41
+0.87
+0.43
+9.09%
+4.46%
+600
+0.75
+0.33
+0.81
+0.34
+8.47%
+3.56%
+1000
+0.68
+0.26
+0.73
+0.27
+7.62%
+2.78%
+Fig. 15. Experimental comparison with dual-chip cooling and single chip
+cooling at ﬂow rate of 600 ml/min (Vertical feeing manifold).
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+9
+
+===== p.10 =====
+and (b) respectively for an overall ﬂow rate of 1000 ml/min. The
+temperature proﬁles for three diﬀerent ﬂow rates is plotted in Fig. 17. It
+can be observed that the thermal coupling between the active die and
+the passive die is much higher in the lidded package compared to the
+lidless package, due to the heat spreading in the Cu lid. In the bare die
+package, the temperature increase of the passive die is very limited due
+to the absence of thermal coupling path of the lid. In the lidded
+package, passive die temperature is much higher and also shows a clear
+temperature gradient from the left side to the right side of the chip.
+The thermal coupling in a multi-die module can be expressed as a
+part of the thermal resistance matrix R, which is used for multi-chip
+modules describing the thermal interactions between the diﬀerent heat
+sources [38–40]:
+⎡
+⎣⎢
+⎤
+⎦⎥≅⎡
+⎣⎢
+⎤
+⎦⎥
+⎡
+⎣⎢
+⎤
+⎦⎥+ ⎡
+⎣
+⎤
+⎦
+T
+T
+R
+R
+R
+R
+P
+P
+T
+T
+·
+left
+right
+left left
+Left Right
+Right Left
+Right Right
+left
+Right
+in
+in
+,
+,
+,
+,
+(9)
+The resistance Rij in the matrix of (5) is the temperature rise of heat
+source ‘i’ above the ambient temperature (inlet temperature), caused by
+unit heat dissipation of source “j”:
+=
+−
+R
+T
+T
+P
+ij
+i
+in
+j
+(10)
+For a dual-die package, 4 thermal resistance terms are required to de-
+scribe the thermal resistance matrix: the self-heating thermal resistance
+terms on the diagonal and thermal coupling resistance terms, or mutual
+heating eﬀects on the cross-diagonal. The thermal resistance (6) should
+be obtained in case of uniform power dissipation in one of the chips
+while there is no power dissipation in the other chip(s) in the 3D
+package. In case of non-uniform power dissipation, the concept of
+thermal resistance is not meaningful. Therefore, the thermal coupling
+between the passive die and active die in this study can be expressed as
+below based on the average chip temperatures:
+=
+−
+−
+−
+R
+T
+T
+T
+T
+coupling
+passive
+in
+active
+in
+(11)
+Table 4 shows the thermal coupling eﬀects for lidless cooling and
+lidded package cooling at diﬀerent ﬂow rate. Moreover, the normalized
+thermal resistance and thermal coupling as function of the ﬂow rate for
+the lidded package cooling and lidless cooling are plotted in Fig. 18. As
+shown in Fig. 18 at a ﬂow rate of 1000 ml/min, the thermal coupling is
+7.7 times higher in the lidded package, compared to the lidless package.
+For the lidless package cooling, it can be seen that the thermal coupling
+reduces for increasing ﬂow rate. This is because the main thermal path
+is dominated by the high cooling eﬃciency of microjet cooling without
+TIM and lid. While for lidded package cooling, the thermal coupling
+eﬀects become higher with increasing ﬂow rate. The reason for this is
+that the relative contribution of the conductive thermal resistance from
+the TIM and lid increases, as the convective resistance decreases. Ty-
+pical test case values for lidded MCP with heat sink presented in lit-
+erature [41], report a thermal coupling value of 31.2%. The presented
+bare die cooling with a ﬂow rate of 1000 ml/min achieves a 9 times
+reduction of the thermal coupling.
+Fig. 16. Normalized thermal resistance measurements (cm2 K/W) for the (a)
+lidless cooling and (b) lidded package cooling on the interposer package (active
+die = 50 W, passive die = 0 W, ﬂow rate = 1000 ml/min).
+Fig. 17. Normalized thermal resistance (cm2 K/W) measurements proﬁle
+comparison between lidless cooling and lidded package cooling under diﬀerent
+ﬂow rate (active die = 50 W, passive die = 0 W, ﬂow rate = 1000 ml/min).
+Table 4
+Thermal coupling at diﬀerent ﬂow rate.
+Flow rate (ml/min)
+Lidded pkg
+Lidless pkg
+300
+15.7%
+7.1%
+400
+15.98%
+5.3%
+600
+17.38%
+4.6%
+1000
+26.1%
+3.4%
+Fig. 18. Normalized thermal resistance and thermal coupling as function of the
+total ﬂow rate for lidded package and lidless package.
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+10
+
+===== p.11 =====
+4.5. Modeling validation
+In this section, the comparison between the CFD modeling results
+and experimental results is discussed and analyzed. As shown in Fig. 19,
+full cooler level CFD modeling results with the temperature proﬁle
+across the two thermal test die source regions show the similar trend
+with the experimental data under diﬀerent ﬂow rate. The lower tem-
+perature around the chip edge in the experiments is due to the full
+submerged of the thermal test die inside the liquid. An additional aspect
+of the discrepancy between the experimental and modeling results, is
+the diﬀerent coolant impact for impingement cooling on the die surface
+only or also on the chip sides. It is shown in literature [42,43], that jet
+impingement hybrid body cooling with a submerged die has better
+cooling performance than jet impingement surface cooling on the die
+surface only. This is because the hybrid body cooling can provide extra
+cooling for the chip by channel cooling to the side surfaces, resulting in
+a lower temperature at the chip edges. In Fig. 20, the thermal resistance
+distribution maps are compared for the experiments and the CFD model
+results for the lidless interposer package. The nozzle cooling patterns
+can be clearly distinguished from the modeled temperature distribution
+that assumes 100% uniform heat dissipation while the actual PTCQ
+power map is quasi-uniform with 75% heater uniformity. The measured
+averaged temperature for the “logic” die based on the bare die cooling
+at ﬂow rate of 300 ml/min is 0.47 cm2 K/W while the modeling aver-
+aged temperature is 0.46 cm2 K/W. In general, the full cooler level CFD
+modeling results agrees well with the measurement data with respect to
+the average temperature, however diﬀerences in local temperature
+distribution become visible at the location of non-heated parts due to
+the high heat removal rate. For this level of cooling, more details of the
+chip power map should be included in order to predict the detailed chip
+temperature map. Lower temperature around the chip edge in the ex-
+periments can be explained due to the absence of the heaters there. The
+diﬀerence between the CFD model and the experimental data for the
+average chip temperature is 12.6% at a ﬂow rate of 300 ml/min and
+only 2% at a ﬂow rate of 1000 ml/min. Therefore, we use uniform
+heater pattern for the modeling study to save the computation cost.
+5. Lateral feeding cooler performance
+In this section, the thermal and hydraulic performance of the lateral
+feeding cooler design, introduced in Section 2.3, will be evaluated and
+compared with the standard vertical feeding design.
+5.1. Experimental comparison
+Fig. 21 shows the comparison of the thermal performance for the
+vertical feeding design and the lateral feeding design on both the bare
+die and lidded packages with a power dissipation of 50 W in one active
+chip and a ﬂow rate of 1000 ml/min. Fig. 21(a) and (b) show the full
+temperature maps for the lidded packages while Fig. 21(c) show the
+temperature proﬁles for the measured cases. It can be seen that the
+temperature proﬁles for both coolers are very similar: the diﬀerence for
+the active die temperature is only 4% for both the bare die and lidded
+cooler. The thermal comparison between the two designs is summarized
+in Table.5. In general, it can be seen that the normalized thermal re-
+sistances for the vertical feeding scheme and the lateral feeding scheme
+Fig. 19. Experimental validation of CFD modeling for bare die cooling under
+diﬀerent ﬂow rates (logic power = 50 W; memory power = 0 W).
+Fig. 20. Normalized thermal resistance (cm2 K/W) distribution comparisons
+between the measurements and CFD modeling for bare die liquid cooling (logic
+power = 50 W; memory power = 0 W; ﬂow rate = 300 ml/min).
+Fig. 21. Thermal measurement comparison in active die between the vertical
+feeding (a) and lateral feeding (b) design (logic power = 50 W, memory
+power = 0 W, ﬂow rate = 1000 ml/min).
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+11
+
+===== p.12 =====
+are very similar to each other for all ﬂow rates for both the lidded and
+bare die packages. This comparison proves that the improvement of the
+plenum shape to minimize the ﬂow resistance does not interfere with
+the thermal performance of the cooler.
+5.2. Modeling comparison
+The thermal and hydraulic performance of the lateral feeding cooler
+can also be compared to the vertical feeding cooler using the CFD si-
+mulations introduced in Section 2.2. Moreover, these simulations can
+be used to assess the ﬂow distribution in the cooler and the temperature
+distribution in the chip.
+The ﬁrst part of the comparison is the nozzle inlet velocity uni-
+formity and pressure drop over the cooler between the vertical feeding
+design and the lateral feeding design. Fig. 22 shows the comparison of
+the velocity ﬁeld inside the vertical and lateral cooler design. The ﬂow
+streamlines inside the cooler are shown in Fig. 22(a) and Fig. 22(b). The
+cross section view of the velocity is shown in Fig. 22(c) and Fig. 22(d).
+For the vertical feeding scheme, the coolant is supplied in the center of
+the cooler. Therefore, the ﬂow velocity will decrease as the ﬂow goes
+from the central inlet nozzles to the outer inlet nozzles. For the lateral
+feeding scheme, the entering ﬂow is separated equally into two parts for
+the distribution of the two dies, resulting in a more uniform distribution
+over the nozzles. This eﬀect is shown in Fig. 23(a). The ﬁgure compares
+the distribution of the average inlet nozzle velocity for both cooler
+designs along a cross section of the cooler. It can be seen that the ve-
+locity distribution of the lateral feeding design is much more uniform
+than the vertical feeding design. Since the nozzle diameter is kept as the
+same, therefore, the ﬂow rate uniformity is corresponding to the nozzle
+velocity distribution. The analysis of the local ﬂow rate for all inlet
+nozzles shows that the uniformity for the nozzle ﬂow rate is reduced
+from 25% to 11% from the vertical feeding cooler to the lateral feeding
+cooler. Furthermore, the overall pressure drop over the cooler is much
+lower for the lateral feeding design, as can be seen from Fig. 23(b). The
+improvement of the cooler design results in a reduction of the pressure
+drop over the cooler of 63% and 53% at ﬂow rates of 100 ml/min and
+1000 ml/min respectively. This pressure drop reduction is caused by
+the improvement of the internal geometry of the plenum and the
+elimination of the two 90° bends for the coolant ﬂow in the vertical
+feeding design. Moreover, the comparison between the CFD modeling
+and experimental measurement shows a good agreement for the pres-
+sure drop across the cooler for both the vertical feeding design and the
+lateral feeding design.
+Fig. 24 shows the detailed chip temperature distribution map
+comparison between the vertical and lateral design. For both coolers,
+the inlet liquid temperature is set as 10 ˚C, and the chip power for the
+active die is set as 50 W. The simulated average thermal resistance is
+0.28 cm2 K/W for vertical feeding design while the lateral feeding
+shows 0.26 cm2 K/W. It can be seen that the average chip temperature
+for the two cases are very similar with each other showing 7.1% dif-
+ference, which corresponds well with the experimental results of the
+previous section. Fig. 25(a) shows the comparison between the CFD
+Table 5
+Lidless cooling comparison between the vertical feeding and lateral feeding
+designed cooler at diﬀerent ﬂow rates.
+Flow rate
+(ml/min)
+Area averaged thermal resistance
+(cm2 K/W)
+Maximum thermal resistance
+(cm2 K/W)
+Vertical
+Lateral
+Vertical
+Lateral
+300
+0.47
+0.48
+0.59
+0.63
+400
+0.41
+0.42
+0.52
+0.57
+600
+0.33
+0.33
+0.43
+0.50
+1000
+0.26
+0.27
+0.34
+0.37
+Fig. 22. CFD modeling results comparison between the vertical feeding and lateral feeding design with (a) and (b) ﬂow streamline inside the cooler and (c) d) cross-
+section of the velocity ﬁeld.
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+12
+
+===== p.13 =====
+modeling and experiments under diﬀerent ﬂow rate. It can be seen that
+the CFD modeling shows good agreement with the experimental data,
+especially at higher ﬂow rate 1000 ml/min. Moreover, the thermal
+characteristics of the vertical feeding design and lateral design show
+similar behaviors. This is due to the same nozzle array design and the
+same power and velocity boundary condition from the system point of
+view. The Nusselt number and the Re were calculated based on the jet
+Fig. 23. CFD modeling results with (a) inlet velocity proﬁle and (b) global level
+pressure drop comparison for the vertical and lateral feeding design.
+Fig. 24. CFD modeling results with chip temperature distribution comparison between the (a) vertical feeding and (b) lateral feeding design: R-vertical = 0.28 cm2 K/
+W, R-lateral = 0.26 cm2 K/W. (bare die cooling with ﬂow rate of 1000 ml/min).
+Fig. 25. Comparison of the CFD modeling results and experimental measure-
+ments between the vertical feeding and lateral feeding design: (a) Normalized
+thermal resistance as function of ﬂow rate; (b) Nusselt number as function of
+Reynolds number.
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+13
+
+===== p.14 =====
+diameter shown in Fig. 25(b). The extracted Nu-Re correlations are:
+=
+×
+Vertical feeding design: Nu
+0.49
+Re
+avg
+0.65
+(12)
+=
+×
+Lateral feeding design:Nu
+0.49
+Re
+avg
+0.64
+(13)
+The hydraulic and thermal CFD simulations for the comparison
+between the cooler designs on the bare die dual-chip package are
+summarized in Fig. 26. The chart shows the achieved normalized
+average thermal resistance as a function of the required pressure drop
+over the cooler, for ﬂow rates ranging from 100 ml/min to 1000 ml/
+min. The achieved averaged thermal resistance is similar for both cooler
+designs at the same ﬂow rate, however the lateral feeding cooler design
+requires 50–60% less pressure drop and consequently pump power to
+realized. At a ﬂow rate of 500 ml/min per chip (1000 ml/min for the
+cooler), the normalized thermal resistance is 0.26 cm2 K/W. This means
+that the device temperature increase with respect to the inlet tem-
+perature would be 78 °C for a heat ﬂux of 300 W/cm2 at a required
+pressure drop of 0.09 bar. Moreover, overall thickness of this lateral
+feeding cooler is 2 times thinner compared to the vertical feeding
+cooler.
+6. Conclusion
+In this work, we demonstrate for the ﬁrst time the design, modeling,
+fabrication and experimental thermal and hydraulic characterization of
+package level 3D printed direct liquid micro-jet array impingement
+cooling applied to the dual-chip module used in power electronics. A
+scalable design methodology for the chip area is proposed and experi-
+mentally validated by comparison the thermal performance of the dual-
+chip package cooler with earlier single chip cooler data. The cooler has
+been designed for a dual-chip package that contains two advanced
+thermal test chips, taking advantage of the capabilities of additive
+manufacturing to create complex internal structures and to fabricate
+the cooler as a single part. The coolers, fabricated using high resolution
+stereolithography with the water-resistant have been assembled on bare
+die and lidded versions of the test vehicle.
+For the bare die package, a very low thermal resistance of 0.26 cm2
+K/W is measured at a cooler ﬂow rate of 1000 ml/min for two heated
+chips. The presence of the lid (and mainly the TIM) results in a higher
+chip temperature, where the relative impact of the lid increases as the
+ﬂow rate increases. Furthermore, it is demonstrated that the bare die jet
+impingement cooling on the dual-chip package can realize a very low
+thermal coupling between the chip of only 4%, which is 9 times lower
+than typically reported values for multi-chip modules.
+Furthermore, in this paper we introduced a novel lateral coolant
+feeding design for the dual-chip package cooler, which enables a re-
+duction of the cooler height by a factor of two. The experimental
+comparison shows that the lateral feeding cooler achieves a very similar
+thermal performance as the standard vertical feeding cooler. The
+modeling comparison shows that the lateral feeding design can achieve
+a more uniform ﬂow distribution over the nozzles in the cooler.
+Furthermore, this lateral feeding design can realize 50–60% reduction
+of the pressure and required pumping power for the same thermal
+performance and at the same time realize a reduction of the cooler
+thickness by a factor of 2 compared to the reference vertical feeding
+design. An optimized 3D printed ﬂuid delivery manifold design with
+lateral feeding structure has a thermal resistance from junction to
+coolant inlet temperature of 0.26 cm2 K/W, which can cool down the
+heat ﬂux up to 300 W/cm2 for a 78 °C temperature increase for a ﬂow
+rate of 500 ml/min per chip and a pressure drop of 0.09 bar.
+The next step is to optimize the inlet distributor to have better ﬂow
+uniformity. One best option is using the topology optimization [44]
+design to tailor the ﬂow for every chip module. Moreover, we can also
+design intermediate layer to split the ﬂow more uniformly. Other im-
+portant aspects for the future work are to address the potential relia-
+bility concerns.
+Declaration of Competing Interest
+The authors declare that they have no known competing ﬁnancial
+interests or personal relationships that could have appeared to inﬂu-
+ence the work reported in this paper.
+Acknowledgements
+This work was performed as part of the imec Industrial Aﬃliation
+Program on 3D System Integration and has been strongly supported by
+the imec partners and the imec Reliability, Electrical testing, Modeling
+and 3D technology teams.
+Appendix A. Supplementary material
+Supplementary data to this article can be found online at https://
+doi.org/10.1016/j.applthermaleng.2019.114535.
+References
+[1] G. Van der Plas, et al., Design issues and considerations for low-cost 3-D TSV IC
+technology, IEEE J. Solid-State Circuits 46 (1) (2011) 293–307.
+[2] D. Stow, I. Akgun, R. Barnes, P. Gu and Y. Xie, Cost and thermal analysis of high-
+performance 2.5D and 3D integrated circuit design space, 2016 IEEE Computer
+Society Annual Symposium on VLSI (ISVLSI), Pittsburgh, PA, 2016, pp. 637–642.
+[3] A. Villamor, et al., The power electronics industry is showing steady growth and
+high dynamism, Yole Développement, Lyon, France.
+[4] A.S. Bahman, K. Ma, F. Blaabjerg, A lumped thermal model including thermal
+coupling and thermal boundary conditions for high-power IGBT modules, IEEE
+Trans. Power Electron. 33 (3) (2018) 2518–2530.
+[5] K. Saban, Xilinx, “Stacked Silicon Interconnect Technology Delivers Breakthrough
+FPGA Capacity, Bandwidth, and Power Eﬃciency”. Xilinx white paper, 2012.
+[6] B. Black, “Die-stacking is happening: AMD Fury X GPU,” in 3D ASIP, December
+2015.
+[7] H. Hung-Hsien, C. Tsai, J. Tsai, M. Shih, D. Tang, C. Hung, From package to system
+thermal characterization and design of high power 2.5-D IC, in: 2019 International
+Conference on Electronics Packaging (ICEP), Niigata, Japan, 2019, pp. 36–41.
+[8] S. Shao et al., Comprehensive study on 2.5D package design for board-level relia-
+bility in thermal cycling and power cycling, 2018 IEEE 68th Electronic Components
+and Technology Conference (ECTC), San Diego, CA, 2018, pp. 1668–1675.
+[9] S. Narumanchi, M. Mihalic, K. Kelly, G. Eesley, Thermal interface materials for
+power electronics applications, 2008 11th IEEE Intersoc. Conf. Therm.
+Thermomechanical Phenom. Electron. Syst. I-THERM, 2008, pp. 395–404.
+[10] A. Bar-Cohen, K. Matin, S. Narumanchi, Nanothermal interface materials: tech-
+nology review and recent results, J. Electron. Packag. 137 (4) (2015) 040803.
+[11] A. Gowda, D. Esler, S. Tonapi, et al., Micron and submicron- scale characterization
+of interfaces in thermal interface material systems, ASME. J. Electron. Packag. 128
+(2) (2006) 130–136.
+[12] S. Li, C. Hsu, C. Liu, M. Dai, et al., Hot spot cooling in 3DIC package utilizing
+Fig. 26. CFD modeling comparison of the thermal and hydraulic performance
+for vertical and lateral feeding conﬁgurations (lidless cooling).
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+14
+
+===== p.15 =====
+embedded thermoelectric cooler combined with silicon interposer, in: 2011 6th
+International Microsystems, Packaging, Assembly and Circuits Technology
+Conference (IMPACT), Taipei, 2011, p. 470–473.
+[13] C.R. King, D. Sekar, M.S. Bakir, B. Dang, J. Pikarsky, J. D. Meindl, 3D stacking of
+chips with electrical and microﬂuidic I/O interconnects, 2008 58th Electronic
+Components and Technology Conference, Lake Buena Vista, FL, 2008, pp. 1–7.
+[14] T. Brunschwiler, B. Michel, H. Rothuizen, U. Kloter, B. Wunderle, H. Oppermann, H.
+Reichl, Interlayer cooling potential in vertically integrated packages, Microsystem
+Technol. p. 57, Vol.15(1), 2009.
+[15] T.E. Sarvey et al., Embedded cooling technologies for densely integrated electronic
+systems, 2015 IEEE Custom Integrated Circuits Conference (CICC), San Jose, CA,
+2015, pp. 1–8.
+[16] N. Zuckerman, N. Lior, Jet impingement heat transfer: physics, correlations, and
+numerical modeling, Adv. Heat Transfer 39 (2006) 565–631.
+[17] C.-Y. Li, S.V. Garimella, Prandtl-number eﬀects and generalized correlations for
+conﬁned and submerged jet impingement, Int. J. Heat Mass Transf. 44 (18) (2001)
+3471–3480.
+[18] D.C. Wadsworth, I. Mudawar, Cooling of a multichip electronic module by means of
+conﬁned two-dimensional jets of dielectric liquid, J. Heat Transfer 112 (1990)
+891–898.
+[19] M. Fabbri, S. Jiang, V.K. Dhir, A comparative study of cooling of high power density
+electronics using sprays and microjets, ASME. J. Heat Transfer. 127 (1) (2005)
+38–48.
+[20] G.M. Harpole, J.E. Eninger, Micro-channel heat exchanger optimization, in: 1991
+Proceedings, Seventh IEEE Semiconductor Thermal Measurement and Management
+Symposium, Phoenix, AZ, USA, 1991, pp. 59–63.
+[21] Y.H. Kim, et al., Forced air cooling by using manifold microchannel heat sinks,
+KSME International Journal 12 (4) (1998) 709–718.
+[22] J.H. Ryu, D.H. Choi, S.J. Kim, Three-dimensional numerical optimization of a
+manifold microchannel heat sink, Int. J. Heat Mass Transf. 46 (9) (2003)
+1553–1562.
+[23] L. Boteler, N. Jankowski, P. McCluskey, B. Morgan, Numerical investigation and
+sensitivity analysis of manifold microchannel coolers, Int. J. Heat Mass Transf. 55
+(25–26) (2012), pp. 7698–7708.
+[24] K. Olesen, R. Bredtmann, et al., ‘ShowerPower’ new cooling concept for automotive
+applications”, in: Proc. Automot. Power Electron, June 2006, pp. 1–9.
+[25] J. Jorg, S. et al., Direct single impinging jet cooling of amosfet power electronic
+module, IEEE T Power Electr, 33(5) (2018) 4224–4237.
+[26] T. Brunschwiler et al. Direct liquid jet-impingement cooling with micronsized
+nozzle array and distributed return architecture. In: Proc. Therm. Thermomech.
+Phenom. Electron. Syst., 2006, pp. 196–203.
+[27] G. Natarajan, R.J. Bezama, Microjet cooler with distributed returns, Heat Transf.
+Eng. 28 (8–9) (2010) 779–787.
+[28] T.-W. Wei, H. Oprins, et al., High eﬃciency polymer based direct multi-jet im-
+pingement cooling solution for high power devices, IEEE Transactions on Power
+Electronics. doi: 10.1109/TPEL.2018.2872904.
+[29] A.J. Robinson, R. Kempers, J. Colenbrander, N. Bushnell, R. Chen, A single phase
+hybrid micro heat sink using impinging micro-jet arrays and microchannels, Appl.
+Therm. Eng. 136 (2018) 408–418.
+[30] T.-W. Wei, H. Oprins et al. Experimental characterization of a chip level 3d printed
+microjet liquid impingement cooler for high performance systems, in: IEEE
+Transactions on Components, Packaging and Manufacturing Technology. doi: 10.
+1109/TCPMT.2019.2905610.
+[31] H. Oprins, V. Cherman, et al., Experimental characterization of the vertical and
+lateral heat transfer in three-dimensional stacked die packages, ASME J. Electron.
+Packag. 138 (1) (2016) pp. 010902–010902-10.
+[32] Tiwei Wei, Herman Oprins, et al., Experimental characterization and model vali-
+dation of liquid jet impingement cooling using a high spatial resolution and pro-
+grammable thermal test chip, Appl. Therm. Eng. 152 (2019) 308–318.
+[33] Sauciuc, Ioan, et al. Thermal performance and key challenges for future CPU
+cooling technologies. IPACK2005, Advances in Electronic Packaging, San Francisco,
+California, USA. July 17–22, 2005, pp. 353–364.
+[34] Ralph Remsburg, Joe Hager, Direct integration of IGBT power modules to liquid
+cooling arrays, Electric Vehicle Symposium (2007).
+[35] Principles Elements of Power Electronics, barry W. Williams, “cooling of power
+switching semiconductor devices”, 2006, pp 199–200.
+[36] T. Wei, H. Oprins, V. Cherman, E. Beyne, M. Baelmans, Conjugate heat transfer and
+ﬂuid ﬂow modeling for liquid microjet impingement cooling with alternating
+feeding and draining channels, Fluids 4 (3) (2019) 145.
+[37] WaterShed® XC 11122 – Protolabs < https://www.protolabs.co.uk/media/
+1010047/somos-watershed-en.pdf > .
+[38] M. Mital, Y. Pang, E.P. Scott, Evaluation of thermal resistance matrix method for an
+embedded power electronic module, IEEE Trans. Compon. Packag. Technol. 31 (2)
+(2008) 382–387.
+[39] B.S. Lall, B.N. Guenin, R.J. Molnar, Methodology for thermal evaluation of multi-
+chip modules, IEEE Trans. Compon. Packag. Manuf. Technol. Part A: 18 (4) (1995)
+758–764.
+[40] A. Jain, R.E. Jones, Chatterjee, et al., Analytical and numerical modeling of the
+thermal performance of three-dimensional integrated circuits, IEEE Trans. Compon.
+Packag. Technol. 33 (1) (2010) 56–63.
+[41] Je-Young Chang, et al., Estimating the thermal interaction between multiple side-
+by-side chips on a multi-chip package, Electron. Cool. 20 (2014.).
+[42] Wu. Ruikang, et al., Thermal modeling and comparative analysis of jet impinge-
+ment liquid cooling for high power electronics, Int. J. Heat Mass Transf. 137 (2019)
+42–51.
+[43] Songkran Wiriyasart, et al., Liquid impingement cooling of cold plate heat sink with
+diﬀerent ﬁn conﬁgurations: high heat ﬂux applications, Int. J. Heat Mass Transf.
+140 (2019) 281–292.
+[44] Ercan M. Dede, Jaewook Lee, et al., Multiphysics simulation: electromechanical
+system applications and optimization, 2014, DOI: 10.1007/978-1-4471-5640-6.
+T.W. Wei, et al.
+Applied Thermal Engineering 164 (2020) 114535
+15

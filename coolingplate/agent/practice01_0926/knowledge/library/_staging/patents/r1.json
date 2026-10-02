@@ -1,0 +1,1116 @@
+[
+ {
+  "query": "WO2020210587A1",
+  "url": "https://patents.google.com/patent/WO2020210587A1/en",
+  "http": 200,
+  "title": "Thermal management of electronics using co-located microjet nozzles and electronic elements",
+  "pdf": "https://patentimages.storage.googleapis.com/6d/15/34/fe40db2e073a23/WO2020210587A1.pdf",
+  "pub_no": "WO2020210587A1",
+  "assignee_original": [
+   "Jetcool Technologies Inc"
+  ],
+  "assignee_current": [
+   "Jetcool Technologies Inc"
+  ],
+  "inventors": [
+   "Bernard MALOUIN",
+   "Jordan Mizerak"
+  ],
+  "priorityDate": "2019-04-10",
+  "filingDate": "2020-04-10",
+  "publicationDate": "2020-10-15",
+  "legal_status": "Ceased",
+  "expiration": null,
+  "events_status": [
+   "2021-10-10 Anticipated expiration"
+  ],
+  "events": [
+   "2020-04-10 | Application filed by Jetcool Technologies Inc",
+   "2020-05-13 | Priority to US15/931,134",
+   "2020-10-15 | Publication of WO2020210587A1",
+   "2021-10-10 | Anticipated expiration",
+   "Status | Ceased"
+  ],
+  "abstract": "An electronics assembly in which microjet nozzles are co-located with electronic elements on the same substrate or layer. This technique may be used to integrate lower power- density electronics onto an existing microjet nozzle plate to perform microjet nozzle cooling, which removes the need for separate thermal management solutions for systems that contain both high and lower power-density elements in proximity. This technique may also be used in multilayered 3D integrated electronic substrates, allowing for thin, high performing thermal management solutions in 3D integrated stackups using microjets.",
+  "claim1": "1. An electronics assembly, comprising: a first layer with a thickness; at least one active, heat-generating, electronic element disposed on or in the first layer; and at least one passageway that passes entirely through the thickness of the first layer, wherein the passageway is configured to conduct fluid therethrough, to extract heat from the at least one electronic element.",
+  "claims_count": null,
+  "family_pubs": [
+   "US12100643B2",
+   "US20200343160A1"
+  ],
+  "similar": [
+   "US12100643B2",
+   "US11594470B2",
+   "US10727159B2",
+   "US20200350233A1",
+   "US7017651B1",
+   "CN101803019B",
+   "EP1790007B1",
+   "US7259965B2",
+   "US20120257354A1",
+   "EP2559063B1",
+   "CN111052360A",
+   "US20120212907A1",
+   "EP2151863A1",
+   "US20240288226A1",
+   "EP4443494A1"
+  ],
+  "cited_by": [
+   "US12029008B2 | The Penn State Research Foundation | Hybrid microjet liquid-cooled heat spreader",
+   "US12191233B2 | Adeia Semiconductor Bonding Technologies Inc. | Embedded cooling systems and methods of manufacturing embedded cooling systems",
+   "KR20250127131A | 아데이아 세미컨덕터 본딩 테크놀로지스 인코포레이티드 | Embedded cooling system for improved device packaging",
+   "CN120457540A | 美商艾德亚半导体接合科技有限公司 | Embedded cooling assembly for advanced device package and method of manufacturing the same",
+   "JP2025542593A | アデイア セミコンダクター ボンディング テクノロジーズ インコーポレイテッド | Embedded Liquid Cooling",
+   "US12341083B2 | Adeia Semiconductor Bonding Technologies Inc. | Electronic device cooling structures bonded to semiconductor elements",
+   "US12176263B2 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assembly including coolant channel on the backside semiconductor device",
+   "US20240341027A1 | Toyota Motor Engineering & Manufacturing North America, Inc. | Highly integrated power electronics and methods of manufacturing the same",
+   "US12191234B2 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assemblies for advanced device packaging and methods of manufacturing the same",
+   "US12191235B2 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assemblies including signal redistribution and methods of manufacturing the same",
+   "CN119631587B | 捷控技术有限公司 | Internal recirculation cooling module",
+   "US12283490B1 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assemblies for advanced device packaging and methods of manufacturing the same",
+   "US12610819B2 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assemblies for advanced device packaging and methods of manufacturing the same",
+   "US12368087B2 | Adeia Semiconductor Bonding Technologies Inc. | Embedded cooling systems for advanced device packaging and methods of manufacturing the same",
+   "US12322677B1 | Adeia Semiconductor Bonding Technologies Inc. | Fluid channel geometry optimizations to improve cooling efficiency",
+   "US12525506B2 | Adeia Semiconductor Bonding Technologies Inc. | Embedded cooling systems for advanced device packaging and methods of manufacturing the same",
+   "US12336141B1 | Adeia Semiconductor Bonding Technologies Inc. | Cold plate cavity designs for improved thermal performance",
+   "US12176264B1 | Adeia Semiconductor Bonding Technologies Inc. | Manifold designs for embedded liquid cooling in a package",
+   "US12532432B2 | Adeia Semiconductor Bonding Technologies Inc. | Hotspot mitigation in fluid cooling",
+   "US12500138B2 | Adeia Semiconductor Bonding Technologies Inc. | Cooling channel shape with substantially constant cross sectional area",
+   "US12266545B1 | Adeia Semiconductor Bonding Technologies Inc. | Structures and methods for integrated cold plate in XPUs and memory",
+   "US12412808B1 | Adeia Semiconductor Bonding Technologies Inc. | Cold plate and manifold integration for high reliability",
+   "US12513855B1 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assembly with upper and lower channels",
+   "US12622272B1 | Adeia Semiconductor Bonding Technologies Inc. | Two-sided liquid cooling"
+  ]
+ },
+ {
+  "query": "US12100643B2",
+  "url": "https://patents.google.com/patent/US12100643B2/en",
+  "http": 200,
+  "title": "Thermal management of electronics using co-located microjet nozzles and electronic elements",
+  "pdf": "https://patentimages.storage.googleapis.com/37/73/ae/fc8ae18e0892a4/US12100643.pdf",
+  "pub_no": "US12100643B2",
+  "assignee_original": [
+   "Jetcool Technologies Inc"
+  ],
+  "assignee_current": [
+   "Jetcool Technologies Inc"
+  ],
+  "inventors": [
+   "Jordan Mizerak",
+   "Bernard Malouin"
+  ],
+  "priorityDate": "2019-04-10",
+  "filingDate": "2020-05-13",
+  "publicationDate": "2024-09-24",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2041-07-13 Adjusted expiration"
+  ],
+  "events": [
+   "2020-05-13 | Application filed by Jetcool Technologies Inc",
+   "2020-05-13 | Priority to US15/931,134",
+   "2020-10-29 | Publication of US20200343160A1",
+   "2022-01-04 | Assigned to Jetcool Technologies Inc.",
+   "2024-09-24 | Application granted",
+   "2024-09-24 | Publication of US12100643B2",
+   "Status | Active",
+   "2041-07-13 | Adjusted expiration"
+  ],
+  "abstract": "An electronics assembly in which microjet nozzles are co-located with electronic elements on the same substrate or layer. This technique may be used to integrate lower power-density electronics onto an existing microjet nozzle plate to perform microjet nozzle cooling, which removes the need for separate thermal management solutions for systems that contain both high and lower power-density elements in proximity. This technique may also be used in multilayered 3D integrated electronic substrates, allowing for thin, high performing thermal management solutions in 3D integrated stackups using microjets.",
+  "claim1": "1. An electronics assembly, comprising: a first layer with a thickness; at least one active heat-generating electronic element located in the first layer; at least one passageway, co-located in the first layer with the at least one active heat-generating electronic element, that passes entirely through the thickness of the first layer, wherein the passageway is configured to conduct fluid therethrough, to extract heat from the at least one active heat-generating electronic element located in the first layer; a second layer that is spaced from the first layer; a second active heat-generating electronic element located in the second layer; and a manifold layer between the first and second layers that defines a reservoir that is configured to hold fluid.",
+  "claims_count": "10",
+  "family_pubs": [
+   "US20200343160A1",
+   "WO2020210587A1"
+  ],
+  "similar": [
+   "US20200343160A1",
+   "US10727159B2",
+   "US12211768B2",
+   "US11594470B2",
+   "EP3446058B1",
+   "US20200350233A1",
+   "EP1790007B1",
+   "US20120257354A1",
+   "EP2559063B1",
+   "CN101803019A",
+   "EP2151863A1",
+   "EP4443494A1",
+   "US10157817B1",
+   "KR102539336B1",
+   "CN218772518U"
+  ],
+  "cited_by": [
+   "US12432878B2 | Jetcool Technologies Inc. | Internal recirculation cooling module",
+   "US12029008B2 | The Penn State Research Foundation | Hybrid microjet liquid-cooled heat spreader",
+   "US12191233B2 | Adeia Semiconductor Bonding Technologies Inc. | Embedded cooling systems and methods of manufacturing embedded cooling systems",
+   "KR20250127131A | 아데이아 세미컨덕터 본딩 테크놀로지스 인코포레이티드 | Embedded cooling system for improved device packaging",
+   "CN120457540A | 美商艾德亚半导体接合科技有限公司 | Embedded cooling assembly for advanced device package and method of manufacturing the same",
+   "JP2025542593A | アデイア セミコンダクター ボンディング テクノロジーズ インコーポレイテッド | Embedded Liquid Cooling",
+   "US12341083B2 | Adeia Semiconductor Bonding Technologies Inc. | Electronic device cooling structures bonded to semiconductor elements",
+   "US12176263B2 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assembly including coolant channel on the backside semiconductor device",
+   "US20240341027A1 | Toyota Motor Engineering & Manufacturing North America, Inc. | Highly integrated power electronics and methods of manufacturing the same",
+   "US12191234B2 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assemblies for advanced device packaging and methods of manufacturing the same",
+   "US12191235B2 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assemblies including signal redistribution and methods of manufacturing the same",
+   "US12283490B1 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assemblies for advanced device packaging and methods of manufacturing the same",
+   "US12610819B2 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assemblies for advanced device packaging and methods of manufacturing the same",
+   "US12368087B2 | Adeia Semiconductor Bonding Technologies Inc. | Embedded cooling systems for advanced device packaging and methods of manufacturing the same",
+   "US12322677B1 | Adeia Semiconductor Bonding Technologies Inc. | Fluid channel geometry optimizations to improve cooling efficiency",
+   "US12525506B2 | Adeia Semiconductor Bonding Technologies Inc. | Embedded cooling systems for advanced device packaging and methods of manufacturing the same",
+   "US12336141B1 | Adeia Semiconductor Bonding Technologies Inc. | Cold plate cavity designs for improved thermal performance",
+   "US12176264B1 | Adeia Semiconductor Bonding Technologies Inc. | Manifold designs for embedded liquid cooling in a package",
+   "US12532432B2 | Adeia Semiconductor Bonding Technologies Inc. | Hotspot mitigation in fluid cooling",
+   "US12500138B2 | Adeia Semiconductor Bonding Technologies Inc. | Cooling channel shape with substantially constant cross sectional area",
+   "US12266545B1 | Adeia Semiconductor Bonding Technologies Inc. | Structures and methods for integrated cold plate in XPUs and memory",
+   "US12412808B1 | Adeia Semiconductor Bonding Technologies Inc. | Cold plate and manifold integration for high reliability",
+   "US12513855B1 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assembly with upper and lower channels",
+   "US12622272B1 | Adeia Semiconductor Bonding Technologies Inc. | Two-sided liquid cooling"
+  ]
+ },
+ {
+  "query": "US11844193B2",
+  "url": "https://patents.google.com/patent/US11844193B2/en",
+  "http": 200,
+  "title": "Direct contact fluid based cooling module",
+  "pdf": "https://patentimages.storage.googleapis.com/0f/4d/79/55d510a3235140/US11844193.pdf",
+  "pub_no": "US11844193B2",
+  "assignee_original": [
+   "Jetcool Technologies Inc"
+  ],
+  "assignee_current": [
+   "Jetcool Technologies Inc"
+  ],
+  "inventors": [
+   "Jordan Mizerak",
+   "Bernard Malouin"
+  ],
+  "priorityDate": "2019-04-14",
+  "filingDate": "2021-11-24",
+  "publicationDate": "2023-12-12",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2040-04-10 Anticipated expiration"
+  ],
+  "events": [
+   "2021-11-24 | Application filed by Jetcool Technologies Inc",
+   "2021-11-24 | Priority to US17/534,900",
+   "2022-07-08 | Assigned to Jetcool Technologies Inc.",
+   "2022-10-20 | Publication of US20220338375A1",
+   "2023-12-12 | Application granted",
+   "2023-12-12 | Publication of US11844193B2",
+   "2024-03-22 | Priority to US18/613,449",
+   "Status | Active",
+   "2040-04-10 | Anticipated expiration"
+  ],
+  "abstract": "A fluid delivery module that produces direct fluid-contact cooling of a computer processor, while mating with common processor accessory mounting specifications. Computer processors are commonly packaged and installed on printed circuit boards. The fluid module delivers cooling fluid directly to at least a surface of the processor package. The fluid module forms a fluid-tight seal against the surface of the processor package. By delivering fluid to the surface of the processor package, the module cools the computer processor. The module does not mechanically fasten to the processor. Instead, the module fastens to a variety of processor accessory mounting patterns commonly found on printed circuit boards. The printed circuit board typically carries the processor. This minimizes stress on the processor package, and allows greater modularity between different processors. In one embodiment, the fluid delivery is done with integral microjets, producing very high heat transfer cooling of the computer processor.",
+  "claim1": "1. A cooling module for a computer processor package, comprising: (a) an inlet port to admit into the cooling module a liquid coolant delivered from an external source; (b) an inlet plenum to receive and hold the liquid coolant admitted into the cooling module through the inlet port; (c) a reservoir that is bounded on one side by an upper surface of the computer processor package and bounded on an opposite side by a lower surface of the microjet nozzle plate, the reservoir being further configured so that, after mounting to the computer processor package, the reservoir will be in direct contact with the upper surface of the computer processor package; and (d) a microjet nozzle plate, disposed between the inlet plenum and the reservoir, the microjet nozzle plate defining a plurality of orifices extending from the inlet plenum to the reservoir to permit a portion of the liquid coolant held by the inlet plenum to pass out of the inlet plenum and into the reservoir, the plurality of orifices being formed to create a plurality of microjet nozzles, respectively; (e) wherein at least some of the microjet nozzles in the plurality of orifices defined by the microjet nozzle plate are arranged in a non-uniform pattern across the lower surface of the microjet nozzle plate; (f) whereby, as the portion of liquid coolant passes into the reservoir via the plurality of orifices in the microjet nozzle plate, the plurality of microjet nozzles produces a plurality of liquid coolant microjets, respectively, and directs the plurality of liquid coolant microjets to enter the reservoir in a direction that is substantially perpendicular to both the lower surface of the microjet nozzle plate and the upper surface of the computer processor package, thereby causing the plurality of liquid coolant microjets to strike the upper surface of the computer processor package in a direction that is substantially perpendicular to the upper surface of the computer processor package.",
+  "claims_count": "24",
+  "family_pubs": [
+   "CN113994772A",
+   "CN113994772B",
+   "EP3977832A1",
+   "EP3977832A4",
+   "EP3977832B1",
+   "EP4498428A2",
+   "EP4498428A3",
+   "US11191184B2",
+   "US20200352053A1",
+   "US20220338375A1",
+   "US20250056759A1",
+   "WO2020214493A1"
+  ],
+  "similar": [
+   "US20250056759A1",
+   "CN114303037B",
+   "US12016157B2",
+   "US20200350233A1",
+   "US12274024B2",
+   "US11594470B2",
+   "US20220117115A1",
+   "US8210243B2",
+   "US20090213541A1",
+   "CN110325018B",
+   "KR20230153406A",
+   "US9553038B2",
+   "JP2006245114A"
+  ],
+  "cited_by": [
+   "US12243802B2 | Google Llc | Methods and heat distribution devices for thermal management of chip assemblies",
+   "US12432878B2 | Jetcool Technologies Inc. | Internal recirculation cooling module",
+   "US12029008B2 | The Penn State Research Foundation | Hybrid microjet liquid-cooled heat spreader",
+   "US11382241B2 | Baidu Usa Llc | Cooling devices for edge computing and heterogeneous computing electronics hardware",
+   "US12315782B2 | Google Llc | Spring loaded compliant coolant distribution manifold for direct liquid cooled modules",
+   "GB2601357B | Nexalus Ltd | Modular thermal heat sink device",
+   "US11211538B1 | Joseph L. Pikulski | Thermal management system for electrically-powered devices",
+   "US11175102B1 | Chilldyne, Inc. | Liquid-cooled cold plate",
+   "US11729944B2 | Quanta Computer Inc. | Cold plate with anti-clogging mechanism",
+   "DE102021114001A1 | EKWB d.o.o. | Cooling arrangement for a computer module",
+   "TWI808532B | 英業達股份有限公司 | Cooling liquid flow control device",
+   "TW202407925A | 美商捷控技術有限公司 | Actively cooled heat-dissipation lids for computer processors and processor assemblies",
+   "CN114594837B | 英业达科技有限公司 | CPU liquid cooling plate",
+   "CN116963452A | 富联精密电子(天津)有限公司 | Leak isolation devices and electronic equipment",
+   "JP2023166889A | パナソニックＩｐマネジメント株式会社 | Cooling system",
+   "TWI795300B | 大陸商深圳興奇宏科技有限公司 | Error-unlocking protection structure for heat dissipation base seat",
+   "DE102022113642A1 | Rolls-Royce Deutschland Ltd & Co Kg | PCB assembly",
+   "TWI822094B | 力晶積成電子製造股份有限公司 | Manufacturing method of semiconductor structure",
+   "US12622271B2 | Taiwan Semiconductor Manufacturing Co., Ltd. | Cooling cover and packaged semiconductor device including the same",
+   "US12191233B2 | Adeia Semiconductor Bonding Technologies Inc. | Embedded cooling systems and methods of manufacturing embedded cooling systems",
+   "WO2024091972A2 | Strategic Thermal Labs, Llc | Smart rack liquid cooling manifold system having integrated controller(s) providing server-level liquid telemetry monitoring, rack liquid flow control, and datacenter communicaton",
+   "US20240237300A9 | Strategic Thermal Labs, Llc | Environmentally hardened cold plate for use in liquid cooling of electronic devices",
+   "KR20250127131A | 아데이아 세미컨덕터 본딩 테크놀로지스 인코포레이티드 | Embedded cooling system for improved device packaging",
+   "CN120457540A | 美商艾德亚半导体接合科技有限公司 | Embedded cooling assembly for advanced device package and method of manufacturing the same",
+   "JP2025542593A | アデイア セミコンダクター ボンディング テクノロジーズ インコーポレイテッド | Embedded Liquid Cooling"
+  ]
+ },
+ {
+  "query": "US12002736B2",
+  "url": "https://patents.google.com/patent/US12002736B2/en",
+  "http": 200,
+  "title": "Jet impingement cooling for high power semiconductor devices",
+  "pdf": "https://patentimages.storage.googleapis.com/f9/6d/62/9d002c01af55db/US12002736.pdf",
+  "pub_no": "US12002736B2",
+  "assignee_original": [
+   "Semiconductor Components Industries LLC"
+  ],
+  "assignee_current": [
+   "Semiconductor Components Industries LLC"
+  ],
+  "inventors": [
+   "Jesse Emmett GALLOWAY"
+  ],
+  "priorityDate": "2019-10-10",
+  "filingDate": "2023-02-06",
+  "publicationDate": "2024-06-04",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2039-11-06 Anticipated expiration"
+  ],
+  "events": [
+   "2019-11-06 | Priority claimed from US16/675,540",
+   "2023-02-06 | Assigned to SEMICONDUCTOR COMPONENTS INDUSTRIES, LLC",
+   "2023-02-06 | Priority to US18/164,734",
+   "2023-02-06 | Application filed by Semiconductor Components Industries LLC",
+   "2023-05-09 | Assigned to DEUTSCHE BANK AG NEW YORK BRANCH, AS COLLATERAL AGENT",
+   "2023-06-15 | Publication of US20230187312A1",
+   "2023-11-14 | Assigned to SEMICONDUCTOR COMPONENTS INDUSTRIES, LLC",
+   "2024-05-29 | Priority to US18/677,352",
+   "2024-06-04 | Publication of US12002736B2",
+   "2024-06-04 | Application granted",
+   "2025-06-17 | Priority to US19/240,498",
+   "Status | Active",
+   "2039-11-06 | Anticipated expiration"
+  ],
+  "abstract": "A jet impingement cooling assembly for semiconductor devices includes a heat exchange base having an inlet chamber and an outlet chamber. An inlet connection may be in fluid connection with the inlet chamber, while an outlet connection may be in fluid connection with the outlet chamber. A jet plate may be coupled to the inlet chamber, and a jet pedestal may be formed on the jet plate and having a raised surface with a jet nozzle formed therein.",
+  "claim1": "1. A jet impingement cooling assembly for semiconductor devices, comprising: a heat exchange base having an inlet chamber and an outlet chamber sharing a bottom surface; an inlet connection in fluid connection with the inlet chamber; an outlet connection in fluid connection with the outlet chamber; a jet plate coupled to the inlet chamber and having a jet plate surface parallel to the bottom surface; a jet pedestal formed on the jet plate and having a raised surface with a jet nozzle formed therein; and a chamber divider within the heat exchange base and attached to the jet plate and to the bottom surface, with the inlet chamber being adjacent to the jet plate and a first side of the chamber divider, and the outlet chamber being adjacent to a second side of the chamber divider.",
+  "claims_count": "20",
+  "family_pubs": [
+   "CN112652586A",
+   "US12368088B2",
+   "US20230187312A1",
+   "US20240312873A1",
+   "US20250309053A1"
+  ],
+  "similar": [
+   "US11600550B2",
+   "US11018077B2",
+   "US10905029B2",
+   "US20200350233A1",
+   "US8482919B2",
+   "US20050128705A1",
+   "US9263365B2",
+   "US20200388557A1",
+   "CN121011583A",
+   "US10822096B2",
+   "US20250391738A1",
+   "US20190343020A1",
+   "CN111937141A",
+   "US12368088B2",
+   "US12512390B2"
+  ],
+  "cited_by": []
+ },
+ {
+  "query": "US12255124B2",
+  "url": "https://patents.google.com/patent/US12255124B2/en",
+  "http": 200,
+  "title": "Jet impingement cooling with bypass fluid portion for high power semiconductor devices",
+  "pdf": "https://patentimages.storage.googleapis.com/6a/74/52/b13a55e3c04668/US12255124.pdf",
+  "pub_no": "US12255124B2",
+  "assignee_original": [
+   "Semiconductor Components Industries LLC"
+  ],
+  "assignee_current": [
+   "Semiconductor Components Industries LLC"
+  ],
+  "inventors": [
+   "John Mookken"
+  ],
+  "priorityDate": "2022-08-04",
+  "filingDate": "2023-02-13",
+  "publicationDate": "2025-03-18",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2043-09-20 Adjusted expiration"
+  ],
+  "events": [
+   "2023-02-13 | Application filed by Semiconductor Components Industries LLC",
+   "2023-02-13 | Assigned to SEMICONDUCTOR COMPONENTS INDUSTRIES, LLC",
+   "2023-02-13 | Priority to US18/167,998",
+   "2023-05-09 | Assigned to DEUTSCHE BANK AG NEW YORK BRANCH, AS COLLATERAL AGENT",
+   "2023-07-25 | Priority to DE102023119544.1A",
+   "2023-08-02 | Priority to CN202310967258.8A",
+   "2023-11-14 | Assigned to SEMICONDUCTOR COMPONENTS INDUSTRIES, LLC",
+   "2024-02-08 | Publication of US20240047304A1",
+   "2025-02-19 | Priority to US19/057,865",
+   "2025-02-19 | Priority to US19/057,873",
+   "2025-03-18 | Publication of US12255124B2",
+   "2025-03-18 | Application granted",
+   "Status | Active",
+   "2043-09-20 | Adjusted expiration"
+  ],
+  "abstract": "A jet impingement cooling assembly for semiconductor devices includes an inlet chamber configured to receive an inlet fluid flow, and a jet plate having a plurality of jet nozzles formed therein and coupled to the inlet chamber, and positioned to direct a jet fluid portion of the inlet fluid flow from the inlet chamber through the jet nozzles. The jet impingement cooling assembly may further include an outlet chamber positioned to receive the jet fluid portion once the jet fluid portion has passed through the jet nozzles, and at least one bypass nozzle in fluid connection with the inlet chamber and configured to direct a bypass fluid portion of the inlet fluid flow into the outlet chamber with the jet fluid portion to thereby define an outlet fluid flow.",
+  "claim1": "1. A jet impingement cooling assembly for semiconductor devices, comprising: an inlet chamber configured to receive an inlet fluid flow; a jet plate having jet nozzles formed therein and coupled to the inlet chamber, and positioned to direct a jet fluid portion of the inlet fluid flow from the inlet chamber through the jet nozzles; an outlet chamber positioned to receive the jet fluid portion once the jet fluid portion has passed through the jet nozzles; and at least one bypass nozzle in fluid connection with the inlet chamber and configured to direct a bypass fluid portion of the inlet fluid flow into the outlet chamber with the jet fluid portion to thereby define an outlet fluid flow.",
+  "claims_count": "20",
+  "family_pubs": [
+   "DE102023119544A1",
+   "US20240047304A1",
+   "US20250192000A1",
+   "US20250192001A1"
+  ],
+  "similar": [
+   "US11594470B2",
+   "US20200350233A1",
+   "KR100321554B1",
+   "US20220007551A1",
+   "US20190343019A1",
+   "US20120212907A1",
+   "US20120170222A1",
+   "CN112930078A",
+   "US11600550B2",
+   "CN110325018A",
+   "US12581950B2",
+   "EP4228381B1",
+   "US20190343020A1",
+   "US20130255917A1",
+   "US20250391738A1"
+  ],
+  "cited_by": []
+ },
+ {
+  "query": "US10244654B2",
+  "url": "https://patents.google.com/patent/US10244654B2/en",
+  "http": 200,
+  "title": "Cold plate with combined inclined impingement and ribbed channels",
+  "pdf": "https://patentimages.storage.googleapis.com/21/46/36/9434de414eb8aa/US10244654.pdf",
+  "pub_no": "US10244654B2",
+  "assignee_original": [
+   "International Business Machines Corp"
+  ],
+  "assignee_current": [
+   "International Business Machines Corp"
+  ],
+  "inventors": [
+   "Pritish R. Parida"
+  ],
+  "priorityDate": "2012-03-08",
+  "filingDate": "2018-01-11",
+  "publicationDate": "2019-03-26",
+  "legal_status": "Expired - Fee Related",
+  "expiration": null,
+  "events_status": [
+   "2032-03-08 Anticipated expiration"
+  ],
+  "events": [
+   "2018-01-11 | Application filed by International Business Machines Corp",
+   "2018-01-11 | Priority to US15/868,433",
+   "2018-01-11 | Assigned to INTERNATIONAL BUSINESS MACHINES CORPORATION",
+   "2018-06-07 | Publication of US20180160565A1",
+   "2019-03-26 | Application granted",
+   "2019-03-26 | Publication of US10244654B2",
+   "Status | Expired - Fee Related",
+   "2032-03-08 | Anticipated expiration"
+  ],
+  "abstract": "Methods for making heat transfer devices include forming a jet plate with a plurality of inclined jets set at an angular deviation from normal. A bottom plate is formed with channel walls that have ribs. The jet plate is attached to the bottom plate to form ribbed channels. The angular deviation of each inclined jet establishes a jet direction perpendicular to a long dimension of the ribbed channels.",
+  "claim1": "1. A method for forming a heat transfer device, comprising: forming a jet plate with a plurality of inclined jets set at an angular deviation from normal; forming a bottom plate with channel walls that have ribs; and attaching the jet plate to the bottom plate to form a plurality of ribbed channels, wherein the angular deviation of each inclined jet establishes a jet direction perpendicular to a long dimension of the plurality of ribbed channels.",
+  "claims_count": "8",
+  "family_pubs": [
+   "US10028410B2",
+   "US10645842B2",
+   "US20130233523A1",
+   "US20150258645A1",
+   "US20160014930A1",
+   "US20180160565A1",
+   "US9219022B2"
+  ],
+  "similar": [
+   "US10028410B2",
+   "US11474574B2",
+   "US12324126B2",
+   "US11122705B2",
+   "US7262967B2",
+   "KR102296543B1",
+   "US12099385B2",
+   "CN105190873B",
+   "KR20140000065A",
+   "US20080006037A1",
+   "CN206077919U",
+   "US7992625B1",
+   "US20160255746A1",
+   "US7654308B2",
+   "EP3575919A1"
+  ],
+  "cited_by": [
+   "US11270925B2 | Google Llc | Heat distribution device with flow channels",
+   "US20240203828A1 | Welcon Inc. | Heat sink",
+   "US9219022B2 | International Business Machines Corporation | Cold plate with combined inclined impingement and ribbed channels",
+   "JP2014135396A | Fujitsu Ltd | Cooling head and electronic apparatus",
+   "CN105592665A | 富瑞精密组件（昆山）有限公司 | Heat radiation device",
+   "US10634397B2 | Purdue Research Foundation | Devices, systems, and methods for the rapid transient cooling of pulsed heat sources",
+   "EP3163612B1 | ABB Schweiz AG | Cooling element for electronic components and electronic device",
+   "CN108292640B | 三菱电机株式会社 | Semiconductor devices, inverter devices and automobiles",
+   "CN106061199B | 东南大学 | A kind of small type heat exchanger of flow boiling",
+   "CN106102419A | 中航光电科技股份有限公司 | A kind of liquid cold plate and manufacture method thereof",
+   "US9894801B1 | International Business Machines Corporation | Cold plate",
+   "WO2018085199A1 | Massachusetts Institute Of Technology | Thermal management of rf devices using embedded microjet arrays",
+   "DE112018003730T5 | Massachusetts Institute Of Technology | Modular microjet cooling of packed electronic components",
+   "CN207124204U | 君泰创新（北京）科技有限公司 | Device for uniform circulation making herbs into wool cleaning decoction",
+   "CN107787164B | 青岛海信电器股份有限公司 | A liquid cooling block, a liquid cooling heat dissipation system and a laser projector",
+   "JP7002384B2 | 三菱重工業株式会社 | Cooling device and electrical equipment equipped with it",
+   "EP3575919A1 | Dcx Sp. Z O.O. | Dlc block for use in electronic and electric components",
+   "GB2576030B | Provost Fellows Found Scholars & Other Members Board College Holy & Und | Liquid-based heat exchanger",
+   "US12089374B2 | Frore Systems Inc. | MEMS-based active cooling systems",
+   "US11464140B2 | Frore Systems Inc. | Centrally anchored MEMS-based active cooling systems",
+   "US11710678B2 | Frore Systems Inc. | Combined architecture for cooling devices",
+   "DE102018217652A1 | Danfoss Silicon Power Gmbh | Flow distributor for cooling an electrical assembly, a semiconductor module with such a flow distributor and a method for its production",
+   "US20220167532A1 | Kaga, Inc. | Heat sink and electronic component package",
+   "CN110534436B | 中国电子科技集团公司第五十五研究所 | Silicon-based self-adaptive spraying type micro-fluid heat dissipation substrate and preparation method thereof",
+   "IT201900016769A1 | Giovanni Marini | STRUCTURE OF EXCHANGER AND AIR CONDITIONING EQUIPMENT"
+  ]
+ },
+ {
+  "query": "US11310937B2",
+  "url": "https://patents.google.com/patent/US11310937B2/en",
+  "http": 200,
+  "title": "Impinging jet manifold for chip cooling near edge jets",
+  "pdf": "https://patentimages.storage.googleapis.com/12/98/0f/86e95bb849c7a6/US11310937.pdf",
+  "pub_no": "US11310937B2",
+  "assignee_original": [
+   "Google LLC"
+  ],
+  "assignee_current": [
+   "Google LLC"
+  ],
+  "inventors": [
+   "Jeremy Rice",
+   "Jeffrey Scott Spaulding",
+   "Evan Fraisse"
+  ],
+  "priorityDate": "2020-05-29",
+  "filingDate": "2020-05-29",
+  "publicationDate": "2022-04-19",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2040-06-27 Adjusted expiration"
+  ],
+  "events": [
+   "2020-05-29 | Application filed by Google LLC",
+   "2020-05-29 | Priority to US16/887,122",
+   "2020-06-08 | Assigned to GOOGLE LLC",
+   "2020-10-22 | Priority to CN202011138997.9A",
+   "2020-10-30 | Priority to TW109137802A",
+   "2020-12-01 | Priority to DK20211029.2T",
+   "2020-12-01 | Priority to EP20211029.2A",
+   "2020-12-01 | Priority to FIEP20211029.2T",
+   "2021-12-02 | Publication of US20210378139A1",
+   "2022-04-19 | Publication of US11310937B2",
+   "2022-04-19 | Application granted",
+   "Status | Active",
+   "2040-06-27 | Adjusted expiration"
+  ],
+  "abstract": "Systems and methods for chip cooling with near edge jets in a direct liquid cooled module are disclosed. One of the functions of a direct liquid cooled module is to provide cooling liquid to components located on a chip. Jet impingement directly onto the back side of a chip is one cooling method that can provide more efficient cooling. An orifice plate includes an array of small diameter holes that correspond to high velocity jet locations and large diameter holes for the insertion of tubes to connect to lower pressure cavities.",
+  "claim1": "1. An assembly, comprising: an orifice plate having top and bottom surfaces and a plurality of supply and return apertures, the plurality of supply apertures for receiving fluid flowing through the plate from the top surface to the bottom surface, the bottom surface of the orifice plate adapted to be sealed to a top surface of a substrate containing circuitry; a coolant delivery manifold having top and bottom surfaces and at least one supply cavity in fluid communication with at least a subset of the plurality of supply apertures, and at least one return cavity in fluid communication with the plurality of return apertures; and a first sealing member forming a hermetic seal between the top surface of the plate and the bottom surface of the manifold; wherein: the bottom surface of the coolant delivery manifold has an outer groove, the outer groove forming an outer closed perimeter adapted to receive at least a portion of the first sealing member therein; and the bottom surface of the manifold has an inner groove, the inner groove forming an inner closed perimeter at least partially surrounded by the outer closed perimeter and adapted to receive at least a portion of a second sealing member therein.",
+  "claims_count": "17",
+  "family_pubs": [
+   "CN112185918A",
+   "CN112185918B",
+   "DK3916777T3",
+   "EP3916777A1",
+   "EP3916777B1",
+   "FI3916777T3",
+   "TW202145869A",
+   "TWI840627B",
+   "US20210378139A1"
+  ],
+  "similar": [
+   "EP3916777B1",
+   "US11594470B2",
+   "US7516776B2",
+   "JP5414349B2",
+   "US11967541B2",
+   "US5687577A",
+   "US12272619B2",
+   "EP3913465B1",
+   "US20050128705A1",
+   "US7511957B2",
+   "US20080002363A1",
+   "HK40044422A",
+   "HK40044422B",
+   "US20230015149A1",
+   "HK40041906A"
+  ],
+  "cited_by": [
+   "USD957568S1 | Wellis USA Inc. | Spa jet multiport",
+   "US11963328B2 | Raytheon Company | Electronic component connector cooling device",
+   "EP4386833A4 | Huawei Technologies Co., Ltd. | HEAT DISSIPATION SYSTEM, ELECTRONIC DEVICE AND LIQUID COOLING SYSTEM",
+   "CN116075111B | 英业达科技有限公司 | Coolant flow control device",
+   "CN116133317A | 英业达科技有限公司 | Coolant flow control device",
+   "EP4473562A4 | Adeia Semiconductor Bonding Technologies Inc | HEAT DISPENSING SYSTEM FOR ELECTRONIC DEVICES",
+   "US12191233B2 | Adeia Semiconductor Bonding Technologies Inc. | Embedded cooling systems and methods of manufacturing embedded cooling systems",
+   "TWI872720B | 銓心半導體異質整合股份有限公司 | Semiconductor package structure for enhanced cooling",
+   "CN115548838B | 中国航天三江集团有限公司 | Cooling and heat dissipation device and method for single-chip-level jet impact optical element",
+   "KR20250127131A | 아데이아 세미컨덕터 본딩 테크놀로지스 인코포레이티드 | Embedded cooling system for improved device packaging",
+   "CN120457540A | 美商艾德亚半导体接合科技有限公司 | Embedded cooling assembly for advanced device package and method of manufacturing the same",
+   "JP2025542593A | アデイア セミコンダクター ボンディング テクノロジーズ インコーポレイテッド | Embedded Liquid Cooling",
+   "US12341083B2 | Adeia Semiconductor Bonding Technologies Inc. | Electronic device cooling structures bonded to semiconductor elements",
+   "US12176263B2 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assembly including coolant channel on the backside semiconductor device",
+   "CN118841379A | 华为技术有限公司 | Chip packaging structure and electronic equipment",
+   "US12191234B2 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assemblies for advanced device packaging and methods of manufacturing the same",
+   "US12191235B2 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assemblies including signal redistribution and methods of manufacturing the same",
+   "CN117412571B | 广东液冷时代科技有限公司 | Nanofluid immersion type jet cooling device based on EHD conduction and control method",
+   "US12283490B1 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assemblies for advanced device packaging and methods of manufacturing the same",
+   "US12610819B2 | Adeia Semiconductor Bonding Technologies Inc. | Integrated cooling assemblies for advanced device packaging and methods of manufacturing the same",
+   "US12368087B2 | Adeia Semiconductor Bonding Technologies Inc. | Embedded cooling systems for advanced device packaging and methods of manufacturing the same",
+   "US12322677B1 | Adeia Semiconductor Bonding Technologies Inc. | Fluid channel geometry optimizations to improve cooling efficiency",
+   "US12525506B2 | Adeia Semiconductor Bonding Technologies Inc. | Embedded cooling systems for advanced device packaging and methods of manufacturing the same",
+   "US12336141B1 | Adeia Semiconductor Bonding Technologies Inc. | Cold plate cavity designs for improved thermal performance",
+   "US12532432B2 | Adeia Semiconductor Bonding Technologies Inc. | Hotspot mitigation in fluid cooling"
+  ]
+ },
+ {
+  "query": "US10306801B2",
+  "url": "https://patents.google.com/patent/US10306801B2/en",
+  "http": 200,
+  "title": "Cold plate device for a two-phase cooling system",
+  "pdf": "https://patentimages.storage.googleapis.com/44/d7/74/2175b6337d7067/US10306801.pdf",
+  "pub_no": "US10306801B2",
+  "assignee_original": [
+   "International Business Machines Corp"
+  ],
+  "assignee_current": [
+   "International Business Machines Corp"
+  ],
+  "inventors": [
+   "Timothy Joseph Chainer",
+   "Pritish Ranjan Parida",
+   "Fanghao Yang"
+  ],
+  "priorityDate": "2016-09-30",
+  "filingDate": "2018-03-29",
+  "publicationDate": "2019-05-28",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2036-09-30 Anticipated expiration"
+  ],
+  "events": [
+   "2016-09-30 | Priority claimed from US15/281,336",
+   "2018-03-29 | Application filed by International Business Machines Corp",
+   "2018-03-29 | Priority to US15/939,777",
+   "2018-03-29 | Assigned to INTERNATIONAL BUSINESS MACHINES CORPORATION",
+   "2018-08-09 | Publication of US20180228051A1",
+   "2019-05-07 | Priority to US16/405,214",
+   "2019-05-28 | Application granted",
+   "2019-05-28 | Publication of US10306801B2",
+   "Status | Active",
+   "2036-09-30 | Anticipated expiration"
+  ],
+  "abstract": "Techniques that facilitate two-phase liquid cooling of an electronic device are provided. In one example, an apparatus, such as a cold plate device, comprises a first stackable layer and a second stackable layer. The first stackable layer comprises a first channel formed within the first stackable layer. The first channel comprises a first channel width and the first channel receives a coolant fluid via an inlet port of the apparatus. The second stackable layer comprises a second channel that provides a path for the coolant fluid to flow between the first channel and an outlet port of the apparatus. A width of the second channel increases along a flow direction of the coolant fluid that flows between the inlet port and the outlet port.",
+  "claim1": "1. An apparatus, comprising: a first stackable layer that comprises a first channel formed within the first stackable layer, wherein the first channel comprises a first channel width, and wherein the first channel receives a coolant fluid via an inlet port of the apparatus; and a second stackable layer that comprises a second channel that provides a path for the coolant fluid to flow between the first channel and an outlet port of the apparatus, wherein a width of the second channel increases along a flow direction of the coolant fluid that flows between the inlet port and the outlet port, wherein the first channel and the second channel form a set of expanding channels for the apparatus, and wherein a height of the set of expanding channels and a width of the set of expanding channels increases along a flow direction of the coolant fluid through the apparatus.",
+  "claims_count": "11",
+  "family_pubs": [
+   "US10085362B2",
+   "US10499541B2",
+   "US10653035B2",
+   "US10834848B2",
+   "US20180098459A1",
+   "US20180228051A1",
+   "US20180228052A1",
+   "US20180228053A1",
+   "US20200296857A1"
+  ],
+  "similar": [
+   "US10834848B2",
+   "US10136550B2",
+   "US9622380B1",
+   "KR102902175B1",
+   "US20170208706A1",
+   "JP2018531353A6",
+   "US10108235B2",
+   "US20240098936A1",
+   "WO2017046986A1"
+  ],
+  "cited_by": [
+   "US11350545B2 | Ge Aviation Systems Llc | Cold plate assembly for an electronic component",
+   "CN108029221B | 三菱电机株式会社 | Coolers, power conversion devices and cooling systems",
+   "US10766097B2 | Raytheon Company | Integration of ultrasonic additive manufactured thermal structures in brazements",
+   "US11252847B2 | General Electric Company | Heat dissipation system and an associated method thereof",
+   "JP6922612B2 | 富士通株式会社 | Cooling plate and information processing device",
+   "GB2578738B | Xerotech Ltd | Thermal management system for a battery",
+   "GB2584991B | Iceotope Group Ltd | Cold plate",
+   "CN110300509A | 联想(北京)有限公司 | A kind of radiator",
+   "US10923876B1 | Lockheed Martin Corporation | Phase-change material (PCM) embedded heat exchanger assembly for laser diode cooling and systems and methods thereof",
+   "US10874037B1 | Ford Global Technologies, Llc | Power-module assembly with cooling arrangement",
+   "EP4070371A4 | 3M Innovative Properties Company | Patterned design for thermal management of two-phase immersion cooling system for electronics",
+   "CN110854091B | 中国船舶重工集团公司第七一九研究所 | An anti-condensation device based on liquid cooling plate soaking",
+   "US11191190B2 | GM Cruise Holdings, LLC | Two-phase cooling systems for autonomous driving super computers",
+   "NL2025918B1 | Microsoft Technology Licensing Llc | Systems and methods of improving thermal management of heat-generation components",
+   "US11698233B2 | International Business Machines Corporation | Reduced pressure drop cold plate transition",
+   "US12004322B2 | International Business Machines Corporation | Cold plate with uniform plenum flow",
+   "US20210219459A1 | Intel Corporation | Two-phase manifold cold plate for liquid cooling",
+   "DE102021204769A1 | Robert Bosch Gesellschaft mit beschränkter Haftung | cooler",
+   "WO2023076859A1 | Atieva, Inc. | Cooler for power electronics",
+   "JP7826067B2 | ニデックモビリティ株式会社 | cooling device",
+   "US20230301023A1 | Nvidia Corporation | Cold plate with folded heat dissipation features for datacenter cooling systems",
+   "JP7773935B2 | 本田技研工業株式会社 | Water jacket",
+   "WO2024263010A1 | 최병규 | Cooling device"
+  ]
+ },
+ {
+  "query": "US12133357B2",
+  "url": "https://patents.google.com/patent/US12133357B2/en",
+  "http": 200,
+  "title": "Cold plate architecture for liquid cooling of devices",
+  "pdf": "https://patentimages.storage.googleapis.com/66/be/08/45b0d4fb3b0b01/US12133357.pdf",
+  "pub_no": "US12133357B2",
+  "assignee_original": [
+   "Intel Corp"
+  ],
+  "assignee_current": [
+   "Intel Corp"
+  ],
+  "inventors": [
+   "Jin Yang",
+   "David Shia",
+   "Mohanraj Prabhugoud",
+   "Olaotan ELENITOBA-JOHNSON",
+   "Craig Jahne",
+   "Phil Geng"
+  ],
+  "priorityDate": "2020-06-08",
+  "filingDate": "2020-12-16",
+  "publicationDate": "2024-10-29",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2042-06-13 Adjusted expiration"
+  ],
+  "events": [
+   "2020-12-16 | Application filed by Intel Corp",
+   "2020-12-16 | Priority to US17/123,760",
+   "2020-12-31 | Assigned to INTEL CORPORATION",
+   "2021-04-08 | Publication of US20210105911A1",
+   "2024-09-26 | Priority to US18/897,955",
+   "2024-10-29 | Application granted",
+   "2024-10-29 | Publication of US12133357B2",
+   "Status | Active",
+   "2042-06-13 | Adjusted expiration"
+  ],
+  "abstract": "Examples described herein relate to a cold plate. In some examples, the cold plate includes a surface with fins and at least two channels, wherein a first channel is shaped with a first opening extending towards the surface, a second opening proximate and across a first fin attached to the surface, and a third opening from the surface and extending away from the surface. In some examples, when a fluid is provided to the first opening, the first opening directs the fluid towards the surface, the second opening directs the fluid across the first fin, and the third opening directs the fluid away from the surface. In some examples, the second opening comprises split openings around opposite sides of the first fin.",
+  "claim1": "1. An apparatus comprising: a first surface; a second surface, the first surface to face towards the second surface, the second surface to face towards the first surface; fins extending from the first surface towards the second surface, the fins including a first fin and a second fin spaced apart from the first fin; and walls extending from the second surface towards the first surface, the walls including a first wall and a second wall defining and extending continuously along opposite sides of a first channel that extends between the first and second surfaces, the first wall defining a second channel extending along the first channel, the first wall separating the first channel from the second channel, the first and second fins to be within the first channel between the first and second walls, the first channel including a first opening in the second surface, the first opening between the first fin and the second fin, the first opening, the first fin, and the second fin along a length of the first channel, the first channel including a second opening in the second surface, the first fin being closer to the second fin than the second opening is to the second fin.",
+  "claims_count": "20",
+  "family_pubs": [
+   "US20210105911A1",
+   "US20250071938A1"
+  ],
+  "similar": [
+   "US20250071938A1",
+   "US12309966B2",
+   "US11006547B2",
+   "US20210410328A1",
+   "US20210410320A1",
+   "US11935869B2",
+   "US20210327787A1",
+   "US12615736B2",
+   "US7348665B2",
+   "US12082370B2",
+   "US12598725B2",
+   "TW201733045A",
+   "US20250338455A1",
+   "US12279395B2",
+   "US20240244800A1"
+  ],
+  "cited_by": [
+   "US20240260229A1 | Wistron Corp. | Cold plate and electronic device",
+   "US11729944B2 | Quanta Computer Inc. | Cold plate with anti-clogging mechanism",
+   "US12156344B2 | Toyota Motor Engineering & Manufacturing North America, Inc. | Systems and methods of 3D-printing a circuit board on a heat sink assembly having power devices bonded thereto",
+   "DE102021209503A1 | Robert Bosch Gesellschaft mit beschränkter Haftung | cooling plate",
+   "US11800682B2 | Hewlett Packard Enterprise Development Lp | Cooling module and a method of assembling the cooling module to an electronic circuit module",
+   "US12200902B2 | Hewlett Packard Enterprise Development Lp | Cooling module and a method of cooling an electronic circuit module using the cooling module",
+   "US12120856B2 | Nio Technology (Anhui) Co., Ltd. | Serviceable and accessible liquid cooled modules",
+   "JP7847997B2 | 株式会社アドバンテスト | Electronic component handling equipment and electronic component testing equipment",
+   "US12165954B2 | Toyota Motor Engineering & Manufacturing North America Inc. | Cold plates incorporating S-cells",
+   "CN117939832A | 亚浩电子五金塑胶（惠州）有限公司 | Fin structure",
+   "US20250081387A1 | JWS Technology CO., LTD. | Liquid-cooling heat dissipation device",
+   "US20250240920A1 | Microsoft Technology Licensing, Llc | Systems and methods for liquid cooling of multicomponent packages",
+   "TWI910009B | 緯創資通股份有限公司 | Server device, expansion module and cooling module"
+  ]
+ },
+ {
+  "query": "US12477696B2",
+  "url": "https://patents.google.com/patent/US12477696B2/en",
+  "http": 200,
+  "title": "Intelligent cold plate system with active and passive features for a datacenter cooling system",
+  "pdf": null,
+  "pub_no": "US12477696B2",
+  "assignee_original": [
+   "Nvidia Corp"
+  ],
+  "assignee_current": [
+   "Nvidia Corp"
+  ],
+  "inventors": [
+   "Ali Heydari"
+  ],
+  "priorityDate": "2021-01-21",
+  "filingDate": "2021-01-21",
+  "publicationDate": "2025-11-18",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2043-04-18 Adjusted expiration"
+  ],
+  "events": [
+   "2021-01-21 | Application filed by Nvidia Corp",
+   "2021-01-21 | Priority to US17/154,708",
+   "2022-01-12 | Priority to CN202210032000.4A",
+   "2022-01-18 | Priority to DE102022101067.8A",
+   "2022-01-21 | Priority to GB2200750.4A",
+   "2022-07-21 | Publication of US20220232739A1",
+   "2025-11-14 | Priority to US19/390,264",
+   "2025-11-18 | Application granted",
+   "2025-11-18 | Publication of US12477696B2",
+   "Status | Active",
+   "2043-04-18 | Adjusted expiration"
+  ],
+  "abstract": "Systems and methods for cooling a datacenter are disclosed. In at least one embodiment, a cold plate has microchannels and a heat pipe to support a first fluid in an active mode of operation of a cold plate that uses microchannels, and to support a second fluid in a passive mode of operation of a cold plate that uses a heat pipe.",
+  "claim1": "1 . A datacenter cooling system, comprising: a cold plate comprising microchannels within a first cavity of the cold plate and a heat pipe within a second cavity of the cold plate, the microchannels to support at least a first fluid in an active mode of operation of the cold plate, the first fluid to flow through the microchannels by action of at least one flow controller at a server manifold, and the heat pipe to support a second fluid in a passive mode of operation of the cold plate, the second fluid to circulate in the heat pipe by differential temperature and capillary actions between an evaporator section and a condenser section of the heat pipe, wherein the microchannels include a first microchannel forming a first coolant loop circulating a third fluid directly from the server manifold to the cold plate, and a second microchannel forming at least part of a second coolant loop circulating the first fluid from an adjacent cold plate to the cold plate; and a processor to use one or more neural networks to cause the at least one flow controller to selectively enable the active mode including the second coolant loop circulating the first fluid in the microchannels within the cold plate alongside the passive mode of circulating the second fluid inside the heat pipe of the cold plate based, at least in part, on sensor inputs from one or more sensors indicating a thermal condition of the second fluid, wherein both the active mode and the passive mode are operated when the active mode is selectively enabled, wherein the first coolant loop circulating the third fluid directly from the server manifold into the cold plate is further selectively enabled based on a cooling condition of the second coolant loop circulating the first fluid.",
+  "claims_count": "30",
+  "family_pubs": [
+   "CN114828541A",
+   "CN114828541B",
+   "DE102022101067A1",
+   "GB202200750D0",
+   "GB2605000A",
+   "GB2605000B",
+   "US20220232739A1",
+   "US20260075772A1"
+  ],
+  "similar": [
+   "US12200909B2",
+   "US11822398B2",
+   "US11829215B2",
+   "US20240260238A1",
+   "US11656665B2",
+   "US12557250B2",
+   "US12082382B2",
+   "US20250280517A1",
+   "US20240085961A1",
+   "US20260075772A1",
+   "US12238895B2",
+   "US12477701B2",
+   "US12279401B2",
+   "US11910577B2",
+   "US11988401B2"
+  ],
+  "cited_by": [
+   "CN115599529B | 阿里巴巴（中国）有限公司 | Edge cloud function computing system and method",
+   "US12477688B2 | Toyota Motor Engineering & Manufacturing North America, Inc. | Systems and methods for cooling electronic devices",
+   "EP4734689A1 | Hoffman Enclosures Inc. | Coolant distribution units with localized processing"
+  ]
+ },
+ {
+  "query": "US20200227341A1",
+  "url": "https://patents.google.com/patent/US20200227341A1/en",
+  "http": 200,
+  "title": "Direct liquid micro jet (dlmj) structures for addressing thermal performance at limited flow rate conditions",
+  "pdf": "https://patentimages.storage.googleapis.com/97/74/68/e4c0c6c3ff4e8d/US20200227341A1.pdf",
+  "pub_no": "US20200227341A1",
+  "assignee_original": [
+   "Intel Corp"
+  ],
+  "assignee_current": [
+   "Intel Corp"
+  ],
+  "inventors": [
+   "Nicholas Neal",
+   "Je-Young Chang",
+   "Jae Kim",
+   "Ravindranath Mahajan"
+  ],
+  "priorityDate": "2019-01-11",
+  "filingDate": "2019-01-11",
+  "publicationDate": "2020-07-16",
+  "legal_status": "Granted",
+  "expiration": null,
+  "events_status": [
+   "2042-03-01 Adjusted expiration"
+  ],
+  "events": [
+   "2019-01-11 | Application filed by Intel Corp",
+   "2019-01-11 | Priority to US16/246,311",
+   "2019-05-03 | Assigned to INTEL CORPORATION",
+   "2020-07-16 | Publication of US20200227341A1",
+   "2023-10-31 | Application granted",
+   "2023-10-31 | Publication of US11804418B2",
+   "Status | Active",
+   "2042-03-01 | Adjusted expiration"
+  ],
+  "abstract": "A heat exchange module, comprising an array of microchannels, where the array of microchannels extends in a first direction, and are separated from one another by a first sidewall. The array of microchannels is over a cold plate. A first array of fluid distribution channels is stacked over the array of microchannels and extend in a second direction that is substantially orthogonal to the first direction. The first array of fluid distribution channels extends from the first manifold and terminate between a first manifold and a second manifold. A second array of fluid distribution channels is stacked over the array of microchannels. The first array of fluid distribution channels and the second array of the fluid distribution channels are fluidically coupled to the microchannel array. A wall extends into the microchannel array below a second sidewall separating ones of the first array and ones of the second array of fluid distribution channels.",
+  "claim1": "1 . A heat exchange module, comprising: an array of microchannels, wherein ones of the array of microchannels extend in a first direction, and are separated from one another by a first sidewall, the array of microchannels is over a cold plate; a first manifold and a second manifold; a first array of fluid distribution channels stacked over the array of microchannels and extending in a second direction that is substantially orthogonal to the first direction, wherein the first array of fluid distribution channels extends from the first manifold and terminate between the first manifold and the second manifold; a second array of fluid distribution channels stacked over the array of microchannels and parallel to the first array, wherein the second array extends from the second manifold and terminate between the first manifold and the second manifold, and wherein the first array is interleaved with the second array; wherein the first array of fluid distribution channels and the second array of the fluid distribution channels are fluidically coupled to the microchannel array, wherein a wall extends into the microchannel array below a second sidewall separating ones of the first array and ones of the second array of fluid distribution channels.",
+  "claims_count": "20",
+  "family_pubs": [
+   "US11804418B2"
+  ],
+  "similar": [
+   "US11804418B2",
+   "US12199012B2",
+   "JP3179086U",
+   "US11444003B2",
+   "US10021811B2",
+   "EP1564809A1",
+   "US20170245394A1",
+   "CN116686082A",
+   "CN101466244B",
+   "US11581671B2",
+   "CN219832642U",
+   "TW202327435A",
+   "CN211879372U",
+   "US12301290B2",
+   "EP4694599A1"
+  ],
+  "cited_by": [
+   "CN112614785A | 上海先方半导体有限公司 | Three-dimensional packaging structure and packaging method of integrated micro-channel",
+   "US11149937B2 | Toyota Motor Engineering & Manufacturing North America, Inc. | Functionally graded manifold microchannel heat sinks",
+   "US20210392786A1 | Auras Technology Co., Ltd. | Heat dissipation module",
+   "US11310935B2 | Huawei Technologies Co., Ltd. | Heat dissipator and communications device",
+   "JP2022069115A | 株式会社フジクラ | Cold plate and method for manufacturing cold plate",
+   "US20220232731A1 | Nidec Corporation | Tank and cooling unit",
+   "US11421945B1 | Softronics, Ltd. | Heat dissipation system with cross-connected heatsink",
+   "CN115332204A | 北京工业大学 | Manifold microchannel radiator with low thermal resistance, low pumping work and good stability",
+   "US20220418156A1 | Iceotope Group Limited | Cold plate and system for cooling electronic devices",
+   "US20230063534A1 | Colorado State University Research Foundation | Jet impingement cooling devices, systems, and methods",
+   "US20230197566A1 | Intel Corporation | Semiconductor Die, Heat Spreader, Semiconductor Package, Semiconductor Device, and Methods",
+   "US20230262947A1 | Dana Canada Corporation | Systems for a heat exchanger",
+   "US20230320029A1 | Fujitsu Limited | Liquid cooling module",
+   "CN116913871A | 浙江大学杭州国际科创中心 | A power module and packaging method integrating three-dimensional stacked manifold micro-channel cooling",
+   "US20230380106A1 | Toyota Motor Engineering & Manufacturing North America, Inc. | Systems for cooler devices and cooling manifolds",
+   "US20240074100A1 | Asetek Danmark A/S | Cold plate assembly for liquid cooling of electronic devices",
+   "US20240110753A1 | Shenzhen Liquid Cooling Technology Co. Ltd. | Multi-channel liquid cooling radiator",
+   "WO2024123550A1 | Microsoft Technology Licensing, Llc | Devices, systems, and methods for a cooling system",
+   "US20240200888A1 | Fujikura Ltd. | Cold plate",
+   "US20240288226A1 | Research & Business Foundation Sungkyunkwan University | Heat sink with multilayer channel structure",
+   "US12080626B1 | Georgia Tech Research Corporation | System and method for providing direct silicon footprint microfluidic cooling for electronics",
+   "US12188733B2 | Coolit Systems, Inc. | Modular fluid heat exchange systems",
+   "US20250227891A1 | Strategic Thermal Labs, Llc | Distributed impingement and recovery manifold (dirm) cold plate",
+   "CN120810216A | 北京钧天航宇技术有限公司 | Millimeter wave phased array antenna subarray and self-adaptive heat dissipation method",
+   "US12460878B2 | Coolit Systems, Inc. | Fluid heat exchange systems"
+  ]
+ },
+ {
+  "query": "CN109104844B",
+  "url": "https://patents.google.com/patent/CN109104844B/en",
+  "http": 200,
+  "title": "Microchannel cold plate",
+  "pdf": "https://patentimages.storage.googleapis.com/4f/4b/4a/a740bbf02e8c45/CN109104844B.pdf",
+  "pub_no": "CN109104844B",
+  "assignee_original": [
+   "Leihua Electronic Technology Research Institute Aviation Industry Corp of China"
+  ],
+  "assignee_current": [
+   "Leihua Electronic Technology Research Institute Aviation Industry Corp of China"
+  ],
+  "inventors": [
+   "糜勇",
+   "齐瑞骞",
+   "付林"
+  ],
+  "priorityDate": "2018-08-03",
+  "filingDate": "2018-08-03",
+  "publicationDate": "2020-02-14",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2038-08-03 Anticipated expiration"
+  ],
+  "events": [
+   "2018-08-03 | Application filed by Leihua Electronic Technology Research Institute Aviation Industry Corp of China",
+   "2018-08-03 | Priority to CN201810877972.7A",
+   "2018-12-28 | Publication of CN109104844A",
+   "2020-02-14 | Application granted",
+   "2020-02-14 | Publication of CN109104844B",
+   "Status | Active",
+   "2038-08-03 | Anticipated expiration"
+  ],
+  "abstract": "The invention relates to the technical field of heat exchange of electronic equipment, in particular to a microchannel cold plate, which is characterized in that a cooling channel through which cooling liquid flows is designed to be a liquid inlet channel, a liquid inlet collecting groove, a microchannel, a liquid outlet collecting groove, a liquid outlet channel and a liquid outlet channel, wherein the cooling liquid flows through the cooling channel and is subjected to multi-stage flow distribution through the liquid inlet channel, the liquid inlet pore channel, the heat dissipation channel, the liquid outlet pore channel and the liquid outlet channel, all the cooling channels are integrally designed in parallel, the cooling liquid only performs heat exchange at the microchannel when flowing through the cooling channel, the cooling liquid directly flows out without heat accumulation after heat exchange, the cooling effect is increased, the cooling is uniform, and compared with a direct-flow channel structure, the cooling liquid only flows through the microchannel once, namely, the cooling liquid only passes through a group of heat dissipation fins when flowing through the cooling channel, the throttling effect of the cooling, the flow resistance thereof is greatly reduced.",
+  "claim1": "1. A microchannel cold plate, comprising: a cover plate (1); a heat dissipation plate (3); the heat dissipation structure comprises a plurality of groups of heat dissipation fins (4), wherein each group of heat dissipation fins (4) comprises a plurality of heat dissipation fins which are arranged in parallel, and microchannels are formed among the heat dissipation fins in each group of heat dissipation fins (4); and the number of the first and second groups, flow distribution plate (2), its one side with apron (1) laminating, its opposite side with heating panel (3) laminating, its orientation one side of apron (1) has been seted up: a plurality of liquid inlet tanks (C) which are arranged in parallel; each inflow channel comprises a plurality of inflow grooves which are parallel to each other, and two adjacent inflow grooves (C) are communicated through one inflow channel; a plurality of liquid outlet grooves (D) which are arranged in parallel; and the number of the first and second groups, each outflow channel comprises a plurality of outflow grooves which are parallel to each other, and two adjacent outflow grooves (D) are communicated through one outflow channel; the flow distribution plate (2) faces one side of the heat dissipation plate (3) and is provided with: a plurality of liquid inlet collecting tanks (E) which are arranged in parallel; a plurality of liquid outlet collecting tanks (F) which are parallel to the liquid inlet collecting tanks (E) and are arranged alternately; and the number of the first and second groups, each heat dissipation channel (H) comprises a plurality of heat dissipation grooves which are arranged in parallel, a group of heat dissipation fins (4) are arranged in each heat dissipation groove, and one liquid inlet collecting groove (E) is only communicated with one liquid outlet collecting groove (F) adjacent to the liquid inlet collecting groove (E) through one heat dissipation channel (H); the flow distribution plate (2) is also provided with: a plurality of liquid inlet channels (G1), each liquid inlet channel (G1) comprises a plurality of liquid inlet holes, and one liquid inlet groove (C) is communicated with only one liquid inlet collecting groove (E) through one liquid inlet channel (G1); a plurality of liquid outlet channels (G2), each liquid outlet channel (G2) comprises a plurality of liquid outlet holes, and one liquid outlet groove (D) is communicated with only one liquid outlet collecting groove (F) through one",
+  "claims_count": "2",
+  "family_pubs": [
+   "CN109104844A"
+  ],
+  "similar": [
+   "CN109104844A",
+   "CN110165355B",
+   "CN107658281B",
+   "CN106103152B",
+   "CN111883497B",
+   "JP2005166855A5",
+   "JP2020522144A",
+   "CN108112218B",
+   "CN109378303A",
+   "WO2020019183A1",
+   "CN108336045A",
+   "CN119560880B",
+   "CN104296586A",
+   "CN105526813A",
+   "CN116481345A"
+  ],
+  "cited_by": [
+   "CN109848666B | 西安交通大学 | Manufacturing method of micro-channel cold plate",
+   "US11350545B2 | Ge Aviation Systems Llc | Cold plate assembly for an electronic component",
+   "CN111356343B | 深圳绿色云图科技有限公司 | Cooling liquid distribution device and liquid cooling cabinet",
+   "CN111970906B | 浙江集迈科微电子有限公司 | Phased array radar cooling device",
+   "CN112701097B | 北京大学 | An embedded microfluidic cooling system and a silicon-based adapter plate",
+   "CN112762732A | 深圳市宝晟互联信息技术有限公司 | Heat sink device",
+   "CN113192911A | 苏州汇川技术有限公司 | Micro-channel radiator",
+   "CN116255757B | 浙江三花智能控制股份有限公司 | Evaporator",
+   "CN115696863A | 中国航空工业集团公司雷华电子技术研究所 | 3D prints array formula microchannel curved surface cold drawing",
+   "CN116916632B | 北京航空航天大学 | A micro-channel cold plate with staggered shear flow channels and its use method",
+   "CN117628949B | 中国核动力研究设计院 | Microchannel cooling tower and welding frock thereof"
+  ]
+ },
+ {
+  "query": "CN113871359A",
+  "url": "https://patents.google.com/patent/CN113871359A/en",
+  "http": 200,
+  "title": "Centrifugal micro-channel structure for CPU heat dissipation and use method thereof",
+  "pdf": "https://patentimages.storage.googleapis.com/eb/96/66/562824dce9b404/CN113871359A.pdf",
+  "pub_no": "CN113871359A",
+  "assignee_original": [
+   "Suzhou Inspur Intelligent Technology Co Ltd"
+  ],
+  "assignee_current": [
+   "Suzhou Metabrain Intelligent Technology Co Ltd"
+  ],
+  "inventors": [
+   "朱欢来"
+  ],
+  "priorityDate": "2021-08-31",
+  "filingDate": "2021-08-31",
+  "publicationDate": "2021-12-31",
+  "legal_status": "Granted",
+  "expiration": null,
+  "events_status": [
+   "2041-08-31 Anticipated expiration"
+  ],
+  "events": [
+   "2021-08-31 | Application filed by Suzhou Inspur Intelligent Technology Co Ltd",
+   "2021-08-31 | Priority to CN202111009001.9A",
+   "2021-12-31 | Publication of CN113871359A",
+   "2023-11-03 | Application granted",
+   "2023-11-03 | Publication of CN113871359B",
+   "Status | Active",
+   "2041-08-31 | Anticipated expiration"
+  ],
+  "abstract": "Abstract Translated from Chinese 本发明公开一种用于CPU散热的离心微通道结构及其使用方法，属于CPU散热技术领域，包括基板和散热壳体，散热壳体侧面呈阿基米德曲线形状；散热壳体下面环形阵列设有若干离心肋片，相邻离心肋片间形成离心通道；离心肋片内沿包围形成与CPU中心对应喷射空间，其外沿与散热壳体侧面之间形成导流通道；导流通道末端设有出口；散热壳体上面设有喷嘴，喷嘴向喷射空间内喷射冷却液，形成单相淹没射流强化传热结构，且离心结构的离心通道和阿基米德曲线特征的导流侧板，使在中心位置的喷射空间换热能力最强，并沿径向离心降低；与CPU的热流密度分布完全一致，实现CPU最佳的散热均温性；整体结构简单，使用便捷，实用性好。 The invention discloses a centrifugal micro-channel structure for CPU heat dissipation and a method of using the same, belonging to the technical field of CPU heat dissipation. The invention includes a substrate and a heat dissipation shell. There are several centrifugal fins, and a centrifugal channel is formed between adjacent centrifugal fins; the inner edge of the centrifugal fins forms a spray space corresponding to the center of the CPU, and a guide channel is formed between the outer edge and the side of the heat dissipation shell; the end of the guide channel There is an outlet; there is a nozzle on the heat dissipation shell, and the nozzle sprays the cooling liquid into the spray space to form a single-phase submerged jet to strengthen the heat transfer structure, and the centrifugal channel of the centrifugal structure and the deflector side plate with the characteristics of Archimedes curve, The heat transfer capacity of the jet space at the center position is the strongest, and the centrifugal reduction along the radial direction is completely consistent with the heat flux density distribution of the CPU, so as to achieve the best heat dissipation uniformity of the CPU; the overall structure is simple, easy to use, and good practicability.",
+  "claim1": "1. The centrifugal micro-channel structure for CPU heat dissipation is characterized by comprising a substrate (1) attached to a CPU and a heat dissipation shell (2) arranged on the substrate (1), wherein the side surface of the heat dissipation shell (2) is in an Archimedes curve shape; a plurality of centrifugal fins (3) are annularly arrayed on one side, close to the base plate (1), of the heat dissipation shell (2), and a centrifugal channel is formed between every two adjacent centrifugal fins (3); the inner edges of the centrifugal ribs (3) surround to form an injection space corresponding to the center of the CPU, and a flow guide channel is formed between the outer edge of the centrifugal rib and the side surface of the heat dissipation shell (2); the tail end of the flow guide channel is provided with an outlet (25); and a plurality of nozzles (24) are arranged on one side of the heat dissipation shell (2) far away from the substrate (1), and the nozzles (24) spray cooling liquid into the spraying space.",
+  "claims_count": "10",
+  "family_pubs": [
+   "CN113871359B"
+  ],
+  "similar": [
+   "US6796370B1",
+   "CN109755199A",
+   "WO2018210067A1",
+   "CN201608596U",
+   "CN108551750A",
+   "US12279397B2",
+   "CN113871359B",
+   "CN215933692U",
+   "CN213212652U",
+   "CN220326095U",
+   "CN219628238U",
+   "CN207381390U",
+   "CN214676301U",
+   "CN210937734U",
+   "CN219612377U"
+  ],
+  "cited_by": [
+   "CN114485233A | 苏州浪潮智能科技有限公司 | Impact backflow type gravity thermosiphon radiator and electronic equipment",
+   "CN120201686A | 武汉理工大学三亚科教创新园 | Archimedes spiral radiating pipe with bionic phoenix tree leaf-shaped structure"
+  ]
+ },
+ {
+  "query": "CN120597664A",
+  "url": "https://patents.google.com/patent/CN120597664A/en",
+  "http": 200,
+  "title": "A method and device for constructing a liquid-cooled radiator microchannel with integrated bypass control",
+  "pdf": null,
+  "pub_no": "CN120597664A",
+  "assignee_original": [
+   "Guangdong Lanrui Technology Group Co ltd"
+  ],
+  "assignee_current": [
+   "Guangdong Lanrui Technology Group Co ltd"
+  ],
+  "inventors": [
+   "匡超",
+   "匡得军",
+   "赵家逸",
+   "吴钊锋",
+   "卢财办",
+   "陈振显"
+  ],
+  "priorityDate": "2025-08-11",
+  "filingDate": "2025-08-11",
+  "publicationDate": "2025-09-05",
+  "legal_status": "Granted",
+  "expiration": null,
+  "events_status": [
+   "2045-08-11 Anticipated expiration"
+  ],
+  "events": [
+   "2025-08-11 | Application filed by Guangdong Lanrui Technology Group Co ltd",
+   "2025-08-11 | Priority to CN202511113914.3A",
+   "2025-09-05 | Publication of CN120597664A",
+   "2025-09-30 | Application granted",
+   "2025-09-30 | Publication of CN120597664B",
+   "Status | Active",
+   "2045-08-11 | Anticipated expiration"
+  ],
+  "abstract": "The application discloses a method and a device for constructing a liquid cooling radiator microchannel integrating bypass control, which are used for solving the problem of energy waste caused by fixing a high-flow-resistance microchannel. The method comprises the steps of establishing a three-dimensional geometric model of the liquid cooling radiator, wherein the three-dimensional geometric model comprises a main channel for processing peak heat load working conditions, a bypass channel for processing low heat load working conditions and an SMA micro-actuator arranged in the bypass channel, defining a fluid domain, a solid domain and an actuator domain respectively, configuring an SMA constitutive model for describing the relationship of temperature, stress and phase change for the actuator domain, establishing a two-way coupling relationship among the fluid domain, the solid domain and the actuator domain according to the SMA constitutive model to form a digital twin model, applying simulated heat load which changes along with time to the digital twin model to obtain simulation performance parameters of the liquid cooling radiator under dynamic working conditions, and carrying out iterative optimization on target design parameters according to the simulation performance parameters to obtain target design parameters.",
+  "claim1": "1. The method for constructing the liquid cooling radiator micro-channel integrating bypass control is characterized by comprising the following steps of: Establishing a three-dimensional geometric model of the liquid cooling radiator, wherein the three-dimensional geometric model comprises a main channel for processing peak heat load working conditions, a bypass channel for processing low heat load working conditions and an SMA micro-actuator arranged in the bypass channel; performing mesh subdivision processing for finite element numerical simulation on the three-dimensional geometric model to obtain a mesh model; the method comprises the steps of respectively defining a fluid domain, a solid domain and an actuator domain in the grid model corresponding to cooling fluid, a heat dissipation substrate and the SMA micro-actuator of the liquid cooling radiator, and configuring an SMA constitutive model for describing the relationship of temperature, stress and phase change for the actuator domain; Establishing a two-way coupling relation among the fluid domain, the solid domain and the actuator domain according to the SMA constitutive model to form a digital twin model, wherein the two-way coupling relation comprises conjugate heat transfer coupling, thermal deformation coupling and fluid-solid coupling; Applying a simulated thermal load which changes along with time to the digital twin model to obtain simulation performance parameters of the liquid cooling radiator under a dynamic working condition; and carrying out iterative optimization on target design parameters according to the simulation performance parameters to obtain target design parameters, wherein the target design parameters comprise at least one of geometric dimensions, shapes, anchor point positions and material phase change activation temperatures of the SMA micro-actuator.",
+  "claims_count": "10",
+  "family_pubs": [
+   "CN120597664B"
+  ],
+  "similar": [
+   "US20220027539A1",
+   "CN109783970B",
+   "CN119249624B",
+   "CN120597664B",
+   "CN120809022A",
+   "CN116882205B",
+   "CN117610372A",
+   "CN121477654B",
+   "CN120831241B",
+   "CN120723043B",
+   "CN122046682A"
+  ],
+  "cited_by": []
+ }
+]

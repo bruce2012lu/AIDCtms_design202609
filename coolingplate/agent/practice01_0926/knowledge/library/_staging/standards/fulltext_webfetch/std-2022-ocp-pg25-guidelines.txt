@@ -1,0 +1,675 @@
+## Guidelines for Using Propylene Glycol
+
+## Based Heat Transfer Fluids in Single
+
+## Phase Cold Plate-Based Liquid Cooled
+
+## Racks
+
+Authors: 
+Keegan Yaroch & John Cuthbert | Dow Inc. 
+David Miller | Third Coast Chemicals 
+Sean T. Sivapalan | Intel Corporation 
+Sean Barlett | Meta 
+
+PAGE 2
+
+### Executive Summary
+
+This whitepaper provides guidelines for the installation and operation of using a propylene glycol-based heat trans transfer fluid in liquid-cooled computer racks. The whitepaper includes details on the heat transfer fluid and wetted materials that are used for quick connects, in-rack manifold design, tubing (flex hoses), pipping, operating conditions including temperature, pressure, filtration, and safety.
+
+The overall goal is to encourage multi-vendor solutions for liquid-cooled computer racks where the liquid cooling infrastructure can be reused through multiple refreshes of liquid-cooled computer hardware. Unlike a homogeneous supercomputer system, a rack meeting this whitepaper may hold disparate information technology hardware from multiple suppliers.
+
+There are multiple options for liquid cooling of IT racks, including options for the heat transfer fluid. For example, OCP has developed a whitepaper for using a water-based heat transfer fluid heat transfer fluid. The owner and design team will need to assess the specific needs of the project to determine the suitability of this whitepaper and modify it accordingly.
+
+This document is provided “AS IS,” and authors and copyright holders make no representations or warranties, express or implied including, but no limited to, warranties of merchantability, fitness for a particular purpose; non-infringement, or title; that the contents of the document are suitable for any purpose; nor that the implementation of such contents will not infringe any third-party patents, copyrights, trademarks or other rights. Copyright holders will not be liable for any direct, indirect, special or consequential damages arising out of any use of the document or the performance or implementation of the contents thereof.
+
+Use these guidelines at your own risk and only with full understanding of its content. The authors disclaim any and all liability for any errors, omissions, inaccuracies or incompleteness contained herein. Project owners and engineers must verify the appropriate use of these guidelines for specific projects.
+
+PAGE 3
+
+#### Table of Contents
+
+Introduction 6
+
+1 General Overview 6
+
+1.1 OBJECTIVES 6
+
+1.2 DESCRIPTION OF WORK 7
+
+2 Heat Transfer Fluid Typical Properties 8
+
+2.1 APPROVED GLYCOL-BASED HEAT TRANSFER FLUIDS 8
+
+2.2 INHIBITORS AND ADDITIVES 10
+
+3 Safety 10
+
+3.1 SAFETY CONSIDERATIONS 10
+
+4 System Design Considerations 11
+
+4.1 WETTED MATERIALS 11
+
+4.2 OPERATING TEMPERATURE 13
+
+4.3 SYSTEM LEAK CHECKS 13
+
+4.4 MECHANICAL DESIGN CONSIDERATIONS 13
+
+5 Fluid Installation and System Operation 14
+
+5.1 OVERVIEW 14
+
+5.2 START-UP 15
+
+Certificate of Analysis (COA) 15
+
+Cleanliness 15
+
+Compatibility 15
+
+5.3 SYSTEM CLEANING AND FILLING 15
+
+Cleaning 16
+
+System Fill Procedure 16
+
+Start-Up 17
+
+5.4 OPERATION 17
+
+PAGE 4
+
+Guidelines 17
+
+6 Monitoring & Maintenance 17
+
+6.1 ROUTINE MONITORING 17
+
+Overview 17
+
+On-Site Testing 17
+
+Deviations from Acceptable Ranges 18
+
+6.2 ANNUAL ANALYTICAL ANALYSIS 18
+
+Overview 18
+
+External Laboratory Requirements 18
+
+Acquiring Fluid Sample 19
+
+Fluid Specific Parameters 19
+
+6.3 SYSTEM ADJUSTMENTS 20
+
+Overview 20
+
+Guidelines 20
+
+Making System Adjustments 20
+
+7 Fluid Lifetime and Disposal 21
+
+7.1 USEFUL LIFE 21
+
+Overview 21
+
+Guidelines 21
+
+7.2 REGULATORY CONSIDERATIONS 21
+
+7.3 FLUID DISPOSAL 21
+
+7.4 SYSTEM FILL AFTER DISPOSAL AND CLEANING 22
+
+8 Submittals 22
+
+8.1 RECORDS 22
+
+9 Heat Transfer Fluids 22
+
+9.1 PG25 HEAT TRANSFER FLUIDS 22
+
+9.2 PG25 HEAT TRANSFER FLUIDS 23
+
+PAGE 5
+
+10 Conclusion 23
+
+11 References 23
+
+12 License 24
+
+13 About Open Compute Foundation 25
+
+PAGE 6
+
+### 1 General Overview
+
+##### 1.1 OBJECTIVES
+
+The objective of this whitepaper is to propose and promote guidelines for the operation of liquid- cooled computer racks using a propylene glycol-based heat transfer fluid. The whitepaper below would be one section of a comprehensive specification for the overall Liquid-Cooled Rack System. Other sections would include Wetted Materials, Quick Connects, In-rack Manifold Design, Tubing (flex hoses), Piping, Instrumentation and Controls, Operating conditions including Temperature, Pressure, Filtration, and Safety. All sections within this whitepaper for a Liquid-Cooled Rack must be mutually compatible. Compatibility is driven by the wetted materials, the heat transfer fluid, connectors, and operating conditions (e.g., temperatures and pressure). In the case of the heat transfer fluid, compatibility is particularly important with the wetted materials list.
+
+The heat transfer fluid would be used in the secondary or closed loop between the heat exchanger (e.g., Coolant Distribution Unit (CDU)) and the cold plates or other heat exchangers within the rack/servers. This loop is designated the Technology Cooling System (TCS) by the American Society of Heating, Refrigerating and Air Conditioning Engineers (ASHRAE). The overall goal is to encourage multi-vendor solutions for liquid-cooled computer racks where the liquid cooling infrastructure can be reused through multiple refreshes of liquid cooled computer hardware. Unlike a homogeneous supercomputer system, a rack meeting this whitepaper may hold disparate information technology hardware from multiple suppliers.
+
+The primary audiences for this whitepaper are design and facility engineers and managers who will be responsible for the design, procurement, setup and operation of the TCS loop. A secondary audience is the liquid cooling equipment suppliers and propylene glycol-based heat transfer fluid vendors whose products could be utilized.
+
+Major components of this whitepaper include: 1. Propylene glycol-based heat transfer fluid 2. An acceptable wetted material list (additional materials require further consideration). 3. A closed secondary loop between the CDU (not specified) and the servers (not specified). A closed loop reduces the complexity of heat transfer fluid maintenance with very limited oxygen or new sources of contaminants. Both the CDU and the servers must be compatible with the
+
+PAGE 7
+
+criteria listed in this whitepaper (e.g., wetted material list). This whitepaper does not address the Facility Water System (FWS). 4. The initial secondary loop flush will be with the glycol-based heat transfer fluid to remove remnant contaminants from the secondary loop raw materials. This fluid will then be discarded prior to the final fill. 5. The operating temperature of the heat transfer fluid is not expected to exceed 66°C (150°F)
+
+There are multiple options for liquid cooling of IT racks, including options for the heat transfer fluid. For example, OCP has developed a whitepaper for a transfer fluid using treated water. The owner and design team will need to assess the specific needs of the project to determine the suitability of this whitepaper and modify it accordingly. Further, the construction contractor, IT system supplier, and heat transfer fluid supplier should agree on the suitability of all wetted materials and may propose alternatives (refer to section 4.1 for additional details). It is important that the heat transfer fluid treatment, as well as the allowed wetted materials, be thoroughly documented and maintained through refresh cycles and other future changes or additions to the system.
+
+##### 1.2 DESCRIPTION OF WORK
+
+Provide propylene glycol-based heat transfer fluid, holding reservoirs, equipment, and labor for cleaning, flushing, and filling for each TCS loop. Products and services shall be from a company regularly engaged in the production and service of propylene glycol-based heating and cooling systems for mission critical facilities such as data centers and datacom equipment.
+
+Provide all testing equipment required for fluid monitoring during startup and operation of the closed-loop computer cooling system.
+
+PAGE 8
+
+### 2 Heat Transfer Fluid Typical Properties
+
+##### 2.1 APPROVED GLYCOL-BASED HEAT TRANSFER FLUIDS
+
+1. Fluids must contain propylene glycol as a freeze point depressant as well as an inhibitor package which is designed for the metals present in the TCS loop . There is high importance for the inclusion of an inhibitor for copper corrosion protection. 
+2. Approved fluids should meet the criteria specified below, as a minimum. A. Perform corrosion testing according to ASTM D8040-17 (Standard Test Method for Corrosion Test for Heat Transfer Fluids in Glassware) with the following modifications: 1. Only copper and brass coupons are required for testing. Three coupons of each alloy can be included in each beaker. Use insulating spacers of polytetrafluoroethylene (PTFE, Teflon TM) in between all coupons and between the coupons and the coupon bundle legs so that the coupons will be non-galvanically coupled. Steel, solder, aluminum and cast-iron coupons should be excluded from testing. Pre-diluted fluids (for example, PG25 and PG55) should be tested without further dilution. Corrosive salts should be added as instructed in D8040-17, section 8.1.1. i. Note: Section 8.1.1 states that pre-diluted fluids at concentrations higher than 30% by weight of propylene glycol must be diluted to 30% by weight with deionized water, however, this is not necessary. Instead, add the appropriate amount of corrosive salts (sodium sulfate, sodium chloride, sodium bicarbonate) per liter of pre-diluted fluid. 3. Concentrated fluids, or fluids designed to be diluted prior to use, should be diluted to 30% by weight of propylene glycol and the corrosive salts (sodium sulfate, sodium chloride, sodium bicarbonate) added according to D8040-17 section 8.1.2. 4. All other steps should be followed according to ASTM D8040-17, such as: i. Length of test - 2 weeks (336 hours) ii. Temperature - 88°C (190°F) iii. Aeration - continuous iv. Replicates - coupons should be tested in triplicate v. Corrosive Salts 1. 110 mg sodium chloride per liter of test solution 
+
+PAGE 9
+
+2. 99 mg sodium sulfate per liter of test solution 3. 92 mg sodium bicarbonate per liter of test solution B. Maximum allowable corrosion rates are as follows: 1. Copper: 0.22 mpy (5 mg/coupon) 2. Brass: 0.46 mpy (10 mg/coupon). 3. Refer to ASTM G1-90, see section 11, for guidance on calculating various corrosion rates. C. Fluids should meet all properties defined in Table 1, below.
+
+Table 1: Typical Properties of PG 25 and PG 55 Heat Transfer Fluids
+
+Characteristic Performance Appearance Clear and particulate free
+
+| | | PG25: 24.5 - 29.5% |
+| --- | --- | --- |
+| | | Inhibitors + water should make-up ~75% of formulation |
+| | | |
+| Propylene Glycol, volume % | | PG55: 53.0 - 57.5% |
+| | | Inhibitors + water should make-up ~45% of formulation |
+| | | |
+| | | Biocides are not necessary when glycol concentration remains |
+| | | above 25% by volume, as the fluid is considered bio-static |
+
+PG25: 9 to 15°F (-13 to -9 °C) PG55: -37 to -51 °F (-38 to -46°C)
+
+Freeze Point
+
+8.0 - 10.5 Fluid pH is dependent on corrosion inhibitor formulation and may be lower when using organic acid technology (OAT)
+
+Fluid pH
+
+>4 mL, based on the diluted fluid
+
+Unadjusted Reserve Alkalinity
+
+Measure of the buffering capacity of the fluid
+
+Copper <2 ppm
+
+Iron <2 ppm
+
+<20 ppm
+
+Total Hardness
+
+High hardness values indicate the use of poor-quality water
+
+PAGE 10
+
+##### 2.2 INHIBITORS AND ADDITIVES
+
+Heat transfer fluids for liquid cooled computer racks contain corrosion inhibitors and, generally, antifoam and dye that are designed for this application. If applicable, all inhibitors and additives which are introduced into the system should be supplied and recommended by the fluid supplier following analysis of a system sample.
+
+### 3 Safety
+
+##### 3.1 SAFETY CONSIDERATIONS
+
+Follow the guidance below when handling propylene glycol-based heat transfer fluids:
+
+1. Refer to heat transfer fluid SDS before beginning any work. Wear appropriate PPE such as safety glasses or 
+goggles, nitrile or other impervious gloves and suitable clothing when handling the fluid. 
+2. Using appropriate safety equipment, small spills may be soaked up with common absorbent material. For 
+large spills, the fluid should be pumped into suitable containers. Residual material should be cleaned up 
+with water. 
+3. Flush eyes or skin if exposed to the heat transfer fluid. 
+4. Avoid exposure to glycol mists. 
+5. Unopened containers, stored out of direct sunlight and high humidity (dry) have a shelf life which is 
+determined by the heat transfer fluid supplier. Do not store in galvanized steel containers. 
+
+Chloride <5 ppm
+
+High chloride values indicate the use of poor-quality water
+
+Sulfate <10 ppm
+
+High sulfate values indicate the use of poor-quality water
+
+PAGE 11
+
+### 4 System Design Considerations
+
+##### 4.1 WETTED MATERIALS
+
+The materials that touch the fluid are collectively referred to as the wetted materials. The data center operator shall certify compatibility of the heat transfer fluid with liquid cooled rack system including all wetted components (including but not limited to pump seals, heat exchangers and quick connect seals) and the wetted material list at maximum operating temperatures as in section 4.2. The heat transfer fluid specification is tied closely to the wetted material list. Any additions to the wetted material list will require (re)evaluation of the heat transfer fluid. The materials in the tables 2 and 3, below, have been identified as suitable to use.
+
+Table 2: Acceptable Metals and Metal Alloys
+
+Materials Details Comments
+
+Copper
+
+CDA110, CDA1020, CDA1220, CDA1100
+
+Brass of <15% zinc
+
+Brass used for quick connectors can lead to zinc coming into solution over time. There may be potential for dezincification of brass connectors and valves. Zinc levels can be monitored in the fluid to assess the need to inspect these components for replacement. If brass is used as a wetted material, it is recommended that annual zinc analysis be completed via ICP.
+
+Stainless Steel
+
+304L, 316L or higher grades preferred
+
+Most SS alloys should be acceptable, including 410.
+
+Nickel, high nickel alloys
+
+Avoid Hastelloy B and other alloys designed for reducing environments
+
+**See note below
+
+PAGE 12
+
+Chromium
+
+Plated corrosion resistant materials
+
+Titanium Grade 2 (UNS R50400) 
+B-Ni-6 88.9% Ni + 11% P Brazing material in copper cold plate 
+BCuP-2 93% Cu + 7% P 
+
+BCuP-3
+
+Cu 89%, Ag 5%, P 6%, others 
+0.15% 
+BCuP-4 Cu 87%, Ag 6%, P 7% Brazing material in copper cold plate 
+BCuP-5 Cu 80%, Ag 15%, P 5% Brazing material in copper cold plate 
+
+Cu 74.9%, Sn 15.6%, P 5.3%, Ni 4.2%
+
+TF-H600F
+
+| | | **See note below |
+| --- | --- | --- |
+| | | |
+| B-Ni-6 | 88.9% Ni + 11% P | Brazing material in copper cold plate |
+| | | |
+| | | |
+| BCuP-4 | Cu 87%, Ag 6%, P 7% | Brazing material in copper cold plate |
+| BCuP-5 | Cu 80%, Ag 15%, P 5% | Brazing material in copper cold plate |
+| | Cu 74.9%, Sn 15.6%, P 5.3%, Ni | Brazing material in copper cold plate |
+| **Quick connects made of stainless steel should be used. chromium plated quick connects until these are proven satisfactory. plating can be worn away and the underlying metal exposed to the heat transfer fluid. inhibitors may protect underlying metal, the galvanic couple created by the exposed metal with the plating material may increase the corrosion tendency. and potentially copper, into the heat transfer fluid. performance of the copper cold plates have not been determined at this time and identification of acceptable thickness of plating metals is outside the scope of this document. should be inspected regularly or as needed based on fluid analysis. Table 3: Acceptable Elastomers, Plastics and Other Materials | | It is recommended to avoid nickel plated and This is because after many uses, the Although corrosion For example, brass corrosion will introduce zinc, The consequences of dissolved zinc on the long-term Plated quick connects |
+| Materials | Details | Comments |
+| | | |
+| | | |
+| | | |
+| | | |
+| | Fluorinated ethylene propylene | |
+
+**Quick connects made of stainless steel should be used. It is recommended to avoid nickel plated and chromium plated quick connects until these are proven satisfactory. This is because after many uses, the plating can be worn away and the underlying metal exposed to the heat transfer fluid. Although corrosion inhibitors may protect underlying metal, the galvanic couple created by the exposed metal with the plating material may increase the corrosion tendency. For example, brass corrosion will introduce zinc, and potentially copper, into the heat transfer fluid. The consequences of dissolved zinc on the long-term performance of the copper cold plates have not been determined at this time and identification of acceptable thickness of plating metals is outside the scope of this document. Plated quick connects should be inspected regularly or as needed based on fluid analysis.
+
+Table 3: Acceptable Elastomers, Plastics and Other Materials
+
+Materials Details Comments
+
+EPDM
+
+Ethylene propylene diene monomer
+
+Viton A Viton GF Viton ETP
+
+FEP
+
+Fluorinated ethylene propylene polymer
+
+PAGE 13
+
+Teflon TM
+
+PTFE
+
+Polytetrafluorinatedethylene polymer
+
+| | PP | Polypropylene | | | |
+| --- | --- | --- | --- | --- | --- |
+| | HDPE | High density polyethylene | | | |
+| | PEEK | Poly ether ether ketone | | | |
+
+Loctite 567 Thread sealant
+
+Other thread sealants might be acceptable but should be verified; avoid anything that can introduce particles into the fluid
+
+##### 4.2 OPERATING TEMPERATURE
+
+The typical operating temperature of closed loop cooling systems is <49°C (120°F) and is not expected to be >66°C (150°F). Operating above 66°C (150°F) will require review of the wetted materials list to ensure compatibility at the new temperature.
+
+##### 4.3 SYSTEM LEAK CHECKS
+
+During the execution of system leak checks ensure that the fluid used is compatible with the system design and meets the requirements in section 5.3.1.B or 5.3.2.B.
+
+##### 4.4 MECHNICAL DESIGN CONSIDERATIONS
+
+System and component redundancy design should be consistent with the redundancy requirements of the local system.
+
+Liquid Addition and Drainage: Install ports to drain and fill heat transfer fluid and inject chemicals to maintain fluid chemistry while the TCS loop remains operational. The size and complexity of the addition system should be based local system requirements. All components used for fluid addition and draining should comply with the wetted materials list and any chemicals to be added. The TCS loop should be designed to have complete drainage without any dead leg(s) to trap contaminants.
+
+PAGE 14
+
+Filtration: Side-stream filtration (< 5 µm) is recommended to keep particulates from trapping inside the cold 
+plate microchannel. To achieve the targeted range, it is recommended to start with a higher micron size and 
+progressively lower to the 5 µm target. Provide side stream filtration (< 5 µm) with pressure gauges in and out in 
+each system. 
+A. System shall filter 10% of the flow rate of the heat transfer fluid. 
+B. Filter media shall be approved as a wetted material and be compatible with the heat transfer fluid. 
+C. Check filters frequently for loading (with optional pressure gauges measuring delta-P), including 
+biocontamination, especially during start-up and after any changes. 
+D. Each CDU System may also contain less fine (e.g., 50 µm) inline filter(s) to protect heat exchangers 
+and quick connectors. Such filtration shall be approved by the component manufacturer and is not a 
+substitute for the side stream filter(s). 
+
+Automated Monitoring: For larger systems (e.g., >250 gallons in a single TCS loop) or critical systems, consider continuous monitoring of heat transfer fluid chemistry, pH, corrosion rate and turbidity.
+
+### 5 Fluid Installation and System Operation
+
+##### 5.1 OVERVIEW
+
+1. Provide all chemicals, equipment, filters, and labor necessary to bring heat transfer fluid in conformance 
+with the specified requirements. Perform all work in accordance with the supplier's published 
+recommendations and warranty requirements. 
+2. The heat transfer fluid shall be used from an unopened, or an opened container that has been properly 
+sealed and stored and meets the supplier's shelf-life recommendations, to ensure no debris is introduced 
+into the system. 
+3. Coordinate with all those supplying wetted materials and confirm compatibility. Submit written 
+certification as specified in Submittals (section 8). 
+4. Provide secondary containment for all hazardous chemicals. 
+5. Follow the guidelines, below, for fluid installation and start-up procedures. Collect a sample from each 
+system and retain at least until the CDU fluid is replaced. 
+
+PAGE 15
+
+##### 5.2 START-UP
+
+Certificate of Analysis Vendors may supply a certificate of analysis (COA) available for manufactured products that demonstrates product quality. Maintain a copy of COA for your records, as specified in Submittals (section 8).
+
+Cleanliness 
+Confirm, with the assistance of the installer/fabricator, proper handling and cleanliness of all products with fluid 
+passages including propylene glycol-cooled servers and datacom equipment: 
+1. Confirm all products in the cooling loop are in conformance with the wetted material list. 
+2. Confirm all components are clean and factory sealed until installation. 
+3. Ensure that the cooling loop components are clean and free of soldering and/or brazing fluxes. 
+4. Notify the owner immediately if conditions indicate potential mishandling and cleanliness and develop 
+a remediation plan to correct such conditions. 
+Compatibility 
+Fluids and components shall be as recommended by the heat transfer fluid supplier for compatibility with the 
+TCS loop’s wetted materials and operating conditions and shall also meet required governmental and local 
+environmental regulations for the treatment of hydronic systems. 
+
+##### 5.3 SYSTEM FILL PROCEDURE
+
+Cleaning 
+After piping systems are erected and proven free of leaks, and prior to the final installation, follow the steps below: 
+New systems: 
+A. Install a new line filter(s). 
+B. Fill the system with the selected propylene-glycol based heat transfer fluid and circulate for 30 
+minutes at room temperature to ensure thorough mixing and suspension of any manufacturing 
+debris. Hydro-testing may be performed at this time. 
+C. After circulation, drain all heat transfer fluid and replace any inline filters in the system (refer to 
+section 4.4, Filtration). 
+D. Continue to System Fill 
+
+PAGE 16
+
+Existing systems: All lines and materials should be cleaned and thoroughly flushed before charging the 
+system with new heat transfer fluids (using the guidelines below). This is especially important if fluid which 
+was previously in the system is incompatible with the new fluid. Always confirm the acceptability of this 
+procedure with the heat transfer fluid supplier. Incompatible fluids will likely require additional action. For 
+systems where corrosion is already evident, contact the fluid supplier for guidance on system cleaning before 
+installing the new fluid. 
+A. Drain the used heat transfer fluid. 
+B. Fill the system with deionized water, distilled water or water meeting the following 
+i. Chloride (as Cl) < 25 ppm 
+ii. Sulfate (as SO4) < 25 ppm 
+iii. Calcium (as CaCO3) < 25 ppm 
+iv. Magnesium (as CaCO3) < 25 ppm 
+v. Total Hardness (as CaCO3) < 50 ppm 
+C. Operate the pump for 30 minutes to circulate the water. 
+D. Drain and repeat a second time with fresh water, as defined in section B above. 
+E. Replace the filter(s) (refer to Filtration, section 4.4, for additional information and guidance). 
+F. Fill with heat transfer fluid for use in removing the rinse water. 
+G. Operate the pump for 30 minutes. 
+H. Drain heat transfer fluid and replace all cooling system filters. 
+I. Dispose of used fluids according to Fluid Disposal, section 7.3. 
+J. Continue to section Start-up Procedures. 
+
+Notes: Avoid chemical cleaners and detergents due to their corrosive nature and potential for remnants in the heat transfer fluid unless following the guidance of the supplier of the new heat transfer fluid. Only use chemical cleaners or detergents after consultation with technical support personnel from the heat transfer fluid supplier.
+
+System Fill: Fill system with heat transfer fluid. Dilution water, if not utilizing pre-mixed fluid, shall be high 
+purity, such as distilled, deionized or reverse osmosis, and should contain: 
+1. Chloride (as Cl) < 25 ppm 
+2. Sulfate (as SO4) < 25 ppm 
+3. Total Hardness (as CaCO3) < 50 ppm 
+
+| | 1. | | Chloride (as Cl) | | | | < 25 ppm | | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | 2. | | Sulfate (as SO4) | | | | < 25 ppm | | | | |
+| | 3. | | Total Hardness (as CaCO3) | | | | < 50 ppm | | | | |
+
+PAGE 17
+
+Start-up Procedure: During final system start-up, with all components in line and specified heat transfer fluid in place, bleed air from the system if necessary and check for any system leaks while circulating fluid for 15 minutes. Take a representative sample from each CDU and retain for the life of the fluid. Be sure to properly label samples with identifying unit, fluid identity and date. See Annual Analytical Analysis, section 6.2, for information on sample analysis. It is advisable to submit this initial sample for analysis to ensure there was no contamination and provide the time zero values. Monitor the fluid level during the first few hours of operation and add additional heat transfer fluid to achieve the desired fill volume.
+
+##### 5.4 OPERATION
+
+Guidelines 
+Maintain system in accordance with treatment plan and owner’s manual. Monitor the system as specified in 
+Monitoring & Maintenance, section 6, and maintain heat transfer fluid quality per the performance requirements 
+listed in Table 4. 
+
+### 6 Monitoring & Maintenance
+
+##### 6.1 ROUTINE MONITORING
+
+Overview 
+It is recommended that on-site testing be performed on a quarterly basis with results documented (refer to 
+Section 8). Testing can be performed to confirm the heat transfer fluid remains within the supplier’s 
+recommended guidelines. 
+
+On-Site Testing 1. Fluid pH - Handheld pH meters, or pH paper calibrated to 0.5 units within a pH range of 7 to 11, can be used to verify whether the heat transfer fluid has an acceptable pH (refer to Table 4). pH testing supplies can be purchased from many suppliers such as Fisher Scientific or Acustrip. 2. Glycol Concentration - A handheld refractometer can be used to monitor propylene glycol concentration to ensure fluid is not over or under-diluted (refer to Table 4). Refractometers can be purchased from MISCO or Fisher Scientific and should be suitable for propylene glycol fluids at operating concentrations.
+
+PAGE 18
+
+3. Fluid Appearance - A visual check of the fluid should show as the color specified by the fluid supplier and free of contaminants or cloudiness.
+
+Deviations from Acceptable Ranges 1. Fluid pH - If fluid pH falls outside of the fluid supplier's recommended range, fluid should be replaced, unless further adjustments have been recommended by the fluid supplier. 2. Glycol Concentration - Glycol concentration is defined in Table 4. If glycol concentration falls outside of this range, fluid should be replaced. For larger systems, contact fluid supplier for guidance on adjusting glycol concentration. 3. Fluid Appearance - If evidence of sediment, debris or particulates are noted, this may indicate material incompatibility, corrosion or equipment issues which should be investigated before filtering or filling the system with new fluid.
+
+##### 6.2 ANNUAL ANALYTICAL ANALYSIS
+
+Overview Testing shall be performed by a qualified analytical laboratory on an annual basis, if deemed necessary. Please contact your supplier to discuss available testing options. Some suppliers may provide a free annual analysis for larger volume systems. Analytical reports should indicate the following, at a minimum: propylene glycol concentration and freeze point, pH, reserve alkalinity, chloride, visual appearance, sediment. These are listed in Table 4. Optional testing may include inhibitor concentration(s), total hardness, sulfate, degradation acids, dissolved metals . Dissolved metals tested should be consistent with the wetted materials in the TCS loop.
+
+External Laboratory Requirements 
+Laboratory should be managed or recommended by the heat transfer fluid supplier and be capable of 
+performing a comprehensive heat transfer fluid analysis. The laboratory should have a service department and 
+qualified technical service representatives on staff that is capable of analyzing results and making appropriate 
+fluid recommendations. Alternatively, the supplier may provide the interpretations of the results and make the 
+fluid recommendations when a third-party laboratory is used. 
+
+PAGE 19
+
+Acquiring Fluid Sample 
+Appropriate PPE should be worn when collecting a representative fluid sample, such as safety glasses, 
+impermeable gloves (e.g., nitrile) and long sleeves. Fluid should be collected in a clean, dry, unused sample 
+bottle with 4-6 oz. of sample being necessary for analysis. Label sample bottle with all identifying information 
+such as company name and system name/number. Keep sample labeling consistent each time samples are sent 
+for analysis. Ship the samples to the identified testing lab via the preferred carrier, submitting all necessary 
+paperwork. Retain a copy of the analytical report for quality assurance purposes. 
+
+Fluid Specific Parameters Heat transfer fluid quality shall be maintained as specified in Table 4, below:
+
+Table 4: Heat transfer fluid quality characteristics
+
+ASTM D3321
+
+Propylene Glycol, vol %
+
+| Characteristic | Performance Test Method |
+| --- | --- |
+| Appearance | Clear and particulate free Visual |
+| | PG25: 24.5 - 29.5% ASTM D3321 *inhibitors + water should make-up ~75% of formulation PG55: 53.0 - 57.5% *inhibitors + water should make-up ~45% of formulation *Biocides are not necessary when glycol concentration remains above 25% by volume, as the fluid is considered bio-static *Weight % propylene glycol will be ~0.5-1.0% greater than volume % propylene glycol |
+| Freeze Point | PG25: 9 to 15°F (-13 to -9 °C) PG55: -37 to -51 °F (-38 to -46°C) *Increasing glycol concentration will result in a lower freeze point |
+| pH | 8.0 - 10.5 ASTM D1287 |
+| Reserve Alkalinity | >4 mL, based on the fluid as-is ASTM D1121 |
+
+PAGE 20
+
+Total Hardness <100 ppm
+
+ASTM D6130
+
+| | *Measure of the buffering capacity of the fluid | |
+| --- | --- | --- |
+| Copper | <2 ppm | ASTM D6130 |
+| Iron | <2 ppm | ASTM D6130 |
+| Total Hardness | <100 ppm *High hardness values indicate the use of poor-quality | ASTM D6130 water |
+| Chloride | <25 ppm *High chloride values indicate the use of poor-quality | ASTM D5827 water |
+| Sulfate | <25 ppm *High sulfate values indicate the use of poor-quality | ASTM D5827 water |
+
+Chloride <25 ppm
+
+ASTM D5827
+
+Sulfate <25 ppm
+
+ASTM D5827
+
+##### 6.3 SYSTEM ADJUSTMENTS
+
+Overview 
+Adjustments should only be made under guidance from the heat transfer fluid supplier, based on results of 
+analytical testing. Assure effectiveness and compatibility of additives with wetted materials and subsequent 
+chemical treatment. Chemicals shall meet required governmental and local environmental regulations for the 
+treatment of hydronic systems. 
+
+Guidelines If additives or inhibitors have been recommended by the fluid supplier, the system volume must be known before any dosing can occur. Document any changes that are made to each system.
+
+Making System Adjustments Add the predetermined amount of inhibitor or additives to the system reservoir or chemical addition point while the heat transfer fluid is circulating. The technical support team at the fluid supplier should be able to calculate exactly how much inhibitor should be added based on the exact system volume. Circulate fluid for 30 minutes and collect a representative sample to submit for follow-up testing. If results don’t align with Table 4, consult with technical support at the fluid supplier. Keep a record of the date adjustments were made, the system which
+
+PAGE 21
+
+was adjusted and the amount and type of inhibitor added. Also keep a record of the analytical report from before and/or after fluid addition is complete.
+
+### 7 Fluid Lifetime and Disposal
+
+##### 7.1 USEFUL LIFE
+
+Overview 
+The useful life of the fluid can be estimated by the specific application, considering the operating temperature, 
+materials of construction and fluid used. If the system is operated within the guidelines outlined in this 
+document, avoiding materials of construction which are known to cause system issues, an anticipated five-year 
+fluid life could be achieved. 
+Guidelines 
+Heat transfer fluid should be replaced with new fluid at the end of its useful life, per the supplier’s guidelines, or 
+when it no longer meets the heat transfer fluid specification defined in Table 4. It is not standard policy for fluid 
+suppliers to provide a guarantee for the fluid performance or life span. 
+
+##### 7.2 REGULATORY CONSIDERATIONS
+
+Refer to supplier’s SDS to review regulatory information.
+
+##### 7.3 FLUID DISPOSAL
+
+DO NOT DUMP INTO ANY SEWERS, ON THE GROUND, OR INTO ANY BODY OF WATER. All disposal practices must be in compliance with all Federal, State/Provincial and local laws and regulations. Regulations may vary in different locations. Waste characterizations and compliance with applicable laws are the responsibility solely of the waste generator. Contact fluid recycler if recycling is preferred over disposal. Most used propylene glycol based heat transfer fluids can be supplied as feedstock to commercial glycol recycling companies.
+
+PAGE 22
+
+##### 7.4 SYSTEM FILL AFTER DISPOSAL AND CLEANING
+
+Check side-stream and in-line filters, if applicable, and replace as needed. Fill the system with new heat transfer fluid. Refer System Cleaning and Filling, section 5.3, for guidance on system fill.
+
+### 8 Submittals
+
+##### 8.1 RECORDS
+
+1. Maintain a file for each system with the identity and source of the heat transfer fluid, copies of all fluid 
+analyses and a history of cooling system components that were replaced. 
+2. Maintain a file that documents the volume for each system on-site, which is critical for inhibitor addition. 
+3. Maintain a file that documents any adjustments that were made to each system, including the date, 
+amount and type of inhibitor added. 
+4. Maintain a record of the materials of construction of each system (metals, elastomers, etc.) as well as 
+confirmation of compatibility. 
+
+### 9 Heat Transfer Fluids
+
+##### 9.1 PG25 HEAT TRANSFER FLUIDS
+
+The following PG 25 heat transfer fluids have been used by the authors for single-phase cold plate-based liquid cooled racks. This is not a complete list as other heat transfer fluids may also be considered acceptable for use after appropriate testing has been completed.
+
+• DOWFROST TM LC 25 Heat Transfer Fluid - contact Dow Chemical for more information 
+• JEFFCOOL TM ISF25 Heat Transfer Fluid - contact Third Coast Chemicals for more information 
+
+PAGE 23
+
+##### 9.2 PG55 HEAT TRANSFER FLUIDS
+
+The following PG 55 heat transfer fluids have been used by the authors for single-phase cold plate-based liquid cooled racks. This is not a complete list as other heat transfer fluids may also be considered acceptable for use after appropriate testing has been completed.
+
+• DOWFROST TM LC 55 Heat Transfer Fluid - contact Dow Chemical for more information 
+• JEFFCOOL TM ISF55 Heat Transfer Fluid - contact Third Coast Chemicals for more information 
+
+### 10 Conclusion
+
+In this whitepaper, the contributors have developed a series of guidelines on how to deploy propylene glycol based heat transfer fluids for single-phase cold plate-based liquid cooled racks. Some key areas included wetted materials to be used with the fluids, as well as properties and maintenance. The authors have also worked alongside industry experts from other industry forums such as ASRHAE completing similar types of documents to deliver a consistent message across the ecosystem.
+
+### 11 References
+
+The publications listed below form a part of this whitepaper, to the extent referenced. 1. Open Compute Project (OCP) A. Liquid Cooling Integration and Logistics White Paper
+
+• https://www.opencompute.org/documents/ocp-liquid-cooling-integration-and-logistics white-paper-revision-1-0-1-pdf B. Cooling Environments Advanced Cooling Solutions 
+• https://www.opencompute.org/wiki/Rack_%26_Power/Advanced_Cooling_Solutions 2. American Society for Testing and Materials (ASTM) A. “Standard Test Method for Corrosion Test for Heat Transfer Fluids in Glassware,” ASTM D8040-17 (West Conshohocken, PA, ASTM). B. “Standard Practice for Preparing, Cleaning, and Evaluating Corrosion Test Specimens,” ASTM G1-90 (West Conshohocken, PA, ASTM). 
+
+PAGE 24
+
+C. “Standard Test Method for Analysis of Engine Coolant for Chloride and Other Anions by Ion 
+Chromatography,” ASTM D5827-22 (West Conshohocken, PA, ASTM). 
+D. “Standard Test Method for Use of the Refractometer for Field Test Determination of the 
+Freezing Point of Aqueous Engine Coolants,” ASTM D3321-19 (West Conshohocken, PA, ASTM). 
+E. “Standard Test Method for pH of Engine Coolants and Antirusts,” ASTM D1287-11(2020) (West 
+Conshohocken, PA, ASTM). 
+F. “Standard Test Method for Reserve Alkalinity of Engine Coolants and Antirusts,” ASTM D1121- 
+11(2020) (West Conshohocken, PA, ASTM). 
+G. “Standard Test Method for Determination of Silicon and Other Elements in Engine Coolant by 
+Inductively Coupled Plasma-Atomic Emission Spectroscopy,” ASTM D6130-11(2018) (West 
+Conshohocken, PA, ASTM). 
+
+### 12 License
+
+OCP encourages participants to share their proposals, specifications and designs with the community. This is to promote openness and encourage continuous and open feedback. It is important to remember that by providing feedback for any such documents, whether in written or verbal form, that the contributor or the contributor's organization grants OCP and its members irrevocable right to use this feedback for any purpose without any further obligation.
+
+It is acknowledged that any such documentation and any ancillary materials that are provided to OCP in connection with this document, including without limitation any white papers, articles, photographs, studies, diagrams, contact information (together, “Materials”) are made available under the Creative Commons Attribution-ShareAlike 4.0 International License found here: https://creativecommons.org/licenses/by-sa/4.0/, or any later version, and without limiting the foregoing, OCP may make the Materials available under such terms.
+
+As a contributor to this document, all members represent that they have the authority to grant the rights and licenses herein. They further represent and warrant that the Materials do not and will not violate the copyrights or misappropriate the trade secret rights of any third party, including without limitation rights in intellectual property. The contributor(s) also represent that, to the extent the Materials include materials protected by copyright or trade secret rights that are owned or created by any third-party, they have obtained permission for
+
+PAGE 25
+
+its use consistent with the foregoing. They will provide OCP evidence of such permission upon OCP’s request. This document and any "Materials" are published on the respective project's wiki page and are open to the public in accordance with OCP's Bylaws and IP Policy. This can be found at http://www.opencompute.org/participate/legal-documents/. If you have any questions please contact OCP.
+
+### 13 About Open Compute Foundation
+
+At the core of the Open Compute Project (OCP) is its community of hyperscale data center operators, joined by telecom and colocation providers and enterprise IT users, working with vendors to develop open innovations that, when embedded in product are deployed from the cloud to the edge. The OCP Foundation is responsible for fostering and serving the OCP Community to meet the market and shape the future, taking hyperscale led innovations to everyone. Meeting the market is accomplished through open designs and best practices, and with data center facility and IT equipment embedding OCP Community-developed innovations for efficiency, at scale operations and sustainability. Shaping the future includes investing in strategic initiatives that prepare the IT ecosystem for major changes, such as AI & ML, optics, advanced cooling techniques, and composable silicon. Learn more at www.opencompute.org.
+

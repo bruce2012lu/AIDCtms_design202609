@@ -1,0 +1,120 @@
+
+===== p.1 =====
+
+===== p.2 =====
+
+===== p.3 =====
+
+===== p.4 =====
+
+===== p.5 =====
+
+===== p.6 =====
+
+===== p.7 =====
+
+===== p.8 =====
+
+===== p.9 =====
+
+===== p.10 =====
+
+===== p.11 =====
+
+===== p.12 =====
+
+===== p.13 =====
+
+===== p.14 =====
+
+===== p.15 =====
+
+===== p.16 =====
+
+===== p.17 =====
+
+===== p.18 =====
+
+===== p.19 =====
+
+===== p.20 =====
+
+===== p.21 =====
+
+===== p.22 =====
+
+===== p.23 =====
+
+===== p.24 =====
+
+===== p.25 =====
+
+===== p.26 =====
+
+===== p.27 =====
+
+===== p.28 =====
+
+===== p.29 =====
+
+===== p.30 =====
+
+===== p.31 =====
+
+===== p.32 =====
+
+===== p.33 =====
+
+===== p.34 =====
+
+===== p.35 =====
+
+===== p.36 =====
+
+===== p.37 =====
+
+===== p.38 =====
+
+===== p.39 =====
+CORRECTIONS OF LAMINAR IMPINGING JET EQUATIONS
+J.H. LIENHARD V
+The equation for C3 is a bit complicated, and it has repeatedly carried typographical
+errors of one sort or another. These errors appear in: Liu and Lienhard (1989, eq. 16);
+Liu, Lienhard and Lombara (1991, eq. 4); Lienhard (1995, Table 5); and Lienhard (2006,
+eq. 36).
+The correct equation for C3 is:
+(1)
+C3 =
+0.267(d/r0)1/2
+h
+0.1713 (d/r0)2 + (5.147 r0/Red d)
+i2
+Re1/2
+d
+−1
+2
+r0
+d
+2
+Equation (78) and Table 5 in Lienhard (1995) give an incorrect expression for Nud. The
+correct expression is:
+(2)
+Nud =
+qw d
+k(Tw −Tf) =
+8 RedPr f(Cf, Pr)
+49 (hr/d2) + 28 (r/d)2 f(Cf, Pr)
+References
+[1] X. Liu and J.H. Lienhard V, 1989, “Liquid Jet Impingement Heat Transfer on Uniform Heat Flux
+Surface,” Heat Transfer Phenomena in Radiation, Combustion, and Fires, ASME HTD, Vol.106, pp.523-
+530. (26th ASME/AIChE National Heat Transfer Conference, Philadelphia, Aug. 6-9, 1989)
+[2] X. Liu, J.H. Lienhard V, and J.S. Lombara, 1991, “Convective Heat Transfer by Impingement of Circular
+Liquid Jets,” J. Heat Transfer, Vol. 113, No. 3, pp. 571-582.
+[3] J.H. Lienhard V, 1995, “Liquid Jet Impingement,” Annual Review of Heat Transfer, C.L. Tien ed.,
+Vol. 6, Chpt. 4. New York: Begell House, pp. 199-270.
+[4] J.H. Lienhard V, 2006, “Heat Transfer by Impingement of Circular Free-surface Liquid Jets,” in S.C.
+Mishra, B.V.S.S.S. Prasad, and S.V. Garimella (eds.), Heat and Mass Transfer 2006. New Delhi: Tata
+McGraw-Hill, pp. 211–226. (Proc. 18th Natl. and 7th Intl. ISHMT-ASME Heat and Mass Transfer
+Conf., Guwahati, India 4–6 Jan. 2006).
+Date: July 6, 2015.
+1

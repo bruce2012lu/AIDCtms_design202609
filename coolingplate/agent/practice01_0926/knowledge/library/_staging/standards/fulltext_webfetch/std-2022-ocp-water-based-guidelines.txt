@@ -1,0 +1,585 @@
+## Guidelines for Using Water-Based
+
+## Transfer Fluids in Single-Phase Cold
+
+## Plate-Based Liquid-Cooled Racks
+
+Authors: 
+Dale Sartor | Retired Lawrence Berkeley National Laboratory 
+F. Philip Yu and Craig Myers | NALCO Water 
+Sean Barlett | Meta 
+Sean T. Sivapalan | Intel 
+
+PAGE 2
+
+### Executive Summary
+
+This whitepaper provides guidelines for the installation and operation of using a water-based heat transfer fluid in liquid-cooled computer racks. The guidelines include details on the heat transfer fluid and wetted materials that are used for quick connects, in-rack manifold design, tubing (flex hoses), pipping, operating conditions including temperature, pressure, filtration, and safety.
+
+The overall goal is to encourage multi-vendor solutions for liquid-cooled computer racks where the liquid cooling infrastructure can be reused through multiple refreshes of liquid-cooled computer hardware. Unlike a homogeneous supercomputer system, a rack meeting this whitepaper may hold disparate information technology hardware from multiple suppliers.
+
+There are multiple options for liquid cooling of IT racks, including options for the heat transfer fluid. For example, OCP has developed a whitepaper for a transfer fluid using glycol-based heat transfer fluid. The owner and design team will need to assess the specific needs of the project to determine the suitability of this whitepaper and modify it accordingly.
+
+This document is provided “AS IS,” and authors and copyright holders make no representations or warranties, express or implied including, but no limited to, warranties of merchantability, fitness for a particular purpose; non-infringement, or title; that the contents of the document are suitable for any purpose; nor that the implementation of such contents will not infringe any third-party patents, copyrights, trademarks or other rights. Copyright holders will not be liable for any direct, indirect, special or consequential damages arising out of any use of the document or the performance or implementation of the contents thereof.
+
+Use these guidelines at your own risk and only with full understanding of its content. The authors disclaim any and all liability for any errors, omissions, inaccuracies or incompleteness contained herein. Project owners and engineers must verify the appropriate use of these guidelines for specific projects.
+
+PAGE 3
+
+### Table of Contents
+
+1 General Overview 5
+
+1.1 OBJECTIVES 5
+
+1.2 DESCRIPTION OF WORK 6
+
+2. Heat Transfer Fluid Typical Properties 7
+
+2.1 APPROVED WATER-BASED HEAT TRANSFER FLUID 7
+
+2.2 TYPICAL PROPERTIES OF WATER-BASED HEAT TRANSFER FLUID 7
+
+3 Safety 9
+
+4 System Design Consideration 9
+
+4.1 COMPATIBILITY 9
+
+4.2 OPERATING TEMPERATUR 12
+
+4.3 LEAK CHECKS 12
+
+4.4 MECHANICAL DESIGN CONSIDERATIONS 12
+
+5 Fluid Installation and System Operations 13
+
+5.1 OVERVIEW 13
+
+5.2 START-UP 14
+
+5.3 CLEANING AND FILLING 14
+
+5.4 OPERATION 16
+
+6 Moniotoring and Maintenance 16
+
+6.1 ROUTINE MONITORING 16
+
+6.2 ADJUSTMENT 18
+
+7 Fluid Lifetime and Disposal 19
+
+7.1 USEFUL LIFE 19
+
+7.2 REGULATION CONSIDERATION 19
+
+7.3 FLUID DISPOSAL 19
+
+PAGE 4
+
+8 Submittals 19
+
+9 Conclusion 20
+
+10 References 221
+
+11 License 2022
+
+12 About Open Compute Foundation 23
+
+13 Acknowledgement Error! Bookmark not defined.
+
+PAGE 5
+
+### 1 General Overview
+
+1.1 OBJECTIVES 
+The objective of this whitepaper is to propose and promote guidelines for the operation of liquid- cooled 
+computer racks using a water-based heat transfer fluid. The whitepaper below would be one section of a 
+comprehensive specification for the overall Liquid-Cooled Rack System. The other sections of the whitepaper 
+would include Wetted Materials, Quick Connects, In-rack Manifold Design, Tubing (flex hoses), Piping, 
+Instrumentation and Controls, Operating conditions including Temperature, Pressure, Filtration, and Safety. All 
+sections within this whitepaper for a Liquid-Cooled Rack must be mutually compatible. Compatibility is driven 
+by the wetted materials, the heat transfer fluid, connectors, and operating conditions (e.g., temperatures and 
+pressure). In the case of the heat transfer fluid, compatibility is particularly important with the wetted materials 
+list. 
+
+The heat transfer fluid would be used in the secondary or closed loop between the heat exchanger (e.g., Coolant Distribution Unit (CDU)) and the cold plates or other heat exchangers within the rack/servers. This loop is designated the Technology Cooling System (TCS) by the American Society of Heating, Refrigerating and Air Conditioning Engineers (ASHRAE). The overall goal is to encourage multi-vendor solutions for liquid-cooled computer racks where the liquid cooling infrastructure can be reused through multiple refreshes of liquid cooled computer hardware. Unlike a homogeneous supercomputer system, a rack meeting this whitepaper may hold disparate information technology hardware from multiple suppliers.
+
+The primary audiences for this whitepaper are design and facility engineers and managers who will be responsible for the design, procurement, setup and operation of the TCS loop. A secondary audience is the liquid cooling equipment suppliers and water treatment vendors whose products could be utilized.
+
+Major components of this whitepaper include: 1. Water- based heat transfer fluid 2. A limited wetted materials list (additional materials require further care). 3. A closed secondary loop between the CDU (not specified) and the servers (not specified). A closed loop reduces the complexity of heat transfer fluid maintenance with very limited oxygen or new sources of contaminants. Both the CDU and the servers must be compatible with criteria list in this whitepaper (e.g., Wetted Materials List).
+
+PAGE 6
+
+4. This whitepaper does not address the Facility Water System (FWS) side of the CDU. It does assume that 
+the FWS is properly maintained and operated. 
+5. The initial fill will be with premade product or mixed on site with clean water and treated to assure high 
+quality (per Table 1 on section 2.2). 
+6. The operating temperature of the heat transfer fluid is not expected to exceed 66 °C (150 °F). 
+
+There are multiple options for liquid cooling of IT racks, including options for the heat transfer fluid. For example, OCP has developed a whitepaper for a propylene glycol (PG)-based heat transfer fluid. The owner and design team will need to assess the specific needs of the project to determine the suitability of this whitepaper and modify it accordingly. Further, the construction contractor, IT system supplier, and heat transfer fluid supplier should agree on the suitability and may propose alternatives (subject to approval). It is important that the heat transfer fluid treatment, as well as the allowed wetted materials, be thoroughly documented and maintained through refresh cycles and other future changes or additions to the system.
+
+Some guidelines contained herein will need to be adjusted relative to the scale or size of the project. The rigor of some guidelines may be reduced for small or less critical systems and increased for larger ones based on relative risk. For example, the frequency of fluid testing will likely be higher for larger or more critical systems, as would the use of automated monitoring. Each project will require customization of these guidelines.
+
+This work is being coordinated with other industry organizations including American Society of Heating, Refrigerating and Air Conditioning Engineers (ASHRAE), and the Energy Efficient High Performance Computing Working Group (EE HPC WG). Other whitepapers are being developed by OCP for other liquid cooling solutions such as immersion cooling and rear door heat exchangers.
+
+1.2 DESCRIPTION OF WORK 
+Provide water-based non-PG heat transfer fluid, holding reservoirs, equipment and labor for cleaning, flushing 
+and filling for each closed-loop computer cooling system. Products and services shall be from a company 
+regularly engaged in the production and service of water-based heating and cooling systems for mission critical 
+facilities such as data centers and datacom equipment. 
+
+Provide all testing equipment and outside lab analysis required for fluid monitoring during startup and operation of the closed-loop computer cooling system.
+
+PAGE 7
+
+Furnish the services of a qualified technical service representative to direct preparation and installation of water-based heat transfer fluid, including flushing, cleaning, filling, training, troubleshooting, acceptance testing, and monitoring. Service representative shall return to the site as specified below, see Section 6 Monitoring and Maintenance. At such times, service representative shall check heat transfer fluid quality and system operation, make adjustments per fluid supplier’s recommendations, instruct and advise operating personnel, and provide written status reports.
+
+### 2 Heat Transfer Fluid Typical Properties
+
+#### 2.1 APPROVED WATER-BASED HEAT TRASNFER FLUID
+
+A. Fluid must contain water-based heat transfer fluid as well as an inhibitor package which is designed for 
+the materials present in the datacenter closed loop cooling systems. There is high importance for the 
+inclusion of an inhibitor for copper corrosion protection. 
+B. Approved fluids should meet the criteria specified at Table 1 below, as a minimum. Have a Certificate 
+of Analysis (COA) and data indicating conformance to the properties. 
+C. If mixing on site, the COA is only referred to concentrated product(s) not the final diluted heat transfer 
+fluid. If performing on-site mixing, requirements for adequate mixing and chemical additional must be 
+considered. 
+
+#### 2.2 TYPICAL PROPERTIES OF WATER-BASED HEAT TRANSFER FLUID
+
+Maintain water quality/chemistry of the heat transfer fluid as defined below Table 1. Typical properties of water-based transfer fluid
+
+Parameter Performance Notes
+
+Total Suspended Solids (TSS)
+
+< 5 ppm Normally should not be present and initial fill should be less than 1 ppm. There should be no visible solids. For filtration guidance see section 4.4D.
+
+| Total Dissolved | < 1000 ppm after | Related to conductivity and may increase with water |
+| --- | --- | --- |
+| Solids (TDS) | treatment, then | treatment chemistry. Establish baseline after treatment and |
+| | monitor rate of rise | track changes over time. |
+
+PAGE 8
+
+Conductivity µS/cm or µmhos/cm < 1,500 µS/cm @25°C after treatment, then monitor rate of rise.
+
+Related to TDS. Addition of chemicals can affect conductivity. Baseline prior to and after treatment. If conductivity rises during operation, analyze to determine cause, and take corrective action. Temperature dependent.
+
+| Corrosion | | Cu ions: < 0.2 ppm | | Baseline metal ion levels using Inductively Couple Plasma |
+| --- | --- | --- | --- | --- |
+| byproducts/Ions | | Fe ions: < 0.1 ppm | | (ICP) Lab test for soluble ions iron and copper should be run. |
+| | | | | Increases above these baseline levels indicate active |
+| | | | | corrosion in the system. Typical baseline levels are less than |
+| | | | | 0.1 ppm but may be higher due to biocide/preservative |
+| | | | | addition to the fluid. Investigate cause of any metal ion |
+| | | | | increases over time (e.g., Cu ions > 0.2 ppm). |
+
+pH 8.0 - 10.5 Optional buffer (e.g., with borate) to maintain higher pH. Operating above a pH of 9.5 may reduce biocide additions.
+
+| Total Hardness | < 30 ppm | High hardness values indicate the use of poor makeup water |
+| --- | --- | --- |
+| Total Ca / Mg as | | quality. Fresh fill desired total hardness < 2 ppm. |
+| CaCO₃ | | |
+
+Turbidity <5 Nephelometric Turbidity Unit (NTU
+
+Lab test. The measure of particles in a fluid that affect the clarity of water. Fill should be clean and quality should not deteriorate. There should be no visible discoloration or opacity
+
+| Microbiological | | Fill: <1 Colony | | Fill with sterilized water with no detectable bacteria present. |
+| --- | --- | --- | --- | --- |
+| Control - Bacteria | | Forming Unit | | Use test methods for detection down to 1 CFU/ml or better. |
+| | | (CFU)/ml, | | Other technology can be used for tracking microbial activity |
+| | | Operational: <100 | | on site as long as the correlation can be established with |
+| | | CFU/ml | | conventional plate count enumeration. If bacteria levels |
+| | | | | increase significantly from baseline values, consider |
+| | | | | remediation activities to prevent overshooting the |
+| | | | | recommended limit. |
+
+>100 ppm or per Treatment Plan
+
+Corrosion Inhibitor: Azoles (e.g., tolytriazole-TTA or other azole products)
+
+For corrosion protection of copper and yellow metals. Azoles levels increased due to high surface to volume ratio. Other corrosion inhibitor, e.g., molybdate is not expected. Use only if required. Do not use nitrites (potential nutrient for microbes).
+
+| Dispersant | 5-20 ppm (typical range, | Helps prevent deposits of corrosion products and scale |
+| --- | --- | --- |
+| polymer | if required by Treatment | forming minerals. |
+| | Plan) | |
+
+Chloride < 50 ppm for 304SS < 500 ppm for 316SS
+
+Confirm Chloride level compatibility with all SS in the system. These limits have been set to reduce the risk of crevice corrosion in the presence of potential chloride
+
+PAGE 9
+
+concentrating mechanisms, e.g., under deposit concentration cells, or significant pH depression.
+
+### 3 Safety
+
+Refer to heat transfer fluid or chemical SDS before beginning any work. Wear appropriate PPE such as safety glasses or goggles, nitrile or other impervious gloves and suitable clothing when handling the fluid.
+
+Using appropriate safety equipment, small spills may be soaked up with common absorbent material. For large spills, the fluid should be pumped into suitable containers. Residual material should be cleaned up with water.
+
+Flush eyes or skin if exposed to the heat transfer fluid.
+
+Unopened containers, stored out of direct sunlight and high humidity (dry) have a shelf life which is determined by the heat transfer fluid supplier. Do not store in galvanized steel containers.
+
+### 4 System Design Consideration
+
+#### 4.1 COMPATIBILITY
+
+Wetted Materials: The materials that touch the fluid are collectively referred to as the wetted materials. The contractor, IT supplier and service provider shall certify compatibility of the heat transfer fluid with liquid-cooled rack system including all wetted components (including but not limited to pump seals, heat exchangers and quick connect seals) and the wetted material list at maximum operating temperatures as specified below. The heat transfer fluid specification is tied closely to the wetted material list. Any additions to the wetted material list will require (re)evaluation of the heat transfer fluid.
+
+PAGE 10
+
+Table 2. Acceptable metals and metal alloys.
+
+Materials Details Comments Copper CDA110, CDA1020, CDA1220, CDA1100
+
+| | | | | Brass used for quick connectors can |
+| --- | --- | --- | --- | --- |
+| | | | | lead to zinc coming into solution over |
+| | | | | time. There may be potential for |
+| | | | | dezincification of brass connectors and |
+| | | | | valves. Zinc levels can be monitored in |
+| | | | | the water to assess the need to inspect |
+| | | | | these components for replacement. If |
+| | | | | brass is used as a wetted material, it is |
+| | | >15% zinc has more corrosion | | recommended that annual zinc analysis |
+| Brass of < 15% zinc | | prone α phase | | be completed via ICP. |
+
+Stainless Steel 304L or 316L (preferred) See Table 1 for chloride limit.
+
+Avoid Hastelloy B and other alloys designed for reducing environments See ** note below
+
+Nickel, high nickel alloys
+
+| Chromium | | | materials | See ** note below | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Titanium | | | Grade 2 (UNS R50400) | | | | |
+| B-Ni-6 | | | 88.9% Ni + 11% P | Brazing material in copper cold plate | | | |
+| BCuP-2 | | | 93% Cu + 7% P | Brazing material in copper cold plate | | | |
+
+Plated corrosion resistant
+
+| BCuP-3 | | | 0.15% | Brazing material in copper cold plate | | | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| BCuP-4 | | | Cu 87%, Ag 6%, P 7% | Brazing material in copper cold plate | | | |
+| BCuP-5 | | | Cu 80%, Ag 15%, P 5% | Brazing material in copper cold plate | | | |
+
+Cu 89%, Ag 5%, P 6%, others
+
+TF-H600F
+
+Cu 74.9%, Sn 15.6%, P 5.3%, Ni 4.2% Brazing material in copper cold plate **Quick connects made of stainless steel should be used. It is recommended to avoid nickel plated and chromium plated quick connects until these are proven satisfactory. This is because after many uses, the plating can be worn away and the underlying metal exposed to the heat transfer fluid. Although corrosion inhibitors may protect underlying metal, the galvanic couple created by the exposed metal with the plating material may increase the corrosion tendency.
+
+For example, brass corrosion will introduce zinc, and potentially copper, into the heat transfer fluid. The consequences of dissolved zinc on the long-term performance of the copper cold plates has not been determined at this time and identification of acceptable thickness of plating metals is outside the scope of this document. Plated quick connects should be inspected regularly or as needed based on water analysis.
+
+PAGE 11
+
+Table 3. Acceptable elastomers, plastics and other materials
+
+| Materials | | Details | Comments | |
+| --- | --- | --- | --- | --- |
+| EPDM | | Ethylene propylene diene monomer | | |
+| Viton A | | Vinylidene fluoride hexafluoropropylene | | |
+
+Vinylidene fluoride hexafluoropropylene tetrafluoroethylene
+
+Viton GF
+
+| Viton ETP | | perfluoromethylvinylether (PMVE) | | |
+| --- | --- | --- | --- | --- |
+| FEP | | Fluorinated ethylene propylene polymer | | |
+| | | | Teflon based thread Sealant | and |
+| PTFE, Teflon™ | | Polytetrafluorinatedethylene polymer | convoluted hoses. | |
+| PP | | Polypropylene | | |
+| PP-R | | Polypropylene Random Copolymer | | |
+
+Ethylene, tetrafluoroethylene (TFE),
+
+| PVDF | | difluoride | | |
+| --- | --- | --- | --- | --- |
+| EPR | | Ethylene propylene rubber | | |
+| | | | Including extruded cross-linked | |
+
+Polyvinylidene fluoride or polyvinylidene
+
+Including extruded cross-linked polyethylene (PEX), ultrahigh molecular weight polyethylene (UHMWPE), and High Density Polyethylene (HDPE)
+
+PE Polyethylene
+
+| Nitrile | | Acrylonitrile butadiene rubber | | |
+| --- | --- | --- | --- | --- |
+| PSU | | Polysulfone | | |
+| HDPE | | High density polyethylene | | |
+
+NBR, Buna-N,
+
+| AFLAS | | copolymer | | |
+| --- | --- | --- | --- | --- |
+| PFA, D3307 | | Perfluoro alkoxy alkanes | | |
+| CPVC | | | | |
+
+| PPS | | Polyphenylene Sulfide | | |
+| --- | --- | --- | --- | --- |
+| PPO | | Polyphenylene Oxide | | |
+| PPSU | | Polyphenylsulfone | | |
+| PEEK | | Polyether ether ketone | | |
+| PFPE | / PTFE | Perfluoropolyether/Polytetrafluoroethylene | Grease | |
+| Aluminum oxide | | | Mechanical bearing and seals | |
+
+Polytetrafluoroethylene polypropylene 
+copolymer 
+PFA, D3307 Perfluoro alkoxy alkanes 
+CPVC 
+Hypalon 
+Neoprene 
+Graphite loaded 
+silicon carbide Mechanical bearing and seals 
+
+Other thread sealants might be acceptable but should be verified; avoid anything that can introduce particles into the fluid
+
+Loctite 567 Thread sealant
+
+PAGE 12
+
+#### 4.2 OPERATING TEMPERATURE
+
+The typical operating temperature of TCS loops are <49 °C (120 °F) and are not expected to be >66 °C (150 °F). Operating above 66 °C (150 °F) will require review of the wetted materials list to ensure compatibility at the new temperature. Confirm maximum surface stagnation temperature with IT equipment and cold plate suppliers and confirm compatibility with water treatment/transfer fluid.
+
+#### 4.3 LEAK CHECKS
+
+Ensuring that all components in the TCS loop have undergone adequate checks to prevent leaks in operation is critical to deploying with confidence. A common leak test procedure involves pressurizing the system to a factor times the operating or maximum pressure of the system. The factor and the pressure value used are based on the standard employed. Common standards outlining requirements for leaks checks include IEC 62368-1 and ASME B31.n series. The specific standard which is used should be agreed upon between the owner and supplier during the development of the fluid specification.
+
+During the execution of system leak checks ensure that the fluid used is compatible with the system design and meets the requirements in section 5.3 A.a.ii.
+
+#### 4.4 MECHANICAL DESIGN CONSIDERATIONS
+
+System and component redundancy design should be consistent with the redundancy requirements of 
+the local system. 
+A. Liquid Addition and Drainage: Install ports to drain and fill heat transfer fluid and inject 
+chemicals to maintain fluid chemistry while the TCS loop remains operational. The size and 
+complexity of the addition system should be based local system requirements. All components 
+used for fluid addition and draining should comply with the wetted materials list and any chemicals 
+be added. The CDU system should be designed to have complete drainage without any deadleg to 
+trap potential microbial population or other contaminants. This is essential for ensuring biocidal 
+effectiveness during TCS loop operation. 
+B. Filtration: Sidestream filtration (< 5 µm) is recommended to keep particulates from trapping 
+inside the cold plate microchannel. In order to achieve the targeted range, we recommend starting 
+with higher micron size and slowly lowering to the 5 µm target. Provide side stream filtration (< 5 
+µm) with pressure gauges in and out in each system. 
+a. System shall filter 10% of the flow rate of the heat transfer fluid. 
+
+PAGE 13
+
+b. Filter media shall be approved as a wetted material and be compatible with the heat 
+transfer fluid. 
+c. Check filters frequently for loading (with optional pressure gauges measuring differential 
+pressure ΔP), including biocontamination, especially during start-up and after any 
+changes. 
+d. Each CDU System may also contain less fine (e.g., 50 µm) inline filter(s) to protect heat 
+exchangers and quick connectors. Such filtration shall be approved by the component 
+manufacturer and is not a substitute for the side stream filter(s). 
+C. Feeder: The system shall have the ability to drain and fill heat transfer fluid and inject chemicals to 
+maintain fluid chemistry while the system remains fully operational. Install to allow bleed and feed 
+for continuous operation during fluid replacement. Provide a bypass feeder, or reservoir tank and 
+injection pump on the water piping. This may be included with the CDU design. Size and capacity 
+of the feeder shall be based on local system requirements. Wetted feeder materials, including 
+reservoir tank or bladder shall comply with the Wetted Materials List. Ideally, the feeder should be 
+furnished with an air vent, gauge glass, funnel, valves, fittings, and piping as appropriate to operate 
+and isolate. If the feeder or reservoir is existing or supplied with the CDU, confirm compatibility 
+and functionality with the overall system and heat transfer fluid. Ideally, use of nitrogen or other 
+inert gas in the vapor region of the feeder tank can be used. 
+D. Automated Monitoring: For larger systems (e.g., >250 gallons in a single TCS loop) or critical 
+systems, consider continuous monitoring of heat transfer fluid chemistry, pH, corrosion rate and 
+turbidity. 
+
+### 5 Fluid Installation and System Operation
+
+5.1 OVERVIEW A. Provide all chemicals, equipment, filters and labor necessary to bring heat transfer fluid in conformance with the specified requirements. Perform all work in accordance with the approved Treatment Plan including supplier's published recommendations and guidelines B. The heat transfer fluid shall be used from an unopened, or an opened container that has been properly sealed and stored and meets the supplier's shelf-life recommendations, to ensure no debris is introduced into the system. The heat transfer fluid can be premade or mixed on site with clean water supply.
+
+PAGE 14
+
+C. Coordinate compatibility: Coordinate with all those supplying wetted materials and confirm 
+compatibility. 
+D. Provide secondary containment for all hazardous chemicals. 
+E. Follow the guidelines, below, for fluid installation and start-up procedures. 
+
+5.2 START-UP A. Certificate of Analysis (COA): Vendors must have a COA available for all manufactured products that demonstrate product quality. Maintain a copy of COA for your records. B. Cleanliness: Confirm, with the assistance of the installer/fabricator, proper handling and cleanliness of all products with water passages including water-cooled servers and datacom equipment: a. Confirm all products in the TCS loop are in conformance with the Wetted Materials List. b. Confirm all components are clean and factory sealed until installation. c. Ensure that the TCS loop components are clean and free of soldering and/or brazing fluxes. d. Notify the owner immediately if conditions indicate potential mishandling and cleanliness and develop a remediation plan to correct such conditions. C. Compatibility: Assure effectiveness and compatibility with wetted materials and subsequent chemical treatment. Chemicals shall meet required governmental and local environmental regulations for the treatment of hydronic systems. Chemicals shall be as recommended by the heat transfer fluid supplier for compatibility with the cooling system’s wetted materials and operating conditions.
+
+5.3 CLEANING AND FILLING A. Cleaning: After piping systems are erected and proven free of leaks, and prior to the final installation of the heat transfer fluid, follow the steps below: a. For new systems: i. Install a new inline filter(s). ii. Fill the system (with cold plates isolated to avoid contamination from plumbing debris) with the clean (< 1 CFU/ml) and non-corrosive water that meeting the following specifications. 1. Chloride (as Cl) < 25 ppm
+
+PAGE 15
+
+| | | | | 2. | | Sulfate (as SO₄) | < 25 ppm | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | 3. | | Calcium (as CaCO₃) | < 25 ppm | |
+| | | | | 4. | | Magnesium (as CaCO₃) | < 25 ppm | |
+| | | | | 5. | | Total Hardness (as CaCO₃) | < 50 ppm | |
+| | iii. | | | Operate and circulate for 30 minutes at room temperature to ensure thorough mixing | | | | |
+
+2. Sulfate (as SO₄) < 25 ppm 3. Calcium (as CaCO₃) < 25 ppm 4. Magnesium (as CaCO₃) < 25 ppm 5. Total Hardness (as CaCO₃) < 50 ppm iii. Operate and circulate for 30 minutes at room temperature to ensure thorough mixing and suspension of any debris. iv. After circulation, drain all liquid. v. Replace any inline filter(s) in the system if needed. vi. Repeat fill and flush as per above (5.3.A,a,ii &iii.) with all cold plates connected. vii. Continue to section 5.3.B. b. For existing systems, all lines and materials should be cleaned and thoroughly flushed before charging the system with new heat transfer fluids (using the guidelines below). This is especially important if fluid which was previously in the system is incompatible with the new fluid. Always confirm the acceptability of this procedure with the heat transfer fluid supplier. Incompatible fluids will likely require additional action. For systems where corrosion is already evident, contact the fluid supplier for guidance on system cleaning before installing the new fluid. i. Drain the used heat transfer fluid. ii. Fill the system with clean water (per Section 5.3.A.a.ii) with all cold plates connected. iii. Operate the pump for 30 minutes to circulate the water. iv. Repeat steps 5.3.A.b.ii & iii to flush the second times v. Drain and refill with heat transfer fluid vi. Replace the filter(s).
+
+Notes: - Avoid chemical cleaners and detergents due to their corrosive nature and potential for remnants in the heat transfer fluid unless following the guidance of the supplier of the new heat transfer fluid. - Only use chemical cleaners or detergents after consultation with technical support personnel from the heat transfer fluid supplier. B. System Fill: Fill system with heat transfer fluid. See Section 2 and Table 1 for details on coolant quality.
+
+PAGE 16
+
+C. Start-up Procedures: During final system start-up, with all components in line and specified heat 
+transfer fluid in place, bleed air from the system if necessary and check for any leaks while 
+circulating fluid for 15 minutes. Take a representative sample from each TCS loop and test to retain 
+the record (see Table 4) for the life of the fluid. Be sure to properly label sample with identifying 
+unit, fluid identity and date. 
+D. Monitor the fluid level during the first few hours of operation and add more heat transfer fluid as 
+needed to achieve the desired fill volume. 
+
+5.4 OPERATION A. Guidelines: Maintain system in accordance with Treatment Plan and Owner’s Manual. Monitor the system as specified in Monitoring and Maintenance (Section 6) and maintain heat transfer fluid quality per the performance requirements. B. Biocide addition: If the heat transfer fluid contains high microbial activity, add non-oxidizing biocide, (e.g., Isothiazolone), only if needed. Follow biocide label on dosage of application. Do not use halogens (e.g., chlorine) which will create corrosion risk.
+
+### 6 Monitoring and Maintenance
+
+6.1 ROUTINE MONITORING A. Overview: Testing shall be performed by a trained technician on a frequency (recommended below) to confirm the heat transfer fluid remains within the requirements of the treatment plan including the supplier’s recommended guidlines B. On-Site Testing: Test weekly for a month, monthly for a quarter, and quarterly thereafter, or until test results stabilize (whichever is longer). At a minimum, perform the following tests:
+
+Table 4. Recommended routine coolant monitoring parameters.
+
+Parameters Measurement
+
+Conductivity [_____] µS/cm pH [_____]
+
+Hardness: Total Ca / Mg as CaCO3 [_____] ppm (mg/L)
+
+PAGE 17
+
+| | |
+| --- | --- |
+| Total Viable Bacteria | [_____] CFU/mL |
+| Azoles (copper corrosion inhibitor) | [_____] ppm (mg/L) |
+| | [_____] ppm (mg/L) |
+| | |
+| | |
+
+[_____] ppm (mg/L)
+
+C. Laboratory Quality Assurance Testing: Conduct QA testing and quarterly thereafter for one year by an independent lab approved by the owner to verify that the mechanical and water treatment systems are being maintained properly. Run ICP test to fully understand and document water quality and changes over time. Reduce frequency to every 6 months after one year if test results are stable. Provide the QA evaluation reports to the owner. In addition to the tests listed above, include the following (as a minimum): Table 5. Quarterly coolant QA test parameters
+
+| | | | |
+| --- | --- | --- | --- |
+| Total Viable Bacteria | | | [_____] CFU/mL |
+| Azoles (copper corrosion inhibitor) | | | [_____] ppm (mg/L) |
+| Other corrosion inhibitors if appropriate | | | [_____] ppm (mg/L) |
+| Water appearance (color and opacity) | | | Investigate if not clear |
+| Filter Loading | | (e.g., Delta-P) | Investigate if high |
+| C. | Laboratory Quality Assurance Testing: Conduct QA testing and quarterly thereafter for one year by an independent lab approved by the owner to verify that the mechanical and water treatment systems are being maintained properly. Run ICP test to fully understand and document water quality and changes over time. Reduce frequency to every 6 months after one year if test results are stable. Provide the QA evaluation reports to the owner. the tests listed above, include the following (as a Table 5. Quarterly | | In addition to minimum): coolant QA test parameters |
+| | | Parameters | Measurement |
+| Total Suspended Solids (TSS) | | | [_____] ppm (mg/L) |
+| Total Dissolved Solids (TDS) | | | [_____] ppm |
+| Corrosion byproducts/filtered (0.45 µm) and unfiltered sample. Include all metals (e.g., copper, iron, zinc, chromium, nickel, etc.) | | | [_____] ppm |
+| Corrosion on each metal (if coupon station installed) * | | | [_____] Mils/year (mpy) |
+| Turbidity | | | [_____] NTU |
+| Written evaluation summary | | | |
+
+Parameters Measurement
+
+[_____] ppm
+
+| Parameters | Measurement |
+| --- | --- |
+| Total Suspended Solids (TSS) | [_____] ppm (mg/L) |
+| Total Dissolved Solids (TDS) | [_____] ppm |
+| | [_____] ppm |
+| | [_____] Mils/year (mpy) |
+| Turbidity | [_____] NTU |
+| | |
+
+* Corrosion monitoring can be problematic for these systems. The cold plates have high surface temperatures and unique finned geometry. Standard corrosion monitoring techniques such as bar style coupons or linear polarization resistance probes may not deliver representative results. In addition, there are so many TCS loops in most installations and these standard monitoring
+
+PAGE 18
+
+techniques are difficult to apply to all of them from the perspectives of cost, maintenance, and 
+space limitations. Careful monitoring of water chemistry for corrosion product buildup (copper 
+levels) is recommended, where the methods noted above may be considered as supplementary 
+methods for particularly large or critical systems. Thermal performance monitoring may be used 
+as a general indicator of cold plate cleanliness, which may include corrosion product buildup as 
+one of the potential reasons for degradation. 
+D. External Laboratory Qualifications Requirements: Laboratory which is ISO certified or 
+equivalent and is capable of performing a comprehensive heat transfer fluid analysis on water 
+chemistry and microbial contamination. 
+E. Fluid Specific Parameters: Heat transfer fluid quality shall be maintained as specified at Table 1 
+or otherwise specified by the heat transfer fluid Treatment Plan including supplier’s 
+recommendations. 
+
+6.2 ADJUSTMENTS A. Overview: Adjustments should only be made under guidance from the heat transfer fluid supplier, and in accordance with the approved Treatment Plan based on results of analytical testing. Assure effectiveness and compatibility of additives with wetted materials and subsequent chemical treatment. Chemicals shall meet required governmental and local environmental regulations for the treatment of hydronic systems. B. Guidelines: If additives or inhibitors are needed, the system volume must be known before any dosing can occur. Document any changes that are made to each system. C. System Adjustments: Add the predetermined amount of inhibitor or additives, with or without dilution water, to the system reservoir while the heat transfer fluid is circulating. The technical support team from the fluid or treatment supplier should be able to calculate exactly how much inhibitor should be added based on the exact system volume. Circulate fluid for 30 minutes and collect a representative sample to submit for follow-up testing (refer to 6.1.B Table 4 for guidance). If results do not align with the guildines in 2.2, consult with technical support at the fluid or treatment supplier. Keep a record of the date adjustments were made, the system, which was adjusted, and the amount and type of inhibitor added. Also keep a record of the analytical report from before and/or after fluid addition is complete.
+
+PAGE 19
+
+a. A common chemical adjustment in CDU operation is biocide addition for biofouling control. 
+Routine monitoring of microbial contamination is critical for maintaining optimal CDU 
+operation. 
+b. Frequent addition of biocides can lead to buildup of organics or other contaminants, which will 
+eventually require a system flush to maintain proper heat transfer fluid cleanliness. 
+
+### 7 Fluid Lifetime and Disposal
+
+7.1 USEFUL LIFE Heat transfer fluid should be replaced with new fluid at the end of its useful life per the supplier’s guidelines, or when it no longer meets heat transfer fluid guidelines, as shown in Section 2.2 Table 1.
+
+7.2 REGULATORY CONSIDERATIONS Refer to supplier’s Safety Data Sheets (SDS) and product labels to review regulatory information.
+
+7.3 FLUID DISPOSAL A. All disposal practices must be in compliance with all Federal, State/Provincial and local laws and regulations. Regulations may vary in different locations. Waste characterizations and compliance with applicable laws are the responsibility solely of the waste generator. B. Contact local wastewater treatment facilities for disposal regulation. Most used water-based heat transfer fluids can be disposed in municipality sewers. Ensure that neither products, waste, nor other effluents violate governmental or other agency regulations in effect in the project area.
+
+### 8 Submittals
+
+A. Maintain a file for each system with the identity and source of the heat transfer fluid, copies of all 
+fluid analyses and a history of cooling system components that were replaced. 
+B. Maintain a file that documents the volume for each system on-site, which is critical for inhibitor 
+addition. 
+C. Maintain a file that documents any adjustments that were made to each system, including the date, 
+amount and type of inhibitor added. 
+D. Maintain a record of the materials of construction of each system (metals, elastomers, etc.). 
+
+PAGE 20
+
+E. Water Treatment Plan which includes a. Operational parameters b. Testing schedule c. SDS of all heat transfer fluid products
+
+### 9 Conclusion
+
+In this whitepaper the contributors have developed a series of guidelines on how to deploy water-based heat transfer fluids for single-phase cold plate-based liquid-cooled racks. Some key areas included wetted materials to be used with the fluids, as well as fluid properties and fluid maintenance. The authors have also worked alongside industry experts from other industry forums such as ASRHAE completing similar types of documents to deliver a consistent message across the ecosystem.
+
+PAGE 21
+
+### 10 References
+
+1. OCP https://www.opencompute.org/wiki/Rack_%26_Power/Advanced_Cooling_Solutions 
+2. American Society for Testing and Materials (ASTM) “Standard Test Method for Corrosion Test for Heat Transfer Fluids in Glassware,” ASTM D8040-17 (West Conshohocken, PA, ASTM, 1996). 
+3. ASTM “Standard Practice for Preparing, Cleaning, and Evaluating Corrosion Test Specimens,” ASTM G1-90 (West Conshohocken, PA, ASTM, 1996). 
+4. ASTM “Standard Test Methods for Corrosivity of Water in the Absence of Heat Transfer (Weight Loss Method),” ASTM D2688-94 (West Conshohocken, PA, ASTM, 1996). 
+5. ASTM “Standard Guide for Conducting Corrosion Coupon Tests in Field Applications,” ASTM G4- 95 (West Conshohocken, PA, ASTM, 1996). 
+6. ASTM “Standard Practice for Preparing, Cleaning, and Evaluating Corrosion Test Specimens,” ASTM G1-90 (West Conshohocken, PA, ASTM, 1996). 
+7. American Society of Heating, Refrigerating and Air Conditioning Engineers (ASHRAE) https://www.ashrae.org/ 
+8. ASQ/ANSI/ISO 9001: 2015: Quality Management Systems — Requirements 
+9. Association of Water Technologies (AWT). https://www.awt.org/ 
+
+PAGE 22
+
+### 11 License
+
+OCP encourages participants to share their proposals, specifications and designs with the community. This is to promote openness and encourage continuous and open feedback. It is important to remember that by providing feedback for any such documents, whether in written or verbal form, that the contributor or the contributor's organization grants OCP and its members irrevocable right to use this feedback for any purpose without any further obligation.
+
+It is acknowledged that any such documentation and any ancillary materials that are provided to OCP in connection with this document, including without limitation any white papers, articles, photographs, studies, diagrams, contact information (together, “Materials”) are made available under the Creative Commons Attribution-ShareAlike 4.0 International License found here: https://creativecommons.org/licenses/by-sa/4.0/, or any later version, and without limiting the foregoing, OCP may make the Materials available under such terms.
+
+As a contributor to this document, all members represent that they have the authority to grant the rights and licenses herein. They further represent and warrant that the Materials do not and will not violate the copyrights or misappropriate the trade secret rights of any third party, including without limitation rights in intellectual property. The contributor(s) also represent that, to the extent the Materials include materials protected by copyright or trade secret rights that are owned or created by any third-party, they have obtained permission for its use consistent with the foregoing. They will provide OCP evidence of such permission upon OCP’s request. This document and any "Materials" are published on the respective project's wiki page and are open to the public in accordance with OCP's Bylaws and IP Policy. This can be found at http://www.opencompute.org/participate/legal-documents/. If you have any questions, please contact OCP.
+
+PAGE 23
+
+### 12 About Open Compute Foundation
+
+At the core of the Open Compute Project (OCP) is its Community of hyperscale data center operators, joined by telecom and colocation providers and enterprise IT users, working with vendors to develop open innovations that, when embedded in product are deployed from the cloud to the edge. The OCP Foundation is responsible for fostering and serving the OCP Community to meet the market and shape the future, taking hyperscale led innovations to everyone. Meeting the market is accomplished through open designs and best practices, and with data center facility and IT equipment embedding OCP Community developed innovations for efficiency, at-scale operations and sustainability. Shaping the future includes investing in strategic initiatives that prepare the IT ecosystem for major changes, such as AI & ML, optics, advanced cooling techniques, and composable silicon. Learn more at www.opencompute.org.
+
+### 13 Acknowledgement
+
+This document was created with input, review, and encouragement from: Dave Martinez and Vance Leggett (Sandia National Laboratory); Michael Lesniak (NALCO Water); Olga Santos, Kristi Smith, and Cosimo Pecchioli (Alfa Laval); Dan Duke and Lon Brouse (Water Conservation Technology Inc.); David Masuda, Richard Tribble and Peter Elliott (ChemTreat); Bernadette Combs, Connor Hanrahan and John Torgusen (Industrial Water Engineering); Matt Beauregard (SKASOL/Global Water Technology; Tozer Bandorawalla (Intel); David McGlocklin, Daniele Marchetti and Robert Bunger (Schneider Electric); Greg Pautsch (Retired Cray); Nigel Gore (Vertiv); David Kirkland and Eric Zubovic (SUEZ Water Technologies & Solutions).
+

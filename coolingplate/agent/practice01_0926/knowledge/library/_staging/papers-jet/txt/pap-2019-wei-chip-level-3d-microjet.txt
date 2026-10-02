@@ -1,0 +1,953 @@
+
+===== p.1 =====
+IEEE TRANSACTIONS ON COMPONENTS, PACKAGING AND MANUFACTURING TECHNOLOGY, VOL. 9, NO. 9, SEPTEMBER 2019
+1815
+Experimental Characterization of a Chip-Level
+3-D Printed Microjet Liquid Impingement
+Cooler for High-Performance Systems
+Tiwei Wei
+, Member, IEEE, Herman Oprins
+, Member, IEEE, Vladimir Cherman, Associate Member, IEEE,
+Shoufeng Yang, Ingrid De Wolf
+, Senior Member, IEEE, Eric Beyne, Senior Member, IEEE,
+and Martine Baelmans
+Abstract—The chip-level bare die direct liquid impingement
+jet cooling is regarded as a highly efﬁcient cooling solution for
+high-performance applications. Furthermore, it shows potential
+to be integrated inside the chip package. In previous studies,
+we demonstrated this cooling concept using a prototype fabri-
+cated with mechanical micromachining using polymers. With the
+improvement of fabrication resolution, additive manufacturing
+or 3-D printing technology enables the fabrication of low-cost
+polymer microjet coolers with complex internal 3-D geometries
+and allows easy customization of the cooler design. In this
+paper, a chip-level impingement jet cooler with a 4 × 4 jet
+array and 575-µm nozzle diameter is fabricated with high-
+resolution stereolithography, and assembled directly on the top
+of the bare die. The modeling study shows that the pressure drop
+in the 3-D printed cooler is reduced by 24% compared to the
+micromachined (MM) cooler with the same nozzle dimensions
+thanks to an improved more complex internal geometry. The
+fabrication quality and tolerances of the printed cooler are
+evaluated using optical measurements, scanning acoustic micro-
+scope (SAM) inspection, and cross-sectional analysis, showing a
+measured average nozzle diameter of 575 µm compared to the
+designed nozzle diameter of 600 µm. Moreover, the 3-D compu-
+tational ﬂuid dynamics (CFD) simulations used in this paper are
+experimentally validated by chip temperature measurements. The
+achieved minimal thermal resistance of 3-D printed 4×4 cooler is
+0.16 cm2·K/W for a ﬂow rate of 1000 mL/min. The benchmarking
+study shows the cooler size can be reduced by a factor of 6.5 by
+using the 3-D printing technology compared to the MM cooler.
+Index Terms—3-D printing, chip level, computational ﬂuid
+dynamics (CFD), direct cooling, impingement jet.
+Manuscript received December 3, 2018; revised February 11, 2019 and
+March 12, 2019; accepted March 13, 2019. Date of publication March 18,
+2019; date of current version September 26, 2019. This work was supported
+in part by the imec Industrial Afﬁliation Program on 3-D System Integration,
+in part by the imec Partners, and in part by the imec Reliability, Electrical
+Testing, Modeling, and 3-D Technology teams. Recommended for publication
+by Associate Editor J. Weibel upon evaluation of reviewers’ comments.
+(Corresponding author: Tiwei Wei.)
+T. Wei is with the Department of Mechanical Engineering, KU Leuven,
+3001 Leuven, Belgium, and also with imec, 3001 Leuven, Belgium (e-mail:
+tiwei.wei@imec.be).
+H. Oprins, V. Cherman, and E. Beyne are with imec, 3001 Leuven,
+Belgium
+(e-mail:
+Herman.Oprins@imec.be;
+Vladimir.Cherman@imec.be;
+Eric.Beyne@imec.be).
+S. Yang and M. Baelmans are with the Department of Mechanical
+Engineering, KU Leuven, 3001 Leuven, Belgium (e-mail: shoufeng.yang@
+kuleuven.be; martine.baelmans@kuleuven.be).
+I. De Wolf is with the Department of Materials Engineering, KU Leuven,
+3001 Leuven, Belgium, and also with imec, 3001 Leuven, Belgium (e-mail:
+Ingrid.DeWolf@imec.be).
+Color versions of one or more of the ﬁgures in this article are available
+online at http://ieeexplore.ieee.org.
+Digital Object Identiﬁer 10.1109/TCPMT.2019.2905610
+I. INTRODUCTION
+W
+ITH the increasing demand of the heat ﬂux on high-
+performance electronic applications, the thermal man-
+agement becomes more and more challenging, especially
+for 3-D integrated systems [1]. The bare die liquid jet
+impingement cooling is an efﬁcient cooling technique that has
+been successfully applied using several fabrication techniques
+including Si deep reactive-ion etching (DRIE) microfabrica-
+tion [2], multilayer ceramic technology (MLC) [3], and fab-
+rication methods for metal [4], [5]. Whereas the Si, ceramic,
+and metal coolers involve expensive fabrication techniques,
+cooling solution using low-cost fabrication methods become
+a promising trend for industry applications. In [6], we have
+introduced a chip-level 3-D-shaped polymer cooler fabricated
+using mechanical micromachining for a 4×4 nozzle array with
+600-μm-diameter nozzles. The multijet cooler can achieve
+heat transfer coefﬁcients up to 6.25 × 104 W/m2·K with a
+pump power as low as 0.3 W. The results show that cost-
+efﬁcient polymer-based fabrication can be used to create a
+high-performance chip-level cooler with submillimeter nozzle
+diameters. This fabrication method, however, requires different
+individual parts to be fabricated separately and then assembled
+together. Furthermore, it limits the design of the cooler to
+simple, straight geometries that can be fabricated using micro-
+machining.
+In recent years, the 3-D printing or additive manufacturing
+has become an emerging fabrication technique in electronic
+packaging
+[7]–[10]
+by
+providing
+the
+opportunities
+of
+embedded electronic component in a single module, multiple
+materials printing, and 3-D packages geometry with circuitry
+and components printing [11]. Typical 3-D printing methods
+include: 1) stereolithography (SLA); 2) fused deposition
+modeling (FDM); 3) selective laser sintering; and 4) inkjet
+printing [12]. SLA uses either galvo scanners to guide the
+UV lasers or projectors to cure photopolymers layer by layer.
+Typically, the fabrication tolerance is limited to a few hundreds
+of micrometers in the commercial systems and further
+development is required to fabricate more performant coolers.
+In research tools, smaller feature sizes are possible since the
+resolution depends on the size of the printing platform with
+ﬁxed number of pixels. Tehrani et al. [13] demonstrated a
+series of “smart” microelectronic packages by utilizing fully
+additive inkjet and 3-D printing fabrication technologies,
+2156-3950 © 2019 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:04:01 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.2 =====
+1816
+IEEE TRANSACTIONS ON COMPONENTS, PACKAGING AND MANUFACTURING TECHNOLOGY, VOL. 9, NO. 9, SEPTEMBER 2019
+Fig. 1.
+Schematic of the application of a customizable 3-D printed cooler
+on a high-performance 3-D module.
+which
+includes
+3-D
+square
+encapsulants,
+microﬂuidic
+channels,
+and
+through-mold-via
+(TMV)
+interconnects.
+Goubault et al. [14] built encapsulation packages and lids
+onto the silicon substrate using the SLA technology.
+The 3-D printing technology also has great potential for
+the application of electronics cooling solutions. The main
+advantage of additive manufacturing is that it can use low-
+cost materials for the cooler fabrication and to print the
+whole geometry in one piece, while creating complex internal
+geometries. It was ﬁrst introduced for the fabrication of the
+complex shapes obtained from topology optimization of air-
+cooled heat sinks [15] and later for more advanced liquid
+cooling solutions such as microchannel heat sinks [16] and
+impingement coolers [17], [18]. Jenkins et al. [17] demon-
+strated an aluminum alloy (AlSi10Mg) microchannel heat sink
+with straight, parallel channels by using the direct metal laser
+sintering (DMLS) process, where inlet nozzle diameter is
+500 μm. The fabrication of impingement coolers has been
+demonstrated for coolers with a common return and with
+relatively large nozzle diameters of 1 mm for metal using laser
+sintered 3-D printing technology [18] and UV curable acrylic
+plastic using SLA [19]. Robinson et al. [18] demonstrated
+a high-efﬁciency microjet array cooler using a micrometal
+additive manufacturing process with 30-μm-diameter nozzles.
+However, metal-based bare die cooling solutions are expensive
+and have a high risk for the device reliability due to introduc-
+tion of metal (Cu and Al) in very large scale integration (VLSI)
+devices.
+In this paper, we present the concept, design, fabrica-
+tion, and experimental characterization of a cost-efﬁcient
+3-D printed polymer-based chip-level liquid impingement
+cooler with submillimeter-diameter nozzles and with distrib-
+uted outlet channels in between the inlet channels, targeted to
+directly cool the backside of high-performance chips, 3-D chip
+stacks, or interposer-based packages (Fig. 1). The chip-level
+cooler is part of a closed-loop cooling circuit that includes an
+external pump, the tubing, and a heat exchanger used to cool
+the heated up liquid coolant back to the initial temperature.
+For an assessment of the cooling efﬁciency of the application,
+the overall thermal performance of the full loop should be
+evaluated. However, the focus of this paper is on the thermal
+performance of the cooler itself, in terms of the temperature
+difference between the junction of the chip and the coolant
+inlet temperature, and the pressure drop in the cooler. The
+characterization of the cooler enables the relative performance
+comparison of different coolers in the same closed-loop liquid
+cooling circuit.
+Fig. 2.
+Chip-level impingement cooler concept. (a) Schematic of multijet
+cooler. (b) Top view of the nozzle plate with jets array [6].
+In order to evaluate the thermal performance, the fabricated
+3-D-shaped polymer cooler is assembled to our 8 mm × 8 mm
+thermal test chip [20] with integrated heaters and temperature
+sensors. First, the concept and the design of the impingement
+cooler with a 4×4 inlet nozzle array and the design limitations
+related to the fabrication tolerances are discussed in Section II.
+Next, in Section III, an analysis of the tolerances of the
+fabricated coolers is presented, and a new defect detection
+metrology based on the scanning acoustic microscope (SAM)
+measurements is introduced to detect defects inside the printed
+cooler. In Section IV, the experimental thermal and hydraulic
+characterization
+of
+the
+fabricated
+cooler
+are
+discussed.
+In Section V, the thermal performance of the printed cooler
+is benchmarked with the performance of a conventional air
+cooling heat sink and of the micromachined (MM) cooler [6].
+II. DESIGN OF 3-D PRINTED MICROJETS COOLER
+A. 3-D Printing Constraints and Cooler Critical
+Design Parameters
+In this paper, the designed cooler is printed using the SLA
+process. For the SLA process ﬂow, the designed 3-D printed
+cooler computer-aided design (CAD) structure is ﬁrst broken
+down by a series of points and lines using Fusion 360 design
+software. Then, a laser beam with certain laser spot size
+moves across the print area, and the photopolymer resins are
+solidiﬁed as it goes along. Therefore, the resolution of the
+SLA process is determined by the laser spot size. For the used
+SLA 3-D printer, the resolution for the ﬁrst layer thickness
+is 0.05 mm. The minimum feature size is 0.13 mm for the
+xy plane and 0.406 mm for the Z build direction, respectively.
+To ensure the structural integrity, special support structures
+with ﬁner dimensions are built inside the internal geometry,
+such as thick cavity or channels.
+The concept of the bare die chip-level impingement jet
+cooler is shown in Fig. 2. Fig. 2(a) shows the cross section of
+the multijet cooler with a 4 × 4 array of inlet nozzles and
+a 5 × 5 array of outlet nozzles distributed in between the
+inlets, shown in the top view of Fig. 2(b). Fig. 2(b) reveals
+four critical layers: inlet plenum, outlet plenum, nozzle plate,
+and impingement cavity layer. The inlet plenum is used as
+the ﬂow distributor to distribute the cold water inside the
+4 × 4 inlet nozzles. After the ﬂuid impinged onto the chip
+backside, the outlet plenum is used as ﬂow collector for the
+ﬂow from the 5 × 5 outlet nozzles. As shown in Fig. 3(a),
+the geometrical design of the 3-D printed microjet cooler
+should take into account the manufacturability of the SLA
+printer including printing resolutions and laser spot size. The
+nozzle diameter di and the nozzle plate thickness t are the
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:04:01 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.3 =====
+WEI et al.: EXPERIMENTAL CHARACTERIZATION OF A CHIP-LEVEL 3-D PRINTED MICROJET LIQUID IMPINGEMENT COOLER
+1817
+Fig. 3.
+Design consideration. (a) Critical design parameters limitations for
+the use of 3-D printing for impingement coolers. (b) Indication of the impact
+of wall thickness on the gap S in the outlet plenum between adjacent inlet
+nozzles.
+critical dimensions since they determine whether the excess
+liquid resin can be removed sufﬁciently through the tiny nozzle
+channels. Moreover, the nozzle wall thickness W used as the
+separation between the inlet nozzle and the outlet plenum
+should be strong enough to withstand high ﬂow pressure and
+prevent leakage.
+As shown in Fig. 3(b), the gap S between the external walls
+of two adjacent inlet nozzles in the outlet plenum is also very
+important. In this outlet plenum layer, the walls of the inlet
+nozzles, which go vertically through this layer, act as a divider
+between the (vertical) inlet ﬂow and the (horizontal) outlet
+ﬂow. By decreasing the gap S (for a ﬁxed nozzle pitch and
+internal diameter, thus by increasing the wall thickness W),
+the available area for the coolant to ﬂow in the horizontal
+outlet plenum reduces. Since the pitch and internal diameter
+do not change, there is no impact on the pressure drop for the
+vertical direction through the nozzles. However, the pressure
+drop in the outlet plenum where the coolant ﬂows through
+the inlet/outlet dividers increases as the nozzle wall thickness
+W becomes thicker for a ﬁxed nozzle pitch.
+Other design parameters such as tube connections, cavity
+height H, and the O-ring groove are also taken into account
+for a better design. The inlet connection is designed in the
+center of the cooler in order to improve the ﬂow distribution
+over different inlet nozzles. The rest of the available space
+in the cooler material can be used to improve the outlet
+chamber design to help the outlet ﬂow evacuation. In [2],
+the impact of the cavity height H variation on the cooler
+thermal/hydraulic performance was investigated. It shows that
+the heat transfer coefﬁcient and the pressure drop are inversely
+proportional to the gap height in the pinchoff regime at gaps
+H < Hcritical while the heat-transfer coefﬁcient is constant
+in the impingement regime with H ≥1.2Din. For practical
+considerations, the cavity height chosen in this paper is 0.6 mm
+in the impingement regime, where no signiﬁcant impact on the
+heat-transfer coefﬁcient is observed.
+Fig. 4.
+CAD structure of 3-D printed 4 × 4 cooler. (a) Transparent view.
+(b) Cross-sectional view.
+TABLE I
+GEOMETRY COMPARISON BETWEEN MM COOLER
+AND 3-D PRINTED COOLER
+B. Printed Cooler Design
+The proposed design of the 4 × 4 inlet jet array cooler with
+600-μm-diameter nozzles for the 8 mm × 8 mm thermal test
+chip on the 14×14 mm2 package substrate is shown in Fig. 4.
+This design takes into account the manufacturability aspects of
+the used 3-D printer as well as the critical design parameters
+described above. The cavity height H is 600 μm, while the
+wall thickness of the nozzles W and the gap between two
+nozzles in the outlet plenum S are both 400 μm. Since the ﬂow
+maldistribution is an important aspect for multijet impinge-
+ment cooling, several computational ﬂuid dynamics (CFD)
+studies on the impact of the inlet plenum dimensions have been
+performed to improve the ﬂow distribution uniformity [21].
+The results show that a lower plenum height can generate
+more ﬂow maldistributions, with higher velocity concentrating
+in the nozzles in the center of the cooler. The inlet diameter
+and plenum height both should be considered when designing
+the impingement cooler. Therefore, the inlet chamber thickness
+is chosen as 2.5 mm, based on the tradeoff between the
+cooler size and ﬂow distributions. Moreover, both in the inlet
+chamber and the top part of the outlet chamber, support
+pillars have been added to ensure the structural integrity. The
+geometric dimensions comparison between the MM cooler and
+3-D printed cooler are summarized in Table I.
+Fig. 5 shows the internal structure of the MM cooler [6] and
+the 3-D printed cooler side by side. In general, the process ﬂow
+of the 3-D printed cooler is simple since all the parts can be
+printed in a whole as a single part while creating the complex
+3-D geometries including cavities and O-ring grooves. For
+the MM cooler, all the individual parts have to be fabricated
+separately and glued together, which might cause a higher
+risk of water leakage. Furthermore, the jet nozzles must be
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:04:01 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.4 =====
+1818
+IEEE TRANSACTIONS ON COMPONENTS, PACKAGING AND MANUFACTURING TECHNOLOGY, VOL. 9, NO. 9, SEPTEMBER 2019
+Fig. 5.
+Internal CAD structures comparison between (a) mechanical MM
+cooler [6] and (b) 3-D printed cooler.
+Fig. 6.
+Cooler structure with the pressure reduction of shape optimization.
+(a) MM cooler. (b) 3-D printed cooler.
+drilled by microdrilling, where the nozzle diameter is limited
+by the mill tool diameter. As indicated in Fig. 5(b), inlet and
+outlet dividers can be printed as hollow cylinders to separate
+the inlet ﬂow and outlet ﬂow, which can signiﬁcantly reduce
+the pressure drop compared to square-shaped dividers shown
+in Fig. 5(a). In summary, compared to the micromachining
+prototype, the 3-D printed cooler has a lower fabrication cost,
+a more ﬂexible and customizable design, and a ﬁner resolution
+of the internal structures.
+Fig. 6 shows a cross section of the printed cooler to visualize
+the ﬂow inside the internal structure. It can be seen that, by the
+use of 3-D printing technology, more outlet chamber space can
+be designed in order to improve the evacuation of the outlet
+ﬂow at a reduced pressure drop.
+C. Modeling Study: Micromachined and Printed
+Cooler Comparison
+In order to evaluate and compare the thermal and hydraulic
+performance of the two coolers with different fabrication
+techniques, CFD modeling is used during the initial design
+stage. The software package used for the CFD study is ANSYS
+Fluent. Since the thermal performance of the cooler scales with
+the chip area, the thermal resistance is normalized as follows:
+Rth = A · (Tavg −Tin)/(Qheater)
+(1)
+where Tavg is the averaged chip temperature, A is the thermal
+test chip area, Tin is the coolant inlet temperature, and Qheater
+is the heat generated in the heater cells based on the measured
+electrical current and heater voltage. The pressure drop is
+deﬁned as the pressure difference between inlet pressure and
+outlet pressure
+Ptotal = Pin −Pout.
+(2)
+The meshing details of CFD models based on MM cooler
+and 3-D printed cooler are both shown in Fig. 7. It should be
+Fig. 7.
+CFD models with meshing for the comparison of the MM and 3-D
+printed coolers. (a) MM cooler model. (b) 3-D printed cooler. (c) Bottom
+view of the 3-D printed cooler model mesh with quasi-uniform heater cells
+in the test chip. (d) Detailed view of the heater cell meshing. (e) Boundary
+layer meshing.
+noted that Fig. 7(a) and (b) are shown in the same scale, high-
+lighting the compact design of the printed cooler. An adiabatic
+wall is assumed for the CFD cooler model. We assume that
+there is no heat loss through the plastic material of the cooler
+due to the low thermal conductivity. Previous simulations [22]
+have shown that there is no signiﬁcant difference for the chip
+temperature between the model with a fully modeled cooler
+with low-conductivity material and the model where only the
+ﬂuidic channels without cooler where considered.
+Based on the mesh sensitivity study, the number of elements
+for the MM cooler demonstrator and for the 3-D printed
+cooler is 6 million and 4 million, respectively. The ﬁrst-layer
+thickness of tetrahedral boundary layer is set as 1e−3 mm
+with maximum of 15 layers in order to keep Y+ < 1.
+The convergence criteria for continuity, x, y, and z velocity
+is 1e−5, while the convergence criteria are 1e−6 for the energy
+equation. The Re numbers based on the nozzle diameter
+considered in this paper are in the range from 10 to 3500.
+The reported range for the turbulent transition for liquid jet
+impingement ﬂow is from 1000 to 3000 [23]. At the maximum
+considered ﬂow rate, the ﬂow inside the cooler is therefore
+slightly turbulent or in the transitional regime. Therefore,
+the transition shear stress transport (SST) model [23] has
+been chosen as the turbulence model. The liquid used in this
+paper is deionized (DI) water, and the inlet temperature is kept
+at 10 °C. For both cases, the chip power is 50 W with the chip
+heated area of 8 × 8 × 75% mm2. The details about the chip
+and its heating elements are shown in Fig. 15 in Section IV.
+Fig. 8 shows the pressure distribution results from the
+full-cooler-level simulations for both coolers. The comparison
+shows a signiﬁcantly lower pressure drop for the printed
+cooler. Exploiting the capabilities of 3-D printing to design the
+internal cooler geometry results in a reduction of the pressure
+drop by 24% compared to the geometry of MM cooler [6].
+It should be noted that the main reason for the pressure
+reduction is the difference in internal geometry. As shown
+in Table I, the critical nozzle parameters are the same for
+both coolers (at least the nominal design values): inlet/outlet
+nozzle diameters, cavity height, and nozzle array. How-
+ever, other parameters are different (nozzle plate thickness,
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:04:01 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.5 =====
+WEI et al.: EXPERIMENTAL CHARACTERIZATION OF A CHIP-LEVEL 3-D PRINTED MICROJET LIQUID IMPINGEMENT COOLER
+1819
+Fig. 8.
+Pressure comparison between MM and printed cooler for a ﬂow
+rate of 650 mL/min drawn on the same scale. (a) MM cooler with pressure
+drop Ptotal = 0.18 bar. (b) 3-D printed cooler with pressure drop Ptotal =
+0.15 bar.
+Fig. 9.
+Comparison between the MM cooler and 3-D printed cooler based
+on the modeling study. (a) Pressure drop comparison as a function of ﬂow
+rate. (b) Thermal resistance comparison.
+outlet chamber, and inlet chamber). These values are linked to
+the fabrication capabilities, and therefore, they are inherently
+part of the comparison. Other aspects that contribute to the
+pressure reduction are the cylindrical shape of the inlet/outlet
+(less pressure drop) and rounded inlet/outlet nozzle transi-
+tions from/to the plenum. The 3-D printing allows making
+those features with less pressure drop compared with the
+MM demonstrator.
+In Fig. 9, the thermal resistance and pressure drop as
+function of ﬂow rate are compared for the MM cooler and
+3-D printed cooler. The general trends show that the pressure
+drop can be reduced for using 3-D printed cooler, while the
+thermal resistance is similar due to the same design of the
+nozzle plate.
+III. FABRICATION TOLERANCE ANALYSIS
+The polymer 3-D printed demonstrator of the jet impinge-
+ment cooler was printed using SLA with a reported minimal
+TABLE II
+MATERIAL PROPERTIES OF 3-D PRINTED COOLER
+Fig. 10.
+Demonstration of the 3-D printed cooler. (a) Photograph of the
+3-D printed cooler. (b) Bottom view of the nozzle plate with inlet/outlet
+nozzles. (c) Detail of the channels in cross section of the cooler.
+Fig. 11.
+Defect measurements of the 3-D printed coolers using SAM
+inspection. (a) Printed cooler with blocked nozzles and tapered nozzles.
+(b) Printed cooler without blocked nozzles.
+feature size of 130 μm and with 50-μm layer thickness.
+The chosen polymer material, Somos WaterShed XC, is a
+water-resistant material, which shows ABS-like properties
+and good temperature resistance. The material properties of
+the 3-D printed cooler are listed in Table II. The printed
+demonstrator is shown in Fig. 10. The bottom view of the
+nozzle plate with inlet/outlet nozzles shows that all the holes
+are printed uniformly across the cooler. The cross-sectional
+analysis of the printed 14 × 14 mm2 cooler conﬁrmed the
+successful printing of the cooler and its internal structure and
+revealed no leftover resin residuals.
+Since the 3-D printed cooler is printed as a single part,
+it is difﬁcult to check for potential internal blockages with
+residual uncured resin. For this application, we demonstrated
+that the SAM technique can be used to evaluate the cooler
+quality. SAM is a nondestructive technique used for microin-
+spection [24]. By adapting the focus depth, the potentially
+blocked resin inside the nozzles can be detected at different
+layers in the structure. Fig. 11 shows the two examples of
+the SAM analysis of a printed cooler with or without defects:
+From the SAM images, it is possible to differentiate between
+the open nozzles without resin residues (A), open nozzles with
+tapered edges (B), and the presence of blocked nozzles (C).
+Fig. 11(a) shows 3×3 cooler with blocked nozzles and tapered
+nozzles, while Fig. 10(b) shows 4 × 4 cooler without defects.
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:04:01 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.6 =====
+1820
+IEEE TRANSACTIONS ON COMPONENTS, PACKAGING AND MANUFACTURING TECHNOLOGY, VOL. 9, NO. 9, SEPTEMBER 2019
+Fig. 12.
+SAM measurement for assessing the depth of the printed nozzles.
+(a) SAM image with focused depth on cooler bottom layer and (b) nozzle
+plate layer. (c) Indication of the depth of different layers.
+Fig. 13.
+Evaluation of the fabricated nozzle diameter. (a) Nozzle diameter
+variation measurements with 4 × 4 cooler. (b) Normal distributions of
+inlet/outlet nozzle diameters.
+“Time-of-ﬂight” scan on the cooler from the bottom side
+of the cooler can be used to assess the depth of the nozzles
+inside the cooler from the cooler plot. As shown in Fig. 12,
+the blue is set as the reference depth as 0 μm. The green
+indicates depth level of 2.2 mm, while the red represents the
+height level as 5.1 mm, corresponding to the top surface of
+the inlet and outlet chambers, respectively.
+First, the actual diameter values of the printed inlet and
+outlet nozzles are measured and analyzed in Fig. 13. The
+distribution of the nozzle diameter shows that the average
+nozzle diameter of 130 measured nozzles is 575 μm, which
+is 5% smaller than the nominal design value of 600 μm.
+The impact of the nozzle diameter variation on the achieved
+thermal resistance will be evaluated in Section IV-A, with the
+comparison between experimental and modeling data.
+In the second step of the fabrication assessment, speciﬁc
+geometry details are compared between the fabricated cooler
+and the designed geometry. As indicated in Fig. 14, four
+different regions are marked, including inlet nozzle opening,
+Fig. 14.
+Comparison between the nominal design and the fabricated 4×4 jet
+array cooler at four different locations.
+Fig. 15.
+Detail of the PTCQ thermal test chip. (a) Overview of the
+thermal test chip patterns. (b) PTCQ BGA package. (c) Conﬁgurations
+of 832 programmable heater cells. (d) Conﬁgurations of 32 × 32 array diode
+temperature sensors.
+nozzle plate, inlet/outlet nozzles, and cavity height. After the
+postcure process, the designed straight corners are rounded
+due to polymer shrinkage. The angled nozzle walls and the
+rounded corners of the nozzles will have an impact on the
+ﬂow distribution, the chip temperature proﬁle, and the pressure
+drop. The details of this impact will be shown in the modeling
+session. From the cross section, it can furthermore be observed
+that the nozzle plate is 0.55 mm compared to the design value
+of 0.5 mm. (The printed layers are 50 μm thickness.) For the
+cavity height, the actual height is about 0.65 mm compared to
+the nominal design value of 0.6 mm.
+Finally, the surface roughness of the groove surface is a
+crucial factor for the sealing ability with the sealing ring.
+For the early additive manufacturing technologies, the surface
+roughness is quite high due to the low resolution of the
+3-D printing machine. The 3-D printing technology used in
+this paper is SLA with 50 μm layer thickness. The roughness
+is expected to be smaller than a layer thickness. The designed
+groove has a depth of 600 μm. The SAM depth measurement
+from the cooler’s bottom side in Fig. 12 shows a smooth
+groove surface as an indication of limited roughness.
+IV. THERMAL AND HYDRAULIC CHARACTERIZATION
+The thermal performance of the cooler is evaluated using the
+thermal test chip PTCQ [20] (Packaging Test Chip version Q),
+shown in Fig. 15. This 8 mm × 8 mm thermal test chip with
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:04:01 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.7 =====
+WEI et al.: EXPERIMENTAL CHARACTERIZATION OF A CHIP-LEVEL 3-D PRINTED MICROJET LIQUID IMPINGEMENT COOLER
+1821
+Fig. 16.
+Experimental setup for the cooler characterization. (a) Assembly
+of the cooler on the test chip package and PCB. (b) O-ring used for sealing
+of the cooler on the package substrate. (c) Temperature map measurement for
+the 3-D printed cooler for a ﬂow rate of 600 mL/min.
+array of 32 × 32 temperature sensors and programmable heat
+dissipation patterns is used for the thermal characterization,
+allowing detailed chip temperature map measurements. Resis-
+tors used as heater cells shown in Fig. 15(c) are fabricated
+by back-end-of-line (BEOL) processing technology [20]. The
+single heater cell is equipped with two 200 × 100-μm2 metal
+meander heaters. Due to the periphery circuits and the cells
+with mechanical stress sensors (192 white square elements
+in Fig. 15(c), the “heater cells” result in a quasi-uniform
+power dissipation with 75% coverage of the thermal test
+chip. All the cells in the 32 × 32 array contain diodes as
+temperature sensors, fabricated by front-end-of-line (FEOL)
+semiconductor processing, allowing the measurement of the
+full-chip temperature map, as indicated in Fig. 15(d). The
+voltage drop across the diode for a constant current is used
+as the temperature sensitive parameter of the sensor. The
+calibrated sensitivity is −1.55 ± 0.02 mV/°C for a current
+of 5 μA in the temperature range between 10 °C and 75 °C.
+The cooler and the package are placed in a measurement
+socket on the PCB and held together by screws. An O-ring
+is placed in the foreseen groove at the bottom of 3-D printed
+cooler to create a sealing between the cooler and the package,
+as shown in Fig. 16. The thermal experiments are per-
+formed using DI water as a coolant and for 50 W as quasi-
+uniform power dissipation in the 8 mm × 8 mm chip area,
+according to the heater map in Fig. 7(c). The reliable water-
+resistant polymer material allows performing 48-h measure-
+ment without observing cooler deformations or leaks. The
+thermal measurements with a quasi-uniform power dissipation
+in Fig. 16 show a low-average thermal resistance of 0.45 K/W
+(or 0.29 cm2·K/W) at a ﬂow rate of 600 mL/min and a good
+temperature uniformity compared to a single jet cooler [6].
+In Sections IV-A and IV-B, the thermal and hydraulic perfor-
+mance of the printed cooler are characterized and analyzed for
+different ﬂow rates ranging from 100 to 1000 mL/min.
+A. Thermal Characterization
+As shown in Fig. 17(a), the normalized temperature proﬁle
+along the chip diagonal is plot for different ﬂow rates ranging
+from 100 to 1000 L/min for the heater pattern of Fig. 7(c).
+Fig. 17.
+Thermal characterization of the 3-D printed cooler. (a) Measured
+temperature proﬁle under different ﬂow rates. (b) Validation of predicted
+model based on corrected nozzle diameter.
+The measurements show that the cooling performance as
+well as the temperature uniformity across the chip surface
+improves for increasing ﬂow rate. Due to the high cooling
+rate of the multijet cooler, the measured temperature proﬁle
+reveals the pattern of the heated and nonheated cells in the
+thermal test chip. The relation between the thermal resistance
+based on the average chip temperature and the total inlet
+ﬂow rate is also shown in Fig. 17(b). It can be seen that the
+thermal resistance Rth scales with ﬂow rate ˙V according to the
+following power law behavior Rth ∝˙V −0.54. The exponent
+of 0.54 is in line with the exponents for published heat
+transfer correlations for multijet impingement cooling, which
+typically show a range between 0.5 and 0.8 [21]. The achieved
+minimal thermal resistance of the 3-D printed 4 × 4 cooler is
+0.16 cm2·K/W for a ﬂow rate of 1000 mL/min.
+B. Hydraulic Analysis
+Fig. 9(a) shows the comparison of the pressure drop for the
+two coolers on the level of the full cooler. In this section, the
+hydraulic results are extracted from the full-level CFD models
+in order to analyze the contribution of different components for
+the overall pressure drop. This total pressure drop is deﬁned as
+the pressure difference between the inlet and the outlet tubes
+of the cooler, and includes the following contributions:
+Ptotal = Punit + Pinlet chamber + Poutlet chamber.
+(3)
+1) The pressure drop of the inlet chamber Pinlet chamber:
+This is the pressure difference between the cooler inlet
+tube and the inlet nozzle on the nozzle plate. The
+pressure at the inlet of the nozzle plate is deﬁned as
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:04:01 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.8 =====
+1822
+IEEE TRANSACTIONS ON COMPONENTS, PACKAGING AND MANUFACTURING TECHNOLOGY, VOL. 9, NO. 9, SEPTEMBER 2019
+Fig. 18.
+CFD simulation results for the pressure drop analysis of 3-D printed
+cooler and the indications of the pressure deﬁned positions. (Note: The curves
+in the ﬁgure are all simulation results from the CFD model.)
+the average pressure in the coolant at the beginning of
+the inlet nozzle for the 16 inlet nozzles. This pressure
+drop corresponds to the difference between the locations
+“1” and “2” shown in Fig. 17(b).
+2) The pressure drop between inlet nozzle and outlet nozzle
+Punit in a cooling unit cell: This pressure drop includes
+the contributions from the inlet and outlet channels,
+the impingement region, and the wall jet region. This
+corresponds to the pressure drop between locations
+“2” and “3.”
+3) The pressure drop of the outlet chamber Poutlet chamber;
+between the nozzle outlet (3) and the cooler outlet
+tube (4), where the pressure at the nozzle outlet is
+deﬁned as the average pressure of the 25 outlet nozzles.
+The evolution of the total cooler pressure drop and different
+contributions are shown in Fig. 18, as a function of the total
+ﬂow rate in the cooler. The cooler pressure drop and the
+pressure drop contributions all scale with the second power
+of the ﬂow rate. It can be observed that the pressure drop in
+the outlet plenum is responsible for the major contribution to
+the total pressure, while the pressure drop contribution in the
+inlet plenum and the nozzle plate are considerably smaller.
+At the ﬂow rate of 1000 mL/min, the pressure drop contri-
+bution of the outlet plenum amounts to 57%, while the inlet
+plenum and nozzle plate contributions to the pressure drop
+are 21% and 22%, respectively. The reason for the dominance
+of the outlet plenum contribution is the large pressure drop
+associated with the ﬂow through narrow gaps between the
+cylinder of the inlet/outlet divider, shown in Fig. 5, and the
+collection of the outlet ﬂow in a single outlet connector. The
+Fig. 19.
+System-level CFD modeling results of the 3-D printed 4×4 cooler.
+(a) Impact of the nozzle diameter on the thermal performance using CFD
+modeling. (b) Full-CFD model validation with experimental results.
+large difference is pressure drop associated with the local
+nozzle level, and the global cooler level in both plenums shows
+that improvement efforts to reduce the cooler pressure drop
+should be focused on distributor optimization for the inlet and
+outlet plenums rather than the nozzle level.
+C. Experimental Model Validation
+In this section, the full-cooler-level CFD simulations are
+updated with the measured nozzle diameter of 575 μm and the
+nozzle plate thickness of 550 μm, and the modeling results
+are validated by experimental data for different ﬂow rates.
+Fig. 19(a) shows the modeling results of the chip temperature
+along the chip diagonal for different ﬂow rates. For the
+ﬂow rate of 100 mL/min, the impact of the nozzle diameter
+variation is also shown. This impact analysis shows that the
+5% diameter variation for the fabrication only results in a
+reduction of the average temperature and the minimal temper-
+ature of 4.7% and 4.3% for the same ﬂow rate, respectively.
+In Fig. 19(b), the average thermal resistance of the chip is
+compared for the modeling results and the measurement data
+as a function of the ﬂow rate. It can be seen that the maximum
+error between the modeling result and experiments is 12% at
+100 mL/min, while the difference reduces to 4% at the high
+ﬂow rate of 1000 mL/min. In conclusion, the CFD model used
+in this paper is validated and shows good agreement with the
+experimental results.
+V. BENCHMARKING STUDY
+As shown in Fig. 20(a), in order to put the thermal per-
+formance and size of the 3-D printed cooler in perspective,
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:04:01 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.9 =====
+WEI et al.: EXPERIMENTAL CHARACTERIZATION OF A CHIP-LEVEL 3-D PRINTED MICROJET LIQUID IMPINGEMENT COOLER
+1823
+Fig. 20.
+Comparison of the measured chip temperature map for the heat
+sink, micromachined cooler, and the 3-D printed cooler. (a) Three demon-
+strators’ comparison. (b) Deﬁned PTCQ hot spots power map. (c) Measured
+temperature map with 3-D printed cooling. (d) Measured temperature proﬁle
+comparison.
+the measured chip temperature map is compared for a con-
+ventional heat sink–fan combination, the MM polymer liquid
+jet cooler [6] (600 mL/min) and the 3-D printed liquid jet
+cooler (600 mL/min) for a custom power dissipation map.
+As mentioned before, the cooler is part of a closed-ﬂow
+loop system, and this comparison only considers the size of
+the cooler on the chip since the intention of the proposed
+cooler is to replace a bolt-on liquid cold plate in the existing
+infrastructure with the pump, tubing, and heat exchanger.
+It should be noted that the size of the additional parts in the
+closed loop is not considered here. The chosen power map
+with different hot spot sizes that is applied to the thermal test
+chip is shown in Fig. 20(b). The measured chip temperature
+increase map is shown in Fig. 20(c) for the case of the
+3-D printed cooler. Fig. 20(d) shows the comparison of the
+temperature proﬁles along the chip diagonal for the three
+different coolers. The comparison shows that both liquid jet
+coolers achieve a 2.7× lower peak temperature difference and
+a 3.5× lower average temperature difference with respect to
+the inlet temperature compared to the conventional air cooling
+heat sink. The size of the coolers is, respectively, 8 mm ×
+8 mm, 46 mm × 46 mm, and 18 mm × 18 mm for the heat
+sink and fan combination, the MM cooler, and the 3-D printed
+cooler, respectively. This clearly shows that the 3-D cooler
+offers a huge reduction in the cooler size, matching the
+footprint of the chip package.
+VI. CONCLUSION
+In this paper, a chip-level 3-D printed microjet liquid
+impingement cooler containing 4 × 4 nozzle arrays with
+575-μm nozzle diameter is demonstrated using the SLA
+3-D printing technology. The experimental characterization
+shows a low thermal resistance of 0.16 cm2·K/W for a ﬂow
+rate of 1000 mL/min and a pressure drop of 0.3 bar and also
+good temperature uniformity. Moreover, the CFD modeling
+results show a good agreement with the measurements data,
+which are used for the cooler geometry optimization and
+thermal and hydraulic performance analyses. The printing
+quality and fabrication tolerance of 3-D printed cooler are
+assessed using different measurement methodologies. The
+printed impingement jet cooler exhibits lower pressure drop
+and allows the reduction of the cooler size compared to
+the MM cooler and conventional heat sink, which enables
+signiﬁcant cost and performance improvements for cooling
+solutions of the high-performance applications. In summary,
+the 3-D printing can allow creating much more complex
+internal geometries with better hydraulic performance that is
+not feasible to create with conventional techniques.
+REFERENCES
+[1] G. Van der Plas et al., “Design issues and considerations for low-cost
+3-D TSV IC technology,” IEEE J. Solid-State Circuits, vol. 46, no. 1,
+pp. 293–307, Jan. 2011.
+[2] T. Brunschwiler et al., “Direct liquid jet-impingment cooling with
+micron-sized nozzle array and distributed return architecture,” in Proc.
+IEEE ITHERM, May/Jun. 2006, pp. 196–203.
+[3] G. Natarajan and R. J. Bezama, “Microjet cooler with distrib-
+uted returns,” Heat Transf. Eng., vol. 28, nos. 8–9, pp. 779–787,
+2007.
+[4] T. Acikalin and C. Schroeder, “Direct liquid cooling of bare die
+packages using a microchannel cold plate,” in Proc. 14th Intersoc.
+Conf. Therm. Thermomech. Phenomena Electron. Syst., May 2014,
+pp. 673–679.
+[5] K. Gould, S. Q. Cai, C. Neft, and A. Bhunia, “Liquid jet impingement
+cooling of a silicon carbide power conversion module for vehicle appli-
+cations,” IEEE Trans. Power Electron., vol. 30, no. 6, pp. 2975–2984,
+Jun. 2015.
+[6] T. Tiwei et al., “High efﬁciency direct liquid jet impingement cooling of
+high power devices using a 3D-shaped polymer cooler,” in IEDM Tech.
+Dig., San Francisco, CA, USA, Dec. 2017, pp. 32.5.1–32.5.4.
+[7] G. Aspar et al., “3D printing as a new packaging approach for MEMS
+and electronic devices,” in Proc. IEEE 67th Electron. Compon. Technol.
+Conf. (ECTC), May/Jun. 2017, pp. 1071–1079.
+[8] M.
+Craton,
+J.
+A.
+Byford,
+V.
+Gjokaj,
+J.
+Papapolymerou,
+and
+P. Chahal, “3D printed high frequency coaxial transmission line based
+circuits,” in Proc. IEEE 67th Electron. Compon. Technol. Conf. (ECTC),
+May/Jun. 2017, pp. 1080–1087.
+[9] T. Tiedje, S. Lüngen, M. Schubert, M. Luniak, K. Nieweglowski, and
+K. Bock, “Will low-cost 3D additive manufactured packaging replace the
+fan-out wafer level packages?” in Proc. IEEE 67th Electron. Compon.
+Technol. Conf. (ECTC), May/Jun. 2017, pp. 1065–1070.
+[10] C. Bailey, S. Stoyanov, T. Tilford, and G. Tourloukis, “3D-printing and
+electronic packaging,” in Proc. Pan Paciﬁc Microelectron. Symp. (Pan
+Paciﬁc), Big Island, HI, USA, Jan. 2016, pp. 1–7.
+[11] C. Bailey, S. Stoyanov, T. Tilford, and G. Tourloukis, “3D-printing and
+electronic packaging—Current status and future challenges,” in Proc.
+IEEE 18th Electron. Packag. Technol. Conf. (EPTC), Nov./Dec. 2016,
+pp. 1–4.
+[12] M. Vaezi, H. Seitz, and S. Yang, “A review on 3D micro-additive
+manufacturing technologies,” Int. J. Adv. Manuf. Technol., vol. 67,
+nos. 5–8, pp. 1721–1754, 2013.
+[13] B. Tehrani, R. Bahr, D. Revier, B. Cook, and M. Tentzeris, “The princi-
+ples of ‘smart’ encapsulation: Using additive printing technology for the
+realization of intelligent application-speciﬁc packages for IoT, 5G, and
+automotive radar applications,” in Proc. IEEE 68th Electron. Compon.
+Technol. Conf. (ECTC), May/Jun. 2018, pp. 111–117.
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:04:01 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.10 =====
+1824
+IEEE TRANSACTIONS ON COMPONENTS, PACKAGING AND MANUFACTURING TECHNOLOGY, VOL. 9, NO. 9, SEPTEMBER 2019
+[14] B. Goubault et al., “A new microsystem packaging approach using 3D
+printing encapsulation process,” in Proc. IEEE 68th Electron. Com-
+pon. Technol. Conf. (ECTC), San Diego, CA, USA, May/Jun. 2018,
+pp. 118–124.
+[15] E. M. Dede, S. N. Joshi, and F. Zhou, “Topology optimization, additive
+layer manufacturing, and experimental testing of an air-cooled heat
+sink,” J. Mech. Des., vol. 137, no. 11, pp. 111403-1–111403-9, 2015.
+[16] F. F. Wang and E. Parker, “3D printed micro-channel heat sink design
+considerations,” in Proc. Int. Symp. 3D Power Electron. Integr. Manuf.
+(3D-PEIM), Raleigh, NC, USA, Jun. 2016, pp. 1–13.
+[17] R. Jenkins, C. De Brún, R. Kempers, R. Lupoi, and A. J. Robinson,
+“Thermal-hydraulic performance of convective boiling jet array impinge-
+ment,” J. Phys., Conf. Ser., vol. 745, no. 3, 2016, Art. no. 032120.
+[18] A. J. Robinson, W. Tan, R. Kempers, J. Colenbrander, N. Bushnell, and
+R. Chen, “A new hybrid heat sink with impinging micro-jet arrays and
+microchannels fabricated using high volume additive manufacturing,”
+in Proc. 33rd Therm. Meas., Modeling Manage. Symp., Mar. 2017,
+pp. 179–186.
+[19] B. P. Whelan, R. Kempers, and A. J. Robinson, “A liquid-based system
+for CPU cooling implementing a jet array impingement waterblock
+and a tube array remote heat exchanger,” Appl. Therm. Eng., vol. 39,
+pp. 86–94, Jun. 2012.
+[20] H. Oprins et al., “Experimental thermal characterization and thermal
+model validation of 3D packages using a programmable thermal test
+chip,” in Proc. IEEE 65th Electron. Compon. Technol. Conf. (ECTC),
+San Diego, CA, USA, May 2015, pp. 1134–1141.
+[21] T. Wei et al., “3D printed liquid jet impingement cooler: Demon-
+stration, opportunities and challenges,” in Proc. IEEE 68th Electron.
+Compon. Technol. Conf. (ECTC), San Diego, CA, USA, May/Jun. 2018,
+pp. 2389–2396.
+[22] T. Wei et al., “High efﬁciency polymer based direct multi-jet impinge-
+ment cooling solution for high power devices,” IEEE Trans. Power
+Electron., to be published.
+[23] N. Zuckerman and N. Lior, “Jet impingement heat transfer: Physics,
+correlations, and numerical modeling,” Adv. Heat Transf., vol. 39,
+pp. 565–631, 2006.
+[24] A. Khaled, S. Brand, M. Kögel, T. Appenroth, and I. De Wolf,
+“Investigating stress measurement capabilities of GHz scanning acoustic
+microscopy for 3D failure analysis,” Microelectron. Rel., vol. 64,
+pp. 336–340, Sep. 2016.
+Tiwei Wei (M’17) was a Researcher Staff with
+Tsinghua University, Beijing, China, and also with
+The Hong Kong University of Science and Tech-
+nology, Hong Kong, from 2011 until 2015, where
+he was responsible for the test vehicles design,
+process development and experimental characteriza-
+tion in 3-D system integration technologies related
+to 3-D/2.5-D integration, through silicon via (TSV),
+and through glass via (TGV). In 2015, he joined
+imec, Leuven, Belgium, where he conducted his
+Ph.D. research with developing thermal cooling
+solutions for high-performance systems. He is currently a Ph.D. Researcher
+with imec. He has authored over 13 publications including IEDM, ECTC,
+and EPTC, and one Outstanding Paper Award in ICEPT 2013. He holds
+nine Chinese national patents and one U.S. patent in the area of advanced
+packaging.
+Herman Oprins (M’18) received the M.Sc. and
+Ph.D. degrees
+in mechanical
+engineering
+from
+KU Leuven, Leuven, Belgium.
+In 2003, he joined imec, Leuven, where he was
+involved in modeling and experimental projects on
+thermal management of electronic packages. Since
+2009, he has been a Senior Research Engineer
+with imec, where he is involved in the thermal
+experimental characterization, thermal modeling and
+management of 3-D-ICs, electronic packages, GaN
+transistors, photovoltaic modules, and microﬂuidics.
+Vladimir Cherman (A’14) received the M.S. and
+Ph.D. degrees in electronic engineering from Saint
+Petersburg Electrotechnical University (LETI), Saint
+Petersburg, Russia, in 1994 and 1999, respectively.
+From 1997 to 2000, he was an Electronics Engi-
+neer with Morion, Inc., Saint Petersburg. From
+2000 to 2007, he was with the Ceramics Labora-
+tory, Swiss Federal Institute of Technology Lau-
+sanne (EPFL), Lausanne, Switzerland, where he
+researched microwave properties of ferroelectric
+materials. Since 2007, he has been a Researcher with
+imec, Leuven, where he is involved in reliability studies of microelectro-
+mechanical systems devices and electronic packages.
+Shoufeng Yang received the B.Eng. degree in
+mechanical engineering and the Ph.D. degree in
+materials science and engineering from Tsinghua
+University, Beijing, China, in 1994 and 1999,
+respectively.
+He was a Chair Professor of additive manufac-
+turing with the The University of Southampton,
+Southampton, U.K., from 2010 to 2016, a Senior
+Lecturer and Lecturer with the Queen Mary Uni-
+versity of London, London, U.K., from 2000 to
+2010, and a Post-Doctoral Researcher with Nanyang
+Technological University, Singapore, from 1999 to 2000. Since 2016, he has
+been a Professor of additive manufacturing with the Department of Mechan-
+ical Engineering, Production Engineering, Machine Design and Automation,
+Faculty of Engineering, KU Leuven, Leuven, Belgium.
+Ingrid De Wolf (M’05–SM’10) received the Ph.D.
+degree in physics from KU Leuven, Leuven, Bel-
+gium.
+In 1989, she joined imec, Leuven, where she was
+involved in the ﬁeld of microelectronics reliability.
+From 1999 to 2014, she was the Head of the REMO
+Group, imec, where she was focused on reliability,
+test, and modeling. She is currently a Chief Scientist
+with imec and a Professor with the Department
+of Materials Engineering, KU Leuven. She has
+authored or coauthored several book chapters and
+more than 350 publications.
+Eric Beyne (M’83–SM’17) received the master’s
+degree in electrical engineering and the Ph.D. degree
+in applied sciences from KU Leuven, Leuven,
+Belgium, in 1983 and 1990, respectively.
+Since 1986, he has been with imec, Leuven, where
+he has been involved in advanced packaging and
+interconnect technologies. He is currently a fellow
+with imec, where he is the Program Director of the
+3-D System Integration Program.
+Martine Baelmans received the Ph.D. degree in
+engineering from KU Leuven, Leuven, Belgium,
+in 1993.
+She is currently a Professor with the Department
+of Mechanical Engineering, KU Leuven, where she
+leads the group on thermal-ﬂuid engineering since
+1996. She has authored or co-authored more than
+200 papers in applications on ﬂuid mechanics and
+heat transfer. Research topics are presently focusing
+on automated optimization in thermal design. Start-
+ing from dedicated component and system models,
+parameters, shapes, and topologies are improved. Applications range from
+liquid and two-phase cooling over thermal management in power electronics,
+power transformers, and energy systems.
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:04:01 UTC from IEEE Xplore.  Restrictions apply. 

@@ -1,0 +1,607 @@
+
+===== p.1 =====
+Abstract—This 
+work 
+presents, 
+for 
+the 
+first 
+time,
+a
+package- level, bare die liquid jet impingement 3D polymer 
+microfluidics heatsink fabricated using 3D printing, or additive 
+manufacturing for large die size and high-power applications. The 
+heatsink achieves a chip temperature increase of 17.5°C at a chip 
+power of 285 W for a coolant flow rate of 3.25 LPM, demonstrating 
+that 3D printing enables the design for low-cost, high efficiency 
+direct on-chip microfluidic heatsink with complex internal 3D 
+manifold liquid delivery channels. The measurement results show 
+that the jet impingement cooling performance can be successfully 
+described using a unit cell approach, allowing an easy scaling of 
+the thermal performance for arbitrary die size applications. Long 
+term thermal tests of 1000h show a constant thermal performance 
+and no degradation of the cooler material.
+Index 
+Terms—Liquid 
+cooling, 
+power 
+electronics, 
+jet 
+impingement cooling, low cost fabrication, high power
+I. INTRODUCTION
+With the increasing demand on the functionality and higher 
+computation performance for high performance chips, the die 
+size is continuously increasing. For example, the die size has 
+increased from 12 mm2 in 1971 to 688 mm2 in 2019 for Intel 
+microprocessors, and from 270 mm2 in 1998 to 696 mm2 in 
+2019 for IBM microprocessors [1]. Moreover, the chip power 
+also increases with the increase of performance, especially for 
+the emerging applications, such as machine learning or artificial 
+intelligence (AI) computing, high performance computing 
+(HPC) and networking applications [1,2].
+For the traditional microchannel cooling applied in the large 
+die size and high power applications, the temperature gradient 
+along the chip area will be a concern.
+Advanced 
+micro/nanofluidic cooling techniques, such as interlayer 
+cooling [3] and intra-die cooling [4] have been proposed and 
+demonstrated, showing high cooling performance. These 
+solutions are however not compatible with the fine pitch 
+requirements for high bandwidth communication between 
+different tiers of a 3D system. Microscale jet impingement 
+cooling on the bare die is an efficient cooling technique where 
+the liquid coolant is directly ejected on the chip backside, as 
+shown in Fig.1. This microfluidic cooling system contains a 
+high density of local level microjet nozzles and global level 
+fluidic delivery manifold microchannels. This concept has been 
+successfully applied with silicon processing [5], multilayer 
+ceramic technology [6] and mechanical micromachining [7, 8]. 
+However, these methods require the different individual parts 
+to be fabricated separately and then assembled together. 
+Moreover, it is also shown that the geometry of the manifold in 
+microfluidic heatsinks has a dominant impact on the system 
+pressure drop and thermal performance [9]. This impact will be 
+even more pronounced for large die size applications due to the 
+coolant flow non-uniformity over the chip surface. 
+Figure 1: Schematic concept of the package level 3D 
+microfluidic heatsink with microscale inlet/outlet nozzles and 
+3D manifold liquid delivery systems.
+Additive manufacturing, or 3D printing, is regarded as a 
+promising technique for on-demand electronics manufacturing 
+[10] and for the fabrication of complex geometries in various 
+materials, which can provide more design flexibility for the 
+complex internal geometry of microfluidic coolers. In our 
+previous studies [11, 12], we presented package-level 3D 
+printed jet impingement coolers demonstrated for single 
+8×8 mm2 test chips and for 2.5D interposer package with two 
+test chips, shown in Fig.2, and for targeted hot spot cooling [13, 
+14]. The experimental and numerical [15] studies prove that the 
+nozzle array cooling is area independent for a constant nozzle 
+flow rate by normalizing all the parameters: thermal resistance, 
+flow rate and pressure drop. Therefore, the cooling performance 
+of the large die size cooler can be extrapolated from the 
+characterized results of 3D printed cooler demonstrated before.
+Figure 2: Demonstration of the single die cooler [10] and 
+interposer package cooler [11] with two thermal test dies.
+Demonstration of Package Level 3D-printed Direct Jet Impingement 
+Cooling applied to High power, Large Die Applications
+T.-W. Wei1,2, H. Oprins1, V. Cherman1, Z. Yang3, K. Rivera3*, G. Van der Plas1,
+B. J. Pawlak4, L. England3, E. Beyne1 and M. Baelmans2
+1IMEC, Leuven, Belgium, 2Dept. Mech. Eng. KU Leuven, Leuven, Belgium, 3GlobalFoundries, Malta, NY, US,
+4GlobalFoundries at IMEC, Leuven, Belgium
+Email: tiwei.wei@imec.be
+1422
+2020 IEEE 70th Electronic Components and Technology Conference (ECTC)
+2377-5726/20/$31.00 ©2020 IEEE
+DOI 10.1109/ECTC32862.2020.00225
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:11:59 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.2 =====
+In this paper, the liquid jet impingement cooling concept with 
+a scalable nozzle array is applied to the large die size 
+applications, for a die sizes above 500 mm2, and for high power 
+applications (>250W). The objective is to provide a proof of 
+concept that this cooling solution, that was previously 
+demonstrated on the small die size of the test chip, can be 
+scaled-up to relevant chip sizes and power dissipation values. 
+We discuss the design, fabrication, and experimental 
+characterization of the 3D printed large-die cooler and the 
+assessment of the cooler performance over a 1000h long period 
+of operation.
+II. 3D PRINTED MICROFLUIDIC HEATSINK
+A. Large die size thermal test vehicle
+In order to characterize the thermal performance of the 3D 
+printed microfluidic heatsink, a 23×23 mm2 thermal test chip,
+shown in Fig.3 is used. This passive test chip contains 16 heater 
+zones and 25 temperature sensors as metal meanders in the 
+BEOL. The calibrated temperature coefficient of the resistance 
+is 3553±2 ppm/°C in the temperature range of 10°-70°C. The 
+heaters generate a power of 250-285W (depending on the chip 
+temperature) for an applied voltage of 50V. The test chip is flip-
+chip mounted on a package laminate substrate of 55×55 mm2.
+The thermal performance of the microfluidic cooler is evaluated 
+both on a lidded package (1 mm thick Cu lid) as well as on a 
+bare die package with an exposed chip backside accessible for 
+direct liquid cooling.
+Figure 3: 23 mm × 23 mm thermal test chip with 16 heater 
+zones and 25 temperature sensors. The 55×55 mm2 package is 
+assembled to the test board (lidded package version shown).
+B. Large die cooler design
+The main design considerations for the large die cooler are 
+the inlet flow uniformity and the possible die and package 
+warpage of the large die assembly. The microfluidic heatsink 
+configuration matching the dimensions of the chip package is 
+shown in Fig.4, with a nozzle array below the coolant entrance 
+connection. The jet nozzle plate in Fig. 4, contains an 11×11
+inlet jet array and a 12×12 array of outlets distributed in 
+between the inlets, with a nozzle pitch of 2 mm and a nozzle 
+diameter of 600 μm. The nozzle geometry is the same as for the 
+single die coolers [10, 11], only the number of nozzles has been 
+scaled to match the die area. The cavity height, defined as the 
+nozzle-to-chip surface distance is 600 μm. The total cooler size 
+is 55×55×17.5 mm3. To accommodate the package warpage, 
+O-rings are used, for which a dedicated groove is foreseen in 
+the cooler design. Table 1 lists the critical dimensions’
+comparison with the single die cooler, interposer cooler and the 
+large die cooler.
+Figure 4: Cross-section view of the microfluidic cooler 
+configurations with nozzle array below coolant entrance 
+connection.
+Table 1: Scaling from single die cooler to large die cooler
+Geometry
+Single 
+cooler [11]
+Interposer 
+cooler [12]
+Large die 
+cooler
+Nozzle array
+N
+4×4
+4×4 per die
+11×11
+Nozzle pitch
+2 mm
+2 mm
+2 mm
+Inlet chamber 
+2.5 mm
+2.5 mm
+3 mm
+Inlet diameter
+di
+0.6 mm
+0.6 mm
+0.6 mm
+Outlet diameter
+do
+0.6 mm
+0.6 mm
+0.6 mm
+Cavity height
+H
+0.6 mm
+0.6 mm
+0.6 mm
+Nozzle plate 
+thickness
+t
+0.55 mm
+0.55 mm
+0.55 mm
+Cooler size
+x,y,z
+14×14×8.7 
+(mm3 )
+35×35×9.1 
+(mm3)
+55×55×17.5 
+(mm3)
+C. Large die cooler fabrication
+The microfluidic heatsinks (Fig. 5) are fabricated using high 
+resolution Stereolithography (SLA) 3D printing with a minimal 
+feature size of 70 μm, using the water-resistant material Sonos 
+WaterShed XC 11122 [11,12,16]. The side view of the 
+transparent coolers in Fig. 5 reveals the successfully fabricated 
+internal structures of the cooler design, that could not be 
+fabricated with conventional fabrication techniques. The 
+fabrication tolerance of the fabricated nozzles is assessed using 
+2D and reconstructed 3D microscope images (Fig. 6). The 
+measured average nozzle diameter is 630 μm, which deviates 
+only 5% from the nominal design value of 600 μm. Moreover, 
+a full array of nozzles from the bottom view of the large die 
+cooler is shown in Fig.7. This demonstrates that additive
+manufacturing can be used for the fabrication of complex 
+microfluidic cooler geometries with micro-scale features.
+Figure 5: Images of the demonstrated cooler: the cooler size is 
+matched to the large die/package size.
+1423
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:11:59 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.3 =====
+Figure 6: Nozzle geometry and nozzle diameter evaluation 
+with 2D and reconstructed 3D microscope image: 5% deviation 
+from the nominal design value of 600 μm.
+Figure 7: Microscope image of the cooler bottom showing the 
+inlet and outlet nozzle array.
+III. EXPERIMENTAL CHARACTERIZATION
+A. Large die cooler setup and calibration
+For the thermal and hydraulic characterization of the large 
+die coolers, the 3D printed coolers are connected to the closed-
+loop fluidic circuit. The details of the fluidic and electrical 
+connections to the large die test chip are shown in Figure 8(a).
+Moreover, the schematic of the electrical control for the heaters 
+in the large die is shown in Figure 8(b). In general, all the 
+heaters connected to single power supply, with 4 parallel chains 
+of 4 heaters in series to dissipate uniform power. Off-chip 
+resistors are designed to measure the current in each branch. 
+Figure 8: Measurements set-up: (a) Details of the fluidic and 
+electrical connections to the test vehicle in the flow loop; (b) 
+schematic of the 16 heaters in the large die.
+Figure 9: Calibration of the TSRs in the large die thermal test 
+vehicle: (a) TSR calibration setup; (b) Sensor resistance as 
+function of temperature for 25 sensors.
+In the second step, the 25 temperature-sensitive resistors 
+(TSR) are calibrated as a function of temperature [8]. The 
+experimental setup and the sensor resistance as function of the 
+temperature are illustrated in Figure 9. The range of the 
+calibrated temperature is from 10°C to 70°C. The calibrated 
+TCR is 3553 ± 2 ppm/°C.  Therefore, the temperature increase 
+of the sensor ∆T can be determined by the following equation
+[17]:
+∆ܶ=
+ோିோబ
+ோబ∙்஼ோ                                         ˄1˅
+where ܴ଴is the resistance at the reference temperature. The 
+TCR is the temperature coefficient of the resistance.
+B. Characterization of the heatsink
+The distribution of the measured chip temperature increase 
+with respect to the coolant inlet temperature in the bare die 
+package for a chip power of 275W and a coolant (DI water) 
+flow rate of 3.25 LPM is shown in Fig.10(a). At this power, an 
+average chip temperature increase as low as 17.5°C is achieved 
+with a low temperature non-uniformity of 6% for a low pressure 
+drop of 0.7 bar, demonstrating the efficiency of the microfluidic 
+cooler. Fig.10(b) shows the measured chip temperature profile 
+along the chip diagonal for three different flow rates for a total 
+applied voltage of 50V. The average temperature increase is 
+defined as the average chip temperature with respect to the 
+coolant inlet temperature.
+Figure 10: Temperature measurement on the test chip for a total 
+applied voltage of 50V using the large die cooler: (a) 
+Temperature distribution map for a constant flow rate of 3.25 
+LPM; (b) Temperature profile along the large die diagonal with 
+total applied voltage of 50V.
+1424
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:11:59 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.4 =====
+The evolution of the average temperature increase as a 
+function of the chip power for constant flow rate of 1 L/min is 
+plotted in Fig.11(a). The thermal resistance can be extracted 
+from the correlation between the measured chip temperature 
+increase and the applied chip power. The average thermal 
+resistance for a coolant flow rate of 1 LPM is 0.14 K/W.
+Moreover, the evolution of the average chip temperature
+increase as a function of the flow rate for a total applied voltage 
+of 50V is plotted in Fig.11(b). The temperature increase as a 
+function of flow rate shows as a power law relation, with an 
+exponent of -0.55. The normalized thermal resistance 
+comparison in Fig.12 shows that the scaled large die cooler has 
+the same normalized thermal performance as the 4×4 array 
+cooler on the 8 × 8 mm2 PTCQ [12, 18]. Therefore, the 
+implementation of the multi-jet cooling on the large die size 
+with the 11×11 nozzle array validates the scalability of this unit 
+cell based cooling concept. The thermal performance of the 
+cooling on this 530 mm2 die can be extrapolated to cooling 
+power of 1kW for a maximum chip temperature increase of 
+65°C for a flow rate of 27 ml/min per nozzle or 3.25LPM for 
+the total cooler.
+Figure 11: Temperature measurements of the cooling on the
+bare die package at (a) different chip power values and (b) 
+different flow rates at total heater voltage of 50V.
+Figure 12: Scaled large die cooler shows the same thermal 
+performance as the 4x4 array cooler on the 8×8 mm2 PTCQ 
+with the same nozzle geometry in terms of the normalized 
+thermal resistance.
+C. Comparison cooling on lidded package vs bare die
+For the 2.5D interposer package shown in [12], the thermal 
+conductivity of the TIM is 1.9 W/m-K and the bond line 
+thickness is 90 μm, as illustrated in Table 2. This results in a 
+large difference between the bare die and lidded package cooler
+of a factor of 2.5 to 3. For this test vehicle, the thermal 
+conductivity of the TIM is 2.3 W/m-K with a thickness of 20
+μm. Therefore, the difference between the bare die package and 
+lidded package cooling is expected to be smaller for this large 
+die package.
+Table 2: Comparison of the TIM material parameters
+TIM
+Interposer 
+package [12]
+Large die 
+package
+TIM thickness
+90 μm
+20 μm
+TIM conductivity
+1.9 W/m-K
+2.3 W/m-K
+The measured temperature distribution profiles for the lidded 
+package and the lidless package for different flow rate values 
+and for a total applied voltage of 50V are shown in Fig.13. The 
+average chip temperature increase and the measured coolant 
+temperature increase are shown in Fig.14 as a function of the 
+flow rate.
+Figure 13: Temperature increase with respect to the inlet 
+temperature comparison with the lidded and bare die package 
+1425
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:11:59 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.5 =====
+for a total applied voltage of 50V: temperature profile 
+comparison on the chip diagonal.
+Figure 14: Temperature increase with respect to the inlet 
+temperature comparison with the lidded and bare die package 
+for a total applied voltage of 50V: averaged temperature 
+comparison as function of the coolant flow rate.
+The measurements show that the cooling on the lidded 
+package has a slightly better thermal performance at very low 
+flow rates, due to the lateral thermal spreading in the metal lid, 
+while the bare die cooling outperforms the cooling on the lid for 
+flow rate values above 0.7 LPM. This is because increasing the 
+cooling rate, reduces the relative contribution of the heat 
+spreading in the lid. At a flow rate of 2 LPM, the temperature 
+increase of the cooler on the bare die package is 35% lower 
+compared to the lidded package. For a higher flow rate of 3.25 
+LPM, the temperature difference is increased to 44%. This is 
+caused by the additional thermal resistance of the lid and mainly 
+the thermal interface material in the thermal path between the 
+heat source and the cooling solution, in case of the lidded 
+package. The temperature difference between the bare die 
+cooling and lidded package cooling is summarized in Fig.15. It 
+can be seen that the temperature difference becomes larger with 
+the increase of the flow rate.
+Figure 15: Temperature difference between the bare die 
+cooling compared with the lidded package cooling. 
+For the comparison of the bare die package and lidded 
+package cooling, the chip temperature uniformity is also 
+investigated, as illustrated in Fig.16. The bare die cooling 
+shows 8.1% temperature variation over the die area while the 
+lidded package shows 6.4% variation at a flow rate of 1 LPM.
+The difference between the maximum chip temperature and 
+minimum chip temperature is also compared as shown in 
+Fig.17. It can be seen that this temperature difference is 16% 
+lower for the bare die cooling at a flow rate of 3.25 L/min. In
+general, for the bare die cooling at a flow rate of 3.25 L/min, it 
+shows about 45% lower thermal resistance, and 16% lower 
+temperature gradient compared to the cooling on the lidded 
+package. Therefore, bare die cooling without lid (and TIM) 
+shows better cooling performance than the lidded package. 
+However, lidless cooling is considered as less reliable and 
+therefore more challenging to maintain than cooling on the lid. 
+Therefore, in the following part, the long-term performance of 
+the bare die cooling is experimentally evaluated.
+Figure 16: Temperature increase variations for different 
+temperature sensors at a flow rate of 3.25 LPM for a total heater 
+voltage of 50V.
+Figure 17: Maximal temperature difference over the chip area
+as function of the flow rate for bare die cooling and lidded 
+package cooling.
+IV. LONG TERM COOLING MEASUREMENT
+A. Long-term cooling measurements
+For direct on-chip liquid cooling, there are several concerns 
+such as the cooling performance over time and potential 
+reliability issues of the devices. In order to evaluate these 
+aspects of the 3D printed microfluidic cooler, a longer-term 
+measurement of the cooler is being conducted during 50 days
+in a closed loop system with DI water as coolant, where the chip 
+temperature and ambient temperature are monitored. The cooler 
+geometry and nozzle diameter are inspected before and after the 
+1426
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:11:59 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.6 =====
+long-term measurements. In order to perform the long-term 
+measurement for the large die liquid cooling, a simplified set-
+up with an integrated pump and heat exchanger is developed for 
+the thermal and flow measurement, shown in Fig. 18.
+Temperature measurements are performed in all 25 sensors of 
+the test chip during the long-term measurement. The test board 
+is placed in the plastic tray to check for potential leakages that 
+might occur during the test.
+Figure 18: Simplified set-up developed for thermal and flow 
+measurement.
+For the test conditions, the measured actual power in the 
+heaters of the test chip is 90 W for an applied voltage of 30V. 
+The pump voltage is 12V and the heat exchanger voltage is 
+10 V. Since the flow rate is controlled by the pump voltage, the 
+flow rate in this experiment is estimated by the thermal 
+performance, which is estimated as 1.5 L/min based on the 
+performance reported in Fig. 14.
+Figure 19: Trend for all temperature sensors and the ambient 
+temperature during the long-term measurements, compared 
+with the ambient temperature. 
+During the long-term measurement, the ambient temperature 
+is also monitored as shown in Fig.19. It can be seen that the 
+trend of the absolute temperature for all the sensors is consistent 
+with the trend of the ambient temperature. Therefore, the 
+reported temperature increase is defined as the average chip 
+temperature with respect to the ambient temperature. Fig. 20
+shows that the thermal performance of the 3D printed large die 
+cooler remains constant over the measurement period of 1000 
+hours. During this period, no reliability issues have been 
+observed. 
+Figure 20: Long term temperature measurement (50 days):
+Evolution of the average chip temperature increase with respect 
+to the actual ambient temperature.
+B. Cooler geometry impact
+In order to evaluate the nozzle diameter variation before and 
+after the long-term measurement, the nozzle diameter is 
+measured. From the cross-section analysis in Fig.21, no 
+clogging of the nozzles or internal channels is observed despite 
+the lack of filters in the simple test setup. Also, no erosion of 
+the nozzles is observed. In addition, there is no significant 
+difference for the nozzle diameters before and after the 
+measurements, as show in Fig.22.
+Figure 21: Cross section analysis after long term measurement 
+with DI water for the 3D printed plastic cooler. 
+Figure 22: No significant difference for the nozzle diameters 
+before and after the measurements.
+1427
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:11:59 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.7 =====
+V. BENCHMARKING WITH STANDARD AIR COOLING
+Fig.23
+shows the performance benchmarking of the 
+measurement data of the present work with a reference air 
+cooling solution consisting of a heat sink and fan for a power of 
+90 W dissipated in the test vehicle. The comparison is reported 
+for the chip temperature increase with respect to the ambient, 
+which is the air temperature in case of air cooling and the 
+coolant inlet temperature in case of the microfluidic cooling.
+The benchmarking study shows that this package level 3D 
+microfluidic heatsink can achieve a chip temperature reduction 
+with factor of 4 and 5 for the cooling on the lidded package and 
+bare die package respectively compared to the standard air-
+cooling. In addition, Fig.24 illustrates the drastic size and 
+weight reduction of the cooler from the bulky heat sink-fan 
+combination to the cooler that matches the package size 
+allowing a higher package density.
+Figure 23: Cooler benchmarking for 90W chip power: the 3D 
+printed microfluidic heatsink on the bare chip improves the 
+cooling performance by a factor of 5 compared to a standard 
+air-cooled heat sink. 
+Figure 24: Benchmarking study: size comparison of the 
+standard 
+air-cooling
+solution 
+and 
+the 
+package-size 
+impingement cooling solution.
+VI. CONCLUSIONS
+In this paper, we demonstrated for the first time the 
+fabrication and characterization of a package-level 3D polymer 
+jet impingement cooler with impingement jets fabricated using 
+3D printing, applied to a 23×23 mm² large die with 285W 
+power dissipation. For a coolant (DI water) flow rate of 
+3.25 LPM, the average chip temperature increase is as low as
+17.5°C with a pressure drop of 0.7 bar. Extrapolated to an 
+allowable chip temperature increase of 60°C, this results in a 
+cooling power of 1kW over the die area of 23×23 mm². At the 
+flow rate of 3.25 LPM, the cooling on the bare die package
+outperforms the cooling on the lidded package by 44% and 
+results is a reduction of the temperature gradient by 16%.
+The benchmarking study shows that the 3D printed 
+microfluidic heatsink improves the cooling performance by a 
+factor of 5 combined with a large reduction in cooler size and 
+weight, compared to a standard air-cooled heat sink. Moreover, 
+it is demonstrated that additive manufacturing enables the 
+accurate fabrication of complex internal structures in multiple 
+layers inside the microfluidic heatsink as one single piece. A
+longer-term measurement of 1000h of the cooler has been 
+conducted in a closed-loop liquid coolant system with DI water,
+where the chip temperature and ambient temperature were 
+monitored. The cooler geometry and nozzle diameters are 
+inspected before and after the long-term measurements. The 
+measurements show that the thermal performance of the 
+microfluidic cooler remains constant over the measurement 
+period of 1000 hours. During this period, no reliability issues 
+have been observed.
+ACKNOWLEDGMENT
+This work was performed as part of the imec Industrial 
+Affiliation Program on 3D System Integration and has been 
+strongly supported by the imec partners.
+REFERENCES
+[1] El-Aawar, Haissam. "Increasing the transistor count by 
+constructing a two-layer crystal square on a single chip." 
+International Journal of Computer Science & Information 
+Technology (IJCSIT) 7.3 (2015): 97-105.
+[2] Joel Hruska, “Intel Details Its Nervana Inference and 
+Training 
+AI 
+Cards”,
+https://www.extremetech.com/computing/296990-intel-
+nervana-nnp-i-nnp-t-a-training-inference, August 21, 2019.
+[3] Brunschwiler, Thomas, et al. "Towards cube-sized compute 
+nodes: Advanced packaging concepts enabling extreme 3D 
+integration." 2017 IEEE International Electron Devices 
+Meeting (IEDM). IEEE, 2017.
+[4] Dang, B., Joseph, P. J., Wei, X., et al., “A Chip-Scale 
+Cooling Scheme With Integrated Heat Sink and Thermal-
+Fluidic I/O Interconnects”. In ASME 2005 Pacific Rim 
+Technical Conference and Exhibition on Integration and 
+Packaging of MEMS, NEMS, and Electronic Systems 
+collocated with the ASME 2005 Heat Transfer Summer 
+Conference (2005): 605-610. 
+[5] Brunschwiler, Thomas, et al. "Interlayer cooling potential in 
+vertically integrated packages." Microsystem Technologies 
+15.1 (2009): 57-74.
+[6] Natarajan, Govindarajan, and R. J. Bezama. "Microjet 
+cooler with distributed returns." Heat transfer engineering 28.8-
+9 (2007): 779-787.
+[7] Tiwei, T., Herman Oprins, et al., "High efficiency direct 
+liquid jet impingement cooling of high power devices using a 
+3D-shaped polymer cooler." In 2017 IEEE International 
+Electron Devices Meeting (IEDM), pp. 32-5. IEEE, 2017. 
+[8] Wei, T-W., et al. "Experimental characterization and model 
+validation of liquid jet impingement cooling using a high spatial 
+1428
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:11:59 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== p.8 =====
+resolution and programmable thermal test chip." Applied 
+thermal engineering 152 (2019): 308-318.
+[9] Ryu, J. H., Do Hyung Choi, and SungJin Kim. "Three-
+dimensional 
+numerical 
+optimization 
+of 
+a 
+manifold 
+microchannel heat sink." International journal of heat and mass 
+transfer 46.9 (2003): 1553-1562.
+[10] Veres, J., R. D. Bringans, E. M. Chow, J. P. Lu, P. Mei, S. 
+E. Ready, D. E. Schwartz, and R. A. Street. "Additive 
+manufacturing for electronics “Beyond Moore”." In 2016 IEEE 
+International Electron Devices Meeting (IEDM), pp. 25-6. 
+IEEE, 2016. 
+[11] Wei, T. W., et al., "Experimental Characterization of a 
+Chip-Level 3-D Printed Microjet Liquid Impingement Cooler 
+for High-Performance Systems." IEEE Transactions on 
+Components, Packaging and Manufacturing Technology 9.9 
+(2019): 1815-1824.
+[12] Wei, T. W., et al., "Experimental and numerical 
+investigation of direct liquid jet impinging cooling using 3D 
+printed manifolds on lidded and lidless packages for 2.5 D 
+integrated systems." Applied Thermal Engineering 164 (2020): 
+114535.
+[13] Wei, Tiwei, et al. "Low-cost Energy Efficient On-chip 
+Hotspot
+Targeted Microjet Cooling for High Power 
+Electronics." IEEE Transactions on Components, Packaging 
+and Manufacturing Technology (2019).
+[14] Wei, Tiwei, Herman Oprins, Vladimir Cherman, Ingrid De 
+Wolf, Eric Beyne, and Martine Baelmans. "First Demonstration
+of a Low Cost/Customizable Chip Level 3D Printed Microjet 
+Hotspot-Targeted Cooler for High Power Applications." In 
+2019 IEEE 69th Electronic Components and Technology 
+Conference (ECTC), pp. 126-134. IEEE, 2019.
+[15] Wei, Tiwei, et al. "Conjugate Heat Transfer and Fluid Flow 
+Modeling for Liquid Microjet Impingement Cooling with 
+Alternating Feeding and Draining Channels." Fluids 4.3 (2019): 
+145.
+[16] Fei, Guanghai; Wei, Tiwei; 2019. Preliminary Study on 
+Hybrid Manufacturing of the Electronic-Mechanical Integrated 
+Systems (EMIS) via the LCD Stereolithography Technology. 
+The 30th Annual International Solid Freeform Fabrication 
+Symposium - An Additive Manufacturing Conference.
+[17] W. Bolton, “2.7.3 Resistance temperature detectors 
+(RTDs)”, in Instrumentation and Control Systems, 2004.
+[18] Oprins, H., Cherman, V., Van der Plas, G., De Vos, J. and 
+Beyne, E., “Experimental characterization of the vertical and 
+lateral heat transfer in three-dimensional stacked die packages. 
+Journal of Electronic Packaging”, 2016, 138(1).
+1429
+Authorized licensed use limited to: Purdue University. Downloaded on January 16,2023 at 20:11:59 UTC from IEEE Xplore.  Restrictions apply. 

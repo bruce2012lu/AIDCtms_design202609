@@ -1,0 +1,904 @@
+
+===== p.1 =====
+Contents lists available at ScienceDirect
+Applied Thermal Engineering
+journal homepage: www.elsevier.com/locate/apthermeng
+Research Paper
+Experimental characterization and model validation of liquid jet
+impingement cooling using a high spatial resolution and programmable
+thermal test chip
+T.-W. Weia,b,⁎, H. Oprinsa, V. Chermana, G. Van der Plasa, I. De Wolfa,c, E. Beynea, M. Baelmansb
+a imec, Leuven, Belgium
+b Dept. Mech. Eng. KU Leuven, Leuven, Belgium
+c Dept. Material Eng. KU Leuven, Leuven, Belgium
+H I G H L I G H T S
+• A high spatial resolution and programmable thermal test chip is introduced.
+• A high level detail of local heater structures is necessary for high heat removal rates of multi-jet cooling during CFD modeling analysis.
+• Thermal performance benchmarking between the single jet cooling and multi-jet cooling for electronic applications.
+• Correlations development for single jet cooling and multi-jet cooling with locally distributed outlets conﬁgurations.
+A R T I C L E I N F O
+Keywords:
+Direct liquid jet impingement cooling
+Power electronics
+Micro-scale
+Flow-thermal interaction
+Thermal test chip
+CFD
+A B S T R A C T
+High eﬃciency direct liquid jet impingement cooling with locally distributed outlets is very promising in high
+power electronic devices. In order to elucidate the ﬂow-thermal interaction for micro-scale jet impingement
+cooling, sensitive temperature measurements with high spatial and temporal resolution are required. In this
+work, a programmable thermal test chip with 832 heater cells with 75% heater uniformity and 32 × 32 array of
+temperature sensors is introduced. The detailed measured temperature maps for diﬀerent power dissipation
+patterns allow the in-depth study of the thermal performance of liquid jet impingement coolers and the detailed
+experimental validation of complex CFD models. The modeling and measurement study is applied to two jet
+impingement cooling implementations: (1) a single jet cooler with a 2 mm diameter nozzle, and (2) a multi-jet
+cooler with a 4 × 4 array of 500 µm inlet nozzles and distributed outlet nozzles. For both cooler conﬁgurations,
+the temperature measurements and CFD modeling results are investigated and compared for uniform and hot
+spot power dissipation patterns.
+1. Introduction
+Direct liquid jet impingement cooling [1] is an eﬃcient cooling
+technique for high power electronics that has been successfully applied
+with various materials including Si [2], ceramic [3], metal [4] and
+plastics [5]. Bare die jet impingement cooling avoids the use of a
+thermal interface material (TIM), since the coolant is direct contact
+with the chip. In literature, detailed reports cover experimental, theo-
+retical and numerical analyses of diﬀerent impingement jet conﬁgura-
+tions. These conﬁgurations range from single submerged jet [5], to
+multiple submerged jets [6], and impinging jet cooling of electronic
+modules [7,8], conﬁgurations with common return [6] and with
+distributed returns [8]. However, limited experimental studies focus on
+chip level impingement jet cooling with locally distributed outlets due
+to the complicated internal cooler structures with sub-mm dimensions.
+Since impingement cooling can achieve high heat transfer coeﬃcients,
+accurate experimental studies with high spatial and temporal resolution
+are required to capture the local thermal impact of the cooling. The
+experimental characterization of jet impingement involves both the
+study of the ﬂow behavior through visualization, as well as the heat
+transfer between the heated chip and the impinging coolant. The focus
+of this paper is on the experimental characterization of the heat
+transfer.
+The experimental study of jet impingement as an electronics cooling
+https://doi.org/10.1016/j.applthermaleng.2019.02.075
+Received 27 May 2018; Received in revised form 15 January 2019; Accepted 16 February 2019
+⁎ Corresponding author.
+E-mail address: tiwei.wei@imec.be (T.-W. Wei).
+Applied Thermal Engineering 152 (2019) 308–318
+Available online 18 February 2019
+1359-4311/ © 2019 Elsevier Ltd. All rights reserved.
+T
+
+===== p.2 =====
+solution typically involves two key elements: (1) the heat source to
+create a constant heat ﬂux, and (2) the temperature measurement
+technique. For the characterization of the fundamental heat transfer
+phenomena, uniform heating in the surface is most appropriate since
+other eﬀects such as thermal spreading in the silicon are minimized. In
+the real application, however, the heated chip has non-uniform hot
+spots with peak heat ﬂuxes up to 1000 W/cm2 over very small areas
+(< 0.25 mm2) [9]. The measurements can either be performed in a
+mock-up apparatus of the integration of the cooling solution or using a
+more realistic test vehicle with integrated heaters and temperature
+sensors, where each approach has its advantages and drawbacks.
+Heating elements in the mock-up include ﬁlm heaters [10], thin metal
+sheets [11], platinum serpentine heaters [12], Cu blocks [13] or coated
+heaters [14] in Incomel or stainless steel meshes on the heat transfer
+surface. The drawbacks of these additional heater materials are the
+introduction of additional thermal interfaces in the measurement
+structure, which can aﬀect the temperature distribution, and the change
+in surface in case the heaters are deposited on the surface, which will
+impact both the ﬂow behavior and the heat transfer [14]. The tem-
+perature measurement methods can typically be categorized into op-
+tical and electrical techniques. The optical techniques can produce the
+temperature map of the heat exchanging surface without making con-
+tact, and thus without disturbing the measurement. These techniques
+require however visual access to the surface which limits the integra-
+tion options for the test structure. Examples of these optical techniques
+include thermochromic liquid crystals (TLC) [24], temperature sensi-
+tive paint (TSP) [26] and infrared thermography [25]. Electrical mea-
+surement techniques on the other hand require physical contact (re-
+sulting in an additional contact resistance and disturbance of the
+measurements [20]) to measure the temperature at the limited number
+of discrete locations of the sensors. Thermocouples are a commonly
+used method which are placed on or near the heated surface that is
+being cooled by impinging jets [15–18]. An example is the study by
+Maddox [19] where an array of twelve K-type thermocouples em-
+bedded in the measurement block with a pitch of 3 mm was used to
+capture the temperature and heat transfer coeﬃcient peak. Other
+temperature sensors are resistance temperature detectors (RTDs), which
+can be deposited on the heater surface as RTD ﬁlm or integrated se-
+parately with the heat source [21–23], and thermistors which are very
+sensitive (up to 100 times more than RTDs and 1000 times more than
+thermocouples) by measuring the change in resistance with tempera-
+ture. However, thermistors have self-heating problems and have a slow
+response for transient thermal measurements.
+Alternatively, thermal test chips or thermal test vehicles with in-
+tegrated heaters and sensors can be used for steady-state and transient
+thermal measurements in real application conditions, including all
+realistic interfaces. The on-chip integrated temperature sensors can be
+metal resistors, RTDs or diodes, while the integrated heaters can be
+polysilicon heaters, transistors and metal resistors to create either a
+uniform power dissipation or a predeﬁned hot spots pattern. The
+drawbacks of the test vehicles are the higher cost and the required
+processing or packaging to be used in the test set-up. These test vehicles
+can be fabricated using simpliﬁed processing of metal heaters and RTDs
+on Pyrex [30] or full CMOS Si processing. In literature, only a small
+number of experimental studies using thermal test chips for liquid jet
+impingement cooling are available. Evelyn N. Wang et al. [27] used a
+1 cm2 Si thermal test chip with seven calibrated temperature sensors to
+study the performance of the microjet heat sinks, but the test chip used
+in the experimental investigations has a low spatial resolution. Richard
+et al. [28] carried out thermal experiments for a ﬂat spray cooling
+system with nozzles angled to the surface of a silicon chip using only
+four micro-heaters for delivering peak heat ﬂuxes and 29 RTDs. How-
+ever, the spatial resolution of the temperature measurement is limited
+by the number of RTD temperature sensors. Especially in the case of hot
+spots cooling measurements, a higher spatial resolution is required.
+In this work, a thermal test chip with high spatial resolution and a
+programmable power dissipation map is used for the thermal char-
+acterization of liquid jet impingement coolers with distributed returns.
+First, the features of the test chip, the design of the single jet and multi-
+jet impingement coolers and the experimental set-up are introduced.
+Next, the temperature measurements and CFD modeling of the coolers
+are investigated and compared for uniform and hot spot power dis-
+sipation patterns. Finally, the thermal performance for diﬀerent outlet
+nozzle conﬁgurations is investigated using the validated CFD models for
+hot spot arrays.
+2. Experimental set-up
+2.1. Advanced thermal test chip
+In this study, a dedicated CMOS thermal test chip, named PTCQ
+(Packaging Test Chip Version Q) shown in Fig. 1(c) is used to char-
+acterize the temperature response of liquid jet impingement cooling.
+This 8 × 8 mm2 test chip includes integrated heaters to program a
+custom power map and integrated sensors to measure the full tem-
+perature distribution map. As shown in Fig. 1(a), the entire PTCQ
+package includes the thermal test chip, the Cu pillars and underﬁll
+material, the package substrate, the solder balls and the PCB. The di-
+mensions and material properties are listed in Table 1. Moreover, the
+integrated diode temperature sensor layer and heater cell layer are il-
+lustrated in Fig. 1(b). The size of the single diode temperature sensor is
+about 4.8 μm × 2.6 μm, which was fabricated using front-end of line
+(FEOL) semiconductor processing technology. Diﬀerent from the tem-
+perature sensors, the heater cells were fabricated using back-end of line
+(BEOL) as resistors.
+The test chip is divided into a 32 × 32 array of 240 × 240 μm2
+square cells with additional peripheral circuits with I/O and control
+cells in the central cross of the chip. The total number of the tem-
+perature sensor cells is 1024, marked with yellow1 color shown in
+Fig. 2(a). All these cells contain a diode in the center of the cell as
+temperature sensor, resulting in a detailed temperature map measure-
+ment with 32 × 32 ‘thermal pixels’ across the die surface. The voltage
+drop across the diode for a constant current is used as the temperature
+sensitive parameter of the sensor. The 95% conﬁdence interval of the
+calibrated sensitivity is −1.55 ± 0.02 mV/°C for a current of 5 µA in
+the temperature range between 10 and 75 °C. This current level is
+suﬃciently high to ensure stable operation of the diode as temperature
+sensor while it maintains the intrinsic power dissipation at a low level
+of 4 µW preventing it from self-heating.
+Fig. 1. Details of the thermal test chip: (a) cross section view of the PTCQ
+package; (b) schematic of the heater and diode temperature sensor layer; (c)
+photograph of the bare die package.
+1 For interpretation of color in Fig. 2, the reader is referred to the web version
+of this article.
+T.-W. Wei, et al.
+Applied Thermal Engineering 152 (2019) 308–318
+309
+
+===== p.3 =====
+As shown in Fig. 2(b), the blue square elements represent the heater
+cells while white square elements stand for non-heater cells. Therefore,
+there are 832 cells indicated as ‘heater cells’ within the 32 × 32 array.
+The single heater cell is equipped with two 200 × 100 µm2 metal
+meander heaters in the back-end of line (BEOL) shown in Fig. 2(c). The
+maximal power dissipation of each cell is 100 mW for a voltage of 1 V.
+The calibrated resistance per heater cell is 10 Ohm. Including the per-
+iphery circuits with 192 grey square elements, the “heater cells” covers
+75% of the chip area (832/1089 = 75%). Each of those cells is in-
+dividually controlled by a local switch, resulting in a custom power map
+on the test chip ranging from quasi-uniform power dissipation with
+75% coverage to localized hot spots. The other cells marked with white
+color in the test chip contain a variety of mechanical stress sensors.
+These stress sensors on the chip have been measured in our previous
+studies to evaluate the induced stress in the chip during the die stacking
+[29] and the chip packaging process [31]. Moreover, the stress caused
+by local hot spot power dissipation [32] has been also investigated by
+these stress sensors.
+In order to supply the current to the test chip and to read out the
+data, the test chip needs to be packaged, as discussed in [33]. To apply
+the test chip for the thermal evaluation of jet impingement cooling, the
+test chip is packaged face-down in a 14 × 14 mm2 ﬂip chip ball grid
+array package (FC-LPBGA). In the bare die package, the backside of the
+Si chip is exposed allowing direct contact of the liquid coolant to the
+heated chip.
+2.2. Chip level impingement jet cooler concepts
+Fig. 3 illustrates the critical parameters in the cross section of a
+generic impingement jet cooler with locally distributed outlets in be-
+tween the inlet nozzles. Three diﬀerent levels are shown in the cooler
+schematic Fig. 3(b): the inlet plenum level, the outlet plenum level and
+the impingement jet cooling level (cavity level). The inlet plenum is the
+ﬂow distributor which can feed the liquid coolant for all inlet nozzles.
+The outlet plenum is the collector which can collect the liquid for
+drainage. The impingement cooling happens in the cavity region
+deﬁned by nozzle to chip distance H. The inlet diameter is deﬁned as di
+while do is used for the outlet diameter. The nozzle plate thickness is
+regarded as t. The jet-to-jet pitch is given by L.
+In this section, two types of impingement jet coolers have been
+assembled onto the PTCQ thermal test chip package: (1) a single jet
+cooler with one inlet nozzle and 6 outlet nozzles shown in Figs. 4, and
+2) a multi-jet cooler with a 4 × 4 array of inlet nozzles shown in Fig. 5.
+The single jet cooler demonstrator is fabricated in plexiglass with inlet
+and outlet tube diameters of 6 mm. The diameter of the inlet nozzle on
+top of chip surface is 2 mm. The ﬁnal assembly of the single jet cooler
+on thermal test chip as well as the outside tube connections are shown
+in Fig. 4(a). Fig. 4(b) shows the cross-section view of the single jet
+cooler indicating the placement of the individual parts, including part
+1, part 2 and the O-ring. The cooler is assembled on the organic package
+substrate. Fig. 4(c) and (d) show the details of the arrangement of the
+single inlet and six outlets. The objective of this demonstrator is to
+capture the temperature distribution of the liquid impinging jet on the
+heated surface in detail.
+The 4 × 4 array cooler is fabricated in PVC (polyvinyl chloride)
+with 500 µm diameter inlet and outlet nozzle diameters. More details
+on the cooler design and fabrication can be found in [8]. Fig. 5(a) shows
+the assembly of the diﬀerent parts on the PTCQ package and the PCB.
+The exploded view shows the critical parts with the nozzle plate and the
+inlet/outlet divider. The exact placement of the nozzle plate is also
+shown in Fig. 5(b). The objective of this cooler is to evaluate the jet-jet
+interactions and the hot spot targeted cooling performance. The two
+types of coolers are assembled on the PCB board shown in Fig. 5(c),
+which is connected to the data acquisition system. The voltage of the
+sensors can be measured to extract the temperature value.
+The geometry parameters of the single jet cooler and the multi-jet
+cooler are both summarized in Table 2. In this experimental set-up, a
+copper tube is used to connect the cooler to the ﬂow loop system. Since
+the outer diameter of the copper tube is 6 mm, the designed diameter
+for both the inlet tube Di-tube and outlet tube Do-tube is also 6 mm.
+2.3. Experimental set-up
+Fig. 6 shows the dedicated experimental test set-up for the accurate
+ﬂow and pressure measurements in the cooler and the temperature
+measurements in the test chip. All the sensors in the set-up are con-
+nected to and controlled by LabVIEW, allowing operation of the ﬂow
+loop either in a controlled mass ﬂow rate mode or a controlled pressure
+mode. The ﬂow loop contains a magnetically coupled gear pump with a
+maximum ﬂow rate of 3 kg/min and a maximum pressure of 11.5 bar, a
+mini Cori-FLOW mass ﬂow meter with a range of 0.1–3 kg/min and an
+accuracy of ± 0.2% as a percentage of reading (RD), and a particle ﬁlter
+Table 1
+Dimensions and Material properties.
+Layer (from top)
+Dimensions
+(mm × mm × mm)
+k or kx, ky, kz (W/m-K)
+Silicon die
+8 × 8 × 0.2
+150
+BEOL
+8 × 8 × 0.002
+0.25 × 0.25 × 0.5
+Cu pillars and
+underﬁll
+8 × 8 × 0.1
+0.4 × 0.4 × 8
+Substrate
+14 × 14 × 0.33
+10 × 10 × 0.6
+PCB
+35 × 35 × 0.6
+12 × 12 × 0.6
+Fig. 2. Floorplan of the 8 × 8 mm2 PTCQ thermal test chip: (a) conﬁgurations of 32 × 32 array of temperature sensors; a) conﬁgurations of 832 programmable
+heater cells; (c) details of the metal meander heaters within one cell (240 × 240 μm2).
+T.-W. Wei, et al.
+Applied Thermal Engineering 152 (2019) 308–318
+310
+
+===== p.4 =====
+with a mesh size of 25 µm. A diﬀerential pressure gauge (EL-PRESS) is
+used to measure the pressure drop across the cooler with an accuracy
+of ± 0.5% FS in the range between 0.2 and 5 bar. Thermocouples with
+an accuracy of 2.2 °C are used to measure the coolant temperature
+before and after the cooler. The 95% conﬁdence interval of the cali-
+brated sensitivity of the temperature sensor on the test chip is
+−1.55 ± 0.02 mV/°C for a current of 5 µA in the temperature range
+between 10 and 75 °C. The measurement uncertainty for the sensor and
+heater voltage are 1 mV and 1.6 mV respectively. The chip temperature
+sensors allow absolute temperature measurements with an accuracy
+of ± 2–3 °C.
+A liquid-liquid heat exchanger is used to cool the coolant back to the
+set-point of 10 °C. In this work, DI-water is used as the coolant during
+the tests, with speciﬁed temperature at 10 °C and ambient temperature
+is kept at 25 ± 1 °C. The experimental conditions are summarized in
+Table 3. During the measurement, the chilled water set with 10 °C was
+Fig. 3. Chip level impingement jet cooler: (a) generic impingement cooler cross section; (b) schematic with geometry parameters.
+Fig. 4. Demonstration of the chip level single impingement jet cooler: (a) experimental set-up photo of single jet cooler; (b) schematic view of the cooler with
+diﬀerent parts; (c) and (d) photo and isometric drawing of single inlet and six outlets.
+Fig. 5. Demonstration of the chip level 4 × 4
+impingement jet cooler: (a) CAD design details of
+diﬀerent individual parts; (b) photo with the
+arrangement of nozzle placement; (c) ﬁnal as-
+sembly of 4 × 4 impingement jet cooler. (1-
+Cover layer,
+2-inlet/outlet
+plenum,
+3-nozzle
+plate, 4-support structure, 5-PTCQ thermal test
+chip. 6-PCB, 7-copper spacer).
+T.-W. Wei, et al.
+Applied Thermal Engineering 152 (2019) 308–318
+311
+
+===== p.5 =====
+applied to the cooling system without turning on the heater cells. After
+waiting 30 min, the steady-state chip surface temperature distribution
+was extracted by measuring the voltage across the 32 × 32 array of
+diode sensors. After that, the heaters with programmable pattern were
+turned on a waiting time of 30 min was used to achieve the steady-state
+regime. Finally, the temperature distribution map of the thermal test
+chip was measured.
+3. Numerical modeling and evaluated thermal metrics
+3.1. Numerical modeling
+In order to investigate the hydraulic and thermal phenomena in the
+cooler numerically, conjugated heat transfer computational ﬂuid dy-
+namic (CFD) models have been created in Ansys-Fluent for both the
+single jet and the multi-jet cooler shown in Fig. 7.
+These simulations include the conduction and convection in the
+ﬂuid domain for the coolant as well as the conduction in the solid do-
+main. The solid domain includes the test chip, whereas the thermal
+impact of the Cu pillars and underﬁll material, the package substrate,
+the solder balls and the PCB is represented by an equivalent convective
+boundary condition. The model dimensions are summarized in Table 1.
+The ﬁrst layer thickness of the boundary layers is 1 µm, which is cal-
+culated from the Y plus number (Y+ < 1). The maximum boundary
+layer number is set as 20 with a growth rate of 1.2. As shown in Table 4,
+the Richardson extrapolation for the discretization error is 0.3% for the
+stagnation temperature of the single jet cooler. Based on the meshing
+sensitivity study, the number of elements for the full models is 2.5
+million and 5.9 million for the single jet and multi-jet model
+respectively. The heat ﬂux boundary condition is applied to the loca-
+tions that correspond to the activated heater cells in the test chip. All
+the boundary walls are set as adiabatic wall since the cooler material is
+plastic with low thermal conductivity. The inlet temperature is set to
+10 °C. A velocity boundary condition is given at the top inlet feeding
+tube for ﬂow rates between 200 and 600 ml/min. The boundary con-
+dition for the outlets is set as ‘pressure out’. Based on this region, the
+RANS-based turbulent model is chosen as transition SST model which
+can capture the laminar ﬂow and transition ﬂow [1]. The “SIMPLE”
+algorithm is used as the solution method. The numerical scheme used in
+the simulation is QUICK scheme. The convergence criteria were set at
+1e−5 for continuity, 1e−6 for energy and 1e−6 for k, ω and momentum
+(x, y and z components of velocity), respectively. For all the simula-
+tions, the net imbalance of overall mass, momentum and energy is kept
+below 0.02%.
+3.2. Thermal metrics deﬁnitions
+This section describes the full chip temperature map measurements
+with the quasi-uniform power dissipation and hot spots patterns, shown
+in Fig. 1, for the fabricated coolers. The overall thermal performance of
+the cooler is expressed in terms of the thermal resistance deﬁned as
+follows:
+=
+−
+R
+(T
+T )/(Q
+)
+h
+in
+heater
+(1)
+where Th is the local chip temperature, Tin is the coolant inlet tem-
+perature and Qheater is the heat generated in the heater cells based on
+the measured electrical current and heater voltage. This thermal per-
+formance estimation of the assembled cooling solution also includes the
+heat losses through the cooler material into the ambient and the heat
+losses through the bottom side of the assembled test board. Based on the
+measurement uncertainty analysis, the analysis of the propagated
+measurement uncertainty results in a value of ± 1.8% for the reported
+Table 2
+Geometry parameters comparison.
+Parameters
+Single jet
+Multi-jet
+N×N
+1
+4 × 4
+Di-tube/Do-tube
+6 mm/6 mm
+6 mm/ 6 mm
+di
+2 mm
+500 μm
+do
+Common outlet
+500 μm
+H
+2 mm
+300 μm
+t
+7 mm
+1 mm
+tc
+0.2 mm
+0.2 mm
+L
+8 mm
+2 mm
+Fig. 6. Schematic of the experimental ﬂow loop.
+Table 3
+Experimental conditions.
+Experimental conditions
+Single jet cooler
+4 × 4 multi-jet cooler
+Inlet temperature
+10 °C
+10 °C
+Chip power
+24 W
+50 W
+Heat loss
+0.35 W
+0.6 W
+Flow rate
+200, 300, 600 ml/min
+300, 600 ml/min
+T.-W. Wei, et al.
+Applied Thermal Engineering 152 (2019) 308–318
+312
+
+===== p.6 =====
+thermal resistance measurements.
+In order to accurately estimate the heat transfer coeﬃcient, the heat
+losses need to be characterized to identify the amount of heat absorbed
+by the coolant. Since the measurement of the coolant outlet tempera-
+ture did not result in accurate results an alternative approach was used.
+The chip temperature proﬁle was ﬁrst measured for the assembled
+cooler without any coolant present in the cooler. This case, with an
+equivalent thermal resistance Rloss of 16.8 K/W represents the heat re-
+moval from the generated heat through the considered heat losses only.
+For any liquid cooling measurement with the cooler, the heat losses can
+now be estimated as follows:
+=
+−−
+Q
+(T
+T
+)/R
+loss
+chip
+amb
+loss
+(2)
+Based on the net power (Qheater -Qloss) and the assumed one-di-
+mensional heat conduction across the chip thickness tc, the average
+chip surface temperature T¯s can be estimated as follows:
+=
+−
+−
+∗
+∗
+T
+T
+t
+A
+k
+¯
+¯
+(Qheater
+Qloss)
+s
+h
+c
+heater
+si
+(3)
+where T¯h is deﬁned as the average temperature of the heat source, ksi is
+the thermal conductivity of silicon (ksi = 149 W/mK), Aheater is deﬁned
+as the area of the heaters (8 mm × 8 mm × 75%).
+The area-averaged heat transfer coeﬃcient h¯ is then deﬁned as
+=
+−
+∗∆
+h
+A
+¯
+(Qheater
+Qloss)
+T
+heater
+(4)
+∆
+=
+−
+T
+T
+¯
+T
+s
+in
+(5)
+where T¯s is the average chip surface temperature, Tin is the inlet
+temperature. The temperature diﬀerence
+T
+Δ is deﬁned as T
+( ¯s -Tin) [34].
+The Nusselt number Nu¯ d and Reynolds number Red are both deﬁned
+based on the inlet nozzle diameter as the characteristic length:
+=
+=
+ρd V
+μ
+Nu
+hd
+k
+Re
+¯
+;
+¯
+¯
+d
+i
+in
+d
+i
+(6)
+where V¯in is the average inlet jet velocity, di is chosen as the char-
+acteristic length, and also k is the thermal conductivity of the ﬂuid.
+4. Thermal characterization and model validation
+4.1. Quasi-uniform heating
+A uniform power dissipation pattern is most suited to characterize
+the resulting temperature distribution map of a cooling solution since
+the impact of the thermal spreading in the Si chip is minimal. Fig. 8(a)
+shows the measured temperature increase distribution map with the
+single jet cooler for a ﬂow rate of 600 ml/min. The 240 µm resolution of
+the sensor array allows to accurately capture the temperature proﬁle
+below the liquid jet: the lowest temperature is observed in the stag-
+nation region while the heat transfer decay along the wall jet region is
+also clearly visible. The measurement of the full chip temperature dis-
+tribution allows the evaluation of the maximum, the minimum and the
+average temperature over the chip area which exhibits a large tem-
+perature gradient in this case. The thermal resistance based on the
+average chip temperature of the single jet cooler is 0.32 K/W for
+600 ml/min, for a modeled pressure drop of 0.4 kPa.
+The measurement data show an asymmetrical temperature proﬁle,
+which is caused by the misalignment of the cooler assembly. The same
+misalignment between the cooler and the test chip center of 0.24 mm
+has been included in the full cooler level CFD model of the single jet
+cooler. As shown in Fig. 8(b), the CFD simulation results can accurately
+predict the stagnation temperature below the jet as well as the tem-
+perature increase along the wall jet region for the diﬀerent ﬂow rates
+(Red = 4286 for 600 ml/min). In Fig. 8(c) the temperature proﬁle from
+the test chip is compared for the CFD modeling results and the mea-
+surement data in the sensors for three diﬀerent ﬂow rates. The thermal
+resistance improves by a factor of 2.9 when the ﬂow rate is increased
+from 200 ml/min to 600 ml/min. It can be seen that the maximum
+Fig. 7. CFD models: (a) transparent view and (b) meshing of full 4×4 nozzle array models; c) meshing of a single jet cooler with one inlet nozzle and 6 outlet nozzles;
+(d), (e) and (f) details of the boundary layer and heater cell meshing.
+Table 4
+Grid convergence index analysis for the model of the single jet cooler.
+Temperature
+GCI12
+Asymptotic range of convergence
+Stagnation Temp
+0.0019
+0.9984
+Averaged Temp
+0.0043
+1.0012
+T.-W. Wei, et al.
+Applied Thermal Engineering 152 (2019) 308–318
+313
+
+===== p.7 =====
+errors for the comparison between the single jet modeling results and
+experimental data are 13.4% (200 ml/min), 8.7% (300 ml/min) and
+25.2% (600 ml/min) at the chip edges, while the maximum errors for
+the stagnation temperature are 3.9% (200 ml/min), 8.8% (300 ml/min)
+and 10% (600 ml/min). Since the modeling scheme has been success-
+fully validated for the single jet case, it can now be applied to the more
+complex multi-jet case with distributed returns.
+The measured and simulated chip temperature increase maps for the
+4×4 jet array cooler are shown in Fig. 9(a) and (b) for a power of 50 W
+and a ﬂow rate of 600 ml/min. Note that a diﬀerent scale is used with
+respect to Fig. 8(a) in order to zoom in on the small variations that are
+still present. The thermal resistance based on the average chip tem-
+perature is 0.25 K/W, for a modeled pressure drop of 15 kPa. Firstly, the
+temperature asymmetry shown in Fig. 9 is mainly due to the asym-
+metrical ﬂow since the outlet is located at one side of the cooler. The
+ﬂow coming from the impingement zone has to be combined together
+to the outside through outlet tube. Moreover, the O-ring placed under
+the nozzle plate is ﬁxed as rectangle shape. Secondly, due to the higher
+heat transfer rate of the cooler compared to the single jet cooler, the
+location of the heated cells and non-heated cells is visible in the tem-
+perature map, revealing a minimum temperature in the central area of
+the chip where no heater cells are present and lower temperature
+around the chip periphery. This is caused by the presence of the coolant
+around the chip in the cavity deﬁned on the chip package. The local
+minima and maxima of the temperature proﬁle on the chip diagonal can
+be nicely matched to the location of the inlet and outlet nozzles in
+Fig. 9(c). It can be seen that the maximum errors for the comparison
+between the multi-jet modeling results and experimental data are
+13.8% for a ﬂow rate of 600 ml/min and 27% for 300 ml/min. The
+diﬀerence between the modeling and measurement results for the
+average chip temperature is only 4.86% and 4.19% for 300 ml/min and
+600 ml/min ﬂow rate respectively. This ﬁgure also shows the impact of
+the ﬂow rate as the thermal resistance reduces by a factor of 1.7 by
+increasing the ﬂow rate from 300 ml/min to 600 ml/min.
+4.2. Hot spots heating
+The heat sources in the test chip can also be programmed in a hot
+spot array pattern. Fig. 10 shows the hot spot cooling results for a 4 × 4
+array of hot spots aligned to the 4 × 4 inlet nozzle array: the hot spots
+consist of 2 × 2 heater cells (480 × 480 µm2). The chip power is set as
+3.3 W for a ﬂow rate 600 ml/min. Fig. 10(a) and (b) respectively show
+the measured and the modeled chip temperature increase distribution,
+while the comparison of the temperature proﬁle across four hot spots is
+shown in Fig. 10(c). The comparison shows that the test chip is capable
+to accurately capture the local temperature peak of the hot spots, as
+both the temperature peak values as well as the valleys are clearly re-
+solved. Overall, a good agreement between the modeling and mea-
+surement results is found, with a maximum diﬀerence of 10% at the
+peaks. Both the modeling and experimental results exhibit a similar
+asymmetrical pattern due to the presence of the outlet connector at only
+one side of the cooler.
+5. Results and discussion
+5.1. Uniform and quasi-uniform heating
+Including a large level of detail on the small heater cells in the CFD
+Fig. 8. Single jet model validations (ﬂow rate = 600 ml/min, chip power = 24 W): (a) temperature measurement results; (b) CFD modeling results; (c) comparison of
+single jet modeling results and experiments data.
+Fig. 9. Modeling and experimental results of 4 × 4 multi-jet cooler (Red = 1015 for 600 ml/min) (a) measurement, (b) CFD modeling, (c) temperature increase
+proﬁle comparison between measurements and CFD modeling of multi-jet cooler (chip power = 50 W).
+T.-W. Wei, et al.
+Applied Thermal Engineering 152 (2019) 308–318
+314
+
+===== p.8 =====
+model will increase the number of elements, and therefore the com-
+putation cost. In this section, the accuracy of the CFD model with quasi-
+uniform heating (75%), including the detailed location of all heater
+cells or uniform heating (100%) with the same total power, will be
+compared for diﬀerent ﬂow rates. In Fig. 11, the comparison of the
+simulated chip temperature distribution with uniform heating shown in
+Fig. 11(a) and quasi-uniform heating in Fig. 11(b) is shown for the
+single jet cooler case. For this moderate cooling condition, the in-
+troduction of the heater details in the model does not have a large
+impact on the temperature distribution. The proﬁles for the uniform
+and quasi-uniform heating shown in Fig. 11(c) are very similar with
+only local diﬀerences of 14.6% and 6.7% at the locations where no
+heaters are present for the ﬂow rates of 600 ml/min and 200 ml/min
+respectively.
+Fig. 12 shows the comparison between the uniform heating case and
+the quasi-uniform heating case for the 4 × 4 multi-jet cooling. Although
+the diﬀerence for the average temperature is small (10.5% and 1.2% for
+300 ml/min and 600 ml/min respectively), the temperature distribution
+maps look completely diﬀerent. While in the case of uniform heating
+shown in Fig. 12(a), the nozzle pattern is clearly visible, the pattern of
+heated and non-heated cells is visible in the case of quasi-uniform
+heating shown in Fig. 12(b), due to the high cooling rate of the jet
+impingement on the surface of the Si chip. The comparison of the
+temperature proﬁles along the chip diagonal with the measurement
+data in Fig. 12(c), reveals that the uniform model is not capable to
+correctly predict the local temperature distribution. The quasi-uniform
+model with the complete details on the heater cells shows a much better
+agreement with the experimental data. This analysis for the single jet
+cooler and multi-jet cooler clearly shows the need to include suﬃcient
+details on the heater structures in the CFD model in order to accurately
+predict the local temperature distribution in case of high heat removal
+rates at the chip surface, while for lower heat removal rates a simpler
+model with uniform heating can be suﬃcient. Furthermore, the com-
+parison highlights the importance of test structures with a high spatial
+resolution in order to detect these eﬀects.
+5.2. Hot spots cooling modeling
+The experimentally validated hot spot model can now be used to
+evaluate diﬀerent cooler conﬁgurations:
+1. Common outlets: in this case there are no local outlets in between
+the inlet nozzles. The common outlets are located at the edges of the
+chip shown in Fig. 13(a).
+2. Locally distributed outlets in between the inlet nozzles that are
+aligned to the hot spots shown in Fig. 13(b).
+3. Locally distributed outlets in between the inlet nozzles that are in-
+tentionally misaligned with the hot spots shown in Fig. 13(c).
+Fig. 13(d) shows that the hot spots cooling with locally distributed
+outlets can achieve a better cooling performance than common outlets.
+The main advantage of the locally distributed outlets is that the cross
+ﬂow eﬀects can be reduced that are present in the common outlet ﬂow.
+The simulation results for the aligned and misaligned hot spots with
+respect to the nozzle locations show that it is important to align the
+cooling nozzles with the hot spots, as shown in Fig. 13(d). The
+Fig. 10. Experimental and modeling results of 480 × 480 µm2 hot spots under the chip power Q = 3.3 W (Red = 1015 for 600 ml/min): (a) experimental results of
+local temperature distribution; (b) CFD simulations of local temperature distribution; (c) experiments and modeling comparison under the same ﬂow rate 600 ml/
+min, and same chip power: Q = 3.3 W.
+Fig. 11. Comparison of the simulated chip temperature distribution for single jet cooling with diﬀerent heating conﬁgurations: (a) uniform heating modeling results
+for 600 ml/min; (b) quasi-uniform heating modeling results for 600 ml/min; (c) diagonal proﬁle comparison between uniform heating and quasi-uniform heating
+(chip power = 24 W).
+T.-W. Wei, et al.
+Applied Thermal Engineering 152 (2019) 308–318
+315
+
+===== p.9 =====
+temperature diﬀerence amounts to 10% between aligned and mis-
+aligned jet nozzles with the hot spot locations, illustrating the need for a
+matching design between the nozzle array and the chip ﬂoor plan.
+5.3. Single jet and multi-jet cooling
+As shown in Fig. 14(a), the thermal resistance without liquid
+cooling is taken as the reference case with regard to the single jet
+cooling under three diﬀerent ﬂow rates. The comparison with the single
+jet cooler on the same chip package in Fig. 14(b), shows that the multi-
+jet impingement cooler results in a lower thermal resistance and a
+better temperature uniformity for the same ﬂow rate. The thermal
+performance of the coolers can also be expressed in terms of the Nusselt
+number Nu¯ d and the Reynolds number Red, based on the nozzle dia-
+meter as characteristic length, shown in Fig. 15. The following corre-
+lations have been extracted for the three diﬀerent considered coolers:
+• 4 × 4 cooler: Nu¯ d = 1.63*Red
+0.57 (experimental data)
+• Single jet: Nu¯ d = 0.54*Red
+0.56 (experimental data)
+• 4 × 4 cooler (Common outlets): Nu¯ d = 1.34*Red
+0.59 (modeling
+data)
+Fig. 12. Comparison of simulated chip temperature distribution for multi-jet cooling with diﬀerent heating conﬁgurations: (a) uniform heating modeling results for
+600 ml/min; (b) quasi-uniform heating modeling results for 600 ml/min; (c) proﬁle comparison between uniform heating and quasi-uniform heating (chip
+power = 50 W).
+Fig. 13. Hot spots cooling modeling for ﬂow rate 600 ml/min: (a) hot spots cooling with common outlets; (b) hot spots cooling with locally distributed outlets; (c) hot
+spots cooling with nozzle misalignment; (d) temperature proﬁle comparison with diﬀerent conﬁgurations.
+T.-W. Wei, et al.
+Applied Thermal Engineering 152 (2019) 308–318
+316
+
+===== p.10 =====
+An extensive overview of heat transfer correlations for jet im-
+pingement cooling is available in [1] in the form of:
+=
+Nu
+c. Rem
+(7)
+For all these correlations, the exponent m is within the range of
+0.48–0.8. The obtained exponents of the correlations for the coolers
+studied in this work are within this range.
+6. Conclusions
+In this work, a 8 × 8 mm2 thermal test chip with programmable
+heat dissipation maps and an array of 32 × 32 diodes as temperature
+sensors is presented. This test chip allows to apply custom power dis-
+sipation patterns such as quasi-uniform heating or hot spot patterns
+using the 832 individually addressable heaters in order to evaluate
+diﬀerent applications. The chip temperature distribution can be mea-
+sured with a spatial resolution of 240 µm, allowing the accurate cap-
+turing of local temperature eﬀects on the chip. In this way, the test chip
+combines the advantage of optical temperature measurement techni-
+ques (providing a full chip temperature distribution map) with the
+advantages of using integrated thermal test vehicles (testing of the
+cooling solution on integrated chip packages in realistic environments).
+The thermal test chip has been applied for the thermal analysis and
+the CFD model validations for two liquid jet impingement coolers: 1) a
+single jet cooler with a 2 mm diameter nozzle, and 2) a multi-jet cooler
+with a 4 × 4 array of 500 µm inlet nozzles and distributed outlet
+nozzles. The detailed temperature map measurements show that the
+multi-jet impingement cooler achieves a lower thermal resistance and a
+better temperature uniformity for the same ﬂow rate compared to the
+single jet cooler. For the 4 × 4 array cooler, a very low thermal re-
+sistance of 0.25 K/W is obtained for a ﬂow rate of 600 ml/min with a
+required pump power of 0.4 W. Furthermore, the comparison of the
+detailed temperature map measurements with the CFD modeling re-
+sults, indicates the need to include suﬃcient details on the heater
+structures in the CFD model in order to accurately predict the local
+temperature distribution in case of high heat removal rates at the chip
+surface for the multi-jet cooler, while for lower heat removal rates with
+the single jet cooler, a simpler model with uniform heating can be
+suﬃcient.
+The validated CFD model of the multi-jet coolers has been applied to
+evaluate diﬀerent nozzle conﬁgurations for the hot spots test case. The
+analysis shows that the coolers with distributed outlets achieve better
+cooling performance than coolers with common outlets since the cross
+ﬂow eﬀects can be reduced. Moreover, it is shown that the misalign-
+ment of the nozzles with the hot spot locations results in a temperature
+increase of 10%, indicating the need for a matching design between the
+nozzle array and the chip ﬂoor plan. Finally, the measurement results
+on the single jet and multi-jet cooler have been used to derive the
+Nusselt correlations after correction for the heat losses in the cooler
+assembly. The obtained correlations are Nu¯ d = 1.63*Red
+0.57 and
+Nu¯ d = 0.54*Red
+0.56 for the multi-jet and single cooler respectively.
+Appendix A. Supplementary material
+Supplementary data to this article can be found online at https://
+doi.org/10.1016/j.applthermaleng.2019.02.075.
+References
+[1] N. Zuckerman, N. Lior, Jet impingement heat transfer: physics, correlations and
+numerical modeling, ASME. J. Heat Transf. 127 (5) (2005) 544–552.
+[2] T. Brunschwiler, B. Michel, et al., Interlayer cooling potential in vertically in-
+tegrated packages, Microsyst. Technol. 15 (1) (2009) 57–74.
+[3] G. Natarajan, et al., Microjet cooler with distributed returns, Heat Transf. Eng. 28
+(8–9) (2007) 779–787.
+[4] T. Acikalin, C. Schroeder, Direct liquid cooling of bare die packages using a mi-
+crochannel cold plate, 14th Intersociety Conference on Thermal and
+Thermomechanical Phenomena in Electronic Systems, 2014, pp. 673–679.
+[5] Ashwin Kumar Vutha, et al., Spatial temperature resolution in single-phase micro
+slot jet impingement cooling, Int. J. Heat Mass Transf. 118 (2018) 720–733.
+[6] S.V. Garimella, R.a. Rice, Conﬁned and submerged liquid jet impingement heat
+transfer, ASME J. Heat Transfer. 117 (4) (1995) 871–877.
+[7] P.S. Penumadu, A.G. Rao, Numerical investigations of heat transfer and pressure
+drop characteristics in multiple jet impingement system, Appl. Therm. Eng. 110
+(2017) 1511–1524 5 January.
+[8] T. Wei, H. Oprins, V. Cherman, et al., High eﬃciency direct liquid jet impingement
+Fig. 14. Normalized comparison of the measured temperature proﬁles for the cases of (a) single jet cooler with respect to the reference measurement without cooling;
+(b) comparison between the singe jet cooling and multi-jet 4 × 4 array cooling.
+Fig. 15. Correlations between Nusselt number and Reynolds number for single
+jet and multi-jet conﬁgurations.
+T.-W. Wei, et al.
+Applied Thermal Engineering 152 (2019) 308–318
+317
+
+===== p.11 =====
+cooling of high power devices using a 3D-shaped polymer cooler, IEEE International
+Electron Devices Meeting (IEDM) (2017) 733–736.
+[9] R.W. Bonner, et al., Local heat transfer coeﬃcient measurements of ﬂat angled
+sprays using thermal test vehicle, March, 24th Annual IEEE Semiconductor Thermal
+Measurement and Management Symposium, 2008, pp. 149–153.
+[10] T. Brunschwiler, et al., Direct liquid jet-impingement cooling with micron sized
+nozzle array and distributed return architecture. Thermal and Thermomechanical,
+Proceedings 10th Intersociety Conference on Phenomena in Electronics Systems,
+2006, pp. 196–203.
+[11] G.A. Kulkarni, et al., Jet impingement heat transfer of moving metal sheet, 13th
+International Conference on Heat Transfer, Fluid Mechanics and Thermodynamics,
+(2017).
+[12] K.A. Agbim, et al., Single-phase liquid cooling for thermal management of power
+electronic devices, thesis, Georgia Tech (2017).
+[13] B.P. Whelan, R. Kempers, A.J. Robinson, A liquid-based system for CPU cooling
+implementing a jet array impingement waterblock and a tube array remote heat
+exchanger, Appl. Therm. Eng. 39 (June 2012) 86–94.
+[14] C. Carcasci, L. Cocchi, et al., Impingement cooling experimental investigation using
+diﬀerent heating elements, Energy Procedia 101 (November 2016) 18–25.
+[15] B.P. Whelan, A.J. Robinson, Nozzle geometry eﬀects in liquid jet array impinge-
+ment, Appl. Therm. Eng. 29 (11) (2009) 2211–2221.
+[16] T.B. Hoberg, et al., Heat transfer measurements for jet impingement arrays with
+local extraction, Int. J. Heat Fluid Flow 31 (3) (2010) 460–467.
+[17] D.H. Rhee, et al., Local heat/mass transfer and ﬂow characteristics of array im-
+pinging jets with eﬀusion holes ejecting spent air, Int. J. Heat Mass Transf. 46 (6)
+(2003) 1049–1061.
+[18] V.S. Patil, R.P. Vedula, Local heat transfer for jet impingement on a concave surface
+including injection nozzle length to diameter and curvature ratio eﬀects, Exp.
+Therm Fluid Sci. 92 (April 2018) 375–389.
+[19] J.F. Maddox, Knight, et al., Liquid jet impingement with an angled conﬁning wall
+for spent ﬂow management for power electronics cooling with local thermal mea-
+surements, J. of Electronic Packaging 137 (3) (2015) 031015 09/01/.
+[20] F. Xu, M.S. Gadala, Investigation of error sources in temperature measurement
+using thermocouples in water impingement cooling, Experimental Heat Transfer 18
+(3) (2005) 153–177 01 July.
+[21] K.P. Drummond, et al., A hierarchical manifold microchannel heat sink array for
+high-heat-ﬂux two-phase cooling of electronics, Int. J. Heat Mass Transf. 117 (2018)
+319–330 February.
+[22] C.S. Sharma, et al., A novel method of energy eﬃcient hotspot-targeted embedded
+liquid cooling for electronics: an experimental study, Int. J. Heat Mass Transf. 88
+(2015) 684–694 September.
+[23] P.A. De Oliveira, et al., Performance assessment of single and multiple jet im-
+pingement conﬁgurations in a refrigeration-based compact heat sink for electronics
+cooling, J. Electronic Packaging 139 (3) (2017) 031005 09/01/.
+[24] A. Terzis, S. Bontitsopoulos, et al., Improved accuracy in jet impingement heat
+transfer experiments considering the layer thicknesses of a triple thermochromic
+liquid crystal coating, J. Turbomachinery 138 (2) (2016) 021003 02/01/.
+[25] H.D. Haustein, et al., Local heat transfer coeﬃcient measurement through a visibly-
+transparent heater under jet-impingement cooling, Int. J. Heat Mass Transf. 55
+(23–24) (2012) 6410–6424 November.
+[26] C.Y. Huang, et al., The application of temperature-sensitive paints for surface and
+ﬂuid temperature measurements in both thermal developing and fully developed
+regions of a microchannel, J. Micromech. Microeng. Vol. 23 (3) (2013) 7 p.037001.
+[27] E.N. Wang, et al., Micromachined jets for liquid impingement cooling of VLSI chips,
+J. Microelectromech. Syst. 13 (5) (2004) 833–842 Oct.
+[28] R.W. Bonner, et al., Local heat transfer coeﬃcient measurements of ﬂat angled
+sprays using thermal test vehicle, 2008 Twenty-fourth Annual IEEE Semiconductor
+Thermal Measurement and Management Symposium, 2008, pp. 149–153 March.
+[29] V. Cherman, et al., 3D stacking induced mechanical stress eﬀects, IEEE 64th
+Electronic Components and Technology Conference, 2014, pp. 309–315 May.
+[30] A.K. Vutha, et al., Spatial temperature resolution in single-phase micro slot jet
+impingement cooling, Int. J. Heat Mass Transf. 118 (March 2018) 720–733.
+[31] V. Cherman, et al., Eﬀects of packaging on mechanical stress in 3D-ICs, 2015 IEEE
+65th Electronic Components and Technology Conference, 2015, pp. 354–361 May.
+[32] A. Salahouelhadj, M. Gonzalez, et al., Die thickness impact on thermo-mechanical
+stress in 3D packages, 2015 16th International Conference on Thermal, Mechanical
+and Multi-Physics Simulation and Experiments in Microelectronics and
+Microsystems, Budapest, 2015, pp. 1–6.
+[33] H. Oprins, et al., Experimental characterization of the vertical and lateral heat
+transfer in 3D stacked IC packages, J. Electron. Packag. 138 (1) (2016)
+010902–1(10).
+[34] E.A. Browne, G.J. Michna, M.K. Jensen, Y. Peles, Experimental investigation of
+single-phase microjet array heat transfer, J. Heat Transfer 132 (4) (2010) 041013.
+T.-W. Wei, et al.
+Applied Thermal Engineering 152 (2019) 308–318
+318

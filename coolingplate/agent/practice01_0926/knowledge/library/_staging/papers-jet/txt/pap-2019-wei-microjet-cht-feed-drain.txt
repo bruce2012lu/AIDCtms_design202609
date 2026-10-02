@@ -1,0 +1,758 @@
+
+===== p.1 =====
+fluids
+Article
+Conjugate Heat Transfer and Fluid Flow Modeling for
+Liquid Microjet Impingement Cooling with
+Alternating Feeding and Draining Channels
+Tiwei Wei 1,2,*
+, Herman Oprins 1, Vladimir Cherman 1, Eric Beyne 1 and Martine Baelmans 2
+1
+IMEC, Kapeldreef 75, 3001 Leuven, Belgium
+2
+Department of Mechanical Engineering, KU Leuven, Celestijnenlaan 300, 3001 Leuven, Belgium
+*
+Correspondence: tiwei.wei@imec.be; Tel.: +32-162-876-24
+Received: 29 June 2019; Accepted: 30 July 2019; Published: 1 August 2019
+
+
+Abstract:
+Liquid microjet impingement cooling has shown the potential to be the solution
+for heat removal from electronic devices such as very-large-scale integration (VLSI) chips.
+The post-impingement dynamics of the jet, speciﬁcally the interaction between the liquid fronts on
+the surface engendered by the jets is a critical criterion improving the heat transfer characteristics.
+While some seminally important experimental studies have investigated this attribute, the amount
+of accurate data and analysis is limited by the shortcomings of real-life experiments. In this article,
+numerical investigations into the ﬂuid dynamics and heat transfer in microjet cooling systems are
+carried out. Speciﬁcally, this paper addresses the question regarding the necessary ﬁdelity of the
+simulations. Diﬀerent Reynolds-averaged Navier–Stokes (RANS) models are compared to the Large
+Eddy Simulations (LES) simulation and the potential ﬁdelity of diﬀerent eddy-viscosity-based closures
+is clearly shown. Recommendations are made regarding the RANS closures that should give the best
+performance. It is demonstrated that the transition Shear Stress Transport (SST) model and k-ω SST
+model both show excellent ability to predict the local or average Nu, and also local level pressure
+coeﬃcient f with less than 5% diﬀerence in the range of 30 < Red < 4000, compared with the reference
+LES model. For the experimental measurements in the range of 130 < Red < 1400, the LES model,
+transition SST model and k-ω SST model all show less than 25% prediction error. Moreover, it is
+shown that the validity of the unit cell assumption for the temperature and ﬂow distribution depends
+on the ﬂow rate.
+Keywords: microjet cooling; high power; computational ﬂuid dynamics (CFD); Reynolds-averaged
+Navier–Stokes (RANS); Large Eddy Simulations (LES); transient Shear Stress Transport (SST)
+1. Introduction
+Direct microjet impingement cooling shows great potential in high power devices or
+high-performance systems [1,2]. The post-impingement dynamics of the jet, speciﬁcally the interaction
+between the liquid fronts on the surface engendered by the jets is a critical criterion improving the heat
+transfer characteristics. In general, most of the experimental studies are based on the two conﬁgurations
+with common return [3–6] and locally distributed outlets [2,7–9]. While some seminally important
+experimental studies have investigated this attribute, the amount of accurate data and analysis is
+limited by the shortcomings of real-life experiments. Therefore, numerical studies into the liquid
+microjets design and analysis are needed, which can provide invaluable guidance and important
+reference for future investigations.
+While we focus on the Reynolds number, the underlying rationale for the increment in heat
+transfer arises due to the velocity ﬂuctuations. This is best characterized in terms of the turbulence
+Fluids 2019, 4, 145; doi:10.3390/ﬂuids4030145
+www.mdpi.com/journal/ﬂuids
+
+===== p.2 =====
+Fluids 2019, 4, 145
+2 of 19
+intensity parameter, usually considered to be proportional to Red, n < 1 [10,11]. The jet Reynolds
+number Red, is deﬁned as Red = di·Vin
+ν , where Vin is the mean inlet nozzle velocity, di is the inlet nozzle
+diameter, and ν is the kinematic viscosity. For typical regions in impingement jet ﬂow with a common
+outlet, the ﬂow ﬁeld exhibits laminar ﬂow properties at Red ≤1000 based on the hydraulic diameter as
+representative length scale. At Red ≥3000 the ﬂow has fully developed turbulent features. A transition
+region occurs with 1000 ≤Red ≤3000 [12,13]. In literature, there are numerous articles concerning
+Computational ﬂuid dynamics (CFD) numerical modeling of impinging jet cooling [14]. Narumanchi
+et al. [15] showed that the standard k-ω turbulence model can achieve less than 20% diﬀerence with
+experimental data for circular submerged jet conﬁgurations (Womac et al. [16]). For the submerged
+conﬁned jet conﬁguration (Garimella and Rice [17]), the diﬀerence can be as low as 10% over a wide
+range of Reynolds numbers. Isman et al. [18] showed that the overall performance of renormalization
+group (RNG) and standard k-ε models are better in comparison with other models by considering
+stagnation region and wall jet region. Esch and Menter [19] showed that the Menter’s Shear Stress
+Transport (SST) model predicted heat transfer rates within 5% of those predicted by Durbin’s v2-f
+(V2F) model. In [20], John Maddox compared the transition SST and the V2F turbulence models, and
+ﬁnally selected the transition SST model for the 3 × 3 jet array with common outlet ﬂow based on the
+computational cost considerations. Subrahmanyam et al. [21] used Large Eddy Simulations (LES) to
+study the unsteady ﬂow and heat transfer characteristics of a single impinging jet at Reynolds number
+of 20,000 at four normalized nozzle-to-impinging plate distances (0.5 ≤z/d ≤2). Sung [22] used the
+standard two-equation k-ε turbulence model to study the eﬀects of the jet pattern on single-phase
+cooling performance of hybrid micro-channel/micro-circular-jet-impingement.
+Moreover, a few review literatures related to CFD modeling of impinging ﬂow cooling have
+been reported in the literature. Polat et al. [23] reviewed the available numerical techniques to
+predict laminar and turbulent impingement heat transfer on a ﬂat surface. Zuckerman and Lior [12]
+reviewed the suitability of diﬀerent Reynolds-averaged Navier–Stokes (RANS) models in predicting
+average Nusselt number distribution and location and magnitude of the secondary peak in Nusselt
+number. The comparisons showed that direct numerical simulation (DNS)/LES time-variant models can
+accurately predict both Nu distribution and the secondary peaks. Moreover, the V2F and SST models
+also showed better predictions of ﬂuid properties in impinging jet ﬂows while the standard k-ε and k-ω
+models result in poor predictions. Behnia et al. [24] performed a critical review of important parameters
+in LES, DNS, and RANS-based techniques for computation of impinging ﬂows. They concluded
+that the V2F model agrees very well with the experiments while k-ε model highly overpredicts the
+rate of heat transfer and yield physically unrealistic behavior. Among all the models, LES model
+shows encouraging results and clariﬁed the understanding for the unsteady ﬂow and heat transfer
+characteristics of multiple impinging jets even though the high computing cost [25–31]. In [29] the
+objective and key ﬁndings of diﬀerent LES studies dealing with impinging ﬂows in recent times are
+reviewed. Cziesla et al. [30] demonstrated the ability of LES to predict local Nu under a slot jet within
+10% of experimental measurements. Draksler et al. [31] carried out LES simulation to provide a detailed
+insight into unsteady ﬂow mechanisms and the associated heat transfer process of multiple impinging
+jets. In summary, the computation cost of LES can be considerably reduced as compared to the DNS
+if sacriﬁcing the accuracy with small-scale turbulence [31]. Therefore, the LES model is used as a
+benchmark for the comparison with other turbulence models in Section 3.
+Due to the complex internal structure of the microjet coolers for the heat removal from electronic
+devices such as VLSI chips, the available experimental studies on the locally distributed outlet
+conﬁguration are very limited. In general, most of the studies for microscale Si [8] or ceramic-based
+coolers [9] are focused on the laminar ﬂow regime, while for module level coolers the focus is on the
+turbulent ﬂow regime [32]. Brunschwiler et al. [8] fabricated and analyzed a silicon-based microjet
+cooler with nozzle diameters ranging from 31 µm to 103 µm, resulting in a Reynolds number between
+5 and 900 for deionized water. The deviation between the experimental data and the laminar model
+amounts to approximately 3%. However, the cost of the silicon microjet cooler is very high due to the
+
+===== p.3 =====
+Fluids 2019, 4, 145
+3 of 19
+introduction of lithography and silicon etching. As a more cost-eﬃcient alternative, polymer-based
+impingement jet coolers show a great potential since it is already proved that very small nozzle
+diameter values are not necessary due to the saturation of the thermal improvement for further scaling
+of the nozzle diameter [33]. In [2,33,34], low cost polymer impingement jet coolers were demonstrated
+by using mechanical micromachining and 3D printing technology with nozzle diameters in the range
+of 300 to 600 µm. The ﬂow rate used in electronic cooling applications is typically in the range between
+300 mL/min to 2 L/min [33], resulting in Reynolds numbers ranging between 300 and 2000 based on the
+jet nozzle diameter. Therefore, the expected ﬂow regimes for this type of microjet coolers are expected
+to be in the laminar, transitional and low Re turbulent ﬂow regime.
+To the best of the authors’ knowledge, there are no available data and research studies on
+the turbulence model analysis with locally distributed outlets conﬁguration. In this work, we will
+investigate the thermo-ﬂuidic behavior for microscale jet impingement coolers, especially in the
+transitional region for the larger nozzle diameter values of 600 µm. The structure of this paper is
+organized as follows: we will ﬁrst introduce the full cooler level and unit cell modeling approaches.
+Next, diﬀerent turbulence models based on CFD RANS models will be compared for the case of jet
+cooling with locally distributed outlets. Further, LES unsteady modeling is used as a benchmark for
+the comparison. Moreover, the unit cell model is compared with the full cooler level model under
+diﬀerent ﬂow rate conditions. In the last section, experimental results are used to compare with the
+unit cell model and full cooler model with diﬀerent numerical modeling methods.
+2. Conjugate Heat Transfer and Fluid Flow Model
+Figure 1 shows a schematic representation of a jet impingement cooling solution with locally
+distributed outlets, identifying the four typical functional layers: inlet plenum, outlet plenum, jet nozzle
+plate and the impinging cavity. This conﬁguration with inlet nozzles array and locally distributed
+returns can eliminate the accumulating cross-ﬂow eﬀects. For the optimization of the complicated
+cooler geometry and detailed analysis of the thermo-ﬂuidic behavior inside the cooler, a local–global
+level CFD model approach is used to cover the challenging range of length scales that is required
+for the analysis. For the local level modeling, a unit cell model is used since the cooling nozzle
+array contains repeated cooling unit cells, with a central inlet and four neighboring outlets for single
+unit cell. Therefore, a unit cell model can be used as a fast approach to optimize the inlet/outlet
+nozzles parameters (nozzle diameter, nozzle pitch, nozzle plate thickness). However, the unit cell
+model cannot provide system level information, such as the total pressure drop of the cooler. The full
+cooler level model can predict the detailed thermo-ﬂuidic behavior inside the cooler and the ﬂow
+distribution and temperature uniformity. However, the computational cost of the full cooler level
+model is higher than that of a unit cell model. Therefore, the unit cell model and the full cooler
+modeling approach are complimentary. Where the unit cell model can be used to provide optimal
+conﬁgurational and geometrical jet parameters during the design phase, the full model is used to check
+the overall ﬂow uniformity and the related distributor and collector properties as well as the overall
+chip temperature distribution.
+
+===== p.4 =====
+Fluids 2019, 4, 145
+4 of 19
+(a) 
+(b) 
+Figure 1. Test case of multiple jet impingement cooling with a 4 × 4 inlet nozzle array and a staggered
+5 × 5 outlet nozzle array [15]: (a) schematic view of the internal channels; (b) computer-aided design
+(CAD) structure of the designed cooler.
+2.1. Miroject Cooling Test Case
+In order to investigate the conjugate heat transfer and ﬂuid ﬂow aspects related to the jet
+impingement cooling, a multi-jet impingement cooler [33] with a 4 × 4 inlet nozzle array is chosen as
+the test case for this study. Figure 1 shows the design of this cooler and the internal geometry with
+inlet chamber, nozzle jets and outlet chamber. The liquid jets will impinge directly on the surface of the
+silicon die, resulting in a high convective cooling. A systematical parameter sensitivity study of the
+cooler geometry was conducted in our previous research [33]. The 14 mm × 14 mm × 8.7 mm cooler is
+mounted on the 8 mm × 8 mm thermal test chip [34]. The diameter of the inlet and outlet tube is 2 mm.
+The thickness of the inlet chamber is designed as 2.5 mm for uniform ﬂow distribution. The cavity
+height is 0.7 mm. In the local level, the inlet and outlet nozzle diameters are designed as 0.6 mm,
+while the size of the nozzle array is designed to match the dimensions of the Si chip, in this case
+8 × 8 mm2. The chip thickness is 0.2 mm. In order to study the ﬂow impact on the chip temperature
+distribution, the conjugate heat transfer model within the CFD approach should include the ﬂuidic
+part of the cooler, as well as the chip heat conduction part. In the next part, the details of the conjugate
+CFD model will be introduced and discussed.
+2.2. CFD Model Introduction
+In order to study the system level behavior of the cooler, including the total pressure drop, ﬂow
+uniformity, and full chip temperature distribution, a full cooler level CFD model is needed. Since the
+cooler is fabricated with a polymer with very low thermal conductivity, the heat conduction through
+the cooler solid wall can be neglected [2], and only the ﬂuidic parts of the cooler are included in the
+model, along with the solid domain for the Si chip. As shown in Figure 2, the internal ﬂuidic domain
+is extracted from the CAD model of the cooler, including the inlet chamber, outlet chamber, nozzle
+plate and the impingement cavity. Moreover, the nozzle array with 4 × 4 inlet nozzles and 5 × 5
+outlet nozzles distribution is shown in the enlarged view of the nozzle plate in Figure 2. The nozzle
+distribution is shown as a scalable system of repeated unit cells. For every single unit cell, there is one
+inlet located in the center and four surrounding neighboring outlets.
+
+===== p.5 =====
+Fluids 2019, 4, 145
+5 of 19
+Figure 2. Full computational ﬂuid dynamics (CFD) model of the impingement jet cooler with 4 × 4
+nozzle array and inside manifold ﬂuid delivery system.
+For the second part of the modeling analysis, the unit cell model is introduced in order to learn the
+local heat transfer and ﬂuid ﬂow behavior as function of the design parameters. As shown in Figure 3,
+a 1/8 model with symmetry boundary conditions is used for the unit cell models. For the dimensions
+of the unit cell, the inlet/outlet nozzle diameter and cavity height are all consistent with the full cooler
+model. The length of the unit cell L corresponds to the nozzle pitch and is 2 mm for the 4 × 4 nozzle
+array in this paper. The solid chip thickness is kept as 0.2 mm. The nozzle thickness is 2 mm.
+ 
+Figure 3. Unit cell model simpliﬁcation with 1/8 model and symmetry boundary conditions.
+2.3. Grid Sensitivity Study
+For the meshing of the CFD models, hybrid meshing is chosen. The ﬂuid domain mesh is chosen
+as tetrahedron mesh cells. The ﬁrst layer thickness for the boundary layer along the wall is 1 µm to
+make sure the grid is ﬁne enough to get y+ in the viscous sublayer. For the solid domain mesh prism
+cells are used with a 20 µm mesh size. The grid convergence index (GCI) is used for the meshing
+sensitivity analysis.
+The grid convergence order is deﬁned as follows:
+p =
+ln
+
+f3−f2
+f2−f1
+
+ln r
+(1)
+where p is the order of computational method. These solutions (f3; f2; f1) are computed over three
+diﬀerent grid levels (h3; h2; h1), which are subsequently reﬁned according to a constant grid reﬁnement
+ratio r, shown as h1 = h2
+r = h3
+r2 .
+Once the order of convergence p is known, the GCI can be calculated by using two subsequent
+results. In particular, if f3 and f2 are used and the ﬁnal reported result is f3, the one on the coarsest
+grid is deﬁned as below:
+GCI = Fsrp
+rp −1
+
+f3 −f2
+f2
+
+(2)
+
+===== p.6 =====
+Fluids 2019, 4, 145
+6 of 19
+where the Fs is a safety factor. It is also important to be sure that the selected grid levels are in
+the asymptotic range of convergence for the computed solution. The check for asymptotic range is
+evaluated using the equation as below:
+GCI23
+rpGCI12
+≈1
+(3)
+where GCI23 and GCI12 are the values of GCI computed by considering, respectively, f2; f3 and f1; f2.
+The GCI12 and asymptotic range of convergence are listed in Table 1 for both the unit cell and
+full cooler level model. Based on the GCI analysis, the ﬁnal meshing details are shown in Table 2.
+The details of the mesh for the full model and unit cell model are both shown in Figure 4.
+Table 1. Grid convergence index (GCI) meshing sensitivity analysis of full model.
+Temperature
+GCI12
+Asymptotic Range of Convergence
+Stagnation Temp
+0.002
+0.99
+Averaged chip Temp
+0.004
+1.01
+Table 2. Meshing comparison for the full model and unit cell model.
+Model
+Full Model
+Unit Cell Model
+Reynolds-Averaged Navier–Stokes (RANS)
+Unit Cell Model
+Large Eddy Simulations (LES)
+Elements
+8.5 M
+0.4 M
+3 M
+Minimal Grid size
+80 µm
+20 µm
+1 µm
+Computation time
+24 h
+2 h
+12 h
+Figure 4. Meshing details of (a) full model and (b) unit cell model, (c) shows the details of the boundary
+layer mesh between the ﬂuid and solid interface.
+2.4. Modeling Methodology
+For the model assumptions, the density, viscosity and other material properties of the ﬂuid/solid
+are assumed to be constant during the simulation. All cavities are assumed to be completely ﬁlled
+with the liquid coolant, without any the presence of air (submerged jets). As for the ﬂow boundary
+conditions, a Dirichlet boundary condition is used which means the velocity of the liquid at all
+ﬂuid–solid boundaries is equal to zero (no slip condition). The boundary condition for the cooler inlet
+is set as a constant uniform inlet velocity while the static pressure for the outlet is set to 0 Pa, as a
+reference pressure. This means all pressure data obtained are speciﬁed relative to the outlet pressure.
+As for the thermal boundary conditions, the coolant inlet temperature is 10 ◦C. Moreover, a constant
+heat ﬂux of 37.5 W/cm2 is applied on the chip bottom to represent the power generation in the heating
+elements of the test chip. The ﬂuid and solid interface is set as a ﬂow-thermal coupled boundary
+condition. Since the cooler material is plastic with low thermal conductivity, the boundary walls of the
+ﬂuid domain are set as adiabatic walls.
+
+===== p.7 =====
+Fluids 2019, 4, 145
+7 of 19
+The modeling studies are performed in ANSYS Fluent. For both the full model and unit cell model,
+the Semi Implicit Method for Pressure Linked Equations (SIMPLE) [12,34,35] algorithm is used as the
+solution method. For the numerical scheme, the Quadratic Upstream Interpolation for Convective
+Kinematics (QUICK) scheme is chosen for the discretization. The convergence criteria were set at 10−5
+for continuity, 10−6 for energy and 10−6 for k, ω and momentum (x, y and z components of velocity),
+respectively. For all the simulations, the net imbalance of overall mass, momentum and energy is kept
+below 0.02% [33,34]. In order to characterize the thermal and hydraulic performance of the cooler,
+the overall thermal performance and pressure drop are deﬁned as dimensionless Nusselt and friction
+numbers, Nu and k, respectively. They are primarily a function of the Reynolds number Re:
+Red = ρ·di·Vin
+µ
+(4)
+where the Red is deﬁned as the Reynolds number based on the jet inlet nozzle diameter, and the Vin
+is deﬁned as the averaged inlet nozzle velocity, di is the inlet nozzle diameter, ρ is the density of the
+ﬂuid, and µ is the dynamic viscosity of the ﬂuid. Moreover, the characteristic length used in the unit
+cell model and full cooler level model is based on the jet inlet nozzle diameter di, rather than the inlet
+diameter of the collector.
+Nuavg =
+havg·di
+kf
+(5)
+Nu0 =
+hstag·di
+kf
+(6)
+where is Nuavg is the averaged Nusselt number, Nu0 is the local Nusselt number, while kf is the thermal
+conductivity of the ﬂuid.
+havg =
+Q
+A·
+
+Tavg −Tin
+
+(7)
+hstag =
+Q
+A·
+
+Tstag −Tin
+
+(8)
+where the havg represents the averaged heat transfer coeﬃcient of the heat source surface, while hstag
+represents the local heat transfer coeﬃcient based on the stagnation chip temperature. The total heating
+area is A and Tin is the inlet liquid temperature. The total chip power is deﬁned as Q.
+The ﬂow inside the channels is assumed hydraulically developed ﬂow. The friction of the ﬂow is
+given by:
+f =
+∆P
+ 1
+2ρ·Vin2 t
+di
+
+(9)
+where f is the friction loss coeﬃcients, t the thickness of the nozzle plate, and di the hydraulic diameter.
+∆P is deﬁned as the pressure drop between the inlet and outlet nozzle in unit cell level.
+3. Numerical Modeling Analysis
+3.1. Unit Cell Modeling Analysis
+In the numerical modeling analysis, we ﬁrst check this physical problem with an unsteady solver,
+which is unsteady RANS (URANS) simulation to analyze the unsteady state behavior. The time step,
+10−7 s in this case, is calculated based on the cell size and inlet velocity. Two velocity points with
+the stagnation point and recirculation point are monitored during the URANS modeling. As shown
+in Figure 5, after 600 time steps, the ﬂow is fully developed, and from then on, there is no velocity
+ﬂuctuation observed, which reveals the steady phenomenon. Therefore, this ﬂow problem is steady at
+Re = 2048. So, for all the following simulations, we choose the RANS solver instead of URANS solver.
+
+===== p.8 =====
+Fluids 2019, 4, 145
+8 of 19
+ 
+Figure 5. Unsteady ﬂow simulation—unsteady Reynolds-averaged Navier–Stokes (URANS) for
+Vin = 5 m/s and Red = 2048. The velocity at two points as function of ﬂow time (time step) is plotted.
+Three-dimensional RANS models with diﬀerent numerical modeling techniques are simulated and
+compared, including k-ω SST model, laminar model, k-ε model, Transition SST and Spalart–Allmaras
+(SA) One-Equation Model. The Reynolds number Red is ranging from 30 to 4000, which covers the
+practical range for this electronic cooling application. The simulation results for Red = 1024 are shown
+in Figure 6. It can be seen that the temperature distributions for diﬀerent turbulence models are
+diﬀerent even though the ﬂow streamlines show similar behavior. The temperature distributions of
+the SA model and the k-ε model show lower temperatures than the other models. In addition, the
+temperature patterns for k-ω SST, transition SST and the laminar model show similar temperature
+distributions at Red = 1024. The strong temperature diﬀerences using one turbulence model or another
+will be explained in details later based on the Nuavg-Red and f-Red correlation curve.
+Figure 6. Conjugate ﬂow and thermal unit cell modeling for Red = 1024: top row—velocity streamlines
+in the unit cell model, and bottom row—temperature distribution in the active region of the Si chip for
+diﬀerent turbulent models.
+
+===== p.9 =====
+Fluids 2019, 4, 145
+9 of 19
+As mentioned in the introduction session, LES is regarded as one of the most promising approaches
+for the simulation of turbulent ﬂows with given length scale δ, which is often connected to the mesh
+size. In [12], a well-resolved three-dimensional LES impinging jet model shows a very good heat
+transfer coeﬃcient prediction. Therefore, we extend the impingement CFD RANS simulations to an
+unsteady LES simulation as a benchmark. The time step is set to 10−3 s. As shown in Figure 7, the ﬂow
+is fully developed after around 10 iterations. In order to compare with the RANS model, the mean
+values of the variable are calculated by time-averaging of instantaneous results from 0.1 s to 0.5 s.
+The velocity and temperature simulation results with the LES model are shown in Figure 7. By using
+the LES model, the smaller scale ﬂow behavior can also be captured. The simulated Nuavg and Nu0 for
+diﬀerent RANS models are compared with the LES model at Red = 1024, as listed in Table 3. It can be
+seen that, on the one hand, the laminar model, k-ω SST and Transition SST model can produce better
+results than any of the high-Re models, matching Nuavg and Nu0 within 1% compared to the LES
+model, however by reducing the calculation time by a factor of 6. On the other hand, k-ε model and SA
+model show large Nuavg prediction errors up to 80%, and the Nu0 prediction errors are above 100%.
+(a) 
+(b) 
+Figure 7. Large Eddy Simulations (LES) modeling results: (a) velocity and temperature distribution at
+Red = 1024; (b) ﬂow velocity development as function of the time. (4 × 4 nozzle array, di = 0.6 mm).
+
+===== p.10 =====
+Fluids 2019, 4, 145
+10 of 19
+Table 3. Conjugate ﬂow and thermal modeling under Red = 1024.
+Turbulent Model
+Re
+Nuavg
+Nuavg Diﬀerence
+Nu0
+Nu0 Diﬀerence
+LES model
+1024
+35.14
+0
+39.42
+0
+Laminar model
+1024
+34.92
+0.6%
+39.42
+0.1%
+k-ω SST
+1024
+34.84
+0.9%
+39.37
+0.1%
+Transition SST
+1024
+35.05
+0.3%
+39.53
+0.3%
+k-ε model
+1024
+64.94
+84.8%
+81.95
+107.9%
+SA model
+1024
+69.27
+97.1%
+98.28
+149.3%
+Detailed comparisons between the Nuavg–Red correlation, Nu0–Red and f–Red correlation are
+shown in Figures 8–10. It can be seen that there is no transition observed for the Nu–Red correlation
+while there is a clear transition point visible for the pressure coeﬃcient correlation f–Red. For the
+Nu–Re correlations shown in Figures 8 and 9, it can be seen that the laminar model, k-ω SST model and
+transition SST model show maximum prediction errors of 5% compared with the LES model. For the
+SA model or k-ε model, the diﬀerence increases from 5% to 20% as the Reynolds number increases.
+The reason why the k-ω SST and k-ε models are so diﬀerent is because the k-ε model is based on the
+wall function model, which is good for high Reynolds number case. For the k-ω SST and transition
+SST models, both are based on the low Reynolds near wall model, the calculation starts from the near
+wall cells. As for the f–Red correlations in Figure 10, the laminar ﬂow model shows a large diﬀerence
+compared with the LES model around the transition point Red = 650. On the other hand, the k-ω SST
+model and the transition SST model match very well with the LES model after the transition point.
+The reason is that the transition SST model in ANSYS Fluent extends the traditional SST k-ω transport
+equations by tracking two additional variables for intermittency and transition onset using empirical
+correlations developed by Menter et al. [36]. Various authors have shown that the k-ω SST model
+shows unsatisfactory performance for jets, both free jets [37] and impinging jets [38]. This arises due to
+the eddy-viscosity hypothesis used in two-equation turbulence models, that over-predict the mixing
+rate in the CFD simulation [39]. However, for integral quantities of interest like the heat transfer,
+the interaction between the liquid fronts on the surface engendered by the jets is a critical criterion.
+This integral quantity of interest is still well predicted by the k−ω SST model.
+In summary, as for the unit cell model, the transition SST model and k-ω SST model both can
+predict the average chip temperature, the stagnation temperature on the chip, and also the pressure
+drop with less than 5% diﬀerence, compared with the reference LES model, when the Red is in the
+range between 30 to 4000.
+
+===== p.11 =====
+Fluids 2019, 4, 145
+11 of 19
+Figure 8. Nuavg–Red correlations: Turbulence model comparison with diﬀerent RANS models and
+benchmarked with LES model (30 ≤Red ≤4000).
+Figure 9. Nu0–Red correlations: Turbulence model comparison with diﬀerent RANS models and
+benchmarked with LES model (30 ≤Red ≤4000).
+
+===== p.12 =====
+Fluids 2019, 4, 145
+12 of 19
+Figure 10.
+f–Red correlations: Turbulence model comparison with diﬀerent RANS models and
+benchmarked with LES model (30 ≤Red ≤4000).
+3.2. Full Cooler Level Modeling Analysis
+The ﬂow and temperature distributions are shown in Figure 11 shows the results of the full cooler
+level CFD model for the ﬂow distribution in the ﬂuid domain and the temperature distribution in
+the solid domain of the Si chip, for diﬀerent ﬂow rates ranging from 100 mL/min to 1000 mL/min.
+The velocity in Figure 11 is the inlet tube velocity, while the Red here is based on the inlet nozzle
+diameter and velocity. The corresponding Red number is between 130 and 1400. The chip temperature
+distribution map is linked to the velocity ﬁeld inside the cooler. It can be seen that the temperature
+of the chip edge is higher for low Red numbers, due to the ﬂow nonuniformity. Moreover, the slight
+asymmetry of the temperature distribution, visible at higher ﬂow rates, is due to the asymmetric
+placement of the outlet connection, resulting in an asymmetric ﬂow behavior.
+ 
+Figure 11. Conjugate ﬂow and thermal modeling with full CFD model: top row—velocity streamline,
+and bottom row—temperature distributions with diﬀerent turbulent models (130 ≤Red ≤1400).
+
+===== p.13 =====
+Fluids 2019, 4, 145
+13 of 19
+3.3. Unit Cell versus Full Level Model
+In order to evaluate the validity of the unit cell model, the temperature modeling data are
+compared with the full cooler level model. In this comparison, the transition SST model is used for
+both the unit cell model and full cooler model since this model showed a good agreement with the
+reference LES model in the previous section and oﬀers a good compromise between the model accuracy
+and computation cost, especially for the large simulation domain of the full cooler model.
+Figure 12 shows the temperature distribution at the location of the heat sources in the Si chip,
+calculated by the full cooler level model for ﬂow rate values from 100 mL/min to 1000 mL/min.
+The maximum, minimum and average chip temperature are extracted as a function of the ﬂow rate.
+In general, the accuracy of the unit cell model depends on the symmetry of the ﬂow and temperature
+patterns. The comparison between the unit cell model and full cooler model results in Figure 12 shows
+a higher ﬂow non-uniformity at low ﬂow rate values with a higher local relative ﬂow rate in the central
+nozzles, resulting in higher temperatures at the chip corners. For a moderate ﬂow rate of 650 mL/min,
+the unit cell model shows a good agreement with the full model. The full proﬁle comparison between
+the unit cell and full model are shown in Figure 13, which provides more information on the usability
+of the unit cell model. It also shows where the unit cell assumption is valid and that it can change with
+the ﬂow rate.
+Figure 12. Temperature comparison between the unit cell model (UC) and full cooler level model
+(FM) with transition SST turbulence model for diﬀerent ﬂow rate values (FL): (a) FL = 100 mL/min;
+(b) FL = 300 mL/min; (c) FL = 650 mL/min; (d) FL = 1000 mL/min; (e) temperature comparison as a
+function of diﬀerent ﬂow rate.
+
+===== p.14 =====
+Fluids 2019, 4, 145
+14 of 19
+Figure 13. Temperature proﬁles along the chip diagonal: comparison for unit cell and full model with
+transition Shear Stress Transport (SST) model under the ﬂow rate of 300 mL/min and 650 mL/min.
+Moreover, the pressure drop of the unit cell model and full cooler level model are compared in
+Figure 14. It can be seen that the pressure drop of the unit cell from the nozzle plate contributes roughly
+1/3 of the total pressure drop of the full cooler at the ﬂow rate of 1000 mL/min.
+Figure 14. Pressure drop of unit cell and full cooler level model as function of the total ﬂow rate.
+4. Experimental Validation
+4.1. Test Case Demonstration
+In order to validate the numerical simulations of the turbulence models, a microjet cooler has
+been fabricated by using 3D printing technology, shown in Figure 15. The nozzle array is 4 × 4 with
+printed nozzle diameters of 0.58 mm, compared to the nominal design value of 0.6 mm. In our previous
+
+===== p.15 =====
+Fluids 2019, 4, 145
+15 of 19
+work [34], the impact analysis showed that the 5% diameter variation for the fabrication only results in
+a reduction of the average temperature and the minimum temperature of 4.7% and 4.3% for the same
+ﬂow rate respectively.
+ 
+Figure 15. Test case demonstration of the microjet impingement cooler: (a) photo of 3D printed cooler
+with 4 × 4 nozzle array; (b) bottom view of the printed jet nozzles.
+4.2. Experimental Set-Up
+Figure 16 shows a schematic of the experimental setup for the measurement of the hydraulic
+and thermal performance of the microjet cooler. The closed ﬂow loop includes ﬂow meter, pressure
+transducer, heat exchanger, chiller, pump, ﬁlter and temperature sensor. The closed ﬂow loop can be
+operated in a controlled mass ﬂow rate mode or a controlled pressure mode. The working range of
+the magnetically coupled gear pump is within a maximum ﬂow rate of 3 kg/min and a maximum
+pressure of 11.5 bar. The accuracy of the mini Cori-FLOW mass ﬂow meter is ± 0.2% for a range of 0.1
+to 3 kg/min. A diﬀerential pressure gauge (EL-PRESS) is used to measure the pressure drop across the
+cooler. The accuracy of the pressure transducer is ± 0.5% of the full scale in the range between 0.2 and
+5 bar. The particle ﬁlter with a mesh size of 25 µm is used. In addition, thermocouples with an accuracy
+of 2.2 ◦C are used to measure the coolant temperature before and after the cooler. A liquid–liquid heat
+exchanger is used to cool the coolant back to the set-point. In this work, DI-water is used as the coolant
+during the tests, with speciﬁed temperature at 10 ◦C and ambient temperature is kept at 25 ± 1 ◦C.
+Figure 16. Experimental set-up of the impingement jet cooling: ﬂow loop measurement system;
+temperature distribution measurement and microjet cooler.
+
+===== p.16 =====
+Fluids 2019, 4, 145
+16 of 19
+The chip temperature is measured in the thermal test chip [34] with a 32 × 32 array of temperature
+sensors and conﬁgurations of 832 programmable heater cells. The size of the single square cell is
+240 × 240 µm2. All these cells contain a diode in the center of the cell as a temperature sensor, resulting
+in a detailed temperature map measurement with 32 × 32 ‘thermal pixels’ across the die surface.
+The voltage drop across the diode for a constant current is used as the temperature sensitive parameter
+of the sensor. The 95% conﬁdence interval of the calibrated sensitivity is −1.55 ± 0.02 mV/◦C for a
+current of 5 µA in the temperature range between 10 and 75 ◦C. The chip temperature sensors allow
+absolute temperature measurements with an accuracy of ± 2 ◦C.
+4.3. Results and Discussions
+In Figure 17, the measured average chip temperature values are compared with the full CFD
+model and unit cell model results. The measured ﬂow rate is ranging from 100 mL/min to 1000 mL/min,
+resulting in a Red number from 130 to 1400. The heat ﬂux applied on the thermal test chip is 80 W/cm2.
+Similar with the unit cell model analysis, diﬀerent turbulence models are used for the full cooler
+level model, including laminar model, k-ε model, k-ω model, Transition SST model and SA model.
+It can be seen that the full CFD model with SA model overestimates the Nusselt number by a factor
+of 4 comparing with the experimental result. Moreover, the full model with k-ε model also shows
+very high prediction errors compared with the experiments. As expected, the LES model shows good
+agreement with the measurements. In general, the comparison shows that the laminar model, the k-ω
+model and the transition SST model show good agreement with the measured chip temperature, for
+the Red number from 130 to 1400.
+Figure 17. Model comparison with full CFD model, unit cell model and experimental results data on
+Nuavg-Red number.
+5. Conclusions
+This paper presents the conjugate ﬂow and heat transfer modeling for microjet cooling with locally
+distributed outlets. We analyzed the turbulence models for their applicability in unit cell level models
+
+===== p.17 =====
+Fluids 2019, 4, 145
+17 of 19
+and full cooler level models for these liquid microjet impingement cooling applications. The results of
+the diﬀerent turbulence models based on steady state CFD RANS models for a microjet unit cell are
+benchmarked with LES results. It is concluded that the transition SST model and k-ω SST model both
+can accurately predict the average chip temperature, the stagnation temperature on the chip, and the
+pressure drop with less than 5% diﬀerence, compared with the reference LES model. Moreover, the unit
+cell model is validated with the full cooler level model for diﬀerent ﬂow rate conditions. However,
+the usability of the unit cell model changes with the ﬂow rate. A test case with a microjet cooler has
+been demonstrated by using 3D printing technology in order to validate the numerical simulations of
+the turbulence models. The experimental results are compared with the unit cell model and full cooler
+model with diﬀerent numerical modeling methods.
+In summary, the transition SST model and k-ω SST model both show excellent ability to predict
+the local or average Nu, as well as the local level pressure coeﬃcient f with less than 5% diﬀerence
+in the range of 30 < Red < 4000, compared with the reference LES model. For the comparison with
+experimental measurements, the LES model, transition SST model and k-ω SST model all show less
+than 25% prediction error as the Red number ranging from 130 to 1400.
+Author Contributions: Conceptualization, H.O., T.W., and E.B.; Methodology, T.W. and M.B.; Software, T.W.;
+Validation, T.W. and V.C.; Formal Analysis, T.W.; Investigation, T.W.; Resources, M.B. and E.B.; Data Curation, T.W.;
+Writing-Original Draft Preparation, T.W.; Writing-Review & Editing, H.O., M.B.; Visualization, T.W.; Supervision,
+H.O., M.B.; Project Administration, H.O. and E.B.; Funding Acquisition, E.B.
+Funding: This research received no external funding.
+Acknowledgments: This work was supported as part of the imec Industrial Aﬃliation Program on 3D System
+Integration and has been strongly supported by the imec partners and the imec Reliability, Electrical testing,
+Modeling and 3D technology teams.
+Conﬂicts of Interest: The authors declare no conﬂict of interest.
+References
+1.
+Jörg, J.; Taraborrelli, S.; Sarriegui, G.; De Doncker, R.W.; Kneer, R.; Rohlfs, W. Direct Single Impinging Jet
+Cooling of a mosfet Power Electronic Module. IEEE Trans. Power Electron. 2018, 33, 4224–4237. [CrossRef]
+2.
+Wei, T.-W.; Oprins, H.; Cherman, V.; Van der Plas, G.; De Wolf, I.; Beyne, E.; Baelmans, M. High eﬃciency direct
+liquid jet impingement cooling of high power devices using a 3D-shaped polymer cooler. In Proceedings of
+the 2017 IEEE International Electron Devices Meeting (IEDM), San Francisco, CA, USA, 2–6 December 2017.
+3.
+Bhunia, A.; Chen, C.L. On the scalability of liquid microjet array impingement cooling for large area systems.
+J. Heat Transf. 2011, 133, 064501. [CrossRef]
+4.
+Bhunia, A.; Chandrasekaran, S.; Chen, C.L. Performance improvement of a power conversion module by
+liquid micro-jet impingement cooling. IEEE Trans. Compon. Packag. Technol. 2007, 30, 309–316. [CrossRef]
+5.
+Robinson, A.J.; Schnitzler, E. An experimental investigation of free and submerged miniature liquid jet array
+impingement heat transfer. Exp. Therm. Fluid Sci. 2007, 32, 1–13. [CrossRef]
+6.
+Molana, M.H.; Banooni, S. Investigation of heat transfer processes involved liquid impingement jets: A review.
+Braz. J. Chem. Eng. 2013, 30, 413–435. [CrossRef]
+7.
+Han, Y.; Lau, B.L.; Zhang, H.; Zhang, X. Package-level Si-based micro-jet impingement cooling solution with
+multiple drainage micro-trenches. In Proceedings of the 2014 IEEE 16th Electronics Packaging Technology
+Conference (EPTC), Singapore, 3–5 December 2014; pp. 330–334.
+8.
+Brunschwiler, T.; Rothuizen, H.; Fabbri, M.; Kloter, U.; Michel, B.; Bezama, R.J.; Natarajan, G. Direct
+Liquid Jet-Impringement Cooling with Micron-Sized Nozzle Array and Distributed Return Architecture.
+In Proceedings of the Thermal and Thermomechanical Proceedings 10th Intersociety Conference on
+Phenomena in Electronics Systems, San Diego, CA, USA, 30 May–2 June 2006; pp. 193–203.
+9.
+Natarajan, G.; Bezama, R.J. Microjet cooler with distributed returns. Heat Transf. Eng. 2007, 28, 779–787.
+[CrossRef]
+10.
+Boldman, D.R.; Brinich, P.F. Mean Velocity, Turbulence Intensity, and Scale in a Subsonic Turbulent Jet Impinging
+Normal to a Large Flat Plate; NASA Lweis Center: Cleveland, OH, USA, 1977.
+11.
+Pope, S.B. Turbulent ﬂows. Meas. Sci. Technol. 2001, 12, 11. [CrossRef]
+
+===== p.18 =====
+Fluids 2019, 4, 145
+18 of 19
+12.
+Zuckerman, N. Jet Impingement Heat Transfer: Physics, Correlations, and Numerical Modeling. Adv. Heat Transf.
+2006, 39, 565–631.
+13.
+Viskanta, R. Heat transfer to impinging isothermal gas and ﬂame jets. Exp. Therm. Fluid Sci. 1993, 6, 111–134.
+[CrossRef]
+14.
+Bernhard, W. Multiple Jet Impingement—A Review. Heat Transf. Res. 2011, 42, 101–142. [CrossRef]
+15.
+Narumanchi, S.V.J.; Hassani, V.; Bharathan, D. Modeling Single-Phase and Boiling Liquid Jet Impingement Cooling
+in Power Electronics; National Renewable Energy Laboratory (NREL): Golden, CO, USA, 2005.
+16.
+Womac, D.J.; Ramadhyani, S.S.; Incropera, F.P. Correlating Equations for Impingement Cooling of Small
+Heat Sources With Single Circular Liquid Jets. ASME J. Heat Transf. 1993, 115, 106–115. [CrossRef]
+17.
+Garimella, S.V.; Rice, R.A. Conﬁned and submerged liquid jet impingement heat transfer. ASME J. Heat
+Transf. 1995, 117, 871–877. [CrossRef]
+18.
+Isman, M.K.; Pulat, E.; Etemoglu, A.B.; Can, M. Numerical Investigation of Turbulent Impinging Jet Cooling
+of a Constant Heat Flux Surface. Numer. Heat Transf. Part A Appl. 2008, 53, 1109–1132. [CrossRef]
+19.
+Esch, T.; Menter, F. Heat transfer predictions based on two-equation turbulence models with advanced wall
+treatment. Turbul. Heat Mass Transf. 2003, 4, 633–640.
+20.
+Maddox, J.F. Liquid Jet Impingement with Spent Flow Management for Power Electronics Cooling.
+Ph.D. Thesis, Auburn University, Auburn, AL, USA, 2015.
+21.
+Prabhakar, S.; Arun, K. Micro-Scale Nozzled Jet Heat Transfer Distributions and Flow Field Entrainment
+Eﬀects Directly on Die. In Proceedings of the 18th IEEE ITHERM Conference, Las Vegas, NV, USA, 28–31
+May 2019; pp. 1082–1097.
+22.
+Sung, M.K.;
+Mudadar, I. Eﬀects of jet pattern on single-phase cooling performance of hybrid
+micro-channel/micro-circular-jet-impingement thermal management scheme. Int. J. Heat Mass Transf.
+2008, 51, 4614–4627. [CrossRef]
+23.
+Polat, S.; Huang, B.; Majumdar, A.S.; Douglas, W.J.M. Numerical Flow and Heat Transfer under Impinging
+Jets: A Review. Annu. Rev. Heat Transf. 1989, 2, 157–197. [CrossRef]
+24.
+Behnia, M.; Parneix, S.; Dur, P. Accurate modeling of impinging jet heat transfer. In Center for Turbulence
+Research, Annual Research Briefs 1997; Stanford University: Stanford, CA, USA, 1997; pp. 149–164.
+25.
+Gao, S.; Voke, P.R. Large-eddy simulation of turbulent heat transport in enclosed impinging jets. Int. J. Heat
+Fluid Flow 1995, 16, 349–356. [CrossRef]
+26.
+Beaubert, F.; Viazzo, S. Large Eddy Simulation of a plane impinging jet. Comptes Rendus Mécanique 2002, 330,
+803–810. [CrossRef]
+27.
+Hällqvist, T. Large Eddy Simulation of Impinging Jets with Heat Transfer Licentiate Thesis. Ph.D. Thesis,
+Royal Institute of Technology, Stockholm, Sweden, 2006.
+28.
+Olsson, M.; Fuchs, L. Large eddy simulations of a forced semiconﬁned circular impinging jet. Phys. Fluids
+1998, 10, 476–486. [CrossRef]
+29.
+Anupam, D.; Rabijit, D.; Balaji, S. Recent Trends in Computation of Turbulent Jet Impingement Heat Transfer.
+Heat Transf. Eng. 2012, 33, 447–460.
+30.
+Cziesla, T.; Biswas, G.; Chattopadhyay, H.; Mitra, N.K. Large-eddy simulation of ﬂow and heat transfer in an
+impinging slot jet. Int. J. Heat Fluid Flow 2001, 22, 500–508. [CrossRef]
+31.
+Draksler, M.; Konˇcar, B.; Cizelj, L.; Niˇceno, B. Large Eddy Simulation of Multiple Impinging Jets in Hexagonal
+Conﬁguration—Flow Dynamics and Heat Transfer Characteristics. Int. J. Heat Mass Transf. 2017, 109, 16–27.
+[CrossRef]
+32.
+Acikalin, T.; Schroeder, C. Direct liquid cooling of bare die packages using a microchannel cold plate. In
+Proceedings of the Fourteenth Intersociety Conference on Thermal and Thermomechanical Phenomena in
+Electronic Systems (ITherm), Orlando, FL, USA, 27–30 May 2014; pp. 673–679.
+33.
+Wei, T.-W.; Oprins, H.; Cherman, V.; Qian, J.; De Wolf, I.; Beyne, E.; Baelmans, M. High eﬃciency polymer
+based direct multi-jet impingement cooling solution for high power devices. IEEE Trans. Power Electron.
+2018, 34, 6601–6612. [CrossRef]
+34.
+Wei, T.-W.; Oprins, H.; Cherman, V.; Shoufeng, Y.; De Wolf, I.; Beyne, E.; Baelmans, M. Experimental
+Characterization of a Chip Level 3D Printed Microjet Liquid Impingement Cooler for High Performance
+Systems. IEEE Trans. Compon. Packag. Manuf. Technol. 2019. [CrossRef]
+35.
+Penumadu, P.S. Numerical investigations of heat transfer and pressure drop characteristics in multiple jet
+impingement system. Appl. Therm. Eng. 2017, 110, 1511–1524. [CrossRef]
+
+===== p.19 =====
+Fluids 2019, 4, 145
+19 of 19
+36.
+Menter, F.R.; Langtry, R.B.; Likki, S.R.; Suzen, Y.B.; Huang, P.G.; Völker, S. A correlation-based transition
+model using local variable—part I: Model formulation. J. Turbomach. 2006, 128, 413–422. [CrossRef]
+37.
+Mishra, A.A.; Iaccarino, G. Uncertainty estimation for reynolds-averaged navier–stokes predictions of
+high-speed aircraft nozzle jets. AIAA J. 2017, 55, 3999–4004. [CrossRef]
+38.
+Granados-Ortiz, F.J.; Arroyo, C.P.; Puigt, G.; Lai, C.H.; Airiau, C. On the inﬂuence of uncertainty in
+computational simulations of a high-speed jet ﬂow from an aircraft exhaust. Comput. Fluids 2019, 180,
+139–158. [CrossRef]
+39.
+Mishra, A.A.; Mukhopadhaya, J.; Iaccarino, G.; Alonso, J. Uncertainty Estimation Module for Turbulence
+Model Predictions in SU2. AIAA J. 2018, 57, 1066–1077. [CrossRef]
+© 2019 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access
+article distributed under the terms and conditions of the Creative Commons Attribution
+(CC BY) license (http://creativecommons.org/licenses/by/4.0/).

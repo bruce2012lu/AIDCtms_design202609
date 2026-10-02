@@ -1,0 +1,3072 @@
+[
+ {
+  "id": "pat-2019-jetcool-wo2020210587a1",
+  "type": "patent",
+  "title": "Thermal management of electronics using co-located microjet nozzles and electronic elements",
+  "title_zh": "微射流喷嘴与电子元件共置的电子器件热管理（PCT）",
+  "authors": [
+   "Bernard MALOUIN",
+   "Jordan Mizerak"
+  ],
+  "org": "JetCool Technologies Inc",
+  "year": 2019,
+  "venue": "WIPO PCT",
+  "identifiers": {
+   "patent_no": "WO2020210587A1"
+  },
+  "url": "https://patents.google.com/patent/WO2020210587A1/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "微射流喷嘴与电子元件共置的电子器件热管理（PCT）。优先权日 2019-04-10，申请日 2020-04-10，公开/公告日 2020-10-15。法律状态（Google Patents，2026-10-02 查看）：Ceased；2021-10-10 Anticipated expiration。与本项目重合度：低。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "第一层内设发热电子元件，并设贯穿该层厚度的流体通道（即喷嘴）用于带走该元件热量。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "同为微射流喷嘴阵列概念；但本案把喷嘴做在承载电子元件的同一层（板/基板）内。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目喷嘴板为独立紫铜零件、不承载有源电子元件，权1 前提不满足。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Ceased",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2019-04-10",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "低",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-C（v1.4 清单已收录）；当前权利人（Google）：Jetcool Technologies Inc；同族：US12100643B2, US20200343160A1；PCT 已进入国家阶段（US12100643B2），PCT 本身显示 Ceased 属正常。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2019-jetcool-wo2020210587a1.pdf",
+   "sha256": "be6e52ed5f13862b5d3560f7e00fedefd3aba054b97c96d97871e33a20b60cf5",
+   "bytes": 1862551,
+   "pages": 36,
+   "source_url": "https://patentimages.storage.googleapis.com/6d/15/34/fe40db2e073a23/WO2020210587A1.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2019-jetcool-us12100643b2",
+  "type": "patent",
+  "title": "Thermal management of electronics using co-located microjet nozzles and electronic elements",
+  "title_zh": "微射流喷嘴与电子元件共置的电子器件热管理（US 授权）",
+  "authors": [
+   "Jordan Mizerak",
+   "Bernard Malouin"
+  ],
+  "org": "JetCool Technologies Inc",
+  "year": 2019,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US12100643B2"
+  },
+  "url": "https://patents.google.com/patent/US12100643B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "微射流喷嘴与电子元件共置的电子器件热管理（US 授权）。优先权日 2019-04-10，申请日 2020-05-13，公开/公告日 2024-09-24。法律状态（Google Patents，2026-10-02 查看）：Active；2041-07-13 Adjusted expiration。与本项目重合度：低。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "第一层含有源发热元件且共置贯穿通道（喷嘴）；第二层含第二发热元件；两层间的歧管层构成储液腔。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "喷嘴贯穿板厚 + 上游歧管腔的拓扑与喷嘴板+静压箱相似。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "权1 要求喷嘴所在层同时“内置”有源发热元件，并要求第二电子层；本项目喷嘴板无电子元件，基本不落入。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2019-04-10",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "低",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-C（v1.4 清单已收录）；当前权利人（Google）：Jetcool Technologies Inc；同族：US20200343160A1, WO2020210587A1；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2019-jetcool-us12100643b2.pdf",
+   "sha256": "250958eb77ce5fa9fbddd4bdac90fa397783fe3c02d7f4d606489b508b2a68d7",
+   "bytes": 1620139,
+   "pages": 19,
+   "source_url": "https://patentimages.storage.googleapis.com/37/73/ae/fc8ae18e0892a4/US12100643.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2019-jetcool-us11844193b2",
+  "type": "patent",
+  "title": "Direct contact fluid based cooling module",
+  "title_zh": "直接接触式流体冷却模块（微射流喷嘴板直接冲击处理器封装）",
+  "authors": [
+   "Jordan Mizerak",
+   "Bernard Malouin"
+  ],
+  "org": "JetCool Technologies Inc",
+  "year": 2019,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US11844193B2"
+  },
+  "url": "https://patents.google.com/patent/US11844193B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "直接接触式流体冷却模块（微射流喷嘴板直接冲击处理器封装）。优先权日 2019-04-14，申请日 2021-11-24，公开/公告日 2023-12-12。法律状态（Google Patents，2026-10-02 查看）：Active；2040-04-10 Anticipated expiration。与本项目重合度：高。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "入口 → 入口静压腔 → 微射流喷嘴板（多个孔形成微射流，至少部分喷嘴非均匀排布）→ 储液腔；储液腔一侧由处理器封装上表面界定，射流直接冲击封装表面；模块按处理器配件安装孔位紧固而非与处理器机械固定。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "入口静压腔 + 微射流喷嘴板 + 冲击腔的三层拓扑与本项目“静压箱 + 喷嘴板 + 喷距约 2 mm 冲击腔”高度一致；非均匀喷嘴排布亦可能与 216 孔分区（D0.40/0.50 两种孔径）相关。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "权1 要求储液腔由处理器封装上表面直接界定（直接液冷、无底板）。本项目射流冲击紫铜底板（间接冷板），是主要区别；需关注同族续案 US20250056759A1 / EP4498428 是否扩展到带底板方案。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2019-04-14",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "高",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-C（v1.4 清单已收录）；当前权利人（Google）：Jetcool Technologies Inc；同族：CN113994772A, CN113994772B, EP3977832A1, EP3977832A4, EP3977832B1, EP4498428A2, EP4498428A3, US11191184B2, US20200352053A1, US20220338375A1；同族含 US11191184B2、EP3977832B1、CN113994772B 等，覆盖面广。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2019-jetcool-us11844193b2.pdf",
+   "sha256": "d31e49f5b8ca117f26a0c88e85bff74666b0cada0945e7f840d2c3e2543fcca1",
+   "bytes": 1554716,
+   "pages": 29,
+   "source_url": "https://patentimages.storage.googleapis.com/0f/4d/79/55d510a3235140/US11844193.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2019-onsemi-us12002736b2",
+  "type": "patent",
+  "title": "Jet impingement cooling for high power semiconductor devices",
+  "title_zh": "大功率半导体器件射流冲击冷却（射流凸台）",
+  "authors": [
+   "Jesse Emmett GALLOWAY"
+  ],
+  "org": "Semiconductor Components Industries LLC（onsemi）",
+  "year": 2019,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US12002736B2"
+  },
+  "url": "https://patents.google.com/patent/US12002736B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "大功率半导体器件射流冲击冷却（射流凸台）。优先权日 2019-10-10，申请日 2023-02-06，公开/公告日 2024-06-04。法律状态（Google Patents，2026-10-02 查看）：Active；2039-11-06 Anticipated expiration。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "换热底座内设共底面的进液腔和出液腔；射流板平行底面；射流板上设凸起的射流凸台（pedestal），喷嘴开在凸台顶面；腔室隔板连接射流板与底面，将进、出液腔分隔在隔板两侧。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "射流板 + 进/出液腔分隔与本项目喷嘴板 + 静压箱类似。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目喷嘴板为平板、无凸起射流凸台，且无“连接射流板与底面”的腔室隔板，可规避权1。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2019-10-10",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-C（v1.4 清单已收录）；当前权利人（Google）：Semiconductor Components Industries LLC；同族：CN112652586A, US12368088B2, US20230187312A1, US20240312873A1, US20250309053A1；v1.4 未写申请人，实为 onsemi；同族 CN112652586A、US12368088B2。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2019-onsemi-us12002736b2.pdf",
+   "sha256": "5bd316955ee8dc21d26d7ff3702397fc2ebad6f88d569a0cb1114791f7b9d0a7",
+   "bytes": 813453,
+   "pages": 16,
+   "source_url": "https://patentimages.storage.googleapis.com/f9/6d/62/9d002c01af55db/US12002736.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2022-onsemi-us12255124b2",
+  "type": "patent",
+  "title": "Jet impingement cooling with bypass fluid portion for high power semiconductor devices",
+  "title_zh": "带旁通流体的大功率半导体射流冲击冷却",
+  "authors": [
+   "John Mookken"
+  ],
+  "org": "Semiconductor Components Industries LLC（onsemi）",
+  "year": 2022,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US12255124B2"
+  },
+  "url": "https://patents.google.com/patent/US12255124B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "带旁通流体的大功率半导体射流冲击冷却。优先权日 2022-08-04，申请日 2023-02-13，公开/公告日 2025-03-18。法律状态（Google Patents，2026-10-02 查看）：Active；2043-09-20 Adjusted expiration。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "进液腔 → 射流板喷嘴 → 出液腔；另设至少一个旁通喷嘴，从进液腔直接把旁通流体导入出液腔，与射流流体汇合为出口流。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "进液腔 / 射流板 / 出液腔结构与本项目一致；若本项目静压箱在喷嘴板外围设泄流孔或旁路以降压降，会直接落入。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "确保所有流体只经喷嘴进入冲击腔，不设从静压箱直通出液侧的旁通孔。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2022-08-04",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-C（v1.4 清单已收录）；当前权利人（Google）：Semiconductor Components Industries LLC；同族：DE102023119544A1, US20240047304A1, US20250192000A1, US20250192001A1；CN 同族 CN117529012A（申请中）。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2022-onsemi-us12255124b2.pdf",
+   "sha256": "4ec52aad5c7cfa93862b60fe217f6f38abd08303458680054dcd886439ce90c4",
+   "bytes": 956055,
+   "pages": 17,
+   "source_url": "https://patentimages.storage.googleapis.com/6a/74/52/b13a55e3c04668/US12255124.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2012-ibm-us10244654b2",
+  "type": "patent",
+  "title": "Cold plate with combined inclined impingement and ribbed channels",
+  "title_zh": "斜射流冲击与带肋通道组合的冷板（制造方法）",
+  "authors": [
+   "Pritish R. Parida"
+  ],
+  "org": "International Business Machines Corp",
+  "year": 2012,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US10244654B2"
+  },
+  "url": "https://patents.google.com/patent/US10244654B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "斜射流冲击与带肋通道组合的冷板（制造方法）。优先权日 2012-03-08，申请日 2018-01-11，公开/公告日 2019-03-26。法律状态（Google Patents，2026-10-02 查看）：Expired - Fee Related；2032-03-08 Anticipated expiration。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "（方法）制作带多个倾斜射流孔的射流板（偏离法向一定角度），制作带肋通道壁的底板，二者结合成带肋通道，射流方向与通道长边垂直。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "射流板 + 底板通道（与本项目底板短槽相近）的组合。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目为垂直射流；且该专利已失效（未缴年费），可作为自由现有技术。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Expired - Fee Related",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2012-03-08",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-C（v1.4 清单已收录）；当前权利人（Google）：International Business Machines Corp；同族：US10028410B2, US10645842B2, US20130233523A1, US20150258645A1, US20160014930A1, US20180160565A1, US9219022B2；Google 显示 Expired - Fee Related；同族 US9219022B2 等。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2012-ibm-us10244654b2.pdf",
+   "sha256": "b193e79ce3c4676b306616dc8fdc406e2735c57bd198934b4a532a1146244b6f",
+   "bytes": 889429,
+   "pages": 14,
+   "source_url": "https://patentimages.storage.googleapis.com/21/46/36/9434de414eb8aa/US10244654.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2020-google-us11310937b2",
+  "type": "patent",
+  "title": "Impinging jet manifold for chip cooling near edge jets",
+  "title_zh": "芯片冷却用近边缘射流冲击歧管（Google TPU 直接液冷模块）",
+  "authors": [
+   "Jeremy Rice",
+   "Jeffrey Scott Spaulding",
+   "Evan Fraisse"
+  ],
+  "org": "Google LLC",
+  "year": 2020,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US11310937B2"
+  },
+  "url": "https://patents.google.com/patent/US11310937B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "芯片冷却用近边缘射流冲击歧管（Google TPU 直接液冷模块）。优先权日 2020-05-29，申请日 2020-05-29，公开/公告日 2022-04-19。法律状态（Google Patents，2026-10-02 查看）：Active；2040-06-27 Adjusted expiration。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "孔板（orifice plate）上同时有多个供液孔和回液孔，孔板底面密封于含电路的基板顶面；冷却液分配歧管有供液腔（连通供液孔）和回液腔（连通回液孔）；第一密封件密封孔板与歧管；歧管底面设外圈槽和内圈槽，分别容纳第一、第二密封件。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "孔板上供液孔与回液孔交错（分布回流）+ 上部供/回液歧管，属分布回流射流结构；摘要提到 ASIC/HBM 冷却。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "权1 的限定落在歧管底面内外双圈密封槽；本项目为钎焊/焊接紫铜冷板、无此双 O 圈结构，规避难度低。分布回流概念本身可援引 IBM US8413712B2（已失效）作现有技术。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2020-05-29",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-C（v1.4 清单已收录）；当前权利人（Google）：Google LLC；同族：CN112185918A, CN112185918B, DK3916777T3, EP3916777A1, EP3916777B1, FI3916777T3, TW202145869A, TWI840627B, US20210378139A1；同族 EP3916777B1、CN112185918B、TWI840627B。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2020-google-us11310937b2.pdf",
+   "sha256": "24e7d4a596784407f6221e124bf92950b2e3217fa9cc29e601420f2c4198ea17",
+   "bytes": 1898298,
+   "pages": 22,
+   "source_url": "https://patentimages.storage.googleapis.com/12/98/0f/86e95bb849c7a6/US11310937.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2016-ibm-us10306801b2",
+  "type": "patent",
+  "title": "Cold plate device for a two-phase cooling system",
+  "title_zh": "两相冷却系统用冷板装置（渐扩通道）",
+  "authors": [
+   "Timothy Joseph Chainer",
+   "Pritish Ranjan Parida",
+   "Fanghao Yang"
+  ],
+  "org": "International Business Machines Corp",
+  "year": 2016,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US10306801B2"
+  },
+  "url": "https://patents.google.com/patent/US10306801B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "cold-plate"
+  ],
+  "summary_zh": "两相冷却系统用冷板装置（渐扩通道）。优先权日 2016-09-30，申请日 2018-03-29，公开/公告日 2019-05-28。法律状态（Google Patents，2026-10-02 查看）：Active；2036-09-30 Anticipated expiration。与本项目重合度：低。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "可叠层的第一层含第一通道，接入口；第二层第二通道连通出口；两层通道组成高度和宽度均沿流向增大的渐扩通道。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "叠层冷板结构；本项目为单相 PG25，关联度低。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目无沿流向渐扩的叠层通道，不落入。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2016-09-30",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "低",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-C（v1.4 清单已收录）；当前权利人（Google）：International Business Machines Corp；同族：US10085362B2, US10499541B2, US10653035B2, US10834848B2, US20180098459A1, US20180228051A1, US20180228052A1, US20180228053A1, US20200296857A1；v1.4 写“nozzle on hotspot”，但其权1 核心是渐扩通道，与描述有偏差。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2016-ibm-us10306801b2.pdf",
+   "sha256": "a7421499b35c2aa7f45e1f4a62638da87e0d5dc040ff249f3d6a7fb14e4d6117",
+   "bytes": 5379485,
+   "pages": 42,
+   "source_url": "https://patentimages.storage.googleapis.com/44/d7/74/2175b6337d7067/US10306801.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2020-intel-us12133357b2",
+  "type": "patent",
+  "title": "Cold plate architecture for liquid cooling of devices",
+  "title_zh": "器件液冷用冷板架构（射流入翅片通道、分流出口）",
+  "authors": [
+   "Jin Yang",
+   "David Shia",
+   "Mohanraj Prabhugoud",
+   "Olaotan ELENITOBA-JOHNSON",
+   "Craig Jahne",
+   "Phil Geng"
+  ],
+  "org": "Intel Corp",
+  "year": 2020,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US12133357B2"
+  },
+  "url": "https://patents.google.com/patent/US12133357B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "器件液冷用冷板架构（射流入翅片通道、分流出口）。优先权日 2020-06-08，申请日 2020-12-16，公开/公告日 2024-10-29。法律状态（Google Patents，2026-10-02 查看）：Active；2042-06-13 Adjusted expiration。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "相对的第一面（带翅片）与第二面（带壁）；壁沿第一通道两侧连续延伸并界定相邻第二通道；第一通道的第一开口位于两翅片之间的第二面上，并有第二开口；（摘要：流体经开口射向表面、横掠翅片、再离开表面，出口可分为翅片两侧的分流开口）。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "“从盖板开口向底板射流 → 横掠翅片 → 分流离开”与本项目射流 + 底板短槽回流思路接近。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "权1 对壁/通道/开口相对翅片位置限定细；本项目喷嘴孔阵列 + 短槽布置需逐项比对第一开口与两翅片关系。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2020-06-08",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-A（v1.4 清单已收录）；当前权利人（Google）：Intel Corp；同族：US20210105911A1, US20250071938A1；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2020-intel-us12133357b2.pdf",
+   "sha256": "9bfb4091854a2a5ed25acf2ec84eecbd0ac5b8429072b99fbd2716783ec063ef",
+   "bytes": 3369532,
+   "pages": 44,
+   "source_url": "https://patentimages.storage.googleapis.com/66/be/08/45b0d4fb3b0b01/US12133357.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2021-nvidia-us12477696b2",
+  "type": "patent",
+  "title": "Intelligent cold plate system with active and passive features for a datacenter cooling system",
+  "title_zh": "数据中心冷却用主动/被动智能冷板系统（微通道 + 热管）",
+  "authors": [
+   "Ali Heydari"
+  ],
+  "org": "Nvidia Corp",
+  "year": 2021,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US12477696B2"
+  },
+  "url": "https://patents.google.com/patent/US12477696B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "cold-plate"
+  ],
+  "summary_zh": "数据中心冷却用主动/被动智能冷板系统（微通道 + 热管）。优先权日 2021-01-21，申请日 2021-01-21，公开/公告日 2025-11-18。法律状态（Google Patents，2026-10-02 查看）：Active；2043-04-18 Adjusted expiration。与本项目重合度：低。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "冷板第一腔内设微通道（主动模式，经服务器歧管流量控制器驱动），第二腔内设热管（被动模式）；两路冷却环路；处理器用神经网络依据传感器控制流量控制器。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "同属 GPU 冷板；但核心是热管 + AI 控制。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目冷板无内嵌热管、无神经网络流量控制，不落入。⑨孪生在环 AI 控制阶段可参考。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2021-01-21",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "低",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-A（v1.4 清单已收录）；当前权利人（Google）：Nvidia Corp；同族：CN114828541A, CN114828541B, DE102022101067A1, GB202200750D0, GB2605000A, GB2605000B, US20220232739A1, US20260075772A1；本件 Google Patents 未提供 B2 PDF，下载的是同族公开文本 US20220232739A1。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。；本地 PDF 为同族公开文本 US20220232739A1",
+  "file": {
+   "path": "files/patents/pat-2021-nvidia-us12477696b2.pdf",
+   "sha256": "3b1a352a9c33ad92d1a2ebfb2cb24f6ae6436848ce475a3f8ff0d0b24adbf1f2",
+   "bytes": 9889770,
+   "pages": 95,
+   "source_url": "https://patentimages.storage.googleapis.com/2b/15/ca/49d2edea74b23e/US20220232739A1.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2019-intel-us11804418b2",
+  "type": "patent",
+  "title": "Direct liquid micro jet (DLMJ) structures for addressing thermal performance at limited flow rate conditions",
+  "title_zh": "有限流量条件下的直接液体微射流（DLMJ）结构",
+  "authors": [
+   "Nicholas Neal",
+   "Je-Young Chang",
+   "Jae Kim",
+   "Ravindranath Mahajan"
+  ],
+  "org": "Intel Corp",
+  "year": 2019,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US11804418B2"
+  },
+  "url": "https://patents.google.com/patent/US11804418B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "有限流量条件下的直接液体微射流（DLMJ）结构。优先权日 2019-01-11，申请日 2019-01-11，公开/公告日 2023-10-31。法律状态（Google Patents，2026-10-02 查看）：Active；2042-03-01 Adjusted expiration。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "冷板上的微通道阵列（第一方向）；第一、第二歧管；在微通道上方叠置正交的第一、第二流体分配通道阵列，二者平行交错，分别从第一、第二歧管伸出并终止于两歧管之间；分配通道间侧壁下方设挡板伸入微通道阵列。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "属于“歧管微通道 / 交错进出”结构，与本项目 HBM 区平行微通道、Grace CPU 微通道冷板相关。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目 HBM / CPU 微通道若为端进端出（无正交交错分配层、无伸入微通道的挡板），即不落入。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2019-01-11",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-A（v1.4 清单已收录）；当前权利人（Google）：Intel Corp；同族：US20200227341A1；v1.4 列为 US20200227341A1（申请公开），已于 2023-10-31 授权为 US11804418B2，本条按授权文本登记。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2019-intel-us11804418b2.pdf",
+   "sha256": "1b5dab6b2b39938043b50eff58fb9090756eeef994dcb55968d2bb00448d919f",
+   "bytes": 1788341,
+   "pages": 27,
+   "source_url": "https://patentimages.storage.googleapis.com/b6/8f/40/79f45fc7932754/US11804418.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2018-avic-cn109104844b",
+  "type": "patent",
+  "title": "Microchannel cold plate",
+  "title_zh": "一种微通道冷板（多级流量分配）",
+  "authors": [
+   "糜勇",
+   "齐瑞骞",
+   "付林"
+  ],
+  "org": "中国航空工业集团公司雷华电子技术研究所",
+  "year": 2018,
+  "venue": "CNIPA",
+  "identifiers": {
+   "patent_no": "CN109104844B"
+  },
+  "url": "https://patents.google.com/patent/CN109104844B/en",
+  "language": "zh",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "cold-plate"
+  ],
+  "summary_zh": "一种微通道冷板（多级流量分配）。优先权日 2018-08-03，申请日 2018-08-03，公开/公告日 2020-02-14。法律状态（Google Patents，2026-10-02 查看）：Active；2038-08-03 Anticipated expiration。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "盖板 + 分流板 + 散热板；散热板上有多组平行翅片形成微通道；分流板朝盖板侧开平行的进液槽、出液槽，朝散热板侧开交替排列的进液收集槽与出液收集槽，形成多级流量分配并行冷却通道。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "分流板交替进/出液收集槽 = 歧管微通道，适用于 Grace CPU / HBM 微通道冷板比对。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目微通道区若采用常规端进端出，不设交替进/出液收集槽的分流板，即可规避。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2018-08-03",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-A（v1.4 清单已收录）；当前权利人（Google）：Leihua Electronic Technology Research Institute Aviation Industry Corp of China；同族：CN109104844A；申请人为中航雷华所；v1.4 示例 id 中写的 'cas' 不准确，本条用 'avic'。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2018-avic-cn109104844b.pdf",
+   "sha256": "441ca771a33145377995b322a05c34bde7e149a5d9ce1d1b3f3819f7d8ea314c",
+   "bytes": 414327,
+   "pages": 10,
+   "source_url": "https://patentimages.storage.googleapis.com/4f/4b/4a/a740bbf02e8c45/CN109104844B.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2025-lanrui-cn120597664b",
+  "type": "patent",
+  "title": "Method and device for constructing liquid cooling radiator micro-channel integrating bypass control",
+  "title_zh": "一种集成旁通控制的液冷散热器微通道构建方法及装置",
+  "authors": [
+   "匡超",
+   "匡得军",
+   "赵家逸",
+   "吴钊锋",
+   "卢财办",
+   "陈振显"
+  ],
+  "org": "广东蓝锐科技集团股份有限公司",
+  "year": 2025,
+  "venue": "CNIPA",
+  "identifiers": {
+   "patent_no": "CN120597664B"
+  },
+  "url": "https://patents.google.com/patent/CN120597664B/en",
+  "language": "zh",
+  "access": {
+   "status": "metadata_only",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用",
+   "how_to_get": "Google Patents 未提供 PDF；可从 CNIPA 公布公告网 / WIPO Patentscope / Espacenet 官方页面获取"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "cold-plate"
+  ],
+  "summary_zh": "一种集成旁通控制的液冷散热器微通道构建方法及装置。优先权日 2025-08-11，申请日 2025-08-11，公开/公告日 2025-09-30。法律状态（Google Patents，2026-10-02 查看）：Active；2045-08-11 Anticipated expiration。与本项目重合度：低。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "（方法）建立含主通道、旁通通道及其中 SMA 形状记忆合金微执行器的三维模型；划分流体/固体/执行器域并配置 SMA 本构；构建双向耦合数字孪生模型；施加随时间变化的热负荷后迭代优化设计参数。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "与本项目⑧数字孪生 / ⑨孪生在环思路相关，但与冷板结构关联弱。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目不含 SMA 执行器旁通通道。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2025-08-11",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "低",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-A（v1.4 清单已收录）；当前权利人（Google）：Guangdong Lanrui Technology Group Co ltd；同族：CN120597664A；A 公开（2025-09-05）后 25 天即授权 B（2025-09-30）。Google Patents 无 PDF，仅登记元数据。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。"
+ },
+ {
+  "id": "pat-2024-huawei-wo2026103052a1",
+  "type": "patent",
+  "title": "Cooling plate component, chip assembly, circuit board assembly and liquid cooling heat dissipation system",
+  "title_zh": "冷板构件、芯片组件、电路板组件及液冷散热系统（分区混构冷板）",
+  "authors": [
+   "梅森尼古拉•弗拉基米罗维奇",
+   "孙玉阔",
+   "库特拉德米特罗",
+   "刘腾跃",
+   "曹宇"
+  ],
+  "org": "Huawei Technologies Co Ltd",
+  "year": 2024,
+  "venue": "WIPO PCT",
+  "identifiers": {
+   "patent_no": "WO2026103052A1"
+  },
+  "url": "https://patents.google.com/patent/WO2026103052A1/en",
+  "language": "en",
+  "access": {
+   "status": "metadata_only",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用",
+   "how_to_get": "Google Patents 未提供 PDF；可从 CNIPA 公布公告网 / WIPO Patentscope / Espacenet 官方页面获取"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "cold-plate"
+  ],
+  "summary_zh": "冷板构件、芯片组件、电路板组件及液冷散热系统（分区混构冷板）。优先权日 2024-11-14，申请日 2025-05-08，公开/公告日 2026-05-21。法律状态（Google Patents，2026-10-02 查看）：Pending；2027-05-14 Anticipated expiration。与本项目重合度：高。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "进液腔（进液口）+ 回液腔（出液口）+ 至少一个板式换热腔；每个换热腔有连通进液腔的注入口和连通回液腔的回流口；换热腔含多个换热分区，各分区换热能力与发热器件热流密度分布相匹配，且至少两个分区采用不同换热构造形式。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "与本项目“GPU 区微射流 + HBM 区平行微通道”的分区混构思路几乎一一对应，且进液腔/回液腔结构与静压箱相近。权1 很宽。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "PCT 处于申请阶段，最终保护范围取决于各国国家阶段审查；建议：①检索本项目方案的最早公开/内部记录日期，与优先权日 2024-11-14 比较；②准备现有技术（如 IBM US8413712B2、JetCool 非均匀喷嘴、Asetek EP4578252B1 分区聚焦）用于异议或无效；③跟踪 CN 国家阶段公开。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Pending",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2024-11-14",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "高",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-A（v1.4 清单已收录）；当前权利人（Google）：Huawei Technologies Co Ltd；v1.4 写“Patsnap Eureka 公开页”，实际 Google Patents 已收录（无 PDF）；PDF 可从 WIPO Patentscope 获取（需交互页面）。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。"
+ },
+ {
+  "id": "pat-2021-inspur-cn113871359b",
+  "type": "patent",
+  "title": "Centrifugal micro-channel structure for CPU heat dissipation and use method thereof",
+  "title_zh": "一种用于 CPU 散热的离心微通道结构及其使用方法",
+  "authors": [
+   "朱欢来"
+  ],
+  "org": "苏州浪潮智能科技有限公司（现 苏州元脑智能科技有限公司）",
+  "year": 2021,
+  "venue": "CNIPA",
+  "identifiers": {
+   "patent_no": "CN113871359B"
+  },
+  "url": "https://patents.google.com/patent/CN113871359B/en",
+  "language": "zh",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "cold-plate"
+  ],
+  "summary_zh": "一种用于 CPU 散热的离心微通道结构及其使用方法。优先权日 2021-08-31，申请日 2021-08-31，公开/公告日 2023-11-03。法律状态（Google Patents，2026-10-02 查看）：Active；2041-08-31 Anticipated expiration。与本项目重合度：低。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "基板 + 侧面为阿基米德曲线的散热壳体；壳体下环形阵列弧形离心肋片（泡沫金属）形成离心通道；肋片内缘围成对应 CPU 中心的喷射空间；壳体上的喷嘴向喷射空间喷液，形成单相淹没射流；外缘导流通道末端为出口。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "中心淹没射流 + 径向流出，与“中心进液、向外回流”思路接近。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目为多孔阵列射流 + 短槽，无离心弧形泡沫金属肋片和阿基米德曲线壳体，不落入。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2021-08-31",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "低",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [
+   "coolingplate/patent/appendix_核心专利清单_20260907.md"
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：v1.4-B（v1.4 清单已收录）；当前权利人（Google）：Suzhou Metabrain Intelligent Technology Co Ltd；同族：CN113871359A；v1.4 列 A 公开号，已于 2023-11-03 授权为 CN113871359B，本条按 B 登记。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2021-inspur-cn113871359b.pdf",
+   "sha256": "637217b7133278ed28a47e8ba1312e7dda344497392ce4300b293763213e9f61",
+   "bytes": 736552,
+   "pages": 10,
+   "source_url": "https://patentimages.storage.googleapis.com/b6/37/25/fa430a541fe32a/CN113871359B.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2007-coolit-us8746330b2",
+  "type": "patent",
+  "title": "Fluid heat exchanger configured to provide a split flow",
+  "title_zh": "提供分流（split flow）的流体换热器",
+  "authors": [
+   "Geoff Sean Lyon"
+  ],
+  "org": "CoolIT Systems Inc",
+  "year": 2007,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US8746330B2"
+  },
+  "url": "https://patents.google.com/patent/US8746330B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "提供分流（split flow）的流体换热器。优先权日 2007-08-09，申请日 2008-08-11，公开/公告日 2014-06-10。法律状态（Google Patents，2026-10-02 查看）：Active。与本项目重合度：高。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "散热底板上的翅片形成平行微通道（每条通道两端之间连续）；盖在翅片顶端的板上开一条细长进液口，横跨所有微通道且位于通道两端之间（中部）；该板在每条微通道两端各形成出液口，使流体从中部进入后向两个方向沿全长流出。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "“中心进液、两侧回流”的 split-flow 拓扑；若本项目喷嘴孔落在底板短槽中部、液体沿短槽向两端流出，结构上与权1 很接近。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "可能的区别：①本项目为离散圆孔阵列（216 孔）而非“一条细长进液口横跨全部通道”；②底板为短槽/分段结构而非连续贯通的平行微通道；③回流方式若经喷嘴板上的回流孔而非通道两端。建议请专利代理人对照 IPR 证书确认存续权利要求。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2007-08-09",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "高",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Vistara Technology Growth Fund Iii By Its General Partner Vistara General Partner Iii Inc LP；同族：US12101906B2, US12495513B2, US20090071625A1, US20140251582A1, US20170196116A1, US20210045262A1, US20260113866A1, US9603284B2；IPR2015-01276（Asetek 请求）：2015-12-09 立案审查权利要求 1–4、6–8、12、14、15、18–28；2016-12-08 作出最终书面决定；2018-02-14 发布 IPR 证书。存续权利要求须以证书原文为准。Google 显示 Active，预计 2032-04-17 到期。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2007-coolit-us8746330b2.pdf",
+   "sha256": "3dc83330b84762c0e59939202bd6be6b04dd56d3ffb003a6d3e77ddc1e7a9508",
+   "bytes": 1106205,
+   "pages": 9,
+   "source_url": "https://patentimages.storage.googleapis.com/34/4d/38/a855f09ef98df3/US8746330.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2007-coolit-us9603284b2",
+  "type": "patent",
+  "title": "Fluid heat exchanger configured to provide a split flow",
+  "title_zh": "提供分流（split flow）的流体换热器（续案）",
+  "authors": [
+   "Geoff Sean Lyon"
+  ],
+  "org": "CoolIT Systems Inc",
+  "year": 2007,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US9603284B2"
+  },
+  "url": "https://patents.google.com/patent/US9603284B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "提供分流（split flow）的流体换热器（续案）。优先权日 2007-08-09，申请日 2014-05-20，公开/公告日 2017-03-21。法律状态（Google Patents，2026-10-02 查看）：Active；2028-08-11 Anticipated expiration。与本项目重合度：高。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "间隔壁形成微通道；板部分封闭微通道；细长进液口位于通道两端之间；出液流道在板外侧；中间微通道端部出口流道大于靠近最外侧壁的出口流道；外壳有间隔的进、出液口。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "中心进液两侧回流 + 中间通道出口扩大（流量均衡），与本项目回流设计相关。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目若各短槽出口截面一致（不按中间/边缘区分大小），或非细长进液口，可规避。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2007-08-09",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "高",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Vistara Technology Growth Fund Iii By Its General Partner Vistara General Partner Iii Inc LP；同族：US12101906B2, US12495513B2, US20090071625A1, US20140251582A1, US20170196116A1, US20210045262A1, US20260113866A1, US8746330B2；同属 2007 优先权家族，与 US8746330B2 同期到期可能性高（以官方为准）。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2007-coolit-us9603284b2.pdf",
+   "sha256": "1362e2fec16334977a0ce7fb740069185b5d5bad54eced5fe9536a7b2638f38f",
+   "bytes": 1209153,
+   "pages": 10,
+   "source_url": "https://patentimages.storage.googleapis.com/eb/a2/49/7dbd356f5bd4e7/US9603284.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2007-coolit-us12101906b2",
+  "type": "patent",
+  "title": "Fluid heat exchanger",
+  "title_zh": "流体换热器（split-flow 家族 2024 授权）",
+  "authors": [
+   "Geoff Sean Lyon"
+  ],
+  "org": "CoolIT Systems Inc",
+  "year": 2007,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US12101906B2"
+  },
+  "url": "https://patents.google.com/patent/US12101906B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "流体换热器（split-flow 家族 2024 授权）。优先权日 2007-08-09，申请日 2017-03-17，公开/公告日 2024-09-24。法律状态（Google Patents，2026-10-02 查看）：Active；2028-09-09 Adjusted expiration。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "散热底板中心区域 + 壁形成微通道；第二板盖在壁上封闭通道，在中心区域正上方开第一开孔，两侧为对置边缘；第二板上设凸起密封部顶到顶盖；第一流体通道经第一开孔连通微通道，第二流体通道在两边缘外侧连通第二端口。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "中心开孔供液、两侧回流，凸起密封分隔进/回液，与本项目“静压箱 + 喷嘴板”分隔进回液思路接近。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "区别点在“第二板上的凸起密封部延伸至顶盖”和“单个中心开孔”；本项目为多孔喷嘴板 + 静压箱，需核对密封方式。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2007-08-09",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：CoolIT Systems Inc；同族：US12495513B2, US20090071625A1, US20140251582A1, US20170196116A1, US20210045262A1, US20260113866A1, US8746330B2, US9603284B2；2007 优先权家族的最新授权，说明 CoolIT 持续以续案扩展保护范围。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2007-coolit-us12101906b2.pdf",
+   "sha256": "0abb71cd936c6eb69a34089e3ea9e642ff7fd6bc3d7b8e18dbe23776baba70b7",
+   "bytes": 1027859,
+   "pages": 11,
+   "source_url": "https://patentimages.storage.googleapis.com/ba/60/16/555968e8f2808a/US12101906.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2007-coolit-us9453691b2",
+  "type": "patent",
+  "title": "Fluid heat exchange systems",
+  "title_zh": "流体换热系统（split-flow + 集成泵）",
+  "authors": [
+   "Geoff Sean Lyon"
+  ],
+  "org": "CoolIT Systems Inc",
+  "year": 2007,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US9453691B2"
+  },
+  "url": "https://patents.google.com/patent/US9453691B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "流体换热系统（split-flow + 集成泵）。优先权日 2007-08-09，申请日 2012-02-21，公开/公告日 2016-09-27。法律状态（Google Patents，2026-10-02 查看）：Active。与本项目重合度：低。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "翅片间微通道，带横向凹槽；柔性歧管插件压在斜切的翅片顶缘上形成进液歧管；外壳含泵蜗壳和叶轮；泵出口通道连到细长凹槽。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "split-flow 进液歧管形式。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目冷板不集成泵、无柔性歧管插件，不落入。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2007-08-09",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "低",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Vistara Technology Growth Fund Iii By Its General Partner Vistara General Partner Iii Inc LP；同族：US10274266B2, US11994350B2, US12460878B2, US20120152498A1, US20140158326A1, US20160377355A1, US20180195810A1, US20190204026A1, US20210164736A1, US20240175646A1；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2007-coolit-us9453691b2.pdf",
+   "sha256": "7abb577979f13c20a2c9a2b83797e3fdcb490b9c806eebfc213d31fc6f3db0d8",
+   "bytes": 2555470,
+   "pages": 26,
+   "source_url": "https://patentimages.storage.googleapis.com/f8/d7/ae/c37eefd7bae240/US9453691.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2005-ibm-us8413712b2",
+  "type": "patent",
+  "title": "Cooling device",
+  "title_zh": "冷却装置（分布回流的分级交错射流冲击冷却器，Brunschwiler）",
+  "authors": [
+   "Thomas J. Brunschwiler",
+   "Urs Kloter",
+   "Ryan Joesph Linderman",
+   "Bruno Michel",
+   "Hugo E. Rothuizen"
+  ],
+  "org": "International Business Machines Corp",
+  "year": 2005,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US8413712B2"
+  },
+  "url": "https://patents.google.com/patent/US8413712B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "冷却装置（分布回流的分级交错射流冲击冷却器，Brunschwiler）。优先权日 2005-11-14，申请日 2006-11-13，公开/公告日 2013-04-09。法律状态（Google Patents，2026-10-02 查看）：Expired - Fee Related；2030-06-20 Adjusted expiration。与本项目重合度：高。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "第一级结构紧邻冲击间隙：并行入口与出口分布式阵列（出口直径比入口大 25–30%），射流直接冲击热源表面；通道层为交错分叉通道，分别给入口供液、从出口回液；第二级结构是第一级的放大复制（按预定倍数）。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "分布回流（每个喷嘴旁设回流孔）+ 分级交错歧管，是微射流冷板分布回流架构的奠基专利；冲击间隙中的表面强化结构形成 U 形微通道，与底板短槽相似。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "该专利已失效（未缴年费），可自由实施；更重要的价值是作为针对 Google、CSU、西交大、华为等后续分布回流 / 分区专利的现有技术。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Expired - Fee Related",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2005-11-14",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "高",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：International Business Machines Corp；同族：CN101001516A, CN101001516B, JP2007142390A, JP5137379B2, US20070119565A1；Google 显示 Expired - Fee Related；配套论文 Brunschwiler et al., ITherm 2006。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2005-ibm-us8413712b2.pdf",
+   "sha256": "4d8eca66e77f4f090d4df248a4366ec6d73ded645ac3e5524926c3133961b4ac",
+   "bytes": 2265544,
+   "pages": 32,
+   "source_url": "https://patentimages.storage.googleapis.com/0a/0d/55/b7700b8d36df98/US8413712.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-1992-hughes-us5316075a",
+  "type": "patent",
+  "title": "Liquid jet cold plate for impingement cooling",
+  "title_zh": "冲击冷却用液体射流冷板",
+  "authors": [
+   "William Quon",
+   "Herbert J. Tanzer"
+  ],
+  "org": "Hughes Aircraft Co（现 Raytheon）",
+  "year": 1992,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US5316075A"
+  },
+  "url": "https://patents.google.com/patent/US5316075A/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "冲击冷却用液体射流冷板。优先权日 1992-12-22，申请日 1992-12-22，公开/公告日 1994-05-31。法律状态（Google Patents，2026-10-02 查看）：Expired - Fee Related；2012-12-22 Anticipated expiration。与本项目重合度：高。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "进液歧管（进液道、废液出口道、喷嘴板面下的进液腔与出液腔）；平板喷嘴板上的喷嘴孔位于进液腔上方、排液孔位于出液腔上方；安装板空腔覆盖喷嘴与排液孔，射流冲击安装板冷却面；冷却面上设多根针肋。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "“进液歧管（静压箱）+ 平板喷嘴板 + 被冲击的安装板（底板）+ 底板表面强化结构”与本项目基本结构一致。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "已失效（1992 申请），属公有领域，是本项目 FTO 最重要的基础现有技术之一。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Expired - Fee Related",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "1992-12-22",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "高",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Raytheon Co；Google 显示 Expired - Fee Related。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-1992-hughes-us5316075a.pdf",
+   "sha256": "192a9b592eb29283612fe3c64e1bfe83b4d33416be5171864eda5e8739a0d762",
+   "bytes": 513227,
+   "pages": 8,
+   "source_url": "https://patentimages.storage.googleapis.com/17/79/9f/bc6a284e2e72ef/US5316075.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2023-jetcool-us12432878b2",
+  "type": "patent",
+  "title": "Internal recirculation cooling module",
+  "title_zh": "内部再循环冷却模块（分段喷嘴板 + 多静压腔）",
+  "authors": [
+   "Ludwig C. HABER",
+   "Cameron BOGGIO",
+   "Andy LA FOSSE",
+   "David Fox",
+   "Robert BALLERSTEDT"
+  ],
+  "org": "JetCool Technologies Inc",
+  "year": 2023,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US12432878B2"
+  },
+  "url": "https://patents.google.com/patent/US12432878B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "cold-plate"
+  ],
+  "summary_zh": "内部再循环冷却模块（分段喷嘴板 + 多静压腔）。优先权日 2023-07-18，申请日 2024-07-18，公开/公告日 2025-09-30。法律状态（Google Patents，2026-10-02 查看）：Active；2044-07-18 Anticipated expiration。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "喷嘴板分第一、第二区段，各有微射流喷嘴阵列；外壳与喷嘴板之间的顶板设顶板边界，底板冷却面设冷却面边界，围成第一/第二进液静压腔和第一/第二冲击腔；（权1 后续）第一冲击腔的流体再进入第二静压腔，多次冲击后才流出。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "分区段喷嘴板 + 多个静压腔 + 底板冷却面，与本项目按区域分配喷嘴（GPU 热点区）相关。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "核心是同一流体在模块内多次再循环冲击；本项目为单次冲击后经短槽回流，可规避。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2023-07-18",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Jetcool Technologies Inc；同族：CN119631587A, CN119631587B, EP4533919A1, EP4533919A4, JP2025527057A, US20250031342A1, US20250324541A1, WO2025019707A1；Google Patents 无 B2 PDF，下载的是同族公开文本 US20250031342A1；同族 WO2025019707A1、CN119631587B、EP4533919A1。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。；本地 PDF 为同族公开文本 US20250031342A1",
+  "file": {
+   "path": "files/patents/pat-2023-jetcool-us12432878b2.pdf",
+   "sha256": "d8c8cda21600f4fe52bd1082a2d390020c1e48fd73e982ea8cf0b4bb5f3cec13",
+   "bytes": 1996855,
+   "pages": 27,
+   "source_url": "https://patentimages.storage.googleapis.com/6d/55/91/e6749cf042c0d2/US20250031342A1.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2020-jetcool-us11963341b2",
+  "type": "patent",
+  "title": "High temperature electronic device thermal management system",
+  "title_zh": "高温电子器件热管理系统（高温工质 + 旁通控制）",
+  "authors": [
+   "Bernard Malouin",
+   "Jordan Mizerak"
+  ],
+  "org": "JetCool Technologies Inc",
+  "year": 2020,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US11963341B2"
+  },
+  "url": "https://patents.google.com/patent/US11963341B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "cold-plate"
+  ],
+  "summary_zh": "高温电子器件热管理系统（高温工质 + 旁通控制）。优先权日 2020-09-15，申请日 2021-09-15，公开/公告日 2024-04-16。法律状态（Google Patents，2026-10-02 查看）：Active；2041-09-15 Anticipated expiration。与本项目重合度：低。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "第一冷却回路含升压部件和换热接口；设旁通换热接口的旁通路径；流量控制元件；管理系统依据工质温度、器件温度和环境周期最高温度调节回路流量与旁通流量。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "系统级控制，与⑨孪生在环 AI 控制有关。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "冷板结构不涉及。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2020-09-15",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "低",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Jetcool Technologies Inc；同族：US20220087076A1, WO2022060898A1；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2020-jetcool-us11963341b2.pdf",
+   "sha256": "a96ff945c6de79dd821eab0f132ed2891d7ab91c75b96f5dbf4313d53db211b9",
+   "bytes": 1590170,
+   "pages": 24,
+   "source_url": "https://patentimages.storage.googleapis.com/d2/cd/f5/b6af34a7d667a8/US11963341.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2022-jetcool-us12324126b2",
+  "type": "patent",
+  "title": "Actively cooled heat-dissipation lids for computer processors and processor assemblies",
+  "title_zh": "计算机处理器用主动冷却散热盖",
+  "authors": [
+   "Bernard Malouin",
+   "Jordan Mizerak"
+  ],
+  "org": "JetCool Technologies Inc",
+  "year": 2022,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US12324126B2"
+  },
+  "url": "https://patents.google.com/patent/US12324126B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "cold-plate"
+  ],
+  "summary_zh": "计算机处理器用主动冷却散热盖。优先权日 2022-03-04，申请日 2024-03-05，公开/公告日 2025-06-03。法律状态（Google Patents，2026-10-02 查看）：Active；2043-03-02 Anticipated expiration。与本项目重合度：低。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "导热第一板接触发热器件，第一凸起侧壁将盖子固定在 PCB 上形成器件腔；第二侧壁 + 第二板形成流体腔；第三板位于两板之间（喷嘴板），将流体腔分隔。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "盖板一体化射流（Lid 级），与本项目冷板分层类似但应用层级不同。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目为独立冷板，不作为封装盖、不形成器件腔，不落入。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2022-03-04",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "低",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Jetcool Technologies Inc；同族：CN118891598A, CN118891598B, CN121143602A, EP4275104A1, EP4275104A4, EP4275104B1, EP4456691A2, EP4456691A3, EP4456691B1, PT4275104T；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2022-jetcool-us12324126b2.pdf",
+   "sha256": "bdbcd8a8de7683bac1856a5121c1bad0418f8d2587c1e64aba32da82fe776167",
+   "bytes": 1839840,
+   "pages": 27,
+   "source_url": "https://patentimages.storage.googleapis.com/a4/81/1d/89e7d601761e65/US12324126B2.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2020-nvidia-us11343940b2",
+  "type": "patent",
+  "title": "Configurable cold-plates of datacenter cooling systems",
+  "title_zh": "数据中心冷却系统的可配置冷板（可更换中间层）",
+  "authors": [
+   "Ali Heydari"
+  ],
+  "org": "Nvidia Corp",
+  "year": 2020,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US11343940B2"
+  },
+  "url": "https://patents.google.com/patent/US11343940B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "cold-plate"
+  ],
+  "summary_zh": "数据中心冷却系统的可配置冷板（可更换中间层）。优先权日 2020-08-27，申请日 2020-08-27，公开/公告日 2022-05-24。法律状态（Google Patents，2026-10-02 查看）：Active；2040-08-31 Adjusted expiration。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "冷板含第一部分、第二部分和可更换的中间层；中间层有使冷却液流过的第一通道，以及至少一个调整过的第二通道，用于把冷却液集中到对应计算器件发热部位的区域。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "本项目喷嘴板夹在静压箱与底板之间，按 GPU 热点布孔，形式上接近“将冷却液集中到发热部位的中间层”。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "权1 要求中间层“可更换”（changeable）；本项目喷嘴板与底板钎焊一体、不可更换，可作为区别点；需关注续案 US12185495B2、US12213281B2。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2020-08-27",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Nvidia Corp；同族：CN114126342A, CN114126342B, DE102021121518A1, GB202112263D0, GB2600226A, GB2600226B, US12185495B2, US12213281B2, US20220071055A1, US20220256735A1；同族 CN114126342B、GB2600226B、DE102021121518A1。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2020-nvidia-us11343940b2.pdf",
+   "sha256": "e2a7ae7d8967c4d61b3e54492896b57b1e5e7ea5b8b3d6723d90619853f3938e",
+   "bytes": 2441234,
+   "pages": 20,
+   "source_url": "https://patentimages.storage.googleapis.com/fd/0d/9b/f6e75b0d7c8cf0/US11343940.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2022-onsemi-cn117529012a",
+  "type": "patent",
+  "title": "Jet impingement cooling assembly for semiconductor device, method of manufacturing the same, and jet plate assembly",
+  "title_zh": "用于半导体器件的射流冲击冷却组件及其制造方法、射流板组件",
+  "authors": [
+   "约翰·穆肯"
+  ],
+  "org": "半导体元件工业有限责任公司（onsemi）",
+  "year": 2022,
+  "venue": "CNIPA",
+  "identifiers": {
+   "patent_no": "CN117529012A"
+  },
+  "url": "https://patents.google.com/patent/CN117529012A/en",
+  "language": "zh",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "用于半导体器件的射流冲击冷却组件及其制造方法、射流板组件。优先权日 2022-08-04，申请日 2023-08-02，公开/公告日 2024-02-06。法律状态（Google Patents，2026-10-02 查看）：Pending。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "进液腔 → 射流板喷嘴 → 出液腔；至少一个旁通喷嘴把进液腔的旁通流体直接导入出液腔，与射流流体汇合为出口流。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "同 US12255124B2；在中国申请中，对国内量产 FTO 更直接。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "不设静压箱到出液侧的旁通孔。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Pending",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2022-08-04",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Semiconductor Components Industries LLC；Google 显示 Pending（申请中）；可到 CNIPA 公布公告网 epub.cnipa.gov.cn 核实。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2022-onsemi-cn117529012a.pdf",
+   "sha256": "09f232b32d36b50dd6bc53e5dfedad1e95f651d12be4f1d75606cbdfd32e69d0",
+   "bytes": 1366482,
+   "pages": 22,
+   "source_url": "https://patentimages.storage.googleapis.com/39/cd/b7/2189eb9df1a88f/CN117529012A.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2023-jijia-cn117032426a",
+  "type": "patent",
+  "title": "Jet flow water cooling plate",
+  "title_zh": "一种射流水冷板（渐宽射流槽）",
+  "authors": [
+   "裴滕飞"
+  ],
+  "org": "东莞市吉佳热控科技有限公司",
+  "year": 2023,
+  "venue": "CNIPA",
+  "identifiers": {
+   "patent_no": "CN117032426A"
+  },
+  "url": "https://patents.google.com/patent/CN117032426A/en",
+  "language": "zh",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "一种射流水冷板（渐宽射流槽）。优先权日 2023-09-11，申请日 2023-09-11，公开/公告日 2023-11-10。法律状态（Google Patents，2026-10-02 查看）：Pending。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "进出水部件（进水口、贯穿出水口、底部进水槽）；冷板上盖开射流槽和容纳槽，射流槽位于进水槽正下方且宽度沿远离进水口方向逐级增大；冷板下盖上的散热器置于容纳槽中；容纳槽经连接孔通出水口。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "射流 + 底部散热器（翅片），与喷嘴板 + 底板短槽相近。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目为圆孔阵列、非宽度渐变的射流槽，可规避。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Pending",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2023-09-11",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Dongguan Jijia Thermal Control Technology Co ltd；Google 显示 Pending。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2023-jijia-cn117032426a.pdf",
+   "sha256": "e21c2aa16c3358f17dc1bc40a8c8038bb6837116baa2e8fd54bad3bfc98735f7",
+   "bytes": 821059,
+   "pages": 9,
+   "source_url": "https://patentimages.storage.googleapis.com/29/81/d3/e5255a4caa1fc5/CN117032426A.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2019-pennstate-us12029008b2",
+  "type": "patent",
+  "title": "Hybrid microjet liquid-cooled heat spreader",
+  "title_zh": "混合微射流液冷均热板 / 散热器",
+  "authors": [
+   "Bladimir Ramos Alvarado",
+   "Carlos Ulises Gonzalez Valle",
+   "Luis Enrique Paniagua Guerra",
+   "Jonathan Veli"
+  ],
+  "org": "Penn State Research Foundation",
+  "year": 2019,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US12029008B2"
+  },
+  "url": "https://patents.google.com/patent/US12029008B2/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "混合微射流液冷均热板 / 散热器。优先权日 2019-04-11，申请日 2020-04-13，公开/公告日 2024-07-02。法律状态（Google Patents，2026-10-02 查看）：Active；2041-08-07 Adjusted expiration。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "进液歧管从进液管经多级分形分叉通道均匀分配到射流平面上的微射流阵列；换热板平行于射流面，表面有圆/方/矩形针肋；射流面与换热板之间为淹没腔；出液歧管与外壳一体。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "微射流阵列 + 淹没冲击腔 + 底板表面强化，与本项目相近。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "权1 要求分形多级分叉进液歧管；本项目采用静压箱（单腔均压）而非分形树状分配，可规避。底板短槽是否属于“针肋”需注意。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2019-04-11",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Penn State Research Foundation；同族：US20220232732A1, WO2020210783A1；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2019-pennstate-us12029008b2.pdf",
+   "sha256": "4076d3cd9b5a7687ea0272a30d3017a6c92e548b5e106271efceeda1f7542abc",
+   "bytes": 5743879,
+   "pages": 64,
+   "source_url": "https://patentimages.storage.googleapis.com/87/8b/ac/1398f4a8190914/US12029008.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2020-csu-us20230063534a1",
+  "type": "patent",
+  "title": "Jet impingement cooling devices, systems, and methods",
+  "title_zh": "射流冲击冷却装置、系统和方法（分布式注入/抽取孔板）",
+  "authors": [
+   "Todd M. Bandhauer",
+   "David R. Hobby",
+   "Zachary H. Gilvey"
+  ],
+  "org": "Colorado State University Research Foundation",
+  "year": 2020,
+  "venue": "USPTO",
+  "identifiers": {
+   "patent_no": "US20230063534A1"
+  },
+  "url": "https://patents.google.com/patent/US20230063534A1/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "射流冲击冷却装置、系统和方法（分布式注入/抽取孔板）。优先权日 2020-01-30，申请日 2021-01-28，公开/公告日 2023-03-02。法律状态（Google Patents，2026-10-02 查看）：Pending。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "分配板上贯穿设置多个注入孔和多个抽取孔；歧管有进流容积、出流容积及在分配板第一侧将二者分隔的结构；冲击靶顶面有凸起表面特征，与分配板第二侧相对，并与覆盖被冷却物的均热板耦合。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "分配板上注入孔与回流孔共存（分布回流）+ 冲击靶表面特征（类似底板短槽）+ 进/出流容积分隔，与本项目分布回流方案相近。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "若本项目回流不经喷嘴板（例如从底板短槽侧向流出），即可规避“分配板含抽取孔”；该件仍处申请中，需跟踪授权范围。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Pending",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2020-01-30",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Colorado State University Research Foundation；同族：WO2021155018A1；Google 显示 Pending。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2020-csu-us20230063534a1.pdf",
+   "sha256": "a1d64dd322f41382d006036e4c7519d168007bae3147452d20fde7c373071613",
+   "bytes": 3635438,
+   "pages": 51,
+   "source_url": "https://patentimages.storage.googleapis.com/64/91/e0/27da8aece2b58d/US20230063534A1.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2022-asetek-ep4578252b1",
+  "type": "patent",
+  "title": "Cold plate assembly for liquid cooling of electronic devices",
+  "title_zh": "电子器件液冷用冷板组件（分区聚焦 + split flow）",
+  "authors": [
+   "Anders Hjørringgaard Saksager"
+  ],
+  "org": "Asetek A/S",
+  "year": 2022,
+  "venue": "EPO",
+  "identifiers": {
+   "patent_no": "EP4578252B1"
+  },
+  "url": "https://patents.google.com/patent/EP4578252B1/en",
+  "language": "en",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "电子器件液冷用冷板组件（分区聚焦 + split flow）。优先权日 2022-08-24，申请日 2023-08-24，公开/公告日 2026-04-29。法律状态（Google Patents，2026-10-02 查看）：Active；2043-08-24 Anticipated expiration。与本项目重合度：高。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "冷板内表面设导流结构，使冷却液按预设图案集中流经一个或多个区域；分配层装在冷板内表面上，含进液口（接进液通道）和出液口（接出液通道）；至少第一区域采用 split flow（从进液通道分成多通道、向至少两个方向流走）或 uniting flow 等流型；（说明书）进液通道至少部分覆盖器件高强度热区。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "“进液通道对准高热流区 + split flow 分流 + 按热区分区”与本项目中心进液、GPU 热点微射流、HBM 区微通道分区布局高度相关。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "EP 已授权；US20240074100A1 仍在审。区别点可能在“分配层 + 冷板内表面导流结构”的具体形式，以及流型定义（本项目为射流冲击而非通道 split flow）。建议做逐项特征比对。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2022-08-24",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "高",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Asetek AS；同族：CN120092494A, EP4578252A1, US20240074100A1, WO2024042182A1；Google Patents 未提供 EP B1 PDF，下载的是同族 WO2024042182A1 公开文本；同族 CN120092494A。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。；本地 PDF 为同族公开文本 WO2024042182A1",
+  "file": {
+   "path": "files/patents/pat-2022-asetek-ep4578252b1.pdf",
+   "sha256": "4e924ef1c9a823c524a8a355f5c8f429687c059bce10d82207158dd9b5078d69",
+   "bytes": 4171480,
+   "pages": 62,
+   "source_url": "https://patentimages.storage.googleapis.com/5c/25/dd/730b270f856783/WO2024042182A1.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2018-hust-cn109524376b",
+  "type": "patent",
+  "title": "A liquid cooling device for a multi-distributed jet microchannel chip",
+  "title_zh": "一种多歧式射流微通道芯片液冷散热装置",
+  "authors": [
+   "罗小兵",
+   "吴睿康",
+   "蓝威",
+   "范义文",
+   "邹浩"
+  ],
+  "org": "华中科技大学",
+  "year": 2018,
+  "venue": "CNIPA",
+  "identifiers": {
+   "patent_no": "CN109524376B"
+  },
+  "url": "https://patents.google.com/patent/CN109524376B/en",
+  "language": "zh",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "一种多歧式射流微通道芯片液冷散热装置。优先权日 2018-09-18，申请日 2018-09-18，公开/公告日 2020-07-10。法律状态（Google Patents，2026-10-02 查看）：Active；2038-09-18 Anticipated expiration。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "进/出液管 + 多歧式射流微通道腔体，腔体由进出口层、回收层、回收孔层、射流喷嘴层、微通道层依次叠层粘合；冷却液经射流喷嘴层进入平行等距微通道层，吸热后经射流喷嘴层、回收孔层、回收层由出液管导出。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "射流 + 微通道 + 经喷嘴层回流（分布回流）的多层叠构，与本项目喷嘴板 + 底板短槽相似。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目若无独立回收孔层/回收层，回流也不穿过喷嘴层，即可规避。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2018-09-18",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Huazhong University of Science and Technology；同族：CN109524376A；专利号 ZL201811088661.9；2026 年华科成果转化公示涉及本件（可能涉及许可或转让）。；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2018-hust-cn109524376b.pdf",
+   "sha256": "559277ab9e9f53977bcd9929c00dfe530ec8bb221855183477f007921b2bf710",
+   "bytes": 1193596,
+   "pages": 13,
+   "source_url": "https://patentimages.storage.googleapis.com/85/28/ef/cfb29af1d17a6f/CN109524376B.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2020-xjtu-cn111328245b",
+  "type": "patent",
+  "title": "Return type jet microchannel radiator and heat dissipation method",
+  "title_zh": "折返式射流微通道散热器及散热方法",
+  "authors": [
+   "陈黎",
+   "彭明",
+   "冯浩然",
+   "陶文铨"
+  ],
+  "org": "西安交通大学",
+  "year": 2020,
+  "venue": "CNIPA",
+  "identifiers": {
+   "patent_no": "CN111328245B"
+  },
+  "url": "https://patents.google.com/patent/CN111328245B/en",
+  "language": "zh",
+  "access": {
+   "status": "downloaded",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "copyright_note": "专利公开文本（官方公开）；仅内部研究使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "专利局官方公开文本（经 Google Patents 公开存储获取）；法律状态取自 Google Patents 页面推定，非法律结论",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "折返式射流微通道散热器及散热方法。优先权日 2020-02-14，申请日 2020-02-14，公开/公告日 2021-07-06。法律状态（Google Patents，2026-10-02 查看）：Active；2040-02-14 Anticipated expiration。与本项目重合度：中。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "微通道基板；射流孔板叠在基板上，射流入口孔与回流出口孔交替布置；分配器含进液管、第一分配腔、多个第二分配腔（工质水平进入后垂直冲入射流孔冲击微通道底面）、多个第二回液腔与第一回液腔，折返工质经回流孔排出。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "射流孔与回流孔交替的分布回流 + 两级分配腔（类似静压箱）+ 微通道底板，结构接近。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目若回流不穿过喷嘴板（无交替回流孔），且静压箱为单腔而非两级分配腔，可规避。",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "法律状态",
+    "value": "Active",
+    "condition": "Google Patents 推定，2026-10-02 查看，以官方为准",
+    "locator": "landing_page: Legal status",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "优先权日",
+    "value": "2020-02-14",
+    "locator": "landing_page: Priority date",
+    "verified_from": "landing_page"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "claim 1",
+    "verified_from": "landing_page"
+   }
+  ],
+  "related_internal": [],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "来源分组：new（v1.4 未收录，本轮新增）；当前权利人（Google）：Xian Jiaotong University；同族：CN111328245A；权1 摘录基于 Google Patents 页面文本（中文专利为机器翻译转述），FTO 结论须由专利代理人基于官方文本确认；法律状态不构成法律意见，以官方为准。",
+  "file": {
+   "path": "files/patents/pat-2020-xjtu-cn111328245b.pdf",
+   "sha256": "1f00a68497bfed6adb253745e8a437c1dad331fcd191e40abd5f6bb1bfac2f5f",
+   "bytes": 614579,
+   "pages": 13,
+   "source_url": "https://patentimages.storage.googleapis.com/e0/4b/c0/7d7f58b88e7ddd/CN111328245B.pdf",
+   "downloaded_at": "2026-10-02"
+  }
+ },
+ {
+  "id": "pat-2025-inspur-cn122699237a",
+  "type": "patent",
+  "title": "射流冷板、机箱及电子设备",
+  "title_zh": "射流冷板、机箱及电子设备",
+  "org": "浪潮电子信息产业股份有限公司",
+  "year": 2025,
+  "venue": "CNIPA",
+  "identifiers": {
+   "patent_no": "CN122699237A"
+  },
+  "url": "https://eureka.patsnap.com/patent/CN122699237A",
+  "language": "zh",
+  "access": {
+   "status": "pending_user",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "how_to_get": "到 CNIPA 公布公告网 http://epub.cnipa.gov.cn/ 按号检索下载官方 PDF；Patsnap 全文需登录（login_required），不使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "官方公开信息的二手转述（摘要级），未取得官方全文，可信度待升级",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "射流冷板、机箱及电子设备（浪潮电子信息产业股份有限公司）。与本项目重合度：中。仅摘要级信息。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "（据公开摘要）冷板本体腔体内放置翅片部件；射流板把腔体分成第一腔和第二腔，翅片位于第二腔；射流孔轴线与翅片底板表面夹角为锐角（斜射流，用于冲刷翅片间沉积物）。",
+    "locator": "claim 1",
+    "verified_from": "secondary"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "射流板 + 静压腔 + 翅片底板，与本项目基本拓扑一致；浪潮另宣称有 4 种射流冷板架构（中置扩散式等）已获发明专利。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "secondary"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目采用垂直射流（90°），不满足“锐角”特征。",
+    "locator": "claim 1",
+    "verified_from": "secondary"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "摘要",
+    "verified_from": "secondary"
+   }
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "v1.4 未收录，本轮新增；2025-02 申请，约 2026-09 公开；Google Patents 尚未收录（404）。来源为 CNIPA 公开信息的二手报道及 Patsnap 公开页（全文需登录）。可到 CNIPA 公布公告网 http://epub.cnipa.gov.cn/ 检索获取官方 PDF。浪潮“中置扩散式 / 太阳花式 / 上下腔斜板式 / 环形腔式”4 件授权号本轮未查到，见 notes.md。；法律状态不构成法律意见，以官方为准。"
+ },
+ {
+  "id": "pat-2026-huawei-cn122160990a",
+  "type": "patent",
+  "title": "散热器、电路板组件及电子设备（射流板 + 翅片）",
+  "title_zh": "散热器、电路板组件及电子设备（射流板 + 翅片）",
+  "org": "华为技术有限公司",
+  "year": 2026,
+  "venue": "CNIPA",
+  "identifiers": {
+   "patent_no": "CN122160990A"
+  },
+  "url": "https://eureka.patsnap.com/patent/CN122160990A",
+  "language": "zh",
+  "access": {
+   "status": "pending_user",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "how_to_get": "到 CNIPA 公布公告网 http://epub.cnipa.gov.cn/ 按号检索下载官方 PDF；Patsnap 全文需登录（login_required），不使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "官方公开信息的二手转述（摘要级），未取得官方全文，可信度待升级",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "散热器、电路板组件及电子设备（射流板 + 翅片）（华为技术有限公司）。与本项目重合度：中。仅摘要级信息。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "（据公开摘要）壳体顶壁、射流板与固定架围成第一腔；射流板远离顶壁一侧为第二腔；第一散热翅片设在射流板远离顶壁的一侧；射流区开射流孔连通两腔。",
+    "locator": "claim 1",
+    "verified_from": "secondary"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "射流板 + 静压腔；但翅片长在射流板上而非底板上。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "secondary"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目短槽 / 翅片在紫铜底板上，喷嘴板无翅片，可规避。",
+    "locator": "claim 1",
+    "verified_from": "secondary"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "摘要",
+    "verified_from": "secondary"
+   }
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "v1.4 未收录，本轮新增；2026-06-05 公开；Google Patents 404；优先权日未核实（id 年份暂用公开年）。官方文本请到 epub.cnipa.gov.cn 获取。；法律状态不构成法律意见，以官方为准。"
+ },
+ {
+  "id": "pat-2025-sugon-cn202521432906",
+  "type": "patent",
+  "title": "射流微通道冷板",
+  "title_zh": "射流微通道冷板",
+  "org": "曙光信息产业股份有限公司",
+  "year": 2025,
+  "venue": "CNIPA",
+  "identifiers": {
+   "patent_no": "CN202521432906.0（申请号，实用新型）"
+  },
+  "url": "http://epub.cnipa.gov.cn/",
+  "language": "zh",
+  "access": {
+   "status": "pending_user",
+   "license": "专利公开文本",
+   "redistributable": false,
+   "how_to_get": "到 CNIPA 公布公告网 http://epub.cnipa.gov.cn/ 按号检索下载官方 PDF；Patsnap 全文需登录（login_required），不使用"
+  },
+  "trust_level": "L4",
+  "trust_reason": "官方公开信息的二手转述（摘要级），未取得官方全文，可信度待升级",
+  "stages": [
+   2,
+   3,
+   6
+  ],
+  "topics": [
+   "patents",
+   "jet-impingement"
+  ],
+  "summary_zh": "射流微通道冷板（曙光信息产业股份有限公司）。与本项目重合度：中。仅摘要级信息。",
+  "key_data": [
+   {
+    "quantity": "权利要求1核心技术特征",
+    "value": "（据公开摘要）盖板（第一进液孔、第一排液孔、集液槽）+ 射流板 + 翅片组件（沿第一方向排布）+ 基板依次连接；射流板上同时有射流缝（长度方向平行于翅片）与多个射流孔，均连通集液槽；第二排液孔连通第一排液孔。",
+    "locator": "claim 1",
+    "verified_from": "secondary"
+   },
+   {
+    "quantity": "与本项目结构重合点",
+    "value": "射流孔 + 翅片 + 基板 + 盖板集液槽（静压箱），与本项目拓扑相近。",
+    "locator": "claim 1 / 摘要",
+    "verified_from": "secondary"
+   },
+   {
+    "quantity": "可能的规避点",
+    "value": "本项目无“与翅片方向平行的射流缝 + 射流孔”组合，可规避；实用新型未经实质审查，稳定性较低。",
+    "locator": "claim 1",
+    "verified_from": "secondary"
+   },
+   {
+    "quantity": "与本项目重合度",
+    "value": "中",
+    "locator": "摘要",
+    "verified_from": "secondary"
+   }
+  ],
+  "retrieved_by": "kb-v0.1-patents-subagent",
+  "last_verified": "2026-10-02",
+  "valid_until": "2027-04-02",
+  "status": "active",
+  "notes": "v1.4 未收录，本轮新增；据证券之星（引天眼查）报道，2026-06-19 授权；授权公告号本轮未查到，Google Patents 无记录。需在 CNIPA 以申请号检索。；法律状态不构成法律意见，以官方为准。"
+ }
+]

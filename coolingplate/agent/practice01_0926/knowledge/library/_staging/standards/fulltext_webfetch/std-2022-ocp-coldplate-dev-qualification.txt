@@ -1,0 +1,510 @@
+### [WHITE PAPER: COLD PLATE DEVELOPMENT
+
+## AND QUALIFICATION]
+
+##### Authors: [Samantha Yates, David Zhou, Edward Kung, Intel Corporation] [Huang Jiaming, Zhao Shuai, Li Rengang, Inspur]
+
+Contributors: [Rachit Malik, Jordan Johnson, Liguang Du, Na Chen, Berhanu Wondimu, Intel Corporation] [Wu An, Li jinbo, Bai Xinlu, Ren Yuying, Liu Guangzhi, Inspur] [Cam Turner, Jerry Kao, CoolIT][Hao Jingyang, Liu Xuejiao, Max Chen, Lenovo] [He Yongzhan, Baidu] [Edward MC Wu, Wistron] [Songwei Lee, AVC] [Benny Huang, Akash_Sengupta, Cooler Master] [Nick Tan, Delta] [George Lee, BOYD]
+
+PAGE 2
+
+#### Executive Summary
+
+Liquid cooling is becoming more ubiquitous due to the increasing power and power density of processors, memory, and other IT components emitting critical amounts heat. Air-cooling solutions cannot always address thermal challenges of high performance computing with high thermal design power (TDP) processors driving the development and adoption of liquid cooling technologies. Cold plate liquid cooling uses a cooling liquid flowing through a cold plate heat exchanger to transfer heat from the IT components to the cooling fluid. The development and qualification of cold plates impacts the cold plate performance, reliability, and cost. This document aggregates the contributions from OCP members working on the development and qualification of cold plates. It will provide an overview for the mechanical design, thermal performance, and quality and reliability requirements for effective and reliable cold plates. Cold plate test methodologies to assess the mechanical, thermal, and reliability requirements will also be described.
+
+PAGE 3
+
+#### Table of Contents
+
+Introduction 5 
+1.1 Overview 5 
+1.1.1 Cold Plate 5 
+1.1.1.1 Cold Plate Description 5 
+1.1.1.2 Types of Cold Plates 7 
+1.1.1.3 Cold Plate Manufacturing 8 
+1.1.2 Cold Plate Assembly 9 
+1.1.3 Cold Plate Technology Cooling System 10 
+1.2 Development Requirements 11 
+1.2.1 Mechanical Requirements 11 
+1.2.1.1 Cold Plate Mechanical Design 11 
+1.2.1.2 Cold Plate Fluid Connectors 12 
+1.2.1.3 Cold Plate Cooling Loop Integration 12 
+1.2.1.4 Cold Plate Cosmetic Requirements 13 
+1.2.2 Thermal Performance Requirements 14 
+1.2.3 Reliability Requirements 14 
+1.2.3.1 Hydrostatic Pressure 14 
+1.2.3.2 Corrosion 14 
+1.2.3.3 Dynamics 14 
+1.2.3.4 Temperature Cycling 15 
+1.3 Test Methodologies 15 
+1.3.1 Mechanical Testing 15 
+1.3.1.1 Dimensions 15 
+1.3.1.2 Structural 15 
+1.3.1.3 Cold Plate Integration 15 
+1.3.1.4 Cosmetic 15 
+1.3.2 Performance Testing 16 
+1.3.2.1 Thermal Performance 16 
+1.3.2.2 Cold Plate Fluid Pressure Drop 16 
+1.3.3 Reliability Testing 17 
+1.3.3.1 Hydrostatic Pressure Testing 17 
+PAGE 4 
+1.3.3.2 Corrosion Testing 18 
+1.3.3.3 Dynamics 19 
+1.3.3.4 Temperature Cycling 19 
+2 Conclusion 19 
+3 Glossary 20 
+4 References 21 
+5 License 21 
+6 About Open Compute Foundation 21 
+7 Appendix A. 2-piece cold plate assembly 23 
+
+PAGE 5
+
+#### Introduction
+
+This document outlines the methodologies of development and testing related to single phase liquid cooling cold plate technology and is intended to be available for the Open Compute Project (OCP) community. Liquid cooling is becoming more ubiquitous due to the increasing power and power density of processors, memory, and other IT components emitting critical amounts heat. Air-cooling solutions cannot always address thermal challenges of high performance computing with high thermal design power (TDP) processors. Another driving force behind liquid cooling adoption includes the stringent government’s Power Usage Effectiveness (PUE) requirement for datacenters. The PUE of a newly constructed data center needs to be less than 1.3 in some geographical regions to achieve a good energy efficiency and meet sustainability goals. It is challenging to meet the PUE target with air-cooling solutions for a new data center and liquid cooling solutions are often developed and deployed to meet the PUE requirement. This document will provide an overview for the requirements for effective and reliable cold plate technology. Cold plate mechanical requirements, thermal performance requirements, and reliability requirements will be discussed. Cold plate test methodologies to assess the mechanical, thermal, and reliability requirements will also be described.
+
+#### 1.1 Overview
+
+This section introduces cold plate technology by describing the design variations of cold plates, cold plate 
+manufacturing, cold plate assembly and a summary of a cold plate cooling loop with basic diagrams and 
+terminology. 
+The requirements and test methodologies of cold plate designs directly impacts cold plate liquid cooling 
+performance and reliability. This document is applicable to the development and testing of single-phase cold 
+plates for information technology equipment (ITE) and it can be utilized to influence the design, performance 
+testing, and reliability evaluation of a cold plate. 
+
+1.1.1 Cold Plate
+
+1.1.1.1 Cold Plate Description
+
+Cold plates are heat sinks with integrated tubing or flow channels to allow liquid to flow through the heatsink and dissipate heat. Cold plates are placed on processors and other electronic components that require cooling and provide a heat transfer path to the cooling liquid. There are different designs of cold plates that rely on either single phase or two phase cooling fluids and the design can be optimized for a specific cooling fluid to maximize heat removal from processors. A simple example of a cold plate is a metal block with integrated fluid piping, while a more complex and commonly used cold plate design integrates skived or molded micro-channels to direct the fluid to enhance the thermal performance [1].
+
+For a cold plate assembly with integrated fluid piping the cold plate typically consists of the fluid heat exchanger containing the fluid flow channels and a retention bracket. The cold plate fluid heat exchanger is connected to the fluid piping by a metal joining process such as welding, brazing, or soldering. For a cold plate design utilizing machined or molded fluid flow channels, the cold plate consists of the heat exchanger with the fluid flow channels, a retention bracket, and cold plate fluid connectors. The cold plate fluid connectors are installed on the fluid heat exchanger (Figure 1) to supply cooling fluid through the heat exchanger fluid channels. Cold plate fluid connectors are attached to tubing that supplies cooling fluid from the fluid cooling loop and are usually
+
+PAGE 6
+
+clamped to the fluid connector barbs. The retention bracket provides structural support for the component stack and accurate positioning of the fluid heat exchanger on the processor.
+
+Figure 1: Example of a cold plate components
+
+The heat exchanger of a cold plate with fluid flow channels consists of a cold plate base with the machined or molded fluid channels and a top cover. The cold plate base and top cover are attached through a manufacturing process that should be optimized for the cold plate materials and designed to ensure the interface between the cold plate base and top cover is liquid tight and cold plate will not leak over its service lifetime. The fluid heat exchanger is the primary cooling component of the cold plate and tubing is attached to the fluid connectors to provide cooling fluid flow through the fluid flow channels.
+
+The cold plate base is designed to be in contact with the processor. A compatible TIM2 material is applied between the processor and the cold plate base to improve the thermal performance of the cold plate solution. The cold plate top cover encloses the fluid flow channels and usually integrates the cold plate fluid connectors that will direct the cooling fluid through the fluid flow channels.
+
+The fluid flow channels are the critical feature of the cold plate fluid heat exchanger. The cooling fluid flows through the fluid flow channels and heat is dissipated from the processor through contact with the fluid. The fluid flow channels are sandwiched between the cold plate base and the top cover. The molded or machined flow channels are typically integrated into the design of the cold plate base or the cold plate top cover to provide mechanical stability to the channels against the fluid flow. Figure 2 shows an example of a cold plate design with machined fluid flow channels integrated into the cold plate base.
+
+PAGE 7
+
+Figure 2: Example of the fluid heat exchanger of a cold plate
+
+Cold plate fluid connectors are attached on the fluid heat exchanger of a cold plate as the interface between the cold plate and the cooling fluid loop. The cold plate fluid connector design can be optimized for a specific fluid flow rate and system dimensional tolerances and fluid loop configuration while minimizing fluid stagnation. The cold plate fluid connector design and installation is required to be leak tight for the duration of the service life of the cold plate.
+
+1.1.1.2 Types of Cold Plates
+
+Cold plates can be categorized as 1-piece cold plates (see Figure 3 (a)) and 2-piece cold plates (see Figure 3 (b)). The fluid heat exchanger and retention bracket are integrated in a 1-piece cold plate and can’t be separated. Redeploying a 1-piece cold plate across subsequent generations of processors is difficult due to the integration of the retention bracket into the cold plate design. The fluid heat exchanger and the retention bracket of a 2-piece cold plate are separate cold plate components. The modularity supports redeployment across multiple generations of processors by redesigning the retention bracket for the updated processor family and reusing the fluid heat exchanger as a cost savings option. Diagrams of the two cold plate types are shown below in Figure 3.
+
+PAGE 8
+
+Figure 3: Example of 1-piece and 2-piece cold plate types
+
+1.1.1.3 Cold Plate Manufacturing
+
+The primary manufacturing processes to assemble the top cover plate and cold plate base of the heat exchanger include brazing, friction stir welding, soldering, and O-ring based sealing. Table 1 below describes some of the advantages and disadvantages of the specific manufacturing process used to assemble the cold plate heat exchanger.
+
+PAGE 9
+
+Advantages Disadvantages
+
+Manufacturing Process
+
+· Capable of supporting higher operating pressures without deformation · Capable of brazing cold plate base skived fins to cold plate top cover to increase heat exchanger stiffness
+
+· High cost · Chemical compatibility of brazing materials needs to be considered/understood · Copper anneals during brazing reducing the stiffness of the heat exchanger
+
+Brazing
+
+| | | · Capable of supporting 1-piece or 2- | | · High cost |
+| --- | --- | --- | --- | --- |
+| Friction Stir | | piece cold plate designs | | · Long process time |
+| Welding | (FSW) | · Does not anneal bulk copper of the | | · More heat exchanger bulk material is |
+| | | heat exchanger | | needed for FSW joint/flange |
+
+· Lower cost than brazing or FSW · Does not anneal bulk copper of the heat exchanger
+
+· Chemical compatibility of the solder needs to be considered/understood · Skived fins can’t be soldered to top cover · Solder process can result in brittle joints · Voids common in solder joints
+
+Soldering
+
+| | | | | |
+| --- | --- | --- | --- | --- |
+| | | | | · Lower operating pressure capability |
+| | | · Cost effective manufacturing | | |
+| | | | | · Lower leak reliability due to O-ring sealing |
+| | | process | | |
+| | | | | · Lower service lifetime |
+| | | · Capable of supporting designs with | | |
+| O-ring | | non-metallic materials | | · Lower operating temperature range |
+| | | | | |
+| | | | | capability |
+| | | · Capable of supporting complex fluid | | |
+| | | flow channel designs | | · Liquid leaks probable under high corner |
+| | | | | |
+| | | | | cold plate loads |
+
+Table 1: Comparison of cold plate manufacturing processes
+
+The cold plate manufacturing process marginalities and insufficient process control can introduce defects into the cold plate during manufacturing that impact performance and reliability. The cold plate product qualification plan should include a representative sample of the manufacturing process line to evaluate the performance and reliability of the cold plates within the process control margins.
+
+1.1.2 Cold Plate Assembly
+
+The cold plate assembly is composed of the cold plate, cooling fluid tubing, and the quick disconnects. Optional cold plate assembly components that may be integrated into a customer product design include conversion connectors and leak detection hardware. A diagram of the cold plate assembly is shown below in Figure 4. A description of the additional cold plate assembly components required to support a cold plate include：
+
+• Cooling Fluid Tubing：Supplies cooling fluid to the cold plate from the cold plate cooling loop. Metal cooling fluid tubing options include copper and aluminum, and non-metallic cooling fluid tubing options rely on PTFE, PEX, or EPDM materials. Tubing material selection will depend on the type and 
+
+PAGE 10
+
+design of the cold plate fluid connector. A leak detection rope/cable can be integrated by winding it around the fluid tubing and cold plate fluid connectors.
+
+• Quick Disconnects: Quickly and easily disconnects the cold plate and cooling fluid tubing from the liquid cooling loop and electronic Information Technology Equipment (ITE) equipment for serviceability. 
+• Conversion Connector (Optional)：Connects cooling fluid tubing and quick disconnects in the cold plate assembly. 
+• Leak Detection (Highly Recommended): Provides alerts to the datacenter operator if leaks are detected. 
+
+Figure 4: Example of a cold plate assembly
+
+1.1.3 Cold Plate Technology Cooling System
+
+A cold plate technology cooling system consists of the information technology equipment (ITE), cold plate, cooling fluid tubing, quick disconnects (QDs), blade manifold, secondary cooling loop, the coolant distribution unit (CDU), facility water system (FWS), and a cooling tower or chiller. The technology cooling system supplies the cold plate cooling fluid at a consistent temperature and pressure to the cold plates. Figure 5 shows a diagram of a cold plate liquid cooling system. All of the wetted materials in the cold plate technology cooling system need to be compatible with the cooling fluid. More details on the cold plate liquid cooling system are provided in reference [2].
+
+PAGE 11
+
+Figure 5: Diagram of cold plate liquid cooling loop (Technology Cooling System ----TCS)
+
+#### 1.2 Development Requirements
+
+1.2.1 Mechanical Requirements
+
+1.2.1.1 Cold Plate Mechanical Design
+
+The cold plate is required to meet all structural requirements mandated by the processor supplier for the processor thermal solution. Refer to the processor thermal and mechanical design specifications for the critical cold plate mechanical requirements (i.e. mass, flatness, etc.). In addition to the cold plate requirements defined by the processor supplier the cold plate needs to meet the following mechanical design requirements:
+
+• Cold plate design needs to meet the product design requirements, comply with the product keep out zone (KOZ) requirements, and incorporate the interface control drawing (ICD) requirements for the retention hardware. 
+• The applied mechanical load applied to the processor from the cold plate retention hardware should be compliant with the package loading requirements defined by processor specifications and requirements throughout the cold plate service lifetime. 
+• The installation and disassembly of the cold plate need to meet the design and manufacturing specifications of the processor. 
+• The flatness on the bottom surface of the cold plate may impact mechanical and thermal performance and should be specified to meet cold plate performance requirements. 
+• The average roughness (Ra) of the bottom surface of a cold plate should be specified to meet cold plate mechanical and thermal performance requirements. 
+• The dimensions of the bottom surface of a cold plate in X and Y directions that interface with the integrated heat spreader (IHS) or die area of the processor may impact thermal performance and should be designed to meet cold plate performance requirements. The blue outline in Figure 6 represents the IHS or die area of the processor. 
+
+PAGE 12
+
+Figure 6: Recommended dimensions of the bottom surface of a 2-piece cold plate · The height of a cold plate needs to fit within the product chassis. The height of a cold plate is measured from the bottom surface of a cold plate base to the top of the cold plate fluid connector.
+
+Figure 7: Diagram of the height of a cold plate
+
+1.2.1.2 Cold Plate Fluid Connectors
+
+Cold plate fluid connectors need to meet the following requirements： 
+· No leaks or deformation between cold plate connector and cold plate heat exchanger interface during 
+hydrostatic pressure testing. 
+· No leaks or deformation between the cold plate connector and the cooling fluid tubing during hydrostatic 
+pressure testing. 
+· Designed to prevent fluid stagnation or cavitation. 
+
+1.2.1.3 Cold Plate Cooling Loop Integration
+
+The following requirements need to be considered to integrate the cold plate into the cold plate cooling loop：
+
+· The location and direction of the cold plate connectors needs to consider the product cooling fluid tubing routing.
+
+PAGE 13
+
+· The electrode potential difference of wetted metals in technology cooling system should be as small as 
+possible to prevent cold plate corrosion. If different metals are included in the wetted materials list, it is 
+highly recommended to execute an integrated corrosion qualification plan to evaluate the corrosion 
+potential of the different metals in the cooling fluid. 
+· Any metal-metal interface in the cold plate design should have an electrochemical potential difference of no 
+more than 0.15V to prevent galvanic corrosion. 
+· The fin thickness, fin height, and fin pitch of microchannel cold plate heat exchanger designs will impact the 
+fluid flow rate capability and fluid flow impedance across the cold plate assembly. 
+o The flow impedance across the cold plate assembly needs to be lower than the fluid pressure supplied 
+by the cooling fluid pump 
+· It is recommended to understand the change in cooling fluid flow rate as a function of temperature as shown 
+in Figure 8 to evaluate if the cold plate fluid flow rate needs to be adjusted for fluctuations in cooling fluid 
+temperature from seasonal temperature variations. 
+
+Figure 8: Example of the change in cold plate flow rate with temperature from 25% propylene glycol cooling fluid
+
+1.2.1.4 Cold Plate Cosmetic Requirements
+
+The cold plate should adhere to the following cosmetic requirements：
+
+· Cold plate top cover should be smooth and free of visible defects and deformation. 
+· Cold plate base bottom surface is free of visible defects and deformation. 
+· Cold plate retention bracket is free of visible defects and deformation. 
+· Cold plate fluid connectors are free of visible defects and deformation. 
+
+PAGE 14
+
+1.2.2 Thermal Performance Requirements
+
+The cold plate performance needs to meet processor temperature requirement provided by the processor 
+supplier thermal specification for the service life of the product. The following thermal boundary conditions 
+need to be defined to determine the cold plate performance requirements: 
+· The processor temperature that should not be exceeded per the processor thermal specification. 
+· Cooling fluid temperature and flow rate that will be provided to the processor by the cold plate technology 
+cooling system. 
+o The maximum cooling fluid flowrate into the cold plate should be lower than 1.5m/s to prevent 
+erosion of the cold plate components [3]. 
+
+1.2.3 Reliability Requirements
+
+1.2.3.1 Hydrostatic Pressure
+
+The cold plate is required to complete hydrostatic pressure testing according to the IEC FDIS 62368-1[8] standard with no detectable leaks or mechanical deformation. Cold plate dimensions before and after hydrostatic pressure testing should be statistically equivalent.
+
+1.2.3.2 Corrosion
+
+· Fluid Compatibility 
+The wetted surface of the cold plate is required to be chemically compatible and corrosion resistant to the cooling 
+fluid. The cooling fluid biocide and corrosion inhibitor concentrations need to maintain the minimum 
+concentration to provide biological and corrosion protection to the cold plate when tested with the full cooling 
+loop wetted materials list. 
+
+· Salt Spray The cold plate should complete salt spray testing according to ASTM B117[4] to assess corrosion resistance of the exterior cold plate surfaces. No corrosion, pitting, or discoloration of the cold plate surface should be observed after the salt spray testing has been completed. Hydrostatic pressure testing is recommended on the cold plate assembly after the salt spray testing to detect leaks resulting from cold plate material degradation.
+
+1.2.3.3 Dynamics
+
+· Shock 
+The cold plate is required to complete shock testing that meets the product qualification standards and complete 
+hydrostatic pressure testing to detect leaks resulting from the shock stresses. Cold plate thermal performance 
+should be statistically equivalent after shock testing. 
+· Vibration 
+The cold plate is required to complete a vibration test that meets the product qualification standards and 
+complete hydrostatic pressure testing to detect leaks resulting from the vibration stress. Cold plate thermal 
+performance should be statistically equivalent after vibration testing. 
+
+PAGE 15
+
+1.2.3.4 Temperature Cycling
+
+It is recommended that the cold plate completes a temperature cycling test plan and subsequent hydrostatic pressure testing to detect leaks resulting from the interaction of shipping or operating temperature extremes and manufacturing processes.
+
+1.3 Test Methodologies 
+1.3.1 Mechanical Testing 
+
+1.3.1.1 Dimensions
+
+Validate the dimensions of the cold plate against the cold plate product requirements using the following measurements:
+
+• Use vernier calipers to measure the height of the cold plate. 
+• Use vernier calipers to measure the length, width, pitch, and height of the fluid flow channels within the cold plate. 
+• Measure the flatness of the bottom surface of the cold plate base using ISO 12781-2:2011 in reference [5]. 
+• Measure the roughness of the bottom surface of the cold plate base using ISO 21920-2:2021 in [6]. 
+• Confirm the fluid flow channel fins are free of distortion, deformation, or debris using X-ray or another similar imaging technique. 
+
+1.3.1.2 Structural
+
+Refer to the processor technical specifications for the critical structural requirements and recommended test methodologies to validate the structural requirements (i.e., mass, flatness, etc.) of the cold plate thermal solution.
+
+1.3.1.3 Cold Plate Integration
+
+The cold plate needs to complete the following verifications to confirm the design meets the cold plate assembly requirements:
+
+• Inspect the cold plates with X-ray or a similar analytic method to detect manufacturing defects such as voids, fluid channel debris, weld quality, etc. on the cold plate heat exchanger. 
+• Verify the cold plate heat exchanger and retention bracket fit together without interference for 2-piece cold plates. 
+• Inspection of the cold plate connectors to confirm the connector specifications (i.e. dimensions, barb configuration, orientation, etc) meets the product design requirements. 
+• Integrate the cold plate into the product cold plate assembly and complete a hydrostatic pressure test to confirm there are no leaks between the fluid exchanger and the connector and cooling fluid tubing. 
+
+1.3.1.4 Cosmetic
+
+Complete a visual inspection according to the factory visual inspection criteria of the cold plate exterior and confirm the requirements in 1.2.1.4 have been met. Flush the cold plate heat exchanger with a clear fluid while immersed in an ultrasonic bath or similarly functioning equipment and verify the discharged fluid does not discolor and any particulate suspended in the flushing fluid is less than 50μm.
+
+PAGE 16
+
+1.3.2 Performance Testing
+
+1.3.2.1 Thermal Performance
+
+Mount the cold plate with the recommended TIM2 material onto a thermally functional corresponding product processor stack on a representative product board and connect the cold plate heat exchanger to a cooling fluid loop. Ensure there are no bubbles in the cooling fluid test loop prior to beginning the thermal performance testing. Stabilize the fluid flow rate through the cold plate heat exchanger and apply power to the processor. Hold a constant power setting until the case temperature (Tc) and incoming fluid temperature (TL) stabilize. When stabilization is reached record the measured pressure drop through the cold plate assembly, the case temperature ( ) of the processor, the incoming cooling fluid temperature ( ), the power ( ) applied to the processor, and the fluid flow rate through the cold plate heat exchanger.
+
+The thermal resistance of the cold plate for a specific cooling fluid flow rate is calculated by equation (1) below.
+
+=
+
+( − )
+
+(1)
+
+Where: —— Cold plate thermal resistance，℃/W —— Case temperature of the hot component under test, ℃ —— Fluid temperature at the inlet of a cold plate under test, ℃ —— The power applied to the hot component under test, W
+
+The thermal resistance of a cold plate design should be measured at multiple cooling fluid flow rates to understand the thermal performance of the cold plate design as a function of the cooling fluid flow rate. An example of the thermal performance curve of a cold plate vs. the cold plate cooling fluid flow rate is provided in Figure 9.
+
+Figure 9: Example of the thermal performance and flow impedance vs. cold plate cooling fluid flow rate
+
+1.3.2.2 Cold Plate Fluid Pressure Drop
+
+PAGE 17
+
+Configure a laboratory bench scale technology cooling system (TCS) loop with the cold plate, cooling fluid tubing, quick disconnects, and a coolant distribution unit (CDU) using Figure 10a as guidance. Connect a digital pressure gauge (ex. Omega DPG409-015G) between the cold plate cooling fluid inlet and outlet tubing. Supply fluid to the cold plate from the CDU at a constant flowrate and record the pressure from the pressure gauge. Disconnect the cold plate from the bench scale TCS loop configuration in 10a and connect the cooling fluid inlet and outlet tubing together as shown in configuration 10b. Record the pressure from the pressure gauge across the laboratory TCS configuration in 10b at the same CDU flowrate as the 10a experiment. The pressure drop of the cold plate is the difference between the pressure recorded in test setup 10(a) and 10(b) at the same CDU flow rate. The impact of cold plate cooling fluid flow rate on the cold plate flow impedance is shown in Figure 9.
+
+Figure 10: Methodology to measure the pressure drop through a cold plate
+
+The cold plate pressure drop is required to be lower than the cooling fluid pressure supplied to the cold plate by the TCS to provide positive cooling fluid flow and the cooling fluid flowrate target for the thermal performance requirement needs to compensate for the pressure drop expected from the cold plates.
+
+1.3.3 Reliability Testing
+
+1.3.3.1 Hydrostatic Pressure Testing
+
+Hydrostatic pressure test is a critical quality and reliability test to detect leaks under normal and expected operating conditions.
+
+There are two industry standards that can be used to define the hydrostatic pressure test methodology.
+
+The European standard EN 1779[7] defines leak detection methodologies using pressurized gasses: · Pressure Decay Testing: Measures the reduction in the total cold plate pressure. It is recommended that the pressure drop is less than 0.5%
+
+PAGE 18
+
+· Immersion Bubble Testing: The cold plate is pressurized and immersed in a fluid. Leaks are detected by the formation of bubbles or a bubble stream originating from the cold plate.
+
+The UL Solutions standard IEC FDIS 62368-1[8] defines the pressurization time and pressurization safety factor 
+for hydrostatic leak testing. The cold plates can be pressurized with gases or the cooling fluid for these tests. 
+· Pressurize the cold plate to the maximum operating pressure and after 5 minutes check the cold plate and 
+cold plate connectors for leaks. 
+· Pressurize the cold plate to 3x the maximum operating pressure and after 2 minutes check the cold plate 
+and cold plate connectors for leaks. 
+
+1.3.3.2 Corrosion Testing · Fluid Compatibility
+
+The cold plate technology cooling system will be composed of a combination of metal and polymer/elastomer materials that will be in contact with the cooling fluid. The reliability of the cold plate will depend on the chemical compatibility of the cooling fluid with all wetted materials used in the cold plate technology cooling system. The cooling fluid is required to provide reliable corrosion resistance to metal components and resist leaching contaminants from the polymer and elastomeric components. Some polymer/elastomeric materials can absorb corrosion inhibitor compounds from the cooling fluid which decreases the concentration of corrosion inhibitors in the cooling fluid that prevent corrosion. The wetted materials list needs to demonstrate cooling fluid compatibility and some recommended methodologies to assess cooling fluid compatibility with the wetted materials list include:
+
+• Corrosion and material compatibility testing of the cooling fluid with metals using ASTM standard D2570 evaluates the effect of circulating cooling fluid on metal test specimens to detect galvanic corrosion under controlled laboratory conditions. 
+• Detect corrosion by measuring concentration of metal ions in solution using ICP (Inductively Coupled Plasma) as per ASTM standards D6130, D5185 to identify early signs of corrosion and schedule preventative maintenance. 
+• pH and Reserve Alkalinity testing of cooling fluid as per ASTM standards D1287 and D1121 will measure the decline in reserve alkalinity and pH and identify coolant degradation due to degradation of glycol into glycolic acids. 
+• Chloride and other anion concentration testing of coolant with ion chromatography as per ASTM standard D5827 to measure the concentration of reactive anions that result in pitting corrosion of metals. 
+• Gas Chromatography (GC) and Liquid Chromatography (LC) testing of cooling fluid to track organic corrosion inhibitor concentrations and identify other organic contaminants leaching into the coolant [9]. 
+· Salt Spray 
+A salt spray test should be conducted in a salt spray chamber in accordance to ASTM B117 standard [4] to assess 
+the corrosion resistance of cold plate exterior coatings. Passivation or anodization of the cold plate surface can 
+lower the risk of corrosion under salt spray testing. 
+
+Seal inlet and outlet of the cold plate and place the samples in a salt spray chamber at 35⁰C.
+
+• Concentration of NaCl solution is 5% of the mass ratio 
+• NaCl solution PH value is 6.5~7.2 
+• Spray volume of the salt fog is ~ 2ml/hour/80cm 2 
+
+PAGE 19
+
+• Exposure test time is 8 hours
+
+Thermal performance should be measured on the cold plates after salt spray testing and there should be no statistically significant thermal degradation. Hydrostatic pressure testing on cold plates that have completed salt spray testing is also recommended to detect any leaks that may have resulted from material degradation from the corrosion testing.
+
+1.3.3.3 Dynamics
+
+· Shock 
+Mount the cold plate onto the corresponding product CPU stack on a representative product board and perform 
+shock testing that meets the product qualification requirements. Perform a visual inspection to confirm the cold 
+plate meets the cosmetic requirements after the shock stress and there is no damage to the CPU stack or 
+representative product board. Complete hydrostatic pressure testing on the mounted cold plate to validate no 
+leaks from the cold plate and cold plate connectors resulted from the shock stress. 
+· Vibration 
+Mount the cold plate onto the corresponding product CPU stack on a representative product board and perform 
+vibration testing that meets the product qualification requirements. Perform a visual inspection to confirm the 
+cold plate meets the cosmetic requirements after the vibration stress and there is no damage to the CPU stack or 
+representative product board. Complete hydrostatic pressure testing on the mounted cold plate to validate no 
+leaks from the cold plate and cold plate connectors resulted from the vibration stress. 
+
+1.3.3.4 Temperature Cycling
+
+Mount the cold plate with the recommended TIM2 material onto a thermally functional corresponding product processor stack on a representative product board and perform a temperature or power cycling test plan that meets the product qualification requirements. The temperature range should envelop the full extreme of the cold plate operation temperatures and the number of cycles should be targeted to meet the number of estimated processor power cycles over the processor service lifetime. Thermal performance of the cold plate after the completion of the temperature or power cycling test plan needs to meet the product qualification requirements. Complete hydrostatic pressure testing on the mounted cold plate to validate no leaks from the cold plate or cold plate connectors resulted from the temperature cycling stress.
+
+#### 2 Conclusion
+
+The technical requirements and qualification of cold plate designs impact cold plate performance and reliability. This document has described the recommended requirements for optimized cold plate technology development. The cold plate requirements that have been discussed include mechanical requirements, thermal performance requirements, and reliability requirements. Test methodologies to qualify the mechanical, thermal, and reliability requirements of the cold plate design have also been provided.
+
+Contributions from a spectrum of industry experts in multiple areas of cold plate design and development is required to develop effective and reliable cold plates. It also requires a datacenter customer focus to drive design requirements that focus on cold plate performance capability, cold plate reliability, and manufacturing process control to design efficient and cost-effective cold plate solutions.
+
+PAGE 20
+
+#### 3 Glossary
+
+Cold Plate: Cold plates are heat exchangers or heat sinks with internal tubing or channels to allow cooling liquid to flow through. Cold plates are placed on the electronic components in need of cooling and provide a conductive heat transfer path to the cooling liquid.
+
+Information Technology Equipment (ITE): The computational servers, connectivity, networking and communication devices, data storage found in the data center and typically contained in racks.
+
+Coolant Distribution Unit: The purpose of the Coolant Distribution Unit (CDU) is to provide an isolated cooling loop to the information technology equipment. Heat transfer occurs inside the CDU, via a heat exchanger, between the heated liquid from the information technology equipment loop and the facility liquid on the facility side.
+
+Facility Water System (FWS) : The liquid circuit that allows the transport of heat from the CDU out to the facility cooling infrastructure and back to the CDU. The facility cooling infrastructure could include chillers, cooling towers, economizers, and evaporative coolers. Commonly referred to in the Datacom space as Primary cooling loop.
+
+Technology Cooling System (TCS): The liquid circuit from the Coolant Distribution Unit (CDU) to the rack, through the manifold and the ITE, and then back through the return manifold to the CDU. Commonly referred to in the Datacom space as Secondary cooling loop.
+
+1-piece Cold Plate: Cold plate's retention bracket and the core part for head transfer (called fluid heat exchanger in this document) are built as a single piece of part, which is not able to be disassembled.
+
+2-piece Cold Plate: A cold plate consists of 2 pieces of part, the core part for heat transfer (i.e., fluid heat exchanger) and a bracket for retention. The 2-piece of part can be disassembled and assembled as needed.
+
+Manifold: The rack manifold distributes cooling liquid inside the rack from the CDU to the IT equipment and back again. The manifold must be able to deliver the flow rate required to cool the IT equipment, at targeted pressure drop, and provide a uniform flow distribution within the rack.
+
+Cold Plate Liquid Cooling System: A liquid cooling system that transfers heat from an IT equipment to cooling liquid through a cold plate, then the heat absorbed in the cooling fluid is transferred to the surroundings through quick disconnects, manifold, tubing system, CDU and cooling tower etc.
+
+CPU: Central processing unit
+
+GPU: Graphic processing unit
+
+IHS: Integrated Heat Spreader: a component of the processor package used to enhance the thermal performance of the package. Component thermal solutions interface with the processor at the IHS surface.
+
+TIM2: Thermal Interface Material applied between the bottom surface of a cold plate heat exchanger and the processor lid or surface, which fills the air gaps and voids to enhance the heat transfer from the processor to the cold plate
+
+PAGE 21
+
+#### 4 References
+
+1. OCP: ACS Liquid cooling cold plate requirements Document, Rev 1.0, Oct 2019 
+2. ASHRAE TC 9.9 5th Edition: 2021 Equipment thermal guidelines for data processing environments,2021 
+3. ASHRAE Datacom Series 4: Liquid Cooling Guidelines for Datacom Equipment Centers 
+4. ASTM B117: Standard Practice for Operating Salt Spray (Fog) Apparatus 
+5. ISO 12781-2:2011 Geometrical product specifications (GPS) — Flatness — Part 2: Specification operators 
+6. ISO 21920-2:2021Geometrical product specifications (GPS) — Surface texture: Profile — Part 2: Terms, 
+definitions and surface texture parameters 
+7. EN 1779 standard: Leak testing- Criteria for method and technique selection 
+8. IEC 62368-1, Audio/Video, Information and Communication Technology Equipment – Part 1: Safety 
+Requirements,3rd edition, 2018. 
+9. Engine Coolant Testing: Fourth Volume”, Beal, R. E., STP1335-EB, ASTM, 1999 (Book) 
+
+#### 5 License
+
+OCP encourages participants to share their proposals, specifications and designs with the community. This is to promote openness and encourage continuous and open feedback. It is important to remember that by providing feedback for any such documents, whether in written or verbal form, that the contributor or the contributor's organization grants OCP and its members irrevocable right to use this feedback for any purpose without any further obligation.
+
+It is acknowledged that any such documentation and any ancillary materials that are provided to OCP in connection with this document, including without limitation any white papers, articles, photographs, studies, diagrams, contact information (together, “Materials”) are made available under the Creative Commons Attribution-ShareAlike 4.0 International License found here: https://creativecommons.org/licenses/by-sa/4.0/, or any later version, and without limiting the foregoing, OCP may make the Materials available under such terms.
+
+As a contributor to this document, all members represent that they have the authority to grant the rights and licenses herein. They further represent and warrant that the Materials do not and will not violate the copyrights or misappropriate the trade secret rights of any third party, including without limitation rights in intellectual property. The contributor(s) also represent that, to the extent the Materials include materials protected by copyright or trade secret rights that are owned or created by any third-party, they have obtained permission for its use consistent with the foregoing. They will provide OCP evidence of such permission upon OCP’s request. This document and any "Materials" are published on the respective project's wiki page and are open to the public in accordance with OCP's Bylaws and IP Policy. This can be found at http://www.opencompute.org/participate/legal-documents/. If you have any questions please contact OCP.
+
+#### 6 About Open Compute Foundation
+
+At the core of the Open Compute Project (OCP) is its Community of hyperscale data center operators, joined by telecom and colocation providers and enterprise IT users, working with vendors to develop open innovations that, when embedded in product are deployed from the cloud to the edge. The OCP Foundation
+
+PAGE 22
+
+is responsible for fostering and serving the OCP Community to meet the market and shape the future, taking hyperscale led innovations to everyone. Meeting the market is accomplished through open designs and best practices, and with data center facility and IT equipment embedding OCP Community-developed innovations for efficiency, at-scale operations and sustainability. Shaping the future includes investing in strategic initiatives that prepare the IT ecosystem for major changes, such as AI & ML, optics, advanced cooling techniques, and composable silicon. Learn more at www.opencompute.org
+
+PAGE 23
+
+#### 7 Appendix A. 2-piece cold plate assembly
+
+Fluid heat exchanger and retention bracket can be fixed in a way shown in figure A. Unit: mm
+
+Dimensions a b c d
+
+| | | | Determined by the | | | Determined by the | | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | Determined by the | Determined by the | | | | | | |
+| | | | dimensions of the | | | dimensions of the | | |
+| | keep in zone and | keep in zone and | | | | | | |
+| | | | contact surface of | | | contact surface of | | |
+| Requirements | interface control | interface control | | | | | | |
+| | | | a hot component | | | a hot component | | |
+| | drawing | drawing | | | | | | |
+| | | | (e.g., dimensions | | | (e.g., dimensions | | |
+| | requirements | requirements | | | | | | |
+| | | | of a CPU IHS) | | | of a CPU IHS) | | |
+
+Figure A. Dimensions of the fluid heat exchanger and retention mechanism of a 2-piece cold plate
+

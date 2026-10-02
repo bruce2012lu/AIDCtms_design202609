@@ -1,0 +1,838 @@
+## Base Specification for Single-Phase
+
+## Propylene Glycol-Based Cold Plate
+
+## Coolants (PG 25)
+
+Version 1.0.0
+
+Base Specification July 14, 2026
+
+Editor: Keegan Yaroch (Dow, Inc.) 
+Contributors: Keegan Yaroch (Dow, Inc.), Gerald Singer (PFX Group), Tom Corrigan 
+(PFX Group), Florian Rueping (Castrol), David Miller (Faradaic Enterprises, Inc. 
+representing Indorama Ventures and Third Coast Chemicals) 
+
+#### Current Template Version:
+
+OCP Modular Base Specification Template V1.6.0
+
+### Table of Contents
+
+Current Template Version: 1 
+1 License 3 
+1.1 OPEN WEB FOUNDATION (OWF) CLA 3 
+2 Compliance with OCP Tenets 4 
+2.1 OPENNESS 4 
+2.2 EFFICIENCY 5 
+2.3 IMPACT 5 
+2.4 SCALE 5 
+2.5 SUSTAINABILITY 6 
+3 Scope 6 
+3.1 IN SCOPE 6 
+3.2 OUT OF SCOPE 7 
+4 Base Specification Overview 7 
+4.1 DESCRIPTION 7 
+4.2 GOALS AND VISION 8 
+5 Product Composition Requirements 9 
+5.1 PROPYLENE GLYCOL PURITY 9 
+5.2 CHEMICAL COMPOSITION 9 
+5.3 READY-TO-USE REQUIREMENTS 10 
+5.4 WATER QUALITY REQUIREMENTS 10 
+Table 1: Target Water Quality Limits 10 
+5.5 FLUID PH 11 
+5.6 IMPURITIES 11 
+Table 2: Impurity Limits for PG25 Fluids 11 
+5.7 PRODUCT CONSISTENCY 12 
+5.8 FINAL PRODUCT FILTRATION 12 
+6 Performance Requirements 13 
+6.1 OVERVIEW 13 
+6.2 CORROSION PROTECTION 13 
+Table 3: Acceptable Corrosion Rates 14 
+Figure 1: Metal coupon bundle arrangement according to modified ASTM D8040 
+Date: July 14, 2026 
+
+Page 1
+
+test 15 
+6.3 THERMAL STABILITY 15 
+Table 4: Stock Solution for Thermal Stability Test 16 
+7 Transportation and Storage Requirements 16 
+7.1 OVERVIEW 16 
+7.2 TRANSPORTATION 16 
+7.3 TOTE STORAGE 16 
+7.4 DRUM STORAGE 17 
+7.5 TANK STORAGE 17 
+8 Documentation Requirements 17 
+8.1 PRODUCT LABELING 17 
+8.2 CERTIFICATE OF ANALYSIS 18 
+8.3 TECHNICAL DATA SHEET 18 
+8.4 SAFETY DATA SHEET 19 
+8.5 TRACEABILITY 20 
+8.6 ANALYTICAL RECORD RETENTION 20 
+9 Product Maintenance and Support 20 
+9.1 REMEDIATION CHEMICALS 20 
+9.2 TECHNICAL SUPPORT 21 
+9.3 ANALYTICAL SUPPORT 21 
+Table 5: Analytical Requirements for PG25 Evaluation 21 
+10 Compliance 22 
+11 Referenced Methods 26 
+Table 6: ASTM Methods 26 
+12 References 28 
+Date: July 14, 2026 
+
+Page 2
+
+### 1 License
+
+THE UPDATED DEFAULT CONTRIBUTOR LICENSE AGREEMENT (CLA) IS OWFa 0.9. PLEASE VERIFY THE CORRECT CLA/FSA IS USED AND EXECUTED FOR THIS CONTRIBUTION.
+
+1.1 OPEN WEB FOUNDATION (OWF) CLA 
+Contributions to this Specification are made under the terms and conditions set forth in 
+Modified Open Web Foundation Agreement 0.9 (OWFa 0.9). (As of October 16, 
+2024) (“Contribution License”) by: 
+Dow, Inc., Faradaic Enterprises, PFX Group, Castrol 
+Usage of this Specification is governed by the terms and conditions set forth in 
+Modified OWFa 0.9 Final Specification Agreement (FSA) (As of October 16, 2024) 
+(“Specification License”). 
+You can review the applicable Specification License(s) referenced above by the 
+contributors to this Specification on the OCP website at 
+https://www.opencompute.org/contributions/templates-agreements. 
+For actual executed copies of either agreement, please contact OCP directly. 
+Notes: 
+The above license does not apply to the Appendix or Appendices. The information in 
+the Appendix or Appendices is for reference only and non-normative in nature. 
+NOTWITHSTANDING THE FOREGOING LICENSES, THIS SPECIFICATION IS 
+PROVIDED BY OCP "AS IS" AND OCP EXPRESSLY DISCLAIMS ANY WARRANTIES 
+(EXPRESS, IMPLIED, OR OTHERWISE), INCLUDING IMPLIED WARRANTIES OF 
+MERCHANTABILITY, NON-INFRINGEMENT, FITNESS FOR A PARTICULAR 
+PURPOSE, OR TITLE, RELATED TO THE SPECIFICATION. NOTICE IS HEREBY 
+GIVEN, THAT OTHER RIGHTS NOT GRANTED AS SET FORTH ABOVE, INCLUDING 
+WITHOUT LIMITATION, RIGHTS OF THIRD PARTIES WHO DID NOT EXECUTE THE 
+ABOVE LICENSES, MAY BE IMPLICATED BY THE IMPLEMENTATION OF OR 
+COMPLIANCE WITH THIS SPECIFICATION. OCP IS NOT RESPONSIBLE FOR 
+IDENTIFYING RIGHTS FOR WHICH A LICENSE MAY BE REQUIRED IN ORDER TO 
+
+Page 3
+
+IMPLEMENT THIS SPECIFICATION. THE ENTIRE RISK AS TO IMPLEMENTING OR OTHERWISE USING THE SPECIFICATION IS ASSUMED BY YOU. IN NO EVENT WILL OCP BE LIABLE TO YOU FOR ANY MONETARY DAMAGES WITH RESPECT TO ANY CLAIMS RELATED TO, OR ARISING OUT OF YOUR USE OF THIS SPECIFICATION, INCLUDING BUT NOT LIMITED TO ANY LIABILITY FOR LOST PROFITS OR ANY CONSEQUENTIAL, INCIDENTAL, INDIRECT, SPECIAL OR PUNITIVE DAMAGES OF ANY CHARACTER FROM ANY CAUSES OF ACTION OF ANY KIND WITH RESPECT TO THIS SPECIFICATION, WHETHER BASED ON BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE, AND EVEN IF OCP HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+### 2 Compliance with OCP Tenets
+
+The Open Compute Project (OCP) is a collaborative initiative aimed at redesigning hardware technology to support the growing demands of compute infrastructure efficiently. At its core, OCP is guided by five foundational tenets that shape its contributions and community standards, including:
+
+● Openness 
+● Efficiency 
+● Impact 
+● Scale 
+● Sustainability This section outlines how the Base Specification complies with each tenet. 
+
+2.1 OPENNESS The development of this Base Specification reflects the Open Compute Project’s core tenet of Openness through its collaborative and transparent approach. Created in partnership with fluid suppliers and industry experts, both within and outside the OCP community, the specification embodies the spirit of shared innovation. Prior to formal submission, the document will be made publicly available for review, inviting feedback from the broader OCP community as well as external stakeholders. This inclusive process ensures that diverse perspectives are considered and that the specification evolves to meet the needs of a wide range of users and applications. Furthermore, the workgroup responsible for this specification is committed to ongoing dialogue and responsiveness. Should future changes be necessary, the group will actively revise and resubmit the specification, maintaining its relevance and utility over
+
+Page 4
+
+time. 
+By fostering open collaboration, public review and iterative improvement, this Base 
+Specification exemplifies the OCP tenet of Openness, ensuring that innovation is 
+accessible, inclusive and community driven. 
+2.2 EFFICIENCY 
+This Base Specification supports the tenet of Efficiency by enabling the adoption of 
+advanced cooling solutions—specifically, the use of PG25-based liquid cooling in place 
+of traditional air cooling methods. This shift results in significantly improved thermal 
+management, reduced energy consumption and enhanced system performance. By 
+lowering Power Usage Effectiveness (PUE) compared to air cooling, the specification 
+contributes to more sustainable and cost-effective data center operations. Additionally, 
+the standardized guidance ensures consistent implementation across suppliers, further 
+streamlining deployment and maintenance while maximizing operational efficiency. 
+Through these improvements, the Base Specification exemplifies OCP’s commitment to 
+driving innovation that reduces waste, optimizes resources and enhances overall 
+infrastructure performance. 
+2.3 IMPACT 
+This Base Specification represents advancement in data center cooling technology. As 
+the first propylene glycol (PG)-based fluid specification tailored for both current and 
+future IT equipment, the specification sets a new industry benchmark for liquid cooling 
+solutions. This document not only provides foundational guidance for propylene 
+glycol-based fluids used in cold plate cooling applications but also establishes a 
+framework for future enhancements and discussions. By enabling the use of alternative 
+PG-based fluids, the specification supports a more resilient and diversified supply chain, 
+reducing dependency on single-source formulations and enhancing global availability. 
+Through its pioneering approach and forward-looking adaptability, the specification 
+exemplifies the OCP tenet of Impact by driving innovation, shaping industry standards 
+and enabling scalable, sustainable infrastructure for the future. 
+2.4 SCALE 
+This Base Specification is designed to support global scalability by providing clear, 
+standardized guidance for suppliers on the minimum production requirements. By 
+Date: July 14, 2026 
+
+Page 5
+
+defining a consistent offering of supplemental chemicals and operational protocols, the 
+specification ensures that suppliers across regions can reliably produce and maintain 
+systems that meet OCP standards. 
+This consistency enables seamless deployment and maintenance of infrastructure at 
+scale, reducing variability, simplifying training and enhancing operability across 
+geographies. The specification also supports scalable operations by addressing 
+long-term maintenance needs, ensuring that systems remain efficient and serviceable 
+throughout their lifecycle. 
+In doing so, the specification directly supports the OCP tenet of Scale, enabling 
+widespread adoption and streamlined operations in diverse environments. 
+2.5 SUSTAINABILITY 
+This Base Specification promotes a more sustainable approach to liquid cooling in data 
+center environments. By enabling the use of propylene glycol (PG)-based fluids, the 
+specification supports environmentally conscious alternatives to traditional cooling 
+methods. 
+This guidance empowers fluid vendors to align their products with their own 
+company-specific sustainability goals, fostering innovation in formulations and 
+manufacturing practices. The specification also encourages broader adoption of liquid 
+cooling technologies that reduce energy consumption and improve thermal efficiency 
+which are key factors in lowering the environmental footprint of IT infrastructure. 
+Through its emphasis on energy-efficient cooling and support for vendor-driven 
+environmental initiatives, the specification exemplifies the OCP tenet of Sustainability 
+and helps to advance responsible and resilient data center operations. 
+
+### 3 Scope
+
+3.1 IN SCOPE 
+This specification is intended for PG25 suppliers and defines the technical and quality 
+requirements placed upon manufacturers of propylene glycol-based fluids (e.g. PG25) 
+intended for use in single-phase cold plate cooling systems. 
+
+Page 6
+
+3.2 OUT OF SCOPE 
+This specification does not define or mandate a common formulation across suppliers 
+and is not intended to require different PG25 suppliers to produce identical products, 
+nor does the specification seek to standardize proprietary inhibitor packages or additive 
+chemistries. Each fluid supplier may utilize proprietary and confidential additives, 
+selected based on their own formulation strategies, intellectual property and 
+performance objectives. Disclosure of detailed additive composition beyond what is 
+required for safety, regulatory compliance and specification conformance is not 
+required. 
+Compliance with this Base Specification does not imply that PG25 fluids from different 
+suppliers are interchangeable or functionally equivalent. 
+This specification also does not define full system‑level design requirements, nor does 
+the specification provide exhaustive compatibility requirements for all possible materials 
+(e.g., plastics, elastomers, seals, or adhesives) used in liquid cooling systems. 
+
+### 4 Base Specification Overview
+
+4.1 DESCRIPTION 
+This specification establishes a foundational framework for fluid suppliers providing 
+propylene glycol-based inhibited heat transfer fluids (PG25), designed for use in 
+single-phase, direct-to-chip (D2C) liquid cooling systems. By defining a common 
+baseline, the specification enables global consistency in production requirements and 
+deployment while remaining modular and extensible within the OCP specification 
+framework. This allows future workgroups to build upon the specification with 
+supplemental documents addressing specific use cases, performance metrics, or 
+regional considerations. 
+Developed through open collaboration with fluid suppliers and industry experts, both 
+within and outside the OCP community, this specification supports the broader mission 
+of OCP by promoting innovation and openness in data center infrastructure. Future 
+revisions will be guided by community input and evolving industry needs. 
+Within the OCP ecosystem, this specification serves as a key enabler for efficient, 
+scalable and sustainable liquid cooling solutions. To be compliant with this specification, 
+fluid suppliers must meet the minimal criteria across the following key areas for finished 
+products: 
+
+Page 7
+
+● Composition – Adherence to specified propylene glycol concentration and purity as well as avoidance of unapproved inhibitors 
+● Product Consistency – Consistent product composition, globally, with minimal contaminants. 
+● Corrosion Protection – Protection of systems metals, as defined by testing in this baseline specification 
+● Physical Properties – Stability across expected operating temperatures 
+● Documentation – Transparent, verifiable data on formulation, testing, and handling. 
+● Manufacturing Practices – Robust quality control ensuring repeatability, traceability and compliance with industry best practices. 
+4.2 GOALS AND VISION 
+This specification outlines the essential requirements for PG25 suppliers to ensure 
+fluids meet the minimum performance for deployment in high-performance computing 
+environments. Particularly, the specification aims to enable: 
+● Efficient thermal management – ensure reliable and consistent heat removal from high-density electronic components in D2C cooling systems 
+● Long-term system reliability – minimize corrosion, scaling and degradation to extend the operational life of cooling systems and reduce maintenance frequency 
+● Compatibility for use with common materials – ensure chemical compatibility with commonly used metals Note: It is important to consider compatibility with plastics and elastomers commonly used in liquid cooling infrastructure, however, this is not addressed in this document due to the variety of materials used in various systems. Refer to “Guidelines for Using Propylene Glycol-Based Heat Transfer Fluids in Liquid Cooled Racks” document for guidance on testing. 
+● Product purity – use of high purity propylene glycol to reduce the likelihood of impurities and ensure performance, reliability and safety 
+● Product consistency – consistency across all regions to provide predictable performance which is critical for OEMs and operators managing large-scale global deployments 
+
+Page 8
+
+### 5 Product Composition Requirements
+
+PG25 fluids which are compliant with this specification must meet the general composition criteria outlined in this section.
+
+5.1 PROPYLENE GLYCOL PURITY 
+PG25 fluids which are compliant with this specification must be formulated using 
+high-purity propylene glycol, such as PG USP/EP grade, with a minimum purity of 
+99.5%. This ensures optimal thermal performance and system reliability. Suppliers are 
+required to provide clear documentation, such as Technical Data Sheets (TDS) or 
+Product Bulletins, that explicitly states: 
+● Source of propylene glycol (e.g., virgin or recycled) 
+● Verified purity level This transparency supports informed decision-making by end users and integrators and helps ensure consistent performance across diverse deployments. This transparency also aligns with OCP’s commitment to openness and quality assurance in infrastructure design. 
+5.2 CHEMICAL COMPOSITION 
+PG25 fluids which are compliant with this specification must contain 25–28% propylene 
+glycol by weight (approximately 24.5 - 27.5% by volume), along with corrosion inhibitors 
+that are compatible with common system metallurgy, including, but not limited to, 
+copper, brass and stainless steel and must not degrade or damage typical plastics and 
+elastomers used in Technology Cooling Systems (TCS). 
+The fluid must also include a dye additive to support leak detection and fluid 
+identification during operation and maintenance. 
+To ensure long-term system reliability and material compatibility: 
+● Silicate-based additives are prohibited, due to their potential for causing residue buildup and fouling of component surfaces. 
+● Siloxane-based antifoam agents may be acceptable at concentrations below 10 ppm (as silicon) 
+● Amines are not recommended, due to their potential reaction with nitrite to form nitrosamine. If nitrites are not present, the use of amines may be acceptable. 
+
+Page 9
+
+○ Refer to: https://ntp.niehs.nih.gov/sites/default/files/ntp/roc/content/profiles/nitrosamin es.pdf 
+5.3 READY-TO-USE REQUIREMENTS 
+PG25 fluids which are compliant with this specification must be supplied as 
+ready-to-use (pre-diluted) solutions which are blended to contain 25–28% propylene 
+glycol by weight (approximately 24.5 to 27.5% by volume, depending on specific 
+formulation). This eliminates the need for any additional dilution, mixing or preparation 
+by the end user, ensuring consistency, ease of deployment and reducing the risk of 
+improper handling. 
+Providing fluids in a ready-to-use format supports streamlined integration and aligns 
+with OCP’s goals of efficiency, reliability and user-friendly implementation across 
+diverse operational environments. 
+5.4 WATER QUALITY REQUIREMENTS 
+During the manufacturing process, high-purity water shall be used for blending PG25 
+fluids. Manufacturers must maintain an internal specification for water quality (e.g. 
+quarterly or bi-annually) and have a strategy in place to ensure water quality remains 
+consistent. 
+The criteria outlined in Table 1 represent target water quality limits intended to ensure 
+fluid stability, corrosion resistance and system longevity. Water quality should be 
+maintained within these limits for routine production. Acceptable sources typically 
+include distilled, deionized or reverse osmosis (RO) water. 
+Table 1: Target Water Quality Limits 
+
+Component Acceptable Level Method 
+Chloride (Cl) <10 ppm ASTM D5827 
+Sulfate (SO4) <10 ppm ASTM D5827 
+Calcium (Ca) <2 ppm ASTM D6130 
+Magnesium (Mg) <2 ppm ASTM D6130 
+Total Hardness (CaCO3) <15 ppm ASTM D6130 
+pH 5-8 ASTM D1287 
+
+| Magnesium | <2 (Mg) | ppm ASTM D6130 |
+| --- | --- | --- |
+| Total Hardness | <15 (CaCO3) | ppm ASTM D6130 |
+| | pH | 5-8 ASTM D1287 |
+
+Page 10
+
+| | <2 Iron (Fe) | ppm ASTM D6130 |
+| --- | --- | --- |
+| | <100 Bacteria | CFU/mL ASTM D5465 |
+| Electrical Conductivity, | <25 20°C | µS/cm ASTM D1125 |
+
+Note: While softened water effectively removes calcium and magnesium, softened 
+water may not adequately eliminate chloride and sulfate, which are critical to control in 
+order to maintain fluid integrity and prevent corrosion or scaling. 
+5.5 FLUID PH 
+PG25 fluids which are compliant with this specification must exhibit a stable pH between 
+7.5 and 10.5, as measured in its ready-to-use state. The exact pH value within this 
+range will depend on the specific additive package used, including corrosion inhibitors 
+and stabilizers. 
+5.6 IMPURITIES 
+PG25 fluids which are compliant with this specification must contain low levels of 
+impurities, consistent with high-performance requirements for data center liquid cooling 
+applications, as outlined in Table 2. 
+Table 2: Impurity Limits for PG25 Fluids 
+
+Impurity Limit Method 
+Copper (Cu) <2 ppm *ASTM D6130 
+Iron (Fe) <2 ppm *ASTM D6130 
+Aluminum (Al) <2 ppm *ASTM D6130 
+Chloride (Cl) <5 ppm ASTM D5827 
+Sulfate (SO4) <10 ppm ASTM D5827 
+**Calcium (Ca) <5 ppm *ASTM D6130 
+**Magnesium (Mg) <10 ppm *ASTM D6130 
+Silicon (Si) <10 ppm ASTM D6130 
+Date: July 14, 2026 
+
+Page 11
+
+*Note: Analytical testing should be conducted using Inductively Coupled Plasma (ICP) methods, such as those described in ASTM D6130. It is important to note that the Limit of Detection (LOD) for ICP instruments may vary depending on the laboratory, instrument calibration, sample preparation and matrix effects. The LOD represents the lowest concentration of an analyte that can be reliably distinguished from background noise. To account for this variability, the impurity limits specified in this document are set conservatively, recognizing that values near or below the LOD may fluctuate and carry reduced analytical certainty. Nonetheless, it is expected that metal concentrations in the final product will remain minimal, supporting the fluid’s suitability for use in sensitive cooling environments. **Note: A common strategy for stabilizing phosphate in fluids is via the use of a small amount of Ca or Mg cations in combination with an anionic polymer.
+
+5.7 PRODUCT CONSISTENCY 
+PG25 fluids which are compliant with this specification must demonstrate consistent 
+formulation and quality across all regions and production batches. For any given 
+product name, the fluid must maintain uniformity in: 
+● Chemical composition and additive levels 
+● Color and appearance 
+● Performance characteristics This consistency is critical to ensure predictable behavior, system compatibility and ease of integration across global deployments. This consistency also supports OEMs and operators in managing large-scale infrastructure with confidence, reducing variability and simplifying qualification processes. Suppliers must implement robust quality control measures and maintain traceable records to verify that products meet the same standards regardless of manufacturing location. 
+
+5.8 FINAL PRODUCT FILTRATION PG25 fluids which are compliant with this specification must undergo final filtration by the manufacturer prior to being transferred into containers such as totes, drums, ISO tanks, or transport vehicles. This step is crucial to maintaining fluid cleanliness standards suitable for high-performance data center cooling systems.
+
+Page 12
+
+Filtration must be performed using filters rated at 50 microns or finer (with 25 micron or less preferred), which are specifically approved for use with propylene glycol to avoid chemical incompatibility or degradation. To ensure consistent product quality, filters must be routinely inspected. Disposable filters must be replaced at regular intervals in accordance with documented maintenance protocols. Reusable filters (e.g., stainless steel mesh) must be routinely inspected and cleaned to maintain filtration effectiveness. This filtration requirement is justified by the need to minimize the presence of particulate matter in the final product. Low particle levels are critical to preventing fouling, clogging and wear in sensitive cooling system components, thereby ensuring long-term system reliability and performance.
+
+### 6 Performance Requirements
+
+6.1 OVERVIEW 
+To support the use of PG25 fluids in liquid cooling systems for data center 
+environments, this section outlines a baseline set of performance criteria to demonstrate 
+compliance with this specification. These requirements are intended to provide 
+representative performance data, such as corrosion protection and thermal stability, that 
+demonstrate fundamental suitability for data center liquid cooling applications. These 
+requirements are not intended to be exhaustive, nor do these requirements replace 
+additional testing, qualification or validation that may be required based on specific 
+system designs, operating conditions, materials of construction or customer 
+requirements. Together, these minimum criteria provide a consistent reference point for 
+assessing fluid performance while recognizing that broader evaluations are often 
+necessary to ensure long‑term reliability and system integrity. 
+
+6.2 CORROSION PROTECTION PG25 fluids which are compliant with this specification must be formulated with effective corrosion inhibitors to protect the internal metallurgy of liquid cooled systems, particularly components made from copper, brass and stainless steel. These additives are essential to ensure long-term system reliability and minimize degradation under use. To validate corrosion protection performance, fluids must be tested according to a modified ASTM D8040 test, utilizing copper, brass and stainless steel coupons as these
+
+Page 13
+
+are common wetted materials. Testing must be conducted using the final product (e.g. 25% inhibited propylene glycol without further dilution) with the inclusion of corrosive salts as specified in the method. The test should be performed in triplicate at 88°C for a duration of two weeks, with continuous air bubbling through the fluid. Fluids must meet or exceed weight loss limits for all metals outlined below, assuming ASTM D8040 requirements are followed regarding coupon dimensions. These thresholds are designed to ensure that the fluid provides adequate protection against scaling and degradation, thereby supporting long-term performance. Table 3: Acceptable Corrosion Rates
+
+**Note: Corrosion rates are based on standard coupon dimensions (1/16” x 2” x 1”)
+
+Page 14
+
+Metal Weight Loss, max
+
+**Estimated Corrosion Rate, max (mils per year)
+
+Copper UNS C11000 (SAE CA110)
+
+5 mg 0.2 mpy
+
+Brass UNS C26000 (SAE CA 260)
+
+5 mg 0.2 mpy
+
+Stainless Steel 304/304L
+
+2 mg 0.1 mpy
+
+Stainless Steel 316/316L
+
+2 mg 0.1 mpy
+
+Figure 1: Metal coupon bundle arrangement according to modified ASTM D8040 test
+
+6.3 THERMAL STABILITY To assess thermal and chemical stability under representative stress conditions, PG25 fluids should demonstrate resistance to degradation when exposed to elevated temperatures and common sources of hardness contamination. This evaluation is performed using a modified ASTM D7437 method, which examines the effect of calcium and magnesium ions on fluid stability under thermal stress. These ions may be introduced through elastomers (e.g., hoses), dilution water or raw materials. This test is intended as a screening‑level indicator of fluid stability under thermal stress and does not, by itself, ensure long‑term operational reliability across all data center liquid cooling applications. Results from this test should be considered alongside additional performance data and system‑specific qualification requirements. The procedure involves blending 98.5 mL of PG25 fluid with 1.5 mL of hard water stock solution, as indicated in Table 4, and aging the mixture at 90 °C for two weeks in a conical glass centrifuge tube, in duplicate. At the conclusion of the test, the volume of precipitate formed is measured. Fluids producing less than 0.25 mL of precipitate are considered to demonstrate good resistance to scaling or additive breakdown
+
+Page 15
+
+under the defined test conditions. Refer to the ASTM method for applicable rotation 
+rates, exposure times and additional procedural details. 
+Note: The standard ASTM method also calls for testing at 60°C without hard water 
+added, however, this portion can be omitted from the modified test. 
+Table 4: Stock Solution for Thermal Stability Test 
+Component Amount 
+Calcium chloride dihydrate 3.668 grams 
+Magnesium chloride hexahydrate 8.363 grams 
+Demineralized water 
+(refer to ASTM method for water specifications) 
+
+1 liter
+
+Note: This equates to 15 ppm calcium and 15 ppm magnesium once introduced into the test fluid (1.5 mL of stock solution in 98.5 mL PG25)
+
+### 7 Transportation and Storage Requirements
+
+7.1 OVERVIEW Proper handling, storage and transportation of PG25 fluids are essential to maintaining product integrity and preventing contamination. The following subsections outline the minimum requirements for preserving fluid quality throughout the supply chain.
+
+7.2 TRANSPORTATION All PG25 fluids must be transported in a manner that safeguards the chemical stability and cleanliness. This includes implementation of strict cleaning protocols for all tanks, trucks and containers prior to loading. Residual materials from previous loads must be completely removed to prevent cross-contamination. Transport equipment must be constructed from materials compatible with the formulated product.
+
+7.3 TOTE STORAGE 
+Totes used for storage and transport must be made from materials known to be 
+compatible with formulated propylene glycol and water blends, such as high-density 
+polyethylene (HDPE). Totes should be stored under controlled environmental 
+conditions, including: 
+
+Page 16
+
+● Protection from direct sunlight to avoid UV-induced breakdown of both the container and the fluid 
+● Storage in temperature-stable environments to avoid thermal stress 
+● Clean, dry storage areas to minimize contamination risks 
+
+If totes are to be reused by the manufacturer, the totes must undergo a thorough cleaning protocol to eliminate all residual contaminants and ensure fluid integrity across all batches.
+
+7.4 DRUM STORAGE Drums used for storing PG25 fluids must be constructed from materials compatible with formulated propylene glycol and water blends such as HDPE. If carbon steel drums are used, the drums must be internally lined with a suitable corrosion-resistant material to protect against degradation, particularly in the vapor space. Drums should be stored under controlled environmental conditions to preserve fluid quality. This includes:
+
+● Protection from direct sunlight to avoid UV-induced breakdown of both the container and the fluid 
+● Storage in temperature-stable environments to avoid thermal stress 
+● Clean, dry storage areas to minimize contamination risks 
+
+7.5 TANK STORAGE All tanks used for bulk storage or blending must be constructed from stainless steel, suitably lined carbon steel, HDPE or other plastics which offer the necessary chemical resistance and durability for long-term storage. Special attention must be given to the vapor space, where exposure to oxygen can promote corrosion or additive breakdown. Proper tank selection and maintenance are critical to preserving fluid quality, minimizing contamination and ensuring consistent performance across deployments.
+
+### 8 Documentation Requirements
+
+8.1 PRODUCT LABELING All packaged PG25 fluids must be clearly and accurately labeled to support traceability, quality assurance and regulatory compliance throughout the supply chain. This includes products stored in ISO containers, totes, drums, pails and bottles.
+
+Page 17
+
+Each label must include the following information:
+
+● Product name 
+● Batch or lot number 
+● Date of production or expiration date Labels must be durable and resistant to premature fading or peeling. This ensures that critical product information remains legible and accessible throughout transport, storage and use. Proper labeling is essential for enabling effective inventory management and supporting root-cause analysis in the event of performance issues or recalls. 
+8.2 CERTIFICATE OF ANALYSIS 
+A Certificate of Analysis (COA) must accompany every shipment of PG25 fluid or be 
+made readily accessible to the customer upon delivery. The COA serves as a critical 
+quality assurance document, verifying that the product meets the required specifications 
+for performance and consistency. 
+At a minimum, the COA must include: 
+● Propylene glycol concentration (expressed as % by weight or volume) 
+● Alternatively, the refractive index may be provided, along with the temperature at which the measurement was taken 
+● pH value of the final product, including temperature of measurement Additional data may be included to support transparency and traceability, such as batch number, production date, and results from impurity or performance testing. The COA ensures that end users can confidently validate product quality and compatibility with their systems, in alignment with OCP standards. 
+
+8.3 TECHNICAL DATA SHEET Manufacturers must provide a Technical Data Sheet (TDS) or equivalent product literature, that clearly outlines the typical physical and thermal properties of the formulated PG25 fluid. These values must be measured directly on the final product and not sourced solely from publicly available data or base chemical references.
+
+Page 18
+
+At a minimum, the following properties must be disclosed, with values reported across the expected operating temperature range, including the lowest anticipated temperature the fluid may encounter (e.g., during transportation or storage):
+
+● Viscosity 
+● Heat Capacity 
+● Density 
+● Thermal Conductivity If publicly available data is used to supplement or support reported values, the source must be clearly cited to maintain transparency and traceability. This requirement ensures that end users have access to accurate, application-specific data for system design, performance modeling, and operational planning 
+
+8.4 SAFETY DATA SHEET It is the responsibility of the fluid manufacturer to provide up-to-date, region-specific Safety Data Sheets (SDS) that are fully compliant with all applicable chemical safety regulations. These documents must be made readily available to customers and accompany shipments as required. SDS documentation must adhere to the standards set forth by relevant regulatory bodies, including but not limited to:
+
+● The Globally Harmonized System (GHS) for Classification and Labeling of Chemicals 
+● The European Chemicals Agency (ECHA) REACH Regulation 
+● The United States OSHA Hazard Communication Standard (HCS) All known hazards associated with the fluid and additive components must be accurately reported, including: 
+● Toxicity 
+● Environmental persistence 
+● Hazard classification Manufacturers must incorporate the most current hazard and classification data available from their suppliers and recognized regulatory databases (e.g., ECHA CHEM). SDS documents must be updated in accordance with regulatory timelines, for example, within 90 days of receiving new information in the United States. Maintaining accurate and compliant SDS documentation is essential for ensuring safe handling and regulatory transparency. 
+
+Page 19
+
+8.5 TRACEABILITY 
+To ensure traceability and support root-cause analysis in the event of a quality issue, 
+suppliers must implement a comprehensive batch tracking system for all PG25 fluids. 
+Each production batch must be traceable to a retained physical sample, which may 
+include material from the tank, truck, drum, ISO container or other packaging format. 
+These samples must be retained for a minimum of six months following production. 
+Batch records, including physical property data, blend sheets manufacturing location, 
+and any relevant quality control documentation, must be retained for a minimum of five 
+years. 
+This level of traceability ensures that any performance concerns or non-conformities 
+can be investigated thoroughly and efficiently. 
+8.6 ANALYTICAL RECORD RETENTION 
+Suppliers are required to maintain detailed records of all analytical testing conducted on 
+PG25 fluid batches produced for a minimum of three years. These records must include 
+results from quality control testing and be maintained in a secure, well-organized 
+manner. Each record should be clearly linked to the corresponding batch number and 
+production date to ensure traceability. 
+Maintaining thorough and accessible analytical documentation is essential for enabling 
+root-cause investigations, supporting continuous quality assurance and ensuring 
+consistency across production batches. 
+
+### 9 Product Maintenance and Support
+
+9.1 REMEDIATION CHEMICALS 
+Fluid suppliers must be capable of providing effective solutions to restore both glycol 
+concentration and inhibitor levels in the event of overdilution or depletion of inhibitors. 
+This can be achieved through the following options: 
+● Supplemental Chemicals - The original fluid manufacturer must offer compatible additive packages to re-inhibit the fluid when analytical parameters fall outside the manufacturer’s specified limits. 
+● Concentrated Solution - A higher-concentration fluid (e.g., PG 50, PG 55, or greater) must be available from the original manufacturer to restore glycol 
+
+Page 20
+
+concentration if the concentration drops below 25%. This formulation must contain the same additive package as the standard PG25 fluid and be produced in accordance with the guidelines outlined in this document (e.g., water quality, documentation, analytical verification, etc.).
+
+9.2 TECHNICAL SUPPORT 
+The fluid manufacturer must offer comprehensive technical guidance on the operational 
+conditions and performance parameters of the heat transfer fluid. This guidance should 
+include, but not be limited to, recommended temperature ranges, material compatibility, 
+startup/commissioning procedures and remediation. 
+9.3 ANALYTICAL SUPPORT 
+The original fluid manufacturer must offer technical support and analytical services to 
+assess fluid condition, either through in-house laboratories or qualified third-party 
+laboratories approved by the manufacturer. These services should be readily accessible 
+to the end user and supported by clear procedures for sample submission, testing and 
+interpretation of results. 
+At a minimum, qualified laboratories must be capable of testing the following 
+parameters: 
+Table 5: Analytical Requirements for PG25 Evaluation 
+
+| | Parameter | | Method | Notes | |
+| --- | --- | --- | --- | --- | --- |
+| | Propylene | Glycol | ASTM D7922, | When using refractive index | to determine |
+| | Concentration | | D3321, E202 | propylene glycol concentration, | a |
+
+When using refractive index to determine propylene glycol concentration, a fluid-specific refractive index table must be available to interpret results, as refractive index will vary depending on additive package. Note: Test strips are not an acceptable method as test strips are not highly accurate Fluid pH ASTM D1287 Note: Test strips are not an acceptable method as test strips are not highly accurate
+
+Page 21
+
+Reserve Alkalinity ASTM D1121 Note: Test strips are not an acceptable method as test strips are not highly accurate
+
+Corrosion Inhibitors
+
+Test via Ion Chromatography (IC) or Liquid Chromatography (HPLC)
+
+Per supplier recommendati ons
+
+Chloride ASTM D5827 Test via Ion Chromatography (IC) or 
+Inductively Coupled Plasma (ICP), for 
+example 
+Sulfate ASTM D5827 Test via Ion Chromatography (IC) 
+Total Hardness, 
+as CaCO3 
+
+| | | Sulfate | ASTM | D5827 | | Test via Ion Chromatography | (IC) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | | Total Hardness, | ASTM | D6130 | | Test via Inductively Coupled | Plasma (ICP) |
+| | | as CaCO3 | | | | for calcium and magnesium | |
+| | | Propylene | ASTM Glycol | D5827 | | Test via Ion Chromatography | (IC) |
+| | | Degradation | | | | | |
+| | | Compounds | | | | | |
+| | | Metals | ASTM | D6130 | | Test via Inductively Coupled | Plasma (ICP) |
+
+Metals ASTM D6130 Test via Inductively Coupled Plasma (ICP) for copper, iron, lead, tin, zinc, silicon, chromium, molybdenum, nickel, aluminum
+
+Note: Although ASTM methods are referenced, equivalent methods are also acceptable (e.g. EPA, ISO, etc.).
+
+### 10 Compliance
+
+Below is a summary of the requirements necessary to be compliant with this specification:
+
+5 Product Composition Requirements 
+5.1 Propylene 
+Glycol Purity 
+
+PG25 fluids must be formulated using high-purity propylene glycol, such as PG USP/EP grade, with a minimum purity of 99.5%. Source of propylene glycol and purity must be disclosed in documentation.
+
+Page 22
+
+##### 5.2 Chemical Composition
+
+PG25 fluids must contain 25–28% propylene glycol by weight, along with corrosion inhibitors that are compatible with common system metallurgy. The fluid must also include a dye additive to support leak detection and fluid identification during operation and maintenance. Silicate-based additives are prohibited
+
+##### 5.3 Ready-to-Use Fluid Requirements
+
+PG25 fluids must be supplied as ready-to-use solutions which are blended to contain 25–28% propylene glycol by weight (approximately 24.5–27.5% by volume, depending on specific formulation).
+
+##### 5.4 Water Quality Requirements
+
+High-purity water, meeting the requirements in Table 1, must 
+be used for blending PG25 fluids. Manufacturers are required 
+to maintain an internal specification for water quality and 
+conduct routine testing 
+5.5 Fluid pH PG25 fluids must exhibit a stable pH between 7.5 and 10.5, 
+as measured in its final, ready-to-use state. 
+5.6 Impurities PG25 fluids must contain low levels of impurities, as 
+indicated in Table 2. 
+
+##### 5.7 Product Consistency
+
+PG25 fluids must demonstrate consistent formulation and quality across all regions and production batches
+
+##### 5.8 Final Product Filtration
+
+PG25 fluids must undergo final filtration by the manufacturer prior to being transferred into containers such as totes, drums, ISO tanks or transport vehicles. Filtration must be performed using filters rated at 50 microns or finer. Note: If filtration >25 micron is used, particle size and distribution data may be required.
+
+6 Performance Requirements 
+6.2 Corrosion 
+Protection 
+
+PG25 fluids must meet or exceed the corrosion rate limits outlined in Table 3, as determined by a modified ASTM D8040 test method.
+
+Page 23
+
+##### 6.3 Thermal Stability
+
+PG25 fluids must produce less than 0.25 mL of precipitate when tested according to a modified ASTM D7437 method.
+
+7 Transportation and Storage Requirements 
+7.2 Transportation PG25 fluids must be transported in a manner that 
+safeguards the chemical stability and cleanliness. 
+7.3 Tote Storage Totes used for storage and transport of PG25 fluids must be 
+made from materials known to be compatible with 
+formulated propylene glycol and water blends, such as 
+high-density polyethylene (HDPE). Totes should be stored 
+under controlled environmental conditions. 
+7.4 Drum Storage Drums used for storing PG25 fluids must be constructed 
+from materials compatible with formulated propylene glycol 
+and water blends such as HDPE. If carbon steel drums are 
+used, they must be internally lined with a suitable 
+corrosion-resistant material to protect against degradation, 
+particularly in the vapor space. Drums should be stored 
+under controlled environmental conditions to preserve fluid 
+quality. 
+7.5 Tank Storage All tanks used for bulk storage or blending of PG25 fluids 
+must be constructed from stainless steel, suitably lined 
+carbon steel or HDPE, which offer the necessary chemical 
+resistance and durability for long-term storage. 
+8 Documentation Requirements 
+8.1 Product 
+Labeling 
+
+All packaged PG25 fluids must be clearly and accurately labeled to support traceability, quality assurance and regulatory compliance throughout the supply chain.
+
+Page 24
+
+##### 8.2 Certificate of Analysis
+
+A Certificate of Analysis (COA) must accompany every shipment of PG25 fluid or be made readily accessible to the customer upon delivery. This document must included propylene glycol concentration (or refractive index) and pH, at a minimum.
+
+##### 8.3 Technical Data Sheet
+
+Manufacturers must provide a Technical Data Sheet (TDS) or equivalent product literature, that clearly outlines the typical physical and thermal properties of the formulated PG25 fluid.
+
+##### 8.4 Safety Data Sheet
+
+It is the responsibility of the fluid manufacturer to provide up-to-date, region-specific Safety Data Sheets (SDS) that are fully compliant with all applicable chemical safety regulations. These documents must be made readily available to customers and accompany shipments as required. SDS documentation must adhere to the standards set forth by relevant regulatory bodies. 8.5 Tracking To ensure traceability and support root-cause analysis in the event of a quality issue, suppliers must implement a comprehensive batch tracking system for all PG25 fluids. Retains from every batch produced must be maintained for a minimum of six months, with records being retained for a minimum of five years.
+
+##### 8.6 Analytical Record Retention
+
+Suppliers are required to maintain detailed records of all analytical testing conducted on PG25 fluid batches produced for a minimum of three years.
+
+9 Product Maintenance and Support 
+9.1 Remediation 
+Chemicals 
+
+Fluid vendors must be capable of providing effective and compatible solutions to restore both glycol concentration and inhibitor levels in the event of overdilution or depletion of inhibitors.
+
+Page 25
+
+##### 9.2 Technical Support
+
+The fluid manufacturer must offer comprehensive technical guidance on the operational conditions and performance parameters of the heat transfer fluid.
+
+##### 9.3 Analytical Support
+
+The original fluid manufacturer must provide technical support and analytical services to assess coolant condition, either through in-house laboratories or qualified third-party laboratories approved by the manufacturer.
+
+### 11 Referenced Methods
+
+This section outlines the standardized test methods referenced in this specification. The 
+listed ASTM methods serve as the technical foundation for assessing key performance 
+attributes, ensuring consistency, reliability and comparability across submissions. 
+Methods included in Table 6 have been selected based on relevance to physical, 
+chemical and thermal properties critical to the application of PG25 fluid. 
+Table 6: ASTM Methods 
+Method Title Purpose 
+ASTM D7922 Standard Test Method for 
+Determination of Glycol for In-Service 
+Engine Oils by Gas Chromatography 
+
+| | Method | | | | Title | | Purpose | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | ASTM | | D7922 | | Standard | Test Method for | Quantification | of |
+| | | | | | Determination | of Glycol for | In-Service propylene glycol | |
+| | | | | | Engine | Oils by Gas Chromatography | concentration | |
+| | ASTM | | D1121 | | Standard | Test Method for | Reserve Determination | of reserve |
+| | | | | | Alkalinity | of Engine Coolants | and alkalinity | |
+
+Antirusts
+
+| | ASTM | | D1125 | | Standard | Test Methods for | Electrical Determination | of |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | Conductivity | and Resistivity | of Water electrical conductivity | |
+| | ASTM | | D1287 | | Standard | Test Method for | pH of Determination | of fluid pH |
+
+Engine Coolants and Antirusts
+
+Assessment of foaming behavior
+
+ASTM D1881 Standard Test Method for Foaming Tendencies of Engine Coolants in Glassware
+
+ASTM D3321 Standard Test Method for Use of the Estimation of propylene
+
+Page 26
+
+glycol concentration via refractive index
+
+Refractometer for Field Test Determination of the Freezing Point of Aqueous Engine Coolants
+
+| ASTM D5465 | Standard Practices for | Determining Determination | of |
+| --- | --- | --- | --- |
+| | Microbial Colony Counts | from Waters microbial contamination | |
+| | Analyzed by Plating Methods | in dilution water | |
+| ASTM D5827 | Standard Test Method | for Analysis of Determination | of anions |
+
+ASTM D5827 Standard Test Method for Analysis of Engine Coolant for Chloride and Other Anions by Ion Chromatography
+
+Determination of anions (e.g. chloride, sulfate, degradation acids, etc.)
+
+| | Anions by Ion Chromatography | degradation | acids, etc.) |
+| --- | --- | --- | --- |
+| ASTM D6130 | Standard Test Method | for Quantification | of metals |
+| | Determination of Silicon | and Other and elements | (e.g. |
+| | Elements in Engine Coolant | by copper, iron, | calcium, |
+| | Inductively Coupled Plasma-Atomic | magnesium, | silicon, etc.) |
+
+Emission Spectroscopy
+
+| ASTM D7437 | Standard Test Method | for Evaluation of | fluid |
+| --- | --- | --- | --- |
+| | Temperature and Hard | Water Stability stability in presence | of |
+| | of Engine Coolants | heat and hard | water |
+| ASTM D8039 | Standard Specification | for Heat Reference for | acceptable |
+| | Transfer Fluids (HTF) | for Heating and foam characteristics | |
+
+Air Conditioning (HVAC) Systems
+
+ASTM D8040 Standard Test Method for Corrosion Test for Heat Transfer Fluids in Glassware
+
+Evaluation of the effects of heat transfer fluids on metal specimens under controlled laboratory conditions
+
+Quantify propylene glycol concentration
+
+ASTM E202 Standard Test Methods for Analysis of Ethylene Glycols and Propylene Glycols
+
+Note: Referenced ASTM methods are guidelines, however, equivalent methods are also acceptable.
+
+### 12 References
+
+The following references were cited throughout this document to support technical content, methodologies and specifications.
+
+Page 27
+
+Yaroch, K., Cuthbert, J., Miller, D., Sivapalan, S. T., & Barlett, S. (2022). Guidelines for 
+Using Propylene Glycol-Based Heat Transfer Fluids in Single-Phase Cold Plate-Based 
+Liquid-Cooled Racks. Open Compute Project. Retrieved from 
+https://www.opencompute.org/documents/guidelines-for-using-propylene-glycol-based-h 
+eat-transfer-fluids-in-single-phase-cold-plate-based-liquid-cooled-racks-final-pdf 
+Note: This document is currently under revision as of 7/14/2026 
+National Toxicology Program. (2021). Report on Carcinogens, Fifteenth Edition: 
+Nitrosamines. U.S. Department of Health and Human Services, Public Health Service. 
+Retrieved from: 
+https://ntp.niehs.nih.gov/sites/default/files/ntp/roc/content/profiles/nitrosamines.pdf 
+ASTM International. Standard Test Method for Reserve Alkalinity of Engine Coolants 
+and Antirusts. ASTM D1121‑25. West Conshohocken, PA: ASTM International; 2025. 
+https://doi.org/10.1520/D1121-25 
+ASTM International. Standard Test Methods for Electrical Conductivity and Resistivity of 
+Water. ASTM D1125‑23. West Conshohocken, PA: ASTM International; 2023. 
+https://doi.org/10.1520/D1125-23 
+ASTM International. Standard Test Method for pH of Engine Coolants and Antirusts. 
+ASTM D1287‑25. West Conshohocken, PA: ASTM International; 2025. 
+https://doi.org/10.1520/D1287-25 
+
+ASTM International. Standard Test Method for Foaming Tendencies of Engine Coolants in Glassware. ASTM D1881‑24. West Conshohocken, PA: ASTM International; 2024. https://doi.org/10.1520/D1881-24
+
+ASTM International. Standard Test Method for Use of the Refractometer for Field Test Determination of the Freezing Point of Aqueous Engine Coolants. ASTM D3321‑19(2023). West Conshohocken, PA: ASTM International; 2023. https://doi.org/10.1520/D3321-19R23
+
+Page 28
+
+ASTM International. Standard Practices for Determining Microbial Colony Counts from Waters Analyzed by Plating Methods. ASTM D5465‑25. West Conshohocken, PA: ASTM International; 2025. https://doi.org/10.1520/D5465-25 [img.antpedia.com]
+
+ASTM International. Standard Test Method for Analysis of Engine Coolant for Chloride and Other Anions by Ion Chromatography. ASTM D5827‑22. West Conshohocken, PA: ASTM International; 2022. https://doi.org/10.1520/D5827-22
+
+ASTM International. Standard Test Method for Determination of Silicon and Other Elements in Engine Coolant by Inductively Coupled Plasma‑Atomic Emission Spectroscopy. ASTM D6130‑24. West Conshohocken, PA: ASTM International; 2024. https://doi.org/10.1520/D6130-24
+
+ASTM International. Standard Test Method for Temperature and Hard Water Stability of 
+Engine Coolants. ASTM D7437‑23. West Conshohocken, PA: ASTM International; 
+2023. https://doi.org/10.1520/D7437-23 
+ASTM International. Standard Test Method for Determination of Glycol for In‑Service 
+Engine Oils by Gas Chromatography. ASTM D7922‑23. West Conshohocken, PA: 
+ASTM International; 2023. https://doi.org/10.1520/D7922-23 
+ASTM International. Standard Specification for Heat Transfer Fluids (HTF) for Heating 
+and Air Conditioning (HVAC) Systems. ASTM D8039‑16(2023). West Conshohocken, 
+PA: ASTM International; 2023. https://doi.org/10.1520/D8039-16R23 
+ASTM International. Standard Test Method for Corrosion Test for Heat Transfer Fluids in 
+Glassware. ASTM D8040‑18(2023). West Conshohocken, PA: ASTM International; 
+2023. https://doi.org/10.1520/D8040-18R23 
+ASTM International. Standard Test Methods for Analysis of Ethylene Glycols and 
+Propylene Glycols. ASTM E202‑24. West Conshohocken, PA: ASTM International; 
+2024. https://doi.org/10.1520/E0202-24 
+
+Page 29
+

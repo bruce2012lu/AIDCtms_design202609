@@ -1,0 +1,14 @@
+parameter,FWS_ASHRAE_2014_Table6_1,TCS_ASHRAE_2014_Table6_2,source
+pH,7 to 9,8.0 to 9.5,Water-Cooled Servers 2019 PDF p.24
+Corrosion inhibitor(s),Required,Required,PDF p.24
+Biocide,-,Required,PDF p.24
+Sulfide,<10 ppm,<1 ppm,PDF p.24
+Sulfate,<100 ppm,<10 ppm,PDF p.24
+Chloride,<50 ppm,<5 ppm,PDF p.24
+Bacteria,<1000 CFU/mL,<100 CFU/mL,PDF p.24
+Total hardness (as CaCO3),<200 ppm,<20 ppm,PDF p.24
+Conductivity,-,0.2 to 20 micromho/cm,PDF p.24
+Total suspended solids,-,<3 ppm,PDF p.24
+Residue after evaporation,<500 ppm,<50 ppm,PDF p.24
+Turbidity,<20 NTU,<20 NTU,PDF p.24
+TCS absolute filter rating,-,7 to 10 times smaller than the finest channel dimension,PDF p.25

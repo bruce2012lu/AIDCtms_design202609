@@ -1,0 +1,11 @@
+{
+  "id": "dat-2004-sun-pg-water-thermoml",
+  "sha256": "7bdb08088c3bd0d4b7f1cb242a2972a65eae6119f55fac2cee69128ae50332ce",
+  "source": "files/datasets/dat-2004-sun-pg-water-thermoml.xml",
+  "extracted_at": "2026-10-02T23:27:27",
+  "pages": 1,
+  "chars": 260084,
+  "chunks": 176,
+  "tables": 0,
+  "figures": 0
+}

@@ -1,0 +1,1984 @@
+[
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2008-celik-gci-procedure",
+    "type": "paper",
+    "title": "Procedure for Estimation and Reporting of Uncertainty Due to Discretization in CFD Applications",
+    "title_zh": "CFD 应用中离散误差不确定度的估计与报告程序（ASME JFE 编辑政策）",
+    "authors": [
+      "Ismail B. Celik",
+      "Urmila Ghia",
+      "Patrick J. Roache",
+      "Christopher J. Freitas",
+      "Hugh W. Coleman",
+      "Peter E. Raad"
+    ],
+    "org": "ASME Fluids Engineering Division",
+    "year": 2008,
+    "venue": "Journal of Fluids Engineering 130(7):078001",
+    "identifiers": {
+      "doi": "10.1115/1.2960953"
+    },
+    "url": "https://doi.org/10.1115/1.2960953",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "ASME 以编辑政策形式免费公开（官网托管 PDF），版权保留",
+      "redistributable": false,
+      "copyright_note": "下载自 asme.org 官方托管的 JFE 数值精度政策 PDF（JFENumAccuracy.pdf），为政策正文稿件版而非期刊排版版；ASME Digital Collection 期刊页被 Cloudflare 拦截（HTTP 403），未取得排版版。作者列表中 Coleman、Raad 见期刊版署名，托管稿首页仅列前四位。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "ASME J. Fluids Eng. 官方编辑政策，CFD 网格收敛报告事实标准",
+    "stages": [
+      5
+    ],
+    "topics": [
+      "GCI",
+      "Richardson extrapolation",
+      "solution verification",
+      "numerical uncertainty"
+    ],
+    "summary_zh": "JFE 官方推荐的三套网格 GCI 五步法：定义代表网格尺度 h → 选三套显著不同网格（r>1.3）→ 定点迭代求表观阶 p → Richardson 外推 → 报告 e_a、e_ext、GCI_fine（Fs=1.25）。附录 A 给出迭代误差估计（要求迭代误差比离散误差小一个量级），并要求残差至少下降 3（最好 4）个数量级。Table 1 三组算例可作为我方 GCI 计算器的回归基准。",
+    "formulas": [
+      {
+        "name": "代表网格尺度（3D）",
+        "latex": "h=\\left[\\frac{1}{N}\\sum_{i=1}^{N}\\Delta V_i\\right]^{1/3}",
+        "validity": "积分量（如阻力系数、热阻）用全局平均尺寸；场变量可用局部单元尺寸",
+        "locator": "Eq.(1)，ASME 官网托管稿 PDF（共 15 页：p.1–2 为 1993 版 JFE 数值精度政策十条；p.3–15 为 2008 Celik 等程序稿，文内页码 1–13） PDF p.5（文内 p.3）"
+      },
+      {
+        "name": "代表网格尺度（2D）",
+        "latex": "h=\\left[\\frac{1}{N}\\sum_{i=1}^{N}\\Delta A_i\\right]^{1/2}",
+        "validity": "2D 网格",
+        "locator": "Eq.(2)，PDF p.5（文内 p.3）"
+      },
+      {
+        "name": "网格细化比",
+        "latex": "r_{21}=h_2/h_1,\\quad r_{32}=h_3/h_2,\\quad h_1<h_2<h_3,\\quad r=h_{coarse}/h_{fine}>1.3",
+        "validity": "1.3 为经验值；非结构网格也须系统性细化，几何相似单元更佳",
+        "locator": "Step 2–3，PDF p.6（文内 p.4）"
+      },
+      {
+        "name": "表观阶 p（定点迭代）",
+        "latex": "p=\\frac{1}{\\ln r_{21}}\\left|\\ln\\left|\\varepsilon_{32}/\\varepsilon_{21}\\right|+q(p)\\right|",
+        "validity": "初值取首项；r 恒定时 q(p)=0",
+        "locator": "Eq.(3a)，PDF p.6（文内 p.4）"
+      },
+      {
+        "name": "q(p)",
+        "latex": "q(p)=\\ln\\left(\\frac{r_{21}^{p}-s}{r_{32}^{p}-s}\\right)",
+        "validity": "",
+        "locator": "Eq.(3b)，PDF p.6"
+      },
+      {
+        "name": "符号项与解差",
+        "latex": "s=1\\cdot\\operatorname{sgn}\\left(\\varepsilon_{32}/\\varepsilon_{21}\\right),\\quad \\varepsilon_{32}=\\phi_3-\\phi_2,\\quad \\varepsilon_{21}=\\phi_2-\\phi_1",
+        "validity": "\\varepsilon_{32}/\\varepsilon_{21}<0 表示振荡收敛；任一 \\varepsilon 接近 0 时程序失效，应加密网格",
+        "locator": "Eq.(3c)，PDF p.6–7"
+      },
+      {
+        "name": "Richardson 外推值",
+        "latex": "\\phi_{ext}^{21}=\\frac{r_{21}^{p}\\phi_1-\\phi_2}{r_{21}^{p}-1}",
+        "validity": "同理求 φ_ext^32",
+        "locator": "Eq.(4)，PDF p.7（文内 p.5）"
+      },
+      {
+        "name": "近似相对误差",
+        "latex": "e_a^{21}=\\left|\\frac{\\phi_1-\\phi_2}{\\phi_1}\\right|",
+        "validity": "",
+        "locator": "Eq.(5)，PDF p.7"
+      },
+      {
+        "name": "外推相对误差",
+        "latex": "e_{ext}^{21}=\\left|\\frac{\\phi_{ext}^{12}-\\phi_1}{\\phi_{ext}^{12}}\\right|",
+        "validity": "",
+        "locator": "Eq.(6)，PDF p.7"
+      },
+      {
+        "name": "细网格收敛指数",
+        "latex": "GCI_{fine}^{21}=\\frac{1.25\\,e_a^{21}}{r_{21}^{p}-1}",
+        "validity": "三套网格，Fs=1.25；不含模型误差",
+        "locator": "Eq.(7)，PDF p.7（文内 p.5）"
+      },
+      {
+        "name": "迭代误差估计（附录 A）",
+        "latex": "\\varepsilon_{iter,i}^{n}\\cong\\frac{\\phi_i^{n+1}-\\phi_i^{n}}{\\lambda_i-1},\\quad \\lambda_i\\cong\\frac{\\|\\phi_i^{n+1}-\\phi_i^{n}\\|}{\\|\\phi_i^{n}-\\phi_i^{n-1}\\|}",
+        "validity": "λ_ave 建议加限幅 <2；迭代误差应比离散误差小至少一个量级（式形依 PDF 文本抽取重排，需对照原文核对）",
+        "locator": "Eq.(A.1)–(A.3)，PDF p.14（文内 p.12）"
+      }
+    ],
+    "key_data": [
+      {
+        "quantity": "残差下降要求",
+        "value": "≥3 个数量级（最好 4）",
+        "condition": "每个求解方程的归一化残差，计算离散误差前",
+        "locator": "Preliminaries，PDF p.4（文内 p.2）",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "Table 1 算例 1（再附着长度，单调收敛）",
+        "value": "N=18000/8000/4500; r21=1.5, r32=1.333; φ=6.063/5.972/5.863; p=1.53; φ_ext=6.1685; e_a=1.5%; e_ext=1.7%; GCI_fine=2.2%",
+        "condition": "2D 湍流后台阶",
+        "locator": "Table 1，PDF p.9（文内 p.7）",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "Table 1 算例 2（p<1）",
+        "value": "N=18000/4500/980; r21=2.0, r32=2.143; φ=10.7880/10.7250/10.6050; p=0.75; φ_ext=10.8801; GCI_fine=1.1%",
+        "condition": "x/H=8, y=0.0526 轴向速度",
+        "locator": "Table 1，PDF p.9",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "Table 1 算例 3（振荡收敛）",
+        "value": "φ=6.0042/5.9624/6.0909; p=1.51; φ_ext=6.0269; GCI_fine=0.5%",
+        "condition": "同上，振荡收敛",
+        "locator": "Table 1，PDF p.9",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "噪声收敛建议",
+        "value": "使用最小二乘版 GCI（Eça & Hoekstra）",
+        "locator": "PDF p.10（文内 p.8）",
+        "verified_from": "fulltext"
+      }
+    ],
+    "benchmark_candidate": true,
+    "benchmark_note": "本子智能体以独立 Python 实现复算 Table 1 三组：p=1.537/0.752/1.508，GCI=2.17%/1.07%/0.47%，与原表 2.2%/1.1%/0.5% 一致，可直接作为 GCI 计算工具单元测试。",
+    "notes": "⑤ Fluent 单元胞 CFD 网格无关性首选依据。建议监控量：芯片最高温度、冷板热阻 R_th、压降 Δp 三项分别做 GCI。",
+    "file": {
+      "path": "files/papers/pap-2008-celik-gci-procedure.pdf",
+      "sha256": "3e22d96c3c0ac7c27e7daabcca92ca6e8b09e30d7ae7d8f24ffd273c01fa2397",
+      "bytes": 194760,
+      "source_url": "https://www.asme.org/wwwasmeorg/media/resourcefiles/shop/journals/jfenumaccuracy.pdf",
+      "downloaded_at": "2026-10-02",
+      "pages": 15
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-0000-nasa-nparc-spatial-convergence",
+    "type": "paper",
+    "title": "Examining Spatial (Grid) Convergence",
+    "title_zh": "NPARC 联盟 CFD V&V 教程：空间（网格）收敛性检验",
+    "org": "NASA Glenn Research Center / NPARC Alliance",
+    "year": 2021,
+    "venue": "NPARC Alliance CFD Verification and Validation Web Site (tutorial)",
+    "url": "https://www.grc.nasa.gov/www/wind/valid/tutorial/spatconv.html",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "US 政府作品（NASA 网页）",
+      "redistributable": true,
+      "copyright_note": "保存为 HTML（fetch.py --ext html，不校验文件头）；公式为 GIF 图片，未随 HTML 本地保存，需联网查看。"
+    },
+    "trust_level": "L3",
+    "trust_reason": "NASA GRC 官方教程网页，国家实验室级技术资料，非同行评审",
+    "stages": [
+      5
+    ],
+    "topics": [
+      "GCI",
+      "Richardson extrapolation",
+      "asymptotic range"
+    ],
+    "summary_zh": "Roache GCI 的通俗教程：Fs=3.0（两套网格）/1.25（三套及以上）；渐近区检验 GCI23 = r^p·GCI12；r≥1.1 才能区分离散误差与迭代/舍入误差；有效细化比 r_eff=(N1/N2)^{1/D}；可按方向分别计算 GCI 后求和；含进气道压力恢复示例。",
+    "formulas": [
+      {
+        "name": "渐近区检验",
+        "latex": "GCI_{23}\\approx r^{p}\\,GCI_{12}",
+        "validity": "比值≈1 表示处于渐近收敛区",
+        "locator": "§Grid Convergence Index（网页正文，公式为图片 eq_gcisum 附近）"
+      },
+      {
+        "name": "有效细化比",
+        "latex": "r_{eff}=\\left(N_1/N_2\\right)^{1/D}",
+        "validity": "非结构网格适用；D 为维数",
+        "locator": "§Effective Grid Refinement Ratio（公式为图片 eq_reffective.gif）"
+      }
+    ],
+    "key_data": [
+      {
+        "quantity": "安全系数 Fs",
+        "value": "两套网格 3.0；三套及以上 1.25",
+        "locator": "§Grid Convergence Index",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "最小细化比",
+        "value": "r ≥ 1.1",
+        "locator": "§Grid Considerations",
+        "verified_from": "fulltext"
+      }
+    ],
+    "notes": "页面显示 Last Updated 2021；原始成稿年份未知，故 id 年份写 0000。",
+    "file": {
+      "path": "files/papers/pap-0000-nasa-nparc-spatial-convergence.html",
+      "sha256": "bd279deb8664487d47500c03b06997ee9f5c052ab8a8ea19ea41e639386bd1f0",
+      "bytes": 29126,
+      "source_url": "https://www.grc.nasa.gov/www/wind/valid/tutorial/spatconv.html",
+      "downloaded_at": "2026-10-02"
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-0000-nasa-tmr-uncertainty-summary",
+    "type": "paper",
+    "title": "Summary of Uncertainty Procedure",
+    "title_zh": "NASA 湍流模型资源（TMR）不确定度程序摘要",
+    "org": "NASA Langley Turbulence Modeling Resource / AIAA TMBWG",
+    "year": 2018,
+    "venue": "Turbulence Modeling Resource website",
+    "url": "https://turbmodels.larc.nasa.gov/",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "公开网页文档（NASA TMR 内容，现托管于 tmbwg.github.io）",
+      "redistributable": false,
+      "copyright_note": "实际下载地址 tmbwg.github.io/turbmodels（NASA TMR 迁移镜像）；文档落款日期 9/12/2018，作者未署名。"
+    },
+    "trust_level": "L3",
+    "trust_reason": "NASA LaRC TMR 官方方法说明，非同行评审",
+    "stages": [
+      5
+    ],
+    "topics": [
+      "GCI",
+      "Celik 2008 变体",
+      "Eça-Hoekstra 限幅"
+    ],
+    "summary_zh": "在 Celik 2008 基础上的实用改进：不取绝对值以识别发散（p≤0）；当 0<p<0.95 时 GCI 取 min(式10, 1.25ΔM/|φ1|)；p>3.05 时强制 p=3（原文写 Chi=3.05 并以 r^3 计算）并取 max；振荡或 p≤0 时可用 3ΔM/|φ1|。适合做我方 GCI 工具的异常分支逻辑。",
+    "formulas": [
+      {
+        "name": "低阶限幅",
+        "latex": "GCI_{fine}^{21}=\\min\\left(\\frac{1.25e_a^{21}}{r_{21}^{p}-1},\\ \\frac{1.25\\Delta_M}{|\\phi_1|}\\right),\\ 0<p<C_{low}=0.95",
+        "validity": "\\Delta_M=\\max(|\\phi_2-\\phi_1|,|\\phi_3-\\phi_2|,|\\phi_3-\\phi_1|)",
+        "locator": "Eq.(12)，p.2"
+      },
+      {
+        "name": "高阶限幅",
+        "latex": "GCI_{fine}^{21}=\\max\\left(\\frac{1.25e_a^{21}}{r_{21}^{3}-1},\\ \\frac{1.25\\Delta_M}{|\\phi_1|}\\right),\\ p>C_{hi}=3.05",
+        "validity": "",
+        "locator": "Eq.(13)，p.2"
+      },
+      {
+        "name": "非单调收敛",
+        "latex": "GCI_{fine}^{21}=3\\Delta_M/|\\phi_1|",
+        "validity": "振荡（ε32/ε21≤0）或 p≤0",
+        "locator": "Eq.(14)，p.2"
+      }
+    ],
+    "key_data": [
+      {
+        "quantity": "结果表述",
+        "value": "φ ≈ φ1 ± GCI_fine^21·|φ1|",
+        "locator": "Eq.(11)，p.2",
+        "verified_from": "fulltext"
+      }
+    ],
+    "notes": "年份 2018 来自文档落款；因下载时未确认作者/年份，id 用 0000。",
+    "file": {
+      "path": "files/papers/pap-0000-nasa-tmr-uncertainty-summary.pdf",
+      "sha256": "0f5b731e7c0699c88973da06aa6467a638962f291f18326d9e31432cfbade28a",
+      "bytes": 106246,
+      "source_url": "https://tmbwg.github.io/turbmodels/Papers/uncertainty_summary.pdf",
+      "downloaded_at": "2026-10-02",
+      "pages": 2
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2014-eca-ls-numerical-uncertainty",
+    "type": "paper",
+    "title": "A procedure for the estimation of the numerical uncertainty of CFD calculations based on grid refinement studies",
+    "title_zh": "基于网格细化研究的 CFD 数值不确定度估计程序（最小二乘法）",
+    "authors": [
+      "L. Eça",
+      "M. Hoekstra"
+    ],
+    "org": "IST Lisbon / MARIN",
+    "year": 2014,
+    "venue": "Journal of Computational Physics 262:104–130",
+    "identifiers": {
+      "doi": "10.1016/j.jcp.2014.01.006",
+      "osti_id": "22314855"
+    },
+    "url": "https://doi.org/10.1016/j.jcp.2014.01.006",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "Elsevier 版权；作者机构 MARIN 官网公开托管",
+      "redistributable": false,
+      "copyright_note": "下载自共同作者所属机构 MARIN 官网下载区（期刊排版版）。出版商为 closed access，本地副本仅供内部研究，不得随仓库分发。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "JCP 同行评审；Lisbon 验证研讨会方法论核心文献",
+    "stages": [
+      5
+    ],
+    "topics": [
+      "least-squares GCI",
+      "noisy grid convergence",
+      "safety factor"
+    ],
+    "summary_zh": "≥4 套网格时用幂级数误差展开最小二乘拟合（δ_RE=αh^p，δ1=αh，δ2=αh²，δ12=α1h+α2h²，含加权版本），按拟合标准差选最佳；0.5≤p<2.1 且 σ<Δφ 时 Fs=1.25，否则 Fs=3；不确定度 U=Fs·ε+σ+|φi−φfit|。数据良好时退化为 GCI。适合冷板非结构网格噪声收敛场景。",
+    "formulas": [
+      {
+        "name": "最小二乘目标（RE）",
+        "latex": "S_{RE}(\\phi_o,\\alpha,p)=\\sqrt{\\sum_{i=1}^{n_g}\\left(\\phi_i-(\\phi_o+\\alpha h_i^{p})\\right)^2}",
+        "validity": "另有 S1、S2、S12 及加权版 Eq.(12)–(15)，权重 w_i=(1/h_i)/Σ(1/h_i)",
+        "locator": "Eq.(8)–(11)，p.107"
+      },
+      {
+        "name": "数据范围参数",
+        "latex": "\\Delta_\\phi=\\frac{(\\phi_i)_{max}-(\\phi_i)_{min}}{n_g-1}",
+        "validity": "",
+        "locator": "Eq.(19)，p.108"
+      },
+      {
+        "name": "安全系数",
+        "latex": "F_s=\\begin{cases}1.25,&0.5\\le p<2.1\\ \\text{且}\\ \\sigma<\\Delta_\\phi\\\\3,&\\text{否则}\\end{cases}",
+        "validity": "二阶格式",
+        "locator": "§2.4 与 Appendix A step 3，p.108、p.125"
+      },
+      {
+        "name": "不确定度（σ<Δφ）",
+        "latex": "U_\\phi(\\phi_i)=F_s\\,\\epsilon_\\phi(\\phi_i)+\\sigma+|\\phi_i-\\phi_{fit}|",
+        "validity": "",
+        "locator": "Eq.(20)，p.108"
+      },
+      {
+        "name": "不确定度（σ≥Δφ）",
+        "latex": "U_\\phi(\\phi_i)=3\\frac{\\sigma}{\\Delta_\\phi}\\left(\\epsilon_\\phi(\\phi_i)+\\sigma+|\\phi_i-\\phi_{fit}|\\right)",
+        "validity": "",
+        "locator": "Eq.(21)，p.108"
+      }
+    ],
+    "key_data": [
+      {
+        "quantity": "最少网格数",
+        "value": "≥4 套",
+        "locator": "§2.4，p.107",
+        "verified_from": "fulltext"
+      }
+    ],
+    "notes": "页码为期刊页码（PDF p.4–5 = 期刊 p.107–108）。",
+    "file": {
+      "path": "files/papers/pap-2014-eca-ls-numerical-uncertainty.pdf",
+      "sha256": "089dd9bb522b85a833dba4b778b9da9d37aee3a66cacad0535958a4f31827b92",
+      "bytes": 3731203,
+      "source_url": "https://www.marin.nl/api/marin/downloads/get-download/5675/0/860/block_files_utb8kwxda60a/VsLN4atolTpeBkST8w5DtHMRBwg=/2014-JCP-Vol262-Eca_Hoekstra-V&VProc.pdf",
+      "downloaded_at": "2026-10-02",
+      "pages": 27
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-1994-roache-gci-uniform-reporting",
+    "type": "paper",
+    "title": "Perspective: A Method for Uniform Reporting of Grid Refinement Studies",
+    "title_zh": "网格细化研究统一报告方法（GCI 原始提出）",
+    "authors": [
+      "Patrick J. Roache"
+    ],
+    "year": 1994,
+    "venue": "Journal of Fluids Engineering 116(3):405–413",
+    "identifiers": {
+      "doi": "10.1115/1.2910291"
+    },
+    "url": "https://doi.org/10.1115/1.2910291",
+    "language": "en",
+    "access": {
+      "status": "paywalled",
+      "redistributable": false,
+      "how_to_get": "ASME Digital Collection 订阅/单篇购买；或馆际互借。OpenAlex 标记 closed。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "JFE 同行评审，GCI 原始文献",
+    "stages": [
+      5
+    ],
+    "topics": [
+      "GCI"
+    ],
+    "summary_zh": "首次提出 GCI：把任意网格细化结果折算为“二阶方法网格加倍”的等效误差带。公式已被 Celik 2008 继承，实务以后者为准。",
+    "notes": "卷期页码来自通识，未从全文核对。"
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-1997-roache-cfd-uncertainty-quantification",
+    "type": "paper",
+    "title": "Quantification of Uncertainty in Computational Fluid Dynamics",
+    "title_zh": "CFD 不确定度量化（综述）",
+    "authors": [
+      "Patrick J. Roache"
+    ],
+    "year": 1997,
+    "venue": "Annual Review of Fluid Mechanics 29:123–160",
+    "identifiers": {
+      "doi": "10.1146/annurev.fluid.29.1.123"
+    },
+    "url": "https://doi.org/10.1146/annurev.fluid.29.1.123",
+    "language": "en",
+    "access": {
+      "status": "paywalled",
+      "redistributable": false,
+      "how_to_get": "Annual Reviews 订阅/单篇购买；馆际互借。OpenAlex 标记 closed。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "Annual Review 同行评审综述",
+    "stages": [
+      5
+    ],
+    "topics": [
+      "verification",
+      "validation",
+      "GCI"
+    ],
+    "summary_zh": "区分代码验证与解验证，系统论述 Richardson 外推、GCI 与 V&V 术语，是 V&V 体系奠基综述。"
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "hbk-2010-oberkampf-vv-scientific-computing",
+    "type": "handbook",
+    "title": "Verification and Validation in Scientific Computing",
+    "title_zh": "科学计算中的验证与确认",
+    "authors": [
+      "William L. Oberkampf",
+      "Christopher J. Roy"
+    ],
+    "org": "Cambridge University Press",
+    "year": 2010,
+    "venue": "Cambridge University Press（专著）",
+    "identifiers": {
+      "doi": "10.1017/CBO9780511760396"
+    },
+    "url": "https://doi.org/10.1017/CBO9780511760396",
+    "language": "en",
+    "access": {
+      "status": "paywalled",
+      "redistributable": false,
+      "how_to_get": "购买纸质/电子版，或通过高校图书馆 Cambridge Core 访问。"
+    },
+    "trust_level": "L1",
+    "trust_reason": "V&V 领域权威专著",
+    "stages": [
+      5,
+      8
+    ],
+    "topics": [
+      "V&V",
+      "UQ",
+      "solution verification"
+    ],
+    "summary_zh": "V&V 体系教科书：代码验证（MMS）、解验证（离散/迭代误差）、确认实验设计、确认度量与预测不确定度。可作为 ⑤CFD 与 ⑧孪生模型确认的方法总纲。",
+    "notes": "ISBN 未核实，未填。"
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2004-sun-pg-water-density-viscosity-k",
+    "type": "paper",
+    "title": "Density, Viscosity and Thermal Conductivity of Aqueous Solutions of Propylene Glycol, Dipropylene Glycol, and Tripropylene Glycol between 290 K and 460 K",
+    "title_zh": "290–460 K 丙二醇/二丙二醇/三丙二醇水溶液的密度、粘度与导热系数",
+    "authors": [
+      "Tongfan Sun",
+      "Amyn S. Teja"
+    ],
+    "year": 2004,
+    "venue": "Journal of Chemical & Engineering Data 49(5):1311–1317",
+    "identifiers": {
+      "doi": "10.1021/je049960h"
+    },
+    "url": "https://doi.org/10.1021/je049960h",
+    "language": "en",
+    "access": {
+      "status": "paywalled",
+      "redistributable": false,
+      "how_to_get": "ACS 订阅/单篇购买；实验数据可从 NIST TRC ThermoML 免费获取（见 dat-2004-sun-pg-water-thermoml）。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "J. Chem. Eng. Data 同行评审实验数据",
+    "stages": [
+      3,
+      4,
+      5
+    ],
+    "topics": [
+      "PG-water",
+      "density",
+      "viscosity",
+      "thermal conductivity"
+    ],
+    "summary_zh": "比重瓶+毛细管粘度计+瞬态热线法测量 PG-水 等混合物；组成 25–100 mol% 二醇（注意：25 mol% PG ≈ 58 wt%，比 PG25 浓得多，PG25 约 7.3 mol%，不在本文覆盖范围内，只能作外推参考）。",
+    "key_data": [
+      {
+        "quantity": "测量不确定度",
+        "value": "密度 ±0.2%，粘度 ±2%，温度 ±0.1 K",
+        "locator": "Experimental（ACS 摘要页/ThermoML 元数据）",
+        "verified_from": "landing_page"
+      },
+      {
+        "quantity": "组成范围",
+        "value": "25–100 mol% 二醇",
+        "locator": "Abstract",
+        "verified_from": "abstract"
+      }
+    ],
+    "notes": "另见 ThermoML 数据集条目。'25 mol%≈58 wt%' 为本子智能体按摩尔质量换算（PG 76.09，水 18.015），非原文数据。"
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "dat-2004-sun-pg-water-thermoml",
+    "type": "dataset",
+    "title": "ThermoML: J. Chem. Eng. Data 2004, 49, 5, 1311-1317 (Sun & Teja, propylene glycol + water)",
+    "title_zh": "NIST TRC ThermoML：Sun & Teja 2004 PG/DPG/TPG-水 实验数据（XML）",
+    "authors": [
+      "Tongfan Sun",
+      "Amyn S. Teja"
+    ],
+    "org": "NIST Thermodynamics Research Center (TRC)",
+    "year": 2004,
+    "venue": "NIST TRC ThermoML Archive",
+    "identifiers": {
+      "doi": "10.1021/je049960h"
+    },
+    "url": "https://trc.nist.gov/ThermoML/10.1021/je049960h.html",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "NIST TRC ThermoML 公开存档（数据源自 ACS 期刊）",
+      "redistributable": false,
+      "copyright_note": "XML 无文件头校验；NIST 公开数据，再分发条款未逐条核实，保守标 false。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "同行评审期刊数据经 NIST TRC 结构化收录",
+    "stages": [
+      3,
+      4,
+      5
+    ],
+    "topics": [
+      "PG-water",
+      "ThermoML"
+    ],
+    "summary_zh": "Sun & Teja 2004 全部点值（密度、粘度、导热系数，含不确定度）的机器可读 XML，可直接解析用于 PG 物性拟合对比。",
+    "notes": "解析建议：用 xml.etree 读取 PureOrMixtureData；注意摩尔分数单位。",
+    "file": {
+      "path": "files/datasets/dat-2004-sun-pg-water-thermoml.xml",
+      "sha256": "7bdb08088c3bd0d4b7f1cb242a2972a65eae6119f55fac2cee69128ae50332ce",
+      "bytes": 260084,
+      "source_url": "https://trc.nist.gov/ThermoML/10.1021/je049960h.xml",
+      "downloaded_at": "2026-10-02"
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2017-khattab-pg-water-density-viscosity",
+    "type": "paper",
+    "title": "Density, viscosity, surface tension, and molar volume of propylene glycol + water mixtures from 293 to 323 K and correlations by the Jouyban–Acree model",
+    "title_zh": "293–323 K 丙二醇+水混合物的密度、粘度、表面张力与摩尔体积及 Jouyban–Acree 关联",
+    "authors": [
+      "Ibrahim S. Khattab",
+      "Farzana Bandarkar",
+      "Maryam Khoubnasabjafari",
+      "Abolghasem Jouyban"
+    ],
+    "year": 2017,
+    "venue": "Arabian Journal of Chemistry 10(S1):S71–S75（2012 在线）",
+    "identifiers": {
+      "doi": "10.1016/j.arabjc.2012.07.012"
+    },
+    "url": "https://doi.org/10.1016/j.arabjc.2012.07.012",
+    "language": "en",
+    "access": {
+      "status": "metadata_only",
+      "license": "CC BY-NC-ND 3.0（开放获取）",
+      "redistributable": false,
+      "how_to_get": "开放获取：浏览器打开 DOI 或 arabjchem.org 文章页手动下载 PDF；ScienceDirect PDF 对脚本返回 HTTP 403，故未自动下载。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "同行评审期刊（OA）",
+    "stages": [
+      3,
+      4,
+      5
+    ],
+    "topics": [
+      "PG-water",
+      "density",
+      "viscosity"
+    ],
+    "summary_zh": "体积分数 0.1 间隔、293–323 K 的 PG-水 密度/粘度/表面张力实测，覆盖 PG25 附近浓度与冷板常用温区下段；Ostwald 粘度计，密度 RSD 0.08%、粘度 RSD 最大 1.32%。",
+    "key_data": [
+      {
+        "quantity": "测量方法与精度",
+        "value": "Mettler Densito 30PX 密度计；Ostwald U 形管粘度计；密度总 RSD 0.08%，粘度 RSD 0.0032–1.32%",
+        "locator": "§Experimental（arabjchem.org 文章页）",
+        "verified_from": "landing_page"
+      }
+    ],
+    "notes": "用户口述 'Khattab 2012' 即此文：2012 在线，2017 正式卷期。浓度为体积分数，需换算为质量分数。"
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2007-melinder-aqueous-secondary-fluids-thesis",
+    "type": "paper",
+    "title": "Thermophysical Properties of Aqueous Solutions Used as Secondary Working Fluids",
+    "title_zh": "用作二次工质的水溶液热物性（博士论文）",
+    "authors": [
+      "Åke Melinder"
+    ],
+    "org": "KTH Royal Institute of Technology",
+    "year": 2007,
+    "venue": "KTH Doctoral Thesis, TRITA REFR Report No 07/60",
+    "identifiers": {
+      "isbn": "978-91-7178-707-1"
+    },
+    "url": "https://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A12169",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "KTH DiVA 开放获取全文（版权归作者）",
+      "redistributable": false
+    },
+    "trust_level": "L3",
+    "trust_reason": "博士学位论文（机构评审），系 IIR 二次工质物性表的数据基础；非期刊同行评审",
+    "stages": [
+      3,
+      4,
+      5
+    ],
+    "topics": [
+      "PG-water",
+      "secondary refrigerant",
+      "polynomial correlation"
+    ],
+    "summary_zh": "系统综述 EG、PG 等 13 类水溶液的冰点、密度、比热、导热、粘度文献与实测值，并以冰点/温度为输入生成多项式系数（第 4 章，Matlab/Excel），是 IIR《Properties of secondary working fluids》2010 版的方法学前身。",
+    "key_data": [
+      {
+        "quantity": "PG 示例点（tF=-20 °C, t=-10 °C）",
+        "value": "c_A=39.41 wt%，ρ=1045 kg/m³，cp=3620 J/(kg·K)，k=0.384 W/(m·K)，μ=21.67 mPa·s",
+        "condition": "非 PG25 工况，仅示例",
+        "locator": "Table 4.3，PDF p.75（文内 p.61）",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "PG 冰点 -15 °C 对应浓度",
+        "value": "32.9 wt%",
+        "locator": "Table 2.1，PDF p.23",
+        "verified_from": "fulltext"
+      }
+    ],
+    "notes": "多项式有效范围的抽取文本行序混乱，使用前需对照 PDF 原表核对。",
+    "file": {
+      "path": "files/papers/pap-2007-melinder-aqueous-secondary-fluids-thesis.pdf",
+      "sha256": "169f84811dcf59d5d82f3cbc8278322507317b8b2f16f0643154db6101fa1b8e",
+      "bytes": 1634169,
+      "source_url": "https://kth.diva-portal.org/smash/get/diva2:12169/FULLTEXT01.pdf",
+      "downloaded_at": "2026-10-02",
+      "pages": 144
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "hbk-2010-melinder-secondary-fluids-iir",
+    "type": "handbook",
+    "title": "Properties of Secondary Working Fluids (Secondary Refrigerants or Coolants, Heat Transfer Fluids) for Indirect Systems",
+    "title_zh": "间接系统二次工质物性（IIR 手册）",
+    "authors": [
+      "Åke Melinder"
+    ],
+    "org": "International Institute of Refrigeration (IIR)",
+    "year": 2010,
+    "venue": "IIR 出版物（2010 版；2007 IIR/KTH 前版）",
+    "url": "https://iifiir.org/en/fridoc",
+    "language": "en",
+    "access": {
+      "status": "paywalled",
+      "redistributable": false,
+      "how_to_get": "IIR 官网书店购买（会员折扣）；或图书馆借阅。开放替代：KTH 博士论文（pap-2007-melinder-aqueous-secondary-fluids-thesis）。"
+    },
+    "trust_level": "L1",
+    "trust_reason": "IIR 权威物性手册",
+    "stages": [
+      3,
+      4,
+      5
+    ],
+    "topics": [
+      "PG-water",
+      "secondary refrigerant"
+    ],
+    "summary_zh": "二次工质（含 PG 水溶液）物性表与图，工业界常用参考源；仅登记。",
+    "notes": "具体 ISBN 与落地页未核实，url 指向 IIR FRIDOC 检索入口。"
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-1984-bohne-eg-water-properties",
+    "type": "paper",
+    "title": "Thermal Conductivity, Density, Viscosity, and Prandtl-Numbers of Ethylene Glycol-Water Mixtures",
+    "title_zh": "乙二醇-水混合物的导热系数、密度、粘度与 Pr 数",
+    "authors": [
+      "D. Bohne",
+      "S. Fischer",
+      "E. Obermeier"
+    ],
+    "year": 1984,
+    "venue": "Berichte der Bunsengesellschaft für physikalische Chemie 88(8):739–742",
+    "identifiers": {
+      "doi": "10.1002/bbpc.19840880813"
+    },
+    "url": "https://doi.org/10.1002/bbpc.19840880813",
+    "language": "en",
+    "access": {
+      "status": "paywalled",
+      "redistributable": false,
+      "how_to_get": "Wiley Online Library 订阅/购买；馆际互借。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "同行评审期刊",
+    "stages": [
+      3,
+      4,
+      5
+    ],
+    "topics": [
+      "EG-water"
+    ],
+    "summary_zh": "注意：Crossref 核实该文对象是乙二醇-水（EG），不是丙二醇；不能作为 PG25 物性来源，仅可用于 EG 对比或 ExaDigiT/Frontier（50% EG）工质对照。",
+    "notes": "作者名与卷页按通识填写，标题与 DOI 经 Crossref 核实。"
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2021-deng-eg-pg-thermal-conductivity",
+    "type": "paper",
+    "title": "Thermal Conductivity of 1,2-Ethanediol and 1,2-Propanediol Binary Aqueous Solutions at Temperature from 253 K to 373 K",
+    "title_zh": "253–373 K 乙二醇、丙二醇二元水溶液导热系数",
+    "authors": [
+      "Changyu Deng",
+      "Ke Zhang"
+    ],
+    "year": 2021,
+    "venue": "International Journal of Thermophysics（arXiv:1711.07189 预印本）",
+    "identifiers": {
+      "doi": "10.1007/s10765-021-02837-6",
+      "arxiv": "1711.07189"
+    },
+    "url": "https://doi.org/10.1007/s10765-021-02837-6",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "arXiv 非独占许可（预印本）",
+      "redistributable": false,
+      "copyright_note": "本地文件为 arXiv 预印本，可能与期刊终稿有差异。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "已在 Int. J. Thermophys. 同行评审发表（本地为预印本）",
+    "stages": [
+      3,
+      4,
+      5
+    ],
+    "topics": [
+      "PG-water",
+      "thermal conductivity"
+    ],
+    "summary_zh": "瞬态热线法测 0/0.2/0.4/0.6/0.8/1.0 摩尔分数 PG-水 导热系数，253.15–373.15 K；扩展不确定度 2%（k=2）；二阶 Scheffé 多项式关联，PG 平均绝对偏差 0.53%、最大 1.53%；Table 1 汇总历史导热文献（Bates 1945、Riedel 1951 等）。",
+    "key_data": [
+      {
+        "quantity": "导热系数扩展不确定度",
+        "value": "2%（k=2）",
+        "locator": "Abstract，p.1",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "PG 关联偏差",
+        "value": "AAD 0.53%，最大 1.53%",
+        "locator": "Abstract，p.1",
+        "verified_from": "fulltext"
+      }
+    ],
+    "notes": "PG25（≈7.3 mol%）位于 0 与 0.2 摩尔分数之间，可用 Scheffé 式内插。",
+    "file": {
+      "path": "files/papers/pap-2021-deng-eg-pg-thermal-conductivity.pdf",
+      "sha256": "eaaec939d7b8468df659c4bbd537b47a8bbb6965a326f08c29d3b9962ac33fb4",
+      "bytes": 501084,
+      "source_url": "https://arxiv.org/pdf/1711.07189",
+      "downloaded_at": "2026-10-02",
+      "pages": 11
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2024-jiang-diol-coolant-cp-mdsc",
+    "type": "paper",
+    "title": "调制差示扫描量热法测定二元醇型冷却液的比热容",
+    "title_zh": "调制差示扫描量热法测定二元醇型冷却液的比热容",
+    "authors": [
+      "蒋晓煜",
+      "雒焕婷",
+      "洪瑞",
+      "杜文静"
+    ],
+    "org": "山东大学能源与动力工程学院",
+    "year": 2024,
+    "venue": "化工学报 75(S1):40–46",
+    "identifiers": {
+      "doi": "10.11949/0438-1157.20240361"
+    },
+    "url": "https://hgxb.cip.com.cn/CN/10.11949/0438-1157.20240361",
+    "language": "zh",
+    "access": {
+      "status": "downloaded",
+      "license": "《化工学报》官网开放获取全文",
+      "redistributable": false
+    },
+    "trust_level": "L2",
+    "trust_reason": "中文核心期刊同行评审",
+    "stages": [
+      3,
+      4,
+      5
+    ],
+    "topics": [
+      "PG coolant",
+      "specific heat",
+      "MDSC"
+    ],
+    "summary_zh": "MDSC 测 7 种冰点（-15～-45 °C）乙二醇型与丙二醇型冷却液 20～90 °C 比热，给出 cp(t) 二次式与 cp(t,φ) 关联式；水的验证误差约 1.9%。丙二醇型最低浓度 32.4%（体积分数，冰点 -15 °C），比 PG25 浓。",
+    "key_data": [
+      {
+        "quantity": "PG 冷却液浓度-冰点",
+        "value": "冰点 -15/-20/-25/-30/-35/-40/-45 °C 对应 32.4/37.5/42.6/46.8/50.9/54/56 %",
+        "condition": "体积分数",
+        "locator": "表7，PDF p.5",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "纯水验证误差",
+        "value": "对手册平均 1.94%，对文献 1.81%（20～90 °C）",
+        "locator": "§2.1，PDF p.3",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "纯 PG 20 °C 比热",
+        "value": "实验 2.513 J/(g·K)，手册 2.481，误差 1.29%",
+        "locator": "表2，PDF p.3",
+        "verified_from": "fulltext"
+      }
+    ],
+    "notes": "商用“丙二醇型冷却液”可能含添加剂，与纯 PG-水 二元体系不完全等同。",
+    "file": {
+      "path": "files/papers/pap-2024-jiang-diol-coolant-cp-mdsc.pdf",
+      "sha256": "c56c3377382fb6db63bbe96e56bf28d91b37fc933d787b31c473259642726fc1",
+      "bytes": 680473,
+      "source_url": "https://hgxb.cip.com.cn/CN/article/downloadArticleFile.do?attachType=PDF&id=43882",
+      "downloaded_at": "2026-10-02",
+      "pages": 7
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2024-brewer-exadigit",
+    "type": "paper",
+    "title": "A Digital Twin Framework for Liquid-cooled Supercomputers as Demonstrated at Exascale",
+    "title_zh": "液冷超算数字孪生框架 ExaDigiT（Frontier 艾级验证）",
+    "authors": [
+      "Wesley Brewer",
+      "Matthias Maiterth",
+      "Vineet Kumar",
+      "Rafal Wojda",
+      "Sedrick Bouknight",
+      "Jesse Hines",
+      "Woong Shin",
+      "Scott Greenwood",
+      "David Grant",
+      "Wesley Williams",
+      "Feiyi Wang"
+    ],
+    "org": "Oak Ridge National Laboratory",
+    "year": 2024,
+    "venue": "SC24（arXiv:2410.05133）",
+    "identifiers": {
+      "arxiv": "2410.05133"
+    },
+    "url": "https://arxiv.org/abs/2410.05133",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "arXiv 非独占许可；美国政府保留权利（UT-Battelle DE-AC05-00OR22725）",
+      "redistributable": false
+    },
+    "trust_level": "L4",
+    "trust_reason": "arXiv/SC24 会议论文，国家实验室作者",
+    "stages": [
+      8,
+      9
+    ],
+    "topics": [
+      "digital twin",
+      "Modelica",
+      "FMU",
+      "CDU",
+      "PUE"
+    ],
+    "summary_zh": "三模块：RAPS（Python 资源分配与功率仿真，1 s tick）+ Modelica/Dymola 瞬态热流体冷却模型（TRANSFORM + LBNL Buildings 库，导出 FMU，每 15 s 调用）+ UE5 增强现实。冷却模型以 25 台 CDU 热负荷与湿球温度为输入，输出 317 个量（每 CDU 11 个：泵功、一/二次侧流量、供回水温压）。控制：CDU 泵速 PID 跟踪环路压差、阀门调节一次侧流量跟踪二次侧供水温度；HTWP、冷却塔分级。回放 183 天遥测做 V&V。",
+    "key_data": [
+      {
+        "quantity": "冷却模型步长",
+        "value": 15,
+        "unit": "s",
+        "condition": "与遥测分辨率一致",
+        "locator": "§III-C-4，p.8；Algorithm 1，p.7",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "Frontier 拓扑",
+        "value": "25 CDU × 3 机柜；每柜 64 刀片（128 节点），每刀片 2 CPU 冷板 + 8 GPU 冷板；CDU 平均 8700 W",
+        "locator": "Table I p.5；§III-C-1 p.7",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "PUE 预测误差",
+        "value": "≤1.4%",
+        "condition": "约 24 h（2024-04-07）遥测验证",
+        "locator": "§IV-1，p.10",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "RAPS 功率验证",
+        "value": "Idle 2.1%，HPL 4.7%，Peak 3.1% 误差",
+        "locator": "Table III，p.10",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "已知缺陷",
+        "value": "CDU 二次侧供水温度预测波动大于实测",
+        "locator": "§IV-1，p.10",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "热量计算式",
+        "value": "H = ρ·Q·ΔT·c",
+        "locator": "Eq.(7)，p.10",
+        "verified_from": "fulltext"
+      }
+    ],
+    "benchmark_candidate": true,
+    "benchmark_note": "⑧ 孪生架构首选模板：Modelica→FMU→Python 协同仿真；CDU 层输入/输出清单可直接借用。",
+    "related_internal": [],
+    "notes": "开源仓库：code.ornl.gov/exadigit；文档 exadigit.readthedocs.io。",
+    "file": {
+      "path": "files/papers/pap-2024-brewer-exadigit.pdf",
+      "sha256": "487b59aac6271bc9e78419b6a82e5db3f7be62750e421c6a06567187c8f87ddd",
+      "bytes": 4107983,
+      "source_url": "https://arxiv.org/pdf/2410.05133",
+      "downloaded_at": "2026-10-02",
+      "pages": 14
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2025-kumar-frontier-cooling-library",
+    "type": "paper",
+    "title": "Thermo-Fluid Modeling Framework for Supercomputer Digital Twins: Part 1, Demonstration at Exascale",
+    "title_zh": "超算数字孪生热流体建模框架（一）：艾级示范（Frontier 冷却库）",
+    "authors": [
+      "Vineet Kumar",
+      "Scott Greenwood",
+      "Wesley Brewer",
+      "David Grant",
+      "Nathan Parkison",
+      "Wesley Williams"
+    ],
+    "org": "Oak Ridge National Laboratory",
+    "year": 2025,
+    "venue": "Proceedings of the American Modelica Conference 2024（Linköping Electronic Conference Proceedings 207）",
+    "identifiers": {
+      "doi": "10.3384/ecp207199"
+    },
+    "url": "https://doi.org/10.3384/ecp207199",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "CC BY 4.0",
+      "redistributable": true
+    },
+    "trust_level": "L4",
+    "trust_reason": "Modelica 会议论文",
+    "stages": [
+      8
+    ],
+    "topics": [
+      "Modelica",
+      "TRANSFORM",
+      "CDU model"
+    ],
+    "summary_zh": "ExaDigiT 冷却库（Dymola + TRANSFORM 模板架构）：CDU 环、HTW 环、CTW 环三套同构子系统；控制只建到 CDU 层，故不单独建刀片/机柜子系统；含全系统简化模型与控制联合验证。",
+    "key_data": [
+      {
+        "quantity": "建模层级",
+        "value": "控制仅作用于 CDU 层，库不含刀片/机柜级子系统模型",
+        "locator": "§2（PDF p.4）",
+        "verified_from": "fulltext"
+      }
+    ],
+    "notes": "作者列表经 Crossref 核实（页码 199–207）。会议 2024 年 10 月举行，论文集 2025-01-16 发布。",
+    "file": {
+      "path": "files/papers/pap-2025-kumar-frontier-cooling-library.pdf",
+      "sha256": "fa4ca89f539a938bdf1b6582c4658b3868412a4fd37045c0e3298984a26953b3",
+      "bytes": 1029936,
+      "source_url": "https://ecp.ep.liu.se/index.php/modelica/article/download/1145/1052/1207",
+      "downloaded_at": "2026-10-02",
+      "pages": 9
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2025-greenwood-autocsm-cooling-models",
+    "type": "paper",
+    "title": "Thermo-Fluid Modeling Framework for Supercomputer Digital Twins: Part 2, Automated Cooling Models",
+    "title_zh": "超算数字孪生热流体建模框架（二）：AutoCSM 自动生成冷却模型",
+    "authors": [
+      "Scott Greenwood",
+      "Vineet Kumar",
+      "Wesley Brewer"
+    ],
+    "org": "Oak Ridge National Laboratory",
+    "year": 2025,
+    "venue": "Proceedings of the American Modelica Conference 2024（Linköping Electronic Conference Proceedings 207）",
+    "identifiers": {
+      "doi": "10.3384/ecp207208"
+    },
+    "url": "https://doi.org/10.3384/ecp207208",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "CC BY 4.0（Linköping ECP）",
+      "redistributable": true
+    },
+    "trust_level": "L4",
+    "trust_reason": "Modelica 会议论文",
+    "stages": [
+      8
+    ],
+    "topics": [
+      "AutoCSM",
+      "FMU",
+      "JSON schema"
+    ],
+    "summary_zh": "AutoCSM：以 RedFish 风格 JSON 描述冷却系统 → 模板化 Modelica 模型 → Dymola Python API 生成 FMU → FMPy 仿真；用户只需为子系统写内部模型并接入模板。可借鉴为我方 CDU/机柜孪生的“配置驱动建模”。",
+    "key_data": [
+      {
+        "quantity": "工具链",
+        "value": "Python + RedFish 风格 JSON；Dymola Python API 生成 FMU；FMPy 运行",
+        "locator": "§3，PDF p.5",
+        "verified_from": "fulltext"
+      }
+    ],
+    "file": {
+      "path": "files/papers/pap-2025-greenwood-autocsm-cooling-models.pdf",
+      "sha256": "1e2548e12ec3f9f082a368a6659e04664bd2514dbc6360798008089b9d043cff",
+      "bytes": 2379842,
+      "source_url": "https://ecp.ep.liu.se/index.php/modelica/article/download/1146/1053/1208",
+      "downloaded_at": "2026-10-02",
+      "pages": 10
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2026-jadhav-frontier-dt-cooling-opt",
+    "type": "paper",
+    "title": "Digital Twin-Based Cooling System Optimization for Data Center",
+    "title_zh": "基于数字孪生的数据中心冷却系统优化（Frontier）",
+    "authors": [
+      "Shrenik Amol Jadhav",
+      "Zheng Liu"
+    ],
+    "org": "University of Michigan-Dearborn",
+    "year": 2026,
+    "venue": "arXiv:2603.01198 [eess.SY]",
+    "identifiers": {
+      "arxiv": "2603.01198"
+    },
+    "url": "https://arxiv.org/abs/2603.01198",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "arXiv 非独占许可",
+      "redistributable": false
+    },
+    "trust_level": "L4",
+    "trust_reason": "arXiv 预印本",
+    "stages": [
+      8,
+      9
+    ],
+    "topics": [
+      "digital twin",
+      "Modelica surrogate",
+      "supply temperature",
+      "flow optimization",
+      "ASHRAE Guideline 14"
+    ],
+    "summary_zh": "基于 Sun 2024 公开数据（Frontier 2023 全年 10 min）建 Modelica 代理模型，按 ASHRAE Guideline 14 验证（CV-RMSE 1.96–2.67%，NMBE ±2.5%）；三层优化：仅流量 20.4%、流量+供水温度联合 30.1%、加执行器斜率约束 27.8% 节能；基线流量为最小安全流量的 2.9 倍。",
+    "key_data": [
+      {
+        "quantity": "模型验证",
+        "value": "CV-RMSE 1.96–2.67%；NMBE ±2.5%",
+        "condition": "47,186 条记录",
+        "locator": "§1.2，PDF p.4",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "斜率约束",
+        "value": "每 10 min 步长供水温度设定变化 ±1 °C（另有流量变化率限制）",
+        "locator": "PDF p.25",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "节能",
+        "value": "20.4% / 30.1% / 27.8%（约束策略保留 92.4% 理论收益）",
+        "locator": "Abstract，p.1；PDF p.25",
+        "verified_from": "fulltext"
+      }
+    ],
+    "notes": "⑨ 控制目标设定参考：约束为各子环回水温度上限 + 执行器斜率。",
+    "file": {
+      "path": "files/papers/pap-2026-jadhav-frontier-dt-cooling-opt.pdf",
+      "sha256": "b84351bf66fc3a32b731f1b102bcd62d1a24bfb4d7f6c6aeea251971af4c7597",
+      "bytes": 7436386,
+      "source_url": "https://arxiv.org/pdf/2603.01198v2",
+      "downloaded_at": "2026-10-02",
+      "pages": 35
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2024-sun-frontier-energy-dataset",
+    "type": "paper",
+    "title": "Energy dataset of Frontier supercomputer for waste heat recovery",
+    "title_zh": "Frontier 超算能耗与余热数据集（数据描述论文）",
+    "authors": [
+      "Jian Sun",
+      "Zhiming Gao",
+      "David Grant",
+      "Kashif Nawaz",
+      "Pengtao Wang",
+      "Cheng-Min Yang",
+      "Philip Boudreaux",
+      "Stephen Kowalski",
+      "Shean Huff"
+    ],
+    "org": "Oak Ridge National Laboratory",
+    "year": 2024,
+    "venue": "Scientific Data 11:1077",
+    "identifiers": {
+      "doi": "10.1038/s41597-024-03913-w"
+    },
+    "url": "https://doi.org/10.1038/s41597-024-03913-w",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "CC BY-NC-ND 4.0（OpenAlex 记录）",
+      "redistributable": false
+    },
+    "trust_level": "L2",
+    "trust_reason": "Scientific Data 同行评审数据论文",
+    "stages": [
+      8,
+      9
+    ],
+    "topics": [
+      "Frontier",
+      "telemetry",
+      "waste heat",
+      "dataset"
+    ],
+    "summary_zh": "Frontier 2023 全年 10 min 间隔功率、三条冷却子环供回水温度与流量、PUE；数据托管 figshare（XLSX）。可作为 ⑧ 孪生/⑨ 控制离线训练与验证数据。",
+    "key_data": [
+      {
+        "quantity": "工质",
+        "value": "50/50 水-乙二醇，ρ=1060 kg/m³，cp=3.5 kJ/(kg·K)",
+        "locator": "Data Records，PDF p.6",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "余热温度",
+        "value": "30–38 °C",
+        "locator": "Abstract，p.1",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "功率范围",
+        "value": "8–30 MW",
+        "locator": "Abstract，p.1",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "数据缺失",
+        "value": "约 440 h（<5%）",
+        "locator": "Data Records，PDF p.6",
+        "verified_from": "fulltext"
+      }
+    ],
+    "file": {
+      "path": "files/papers/pap-2024-sun-frontier-energy-dataset.pdf",
+      "sha256": "f1c3fda04d66b57184bbe056c3def8e707888e2019077611dc302f3ec128089a",
+      "bytes": 5587441,
+      "source_url": "https://www.nature.com/articles/s41597-024-03913-w.pdf",
+      "downloaded_at": "2026-10-02",
+      "pages": 9
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "dat-2024-grant-frontier-hpc-facility-data",
+    "type": "dataset",
+    "title": "Frontier HPC & Facility Data",
+    "title_zh": "Frontier HPC 与设施数据（figshare XLSX）",
+    "authors": [
+      "David Grant",
+      "et al."
+    ],
+    "org": "Oak Ridge National Laboratory",
+    "year": 2024,
+    "venue": "figshare (v4)",
+    "identifiers": {
+      "doi": "10.6084/m9.figshare.24391240.v4"
+    },
+    "url": "https://doi.org/10.6084/m9.figshare.24391240.v4",
+    "language": "en",
+    "access": {
+      "status": "pending_user",
+      "license": "CC BY 4.0（figshare API 返回）",
+      "redistributable": true,
+      "how_to_get": "浏览器打开 figshare 页面下载 'Frontier HPC & Facility Data.xlsx'（20,164,974 字节），再用 fetch.py 或手动放入 files/datasets/ 并补 sha256。脚本下载被 figshare 机器人防护拦截（HTTP 202/403）。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "配套 Scientific Data 同行评审论文",
+    "stages": [
+      8,
+      9
+    ],
+    "topics": [
+      "Frontier",
+      "telemetry"
+    ],
+    "summary_zh": "Sun 2024 数据论文的原始数据文件（2023 全年 10 min）。"
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2018-lazic-dc-cooling-mpc",
+    "type": "paper",
+    "title": "Data center cooling using model-predictive control",
+    "title_zh": "基于模型预测控制的数据中心冷却",
+    "authors": [
+      "Nevena Lazic",
+      "Tyler Lu",
+      "Craig Boutilier",
+      "Moonkyung Ryu",
+      "Eehern Jay Wong",
+      "Binz Roy",
+      "Greg Imwalle"
+    ],
+    "org": "Google",
+    "year": 2018,
+    "venue": "Advances in Neural Information Processing Systems 31 (NeurIPS 2018)",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2018/hash/059fdcd96baeb75112f09fa1dcc740cc-Abstract.html",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "NeurIPS proceedings 公开（作者版权）",
+      "redistributable": false
+    },
+    "trust_level": "L4",
+    "trust_reason": "NeurIPS 会议论文",
+    "stages": [
+      9
+    ],
+    "topics": [
+      "MPC",
+      "system identification",
+      "ARX",
+      "safe exploration"
+    ],
+    "summary_zh": "风冷机房 AHU 控制，但方法可直接迁移到液冷 CDU：3 h 限幅随机游走安全探索 → 稀疏 ARX 线性模型（30 s 步长，T=5 阶）→ 二次型 MPC（状态偏差 + 控制量罚，含幅值/斜率约束，扰动保持），每 30 s 滚动重优化。发现：PID 历史数据训练的模型（数据量 56 倍）反而不如 3 h 探索数据。",
+    "formulas": [
+      {
+        "name": "ARX 动力学模型",
+        "latex": "x[t]=\\sum_{k=1}^{T}A_k x[t-k]+\\sum_{k=1}^{T}B_k u[t-k]+C\\,d[t-1]",
+        "validity": "步长 30 s，T=5（交叉验证）",
+        "locator": "Eq.(1)，p.4"
+      },
+      {
+        "name": "MPC 目标",
+        "latex": "\\min_u\\sum_{\\tau=t}^{t+L}\\sum_{i=1}^{M}\\left[\\sum_s q_s\\left(x_i^s[\\tau]-x_{sp}^s\\right)^2+\\sum_c r_c\\left(u_i^c[\\tau]-u_{min}^c\\right)^2\\right]",
+        "validity": "约束 u\\in[u_{min},u_{max}]，|u[\\tau]-u[\\tau-1]|\\le\\Delta_c，d[\\tau]=d[\\tau-1]",
+        "locator": "Eq.(3)–(6)，p.5"
+      },
+      {
+        "name": "安全探索",
+        "latex": "u_i^c[t+1]=\\max\\left(u_{min}^c,\\min\\left(u_{max}^c,u_i^c[t]+v_i^c\\right)\\right),\\ v_i^c\\sim\\mathcal{U}(-\\Delta_c,\\Delta_c)",
+        "validity": "",
+        "locator": "Eq.(2)，p.4"
+      }
+    ],
+    "key_data": [
+      {
+        "quantity": "控制周期 / 模型阶",
+        "value": "30 s / T=5",
+        "locator": "§4.1，p.4",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "优化规模",
+        "value": "2ML≈1.2K 变量，TensorFlow+Adam 求解",
+        "locator": "§4.3，p.5",
+        "verified_from": "fulltext"
+      }
+    ],
+    "file": {
+      "path": "files/papers/pap-2018-lazic-dc-cooling-mpc.pdf",
+      "sha256": "2ed89618deb9a1fa6ff96b655c1506249f838ddef2a7cd76f608e06e228ef859",
+      "bytes": 741427,
+      "source_url": "https://proceedings.neurips.cc/paper_files/paper/2018/file/059fdcd96baeb75112f09fa1dcc740cc-Paper.pdf",
+      "downloaded_at": "2026-10-02",
+      "pages": 10
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2020-chen-dempc-direct-liquid-cooling",
+    "type": "paper",
+    "title": "A Dynamic Control System for Server Processor Direct Liquid Cooling",
+    "title_zh": "服务器处理器直接液冷动态控制系统（深度显式 MPC）",
+    "authors": [
+      "Haoran Chen",
+      "Yong Han",
+      "Gongyue Tang",
+      "Xiaowu Zhang"
+    ],
+    "org": "A*STAR Institute of Microelectronics",
+    "year": 2020,
+    "venue": "IEEE Transactions on Components, Packaging and Manufacturing Technology",
+    "identifiers": {
+      "doi": "10.1109/TCPMT.2020.2986796"
+    },
+    "url": "https://doi.org/10.1109/TCPMT.2020.2986796",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "A*STAR OAR 机构库接受稿（IEEE 版权）",
+      "redistributable": false,
+      "copyright_note": "本地为作者接受稿；前序会议版 EPTC 2019（DOI 10.1109/EPTC47984.2019.9026588）付费。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "IEEE TCPMT 同行评审（本地为接受稿）",
+    "stages": [
+      9,
+      8
+    ],
+    "topics": [
+      "explicit MPC",
+      "neural network controller",
+      "direct liquid cooling",
+      "chip temperature control"
+    ],
+    "summary_zh": "芯片级直接液冷闭环控制实例：Simscape 部件模型（冷却器 Eu-Re 压降 + Nu 换热 + 集总结温、ε-NTU 换热器、经验泵曲线）→ 线性化状态空间 → 以 MPC 损失训练 NN 显式控制器（离线 Colab 训练、LabVIEW+Python 10 Hz 在线推理）。对比开环/比例控制：平均过热 -0.96 °C、过热时间 6.5%，比比例控制节能 21.7%。",
+    "formulas": [
+      {
+        "name": "冷却器能量方程",
+        "latex": "C_p\\rho V\\frac{dT_{out}}{dt}+\\dot m\\,(T_{out}-T_{in})=\\dot Q=\\frac{Nu\\,k\\,S_h}{D_h}(T-T_{in})",
+        "validity": "",
+        "locator": "Eq.(2)，p.3"
+      },
+      {
+        "name": "结温集总模型",
+        "latex": "\\dot Q=\\frac{kS_h}{t}(T_j-T)=P_{load}-C\\rho S_h t\\frac{dT_j}{dt}",
+        "validity": "",
+        "locator": "Eq.(3)，p.3"
+      },
+      {
+        "name": "压降",
+        "latex": "\\Delta p=Eu(Re)\\frac{\\dot m^2}{2\\rho S_{min}^2}",
+        "validity": "",
+        "locator": "Eq.(1)，p.3"
+      }
+    ],
+    "key_data": [
+      {
+        "quantity": "控制周期",
+        "value": "10 Hz",
+        "locator": "§II，p.3",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "性能",
+        "value": "一次侧平均 PUE 1.0023；平均过热 -0.96 °C；过热时间 6.5%（开环 57.4%）；较比例控制节能 21.7%",
+        "locator": "Abstract p.1；§V p.7",
+        "verified_from": "fulltext"
+      }
+    ],
+    "notes": "'PUE' 在本文定义中仅计一次侧泵功（Eq.19），不可与机房 PUE 直接比较。",
+    "file": {
+      "path": "files/papers/pap-2020-chen-dempc-direct-liquid-cooling.pdf",
+      "sha256": "ab90f85feab8850cfa5cb65f17b8e9c74d0c43ae7be4e7aa7e4fc9875938092f",
+      "bytes": 1606235,
+      "source_url": "https://oar.a-star.edu.sg/storage/6/6d17gyemqx/pub19-313sip-manuscript.pdf",
+      "downloaded_at": "2026-10-02",
+      "pages": 8
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2019-fu-modelica-dc-cooling",
+    "type": "paper",
+    "title": "Equation-based object-oriented modeling and simulation of data center cooling systems",
+    "title_zh": "基于方程的面向对象数据中心冷却系统建模与仿真（Modelica Buildings 数据中心包）",
+    "authors": [
+      "Yangyang Fu",
+      "Wangda Zuo",
+      "Michael Wetter",
+      "James W. VanGilder",
+      "Peilin Yang"
+    ],
+    "org": "LBNL 等",
+    "year": 2019,
+    "venue": "Energy and Buildings 198:503–519",
+    "identifiers": {
+      "doi": "10.1016/j.enbuild.2019.06.037",
+      "osti_id": "1571178"
+    },
+    "url": "https://doi.org/10.1016/j.enbuild.2019.06.037",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "OSTI 公开接受稿（DOE 资助）",
+      "redistributable": false
+    },
+    "trust_level": "L2",
+    "trust_reason": "Energy and Buildings 同行评审（本地为 OSTI 接受稿）",
+    "stages": [
+      8
+    ],
+    "topics": [
+      "Modelica Buildings",
+      "chiller plant",
+      "waterside economizer"
+    ],
+    "summary_zh": "Modelica Buildings.Applications.DataCenters 包：CRAH/CRAC、冷机+不同水侧节能器配置、控制与系统模板；案例含常规与可再生供能数据中心在停电等紧急工况下的冷却/电气动态。注意该包 IT 侧为风冷，液冷 CDU 需自建或借 ExaDigiT。",
+    "key_data": [
+      {
+        "quantity": "包内容",
+        "value": "ChillerCooled 与 DXCooled 两子包，服务器为风冷",
+        "locator": "Abstract p.1；OpenModelica 文档 Buildings.Applications.DataCenters",
+        "verified_from": "fulltext"
+      }
+    ],
+    "file": {
+      "path": "files/papers/pap-2019-fu-modelica-dc-cooling.pdf",
+      "sha256": "a50c6c81d199c7177f85014a1af71b57c3d7135535cb4d88b68d1c9230d2dc3f",
+      "bytes": 2080387,
+      "source_url": "https://www.osti.gov/servlets/purl/1571178",
+      "downloaded_at": "2026-10-02",
+      "pages": 49
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2014-sickinger-asetek-rackcdu-nrel",
+    "type": "paper",
+    "title": "Energy Performance Testing of Asetek's RackCDU System at NREL's High Performance Computing Data Center",
+    "title_zh": "NREL HPC 数据中心 Asetek RackCDU 液冷系统能效测试",
+    "authors": [
+      "David Sickinger",
+      "Otto Van Geet",
+      "Chris Ravenscroft"
+    ],
+    "org": "National Renewable Energy Laboratory",
+    "year": 2014,
+    "venue": "NREL Technical Report NREL/TP-2C00-62905",
+    "url": "https://docs.nlr.gov/docs/fy15osti/62905.pdf",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "US 政府资助技术报告，NREL 免费公开",
+      "redistributable": true
+    },
+    "trust_level": "L3",
+    "trust_reason": "国家实验室技术报告，实测数据、非期刊评审",
+    "stages": [
+      7,
+      8
+    ],
+    "topics": [
+      "RackCDU",
+      "warm-water cooling",
+      "heat capture"
+    ],
+    "summary_zh": "CPU 冷板 + 机柜 CDU 改造实测：热捕获率随出水温度上升而下降（89 °F 出水 64%，接近 100 °F 时 48%），仅 CPU 冷却；服务器风扇降到 BIOS 最低。可作 ⑦/⑧ 热捕获率随回水温度变化的验证参照。",
+    "key_data": [
+      {
+        "quantity": "热捕获率",
+        "value": "64%（出水 89 °F）/ 48%（出水≈100 °F）",
+        "condition": "仅 CPU 冷板",
+        "locator": "Abstract，PDF p.4",
+        "verified_from": "fulltext"
+      }
+    ],
+    "file": {
+      "path": "files/papers/pap-2014-sickinger-asetek-rackcdu-nrel.pdf",
+      "sha256": "5e2ef6f0cdd40551763de33d7eae896f843a35b389dd6053b33195510b69693d",
+      "bytes": 4871829,
+      "source_url": "https://docs.nlr.gov/docs/fy15osti/62905.pdf",
+      "downloaded_at": "2026-10-02",
+      "pages": 43
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2019-sickinger-aquila-coldplate-nrel",
+    "type": "paper",
+    "title": "Energy Performance Evaluation of Aquila's Aquarius Fixed Cold Plate Cooling System at NREL's High Performance Computing Center",
+    "title_zh": "NREL HPC 中心 Aquila Aquarius 固定冷板液冷系统能效评估",
+    "authors": [
+      "David Sickinger",
+      "David Martinez",
+      "Bob Bolz"
+    ],
+    "org": "NREL / Sandia National Laboratories / Aquila",
+    "year": 2019,
+    "venue": "NREL Technical Report NREL/TP-2C00-73356",
+    "url": "https://datacenters.lbl.gov/sites/default/files/Aquila_NREL_white_paper_73356.pdf",
+    "language": "en",
+    "access": {
+      "status": "downloaded",
+      "license": "US 政府资助技术报告（LBNL Center of Expertise 转载）",
+      "redistributable": true
+    },
+    "trust_level": "L3",
+    "trust_reason": "国家实验室技术报告，实测数据",
+    "stages": [
+      7,
+      8
+    ],
+    "topics": [
+      "fixed cold plate",
+      "rack CDU",
+      "heat capture",
+      "LINPACK"
+    ],
+    "summary_zh": "36 节点 Aquarius 固定冷板机柜在 NREL ESIF 实测：4U 机柜 CDU 功耗约 750–800 W；LINPACK 100% 下计算节点热捕获率最高 98.3%（含未液冷 Powershelf 时 93.4%）；给出不同供水温度下的流量、温度、功率测试表，可作机柜级孪生验证数据。",
+    "key_data": [
+      {
+        "quantity": "热捕获率",
+        "value": "98.3%（仅计算节点）/ 93.4%（含 Powershelf）",
+        "locator": "Executive Summary，PDF p.6",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "机柜 CDU 功耗",
+        "value": "约 750–800 W",
+        "locator": "§1.3.2",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "ESIF 供回水温度",
+        "value": "供水≤24 °C（75 °F），回水 35–40 °C",
+        "locator": "§1.3",
+        "verified_from": "fulltext"
+      }
+    ],
+    "file": {
+      "path": "files/papers/pap-2019-sickinger-aquila-coldplate-nrel.pdf",
+      "sha256": "b4fada9c70deb4e41b2c8809aa177dafbedd36e88a43ba7cfa4612bfabff86c6",
+      "bytes": 1692063,
+      "source_url": "https://datacenters.lbl.gov/sites/default/files/Aquila_NREL_white_paper_73356.pdf",
+      "downloaded_at": "2026-10-02",
+      "pages": 24
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2025-cam-pinn-cold-plate",
+    "type": "paper",
+    "title": "ML-Guided Cold Plate Design and Thermal Analysis for Liquid-Cooled HPC Servers",
+    "title_zh": "面向液冷 HPC 服务器的机器学习冷板设计与热分析（PINN）",
+    "authors": [
+      "Refik Cam",
+      "Avisek Naug",
+      "Andrew Shao",
+      "Soumyendu Sarkar"
+    ],
+    "year": 2025,
+    "venue": "NeurIPS 2025 Workshop（OpenReview）",
+    "url": "https://openreview.net/forum?id=cBbD7EYbjL",
+    "language": "en",
+    "access": {
+      "status": "metadata_only",
+      "license": "OpenReview 公开",
+      "redistributable": false,
+      "how_to_get": "浏览器打开 OpenReview 页面下载 PDF（脚本访问返回 HTTP 403）。"
+    },
+    "trust_level": "L4",
+    "trust_reason": "会议/研讨会论文",
+    "stages": [
+      5,
+      8
+    ],
+    "topics": [
+      "PINN",
+      "cold plate",
+      "conjugate heat transfer",
+      "surrogate"
+    ],
+    "summary_zh": "PINN 同时求解不可压 N-S 与共轭传热，两阶段课程学习（先流场后热耦合），多种冷板拓扑参数化设计，推理比 CFD 快数量级。",
+    "key_data": [
+      {
+        "quantity": "训练策略",
+        "value": "两阶段课程：先稳定流场，再引入热耦合",
+        "locator": "Abstract",
+        "verified_from": "abstract"
+      }
+    ]
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2026-curl-podnn-cold-plate-surrogate",
+    "type": "paper",
+    "title": "Physically interpretable surrogate modeling of thermal fields in electronics cooling using combined proper orthogonal decomposition and neural networks",
+    "title_zh": "POD+神经网络的可解释电子散热温度场代理模型（双芯片针翅冷板）",
+    "authors": [
+      "Daniel Curl",
+      "Han Hu"
+    ],
+    "org": "University of Arkansas",
+    "year": 2026,
+    "venue": "AI Thermal Fluids 6:100040",
+    "identifiers": {
+      "doi": "10.1016/j.aitf.2026.100040"
+    },
+    "url": "https://doi.org/10.1016/j.aitf.2026.100040",
+    "language": "en",
+    "access": {
+      "status": "metadata_only",
+      "license": "CC BY-NC-ND（gold OA，OpenAlex）",
+      "redistributable": false,
+      "how_to_get": "开放获取，浏览器从 DOI 落地页下载；配套数据 Dryad 10.5061/dryad.k0p2ngfp5（CC0）与 Hugging Face UARK-NED3/ColdPlate-CFD-2000。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "同行评审期刊（OA）",
+    "stages": [
+      5,
+      8,
+      9
+    ],
+    "topics": [
+      "POD",
+      "ROM",
+      "surrogate",
+      "cold plate"
+    ],
+    "summary_zh": "2000 组 Fluent 稳态 CFD → POD 4 模态（保留 99.32% 方差）+ NN（6 输入：两芯片热流、两入口流量与温度）→ 11,110 节点中截面温度场，单样本约 10^3×、批量 >10^6× 提速；误差分解给出 POD 截断误差下限；100 样本即达误差底。可直接借鉴为 B300/Grace 冷板 ROM 路线（⑧ 孪生实时场重构）。",
+    "key_data": [
+      {
+        "quantity": "POD 模态 / 方差",
+        "value": "4 模态 / 99.32%",
+        "locator": "Hugging Face 模型卡（二手）",
+        "verified_from": "secondary"
+      },
+      {
+        "quantity": "所需训练样本",
+        "value": "约 100 个即达误差底",
+        "locator": "Hugging Face 数据集卡（二手）",
+        "verified_from": "secondary"
+      }
+    ],
+    "notes": "另有配套工具 CFDTwin（arXiv:2605.27725，未核实）。"
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "dat-2026-curl-coldplate-cfd-2000",
+    "type": "dataset",
+    "title": "Data from: Physically interpretable surrogate modeling of thermal fields in electronics cooling using combined proper orthogonal decomposition and neural networks (ColdPlate-CFD-2000)",
+    "title_zh": "双芯片针翅冷板 2000 组 CFD 数据集",
+    "authors": [
+      "Daniel Curl",
+      "Han Hu"
+    ],
+    "year": 2026,
+    "venue": "Dryad / Hugging Face",
+    "identifiers": {
+      "doi": "10.5061/dryad.k0p2ngfp5"
+    },
+    "url": "https://doi.org/10.5061/dryad.k0p2ngfp5",
+    "language": "en",
+    "access": {
+      "status": "metadata_only",
+      "license": "CC0 1.0",
+      "redistributable": true,
+      "how_to_get": "Dryad 或 Hugging Face UARK-NED3/ColdPlate-CFD-2000 下载；体量未核实，可能超过 fetch.py 80 MB 上限，建议人工分批下载。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "同行评审论文配套数据",
+    "stages": [
+      5,
+      8
+    ],
+    "topics": [
+      "CFD dataset",
+      "cold plate",
+      "ROM training"
+    ],
+    "summary_zh": "可用于 ROM/PINN 方法预研与基准对比（几何与我方不同，不能迁移 POD 基）。"
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-0000-unipd-cdu-simscape-thesis",
+    "type": "paper",
+    "title": "Simscape steady state modeling and analysis on the dynamic behavior of a cooling distribution unit in a data center",
+    "title_zh": "数据中心 CDU 的 Simscape 稳态建模与动态行为分析（硕士论文）",
+    "org": "Università degli Studi di Padova",
+    "year": 0,
+    "venue": "UniPD Thesis Repository",
+    "url": "https://thesis.unipd.it/handle/20.500.12608/107872",
+    "language": "en",
+    "access": {
+      "status": "metadata_only",
+      "redistributable": false,
+      "how_to_get": "UniPD 论文库落地页查看是否开放全文；作者与年份未核实。"
+    },
+    "trust_level": "L4",
+    "trust_reason": "硕士论文，未同行评审",
+    "stages": [
+      8
+    ],
+    "topics": [
+      "CDU",
+      "Simscape",
+      "transient",
+      "AI step load"
+    ],
+    "summary_zh": "单相间接液冷 CDU 的 Simscape 模型，以厂商数据建模并用实验验证；做阶跃热负荷与真实 AI 负载阶跃的瞬态响应，讨论系统热惯性。CDU 动态建模可借鉴。",
+    "notes": "作者与年份未核实，id 年份写 0000、year=0。"
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2024-liu-manifold-jet-microchannel",
+    "type": "paper",
+    "title": "歧管式射流微通道液冷散热性能",
+    "title_zh": "歧管式射流微通道液冷散热性能",
+    "authors": [
+      "刘帆",
+      "张芫通",
+      "陶成",
+      "胡成玉",
+      "杨小平",
+      "魏进家"
+    ],
+    "org": "西安交通大学",
+    "year": 2024,
+    "venue": "化工学报 75(5):1777–1786",
+    "identifiers": {
+      "doi": "10.11949/0438-1157.20231228"
+    },
+    "url": "https://hgxb.cip.com.cn/CN/10.11949/0438-1157.20231228",
+    "language": "zh",
+    "access": {
+      "status": "downloaded",
+      "license": "《化工学报》官网开放获取全文",
+      "redistributable": false
+    },
+    "trust_level": "L2",
+    "trust_reason": "中文核心期刊同行评审",
+    "stages": [
+      3,
+      5,
+      7
+    ],
+    "topics": [
+      "manifold microchannel",
+      "jet impingement",
+      "micro pin fin",
+      "experiment"
+    ],
+    "summary_zh": "歧管+分布式射流（5×7 孔，Φ2 mm）+微针翅冷板：7.5 cm² 芯片 2500 W、平均热通量 >330 W/cm² 时芯片平均温度 <70 °C；COMSOL k-ω 1/4 模型，实验-模拟芯片温度误差 ±3%；存在最佳射流腔高度与临界“翅占比”。与 B300 微射流冷板结构最接近的中文实验文献。",
+    "key_data": [
+      {
+        "quantity": "散热能力",
+        "value": "2500 W，平均热通量 >330 W/cm²，芯片平均温度 <70 °C",
+        "condition": "芯片 7.5 cm²，去离子水，入口 25 °C，1–6 L/min",
+        "locator": "摘要；PDF p.3；表1",
+        "verified_from": "fulltext"
+      },
+      {
+        "quantity": "模型验证误差",
+        "value": "芯片温度 ±3%",
+        "locator": "§1，PDF p.4",
+        "verified_from": "fulltext"
+      }
+    ],
+    "notes": "正文写明芯片面积 7.5 cm²（PDF p.3），即 2.5×3 cm；官网摘要表1 单位写作 mm，属笔误。",
+    "file": {
+      "path": "files/papers/pap-2024-liu-manifold-jet-microchannel.pdf",
+      "sha256": "a11cc1c219c0594ddab64acdcfb936747e56a9d2e55a4e1843a0baa47e75777c",
+      "bytes": 6627977,
+      "source_url": "https://hgxb.cip.com.cn/CN/article/downloadArticleFile.do?attachType=PDF&id=43376",
+      "downloaded_at": "2026-10-02",
+      "pages": 10
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2026-yang-dc-liquid-cooling-review",
+    "type": "paper",
+    "title": "数据中心液体冷却技术研究综述",
+    "title_zh": "数据中心液体冷却技术研究综述",
+    "authors": [
+      "杨磊",
+      "杨晖",
+      "徐婧芳",
+      "祝秀娟"
+    ],
+    "year": 2026,
+    "venue": "化工学报（网络首发 2026-01-20）",
+    "identifiers": {
+      "doi": "10.11949/0438-1157.20250995"
+    },
+    "url": "https://hgxb.cip.com.cn/CN/10.11949/0438-1157.20250995",
+    "language": "zh",
+    "access": {
+      "status": "downloaded",
+      "license": "《化工学报》官网开放获取全文",
+      "redistributable": false
+    },
+    "trust_level": "L2",
+    "trust_reason": "中文核心期刊综述",
+    "stages": [
+      1,
+      2,
+      3
+    ],
+    "topics": [
+      "cold plate",
+      "immersion",
+      "spray",
+      "review"
+    ],
+    "summary_zh": "冷板式（含微通道设计）、浸没式（含射流冲击）、喷淋式三类液冷研究进展与问题综述，可作 ①② 阶段中文背景引用。",
+    "notes": "仅读摘要级内容，未抽取数据。",
+    "file": {
+      "path": "files/papers/pap-2026-yang-dc-liquid-cooling-review.pdf",
+      "sha256": "a956e8978c2de32cd67406f47c423b8d8d81de0919270211b7a4ce68cba5db38",
+      "bytes": 1430505,
+      "source_url": "https://hgxb.cip.com.cn/CN/article/downloadArticleFile.do?attachType=PDF&id=44577",
+      "downloaded_at": "2026-10-02",
+      "pages": 14
+    }
+  },
+  {
+    "retrieved_by": "papers-methods-subagent",
+    "last_verified": "2026-10-02",
+    "status": "active",
+    "id": "pap-2022-tang-cdu-manifold-uniformity",
+    "type": "paper",
+    "title": "数据中心用分流管流量均匀性及阻力特性的数值研究",
+    "title_zh": "数据中心用分流管流量均匀性及阻力特性的数值研究",
+    "authors": [
+      "唐永乐",
+      "黄华",
+      "胡伟东",
+      "张学伟",
+      "刘志春"
+    ],
+    "org": "广东申菱环境系统股份有限公司 / 华中科技大学",
+    "year": 2022,
+    "venue": "制冷 2022(03):75–84",
+    "url": "https://kns.cnki.net/",
+    "language": "zh",
+    "access": {
+      "status": "paywalled",
+      "redistributable": false,
+      "how_to_get": "知网/万方检索题名下载（机构订阅或单篇购买）；官方落地页未定位到，url 暂填知网入口。"
+    },
+    "trust_level": "L2",
+    "trust_reason": "中文期刊（《制冷》）",
+    "stages": [
+      4,
+      8
+    ],
+    "topics": [
+      "CDU manifold",
+      "flow uniformity",
+      "pressure drop"
+    ],
+    "summary_zh": "以某型 CDU 分流管为对象，数值研究主管断面边长与支管管径对流量分配均匀性与阻力的影响，给出均匀分配的管径匹配；可借鉴到 ④ 一维流网与机柜歧管建模。",
+    "key_data": [],
+    "notes": "元数据来自第三方期刊导航页（yuanpingjia），需在知网核实。"
+  }
+]

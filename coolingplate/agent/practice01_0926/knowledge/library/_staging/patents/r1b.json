@@ -1,0 +1,270 @@
+[
+ {
+  "query": "WO2026103052A1",
+  "url": "https://patents.google.com/patent/WO2026103052A1/en",
+  "http": 200,
+  "title": "Cooling plate component, chip assembly, circuit board assembly and liquid cooling heat dissipation system",
+  "pdf": null,
+  "pub_no": "WO2026103052A1",
+  "assignee_original": [
+   "Huawei Technologies Co Ltd"
+  ],
+  "assignee_current": [
+   "Huawei Technologies Co Ltd"
+  ],
+  "inventors": [
+   "梅森尼古拉•弗拉基米罗维奇",
+   "孙玉阔",
+   "库特拉德米特罗",
+   "刘腾跃",
+   "曹宇"
+  ],
+  "priorityDate": "2024-11-14",
+  "filingDate": "2025-05-08",
+  "publicationDate": "2026-05-21",
+  "legal_status": "Pending",
+  "expiration": null,
+  "events_status": [
+   "2027-05-14 Anticipated expiration"
+  ],
+  "events": [
+   "2025-05-08 | Application filed by Huawei Technologies Co Ltd",
+   "2026-05-21 | Publication of WO2026103052A1",
+   "Status | Pending",
+   "2027-05-14 | Anticipated expiration"
+  ],
+  "abstract": "Provided in the embodiments of the present application are a cooling plate component, a chip assembly, a circuit board assembly, a liquid cooling heat dissipation system and an electronic device. The cooling plate component comprises: a liquid inlet chamber, provided with a liquid inlet for a cooling liquid to flow in; a liquid return chamber, provided with a liquid outlet for the cooling liquid to flow out; and at least one plate-type heat exchange chamber, each plate-type heat exchange chamber being provided with a cooling liquid injection port that leads to the liquid inlet chamber and a cooling liquid return port that leads to the liquid return chamber. The at least one plate-type heat exchange chamber comprises a plurality of heat exchange zones, the heat exchange capacities of the plurality of heat exchange zones matching the thermal power density distribution of the heat exchange surface of a heat-generating electronic part, and at least two heat exchange zones among the plurality of heat exchange zones using different heat exchange structural forms. The technical solution of the embodiments of the present application can reduce the driving power consumption of liquid cooling heat dissipation while meeting the design requirements for a liquid cooling heat dissipation capacity.",
+  "claim1": "一种冷板构件，其特征在于，包括： A cold-rolled steel plate component, characterized in that it comprises: 进液腔，具有供冷却液流入的进液口； The inlet chamber has an inlet for coolant to flow in; 回液腔，具有供冷却液流出的出液口；以及 The return chamber has an outlet for coolant to flow out; and 至少一个板式换热腔，其中，每个板式换热腔具有与所述进液腔连通的冷却液注入口和与所述回液腔连通的冷却液回流口，所述至少一个板式换热腔包括多个换热分区，所述多个换热分区的换热能力与发热电子部件的换热表面的热功率密度分布相匹配，并且，所述多个换热分区中至少两个换热分区所采用的换热构造形式不同。 At least one plate heat exchange chamber, wherein each plate heat exchange chamber has a coolant inlet communicating with the inlet chamber and a coolant return outlet communicating with the return chamber, the at least one plate heat exchange chamber includes multiple heat exchange zones, the heat exchange capacity of the multiple heat exchange zones is matched with the heat power density distribution of the heat exchange surface of the heat-generating electronic component, and at least two of the multiple heat exchange zones adopt different heat exchange structures.",
+  "claims_count": "17",
+  "family_pubs": [],
+  "similar": [
+   "CN101473432B",
+   "US8472193B2",
+   "JP5975110B2",
+   "CN107148194A",
+   "CN115966533B",
+   "KR102296543B1",
+   "CN113811149B",
+   "CN112399779B",
+   "CN113543600A",
+   "WO2025082335A1",
+   "US20020186538A1",
+   "CN119212321B",
+   "CN109346444B",
+   "CN107230929B",
+   "CN213755435U"
+  ],
+  "cited_by": []
+ },
+ {
+  "query": "CN113871359B",
+  "url": "https://patents.google.com/patent/CN113871359B/en",
+  "http": 200,
+  "title": "Centrifugal micro-channel structure for CPU heat dissipation and use method thereof",
+  "pdf": "https://patentimages.storage.googleapis.com/b6/37/25/fa430a541fe32a/CN113871359B.pdf",
+  "pub_no": "CN113871359B",
+  "assignee_original": [
+   "Suzhou Inspur Intelligent Technology Co Ltd"
+  ],
+  "assignee_current": [
+   "Suzhou Metabrain Intelligent Technology Co Ltd"
+  ],
+  "inventors": [
+   "朱欢来"
+  ],
+  "priorityDate": "2021-08-31",
+  "filingDate": "2021-08-31",
+  "publicationDate": "2023-11-03",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2041-08-31 Anticipated expiration"
+  ],
+  "events": [
+   "2021-08-31 | Application filed by Suzhou Inspur Intelligent Technology Co Ltd",
+   "2021-08-31 | Priority to CN202111009001.9A",
+   "2021-12-31 | Publication of CN113871359A",
+   "2023-11-03 | Application granted",
+   "2023-11-03 | Publication of CN113871359B",
+   "Status | Active",
+   "2041-08-31 | Anticipated expiration"
+  ],
+  "abstract": "Abstract Translated from Chinese 本发明公开一种用于CPU散热的离心微通道结构及其使用方法，属于CPU散热技术领域，包括基板和散热壳体，散热壳体侧面呈阿基米德曲线形状；散热壳体下面环形阵列设有若干离心肋片，相邻离心肋片间形成离心通道；离心肋片内沿包围形成与CPU中心对应喷射空间，其外沿与散热壳体侧面之间形成导流通道；导流通道末端设有出口；散热壳体上面设有喷嘴，喷嘴向喷射空间内喷射冷却液，形成单相淹没射流强化传热结构，且离心结构的离心通道和阿基米德曲线特征的导流侧板，使在中心位置的喷射空间换热能力最强，并沿径向离心降低；与CPU的热流密度分布完全一致，实现CPU最佳的散热均温性；整体结构简单，使用便捷，实用性好。 The invention discloses a centrifugal microchannel structure for CPU heat dissipation and a method of use thereof. It belongs to the technical field of CPU heat dissipation and includes a substrate and a heat dissipation shell. The side of the heat dissipation shell is in the shape of an Archimedes curve; and there is an annular array below the heat dissipation shell. A number of centrifugal fins are provided, and a centrifugal channel is formed between adjacent centrifugal fins; the inner edge of the centrifugal fin surrounds a spray space corresponding to the center of the CPU, and a flow guide channel is formed between its outer edge and the side of the heat dissipation case; the end of the flow guide channel It is equipped with an outlet; there is a nozzle on the heat dissipation shell, which injects coolant into the injection space to form a single-phase submerged jet to enhance heat transfer structure, and the centrifugal channel of the centrifugal structure and the diversion side plate with Archimedean curve characteristics. The heat exchange capacity of the spray space at the center is the strongest, and it is centrifugally reduced along the radial direction; it is completely consistent with the heat flow density distribution of the CPU, achieving the best heat dissipation and temperature uniformity of the CPU; the overall structure is simple, easy to use, and has good practicability.",
+  "claim1": "1. The centrifugal micro-channel structure for CPU heat dissipation is characterized by comprising a substrate (1) attached to the CPU and a heat dissipation shell (2) arranged on the substrate (1), wherein the side surface of the heat dissipation shell (2) is in an Archimedes curve shape; a plurality of centrifugal ribs (3) are annularly arranged on one side, close to the base plate (1), of the heat dissipation shell (2), and a centrifugal channel is formed between two adjacent centrifugal ribs (3); the inner edges of the centrifugal ribs (3) are surrounded to form a jet space corresponding to the center of the CPU, and a diversion channel is formed between the outer edges of the centrifugal ribs and the side surface of the heat dissipation shell (2); an outlet (25) is arranged at the tail end of the diversion channel; a plurality of nozzles (24) are arranged on one side, far away from the substrate (1), of the heat dissipation shell (2), and the nozzles (24) spray cooling liquid into the spraying space; the centrifugal ribs (3) are bent in a cambered surface shape, and the outlet direction of the formed centrifugal channel is consistent with the diversion direction of the diversion channel; the center of the side surface of the heat dissipation shell (2) coincides with the center of the spraying space, and the side surface of the heat dissipation shell (2) at the head end of the flow guide channel is in sealing connection with one centrifugal rib (3); the centrifugal rib (3) is made of foam metal.",
+  "claims_count": "7",
+  "family_pubs": [
+   "CN113871359A"
+  ],
+  "similar": [
+   "US12029008B2",
+   "CN112151478A",
+   "CN109830778A",
+   "CN211207270U",
+   "CN110572990A",
+   "CN113871359A",
+   "CN112399779A",
+   "CN100461995C",
+   "CN209461449U",
+   "CN202281526U",
+   "CN211319165U",
+   "CN220326095U",
+   "CN207381390U",
+   "CN216930648U",
+   "CN110224211A"
+  ],
+  "cited_by": [
+   "CN114485233A | 苏州浪潮智能科技有限公司 | Impact backflow type gravity thermosiphon radiator and electronic equipment",
+   "CN120201686B | 武汉理工大学三亚科教创新园 | Archimedes spiral radiating pipe with bionic phoenix tree leaf-shaped structure"
+  ]
+ },
+ {
+  "query": "CN120597664B",
+  "url": "https://patents.google.com/patent/CN120597664B/en",
+  "http": 200,
+  "title": "Method and device for constructing liquid cooling radiator micro-channel integrating bypass control",
+  "pdf": null,
+  "pub_no": "CN120597664B",
+  "assignee_original": [
+   "Guangdong Lanrui Technology Group Co ltd"
+  ],
+  "assignee_current": [
+   "Guangdong Lanrui Technology Group Co ltd"
+  ],
+  "inventors": [
+   "匡超",
+   "匡得军",
+   "赵家逸",
+   "吴钊锋",
+   "卢财办",
+   "陈振显"
+  ],
+  "priorityDate": "2025-08-11",
+  "filingDate": "2025-08-11",
+  "publicationDate": "2025-09-30",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2045-08-11 Anticipated expiration"
+  ],
+  "events": [
+   "2025-08-11 | Application filed by Guangdong Lanrui Technology Group Co ltd",
+   "2025-08-11 | Priority to CN202511113914.3A",
+   "2025-09-05 | Publication of CN120597664A",
+   "2025-09-30 | Application granted",
+   "2025-09-30 | Publication of CN120597664B",
+   "Status | Active",
+   "2045-08-11 | Anticipated expiration"
+  ],
+  "abstract": "Abstract Translated from Chinese 本申请公开了一种集成旁通控制的液冷散热器微通道构建方法及装置，用于解决固定高流阻微通道所带来的能源浪费问题。本申请方法包括：建立液冷散热器的三维几何模型，三维几何模型包括用于处理峰值热负荷工况的主通道、用于处理低热负荷工况的旁通通道以及设置在旁通通道内的SMA微执行器；分别定义流体域、固体域和执行器域，并为执行器域配置用于描述温度、应力与相变关系的SMA本构模型；根据SMA本构模型建立流体域、固体域与执行器域之间的双向耦合关系，以构成数字孪生模型；对数字孪生模型施加随时间变化的模拟热负荷，得到液冷散热器在动态工况下的仿真性能参数；根据仿真性能参数对目标设计参数进行迭代优化，以获得目标设计参数。 The present application discloses a method and device for constructing a liquid-cooled radiator microchannel with integrated bypass control, which is used to solve the energy waste problem caused by fixed high-resistance microchannels. The method of the present application includes: establishing a three-dimensional geometric model of the liquid-cooled radiator, the three-dimensional geometric model including a main channel for processing peak heat load conditions, a bypass channel for processing low heat load conditions, and an SMA microactuator arranged in the bypass channel; defining the fluid domain, solid domain, and actuator domain respectively, and configuring an SMA constitutive model for the actuator domain to describe the relationship between temperature, stress, and phase change; establishing a bidirectional coupling relationship between the fluid domain, solid domain, and actuator domain based on the SMA constitutive model to form a digital twin model; applying a simulated heat load that changes with time to the digital twin model to obtain the simulation performance parameters of the liquid-cooled radiator under dynamic conditions; iteratively optimizing the target design parameters based on the simulation performance parameters to obtain the target design parameters.",
+  "claim1": "1. The method for constructing the liquid cooling radiator micro-channel integrating bypass control is characterized by comprising the following steps of: Establishing a three-dimensional geometric model of a liquid cooling radiator, wherein the three-dimensional geometric model comprises a main channel for processing peak heat load working conditions, a bypass channel for processing low heat load working conditions and an SMA micro-actuator arranged in the bypass channel, the SMA micro-actuator is made of a shape memory alloy material and is a solid part with a specific geometric shape, and the SMA micro-actuator is used for responding to temperature change; performing mesh subdivision processing for finite element numerical simulation on the three-dimensional geometric model to obtain a mesh model; The method comprises the steps of respectively defining a fluid domain, a solid domain and an actuator domain in the grid model corresponding to cooling fluid, a heat dissipation substrate and the SMA micro-actuator of the liquid cooling radiator, and configuring an SMA constitutive model for describing the relationship of temperature, stress and phase change for the actuator domain; Establishing a two-way coupling relation among the fluid domain, the solid domain and the actuator domain according to the SMA constitutive model to form a digital twin model, wherein the two-way coupling relation comprises conjugate heat transfer coupling, thermal deformation coupling and fluid-solid coupling; applying a simulated thermal load which changes along with time to the digital twin model to obtain simulation performance parameters of the liquid cooling radiator under a dynamic working condition; and carrying out iterative optimization on target design parameters according to the simulation performance parameters to obtain target design parameters, wherein the target design parameters comprise at least one of geometric dimensions, shapes, anchor point positions and material phase change activation temperatures of the SMA micro-actuator.",
+  "claims_count": "10",
+  "family_pubs": [
+   "CN120597664A"
+  ],
+  "similar": [
+   "US20220027539A1",
+   "CN109783970B",
+   "CN119249624B",
+   "CN120597664A",
+   "CN120809022A",
+   "WO2025242755A1",
+   "CN116882205B",
+   "CN117610372A",
+   "CN119150584B",
+   "CN120831241B",
+   "CN122046682A"
+  ],
+  "cited_by": []
+ },
+ {
+  "query": "US11963338B2",
+  "url": "https://patents.google.com/patent/US11963338B2/en",
+  "http": 200,
+  "title": "Cooling system for electronic modules",
+  "pdf": "https://patentimages.storage.googleapis.com/64/14/c7/2658a15a63f944/US11963338.pdf",
+  "pub_no": "US11963338B2",
+  "assignee_original": [
+   "Iceotope Group Ltd"
+  ],
+  "assignee_current": [
+   "Iceotope Group Ltd"
+  ],
+  "inventors": [
+   "Neil Edmunds",
+   "Jason Matteson",
+   "Nathan Longhurst",
+   "David Amos"
+  ],
+  "priorityDate": "2019-05-21",
+  "filingDate": "2022-10-05",
+  "publicationDate": "2024-04-16",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2040-05-21 Anticipated expiration"
+  ],
+  "events": [
+   "2019-05-21 | Priority claimed from GBGB1907182.8A",
+   "2019-11-18 | Priority claimed from GBGB1916767.5A",
+   "2020-05-21 | Priority claimed from PCT/GB2020/051245",
+   "2022-10-05 | Application filed by Iceotope Group Ltd",
+   "2022-10-05 | Priority to US17/960,357",
+   "2023-03-30 | Publication of US20230096875A1",
+   "2024-02-14 | Assigned to Iceotope Group Limited",
+   "2024-04-16 | Application granted",
+   "2024-04-16 | Publication of US11963338B2",
+   "Status | Active",
+   "2040-05-21 | Anticipated expiration"
+  ],
+  "abstract": "A system and a method for cooling a plurality of electronic devices housed in a housing of an electronic module. The system comprises a first cooling circulatory arrangement, configured to circulate a first liquid coolant between a first electronic device of the plurality of electronic devices and a heat exchanger, the first electronic device being thermally coupled to the first liquid coolant such that heat is transferred from the first electronic device to the first liquid coolant. The system further comprises a second cooling circulatory arrangement, configured to circulate a second liquid coolant between a second electronic device of the plurality of electronic devices and the heat exchanger, the second electronic device being thermally coupled to the second liquid coolant such that heat is transferred from the second electronic device to the second liquid coolant. The first cooling circulatory arrangement and the second cooling circulatory arrangement are thermally coupled at least via the heat exchanger, such that heat is transferred from the first liquid coolant to the second liquid coolant via the heat exchanger.",
+  "claim1": "1. A system for cooling a plurality of electronic devices housed in a housing of an electronic module, the system comprising: a first cooling circulatory arrangement, configured to circulate a first coolant from a first coolant supply between a first electronic device of the plurality of electronic devices and a heat exchanger, the first electronic device being thermally coupled to the first coolant such that heat is transferred from the first electronic device to the first coolant; and a second cooling circulatory arrangement, configured to circulate a second coolant between a second electronic device of the plurality of electronic devices and the heat exchanger, the second electronic device being thermally coupled to the second coolant such that heat is transferred from the second electronic device to the second coolant; wherein the first cooling circulatory arrangement and the second cooling circulatory arrangement are thermally coupled at least via the heat exchanger, such that heat is transferred from the first coolant to the second coolant via the heat exchanger; and wherein the second cooling circulatory arrangement is connected to a second coolant supply, wherein the second cooling circulatory arrangement is configured to circulate the second coolant received from the second coolant supply between the second electronic device of the plurality of electronic devices and the heat exchanger, and to be returned to the second coolant supply.",
+  "claims_count": "16",
+  "family_pubs": [
+   "US11490546B2",
+   "US20220110225A1",
+   "US20230096875A1"
+  ],
+  "similar": [
+   "US11490546B2",
+   "EP3973752B1",
+   "US12538452B2",
+   "US11596082B2",
+   "US10070560B2",
+   "CN111630470B",
+   "US9282678B2",
+   "US11219142B2",
+   "GB2571053A",
+   "TWI780924B",
+   "US12414224B2",
+   "US11096302B2",
+   "KR20260003812A"
+  ],
+  "cited_by": [
+   "US20240032241A1 | Dell Products, L.P. | Liquid Cooling Manifold for Information Technology Equipment",
+   "US20240130069A1 | Mellanox Technologies, Ltd. | Computing devices with improved thermal management",
+   "US20240268078A1 | Amulaire Thermal Technology, Inc. | Two-phase immersion-cooling heat-dissipation structure having skived fins",
+   "US20240389276A1 | Quanta Computer Inc. | Modular liquid cooling for multi-node computing systems",
+   "US20250261336A1 | Suzhou Metabrain Intelligent Technology Co., Ltd. | Single-phase Cold Plate Liquid Cooling System and Control Method Therefor, and Electronic Device",
+   "GB201619987D0 | Iceotope Ltd | Fluid cooling system",
+   "GB2584991B | Iceotope Group Ltd | Cold plate",
+   "IL288253B2 | Iceotope Group Ltd | Cooling system for electronic modules",
+   "US11490546B2 | Iceotope Group Limited | Cooling system for electronic modules",
+   "CN114138082A | 北京图森智途科技有限公司 | Cooling system and server system",
+   "US11997830B2 | Nvidia Corporation | Intelligent radiator-assisted power and coolant distribution unit for datacenter cooling systems",
+   "US11812582B2 | Baidu Usa Llc | Symmetrical cold plate design",
+   "US11445632B1 | ZT Group Int'l, Inc. | Apparatus for maintaining airflow while servicing component",
+   "US11980006B2 | Baidu Usa Llc | Leak segregation and detection system for an electronics rack",
+   "US12010820B2 | Modine LLC | Liquid immersion cooling platform and components thereof",
+   "CN116963452A | 富联精密电子(天津)有限公司 | Leak isolation devices and electronic equipment",
+   "CN114928984B | 惠州市德赛西威智能交通技术研究院有限公司 | Cold plate assemblies, integrated domain controllers and vehicles",
+   "US20230349567A1 | Johnson Controls Tyco IP Holdings LLP | Direct evaporative cooling system for data center with fault detection",
+   "US12089366B2 | Baidu Usa Llc | Server and cooling system for enhanced immersion cooling",
+   "US12596413B2 | Advanced Micro Devices, Inc. | Control scheme for regulating thermoelectric cooling device power for a computing device",
+   "US12541234B2 | Advanced Micro Devices, Inc. | Cooling device aware processor",
+   "US20240111269A1 | Advanced Micro Devices, Inc. | Component cooler with multiple fluid paths",
+   "US20240237300A9 | Strategic Thermal Labs, Llc | Environmentally hardened cold plate for use in liquid cooling of electronic devices",
+   "GB2623755B | Iceotope Group Ltd | Heat exchanger for liquid coolant",
+   "US12507375B2 | Ultrascale Digital Infrastructure, Inc. | Liquid based cooling systems and methods for server racks in data centers"
+  ]
+ }
+]

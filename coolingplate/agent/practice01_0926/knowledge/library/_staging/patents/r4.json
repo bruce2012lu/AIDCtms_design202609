@@ -1,0 +1,327 @@
+[
+ {
+  "query": "US20220232739A1",
+  "url": "https://patents.google.com/patent/US20220232739A1/en",
+  "http": 200,
+  "title": "Intelligent cold plate system with active and passive features for a datacenter cooling system",
+  "pdf": "https://patentimages.storage.googleapis.com/2b/15/ca/49d2edea74b23e/US20220232739A1.pdf",
+  "pub_no": "US20220232739A1",
+  "assignee_original": [
+   "Nvidia Corp"
+  ],
+  "assignee_current": [
+   "Nvidia Corp"
+  ],
+  "inventors": [
+   "Ali Heydari"
+  ],
+  "priorityDate": "2021-01-21",
+  "filingDate": "2021-01-21",
+  "publicationDate": "2022-07-21",
+  "legal_status": "Granted",
+  "expiration": null,
+  "events_status": [
+   "2043-04-18 Adjusted expiration"
+  ],
+  "events": [
+   "2021-01-21 | Application filed by Nvidia Corp",
+   "2021-01-21 | Priority to US17/154,708",
+   "2021-01-21 | Assigned to NVIDIA CORPORATION",
+   "2022-01-12 | Priority to CN202210032000.4A",
+   "2022-01-18 | Priority to DE102022101067.8A",
+   "2022-01-21 | Priority to GB2200750.4A",
+   "2022-07-21 | Publication of US20220232739A1",
+   "2025-11-14 | Priority to US19/390,264",
+   "2025-11-18 | Application granted",
+   "2025-11-18 | Publication of US12477696B2",
+   "Status | Active",
+   "2043-04-18 | Adjusted expiration"
+  ],
+  "abstract": "Systems and methods for cooling a datacenter are disclosed. In at least one embodiment, a cold plate has microchannels and a heat pipe to support a first fluid in an active mode of operation of a cold plate that uses microchannels, and to support a second fluid in a passive mode of operation of a cold plate that uses a heat pipe.",
+  "claim1": "1 . A datacenter cooling system, comprising: a cold plate comprising microchannels and a heat pipe, the microchannels to support a first fluid in an active mode of operation of the cold plate, the first fluid to flow through the microchannels by action of at least one flow controller, and the heat pipe to support a second fluid in a passive mode of operation of the cold plate, the second fluid to circulate in the heat pipe by differential temperature and capillary actions between an evaporator section and a condenser section of the heat pipe.",
+  "claims_count": "30",
+  "family_pubs": [
+   "CN114828541A",
+   "CN114828541B",
+   "DE102022101067A1",
+   "GB202200750D0",
+   "GB2605000A",
+   "GB2605000B",
+   "US12477696B2",
+   "US20260075772A1"
+  ],
+  "similar": [
+   "US12200909B2",
+   "US11822398B2",
+   "US11829215B2",
+   "US20240260238A1",
+   "US11656665B2",
+   "US12557250B2",
+   "US12082382B2",
+   "US20250280517A1",
+   "US20240085961A1",
+   "US20260075772A1",
+   "US20220369519A1",
+   "US12238895B2",
+   "US12477701B2",
+   "US11910577B2",
+   "US11988401B2"
+  ],
+  "cited_by": [
+   "CN115599529A | 阿里巴巴（中国）有限公司（Cn） | Edge cloud function computing system and method",
+   "US12477688B2 | Toyota Motor Engineering & Manufacturing North America, Inc. | Systems and methods for cooling electronic devices",
+   "EP4734689A1 | Hoffman Enclosures Inc. | Coolant distribution units with localized processing"
+  ]
+ },
+ {
+  "query": "WO2024042182A1",
+  "url": "https://patents.google.com/patent/WO2024042182A1/en",
+  "http": 200,
+  "title": "Cold plate assembly for liquid cooling of electronic devices",
+  "pdf": "https://patentimages.storage.googleapis.com/5c/25/dd/730b270f856783/WO2024042182A1.pdf",
+  "pub_no": "WO2024042182A1",
+  "assignee_original": [
+   "Asetek AS"
+  ],
+  "assignee_current": [
+   "Asetek AS"
+  ],
+  "inventors": [
+   "Anders Hjørringgaard Saksager"
+  ],
+  "priorityDate": "2022-08-24",
+  "filingDate": "2023-08-24",
+  "publicationDate": "2024-02-29",
+  "legal_status": "Ceased",
+  "expiration": null,
+  "events_status": [
+   "2025-02-24 Anticipated expiration"
+  ],
+  "events": [
+   "2023-08-24 | Application filed by Asetek AS",
+   "2023-08-24 | Priority to EP23761128.0A",
+   "2023-08-24 | Priority to CN202380073555.6A",
+   "2024-02-29 | Publication of WO2024042182A1",
+   "2025-02-24 | Anticipated expiration",
+   "Status | Ceased"
+  ],
+  "abstract": "A cold plate assembly for use in a liquid cooling system for cooling of a computing device having a plurality of active regions from which heat is dispersed with varying intensity ranging from one or more high-intensity zones to one or more low-intensity zones. The cold plate assembly has a cold plate for exchanging heat between said computing device and cooling liquid and a distribution layer configured to be mounted onto the cold plate. The cold plate comprises guiding means for guiding cooling liquid from an inlet channel to an outlet channel along an inner surface of the cold plate in a predefined pattern focusing the liquid flow across one or more predefined high-priority zones. The inlet channel is arranged such that it is at least partially coinciding with a high-intensity zone of the computing device when the cold plate assembly is arranged to cool the computing device. The cold plate of the cold plate assembly may be 3D printed which allows for flexible cold plate designs which may be obtained by a method of iterative optimisation.",
+  "claim1": "1. A cold plate assembly for use in a liquid cooling system for cooling of a computing device having a plurality of active regions from which heat is dispersed with varying intensity, said cold plate assembly comprising: a cold plate for exchanging heat between said computing device and cooling liquid of said liquid cooling system, said cold plate comprising an exterior surface for facing the computing device and an opposite inner surface adapted to be in contact with said cooling liquid, said inner surface further comprising guiding means for guiding said cooling liquid along said inner surface in a predefined pattern focusing the liquid flow across one or more zones; a distribution layer configured to be mounted onto said inner surface of said cold plate, said distribution layer comprising a liquid inlet through which said inner surface of said cold plate receives cooling liquid from said liquid cooling system, and a liquid outlet through which cooling liquid is discharged away from said inner surface into said liquid cooling system, said liquid inlet being in liquid communication with an inlet channel, said inlet channel and said liquid outlet being in liquid communication with an outlet channel, such that at least a first zone of the cold plate assembly is adapted for a liquid flow with one of the flow types split flow, uniting flow, or straight flow and a second zone of the cold plate is adapted for a liquid flow type of one of the types split flow, uniting flow, or straight flow and the second flow type being different from the first flow type.",
+  "claims_count": null,
+  "family_pubs": [
+   "CN120092494A",
+   "EP4578252A1",
+   "EP4578252B1",
+   "US20240074100A1"
+  ],
+  "similar": [
+   "EP4578252B1",
+   "CN110637363B",
+   "CN101803019B",
+   "EP3933911B1",
+   "US10892208B2",
+   "US20220316817A1",
+   "TWM612914U",
+   "CN213987154U",
+   "KR20220122558A",
+   "WO2021036249A1",
+   "WO2021224335A1",
+   "JP2021093511A",
+   "JP5589647B2",
+   "TWI765606B",
+   "KR20210072949A"
+  ],
+  "cited_by": [
+   "EP4333575B1 | Bull Sas | Inlet heat sink for a supercomputer electronics board cooling system",
+   "EP4333576B1 | Bull Sas | Output heat sink for a cooling system of a supercomputer electronic board",
+   "CN118434105B | 湖南博匠信息科技有限公司 | Miniature rack-mounted liquid cooling source and system for improving refrigerating capacity"
+  ]
+ },
+ {
+  "query": "US20240074100A1",
+  "url": "https://patents.google.com/patent/US20240074100A1/en",
+  "http": 200,
+  "title": "Cold plate assembly for liquid cooling of electronic devices",
+  "pdf": "https://patentimages.storage.googleapis.com/ec/51/9f/29b1dcb4a68013/US20240074100A1.pdf",
+  "pub_no": "US20240074100A1",
+  "assignee_original": [
+   "Asetek AS"
+  ],
+  "assignee_current": [
+   "Asetek AS"
+  ],
+  "inventors": [
+   "Anders Hjørringgaard Saksager"
+  ],
+  "priorityDate": "2022-08-24",
+  "filingDate": "2023-08-24",
+  "publicationDate": "2024-02-29",
+  "legal_status": "Pending",
+  "expiration": null,
+  "events": [
+   "2023-08-24 | Application filed by Asetek AS",
+   "2023-09-08 | Assigned to ASETEK DANMARK A/S",
+   "2024-02-29 | Publication of US20240074100A1",
+   "Status | Pending"
+  ],
+  "abstract": "A cold plate assembly for use in a liquid cooling system for cooling of a computing device having a plurality of active regions from which heat is dispersed with varying intensity ranging from one or more high-intensity zones to one or more low-intensity zones. The cold plate assembly has a cold plate for exchanging heat between said computing device and cooling liquid and a distribution layer configured to be mounted onto the cold plate. The cold plate comprises guiding means for guiding cooling liquid from an inlet channel to an outlet channel along an inner surface of the cold plate in a predefined pattern focusing the liquid flow across one or more predefined high-priority zones. The inlet channel is arranged such that it is at least partially coinciding with a high-intensity zone of the computing device when the cold plate assembly is arranged to cool the computing device. The cold plate of the cold plate assembly may be 3D printed which allows for flexible cold plate designs which may be obtained by a method of iterative optimisation.",
+  "claim1": "1 . A cold plate assembly for use in a liquid cooling system for cooling of a computing device having a plurality of active regions from which heat is dispersed with varying intensity, the cold plate assembly comprising: A cold plate for exchanging heat between the computing device and cooling liquid of the liquid cooling system, the cold plate comprising an exterior surface for facing the computing device and an opposite inner surface adapted to be in contact with the cooling liquid, the inner surface further comprising guiding means for guiding the cooling liquid along the inner surface in a predefined pattern focusing the liquid flow across one or more zones; a distribution layer configured to be mounted onto the inner surface of the cold plate, the distribution layer comprises: a liquid inlet through which the inner surface of the cold plate receives cooling liquid from the liquid cooling system, and a liquid outlet through which cooling liquid is discharged away from the inner surface into the liquid cooling system, wherein the liquid inlet is in liquid communication with an inlet channel, the inlet channel and the liquid outlet are in liquid communication with an outlet channel, such that at least a first zone and a second zone of the cold plate assembly adapted for a liquid flow with one of the flow types of a split flow, a uniting flow, or a straight flow, wherein the flow types of the first zone and the second zone are different.",
+  "claims_count": "15",
+  "family_pubs": [
+   "CN120092494A",
+   "EP4578252A1",
+   "EP4578252B1",
+   "WO2024042182A1"
+  ],
+  "similar": [
+   "EP4578252B1",
+   "CN110637363B",
+   "CN101803019B",
+   "JP5769834B2",
+   "EP3933911B1",
+   "US10892208B2",
+   "TWM612914U",
+   "KR20220122558A",
+   "WO2021036249A1",
+   "JP2021093511A",
+   "WO2021224335A1",
+   "JP5589647B2",
+   "TWI765606B",
+   "JP5689511B2",
+   "KR20140054734A"
+  ],
+  "cited_by": [
+   "US20240074029A1 | Bull Sas | Inlet heat sink for a cooling system of a supercomputer electronic board",
+   "US20240074032A1 | Bull Sas | Outlet heat sink for cooling system of a supercomputer electronic board",
+   "CN118434105A | 湖南博匠信息科技有限公司 | Miniature rack-mounted liquid cooling source and system for improving refrigerating capacity"
+  ]
+ },
+ {
+  "query": "WO2025019707A1",
+  "url": "https://patents.google.com/patent/WO2025019707A1/en",
+  "http": 200,
+  "title": "Internal recirculation cooling module",
+  "pdf": "https://patentimages.storage.googleapis.com/00/4a/1b/079ca984139a20/WO2025019707A1.pdf",
+  "pub_no": "WO2025019707A1",
+  "assignee_original": [
+   "Jetcool Technologies Inc"
+  ],
+  "assignee_current": [
+   "Jetcool Technologies Inc"
+  ],
+  "inventors": [
+   "Ludwig C. Haber",
+   "Cameron BOGGIO",
+   "Andy LA FOSSE",
+   "David Fox",
+   "Robert BALLERSTEDT"
+  ],
+  "priorityDate": "2023-07-18",
+  "filingDate": "2024-07-18",
+  "publicationDate": "2025-01-23",
+  "legal_status": "Ceased",
+  "expiration": null,
+  "events_status": [
+   "2026-01-18 Anticipated expiration"
+  ],
+  "events": [
+   "2024-07-18 | Application filed by Jetcool Technologies Inc",
+   "2024-07-18 | Priority to CN202480003552.XA",
+   "2024-07-18 | Priority to JP2025505571A",
+   "2024-07-18 | Priority to EP24827705.5A",
+   "2025-01-23 | Publication of WO2025019707A1",
+   "2026-01-18 | Anticipated expiration",
+   "Status | Ceased"
+  ],
+  "abstract": "Improved cooling modules and methods are configured to recirculate the liquid coolant fluid inside the cooling modules so that the same liquid cooling fluid impinges the surfaces of the heat-generating electronic components (or cooling plates in thermal communication with the heat-generating electronic components) multiple times before exiting the cooling module, thereby allowing a given flow of coolant fluid to be re-used several times over. With each re-use of the coolant fluid, the flow rate demand drops, reducing infrastructure required to achieve higher performance in direct and indirect micro-convective impingement cooling applications.",
+  "claim1": "1. A cooling module, comprising: (a) a jet plate comprising an upper face, a lower face, a first segment that includes a first array of microjet nozzles extending through the jet plate from the upper face of the jet plate to the lower face of the jet plate, and a second segment that includes second array of microjet nozzles extending through the jet plate from the upper face of the jet plate to the lower face of the jet plate, and (b) a housing; (c) a ceiling disposed between the jet plate and the housing, the ceiling comprising a first ceiling-mounted boundary extending from the ceiling to the upper face of the jet plate and a second ceiling-mounted boundary extending from the ceiling to the upper face of the jet plate, (d) a base plate comprising a cooling surface, a first cooling surface-mounted boundary extending from the cooling surface to the lower face of the jet plate, and a second cooling surface-mounted boundary extending from the cooling surface to the lower face of the jet plate; (e) wherein the jet plate, the ceiling, the cooling surface of the base plate, the first ceiling-mounted boundary, the second ceiling-mounted boundary, the first cooling surfacemounted boundary and the second cooling surface-mounted boundary are all arranged to define a first inlet plenum located between the ceiling and the first array of microjet nozzles, a second inlet plenum located between the ceiling and the second array of microjet nozzles, a first impingement volume located between the first array of microjet nozzles and the cooling surface, a second impingement volume located between the second array of microjet nozzles and the cooling surface, and a first couch passage fluidly connecting the first impingement volume to the second inlet plenum; (f) a fastening system for attaching the cooling module to a circuit board having one or more heat-generating electronic components affixed thereto so that the cooling surface of the base plate will be in thermal communication with said one or more heat-generating electronic components on the circuit board and absorbs heat generated by said one or more heat-generating electronic components while the circuit board is in operation; and (g) an inlet fitting attached to the housing and configured to admit into the cooling module a pressurized coolant fluid transferred from an external source; and (h) an inlet flow channel to carry the pressurized liquid coolant fluid from the inlet fitting to the first inlet plenum; (i) wher",
+  "claims_count": null,
+  "family_pubs": [
+   "CN119631587A",
+   "CN119631587B",
+   "EP4533919A1",
+   "EP4533919A4",
+   "JP2025527057A",
+   "US12432878B2",
+   "US20250031342A1",
+   "US20250324541A1"
+  ],
+  "similar": [
+   "US5083194A",
+   "US5818692A",
+   "US7375962B2",
+   "US4910642A",
+   "US5831824A",
+   "US6735081B1",
+   "US8081459B2",
+   "EP1008281B1",
+   "US7184269B2",
+   "US7830664B2",
+   "CN113056159B",
+   "US20050128705A1",
+   "US8644014B2",
+   "WO1997038274A1",
+   "CN113994772A"
+  ],
+  "cited_by": []
+ },
+ {
+  "query": "CN120597664B",
+  "url": "https://patents.google.com/patent/CN120597664B/en",
+  "http": 200,
+  "title": "Method and device for constructing liquid cooling radiator micro-channel integrating bypass control",
+  "pdf": null,
+  "pub_no": "CN120597664B",
+  "assignee_original": [
+   "Guangdong Lanrui Technology Group Co ltd"
+  ],
+  "assignee_current": [
+   "Guangdong Lanrui Technology Group Co ltd"
+  ],
+  "inventors": [
+   "匡超",
+   "匡得军",
+   "赵家逸",
+   "吴钊锋",
+   "卢财办",
+   "陈振显"
+  ],
+  "priorityDate": "2025-08-11",
+  "filingDate": "2025-08-11",
+  "publicationDate": "2025-09-30",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2045-08-11 Anticipated expiration"
+  ],
+  "events": [
+   "2025-08-11 | Application filed by Guangdong Lanrui Technology Group Co ltd",
+   "2025-08-11 | Priority to CN202511113914.3A",
+   "2025-09-05 | Publication of CN120597664A",
+   "2025-09-30 | Application granted",
+   "2025-09-30 | Publication of CN120597664B",
+   "Status | Active",
+   "2045-08-11 | Anticipated expiration"
+  ],
+  "abstract": "Abstract Translated from Chinese 本申请公开了一种集成旁通控制的液冷散热器微通道构建方法及装置，用于解决固定高流阻微通道所带来的能源浪费问题。本申请方法包括：建立液冷散热器的三维几何模型，三维几何模型包括用于处理峰值热负荷工况的主通道、用于处理低热负荷工况的旁通通道以及设置在旁通通道内的SMA微执行器；分别定义流体域、固体域和执行器域，并为执行器域配置用于描述温度、应力与相变关系的SMA本构模型；根据SMA本构模型建立流体域、固体域与执行器域之间的双向耦合关系，以构成数字孪生模型；对数字孪生模型施加随时间变化的模拟热负荷，得到液冷散热器在动态工况下的仿真性能参数；根据仿真性能参数对目标设计参数进行迭代优化，以获得目标设计参数。 The present application discloses a method and device for constructing a liquid-cooled radiator microchannel with integrated bypass control, which is used to solve the energy waste problem caused by fixed high-resistance microchannels. The method of the present application includes: establishing a three-dimensional geometric model of the liquid-cooled radiator, the three-dimensional geometric model including a main channel for processing peak heat load conditions, a bypass channel for processing low heat load conditions, and an SMA microactuator arranged in the bypass channel; defining the fluid domain, solid domain, and actuator domain respectively, and configuring an SMA constitutive model for the actuator domain to describe the relationship between temperature, stress, and phase change; establishing a bidirectional coupling relationship between the fluid domain, solid domain, and actuator domain based on the SMA constitutive model to form a digital twin model; applying a simulated heat load that changes with time to the digital twin model to obtain the simulation performance parameters of the liquid-cooled radiator under dynamic conditions; iteratively optimizing the target design parameters based on the simulation performance parameters to obtain the target design parameters.",
+  "claim1": "1. The method for constructing the liquid cooling radiator micro-channel integrating bypass control is characterized by comprising the following steps of: Establishing a three-dimensional geometric model of a liquid cooling radiator, wherein the three-dimensional geometric model comprises a main channel for processing peak heat load working conditions, a bypass channel for processing low heat load working conditions and an SMA micro-actuator arranged in the bypass channel, the SMA micro-actuator is made of a shape memory alloy material and is a solid part with a specific geometric shape, and the SMA micro-actuator is used for responding to temperature change; performing mesh subdivision processing for finite element numerical simulation on the three-dimensional geometric model to obtain a mesh model; The method comprises the steps of respectively defining a fluid domain, a solid domain and an actuator domain in the grid model corresponding to cooling fluid, a heat dissipation substrate and the SMA micro-actuator of the liquid cooling radiator, and configuring an SMA constitutive model for describing the relationship of temperature, stress and phase change for the actuator domain; Establishing a two-way coupling relation among the fluid domain, the solid domain and the actuator domain according to the SMA constitutive model to form a digital twin model, wherein the two-way coupling relation comprises conjugate heat transfer coupling, thermal deformation coupling and fluid-solid coupling; applying a simulated thermal load which changes along with time to the digital twin model to obtain simulation performance parameters of the liquid cooling radiator under a dynamic working condition; and carrying out iterative optimization on target design parameters according to the simulation performance parameters to obtain target design parameters, wherein the target design parameters comprise at least one of geometric dimensions, shapes, anchor point positions and material phase change activation temperatures of the SMA micro-actuator.",
+  "claims_count": "10",
+  "family_pubs": [
+   "CN120597664A"
+  ],
+  "similar": [
+   "US20220027539A1",
+   "CN109783970B",
+   "CN119249624B",
+   "CN120597664A",
+   "CN120809022A",
+   "WO2025242755A1",
+   "CN116882205B",
+   "CN117610372A",
+   "CN119150584B",
+   "CN120831241B",
+   "CN122046682A"
+  ],
+  "cited_by": []
+ }
+]

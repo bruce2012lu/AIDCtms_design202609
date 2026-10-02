@@ -1,0 +1,11 @@
+{
+  "id": "dat-2023-nist-water-isobar-1atm",
+  "sha256": "42227259efc52ff8a7308190380b4246a222faedafad122101cb084e9f991991",
+  "source": "files/datasets/dat-2023-nist-water-isobar-1atm.txt",
+  "extracted_at": "2026-10-02T23:17:32",
+  "pages": 1,
+  "chars": 1820,
+  "chunks": 1,
+  "tables": 0,
+  "figures": 0
+}

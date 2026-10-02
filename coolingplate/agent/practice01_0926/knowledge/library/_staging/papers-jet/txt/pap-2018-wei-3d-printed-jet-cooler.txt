@@ -1,0 +1,672 @@
+
+===== p.1 =====
+3D Printed Liquid Jet Impingement Cooler: Demonstration, Opportunities and 
+Challenges
+T.-W. Wei1,2 , H. Oprins1, V. Cherman1, I. De Wolf1,3, E. Beyne1, S. Yang2,*, M. Baelmans2 
+1imec, Leuven, Belgium, 2Dept. Mech. Eng. KU Leuven, Leuven, Belgium, *Member of Flanders Make 
+ 3 Dept. Materials Eng. KU Leuven, Leuven, Belgium 
+email: tiwei.wei@imec.be  
+ 
+Abstract—Liquid jet impingement cooling is a very efficient 
+cooling technology for high performance devices. Previous 
+studies demonstrated that polymers can be used as a cost 
+effective alternative for Si for the fabrication of impingement 
+coolers. The recent developments in additive manufacturing or 
+3D printing technology enable the potential to fabricate low 
+cost polymer coolers with complex internal channels. In this 
+paper, the use of 3D printing is discussed for the fabrication of 
+a chip level polymer impingement cooler. The paper presents 
+the cooler design, the manufacturability aspects and the 
+characterization of several 3D printed coolers with different 
+nozzles arrays. The challenges and opportunities for the use of 
+3D printing for this applications are discussed. A methodology 
+to provide design guidelines for 3D printed liquid impingement 
+jet coolers is elaborated. 
+Keywords-component; 3D printing; impingement jet cooling; 
+challenges; design guidelines  
+I. 
+ INTRODUCTION 
+Thermal management of high performance electronic 
+applications becomes more and more challenging, especially 
+for three-dimensional (3D) chip stacks [1]. Liquid jet 
+impingement cooling with a locally distributed return 
+network is regarded as an efficient way to cool down the 
+chip temperature [2]. In order to be compatible with the chip 
+packaging process flow, different fabrication techniques 
+were investigated to build chip level cooler with micron-size 
+jet arrays, such as Si DRIE microfabrication [3], multilayer 
+ceramic 
+technology 
+(MLC) 
+[4] 
+and 
+lithography 
+electroforming micro molding (LIGA) [5]. However, these 
+techniques 
+are 
+all 
+very 
+expensive. 
+We 
+previously 
+demonstrated that cost efficient mechanical micro-machining 
+techniques could be used to fabricate a polymer chip level 
+3D-shaped cooler with sub-mm nozzle diameters with a very 
+good thermal performance [2]. The mechanical machining 
+process has however limitations to further scale down the 
+nozzle diameters in order to obtain better thermal 
+performance. Moreover, different internal structure layers 
+have to be fabricated separately and subsequently assembled. 
+Due to the recent developments in additive manufacturing or 
+3D printing, its fabrication capabilities are reaching the 
+required dimensions for electronic packaging. Therefore, 3D 
+printing or additive manufacturing is generating a lot of 
+attention in the packaging community for applications such 
+as MEMS packaging [6], transmission lines [7], antennas [8], 
+and fan-out wafer level packaging (FOWLP) [9,10]. Due to 
+the advantages of low cost fabrication and the capability to 
+create complex geometries, 3D printing has the potential to 
+be used to fabricate cost efficient polymer impingement 
+coolers. Furthermore, it allows to print the whole structure in 
+one part and to customize the cooler design to match the jet 
+nozzle array to the chip power map. However, currently 
+there are several limitations for the 3D printing technology to 
+build structurally sound sub-mm structure, especially for 
+polymer based structures.  
+In this work, we will first discuss the cooler design in 
+terms of the nozzle array and diameters and the plenum 
+height. Moreover, the impact of the material properties on 
+the heat transfer is illustrated. In the next section, an 
+overview of the state of the art for the relevant 3D printing 
+technologies for this kind of application is given. Next, the 
+quality of the printed structures and their thermal 
+performance is evaluated for different cooler designs. 
+Furthermore, measurement methodologies are introduced for 
+the assessment of the fabrication tolerance and for defect 
+inspection. Finally, the challenges and opportunities for the 
+use of 3D printing for the fabrication of coolers are 
+discussed. The objective of this work is to provide a 
+guideline for the 3D printed micro-jet cooler design and 
+fabrication, including materials selection, plenum thickness 
+design, critical nozzle diameters design and structural 
+integrity.  
+ 
+II. 
+JET IMPINGEMENT COOLER DESIGN 
+Conventional liquid cooling solutions have two major 
+thermal bottlenecks: the presence of the thermal interface 
+material (TIM) and the lateral temperature gradient across 
+the chip surface. Jet impingement cooling with locally 
+distributed outlets has the advantages to overcome these 
+problems since the liquid coolant is directly ejected from 
+nozzles on the chip backside resulting in a high cooling 
+efficiency. Moreover, it can also enable hot spot targeted 
+cooling with a customized design of the nozzle array. The 
+schematic of the cooler with distributed inlets and outlets is 
+shown in Fig.1 (a). The internal structure includes inlet/outlet 
+tubes for connections, an inlet plenum for feeding the liquid 
+into individual inlet nozzles, and also the outlet plenum for 
+collecting the outflow. The distributed inlets and outlets in 
+the nozzle plate form the nozzle array, for which a top view 
+is shown in Fig.1 (b). The cavity height of the structure is 
+defined as the distance between the nozzle plate and the chip 
+backside which is cooled by the coolant. The interactions 
+between inlet flows and outlet flows happen in this region. 
+For the modeling methodology, conjugate heat transfer and 
+fluid dynamics simulations are used in the Computational 
+fluid dynamics (CFD) models to assess the thermal and 
+
+===== p.2 =====
+fluidic behavior of the cooler. First, a unit cell simulation is 
+created to study the thermal and hydraulic performance of 
+the cooler for different geometries of the nozzle array. Next, 
+a plenum level model and a full cooler model are used to 
+study the interaction between inlet plenum thickness and 
+nozzle diameter, as well as the impact of the thermal 
+conductivity of the cooler material. In this section, the results 
+of the modeling study, the required trends for thermal 
+performance improvement and the link with the fabrication 
+tolerances are discussed. 
+The considered chip size in this work is 8×8 mm2 with 
+0.2 mm thickness. The distance between the jet nozzles and 
+chip cooling surface is fixed at 0.2 mm. For the cooler 
+optimization, the flow rate for all cooler designs is kept equal 
+to 530 mL/min. The inlet temperature is set at 10°C. The 
+chip power is 24 W. The nozzle numbers are ranging from 
+N=1 to N=32. The dimensionless inlet diameter di/L ranges 
+from 0.025 to 0.4. 
+ 
+Figure 1. Schematic of impingement jet cooler. A: Cross-section of the chip 
+level jet impingement cooler revealing the internal structure with inlet and 
+outlet plenum, the nozzle plate and the impingement cavity. B: Top view of 
+the distribution of the inlet and outlets in the nozzle plate. 
+A. Nozzle array scaling analysis 
+Since the nozzle arrays present quasiperiodic behavior 
+(Fig.1(b)), a unit cell CFD model can be used to analyze the 
+thermal and fluidic behavior. For each unit cell, one inlet 
+nozzle is shared by 4 four outlets. In order to optimize the 
+performance of the jet impingement cooler the following five 
+design parameters need to be considered: nozzle number N, 
+inlet diameter di, outlet diameter do, nozzle thickness t and 
+cavity height H. In addition, fluid dynamics parameters such 
+as flow rate, pressure drop and pump power need to be 
+optimized. From the heat transfer and fluid dynamics theory, 
+the dimensionless analysis is known as a very powerful tool 
+to design the experiments. It specifies that the physical 
+behavior of the impingement cooler is determined by the 
+proportions of the geometrical design parameters (the 
+dimensionless parameters) and is applicable for an arbitrary 
+absolute dimensions. This phenomenon can be exploited to 
+generalize the obtained modeling results and to understand 
+the scaling trend of the number of nozzles in the array and of 
+the jet diameters for the multi-jet impingement cooler. Using 
+this approach, the problem of design optimization where five 
+independent design parameters introduced above need to be 
+considered, can be generalized be replacing these parameters 
+with four dimensionless variables: di/L, do/L, H/L and t/L, 
+where L=D/N and D is the size of the chip to be cooled.  
+In order to evaluate he performance of the jet  
+impingement cooler, the thermal resistance and pumping 
+power are both considered for the optimization. In the 
+previous study [2], we illustrated the trade-off between 
+thermal resistance and pump power: the thermal resistance 
+can be further reduced by increasing the flow rate, however 
+at the expense of the required pump power. In this work, the 
+impact of the cooler geometry on the two objective 
+values|(thermal resistance and pump power) is studied 
+systematically.  
+ 
+ 
+Figure 2. Results of the unit cell CFD simulation: Average thermal 
+resistance as function of pumping power for the different nozzle diameter 
+ratios and number of nozzles. 
+ 
+ 
+Figure 3. Results of the unit cell CFD simulation: Maximal thermal 
+resistance as function of pumping power for the different nozzle diameter 
+ratios and number of nozzles. 
+ 
+Fig.2 and Fig.3 show the visual representation of the 
+trade-off between the obtained thermal resistance and the 
+required pumping power for the average and maximum 
+temperatures respectively. For the best thermal performance 
+
+===== p.3 =====
+both the thermal resistance as well as the pumping power 
+should be as low as possible. This can therefore be 
+considered as a multi-objective optimization [11]. The 
+figures show that with the same nozzle number N, the 
+thermal performance improves as the inlet diameter ratio di/L 
+decreases. On the other hand, the pumping power increases 
+for smaller di/L ratios, making this less energy efficient. 
+From the two figures with average temperature and peak 
+temperature, we can see that a nozzle array with higher 
+nozzle number N can achieve lower thermal resistance and 
+lower pumping power. However, the performance will 
+saturate beyond a certain number, under the assumption of a 
+fixed cavity height. In the considered case, the diameter of 
+the nozzles for such a “saturated’ thermal performance is in 
+the order of 100 µm. 
+B. Plenum level modeling 
+ 
+ 
+Figure 4. Schematic and grid of the conjugated CFD model for the plenum 
+level study for 4 inlet nozzles. 
+ 
+(1) Lateral feeding plenum:  A temperature gradient across 
+the chip surface due to non-uniform cooling can reduce the 
+cooling efficiency. In order to reduce the temperature 
+gradient across the chip surface, the flow distributions should 
+be uniform when the inlet flow comes from the inlet plenum 
+level. Therefore, the plenum level modeling is very 
+important for the cooler design. In this paper, two different 
+kinds of plenum feeding methods are studied: the inlet flow 
+coming from one side and the inlet flow coming from the top 
+plenum. Fig. 4 shows the plenum level CFD model that is 
+used to study the interaction between several nozzles and 
+between the nozzles and the plenum. The nozzle array is 
+chosen as 4×4. The boundary conditions applied on the two 
+sidewalls are periodic.  
+As shown in Fig.4, the flow is assumed to come from the 
+left opening channel. The boundary condition of the inlet is 
+based on velocity while the outlet pressure is fixed. The 
+cavity height (nozzle-to-target distance) is set to 0.4 mm, and 
+the nozzle plate thickness amounts to 0.3 mm. The inlet 
+plenum chamber thickness is 0.3 mm. The objective of this 
+DOE is to study the impact of the nozzle diameter on flow 
+distributions and temperature uniformity. With other 
+parameters kept constant, the inlet diameters are increasing 
+from 0.2 mm to 1 mm. From the flow field distribution 
+shown in Fig.5 it is seen that, the flow distributes uniformly 
+along the channel when the inlet nozzles are smaller. As the 
+inlet nozzle becomes larger, the flow will mostly go through 
+the inlet nozzles near the entrance and decay along the flow 
+direction. Moreover, recirculation flow will occur when the 
+nozzle diameter is larger. 
+ 
+Figure 5. Modeling results from the plenum level model: impact of inlet 
+nozzle diameter on the chip uniformity. 
+ 
+ 
+Figure 6. Modeling results from the plenum level model: chip temperature 
+profile for different inlet diameters. 
+ 
+As shown in Fig.6, it can be seen that smaller diameter 
+can achieve more uniform temperature distribution and lower 
+temperature. The reason is that the inlet nozzle velocity 
+becomes larger as the inlet diameter is smaller when the total 
+inlet flow rate is kept constant.  
+ 
+Figure 7. CFD model of  the full impingement cooler. Only the fluidic 
+domain is visualized. 
+ 
+(2) Central feeding plenum:  In order to study the inlet 
+flow rate distribution with regards to different inlet plenum 
+heights, a CFD model of the full cooler, shown in Fig.7, is 
+used. This allows to simulate the flow interactions and flow 
+rate distribution patterns. The inlet flow comes directly from 
+the top plenum and the inlet tube is located above the center 
+of the nozzle array. Moreover, complex flow phenomenon 
+can be visualized through the flow streamlines. However, 
+this type of simulation is very time consuming.  As shown in 
+Fig.8, a lower plenum height can generate more flow 
+maldistributions, with higher velocity concentrating in the 
+
+===== p.4 =====
+nozzles in the center of the cooler. This indicates that it is 
+important to balance the inlet diameter and plenum height 
+when designing the impingement cooler.  
+ 
+Figure 8. Impact of the plenum level thickness on the flow distribution in the 
+4x4 array of inlet nozzles. 
+C. Influence of cooler materials 
+ 
+Figure 9. CFD model of 3D printed cooler with solid and fluid domains. 
+ 
+ 
+Figure 10. Contour plots of the full cooler CFD models showing the impact 
+of the thermal conductivity of the cooler materials for different flow rates. 
+ 
+ 
+Figure 11. Modeling results for the impact of the cooler material on the chip 
+temperature. A: Chip temperature as a function of flow rate for the different 
+materials. B: Chip temperature as a function of cooler material thermal 
+conductivity for different power levels. 
+From a thermal point of view, the coolant in the inlet 
+plenum can be heated up at small flow rate due to the heat 
+conduction between hotter outlet flow and the cold inlet 
+flow. In order to study the impact on the chip temperature, 
+the fluid and solid domain are both included in the CFD 
+model shown in Fig.9. The fluid domain contains the inlet 
+water domain and outlet water domain. Three different 
+materials (Cu, Si and plastic) are studied when the flow rate 
+increases from 50 ml/min to 600 ml/min. The temperature 
+distribution across the cooler is shown in Fig.10. The 
+simulations show that the impact of the cooler thermal 
+conductivity on chip temperature distribution can be 
+negligible over a wide range of flow rates and chip power, 
+since the heat removal is dominated by the heat convection 
+in the coolant. The trends summarized in Fig.11, show that a 
+polymer cooler has the same performance as a Si or Cu 
+cooler and therefore offers opportunities for the use of 
+polymer based cost efficient fabrication techniques. 
+D. Fabrication options for cooler designs 
+ 
+Figure 12. Link between the nozzle geometry and the fabrication technology 
+options: mechanical machining process, 3D printing and Silicon processing 
+ 
+The choice of the number of nozzles and the nozzle 
+diameter will have an impact on the required fabrication 
+technology. Larger nozzle diameters will allow low cost 
+fabrication techniques, while finer nozzle diameters require 
+more expensive processing options. Fig.12 shows the link 
+between inlet/outlet nozzle diameter and the nozzle number 
+for the 8×8 mm2 chip footprint and for different inlet 
+diameter ratios di/L. In the chart, the applicable range is 
+indicated for three fabrication technologies: mechanical 
+machining, 3D printing and Si processing. Mechanical 
+micro-machining especially micro-milling can be used to 
+produce micro-features because it is simple and less time 
+consuming. However, it is difficult to mill complex shape 
+structures like cavity. Silicon processing has the advantage to 
+fabricate small diameter holes below 10 µm with Deep 
+Reactive Ion Etching (DRIE) technology. However, the cost 
+of silicon processing is higher than the other fabrication 
+methods. Furthermore, the modeling study showed that 
+aggressive scaling of the nozzle diameter is not required due 
+to the saturation of the thermal performance. The required 
+optimal diameter for the considered structures is in the order 
+
+===== p.5 =====
+of 100 µm to several hundred µm. Thanks to the 
+advancements in the recent years, 3D printing can be an 
+interesting fabrication option to fabricate these structures 
+with nozzle diameters ranging from 100 µm to 1 mm. In the 
+next section, an overview of the 3D printing technologies 
+will be given. 
+ 
+III. 
+MANUFACTURABILITY OF 3D PRINTED COOLER 
+ 
+Figure 13. Principle of  Stereo-lithography 3D printing 
+ 
+Fig.13 shows the principle of Stereo-lithography 3D 
+printing technology. The cooler with complex structures is 
+built in layers by focusing an ultraviolet (UV) laser on to a 
+vat of photopolymer resin. Reported minimal feature size is 
+200 µm for commercial tool of the supplier. In research 
+tools, smaller feature sizes are possible since the resolution 
+depends on the size of printing platform with fixed number 
+of pixels. 
+A. State of art of 3D printing technology 
+Currently the highest resolution by 3D printing can be 
+achieved through Two Photon Polymerization (TPP) process 
+[12], which is one of 3D micro/nanoscale manufacturing 
+technologies for arbitrary 3D structures with sub-100 nm 
+resolution. Most of the materials used for TPP are designed 
+for 
+conventional 
+lithographic 
+applications, 
+including 
+negative and positive photoresist. However the TPP process 
+is relative slow and small for this application. Alternatively, 
+the Stereolithography (SL or SLA) process, which uses 
+similar materials as the TPP but use either galvo scanners to 
+guild the UV lasers or projector (when a projector is used the 
+process is called DLP, or Digital Light Processing) to cure 
+photopolymers layer by layer. The resolution could in micro 
+meter range (for example 1 micron in Z direction (layer 
+thickness) and a few to tens of microns in XY direction 
+(pixel size). A comprehensive review of other micro Additive 
+Manufacturing/3D printing technologies, such as SLM, Paste 
+Extrusion, 3DP process etc., could be found in literature [12]. 
+B. Critical parameters for the cooler design 
+In order to design a 3D printed cooler with sub-mm 
+dimensions, two critical design parameters must be 
+considered: 1) the nozzle wall thickness, which will make the 
+separation between the inlet nozzle and the outlet plenum, 
+and 2) the nozzle diameter. For stereolithography and DLP, 
+excess liquid resin needs to be removed from the internal 
+cavities after curing of the polymer. This will form a 
+constraint for designing nozzle diameters and plenum height 
+in order to allow a successful draining of the excess resin. 
+Therefore, the resin removal in the cooler design with small 
+nozzle diameters and/or with limited plenum thickness is the 
+major challenge for the use of additive manufacturing. The 
+critical design parameters are visualized in Fig.14:  
+- 
+the nozzle inlet and outlet diameters di and do and the 
+gap S between two inlet nozzles can result in a resin 
+removal issue due to the narrow gap; 
+- 
+the nozzle side wall, with thickness W, should be 
+sufficiently strong to prevent the wall from breaking, 
+which can result in “short-circuit” between inlet flow 
+and outlet flow; 
+- 
+the plenum cavity thickness should be sufficient to 
+support the structure, since a thin cavity wall can 
+result in structure deformation. 
+ 
+Figure 14. Visual representation of the critical design parameters for the use 
+of 3D printing for impingement coolers. 
+ 
+ 
+Figure 15. Illustration of the use of Scanning Acoustic Microscopy (SAM) 
+to detect internal blockages in the 3D printed cooler at different depths. 
+ 
+Since the 3D printed cooler is printed as a single part, it 
+is difficult to check for internal blockages with residual 
+uncured resin. For this application, we demonstrated that the 
+Scanning Acoustic Microscopy technique (SAM) can be 
+used to evaluate the cooler quality. SAM is a non-destructive 
+technique used for micro-inspection [13,14]. By adapting the 
+focus depth, the potentially blocked resin inside the nozzles 
+can be detected at different layers in the structure, as shown 
+
+===== p.6 =====
+in Fig.15. Fig. 16 shows an example of the SAM analysis of 
+a printed cooler: from the SAM images it is possible to 
+differentiate between the open nozzles without resin residues 
+(A), open nozzles with tapered edges (B) and the presence of 
+blocked nozzles (C). 
+ 
+ 
+Figure 16. Results of the SAM analysis of a printed cooler with internal 
+defects: open nozzles without resin residues (layer A), open nozzles with 
+tapered edges (layer B), blocked nozzles (layer C). 
+ 
+IV. 
+CHARACTERIZATION OF 3D PRINTED COOLER 
+In order to study the impact of the nozzle array scaling 
+experimentally, different versions of the impingement cooler 
+have been designed with a range of inlet nozzle numbers 
+matching the 8x8 mm2 chip footprint. For this study, a 
+commercial stereolithography technique (SLA) has been 
+used, with a reported minimal feature size of 200 µm, rather 
+than the state of the art techniques described in the previous 
+section. Taking into account the fabrication tolerance and the 
+corresponding design limitations, the considered inlet nozzle 
+arrays are 3×3, 4×4, 6×6 and 8×8. For all the coolers, the 
+same inlet diameter ratio di/L of 0.3 and the same ratio for 
+the wall thickness are used, resulting in nozzle diameters 
+ranging from 300 to 800 µm. In this part, the impact of the 
+printing tolerance on the fabricated structures and the 
+thermal characterization of the printed coolers will be 
+discussed. 
+A. Evaluation of the printed coolers 
+The top part of Fig.17 shows a cross-section of the design 
+of the four coolers. For all the designs, the inlet/outlet 
+diameter for the inlet/outlet tube is 2 mm, which will be 
+connected with the outside tubing system. The inlet plenum 
+height is about 2.5 mm, to allow the flow be uniformly 
+distributed into every individual inlet nozzle. In order to 
+guarantee that the strength is sufficiently high to withstand 
+the high fluid pressure, the nozzle plate thickness should not 
+be too thin. On the other hand, a thicker nozzle plate could 
+generate more pressure drop inside the nozzle channel. In our 
+design, the nozzle plate thickness is designed at 0.5 mm. 
+Furthermore, the cavity height is designed at 0.6 mm to 
+define the nozzle to chip distance since the impact of the 
+cavity height can be neglected at the impingement jet region 
+[3]. The dimensions for the scaled nozzle wall thickness and 
+nozzle diameter of the four coolers are listed in Table 2. 
+The four coolers, fabricated using a water resistant 
+polymer, are shown in the bottom part of Fig.17. The 
+photographs show a bottom view of the printed cooler, 
+visualizing the nozzle plate with N×N array of inlet nozzles 
+and the distributed outlet nozzles in between. Visual 
+inspection of the printed coolers reveals that all the nozzles 
+are functional, and no trapped resin is observed for any of the 
+four coolers, even for the cooler with the smallest features 
+size that is very close to the reported printing capabilities. 
+Since the inlet diameter is crucial for the cooler thermal 
+performance, the fabrication accuracy of the four coolers is 
+evaluated. The microscopy images of the inlet nozzles, 
+shown in Fig.18, indicate that the fabricated nozzle diameter 
+is about 0.15 mm larger than designed parameter for the 3×3, 
+4×4 and 6×6 nozzle arrays. For the finest geometry of the 
+8x8 nozzle array, the measured tolerance is about 0.08 mm. 
+The designed and measured dimensions are compared in 
+Table 1. 
+ 
+ 
+Figure 17. Design (top row) and photographs of the nozzle plates (bottom 
+row) of the fabricated 3D printed coolers for the 4 cooler designs. 
+ 
+Figure 18. Diameter measurements of the inlet nozzles in the printed coolers. 
+The red dashed box indicated the unit cell. 
+      Table 1. Comparison between the designed and fabricated parameters 
+(unit: mm) 
+NXN 
+array 
+Unit 
+cell 
+Wall 
+thickness 
+Di-
+designed 
+Di- 
+fabricated 
+New 
+ratio 
+3×3 
+2.67 
+0.4 
+0.8 
+0.95 
+0.36 
+4×4 
+2 
+0.4 
+0.6 
+0.75 
+0.375 
+6×6 
+1.33 
+0.25 
+0.4 
+0.59 
+0.44 
+8×8 
+1 
+0.225 
+0.3 
+0.38 
+0.38 
+B. Thermal performance characterization 
+The printed coolers are all fully functional and have been 
+successfully assembled to the bare die test chip packages that 
+contain a 8×8 mm2 thermal test chip [15] with 32×32 arrays 
+of temperature sensors and 832 programmable heater cells. 
+All four fabricated coolers have been characterized for a 
+quasi-uniform power dissipation and a coolant flow rate 
+ranging from 200 ml/min to 1000 ml/min. The measured 
+averaged chip temperature is shown for the four coolers as a 
+function of the flow rate in Fig. 19. 
+
+===== p.7 =====
+A very good thermal performance of 0.13 cm2-K/W is 
+observed for the 8×8 cooler at 1000 ml/min. Furthermore, 
+the measurement data can be used to assess the scaling trend 
+for an increasing number of nozzles. The cooler with fewest 
+nozzles (3×3) clearly has the lowest thermal performance, 
+and the cooler with the highest number of nozzles has the 
+best thermal performance (8×8). The results show however a 
+similar result for the thermal resistance of the 4×4 and 6×6 
+design. This can be explained by the deviation of the 
+fabricated nozzles from the designed geometry due to the 
+printing accuracy. The fabricated nozzles are larger than the 
+designed nozzle diameters. Therefore the fabricated coolers 
+will have a higher thermal resistance than the designed 
+coolers for the same flow rate, but require a lower pressure 
+and lower pumping power.  
+ 
+Figure 19. Experimental (markers) and modeling results (solid lines) of the 
+cooler thermal resistance for the four fabricated coolers as a function of the 
+coolant flow rate. The modeling results are obtained for the fabricated 
+dimensions. 
+ 
+Figure 20.  Modeling results for the impact of the printing tolerance on the 
+thermal and hydraulic performance of the printed coolers for a coolant flow 
+rate of 1000 ml/min. 
+Fig. 20 shows the comparison of the CFD modeling 
+results for the designed and the fabricated nozzle diameters, 
+indicating a similar performance for the fabricated 4×4 and 
+6×6 cooler. The updated nozzle ratios di/l based on the 
+measurements have been added to Table 1. The thermal 
+models have also been updated with the dimensions of the 
+fabricated nozzles. These updated simulation results are 
+shown as solid lines in Fig. 19 and show a very good 
+agreement with the measurement data. The observed trend 
+with increasing performance is:  3×3 < 4×4/6×6 < 8×8.  
+ 
+V. 
+CONCLUSIONS 
+In this paper, we introduce 3D printing for the fabrication 
+of a chip level polymer liquid jet impingement cooler, 
+targeted to directly cool the backside of high performance 
+chips or chip stacks. The modeling study shows that the 
+thermal performance improves with an increasing inlet 
+number of nozzles, but that a saturation of the performance is 
+observed when the nozzle-to-target distance is kept constant. 
+The optimal nozzle diameters obtained are in the order of 
+100 µm to several hundred µm. Furthermore, the modeling 
+results indicate that the thermal conductivity of the cooler 
+material has no impact on the cooler performance. The 
+required diameter dimensions and the opportunity to use 
+polymers make 3D printing an attractive cost efficient option 
+for the fabrication of the chip level coolers. It allows 
+customization of the nozzle pattern design to match the heat 
+map and the fabrication of complex internal structures. The 
+main limitations of the considered stereolithography (SLA) 
+technique are the limited feature size that can be fabricated 
+and the need for the removal of the uncured excess resin 
+from the cavities. We demonstrated that scanning acoustic 
+microscopy (SAM) can be used to detect the presence of 
+trapped resin. 
+Different versions of the impingement cooler have been 
+designed with nozzle diameters ranging from 300 to 800 µm.  
+An optical inspection of the fabricated coolers showed that 
+the printed nozzles are roughly 150 µm wider than the 
+designed diameter value. This results in a higher thermal 
+resistance but a lower pressure drop in the cooler and lower 
+required pumping power compared to the designed value. 
+The cooler design with the finest nozzle diameters achieves a 
+thermal resistance of 0.13 cm2-K/W for a flow rate of 1000 
+ml/min and a low pressure drop. -  
+ACKNOWLEDGMENT 
+This work was performed as part of the imec Industrial 
+Affiliation Program on 3D System Integration and has been 
+strongly supported by the imec partners and the imec 
+Reliability, Electrical testing, Modeling and 3D technology 
+teams. The authors would like to thank Ahmad Khaled for 
+the SAM measurements. 
+REFERENCES 
+[1] T. Brunschwiler et al., “Benchmarking Study on the Thermal 
+Management Landscape for Three-Dimensional Integrated Circuits: 
+From Back-Side to Volumetric Heat Removal”. ASME. J. Electron. 
+Packag. 2016;138(1):010911-010911-10. 
+[2] Tiwei Wei, et al., “High efficiency direct liquid jet impingement 
+cooling of high power devices using a 3D-shaped polymer cooler”, 
+IEDM, 2017. 
+
+===== p.8 =====
+[3] T. Brunschwiler et al., "Direct Liquid Jet-Impringement Cooling with 
+Micron-Sized Nozzle Array and Distributed Return Architecture", 
+proc. IEEE ITherm, pp. 193-203, 2006. 
+[4] Natarajan, G. and Bezama, R. J., “Microjet cooler with distributed 
+returns,” Heat Transfer Eng., 28(8-9), pp.779–787, 2007. 
+[5] Shariar Motakef, et al., “Micro-Fabricated Solutions to Management 
+of High Heat Flux Systems”, CoolingZone's Online Magazine, June, 
+2005. 
+[6] G. Aspar, et al., “3D Printing as a New Packaging Approach for 
+MEMS and Electronic Devices”, 2017 IEEE 67th Electronic 
+Components and Technology Conference (ECTC), pp.1071-1079. 
+[7] Michael Craton, et al., “3D Printed High Frequency Coaxial 
+Transmission Line Based Circuits”, 2017 IEEE 67th Electronic 
+Components and Technology Conference (ECTC), pp.1080-1087. 
+[8] Xing Lan, et al., “3-D Inkjet Printed Ultra-Wideband Equi-Angular 
+Spiral Antennas”, 2016 IEEE 67th Electronic Components and 
+Technology Conference (ECTC), pp.823-828. 
+[9] Tobias Tiedje, et al., “Will Low-Cost 3D Additive Manufactured 
+Packaging Replace the Fan-Out Wafer Level Packages?”, 2017 
+ECTC, pp.1065-1070. 
+[10] C Bailey, et al., “3D-printing and electronic packaging”, Pan Pacific 
+Microelectronics Symposium (Pan Pacific), 2016. 
+[11] Tiwei Wei, H. Oprins, et al., “Nozzle array scaling effects on the 
+thermal/hydraulic performance of liquid jet impingement coolers for 
+high performance electrnc applications”, IHTC 2018. 
+[12] Vaezi, M.; Seitz, H.; Yang, S. F., A review on 3D micro-additive 
+manufacturing technologies. Int J Adv Manuf Tech 2013, 67, (5-8), 
+1721-1754. 
+[13] Janting J. “Techniques in Scanning Acoustic Microscopy for 
+Enhanced Failure and Material Analysis of Microsystems”. In: 
+Leondes C.T. (eds) MEMS/NEMS. Springer, Boston, MA, 2006. 
+[14] Khaled, A. et al,, “Investigating stress measurement capabilities using 
+GHz scanning acoustic microscopy for 3D failure analysis”,  
+Microelectronics Reliability.  Vol. 64: 336-340; 2016. 
+[15] H. Oprins et al., “Experimental characterization of the vertical and 
+lateral heat transfer in three-dimensional stacked die packages”, J. 
+Electron. Packaging, vol. 138, pp. 101902 1-10, 2016. 

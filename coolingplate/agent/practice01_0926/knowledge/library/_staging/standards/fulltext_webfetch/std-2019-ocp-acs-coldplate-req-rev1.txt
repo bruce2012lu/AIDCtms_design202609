@@ -1,0 +1,887 @@
+## ACS Liquid Cooling Cold Plate Requirements Document
+
+##### Revision 1.0
+
+##### Authors: Jessica Gullbrand (Intel), Nigel Gore & Jason Matteson (Iceotope), Elizabeth Langer (CPC - Colder Products Company)
+
+### Table of Contents
+
+Introduction 4 
+License 5 
+Revision History 5 
+Terminology 6 
+Liquid Cooling Technology Definitions 6 
+Liquid Cooling Cold Plates 6 
+Cold Plates 6 
+Hybrid Cooling 6 
+Full Liquid Cooling 7 
+Single- and Two-Phase Cooling Liquids 7 
+Coolant Distribution Unit 7 
+Rack Manifold 8 
+Quick Disconnect Couplings 8 
+Cooling Components Selection and Parameters of Importance 9 
+Cooling Liquid Selection 9 
+Wetted Materials 11 
+Filtering 12 
+Commissioning and Maintenance 12 
+Environmental Considerations 12 
+Parameters of Importance 13 
+Cold Plate Selection 14 
+Parameters of Importance 14 
+Coolant Distribution Unit Selection 15 
+Parameters of Importance 16 
+Rack Manifold Selection 17 
+Parameters of Importance 17 
+Quick Disconnect Coupling Selection 19 
+Parameters of Importance 20 
+Pump Selection 20 
+Parameters of Importance 21 
+Liquid Cooling Requirements 23 
+Certification Markings 23 
+Pressure Safety Requirements 23 
+Page 2 
+Open Compute Project Liquid Cooling Cold Plate Requirements Document 
+Risk Management 23 
+Liquid Cooling Classifications 24 
+IT Equipment Classifications 24 
+Liquid Cooled Rack Classifications 25 
+Sensor Requirements 27 
+DMTF Redfish 29 
+Leakage Detection and Intervention Requirements 29 
+Comparison Metrics 30 
+References 32 
+About Open Compute Project 34 
+Page 3 
+
+### Introduction
+
+This document outlines the requirements related to Liquid Cooling Cold Plate technology, which may be 
+used in the Open Compute Project (OCP) environment. Liquid cooling technology is not a new 
+technology, but until now most solutions have generally been proprietary. The OCP focuses on 
+standardization and definition of critical interfaces, operational parameters, and environmental conditions 
+that enable non-proprietary, multi-vendor supply chain of liquid cooled solutions. 
+This document is a requirement’s document and not a specification. This document defines common 
+terminology, identifies liquid cooling component selection with parameters of importance, and contains 
+requirements that future liquid cooling design specifications need to adhere to. From this document, a 
+checklist has been generated that any OCP liquid cooling specification need to comply with (see the Cold 
+Plate Qualification Requirement [1]). For contributions, this checklist needs to be filled out, and 
+peer-reviewed by subject matter experts to ensure compliance with the requirements before the 
+contribution is proposed for approval in the Incubation Committee meeting. 
+This requirement document is applicable to rack manifold distributed liquid cooling with a Technology 
+Cooling System (TCS) fluid loop [2]. This is the fluid loop from the Coolant Distribution Unit (CDU) to the 
+rack, through the manifold and the IT equipment, and then back through the manifold back to the CDU. 
+The document assumes that the heat from the TCS cooling loop is transferred to the facility cooling loop, 
+which is called the Facility Water System (FWS). FWS is not covered in this document. This requirement 
+document does not apply to the IT equipment being cooled or fully air cooled specifications, but solely to 
+the TCS cooling loop and its ingredients. 
+More efficient cooling technologies are required as power and power density increase of the IT equipment 
+to meet the continuous demand of increased compute performance. Liquid cooling provides more efficient 
+cooling compared to traditionally used air cooling. When to switch to liquid cooling depends on many 
+different parameters, such as targets of performance, power delivery, energy efficiency requirements, IT 
+equipment density, compute density, cooling costs, future IT equipment needs, and strategy. All these 
+parameters together with considerations of the potential need of retro-fitting the facility to pull in liquid to 
+the racks/IT equipment or building a new facility to optimize the infrastructure feed into the total cost of 
+ownership (TCO) model for the installation. From the TCO investigation, it can be determined when it is 
+cost efficient to change to liquid cooling. Another reason for going to liquid cooling is that the IT 
+equipment simply cannot be cooled to its temperature requirements any longer with air and therefore 
+increased cooling is required. There is no general guideline on when or at what power levels liquid cooling 
+will be required for the compute components, such as CPU and GPU. It should also be noted that in 
+addition to the cost analysis, there are some new design considerations for liquid cooled solutions that 
+need to be understood. One of those is to ensure that all the wetted materials in the cooling loop are 
+compatible with the cooling liquid/coolant used. This is essential for the success and operation of the 
+liquid cooling solution. Another design consideration is to ensure that the cooling liquid used will never be 
+mixed with any other cooling liquid, since the integrity of the cooling liquid is of uttermost importance to 
+ensure the longevity of the cooling liquid. In this requirements document, it is assumed that material 
+compatibility between all cooling components and the cooling liquid has been determined, and it is 
+therefore not repeated in all the different subsections. It is also assumed that no mixing of cooling liquids 
+occurs. 
+
+Page 4
+
+Page 5
+
+### 1. License
+
+This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+
+### 2. Revision History
+
+Revision Date Comments 1.0 Oct 9, 2019 First publication
+
+Page 6
+
+### 3. Terminology
+
+The terminology used here is the same as used by ASHRAE [2] when discussing cooling solutions. The terminologies are:
+
+● TCS, Technology Cooling System, is the cooling system from the Coolant Distribution Unit (CDU) to the rack, through the manifold and IT equipment, and back to the manifold and to the CDU. 
+● FWS, Facilities Water System, is the facility cooling system. The definition of FWS is extended in this document to also include other cooling liquids in addition to water. 
+
+### 4. Liquid Cooling Technology Definitions
+
+##### 4.1 Liquid Cooling Cold Plates
+
+Liquid cooling cold plates refers to the technology of closed loop liquid cooling, where liquid or liquid/gas phase change is used as the heat transfer medium. Conduction of the heat occurs through cold plates, which are attached to the electronics power components in need of cooling. This is also sometimes called direct liquid cooling, since the cooling liquid is delivered directly to the components via a cold plate, thereby directly transferring the heat to the liquid. This should not be confused with indirect liquid cooling and immersion. Indirect liquid cooling is when air is the heat transfer medium to the liquid (f.ex. door heat exchanger). Immersion cooling is when the electronic components are in direct contact with a dielectric cooling liquid.
+
+##### 4.2 Cold Plates
+
+Cold plates are heat exchangers or heat sinks with internal tubing or channels to allow cooling liquid to flow through. Cold plates are placed on the electronic components in need of cooling and provide a conductive heat transfer path to the cooling liquid. There are different types of cold plates, where the design can be optimized to enhance heat removal from the electronic components. A simple example of a cold plate is a metal block with integrated fluid piping, while a more complex and commonly used cold plate design apply micro-channels to enhance the thermal performance. This is often used for high power and high power density components.
+
+##### 4.3 Hybrid Cooling
+
+Hybrid cooled solutions referenced in this document refers to cooling using both air cooling and direct liquid cooling. A common hybrid installation is to use direct liquid cooling for high power and high power density components, while air is used to transfer heat from the low power components. An example of hybrid cooled IT equipment is servers with cold plates attached to the microprocessors, while fans are used to cool all other components. Hybrid solutions still require room air-conditioning.
+
+Page 7
+
+##### 4.4 Full Liquid Cooling
+
+Full liquid cooling refers to cooling solutions where all heat is rejected to liquid. For the IT equipment, such as a server solution using full liquid cooling, a heat transfer path is required to the cooling liquid through cold plates for all components. An example of full liquid cooled server installation is to use micro-channel cold plates for the high power components, while plates with internal piping are used to cool all other low power components. A common example of a full liquid cooled rack is a hybrid IT equipment solution with a door heat exchanger that captures all the heat from the air and transfers it to the cooling liquid. Full liquid cooling requires minimal room air-conditioning to remove heat transferred to the air only through unintentional thermal losses.
+
+##### 4.5 Single- and Two-Phase Cooling Liquids
+
+The heat can be transferred to cooling liquids that either operate in single-phase or two-phase. For single-phase liquids, the liquid stays in liquid phase during the whole operation, while being circulated and removing heat from the hot components. The cooling liquid is cooled in a heat exchanger approach. Examples of single-phase liquids used are water with additives, glycol based liquids, and dielectric liquids. Two-phase liquids have a low boiling temperature and removes heat predominantly through a process of heat of vaporization and condensation via a heat exchanger. Either dielectric or refrigerant liquids can be used as the two-phase liquids, and many liquids are available with different boiling temperatures. The cold plate using two-phase technology are sometimes called evaporators. In this document, cold plate applies to both single- and two-phase cold plates, and cooling liquid refers to the coolant in both single-phase and two-phase implementations. It is essential that there is material compatibility between the cooling liquid and all the materials exposed to the cooling liquid, which are referred to as wetted materials, to minimize any long term risks of corrosion. Even when ensuring material compatibility between cooling liquid and all wetted materials, it is still important to regularly check the quality of the cooling liquid to ensure that there are no issues.
+
+##### 4.6 Coolant Distribution Unit
+
+| The purpose | of the Coolant Distribution Unit, CDU, is to provide an isolated cooling loop to the IT |
+| --- | --- |
+| equipment. | Heat transfer occurs inside the CDU, via a heat exchanger, between the heated liquid from |
+| the IT equipment | loop (TCS) and the facility liquid (FWS) on the facility side. The CDU options are in-rack, |
+| row level, or | facility level. One or several in-rack CDUs can be present in a rack to cool the IT equipment. |
+| The row level | CDU often provides cooling to one or several racks full of IT equipment. A facility level CDU |
+| is a distribution | solution with facility level pumps and heat exchangers that service the combined heat load |
+| of all the liquid | cooled racks with TCS quality cooling liquid. It is common that filters are incorporated in |
+| the CDUs, | while the filter size requirements are specified by the components in the cooling loop that are |
+| the most sensitive | to particles, such as fluid connectors and/or micro-channel cold plate geometry. The |
+| filters ensure | that potential particles in the cooling fluid do not get stuck in the fluid loop and block the flow |
+| of the cooling | liquid. |
+
+Page 8
+
+##### 4.7 Rack Manifold
+
+The rack manifold distributes cooling liquid inside the rack from the CDU to the IT equipment and back again. The manifold must be able to deliver the flow rate required to cool the IT equipment, at targeted pressure drop, and provide a uniform flow distribution within the rack. This requires careful design considerations.
+
+##### 4.8 Quick Disconnect Couplings
+
+Quick disconnect (QD) couplings are used to quickly disconnect the IT equipment or its components from 
+the liquid cooling loop for serviceability. A liquid cooled installation should use drip-less couplings, where 
+liquid flow is shut off at both ends when being disconnected. This limits the potential issue of liquid on the 
+IT equipment. 
+There are two options of QDs between the rack manifold and the IT equipment, either hand mate or blind 
+mate connectors. Hand mate couplings are manually connected, while blind mate connects through a 
+sliding or snapping action. 
+
+Page 9
+
+### 5. Cooling Components Selection and Parameters of Importance
+
+##### 5.1 Cooling Liquid Selection
+
+The cooling liquids commonly used in the TCS cooling loop are water with additives, glycol based liquids, 
+dielectric liquids, or refrigerants. The selection of cooling liquid should not be made lightly and should take 
+into consideration operational need, material compatibility with the wetted materials in all cooling 
+components, IT equipment serviceability, cooling liquid maintenance need, life expectancy, and liquid cost 
+to mention a few. There are different pros and cons with each of the cooling liquids and the high level 
+details are discussed below and also found in Table 1, 2, 3, and 4. 
+Water with additives is used because of the good heat transfer properties of water and the additives are 
+chemicals added to reduce corrosion risk and bacterial growth. These additives can reduce the heat 
+transfer properties of the water, and potential impact to overall performance should be investigated. 
+Another property of water is its freezing point at 0 oC. It is therefore important to know the operating range 
+of the liquid and temperature requirement/exposure during shipping and storage. To reduce the risk from 
+corrosion and contamination during transit, the IT equipment and/or rack can be shipped pre-charged with 
+a suitable cooling liquid or gas. As part of the installation procedure the pre-charged fluid should be 
+considered to be flushed before the system is operational, when following the guidelines of the 
+manufacturer’s installation and commissioning procedure. Also the quality of the fluid should be monitored 
+regularly for changes to the baseline specification of the cooling liquid. These pros and cons are shown in 
+Table 1. 
+Glycol based liquids are liquids where glycol is added to lower the freezing temperature and reduce 
+bacterial growth. The freezing temperature lowers with an increase of glycol in the cooling liquid, which 
+reduces the heat transfer properties of the liquid. It is therefore important to know what the temperature 
+requirements for operation and storage/shipping are to not add too much glycol. However, it should be 
+noted that for glycol levels at and above 25%, there is no bacterial growth in the liquid. Also here the 
+quality of the fluid should be monitored regularly for changes to the baseline specification of the cooling 
+liquid. Glycols commonly used are ethylene glycol and propylene glycol. Propylene glycol is preferred 
+since it is less toxic than ethylene glycol. In small quantities, the propylene glycol is even used in the food 
+industry as an additive. These pros and cons are shown in Table 2. 
+Dielectric liquids can be used for both single-phase and two-phase cooling. Liquids with higher boiling 
+temperatures operate in single-phase, while liquids with lower boiling temperatures operate in two-phase. 
+The boiling/saturation temperature of the liquids can be altered by varying the operating pressure. One 
+advantage with dielectric liquids are that in the event of a potential leak, the liquid is an electric insulator 
+and does not short the electronic circuits of the IT equipment. Often these liquids have higher density, 
+cost more, and have higher Global Warming Potential (GWP). These affects should be considered in the 
+analysis when selecting coolant liquid (found in Table 3). 
+In addition to dielectric liquids, refrigerants can also be used for two-phase cooling. The refrigerants have 
+relatively low boiling temperature that allows the liquid to change phase and evaporate. This saturation 
+temperature can be altered by varying the operating pressure. The pros and cons of refrigerants are 
+shown in Table 4. 
+
+Page 10
+
+Open Compute Project Liquid Cooling Cold Plate Requirements Document Table 1, Pros and cons of water with additives cooling liquids.
+
+| Water with additives | |
+| --- | --- |
+| Pros | Cons |
+| Good heat transfer conductivity and specific | properties (high Additives needed for reducing corrosion risk and bacterial heat) growth |
+| | Ongoing regular maintenance |
+| Table 2, Pros and cons | of glycol based cooling liquids. |
+| Glycol based liquids | |
+| Pros | Cons |
+| >25% glycol no bacterial | growth Changes to viscosity => changes pump power conditions including power needed |
+| Improved maintenance | schedule Lower conductivity and specific heat with increasing glycol level |
+| Table 3, Pros and cons | of dielectric cooling liquids. |
+| Dielectric | |
+| Pros | Cons |
+| No short circuit of electronics potential leaks | during Adds liquid weight |
+| | Higher Global Warming Potential (GWP) |
+| | Higher cost |
+| | Limited supplier availability |
+| | Potential for flow instabilities and maldistribution in micro-channel cold plate using 2-phase |
+
+| | |
+| --- | --- |
+| Pros | Cons |
+| Good heat transfer | properties (high Additives needed for reducing corrosion risk and bacterial growth |
+| | Ongoing regular maintenance |
+| Table 2, Pros and cons | of glycol based cooling liquids. |
+| | |
+| Pros | Cons |
+| >25% glycol no bacterial | growth Changes to viscosity => changes pump power conditions including power needed |
+| Improved maintenance | schedule Lower conductivity and specific heat with increasing glycol level |
+| Table 3, Pros and cons | of dielectric cooling liquids. |
+| | |
+| Pros | Cons |
+| No short circuit of electronics | during Adds liquid weight |
+| | Higher Global Warming Potential (GWP) |
+| | Higher cost |
+| | Limited supplier availability |
+| | Potential for flow instabilities and maldistribution in micro-channel cold plate using 2-phase |
+
+Page 11
+
+Table 4, Pros and cons of refrigerant cooling liquids.
+
+| Refrigerants | |
+| --- | --- |
+| Pros | Cons |
+| Increase in thermal compared to single-phase thermal performance | performance Environmental - Ozone Depletion Potential (ODP) and (lower Global Warming Potential (GWP) in single-phase) Hydrofluorocarbons (HFCs), Chlorofluorocarbons (CFCs) (saturated), newer Hydrofluoroolefins (HFOs) (unsaturated are better for the environment, but can be flammable, more $, less cooling capacity) |
+| Potential for no and power compared to single-phase | lower pumping Potential loss of liquid under maintenance conditions |
+| Can have lower GWP 2-phase liquid | than dielectric Higher operating pressure than single-phase |
+| Can be inert nonflammable/ non conductive | – nontoxic/ Potential for flow instabilities and maldistribution in electrically micro-channel cold plate using 2-phase |
+| | Specialist knowledge required for commissioning, handling, and maintenance |
+
+| | |
+| --- | --- |
+| Pros | Cons |
+| Increase in thermal compared to single-phase thermal performance | performance Environmental - Ozone Depletion Potential (ODP) and (lower Global Warming Potential (GWP) in single-phase) Hydrofluorocarbons (HFCs), Chlorofluorocarbons (CFCs) (saturated), newer Hydrofluoroolefins (HFOs) (unsaturated are better for the environment, but can be flammable, more $, less cooling capacity) |
+| Potential for no and | lower pumping Potential loss of liquid under maintenance conditions |
+| Can have lower GWP | than dielectric Higher operating pressure than single-phase |
+| Can be inert nonflammable/ non | – nontoxic/ Potential for flow instabilities and maldistribution in electrically micro-channel cold plate using 2-phase |
+| | Specialist knowledge required for commissioning, handling, and maintenance |
+
+##### 5.1.1 Wetted Materials
+
+The wetted materials are the materials in direct contact with the cooling liquid. It is critical that material 
+compatibility is established between all wetted materials and the cooling liquid to minimize potential long 
+term risks of corrosion in the cooling loop. Therefore a detailed understanding of all the cooling 
+ingredients and the materials used are essential. Since many of the cooling ingredients can be 
+proprietary, it is good practice to work closely with suppliers of ingredients, cooling liquid, and solutions to 
+ensure all wetted materials are identified and that they are compatible. 
+For a general overview of commonly occurring wetted materials, see ASHRAE’s white paper on water 
+cooled servers – Common designs, components and processes [2]. The ASHRAE list is a snapshot in 
+time and will continue to evolve as new designs and ingredients are introduced. It is important to note that 
+the list is not an endorsement of compatibility for the materials mentioned, and that compatibility still 
+needs to be determined for the particular cooling loop installation. 
+
+Page 12
+
+##### 5.1.2 Filtering
+
+There is strong evidence linking fluid maintenance and quality with system reliability and performance. 
+Filters are used to maintain quality and prevent operational issues arising from contamination from 
+particulates, debris, and bacteria. Particulates are microscopic and are measured in micrometer ( m) 
+requiring filters to match the particulate size expected to be trapped and prevented from circulating within 
+the liquid loop. The filter size is dependent on system design, components and placement. Filters are 
+required to prevent buildup of particulate contaminating the system components, particularly in the case 
+of cold plate liquid cooling, these are related to the fin array width within the micro-channel cold plate, the 
+heat exchanger plate gap width, and the quick disconnects, where particulate contamination can lead to 
+fouling resulting in reduced performance, leaks, or system failure. 
+The placement of the filter is a consideration for system designers. The filter operation naturally 
+introduces an undesirable pressure drop and good designs are aimed to reduce this pressure drop for 
+increased system efficiency. Designers should put in place consideration for maintenance, planned and 
+unplanned service interventions; with redundancy options to maintain uptime. It is not good practice to 
+take an IT system down for maintenance to the fluid filter. Service and maintenance schedules should be 
+considered based on the liquid type, the liquid loop components within TCS, and the fluid quality 
+requirements. 
+
+##### 5.1.3 Commissioning and Maintenance
+
+Plans for commissioning and maintenance are required before deploying liquid cooling systems. The system needs to be implemented according to design and within specification. Proper installation and setup protect the capital investment, and best practice is to utilize qualified commissioning experts with relevant experience in liquid installations within the data center or telecoms environment. System commissioning can include material compatibility, cooling liquid baseline adherence, design tolerances, operational performance and fault conditions. Examples of commissioning checks can include leveling and seismic protection of fluid flow pipework, ensuring connectors and interfaces can open and close, and that monitoring equipment can report and confirm that sensors are operational. As an example of commissioning process for whole building commissioning to facilities see ASHRAE Guidelines 0-2013 [3]. Regular maintenance schedules are required to maintain uptime and ensure the system is within the baseline specification and includes checks on pipework connections, cooling liquid baseline test, connector test leak detection and sensor operation. The combination of visual inspection and monitoring systems analysis will present the best view for operational teams. It is good practice to consider additional maintenance checks when the system is partially offline or new additions are provisioned. Always seek guidance from the equipment vendor for appropriate specifications and maintenance schedule.
+
+##### 5.1.4 Environmental Considerations
+
+Energy consumption and operating efficiency is a large part of a data center’s overall environmental impact, but there are many more opportunities throughout the data center lifecycle to employ sustainable practices. Data center facilities may consider impact related to materials selection and management, packaging and shipping, serviceability, and end-of-life management.
+
+Page 13
+
+Open Compute Project Liquid Cooling Cold Plate Requirements Document A comprehensive life cycle assessment (LCA) can be beneficial in evaluating, sustaining and improving the overall environmental impact of a data center facility, as well as specifically within the TCS. Guidance can be found through ISO14040/14044 [4] and related documents. The LCA should include all stages of the product life-cycle, from raw material extraction through decommissioning and end-of-life. Materials in particular warrant careful consideration not only from a material compatibility perspective, but also from the perspective from management and reduction of hazardous substances, which should be evaluated on an on-going basis. Measures such as flammability, toxicity, exposure limits, and greenhouse gas (GHG) emissions are important. Coolants are of particular importance when considering environmental impact and sustainability of the liquid cooling system. Globally, fluids are given a closer look and measured against metrics with respect to environmental and personal safety. Impact may be in part measured by referencing global warming potential (GWP), and ozone depletion potential (ODP) of any liquids or gases used. GWP is a relative measure of heat trapped by greenhouse gases. Additionally, ODP is a metric used to indicate the amount of ozone layer degradation. In recent years, more emphasis has been placed on deploying liquid cooling solutions using liquids with lower GWP values, as well as ODP. For legacy cooling systems where coolants with higher GWP are already deployed, consideration should be given to eliminate risk of coolant leakage, and a coolant reclamation program should be in place. In addition to coolants, materials of construction should be selected to reduce hazardous substances of concern as well. Functional components should be evaluated through a hazard assessment, guidance can be found through referencing regulations such as European Union RoHS Directive and its amendments [5], REACH [6], among others. Typical substances of concern in liquid cooling systems with regard to REACH and RoHS may the presence of lead or hexavalent chromium in metal components, as well as polybrominated plastics. When selecting plastic materials for use in liquid cooling systems, flame retardant materials should be evaluated for the presence of halogenated additives.
+
+##### 5.1.5 Parameters of Importance
+
+The cooling liquids have different thermal properties that are important to consider when evaluating the thermal capabilities of the different liquids. The parameters of importance for thermal evaluation of the liquids are shown in Table 5. These parameters need to be considered in the geographical location and climate where the liquid cooled installation will be located.
+
+Table 5, Parameters and metrics of importance for thermal capability of the liquid coolant. Parameter Metrics
+
+Thermal conductivity W/m K
+
+Specific heat J/g oC
+
+Latent heat J/g
+
+Dynamic Viscosity (as a function of temperature) Pa s
+
+Page 14
+
+Open Compute Project Liquid Cooling Cold Plate Requirements Document Density (as a function of temperature) kg/m 3
+
+Freezing point temperature oC
+
+Flash point temperature oC
+
+Saturation temperature (boiling temperature) oC
+
+Saturation pressure Pa
+
+##### 5.2 Cold Plate Selection
+
+The cold plate selection should depend on the thermal cooling requirements, the operational parameters, and the wetted materials used. It is essential that the wetted materials in the cold plate as well as any other cooling components in the TCS cooling loop are compatible with the wetted materials list for the cooling liquid used. Depending on the temperature requirements of the components in need of cooling, and cooling liquid parameters, such as flow rate, temperature, and heat transfer properties, the cold plate design can be more or less complex. An example of a more complex design is the commonly used micro-channel cold plate, where the micro-channels are used to generate an extended heat transfer surface to increase the cooling performance. On the other hand, an example of a more simplified cold plate design is a block with internal piping. Of course there is an increased cost associated with increased design complexity. If the thermal cooling requirements can be met with a less complex design, it is best practice and most cost efficient to not introduce unnecessary complexity.
+
+##### 5.2.1 Parameters of Importance
+
+There are different parameters to consider when designing a cold plate solution. These parameters are shown in Table 6. Usually a thermal interface material (TIM) is used to enhance the heat transfer properties between the components in need of cooling and the cold plate. This is not discussed here. The physical fit and connection to the internal liquid loop needs to be taken into consideration as well. There are also parameters of importance for microchannel cold plate designs, where the spacing between fins is an important parameter to determine filtering requirements to avoid fouling.
+
+Table 6, Parameters and metrics of importance for cold plate selection.
+
+| | Parameter | Metrics | | | |
+| --- | --- | --- | --- | --- | --- |
+| | Heat transfer performance | 2 W/m oC or oC/W | | | |
+| | Operating pressure | Pa | | | |
+| | Pressure drop | Pa | | | |
+
+Page 15
+
+| | Flow rate | m | 3/s | |
+| --- | --- | --- | --- | --- |
+| | Liquid inlet temperature | oC | | |
+| | Liquid outlet temperature | oC | | |
+| | Height | mm | | |
+| | Active surface area | m | 2 | |
+| | Filtering requirement | | m | |
+
+##### 5.3 Coolant Distribution Unit Selection
+
+The coolant distribution unit (CDU) is a dedicated component that facilities heat transfer and removal 
+between dedicated liquid loops. The CDU components could include sets of interfaces, pumps, 
+liquid-to-liquid heat exchangers, reservoir tanks, valves, controls, monitoring and sensors; for power, flow, 
+and temperature measurement. The variety of components utilized within the CDU require the materials 
+to be validated through material compatibility to the cooling liquid used. The size and form factor of a CDU 
+can range from in-rack to row level depending on the deployment requirements primarily determined by 
+the cooling requirement. 
+The CDU isolates the TCS from the FWS providing a connection between TCS and FWS liquid loops and 
+a means to control the heat transfer between the FWS and the TCS for row level CDU or in the case of 
+in-rack CDU within the TCS closed liquid cooling loop. The CDU also maintains pressure, flow, 
+temperature, dew point control, cleanliness, and leak detection. By separating the FWS and the TCS with 
+a CDU, this limits the impact of potential leaks (less liquid volume in the TCS loop, lower pressure, and 
+flow rates). In terms of optimization, CDUs provide thermal control for the cooling liquid providing 
+operators with the means to maintain a balance between the IT equipment; thermal requirements, 
+compute load variables and power optimization. 
+The number of racks serviced by CDUs can scale from single cabinets to groups or clusters of combined 
+racks. The liquid will be distributed via dedicated pipework with connection points to plumb in each rack. 
+Sizing and control settings of the CDU depends on the heat load generated by the IT equipment as an 
+aggregation of the combined electronics power level. Individual power levels vary by component, and 
+sizing of the heat load is required considering thermal margin for future technology implementations. The 
+coolant liquid properties and characteristics such as thermal conductivity, viscosity, specific heat and 
+density will influence the performance of the cooling capacity and pump power. 
+
+##### 5.3.1 Parameters of Importance
+
+There are different parameters of importance when evaluating different CDU options. Some of these parameters are described in Table 7. An additional parameter that should be considered for all liquid cooling components is material compatibility between the wetted materials and the cooling liquid. It is important to work with the CDU provider to identify all the wetted materials used to ensure material compatibility.
+
+Page 16
+
+Table 7, Parameters and metrics of importance for CDU selection.
+
+| Parameter | Metrics |
+| --- | --- |
+| Maximum cooling | capacity kW |
+| Total liquid volume | 3 m |
+| Approach temperature | oC Definition as used in ASHRAE (TCS supply temp – facility liquid supply temp) |
+| Exhaust temperature | oC |
+| Acoustic sound power pressure | or sound BA or dBA |
+| Pump capacity | l/min |
+| Pressure Flowrate | (PQ) curve Pa & l/min |
+| Power draw and capabilities | variable load kVA at specific Voltage and add variable load metrics eg. 100%, 80%, 30% |
+| Physical dimensions: · Height · Width · Depth | mm or U inches mm |
+| Weight | kg (empty or filled) |
+| FWS liquid connector dimension | style and inches (eg. Blind mate, hand mate, threaded) |
+| TCS liquid connector dimension | style and inches (eg. Blind mate, hand mate, threaded) |
+
+| Parameter | Metrics |
+| --- | --- |
+| Maximum cooling | capacity kW |
+| Total liquid volume | 3 m |
+| Approach temperature | oC Definition as used in ASHRAE (TCS supply temp – facility liquid supply temp) |
+| Exhaust temperature | oC |
+| Acoustic sound power | or sound BA or dBA |
+| Pump capacity | l/min |
+| Pressure Flowrate | (PQ) curve Pa & l/min |
+| Power draw and | variable load kVA at specific Voltage and add variable load metrics eg. 100%, 80%, 30% |
+| | mm or U inches mm |
+| Weight | kg (empty or filled) |
+| FWS liquid connector | style and inches (eg. Blind mate, hand mate, threaded) |
+| TCS liquid connector | style and inches (eg. Blind mate, hand mate, threaded) |
+
+Page 17
+
+##### 5.4 Rack Manifold Selection
+
+The manifold is a key component in the TCS to distribute cooling liquid within the rack to and from the IT 
+equipment. In liquid cooling deployments where an in-rack CDU is used, the manifold could also provide 
+the supply and return of liquid between the IT equipment and the in-rack CDU. The characteristics of a 
+manifold structure are to host a series of couplings that are distributed along the manifold for connection 
+to the IT equipment liquid loops. There are various coupling types; blind mate, hand mate, screw type in a 
+variety of diameters (see the quick disconnect coupling selection, Chapter 5.5). The coupling diameters 
+and manifold dimensions are chosen to support the current and future requirements for flow rate and 
+operational performance required for the liquid path to support the topology and the number of cold plates 
+within the IT equipment. The manifold location is desired to be within the rack footprint for efficient use of 
+white space real estate. 
+The location of the manifold within the rack is usually in the rear (as shown in Figure 1); however, it can 
+be in the front or side depending on IT equipment and power distribution design. The manifold location is 
+chosen to ensure serviceability access to liquid couplings, power interfaces, networking and other I/O 
+requirements including cable and hose management for the operation of the IT equipment. The IT 
+equipment slides in from the front of the rack; manifolds are designed to allow for unrestricted insertion 
+and removal of the IT equipment. The manifold provides a central point of connection to the TCS liquid 
+loop, layouts of the liquid loop can vary (this is not discussed here) and connection to the cooling liquid 
+supply can be at the foot or the rack header. The connection to the TCS includes high-pressure hoses 
+and couplings that can maintain pressure limits of TCS and burst pressure of the couplings (see the 
+pressure safety requirements, Chapter 6.2). The manifolds have limited working parts, aside from liquid 
+couplings, with service life expectancy to support the typical data center life of 10-20 years. The ability to 
+service, maintain, and potentially upgrade the manifold could be required. Access to the manifold for 
+integration and commissioning and lifetime serviceability is to be considered. Careful consideration should 
+be given to design and selection of a manifold that maintains the pressure drop requirements of the TCS 
+liquid loop and the IT equipment. Also considerations for fluid velocity should be made to not exceed 
+maximum velocities (ranging between 1.5 m/s to 2.1 m/s) for different pipe diameters to avoid erosion 
+issues as specified by ASHRAE [7]. 
+
+##### 5.4.1 Parameters of Importance
+
+There are different parameters to consider when evaluating different rack manifold designs. Some of these parameters are shown in Figure 8.
+
+Table 8, Parameters and metrics of importance for manifold selection.
+
+Parameter Metrics Total liquid volume m 3
+
+Internal diameter or dimension mm or inches (mm x mm or inches x inches)
+
+Coupling insertion diameter Inches/mm
+
+Page 18
+
+Physical dimensions: 
+· Height 
+· Width 
+· Depth 
+
+mm or U inches mm
+
+Manifold rack extrusion None (in-rack) or Extrusion (location and m 2)
+
+FWS liquid connector style and dimension inches (eg. Blind mate, hand mate, threaded)
+
+TCS liquid connector style and dimension inches (eg. Blind mate, hand mate, threaded)
+
+TCS connection location Foot of rack or top of rack
+
+Operating pressure Pa
+
+Liquid Velocity m/s
+
+Page 19
+
+Figure 1, An example of rack manifold solution shown in an aerial view, where the figure shows the rear mounted manifold inside of the rack boundary/foot print.
+
+##### 5.5 Quick Disconnect Coupling Selection
+
+Within the TCS, quick-disconnect couplings serve as a critical component to overall system performance and reliability, while also facilitating serviceability and modularity of the IT equipment. Quick disconnect coupling sets may be symmetrical or utilize a male/female configuration (plug/socket, insert/body, etc). A shutoff valve to seal off fluid flow during disconnection is typically integrated into the coupling to protect surrounding equipment, as well as to limit the amount of cooling fluid lost on each disconnection. Quick-disconnects with minimal fluid spillage are recommended and are often referred to as drip-less, non-spill, or flush face. Activation of the shutoff feature is driven manually by the operator for hand mate couplings, or automatically through blind mate via insertion or removal of the IT equipment in the rack. In systems employing hand mated connectors, consideration should be given to ergonomics (e.g. latching mechanism, force to connect, space constraints) to ensure easy serviceability. Blind mate couplings generally require additional allowance for tolerancing and misalignment. The wetted interface of the quick disconnect to TCS components (rack manifold, CDU, flexible hose, etc) may be achieved in a variety of
+
+Page 20
+
+Open Compute Project Liquid Cooling Cold Plate Requirements Document ways. For flexible hose connections, barbed or compression style terminations offer a simple and reliable joining method. For more rigid connections, such as to a rack manifold assembly, a threaded termination is common. O-ring boss fittings such as SAEJ 1926 [8] or G/BSPP ISO 1179 [9] can provide a robust and reliable joint, while still promoting ease of installation and fabrication.
+
+##### 5.5.1 Parameters of Importance
+
+Parameters for consideration when specifying couplings for liquid cooled cold plate systems can be found in Table 9. Please note that operating and burst pressures are different. Operating may be defined as the maximum system pressure during normal service conditions. Burst pressure is indicative of the minimum pressure at which the component will fail catastrophically. Table 9, Parameters and metrics of importance for quick disconnect selection.
+
+| Parameter | Metrics |
+| --- | --- |
+| Flow Rate | L/min, gpm |
+| Flow Coefficient | Kv, Cv |
+| Operating Pressure | Pa, psi |
+| Burst Pressure | Pa, psi |
+| Pressure drop | Pa |
+| Spillage (liquid expunction) | mL, cc |
+| Inclusion (air introduction) | mL, cc |
+| Temperature – Operating, | Storage / Shipping °C, °F |
+| Connection Force | N, lbf |
+| Connection Cycles | Mechanical cycles / connect and disconnect |
+| QD style and hydraulic diameter | Inches (eg. Blind mate, hand mate, threaded, mounting configuration) |
+| Terminations | Barbed, compression style, threaded |
+
+| Parameter | Metrics |
+| --- | --- |
+| Flow Rate | L/min, gpm |
+| Flow Coefficient | Kv, Cv |
+| Operating Pressure | Pa, psi |
+| Burst Pressure | Pa, psi |
+| Pressure drop | Pa |
+| Spillage (liquid expunction) | mL, cc |
+| Inclusion (air introduction) | mL, cc |
+| Temperature – Operating, | Storage / Shipping °C, °F |
+| Connection Force | N, lbf |
+| Connection Cycles | Mechanical cycles / connect and disconnect |
+| QD style and hydraulic diameter | Inches (eg. Blind mate, hand mate, threaded, mounting configuration) |
+| Terminations | Barbed, compression style, threaded |
+
+Page 21
+
+##### 5.6 Pump Selection
+
+Pumps are the heart of the system providing liquid flow to vital components. Pump selection is arguably 
+the most important aspect of the system which needs to be considered in the early stages of any liquid 
+cooled solutions. Pumps are available in a multitude of form factors with designs and manufactured 
+material used to match the liquid type and pump location. Design considerations for redundancy for the 
+purposes of maintenance and failover mitigation can result in dual pump configurations either inline or in 
+parallel. Connections to pipework should consider spatial constraints, layout, dimensions, material 
+compatibility, and connection type. Pumps are driven by motors of various types, which needs to be part 
+of the considerations when evaluating or optimizing the installation for energy efficiency. 
+Location of pumps determines the constraints and selection criteria. Pumps located within the TCS vary 
+significantly compared to in-rack or in IT equipment. Specifically, where pumps are used within the IT 
+equipment, conformity to the chassis height, determined as “U” height, plays a major factor of selection. 
+Space is at a premium within the IT equipment and integration of a pump forms part of the overall IT 
+equipment layout within the server chassis. IT equipment vendors developing liquid cooled solutions 
+where liquid flow is managed within chassis consider designs to match the thermal load of the 
+components. For this purpose, pumps can be directly attached inline to the cold plate or separated to 
+provide an assisted flow. 
+As with good system design, consideration for pressure drop and efficiency should be considered by the 
+designers. In addition, considerations dealing with the cooling liquid itself should include compatibility with 
+pump internal materials, and filters, which are considered good practice due to the potential for 
+particulates to clog the pump and reduce efficiency, even leading to failure. The liquid characteristics 
+include viscosity where changes in viscosity will alter efficiency and pump life. Pumps inadequately 
+selected are potential risks for reduced operable life. Another consideration is the operating environment 
+including ambient and operating temperatures of the liquid, which will determine component materials 
+used within the pumps, since the cooling liquid will come into direct contact with the pump internals. 
+The pump requirements will depend on the pipework layout/design, where parameters such as length of 
+pipes, quality of bends, and material selection can cause friction and turbulence leading to an increased 
+pressure drop. These parameters together with head pressure losses and vertical height differences need 
+to be included and considered in the pump requirements. 
+
+##### 5.6.1 Parameters of Importance
+
+Parameters for consideration when selecting pumps for liquid cooled solutions are shown in Table 10.
+
+Table 10, Parameters and metrics of importance for pump selection.
+
+#### Parameter Metrics
+
+Minimum Flow Rate l/min, gpm
+
+Maximum Flow Rate l/min, gpm
+
+Pump capacity l/min
+
+Page 22
+
+| Filter | Type, # Micron eg Mesh 50 Micron |
+| --- | --- |
+| Maximum and minimum suction | height mm |
+| Tension | V, eg 110-230 V |
+| Frequency | MHz |
+| Total Liquid Volume | 3 m |
+| Power | W |
+| Weight | g or kg |
+| Operating Temperature | oC |
+| Acoustic sound power or sound | pressure BA or dBA |
+| Listing of materials in contact | with liquid Eg, valves, O-ring, springs, piston, connectors |
+| Power draw and variable | load capabilities kW or kVA at specific Voltage and add variable load metrics eg. 100%, 80%, 30% |
+| Physical dimensions: · Height · Width · Depth | mm mm mm |
+| Mean Time Between Failure | (MTBF) h |
+| IP Rating | Eg, IP 66, |
+| Pressure Flowrate (PQ) curve | Pa & l/min |
+
+| Filter | Type, # Micron eg Mesh 50 Micron |
+| --- | --- |
+| Maximum and minimum suction | height mm |
+| Tension | V, eg 110-230 V |
+| Frequency | MHz |
+| Total Liquid Volume | 3 m |
+| Power | W |
+| Weight | g or kg |
+| Operating Temperature | oC |
+| Acoustic sound power or sound | pressure BA or dBA |
+| Listing of materials in contact | with liquid Eg, valves, O-ring, springs, piston, connectors |
+| Power draw and variable | load capabilities kW or kVA at specific Voltage and add variable load metrics eg. 100%, 80%, 30% |
+| | mm mm mm |
+| Mean Time Between Failure | (MTBF) h |
+| IP Rating | Eg, IP 66, |
+| Pressure Flowrate (PQ) curve | Pa & l/min |
+
+Page 23
+
+### 6. Liquid Cooling Requirements
+
+##### 6.1 Certification Markings
+
+Each liquid cooled technology needs to comply with all certification regulations, which are valid for the geographic location where the liquid cooled system is used. Different regions have different requirements.
+
+● UL and FCC markings in the US 
+● CE certification in Europe 
+● Countries might have their own additional requirements that need to be adhered to Examples of certification marks for different regions can be found here: https://en.wikipedia.org/wiki/Certification_mark. 
+
+##### 6.2 Pressure Safety Requirements
+
+The liquid cooled installation and its parts need to comply with local codes. Some of the standards to be aware of are the safety standards from the International Electrotechnical Commission (IEC) for IT equipment are IEC 60950-1 [10] and IEC 62368-1 [11].
+
+● The IEC 60950-1 “Information Technology Equipment – Safety – Part 1: General Requirements” is an earlier standard, which is prescriptive in nature. For the EU and the US, this standard is outgoing and is expected to be withdrawn on December 20, 2020 in favor of the IEC 62368-1 standard. 
+● The IEC 62368-1 “Audio/Video, Information and Communication Technology Equipment – Part 1: Safety Requirements” 3 rd edition (2018) is the new safety standard. It should also be noted that ASME B31.n series, and specifically B31.3 “Process Piping” (2018) [12] contains requirements for interconnecting piping. Another thing to note is that the IEC 62368-1 standard is requiring leak tests at 3x under normal operating pressure and 2x under abnormal and single fault conditions, while the ASME B31.3 requires leak test at the 1.5x design pressure. The liquid cooling loop and its ingredients must be tested to the highest pressure of the safety standards mentioned above. Typical operating pressure for the TCS loop is usually in the range of 140 - 450 kPa (i.e. 20 – 65 psi) when using in-rack and row level CDUs, while the facility CDU might provide a higher pressure. 
+
+##### 6.3 Risk Management
+
+It is required to follow local regulations and to have a detailed risk assessment and processes in place before installing liquid cooling in Data Centers. It is recommended for the risk assessment to include a leakage mitigation plan, including designs for reduced leakage risk, leakage detection, leakage intervention, spill/leak management and containment strategy, and strategy for pump failures. A few examples of this are:
+
+● Determine service and maintenance requirements of the cooling liquid and hardware before deployment of liquid cooled racks 
+● Determine redundancy requirements of cooling solution 
+
+Page 24
+
+● Cooling fluid material safety data sheet (MSDS) and Technical Data Sheet (TDS) availability for anyone working in the data center 
+● Sufficient spill management and absorption materials must be present to manage a catastrophic spill 
+● Appropriate disposal procedures in place for spill/leak management and/or replacement of cooling liquid 
+● Liquid containment strategy, which complies with local regulations 
+● Two-phase and other highly evaporative liquid implementations should prevent any gas leakage into the atmosphere 
+● Full health and safety documentation must be present 
+● Full action plan for liquid cooling loop and IT equipment if leakage detected 
+
+##### 6.4 Liquid Cooling Classifications
+
+There are four different liquid cooling classifications for the IT equipment and two classifications for the 
+liquid cooled ready rack with embedded manifold. The classifications are: 
+IT Equipment 
+● Hybrid basic: IT Equipment with Central Processing Unit (CPU)/Graphics Processing Unit (GPU) cold plates (with or without VR cold plates) 
+● Hybrid intermediate: IT Equipment with CPU/GPU & Dual In-line Memory Module (DIMM) cold plates 
+● Hybrid advanced: IT Equipment with CPU/GPU & DIMMs & additional (specify) cold plates 
+● Full Liquid: IT Equipment Cooling with Full liquid cooling Liquid Cooled Rack 
+● Liquid cooled ready rack without door heat exchanger (DHX) 
+● Liquid cooled ready rack with door heat exchanger (DHX) 
+
+##### 6.4.1 IT Equipment Classifications
+
+The Hybrid Basic cooling uses cold plate cooling for the high power compute components, such as CPU/GPU, and air cooling for all other components on the IT equipment in need of cooling. The IT equipment contains components such as CPUs, GPUS, networking components, memory modules, voltage regulators, storage devices, Field Programmable Gate Arrays ( ​FPGAs), integrated circuits and capacitors each generating heat. These components draw power to operate, which in turn generates heat, which varies by component type with the highest proportion of heat originating from CPUs and GPUs. A liquid cooling approach is to ensure that these higher heat generating components are efficiently cooled using liquid cooling cold plates. The rest of the IT equipment components are cooled using air cooling. Often air cooled IT equipment designs are redesigned to liquid cooling, where the air cooled heat sinks are replaced by cold plates. The amount of heat going to the cooling liquid depends on the component power levels and IT equipment design, but it is not uncommon that the CPU/GPU cold plates captures 70-75% of the IT equipment heat. This basic hybrid classification also encompasses solutions that use cold plates for the CPU/GPU Voltage Regulators (VRs), since many times the CPU/GPU cold plates can easily be extended to also cool the closely placed VRs.
+
+Page 25
+
+Open Compute Project Liquid Cooling Cold Plate Requirements Document The Hybrid Intermediate is an extension of the basic classification, where cold plates are used for CPU/GPU, with the extension of cold plates to the DIMM (Dynamic Random Access Memory, DRAM) modules. The liquid cooling cold plates transfer the heat through conduction to the liquid. This is still a hybrid liquid cooling, since air cooling is used to cool all other lower power components. Increases in memory module density on the DIMMs, reduction in DIMM pitch, and proximity to other high heat sources produce cooling challenges, and by being able to direct cooling to critical components within the IT equipment improves overall cooling effectiveness. The added benefit of capturing high heat loads to the liquid cooling loop significantly lowers fan speed to cool the rest of the low power components, since the components with the most stringent temperature cooling requirements are now liquid cooled. The Hybrid Advanced is an extension to the Hybrid Intermediate classification. In the hybrid advanced, cold plates are used for CPU/GPU/DIMMs and other components. For a complete understanding of this classification, the designer needs to provide the information of what additional components are liquid cooled using cold plates. The Full Liquid cooling classification is full liquid cooling of the IT equipment, which increases the percentage of components cooled by directly attached cold plates close to 100%, and in these systems, several cold plates are used to transfer heat from the CPU/GPU, Memory, Voltage regulators, Storage devices, Accelerators/FPGAs and networking components. Many of the components on the IT equipment will have a cold plate or part of a cold plate attached for direct thermal path to the liquid. The remaining thermal load is typically from the integrated circuits and capacitors on the mainboard. These components are cooled by radiation or by the closest liquid cooled path. It is therefore important for the designer to note that the thermal load on some of the components will significantly increase due to the added load by close components [13].
+
+##### 6.4.2 Liquid Cooled Rack Classifications
+
+The liquid cooled ready rack without DHX rejects heat through air to the room. The amount of heat rejected depends on the total heat generated within the rack, the amount of heat captured by the cooling liquid depending on the IT equipment classification, and the amount transferred by the air. The heat from the air is rejected to the room, and the data center designer needs to know the thermal demand on the room to ensure cooling requirements can be met. The liquid cooled ready rack with DHX has the capability of capturing all the heat from all the equipment in the rack, resulting in a room neutral environment. This is when no heat is rejected to the room and all heat is captured by the liquid (except for unintentional heat losses). This rack classification can use different level of IT equipment cold plate classifications. The heat captured by the air is then picked up by the DHX, where the DHX should be sized after the cooling need. Achieving near 100% heat capture can be beneficial, when no additional air cooling can be provided in the room or heat reuse is required. The thermal demand on the room is negligible with some ambient air cooling required only for radiated thermal losses from the rack. If not all the heat or excess heat is captured by the DHX, the designer should give the information on the amount of heat transferred to the room.
+
+Page 26
+
+Figure 2, Example designs of hybrid basic IT equipment.
+
+Figure 3, Example design of hybrid intermediate IT equipment.
+
+Page 27
+
+Figure 4, Example of full liquid cooling IT equipment design.
+
+##### 6.5 Sensor Requirements
+
+In order to control fluid flow and maintain safe operation of a liquid cooled system, critical sensors are 
+required in specific locations. These sensors are needed to monitor and control flow, pressure, and 
+temperature. In addition, having access to a comprehensive set of sensors will allow for adherence to 
+proper maintenance protocols as well as provide for critical alarming on failure events. The table below 
+lists the sensors to be considered within the system, chassis, rack, and CDU. ASHRAE TC9.9 Datacom 
+book 14 [14] establishes a comprehensive list of all critical sensors within the system. According to 
+ASHRAE’s definition, a system is the top-level management plane, which includes all chassis elements 
+(f.ex. servers, storage, and network switches) and could include the CDU and other rack elements. An 
+example of this is a rack containing several chassis of different types, but controlled with one top level 
+manager, which thereby achieves one cohesive system (i.e. rack). A chassis is defined as the physical 
+elements within the system. An example of this is a stand-alone 1U server, which has its own chassis 
+management control. A subset of the ASHRAE sensor list, i.e. the sensors used by the liquid cooling 
+system, is shown in the table below. 
+The DCIM compliance in [14] is divided into three different categories: Tier 1, Tier 2, and Tier 3. Tier 1 
+represent a basic set of telemetry/sensors, which does not include any liquid cooling sensors. Tier 2 
+includes a more comprehensive set of telemetry/sensors with some liquid cooling sensors, while Tier 3 
+represents the most comprehensive set of telemetry/sensors with additional liquid cooling sensors 
+compared to Tier 2. The two different requirements represented here are aligned with these categories in 
+[14]. The minimum sensor requirements for liquid cooling are aligned with Tier 2, while the advanced 
+sensor requirements are aligned with Tier 3 as described below. 
+
+Page 28
+
+● Minimum sensor requirement – Tier 2 as defined in [14], which includes system liquid inlet temperature and max allowable system liquid inlet temperature. 
+● Advanced sensor requirement – Tier 3 as defined in [14], which includes the Tier 2 sensors and also system adjusted liquid inlet temperature and system liquid outlet. 
+
+Table 11, Critical Liquid Cooling Sensors.
+
+| System | Chassis Component Level* | Other Level* Level* | System CDU |
+| --- | --- | --- | --- |
+| | | | |
+| Thermal System temp | air inlet CPU temp | System environmental | Liquid supply class temp |
+| Bulk air delta | T CPU temp | max System volumetric liquid flow | Liquid return temp rate |
+| Bulk air outlet | Memory temp | System volumetric flow minimum | adjusted Volumetric liquid liquid flow rate |
+| System liquid temp | inlet GPU temp | System supply pressure | Liquid Liquid supply pressure |
+| System outlet temp | liquid FPGA temp | System liquid pressure | return Liquid return pressure |
+| System liquid temp allowable | inlet Accelerator max | temp | |
+| System liquid inlet max allowable | adjusted High-power temp temp | ASIC | |
+| | | | |
+| Power System power | input CPU power | | Input power |
+
+Page 29
+
+| Chassis power | input GPU power | | |
+| --- | --- | --- | --- |
+| System subsystem | cooling FPGA power power | | |
+| | Accelerator | power | |
+| | High-power power | ASIC | |
+
+* Sensors from ASHRAE DCIM Datacom Book #14.
+
+##### 6.5.1 DMTF Redfish
+
+The Redfish forum, within the DMTF (Distributed Management Task Force) [15] standards body, is a forum that drives industry standard protocols using a RESTful interface for purposes of managing IT equipment. As part of this organization’s work efforts, IT telemetry was adopted in partnership with ASHRAE TC9.9 and since released. The RESTful interface is based on representational state transfer (REST) technology, an architectural style and approach to communications often used in web services development. DMTF Redfish schema mapping can be found in Appendix A of “Advancing DCIM with IT Equipment Integration” Datacom Handbook [14].
+
+##### 6.6 Leakage Detection and Intervention Requirements
+
+The main approach to leak mitigation should be a robust leak prevention design strategy. However, a detailed spill and leak management plan is still of importance when installing a liquid cooled solution. The management plan should include both leak detection and intervention. It is important to note that the plan should meet the data center requirements. In the TCS cooling loop, the detection can be done at different locations. Indirect methods of detection may be applied via monitoring and analysis of existing hardware and sensors. Some examples are at the CDU, rack, chassis, QD couplings and/or compute node. If the CDU can detect small pressure drops and/or changes in flow rates, it might be used as an efficient leak detection device. Direct methods deploy dedicated leak detection hardware located in high risk areas. Typical direct method devices may be found as spot detectors, or wires, which register leakage when coming in contact with a conductive liquid. For reliability detection, the sensor(s) should be positioned in areas where cooling liquid will pool up in an event of leakage. Often sensors are placed under the rack and/or under the facility floor to detect potential leaks from the rack and/or in the delivery of the cooling liquid. Since the compute node is often the most expensive component of the IT equipment, there might be a requirement to detect potential leaks in close proximity to the compute node. It is important to note that with an increase of sensors to determine the location of the leak there is also an increase in cost. The cost benefit analysis needs to weigh the cost of additional sensors against the need of meeting specific requirements such as uptime. There are also different intervention options to consider. The lowest level of intervention is manual intervention when a notification is sent out to the facility personnel that a leak has been detected. The next level can be automatic electrical intervention, when a notification is sent of a leak event and an Page 30
+
+Open Compute Project Liquid Cooling Cold Plate Requirements Document automatic electrical de-energization is done of the IT equipment. This can save the hardware that gets exposed to the leak/cooling liquid, and recommissioning has to address how to deal with the wet but saved equipment. A more sophisticated approach is the automatic electrical and fluid intervention. This is when a leak notification is detected, the IT equipment is being de-energized, and the cooling liquid is shut-off. This can save extensive hardware exposure to leakage, which can simplify the recommissioning of the exposed IT equipment. The reduced risk with having automatic intervention solutions comes with a cost, which again needs to weigh against the requirement of the installation. Leak detection classifications
+
+● Indirect: using existing pressure, flow, and temperature sensors and algorithms to determine leaks 
+● Direct: using leak rope/cable detection as the sensor at a specific location (as defined above) Leak intervention classifications 
+● Manual: using manual intervention after leak detected f.ex closing flow control valves and shutting down IT equipment 
+● Automatic: using automatic intervention approach after leak detected f.ex de-energized IT equipment and/or cooling liquid shut-off 
+
+##### 6.7 Comparison Metrics
+
+The following classifications and metrics can be used to compare different liquid cooling installations with 
+each other. 
+Table 12, Comparison Metrics. 
+Classification Metrics 
+
+IT equipment width 19’’ or 21’’
+
+Rack width # inches or mm (24’’/600 mm) or custom
+
+Rack height # U
+
+Rack depth # m (1.1 and 1.2 m) or custom
+
+Rack service area - Back # m x # m
+
+Rack service area - Front # m x # m
+
+Wall Power/rack # kW/rack
+
+IT equipment chassis height (i.e. server, blade) U (1U, 2U, any U, custom)
+
+Page 31
+
+| Fully loaded rack weight equipment and cooling liquid) | (i.e. rack with IT # kg |
+| --- | --- |
+| Manifold location | Front, Back |
+| Manifold connector type | Manual connect, Blind mate |
+| Cooling liquid | Water with additives, Glycol based, Dielectric, Refrigerants |
+| Rack cooling classification | With or without door heat exchanger |
+| IT equipment cooling classification | Basic hybrid, intermediate hybrid, advanced hybrid, full liquid |
+| Cooling type | Single-phase, Two-phase |
+| Maximum TCS cooling temperature to racks | liquid supply # oC Can be based on the facility cooling liquid max temperature according to ASHRAE’s definitions (W1: 17 oC, W2: 27 oC, W3: 32 oC, W4: 45 oC, W5 > 45 oC) + temperature rise over the CDU |
+| Maximum TCS cooling temperature from racks | liquid return # oC |
+| Coolant Distribution Unit (CDU) | In-rack, Row, Facility (and dimensions of the CDU) |
+| Number of Racks/CDUs | # |
+| Maximum CDU approach | temperature # oC Definition as used in ASHRAE (TCS supply temp – facility liquid supply temp) |
+| CDU Power | # W |
+
+| Fully loaded rack weight | (i.e. rack with IT # kg |
+| --- | --- |
+| Manifold location | Front, Back |
+| Manifold connector type | Manual connect, Blind mate |
+| Cooling liquid | Water with additives, Glycol based, Dielectric, Refrigerants |
+| Rack cooling classification | With or without door heat exchanger |
+| IT equipment cooling classification | Basic hybrid, intermediate hybrid, advanced hybrid, full liquid |
+| Cooling type | Single-phase, Two-phase |
+| Maximum TCS cooling | liquid supply # oC Can be based on the facility cooling liquid max temperature according to ASHRAE’s definitions (W1: 17 oC, W2: 27 oC, W3: 32 oC, W4: 45 oC, W5 > 45 oC) + temperature rise over the CDU |
+| Maximum TCS cooling | liquid return # oC |
+| Coolant Distribution Unit (CDU) | In-rack, Row, Facility (and dimensions of the CDU) |
+| Number of Racks/CDUs | # |
+| Maximum CDU approach | temperature # oC Definition as used in ASHRAE (TCS supply temp – facility liquid supply temp) |
+| CDU Power | # W |
+
+Page 32
+
+| Total cooling subsystem power/rack | (fan/pump) # W |
+| --- | --- |
+| Total power subsystem losses/rack | # W |
+| Total power into the compute | components* # W (including CPUs, GPUs, Memory, Storage, Networking) |
+| Maximum allowable pressure | on TCS side # Pa |
+| Maximum allowable pressure | on facility side # Pa |
+| Maximum pressure drop on | TCS side # Pa |
+| Maximum pressure drop liquid side | on facility cooling # Pa |
+| Maximum CDU TCS flow | rate # l/s |
+| Maximum CDU facility cooling | liquid flow rate # l/s |
+| Maximum operating temperature | on FWS side # oC |
+| Leak Detection | Indirect/Direct |
+| Leak Mitigation | Manual/Automatic |
+
+| Total cooling subsystem | (fan/pump) # W |
+| --- | --- |
+| Total power subsystem losses/rack | # W |
+| Total power into the compute | components* # W (including CPUs, GPUs, Memory, Storage, Networking) |
+| Maximum allowable pressure | on TCS side # Pa |
+| Maximum allowable pressure | on facility side # Pa |
+| Maximum pressure drop on | TCS side # Pa |
+| Maximum pressure drop | on facility cooling # Pa |
+| Maximum CDU TCS flow | rate # l/s |
+| Maximum CDU facility cooling | liquid flow rate # l/s |
+| Maximum operating temperature | on FWS side # oC |
+| Leak Detection | Indirect/Direct |
+| Leak Mitigation | Manual/Automatic |
+
+Leak Mitigation Manual/Automatic 
+*https://docs.google.com/viewer?a=v&pid=sites&srcid=bGJsLmdvdnxlZWhwY3dnfGd4OjM4ZmNhZjk4Yj 
+NlZjUwYTk 
+
+### 7. References
+
+[1] Cold Plate Qualification Requirement, 
+https://docs.google.com/spreadsheets/d/19LPCx5KRiFVMzvGwSadxjgW_nL4MJ4G0l_6WbN9vZy4/edit? 
+usp=sharing 
+[2] “Water-Cooled Servers - Common Designs, Components, and Processes”, ASHRAE White paper by 
+Technical Committee 9.9, 2019, 
+http://tc0909.ashraetcs.org/documents/ASHRAE_TC0909_Water_Cooled_Servers_11_April_2019.pdf 
+[3] “The Commissioning Process (2013b)”, ASHRAE Guidelines 0-2013, 2013 
+
+Page 33
+
+Open Compute Project Liquid Cooling Cold Plate Requirements Document [4] “Environmental management – Life cycle assessment – principles and framework”, 2016, International Organization for Standardization, ISO Standard No. 14040:2006, 14044 [5] “Restriction of the use of certain hazardous substances in electrical and electronic equipment”, Directive 2011/65/EU of the European Parliament and of the Council of 8 June 2011 on the , http://data.europa.eu/eli/dir/2011/65/2014-01-29 [6] Registration, Evaluation, Authorisation and Restriction of Chemicals (REACH), Regulation (EC) No 1907/2006 of the European Parliament and of the Council of 18 December 2006, http://data.europa.eu/eli/reg/2006/1907/oj [7] “Liquid Cooling Guidelines for Datacom Equipment Centers”, ASHRAE Datacom Series 4, 2 nd edition, 2014. [8] “Connections for General Use and Fluid Power – Ports and Stud Ends with ASME B1.1 Threads and 9-Ring sealing”, SAE International Surface Vehicle Standard, SAE Standard J1926:2016. [9] “Connections for general use and fluid power – Ports and stud ends with ISO228-1 threads with elastomeric or metal-to-metal sealing”, ISO Standard No. 1179:2013. [10] “Information Technology Equipment – Safety – Part 1: General Requirements”, International Standard, IEC 60950-1, 2 nd edition, 2005. [11] “Audio/Video, Information and Communication Technology Equipment – Part 1: Safety Requirements”, International Standard, IEC 62368-1, 3 rd edition, 2018. [12] “Process Piping”, The American Society of Mechanical Engineers (ASME) B31.3, 2018. [13] “Liquid Cooling of Compute Systems”, 2019, IEEE Journal of Electronic Packaging, Gullbrand, Luckeroth, Sprenger, and Winkel, http://electronicpackaging.asmedigitalcollection.asme.org/article.aspx?articleid=2724839 [14] “Advancing DCIM with IT Equipment Integration”, ASHRAE book 14 from Technical Committee 9.9, 2019 [15] https://www.dmtf.org/
+
+Page 34
+
+### 8. About Open Compute Project
+
+The Open Compute Project Foundation is a 501(c)(6) organization which was founded in 2011 by Facebook, Intel, and Rackspace. Our mission is to apply the benefits of open source to hardware and rapidly increase the pace of innovation in, near and around the data center and beyond. The Open Compute Project (OCP) is a collaborative community focused on redesigning hardware technology to efficiently support the growing demands on compute infrastructure..For more information about OCP, please visit us at http://www.opencompute.org
+
+Page 35
+

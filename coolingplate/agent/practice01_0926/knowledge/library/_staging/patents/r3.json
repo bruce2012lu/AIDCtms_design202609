@@ -1,0 +1,438 @@
+[
+ {
+  "query": "EP4578252B1",
+  "url": "https://patents.google.com/patent/EP4578252B1/en",
+  "http": 200,
+  "title": "Cold plate assembly for liquid cooling of electronic devices",
+  "pdf": null,
+  "pub_no": "EP4578252B1",
+  "assignee_original": [
+   "Asetek AS"
+  ],
+  "assignee_current": [
+   "Asetek AS"
+  ],
+  "inventors": [
+   "Anders Hjørringgaard Saksager"
+  ],
+  "priorityDate": "2022-08-24",
+  "filingDate": "2023-08-24",
+  "publicationDate": "2026-04-29",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2043-08-24 Anticipated expiration"
+  ],
+  "events": [
+   "2023-08-24 | Application filed by Asetek AS",
+   "2025-07-02 | Publication of EP4578252A1",
+   "2026-04-29 | Application granted",
+   "2026-04-29 | Publication of EP4578252B1",
+   "Status | Active",
+   "2043-08-24 | Anticipated expiration"
+  ],
+  "abstract": null,
+  "claim1": "A cold plate assembly for use in a liquid cooling system for cooling of a computing device having a plurality of active regions from which heat is dispersed with varying intensity, said cold plate assembly comprising: a cold plate (105) for exchanging heat between said computing device and cooling liquid of said liquid cooling system, said cold plate comprising an exterior surface for facing the computing device and an opposite inner surface adapted to be in contact with said cooling liquid, said inner surface further comprising guiding means for guiding said cooling liquid along said inner surface in a predefined pattern focusing the liquid flow across one or more zones; a distribution layer configured to be mounted onto said inner surface of said cold plate, said distribution layer comprising a - liquid inlet (405) through which said inner surface of said cold plate receives cooling liquid from said liquid cooling system, and a - liquid outlet (407) through which cooling liquid is discharged away from said inner surface into said liquid cooling system, said liquid inlet being in liquid communication with an inlet channel (403), said inlet channel and said liquid outlet being in liquid communication with an outlet channel (409), such that at least a first zone of the cold plate assembly is adapted for a liquid flow with one of the flow types - split flow which branches off into multiple channels from an inlet channel, where the channels branching off guide liquid flow in at least two different directions away from the inlet channel, - uniting flow wherein multiple channels guiding flow in different directions are connected such that the flow enters into a single channel, or - straight flow wherein liquid flow is directed from a first channel to a second channel through a plurality of parallel channels and a second zone of the cold plate is adapted for a liquid flow type of one of the types - split flow which branches off into multiple channels from an inlet channel, where the channels branching off guide liquid flow in at least two different directions away from the inlet channel, - uniting flow wherein multiple channels guiding flow in different directions are connected such that the flow enters into a single channel, or - straight flow wherein liquid flow is directed from a first channel to a second channel through a plurality of parallel channels and the flow type of the second zone being different from the flow type of the first zone.",
+  "claims_count": "9",
+  "family_pubs": [
+   "CN120092494A",
+   "EP4578252A1",
+   "US20240074100A1",
+   "WO2024042182A1"
+  ],
+  "similar": [
+   "US20240074100A1",
+   "CN110637363B",
+   "CN101803019B",
+   "JP5769834B2",
+   "EP3933911B1",
+   "US20220316817A1",
+   "US10892208B2",
+   "TWM612914U",
+   "KR20220122558A",
+   "WO2021036249A1",
+   "WO2021224335A1",
+   "JP2021093511A",
+   "JP5589647B2",
+   "KR101474610B1",
+   "TWI765606B"
+  ],
+  "cited_by": [
+   "EP4333575B1 | Bull Sas | Inlet heat sink for a supercomputer electronics board cooling system",
+   "EP4333576B1 | Bull Sas | Output heat sink for a cooling system of a supercomputer electronic board",
+   "CN118434105B | 湖南博匠信息科技有限公司 | Miniature rack-mounted liquid cooling source and system for improving refrigerating capacity"
+  ]
+ },
+ {
+  "query": "CN109524376B",
+  "url": "https://patents.google.com/patent/CN109524376B/en",
+  "http": 200,
+  "title": "A liquid cooling device for a multi-distributed jet microchannel chip",
+  "pdf": "https://patentimages.storage.googleapis.com/85/28/ef/cfb29af1d17a6f/CN109524376B.pdf",
+  "pub_no": "CN109524376B",
+  "assignee_original": [
+   "Huazhong University of Science and Technology"
+  ],
+  "assignee_current": [
+   "Huazhong University of Science and Technology"
+  ],
+  "inventors": [
+   "罗小兵",
+   "吴睿康",
+   "蓝威",
+   "范义文",
+   "邹浩"
+  ],
+  "priorityDate": "2018-09-18",
+  "filingDate": "2018-09-18",
+  "publicationDate": "2020-07-10",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2038-09-18 Anticipated expiration"
+  ],
+  "events": [
+   "2018-09-18 | Application filed by Huazhong University of Science and Technology",
+   "2018-09-18 | Priority to CN201811088661.9A",
+   "2019-03-26 | Publication of CN109524376A",
+   "2020-07-10 | Application granted",
+   "2020-07-10 | Publication of CN109524376B",
+   "Status | Active",
+   "2038-09-18 | Anticipated expiration"
+  ],
+  "abstract": "The invention belongs to the field of electronic device heat dissipation, and particularly discloses a multi-branch type jet micro-channel chip liquid cooling heat dissipation device which comprises a cooling liquid inlet pipe, a cooling liquid outlet pipe and a multi-branch type jet micro-channel cavity, wherein the cooling liquid inlet pipe and the cooling liquid outlet pipe are arranged on the multi-branch type jet micro-channel cavity, the multi-branch type jet micro-channel cavity is a tight whole formed by sequentially stacking and bonding an inlet and outlet layer, a recovery hole layer, a jet nozzle layer and a micro-channel layer, the cooling liquid inlet pipe is arranged on the inlet and outlet layer and is communicated with the jet nozzle layer, cooling liquid enters the micro-channel layer through the jet nozzle layer, the cooling liquid outlet pipe is arranged on the inlet and outlet layer and is communicated with the recovery layer, and cooling liquid absorbing heat is led out of the cooling liquid outlet pipe from the micro-channel layer through the jet nozzle layer. The invention can improve the uniformity of the temperature of the chip, improve the heat dissipation performance and solve the heat dissipation problem of a high heat flow density chip and a heating electronic device.",
+  "claim1": "1. The utility model provides a how manifold formula efflux microchannel chip liquid cooling heat abstractor, its characterized in that, includes coolant liquid import pipe (1), coolant liquid outlet pipe (2) and many manifold formula efflux microchannel cavity (3), wherein: the cooling liquid inlet pipe (1) and the cooling liquid outlet pipe (2) are arranged on the multi-branch type jet flow micro-channel cavity (3) and are used for inputting and outputting cooling liquid, the multi-branch type jet flow micro-channel cavity (3) is a compact whole formed by sequentially stacking and bonding an inlet and outlet layer (8), a recovery layer (7), a recovery hole layer (6), a jet flow nozzle layer (5) and a micro-channel layer (4), wherein the cooling liquid inlet pipe (1) is arranged on the inlet and outlet layer (8) and is communicated with the jet flow nozzle layer (5), the cooling liquid is sent to the jet flow nozzle layer (5) and enters the micro-channel layer (4) through the jet flow nozzle layer (5), the cooling liquid outlet pipe (2) is arranged on the inlet and outlet layer (8) and is communicated with the recovery layer (7), and the cooling liquid absorbing heat is led out from the cooling liquid outlet pipe (2) through the jet flow nozzle layer (5), the recovery hole layer (6) and the recovery layer (7) in sequence from the micro-channel layer (4); the microchannel layer (4) is provided with a plurality of parallel microchannels (10) which are arranged at equal intervals; the jet flow nozzle layer (5) comprises an inlet liquid collecting cavity (11), a jet flow liquid separating cavity communicated with the inlet liquid collecting cavity (11) and a cooling liquid recycling structure, the jet flow liquid separating cavity is formed by a plurality of jet flow liquid recycling grooves (14) which are arranged in parallel, each jet flow liquid recycling groove (14) is provided with jet flow nozzles (12) corresponding to the number of the micro channels (10), the cooling liquid recycling structure is formed by a plurality of cooling liquid recycling bosses (16) which are arranged in parallel, each cooling liquid recycling boss (16) is provided with cooling liquid recycling holes (13) corresponding to the number of the micro channels (10), the cooling liquid recycling bosses (16) and the jet flow liquid recycling grooves (14) are arranged at intervals in sequence, the adjacent cooling liquid recycling bosses and the jet flow nozzles (12) and the cooling li",
+  "claims_count": "6",
+  "family_pubs": [
+   "CN109524376A"
+  ],
+  "similar": [
+   "CN109524376A",
+   "CN107293496B",
+   "JP5600097B2",
+   "CN111446221A",
+   "CN107658281B",
+   "CN111148409B",
+   "CN111328245A",
+   "CN117199032B",
+   "CN116190330A",
+   "CN115910953A",
+   "CN113286497A",
+   "CN111479442A",
+   "CN111900143A",
+   "CN118471922A",
+   "CN210325776U"
+  ],
+  "cited_by": [
+   "CN110085944B | 上海工程技术大学 | A liquid cooling and temperature equalizing device for power battery",
+   "CN110278696B | 苏州英维克温控技术有限公司 | Gravity heat pipe radiator and electronic equipment",
+   "CN110610911B | 上海交通大学 | Novel three-dimensional uniform distribution manifold type microchannel",
+   "CN111076587A | 江苏科技大学 | Impulse jet array phase change cooling device combined with metal foam",
+   "CN110822964B | 深圳市翌昇科技发展有限公司 | Heat conduction device",
+   "CN111146544A | 电子科技大学 | An efficient cooling structure for small high-power millimeter-wave devices",
+   "CN111148409B | 西安交通大学 | A jet microchannel cold plate",
+   "CN111328245B | 西安交通大学 | Return type jet microchannel radiator and heat dissipation method",
+   "CN111479442B | 中航光电科技股份有限公司 | Array micro-jet and micro-channel composite cold plate",
+   "CN111954445B | 上海交通大学 | Ribbed column type efficient phase change cooling device and cooling method thereof",
+   "CN112952537A | 中国电子科技集团公司第十六研究所 | Manifold type micro-channel heat sink with boss structure",
+   "WO2022246637A1 | 华为技术有限公司 | Heat dissipation device and heat dissipation system",
+   "CN113490394B | 广东省科学院半导体研究所 | Leaf vein bionic micro-channel coupling jet heat exchange system",
+   "CN113937615A | 中国电子科技集团公司第十一研究所 | Cooling assembly and cooling method for laser",
+   "EP4386833A4 | Huawei Technologies Co., Ltd. | HEAT DISSIPATION SYSTEM, ELECTRONIC DEVICE AND LIQUID COOLING SYSTEM",
+   "CN114025142B | 四川启睿克科技有限公司 | Liquid cooling heat dissipation cold head, liquid cooling heat dissipation system and laser television",
+   "CN114111099B | 上海交通大学 | Countercurrent communication microchannel evaporator device",
+   "CN115682767B | 山东大学 | A manifold distribution layer and its manifold micro-column array flat plate heat exchanger",
+   "CN114725044B | 浙大城市学院 | A 3D-printed heat dissipation device based on sensitive materials",
+   "CN114828594B | 珠海格莱克科技有限公司 | Heat dissipation device, heat dissipation system and electrical equipment",
+   "CN115297676B | 中国科学院西安光学精密机械研究所 | Manifold type micro-jet ultra-high heat flux heat dissipation assembly",
+   "CN115682796B | 山东高等技术研究院 | 3D printing porous medium cold plate and preparation process thereof",
+   "CN115768045B | 北京大学 | Radiators and electronic equipment",
+   "CN115763406B | 之江实验室 | An embedded cooling chip with manifold microchannels",
+   "CN115881666B | 山东大学 | A Novel Counterflow Composite Microchannel Heat Sink"
+  ]
+ },
+ {
+  "query": "CN111328245B",
+  "url": "https://patents.google.com/patent/CN111328245B/en",
+  "http": 200,
+  "title": "Return type jet microchannel radiator and heat dissipation method",
+  "pdf": "https://patentimages.storage.googleapis.com/e0/4b/c0/7d7f58b88e7ddd/CN111328245B.pdf",
+  "pub_no": "CN111328245B",
+  "assignee_original": [
+   "Xian Jiaotong University"
+  ],
+  "assignee_current": [
+   "Xian Jiaotong University"
+  ],
+  "inventors": [
+   "陈黎",
+   "彭明",
+   "冯浩然",
+   "陶文铨"
+  ],
+  "priorityDate": "2020-02-14",
+  "filingDate": "2020-02-14",
+  "publicationDate": "2021-07-06",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2040-02-14 Anticipated expiration"
+  ],
+  "events": [
+   "2020-02-14 | Application filed by Xian Jiaotong University",
+   "2020-02-14 | Priority to CN202010094902.1A",
+   "2020-06-23 | Publication of CN111328245A",
+   "2021-07-06 | Application granted",
+   "2021-07-06 | Publication of CN111328245B",
+   "Status | Active",
+   "2040-02-14 | Anticipated expiration"
+  ],
+  "abstract": "Abstract Translated from Chinese 公开了折返式射流微通道散热器及散热方法，折返式射流微通道散热器中，微通道基板设有微通道；射流孔板层叠于微通道基板上且层间密封连接，射流孔板包括多个射流入口孔和多个回流出口孔；分配器层叠于射流孔板上且层间密封连接，分配器中，第一分配腔连通进液管，多个第二分配腔分别连通第一分配腔和射流入口孔，工质经由第一分配腔水平流动地导入第二分配腔中后垂直进入射流入口孔以冲击微通道的底壁面，多个第二回液腔分别连通回流出口孔和第一回液腔，冲击微通道的底壁面的工质折返进入回流出口孔，进入回流出口孔的工质经由第二回液腔进入第一回液腔，进入第一回液腔的工质经由回液管排出。 Disclosed are a fold-back jet micro-channel radiator and a heat dissipation method. In the fold-back jet micro-channel radiator, a micro-channel substrate is provided with a micro-channel; a jet orifice plate is laminated on the micro-channel substrate and is sealed and connected between layers, and the jet orifice plate comprises a plurality of a plurality of jet inlet holes and a plurality of return outlet holes; the distributor is stacked on the jet orifice plate and is tightly connected between layers. In the distributor, the first distribution chamber is connected to the liquid inlet pipe, and the plurality of second distribution chambers are respectively connected to the first distribution chamber and the jet inlet hole, the working medium is horizontally introduced into the second distribution chamber through the first distribution cavity and then vertically enters the jet inlet hole to impact the bottom wall of the microchannel. In the liquid return cavity, the working medium that hits the bottom wall of the microchannel is turned back into the return flow outlet hole, the working medium entering the return flow exit hole enters the first liquid return cavity through the second liquid return cavity, and the working medium entering the first liquid return cavity passes through the return flow cavity. Liquid pipe discharge.",
+  "claim1": "1.一种折返式射流微通道散热器，其包括， 1. A fold-back jet microchannel radiator comprising, 微通道基板，其设有微通道； a microchannel substrate, which is provided with microchannels; 射流孔板，其层叠于所述微通道基板上且层间密封连接，所述射流孔板包括多个射流入口孔和多个回流出口孔，多个射流入口孔和多个回流出口孔交替布置； A jet orifice plate, which is stacked on the microchannel substrate and is sealed between layers, the jet orifice plate includes a plurality of jet inlet holes and a plurality of return outlet holes, and the plurality of jet inlet holes and a plurality of return outlet holes are alternately arranged ; 分配器，其层叠于所述射流孔板上且层间密封连接，所述分配器包括， A distributor, which is laminated on the jet orifice plate and is sealed between the layers, the distributor comprising, 进液管，其用于泵入工质， The liquid inlet pipe, which is used to pump the working medium, 第一分配腔，其连通进液管， the first distribution chamber, which is connected to the liquid inlet pipe, 多个第二分配腔，其分别连通所述第一分配腔和射流入口孔，所述工质经由第一分配腔水平流动地导入第二分配腔中后垂直进入所述射流入口孔以冲击所述微通道的底壁面， A plurality of second distribution chambers, which are respectively connected to the first distribution chamber and the jet inlet hole, the working medium is introduced into the second distribution chamber in a horizontal flow through the first distribution chamber and then vertically enters the jet inlet hole to impact all the jet inlet holes. the bottom wall of the microchannel, 多个第二回液腔，其分别连通所述回流出口孔和第一回液腔，冲击所述微通道的底壁面的工质折返进入所述回流出口孔， a plurality of second liquid-return cavities, which are respectively connected with the return-flow outlet hole and the first liquid-return cavity; 第一回液腔，进入所述回流出口孔的工质经由第二回液腔进入第一回液腔， The first liquid return cavity, the working medium entering the return flow outlet hole enters the first liquid return cavity through the second liquid return cavity, 回液管，其连通第一回液腔，进入所述第一回液腔的工质经由所述回液管排出，所述第一分配腔和/或第二分配腔为沿流向楔形渐缩结构，所述第二回液腔和/或第一回液腔为楔形渐扩结构。 A liquid return pipe, which communicates with the first liquid return cavity, and the working medium entering the first liquid return cavity is discharged through the liquid return pipe, and the first distribution cavity and/or the second distribution cavity is tapered in a wedge shape along the flow direction structure, the second liquid return cavity and/or the first liquid return cavity is a wedge-shaped gradually expanding structure.",
+  "claims_count": "8",
+  "family_pubs": [
+   "CN111328245A"
+  ],
+  "similar": [
+   "CN111328245A",
+   "US12100643B2",
+   "CN100565856C",
+   "US7017655B2",
+   "CN109524376B",
+   "US8427832B2",
+   "CN212695142U",
+   "CN111052360A",
+   "US20080179046A1",
+   "WO2007145352A1",
+   "KR20190016945A",
+   "WO2006052317A2",
+   "US11732978B2",
+   "CN115768045B",
+   "CN115050715A"
+  ],
+  "cited_by": [
+   "CN111900143A | 上海交通大学 | Manifold type high depth-width ratio micro-channel heat exchanger",
+   "CN112260648B | 四川大学 | Micro-channel liquid cooling module and heat dissipation structure for high-power concentrating dense array photovoltaic cells",
+   "CN113960103A | 西安交通大学 | Microchannel phase change heat transfer test device and microchannel heat exchanger",
+   "CN113937615A | 中国电子科技集团公司第十一研究所 | Cooling assembly and cooling method for laser",
+   "CN114111099B | 上海交通大学 | Countercurrent communication microchannel evaporator device",
+   "CN115696863A | 中国航空工业集团公司雷华电子技术研究所 | 3D prints array formula microchannel curved surface cold drawing",
+   "CN116013886A | 成都万应微电子有限公司 | a radiator",
+   "CN117263507B | 江苏大学 | A high-efficiency heat transfer impact jet array structure for physical tempering of ultrathin glass",
+   "CN118540914B | 西安交通大学 | Multi-point jet topology abnormal-shaped micro-channel radiator oriented to high heat flow scene",
+   "CN119634074B | 华南理工大学 | A cascaded fluid oscillation jet device for chip heat dissipation"
+  ]
+ },
+ {
+  "query": "CN114828541B",
+  "url": "https://patents.google.com/patent/CN114828541B/en",
+  "http": 200,
+  "title": "Smart cold plate system with active and passive features for data center cooling system",
+  "pdf": "https://patentimages.storage.googleapis.com/4d/7f/50/c8d66480ef54b8/CN114828541B.pdf",
+  "pub_no": "CN114828541B",
+  "assignee_original": [
+   "Nvidia Corp"
+  ],
+  "assignee_current": [
+   "Nvidia Corp"
+  ],
+  "inventors": [
+   "A·埃达里"
+  ],
+  "priorityDate": "2021-01-21",
+  "filingDate": "2022-01-12",
+  "publicationDate": "2025-03-18",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2042-01-12 Anticipated expiration"
+  ],
+  "events": [
+   "2022-01-12 | Application filed by Nvidia Corp",
+   "2022-07-29 | Publication of CN114828541A",
+   "2025-03-18 | Application granted",
+   "2025-03-18 | Publication of CN114828541B",
+   "Status | Active",
+   "2042-01-12 | Anticipated expiration"
+  ],
+  "abstract": "Abstract Translated from Chinese 公开了用于数据中心冷却系统的具有有源和无源特征的智能冷板系统，还公开了用于冷却数据中心的系统和方法。在至少一个实施例中，冷板具有微通道和热管，以在使用微通道的冷板的有源操作模式中支撑第一流体，并在使用热管的冷板的无源操作模式中支撑第二流体。 Disclosed are intelligent cold plate systems with active and passive features for data center cooling systems, and also disclosed are systems and methods for cooling data centers. In at least one embodiment, the cold plate has microchannels and heat pipes to support a first fluid in an active operating mode of the cold plate using the microchannels and to support a second fluid in a passive operating mode of the cold plate using the heat pipes.",
+  "claim1": "1.一种数据中心冷却系统，包括： 1. A data center cooling system, comprising: 冷板，其包括微通道和热管，所述微通道在所述冷板的操作的有源模式中支撑第一流体，所述第一流体通过至少一个流量控制器的作用流过所述微通道，并且所述热管在所述冷板的操作的无源模式中支撑第二流体，所述第二流体通过所述热管的蒸发器部分和冷凝器部分之间的温度差和毛细管作用在所述热管中循环； a cold plate including microchannels and heat pipes, the microchannels supporting a first fluid in an active mode of operation of the cold plate, the first fluid flowing through the microchannels by action of at least one flow controller, and the heat pipes supporting a second fluid in a passive mode of operation of the cold plate, the second fluid circulating in the heat pipes by capillary action and a temperature difference between an evaporator portion and a condenser portion of the heat pipes; 处理器，其用于使用一个或更多个神经网络以至少部分地基于来自与计算设备或所述冷板相关联的一个或更多个传感器的传感器输入来推测一个或更多个冷却需求，以使得所述至少一个流量控制器以至少部分地基于所述一个或更多个冷却需求，来选择性地启动所述冷板的所述操作的所述有源模式和所述无源模式。 and a processor for using one or more neural networks to infer one or more cooling demands based at least in part on sensor inputs from one or more sensors associated with a computing device or the cold plate, so that the at least one flow controller selectively initiates the active mode and the passive mode of operation of the cold plate based at least in part on the one or more cooling demands.",
+  "claims_count": "29",
+  "family_pubs": [
+   "CN114828541A",
+   "DE102022101067A1",
+   "GB202200750D0",
+   "GB2605000A",
+   "GB2605000B",
+   "US12477696B2",
+   "US20220232739A1",
+   "US20260075772A1"
+  ],
+  "similar": [
+   "CN114206065B",
+   "CN115700023B",
+   "CN114698335B",
+   "CN115245062B",
+   "CN114585219B",
+   "CN114698334B",
+   "CN114585220B",
+   "CN115517032B",
+   "CN114980654B",
+   "CN114828543B",
+   "CN115735173A",
+   "CN114430644B",
+   "CN115348797B",
+   "CN115529786A",
+   "CN114828544B"
+  ],
+  "cited_by": [
+   "CN115599529B | 阿里巴巴（中国）有限公司 | Edge cloud function computing system and method",
+   "US12477688B2 | Toyota Motor Engineering & Manufacturing North America, Inc. | Systems and methods for cooling electronic devices",
+   "EP4734689A1 | Hoffman Enclosures Inc. | Coolant distribution units with localized processing"
+  ]
+ },
+ {
+  "query": "US20250031342A1",
+  "url": "https://patents.google.com/patent/US20250031342A1/en",
+  "http": 200,
+  "title": "Internal Recirculation Cooling Module",
+  "pdf": "https://patentimages.storage.googleapis.com/6d/55/91/e6749cf042c0d2/US20250031342A1.pdf",
+  "pub_no": "US20250031342A1",
+  "assignee_original": [
+   "Jetcool Technologies Inc"
+  ],
+  "assignee_current": [
+   "Jetcool Technologies Inc"
+  ],
+  "inventors": [
+   "Ludwig C. HABER",
+   "Cameron BOGGIO",
+   "Andy LA FOSSE",
+   "David Fox",
+   "Robert BALLERSTEDT"
+  ],
+  "priorityDate": "2023-07-18",
+  "filingDate": "2024-07-18",
+  "publicationDate": "2025-01-23",
+  "legal_status": "Granted",
+  "expiration": null,
+  "events_status": [
+   "2044-07-18 Anticipated expiration"
+  ],
+  "events": [
+   "2024-07-18 | Application filed by Jetcool Technologies Inc",
+   "2024-07-18 | Priority to US18/777,418",
+   "2024-09-16 | Assigned to Jetcool Technologies Inc.",
+   "2025-01-23 | Publication of US20250031342A1",
+   "2025-06-24 | Priority to US19/247,680",
+   "2025-09-30 | Application granted",
+   "2025-09-30 | Publication of US12432878B2",
+   "Status | Active",
+   "2044-07-18 | Anticipated expiration"
+  ],
+  "abstract": "Improved cooling modules and methods are configured to recirculate the liquid coolant fluid inside the cooling modules so that the same liquid cooling fluid impinges the surfaces of the heat-generating electronic components (or cooling plates in thermal communication with the heat-generating electronic components) multiple times before exiting the cooling module, thereby allowing a given flow of coolant fluid to be re-used several times over. With each re-use of the coolant fluid, the flow rate demand drops, reducing infrastructure required to achieve higher performance in direct and indirect micro-convective impingement cooling applications.",
+  "claim1": "1 . A cooling module, comprising: (a) a jet plate comprising an upper face, a lower face, a first segment that includes a first array of microjet nozzles extending through the jet plate from the upper face of the jet plate to the lower face of the jet plate, and a second segment that includes second array of microjet nozzles extending through the jet plate from the upper face of the jet plate to the lower face of the jet plate, and (b) a housing; (c) a ceiling disposed between the jet plate and the housing, the ceiling comprising a first ceiling-mounted boundary extending from the ceiling to the upper face of the jet plate and a second ceiling-mounted boundary extending from the ceiling to the upper face of the jet plate, (d) a base plate comprising a cooling surface, a first cooling surface-mounted boundary extending from the cooling surface to the lower face of the jet plate, and a second cooling surface-mounted boundary extending from the cooling surface to the lower face of the jet plate; (e) wherein the jet plate, the ceiling, the cooling surface of the base plate, the first ceiling-mounted boundary, the second ceiling-mounted boundary, the first cooling surface-mounted boundary and the second cooling surface-mounted boundary are all arranged to define a first inlet plenum located between the ceiling and the first array of microjet nozzles, a second inlet plenum located between the ceiling and the second array of microjet nozzles, a first impingement volume located between the first array of microjet nozzles and the cooling surface, a second impingement volume located between the second array of microjet nozzles and the cooling surface, and a first couch passage fluidly connecting the first impingement volume to the second inlet plenum; (f) a fastening system for attaching the cooling module to a circuit board having one or more heat-generating electronic components affixed thereto so that the cooling surface of the base plate will be in thermal communication with said one or more heat-generating electronic components on the circuit board and absorbs heat generated by said one or more heat-generating electronic components while the circuit board is in operation; and (g) an inlet fitting attached to the housing and configured to admit into the cooling module a pressurized coolant fluid transferred from an external source; and in (h) an inlet flow channel to carry the pressurized liquid coolant fluid from the inlet fitting to the first inlet plenum; (i)",
+  "claims_count": "38",
+  "family_pubs": [
+   "CN119631587A",
+   "CN119631587B",
+   "EP4533919A1",
+   "EP4533919A4",
+   "JP2025527057A",
+   "US12432878B2",
+   "US20250324541A1",
+   "WO2025019707A1"
+  ],
+  "similar": [
+   "US5083194A",
+   "US5818692A",
+   "US4910642A",
+   "US6735081B1",
+   "US7830664B2",
+   "US5831824A",
+   "US7184269B2",
+   "US7375962B2",
+   "KR900002214B1",
+   "US5923533A",
+   "CN113056159B",
+   "US20050128705A1",
+   "US7009842B2",
+   "US8644014B2",
+   "WO1997038274A1"
+  ],
+  "cited_by": []
+ },
+ {
+  "query": "CN114126342B",
+  "url": "https://patents.google.com/patent/CN114126342B/en",
+  "http": 200,
+  "title": "Configurable cold plate for data center cooling system",
+  "pdf": null,
+  "pub_no": "CN114126342B",
+  "assignee_original": [
+   "Nvidia Corp"
+  ],
+  "assignee_current": [
+   "Nvidia Corp"
+  ],
+  "inventors": [
+   "A·埃达里"
+  ],
+  "priorityDate": "2020-08-27",
+  "filingDate": "2021-08-27",
+  "publicationDate": "2025-12-19",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2041-08-27 Anticipated expiration"
+  ],
+  "events": [
+   "2021-08-27 | Application filed by Nvidia Corp",
+   "2022-03-01 | Publication of CN114126342A",
+   "2025-12-19 | Application granted",
+   "2025-12-19 | Publication of CN114126342B",
+   "Status | Active",
+   "2041-08-27 | Anticipated expiration"
+  ],
+  "abstract": "Abstract Translated from Chinese 公开了数据中心冷却系统的可配置冷板，具体公开了一种可配置且用于数据中心液体冷却系统的冷板。冷板包括第一部分、第二部分和中间层，中间层是可变的并且具有使冷却剂能够流过中间层的第一通道，并且具有第二通道或至少一个适配的第二通道，用于将冷却剂或冷却剂流集中到可配置冷板内的至少一个区域，该区域至少对应于关联计算设备的发热特征。 A configurable cold plate for a data center cooling system is disclosed, specifically a configurable cold plate for a data center liquid cooling system. The cold plate includes a first portion, a second portion, and an intermediate layer. The intermediate layer is variable and has a first channel allowing coolant to flow through it, and a second channel or at least one adapted second channel for concentrating coolant or coolant flow into at least one region within the configurable cold plate, the region at least corresponding to the heat dissipation characteristics of the associated computing device.",
+  "claim1": "1.一种用于数据中心液体冷却系统的冷板，包括： 1. A cold plate for a data center liquid cooling system, comprising: 第一部分、第二部分和中间层，其中，所述第一部分和所述第二部分气密且可移除地密封在一起，所述中间层可移除地位于所述第一部分和所述第二部分内； A first part, a second part, and an intermediate layer, wherein the first part and the second part are hermetically and removably sealed together, and the intermediate layer is removably located within the first part and the second part; 其中，所述中间层包括至少一个第一通道和第二通道，用于使得冷却剂能够从所述至少一个第一通道流过所述第二通道，再从与所述至少一个第一通道不同的第一通道流出，所述第二通道用于将所述冷却剂或冷却剂流集中到所述第二通道内，位于所述中间层中的所述第二通道至少对应于关联计算设备的发热特征，并且所述中间层能够被第二中间层替换，以解决由第二关联计算设备的第二组件产生的第二热量。 The intermediate layer includes at least one first channel and a second channel, which allow coolant to flow from the at least one first channel through the second channel and then out through a first channel different from the at least one first channel. The second channel is used to concentrate the coolant or coolant flow into the second channel. The second channel located in the intermediate layer corresponds at least to the heat dissipation characteristics of the associated computing device, and the intermediate layer can be replaced by a second intermediate layer to address the second heat generated by the second component of the second associated computing device.",
+  "claims_count": "24",
+  "family_pubs": [
+   "CN114126342A",
+   "DE102021121518A1",
+   "GB202112263D0",
+   "GB2600226A",
+   "GB2600226B",
+   "US11343940B2",
+   "US12185495B2",
+   "US12213281B2",
+   "US20220071055A1",
+   "US20220256735A1",
+   "US20220256736A1"
+  ],
+  "similar": [
+   "CN114126342A",
+   "CN113301770B",
+   "US20210051819A1",
+   "CN113710054B",
+   "US11606885B2",
+   "CN104137660B",
+   "CN114557149A",
+   "CN109757061B",
+   "CN112638111B",
+   "US11612080B2",
+   "CN116595879B",
+   "US20260107415A1",
+   "US12336139B2",
+   "US20230209780A1",
+   "US20260101471A1"
+  ],
+  "cited_by": [
+   "US11343940B2 | Nvidia Corporation | Configurable cold-plates of datacenter cooling systems",
+   "CN115657826A | 苏州浪潮智能科技有限公司 | Server water-cooling plate structure and server cooling system",
+   "CN115484800B | 联通(广东)产业互联网有限公司 | Liquid cooling heat dissipation system of data center and control method thereof",
+   "CN116437625A | 华南理工大学 | A dual-source cooling system for a multi-GPU server and its control method",
+   "CN120711678A | 杭州阿里云飞天信息技术有限公司 | Liquid cooling equipment, control method, device and equipment for liquid cooling equipment"
+  ]
+ }
+]

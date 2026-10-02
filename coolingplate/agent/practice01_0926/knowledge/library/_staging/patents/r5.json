@@ -1,0 +1,736 @@
+[
+ {
+  "query": "US5775187A",
+  "url": "https://patents.google.com/patent/US5775187A/en",
+  "http": 200,
+  "title": "Method and apparatus of producing a surface with alternating ridges and depressions",
+  "pdf": "https://patentimages.storage.googleapis.com/52/e3/a0/6a432ffc8e53c4/US5775187.pdf",
+  "pub_no": "US5775187A",
+  "assignee_original": [
+   "Individual"
+  ],
+  "assignee_current": [
+   "Individual"
+  ],
+  "inventors": [
+   "Zoubkov Nikolai",
+   "Ovtchinnikov Alexander"
+  ],
+  "priorityDate": "1993-04-30",
+  "filingDate": "1994-04-27",
+  "publicationDate": "1998-07-07",
+  "legal_status": "Expired - Fee Related",
+  "expiration": null,
+  "events_status": [
+   "2015-07-07 Anticipated expiration"
+  ],
+  "events": [
+   "1994-04-27 | Application filed by Individual",
+   "1998-07-07 | Application granted",
+   "1998-07-07 | Publication of US5775187A",
+   "2015-07-07 | Anticipated expiration",
+   "Status | Expired - Fee Related"
+  ],
+  "abstract": "A method of machining and a tool is used for obtaining patterns in the form of alternating ridges, pads, cells, and ridges of a triangular cross section on the surface of a blank. The method facilitates selection of the geometrical parameters of the tool and the machining mode for the tool to obtain alternating ridges and depressions with parallel sides of the profile at predetermined intervals and predetermined heights and angles of slope. The width of the space between projections can be varied in the range of millimeters and micrometers.",
+  "claim1": "1. A method for producing on a blank a surface having a profile of alternating ridges and depressions with parallel sides, comprising: as a first step, employing a tool with a rectilinear cutting edge having: a main angle φ in a plan of said tool according to a relationship: φ=arcsin a/(S·ε)! where a=a given thickness of a ridge S=a given pitch of said ridges of said profile ε=a distortion factor of said ridge profile equal to between 0.9 and 1.1, an auxiliary angle φ 1 in said plan view of said tool equal to (90°-ψ), where ψ is a preset angle of deviation of a projection of said ridge from a vertical position with respect to said blank, a depth of penetration t equal to t= h·ε-S·cos (φ-ψ)/2!·(sin φ/cos ψ), where h=a given height of said ridges of said profile, and a feed S o equal to said pitch of said ridges, and as a second step, moving said blank and said tool relative to each other, and undercutting and plastically deforming a surface layer of said blank with said tool while preserving an undercut layer on said surface to form alternating ridges and depressions with parallel sides.",
+  "claims_count": "20",
+  "family_pubs": [
+   "ATE196270T1",
+   "DE69425899D1",
+   "DE69425899T2",
+   "EP0727269A1",
+   "EP0727269A4",
+   "EP0727269B1",
+   "ES2153423T3",
+   "RU2044606C1",
+   "UA41922C2",
+   "WO1994025217A2",
+   "WO1994025217A3"
+  ],
+  "similar": [
+   "EP0727269B1",
+   "EP0030606B1",
+   "US5249359A",
+   "US5152060A",
+   "US4577381A",
+   "US4235583A",
+   "JP4278514B2",
+   "DE69503442T2",
+   "EP0655958A1",
+   "DE19510124A1",
+   "WO2010015229A1",
+   "RU93017599A",
+   "DE19963353A1",
+   "US3775792A",
+   "EP0389221B1"
+  ],
+  "cited_by": [
+   "US6230408B1 | INSTITUT FüR MIKROTECHNIK MAINZ GMBH | Process for producing micro-heat exchangers",
+   "US6357325B1 | Firma Carl Freudenberg | Sealing arrangement",
+   "US6530599B1 | Nsk Ltd. | Shock absorbing type steering shaft",
+   "US20040069467A1 | Petur Thors | Heat transfer tube and method of and tool for manufacturing heat transfer tube having protrusions on inner surface",
+   "US20050145377A1 | Petur Thors | Method and tool for making enhanced heat transfer surfaces",
+   "US20060112535A1 | Petur Thors | Retractable finning tool and method of using",
+   "US20060213346A1 | Petur Thors | Tool for making enhanced heat transfer surfaces",
+   "US20060283573A1 | Petur Thors | Heat transfer surface for electronic cooling",
+   "WO2007058969A2 | Wolverine Tube, Inc. | Brazing material with continuous length layer of elastomer containing a flux",
+   "US20070234871A1 | Petur Thors | Method for Making Enhanced Heat Transfer Surfaces",
+   "US20090297283A1 | Nissan Motor Co., Ltd. | Cutting edge configuration of cutting tool",
+   "US20110160064A1 | Koninklijke Philips Electronics N.V. | Horizontal finned heat exchanger for cryogenic recondensing refrigeration",
+   "US20120320529A1 | Wolverine Tube, Inc. | Enhanced clad metal base plate",
+   "US20140151007A1 | Carlos Quesada Saborio | Tubing Element With Fins for a Heat Exchanger",
+   "US20140290042A1 | Wolverine Tube, Inc. | Electronics Substrate with Enhanced Direct Bonded Metal",
+   "US20150202724A1 | Wolverine Tube, Inc. | Double-Sided Micro Fin Plate for Plate Heat Exchanger",
+   "JP2015179862A | ウルバリン チューブ，インコーポレイテッド | Cold plate with pin",
+   "WO2016187131A1 | Wolverine Tube, Inc. | Liquid cooled coldplate",
+   "US9795057B2 | Wolverine Tube, Inc. | Method of producing a liquid cooled coldplate",
+   "US20180231435A1 | Zf Friedrichshafen Ag | Rotating drum of a tire, wheel, and/or chassis test stand",
+   "US10531594B2 | Wieland Microcool, Llc | Method of producing a liquid cooled coldplate",
+   "US20230108259A1 | Delavan Inc. | Threaded joints for fluid injection components",
+   "US12098893B2 | Ge Aviation Systems Limited | Topological heatsink",
+   "RU2228448C2 | Открытое акционерное общество \"АВТОВАЗ\" | Muffler (versions) and method of manufacture of noise-damping member",
+   "RU2391197C2 | Государственное образовательное учреждение высшего профессионального образования \"Уфимский государственный авиационный технический университет\" | Method to form heat exchange surface"
+  ]
+ },
+ {
+  "query": "US9795057B2",
+  "url": "https://patents.google.com/patent/US9795057B2/en",
+  "http": 200,
+  "title": "Method of producing a liquid cooled coldplate",
+  "pdf": "https://patentimages.storage.googleapis.com/09/1c/0a/d3922c37be58e9/US9795057.pdf",
+  "pub_no": "US9795057B2",
+  "assignee_original": [
+   "Wolverine Tube Inc"
+  ],
+  "assignee_current": [
+   "Wieland Microcool LLC",
+   "Wolverine Tube Inc"
+  ],
+  "inventors": [
+   "Matthew A. Reeves",
+   "Robert Scott Holland",
+   "Sy-Jenq Loong"
+  ],
+  "priorityDate": "2010-07-28",
+  "filingDate": "2016-05-16",
+  "publicationDate": "2017-10-17",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2031-07-26 Anticipated expiration"
+  ],
+  "events": [
+   "2011-07-26 | Priority claimed from US13/191,281",
+   "2012-08-31 | Priority claimed from US13/601,206",
+   "2016-05-16 | Application filed by Wolverine Tube Inc",
+   "2016-05-16 | Priority to US15/155,568",
+   "2016-11-17 | Publication of US20160338222A1",
+   "2017-10-17 | Application granted",
+   "2017-10-17 | Priority to US15/786,179",
+   "2017-10-17 | Publication of US9795057B2",
+   "2019-06-18 | Assigned to WOLVERINE TUBE, INC.",
+   "2019-10-01 | Assigned to WIELAND MICROCOOL, LLC",
+   "Status | Active",
+   "2031-07-26 | Anticipated expiration"
+  ],
+  "abstract": "A liquid cooled coldplate has a tub with an inlet port and an outlet port and a plurality of pockets recessed within a top surface of the tub. Each pocket has a peripheral opening and a ledge, the ledge disposed inwardly and downwardly from the peripheral opening. The inlet port and outlet port are in fluid communication with the pocket via an inlet slot and an outlet slot. A plurality of cooling plates are each received by a pocket and recessed within the pocket. Each cooling plate comprises an electronics side for receiving electronics and enhanced side for cooling the cooling plate. The enhanced side of the cooling plate comprises a plurality of pins formed by micro deformation technology. The tub may be formed by extrusion.",
+  "claim1": "1. A method of producing a liquid cooled coldplate, the method comprising: forming a tub from metal, the tub comprising an inlet port, and outlet port, and a plurality of pockets, wherein the plurality of pockets are formed in a top surface of the tub and are in fluid communication with the inlet port and outlet port; forming a plurality of cooling plates by slicing fins into flat metal plates with a tool to form an enhanced surface, where the tool slices into the cooling metal layer to a depth less than the cooling metal layer thickness, and where the slicing step forces sliced material upwards without removing material from the cooling metal layer, the slicing step forming the fins to a fin height extending beyond an outer surface of the cooling metal layer, then slicing across the fins at an angle to form pins which extend beyond an outer surface of the cooling plates; installing each cooling plate into a pocket such that a chamber is formed between the tub and the cooling plate and the pinned surface is within the chamber and in fluid communication with the chamber, the inlet port, and the outlet port; installing electronic components onto the cooling plate on a side opposite to the pinned surface.",
+  "claims_count": "12",
+  "family_pubs": [
+   "US20160338222A1"
+  ],
+  "similar": [
+   "US10531594B2",
+   "US9681580B2",
+   "US20160338222A1",
+   "US9655294B2",
+   "WO2016187131A1",
+   "EP2484190B1",
+   "US8938880B2",
+   "US8358000B2",
+   "JP5046378B2",
+   "EP2711983B1",
+   "US7813135B2",
+   "US7190581B1",
+   "CN111699554B",
+   "CN115084058A",
+   "JP2008294279A"
+  ],
+  "cited_by": [
+   "US10900412B2 | Borg Warner Inc. | Electronics assembly having a heat sink and an electrical insulator directly bonded to the heat sink",
+   "US20220065561A1 | Auras Technology Co., Ltd. | Liquid cooling head and manufacturing method thereof",
+   "US11602087B2 | Toyota Jidosha Kabushiki Kaisha | Double-sided hybrid cooling of PCB embedded power electronics and capacitors",
+   "US20240100636A1 | Bull Sas | Method for manufacturing a heat sink",
+   "DE102013212724B3 | TRUMPF Hüttinger GmbH + Co. KG | Cooling device for cooling an electronic component and electronic assembly with a cooling device",
+   "US9646935B1 | Celsia Technologies Taiwan, Inc. | Heat sink of a metallic shielding structure",
+   "US9894801B1 | International Business Machines Corporation | Cold plate",
+   "US10766097B2 | Raytheon Company | Integration of ultrasonic additive manufactured thermal structures in brazements",
+   "EP3698399A1 | Wolverine Tube, Inc. | Method of producing a liquid cooled coldplate",
+   "US10356950B2 | Ge Aviation Systems, Llc | Avionics heat exchanger",
+   "US10856446B2 | Juniper Networks, Inc. | Cooling for slot mounted electrical modules",
+   "US10874030B2 | Quanta Computer Inc. | Flexible cold plate with fluid distribution mechanism",
+   "FR3092469B1 | Renault | Power electronics system for electric or hybrid vehicles",
+   "US11178789B2 | Advanced Energy Industries, Inc. | Combination air-water cooling device",
+   "US12402287B2 | Ovh | Uninterruptible power supply having a liquid cooling device",
+   "EP3917299B1 | Ovh | Uninterruptible power supply having a liquid cooling device",
+   "DK3917300T3 | Ovh | UNINTERRUPTED POWER SUPPLY WITH A LIQUID COOLING DEVICE",
+   "CN116587325A | 深圳鹏行智能研究有限公司 | Cooling units, robot components and robots",
+   "CN117241492B | 信丰迅捷兴电路科技有限公司 | Preparation method of high-temperature-resistant liquid cooling circuit board and liquid cooling circuit board"
+  ]
+ },
+ {
+  "query": "US12494408B2",
+  "url": "https://patents.google.com/patent/US12494408B2/en",
+  "http": 200,
+  "title": "Double patterned microcooler having alternating fin widths",
+  "pdf": null,
+  "pub_no": "US12494408B2",
+  "assignee_original": [
+   "International Business Machines Corp"
+  ],
+  "assignee_current": [
+   "International Business Machines Corp"
+  ],
+  "inventors": [
+   "Fee Li LIE",
+   "Sagarika Mukesh",
+   "Devika Sarkar Grant",
+   "Hosadurga Shobha",
+   "Thamarai Selvi Devarajan",
+   "Kamal K. Sikka"
+  ],
+  "priorityDate": "2021-11-22",
+  "filingDate": "2021-11-22",
+  "publicationDate": "2025-12-09",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2043-12-21 Adjusted expiration"
+  ],
+  "events": [
+   "2021-11-22 | Application filed by International Business Machines Corp",
+   "2021-11-22 | Priority to US17/455,949",
+   "2023-05-25 | Publication of US20230163039A1",
+   "2025-12-09 | Application granted",
+   "2025-12-09 | Publication of US12494408B2",
+   "Status | Active",
+   "2043-12-21 | Adjusted expiration"
+  ],
+  "abstract": "A microcooler device and formation thereof. The microcooler device includes: a first set of fins having a first fin width; a second set of fins having a second fin width, wherein the first set of fins alternate between the second set of fins; and a set of channels located between the first set of fins and the second set of fins.",
+  "claim1": "1 . A microcooler device, comprising: a first set of fins having a first fin width; a second set of fins having a second fin width, wherein the first set of fins alternate between the second set of fins; a metal spacer formed along a portion of sidewalls of each fin in the second set of fins; and a set of channels located between the first set of fins and the second set of fins, and entirely above the metal spacer, wherein a spacer width of the metal spacer is equal to a channel width of the set of channels.",
+  "claims_count": "16",
+  "family_pubs": [
+   "US20230163039A1"
+  ],
+  "similar": [
+   "US9607895B2",
+   "US9768031B2",
+   "US10396013B2",
+   "US7700478B2",
+   "US9997460B2",
+   "US11758723B2",
+   "EP3921868B1",
+   "US9666529B2",
+   "US10312181B2",
+   "US9343435B2",
+   "US20230163039A1",
+   "US12317493B2",
+   "US20210366852A1",
+   "US20160254208A1",
+   "US10811382B1"
+  ],
+  "cited_by": [
+   "CN117219518B | 之江实验室 | Microfluidic substrate and manufacturing method thereof, on-wafer packaging structure and manufacturing method thereof"
+  ]
+ },
+ {
+  "query": "US12193201B2",
+  "url": "https://patents.google.com/patent/US12193201B2/en",
+  "http": 200,
+  "title": "Mini-channel cold plate with three-dimensional adaptive flow-path using bi-metal fins",
+  "pdf": "https://patentimages.storage.googleapis.com/7f/43/f8/d185a97ddfc215/US12193201.pdf",
+  "pub_no": "US12193201B2",
+  "assignee_original": [
+   "Hamilton Sundstrand Corp"
+  ],
+  "assignee_current": [
+   "Hamilton Sundstrand Corp"
+  ],
+  "inventors": [
+   "Jin Lee",
+   "YongDuk Lee",
+   "Parag M. Kshirsagar"
+  ],
+  "priorityDate": "2022-06-23",
+  "filingDate": "2022-06-23",
+  "publicationDate": "2025-01-07",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2043-01-24 Adjusted expiration"
+  ],
+  "events": [
+   "2022-06-23 | Application filed by Hamilton Sundstrand Corp",
+   "2022-06-23 | Priority to US17/847,769",
+   "2022-08-08 | Assigned to RAYTHEON TECHNOLOGIES CORPORATION",
+   "2022-10-20 | Assigned to HAMILTON SUNDSTRAND CORPORATION",
+   "2023-06-20 | Priority to EP23180459.2A",
+   "2023-12-28 | Publication of US20230422452A1",
+   "2025-01-07 | Application granted",
+   "2025-01-07 | Publication of US12193201B2",
+   "Status | Active",
+   "2043-01-24 | Adjusted expiration"
+  ],
+  "abstract": "The present disclosure provides for cooling systems, assemblies and methods (e.g., for semiconductor devices; for refrigerant cooling; for cryogenic cooling). More particularly, the present disclosure provides for mini-channel cold plate cooling assemblies, systems and methods for semiconductor devices (e.g., wide-bandgap (WBG) power semiconductor devices), with the cooling assemblies, systems and methods utilizing three-dimensional adaptive flow-paths using bi-metal fins. The present disclosure provides for mini-channel cold plate cooling assemblies, systems and methods that may improve cooling performance and/or enable local cooling control. The present disclosure provides for bi-metal strips that operate as both the surface-temperature sensors and actuators without input energy. The bi-metal strips guide the coolant flow to a low-drag channel when the surface temperature is low, and guide the coolant flow to the near-surface channel when the surface temperature is high.",
+  "claim1": "1. A cooling assembly comprising: a cold plate top wall attached to a first cold plate side wall and a second cold plate side wall, the first cold plate side wall attached to a cold plate bottom wall and including a coolant inlet, and the second cold plate side wall attached to the cold plate bottom wall and including a coolant outlet; a substrate positioned on the cold plate top wall, the substrate having a plurality of semiconductor devices positioned on the substrate; a plurality of bi-metal fins extending from the cold plate top wall towards the cold plate bottom wall; wherein heat from a semiconductor device of the plurality of semiconductor devices causes a coolant introduced between the cold plate top wall and the cold plate bottom wall to raise temperature of the coolant, which causes a bi-metal fin positioned proximal to the heated semiconductor device to deform and change a flow path of the coolant from the coolant inlet to the coolant outlet; and a plurality of wall extensions extending from the cold plate bottom wall towards the cold plate top wall, the plurality of wall extensions defining a plurality of lower channels for the coolant; and wherein each bi-metal fin of the plurality of bi-metal fins includes a side wall portion and a bottom wall portion, with each bi-metal fin extending from the cold plate top wall to define a plurality of adjustable upper channels for the coolant.",
+  "claims_count": "20",
+  "family_pubs": [
+   "EP4297079A1",
+   "US20230422452A1"
+  ],
+  "similar": [
+   "EP4297079A1",
+   "US7203064B2",
+   "US8472193B2",
+   "US11149937B2",
+   "CN105308742B",
+   "JP4430112B2",
+   "US20170363375A1",
+   "TWI696415B",
+   "US8840034B2",
+   "EP3352215B1",
+   "US9952004B2",
+   "US20150243581A1",
+   "EP3199902B1",
+   "US20130068433A1",
+   "US20250220850A1"
+  ],
+  "cited_by": [
+   "US12261098B2 | Hamilton Sundstrand Corporation | Immersion cooling electronic devices",
+   "US20250240920A1 | Microsoft Technology Licensing, Llc | Systems and methods for liquid cooling of multicomponent packages",
+   "CN120335575A | 深圳市恒达创新科技有限公司 | A computer heat exchange plate and processing method thereof"
+  ]
+ },
+ {
+  "query": "CN122263715A",
+  "url": "https://patents.google.com/patent/CN122263715A/en",
+  "http": 404
+ },
+ {
+  "query": "WO2016087243A1",
+  "url": "https://patents.google.com/patent/WO2016087243A1/en",
+  "http": 200,
+  "title": "Bonding scheme for diamond components which has low thermal barrier resistance in high power density applications",
+  "pdf": "https://patentimages.storage.googleapis.com/51/76/d2/a6b1bb06d709ec/WO2016087243A1.pdf",
+  "pub_no": "WO2016087243A1",
+  "assignee_original": [
+   "Element Six Technologies Ltd"
+  ],
+  "assignee_current": [
+   "Element Six Technologies Ltd"
+  ],
+  "inventors": [
+   "Julian ANAYA CALVO",
+   "Martin Hermann Hans Kuball",
+   "Julian James Sargood ELLIS",
+   "Daniel James Twitchen"
+  ],
+  "priorityDate": "2014-12-01",
+  "filingDate": "2015-11-23",
+  "publicationDate": "2016-06-09",
+  "legal_status": "Ceased",
+  "expiration": null,
+  "events_status": [
+   "2017-06-01 Anticipated expiration"
+  ],
+  "events": [
+   "2015-11-23 | Application filed by Element Six Technologies Ltd",
+   "2015-11-23 | Priority to EP15797691.1A",
+   "2015-11-23 | Priority to US15/531,900",
+   "2015-11-23 | Priority to JP2017529289A",
+   "2016-06-09 | Publication of WO2016087243A1",
+   "2017-06-01 | Anticipated expiration",
+   "Status | Ceased"
+  ],
+  "abstract": "A semiconductor device comprising: a semiconductor component; a diamond heat spreader; and a metal bond, wherein the semiconductor component is bonded to the diamond heat spreader via the metal bond, wherein the metal bond comprises a layer of chromium bonded to the diamond heat spreader and a further metal layer disposed between the layer of chromium and the semiconductor component, and wherein the semiconductor component is configured to operate at an areal power density of at least 1 kW/cm 2 and/or a linear power density of at least 1 W/mm.",
+  "claim1": "1. A semiconductor device comprising: a semiconductor component; a diamond heat spreader; and a metal bond, wherein the semiconductor component is bonded to the diamond heat spreader via the metal bond, wherein the metal bond comprises a layer of chromium bonded to the diamond heat spreader and a further metal layer disposed between the layer of chromium and the semiconductor component, and wherein the semiconductor component is configured to operate at an areal power density of at least 1 kW/cm 2 and/or a linear power density of at least 1 W/mm.",
+  "claims_count": null,
+  "family_pubs": [
+   "EP3227914A1",
+   "EP3227914B1",
+   "GB201421259D0",
+   "GB201520594D0",
+   "GB2534659A",
+   "GB2534659B",
+   "JP2018501649A",
+   "JP2019208071A",
+   "JP2022111113A",
+   "US10403557B2",
+   "US20170330816A1"
+  ],
+  "similar": [
+   "US9646949B2",
+   "US6812067B2",
+   "US11488923B2",
+   "EP2587532A2",
+   "TW201316633A",
+   "JP7289889B2",
+   "ATE338737T1",
+   "JP2022111113A",
+   "US10660212B2",
+   "GB2553195A",
+   "WO2014079836A2",
+   "TWM666873U",
+   "US20240258217A1",
+   "JP5808295B2",
+   "KR20140086373A"
+  ],
+  "cited_by": [
+   "CN113782505B | 哈尔滨工业大学 | Surface smoothing and connecting method of diamond radiating fin",
+   "CN120690761B | 研迈电子材料(上海)有限公司 | A copper-diamond-copper sandwich structure water-cooled heat sink and its preparation method"
+  ]
+ },
+ {
+  "query": "US10403557B2",
+  "url": "https://patents.google.com/patent/US10403557B2/en",
+  "http": 200,
+  "title": "Bonding scheme for diamond components which has low thermal barrier resistance in high power density applications",
+  "pdf": "https://patentimages.storage.googleapis.com/06/b6/5b/93af0dbcc32b52/US10403557.pdf",
+  "pub_no": "US10403557B2",
+  "assignee_original": [
+   "Element Six Technologies Ltd"
+  ],
+  "assignee_current": [
+   "Element Six Ltd",
+   "Element Six Technologies Ltd"
+  ],
+  "inventors": [
+   "Julian ANAYA CALVO",
+   "Martin Hermann Hans Kuball",
+   "Julian James Sargood ELLIS",
+   "Daniel James Twitchen"
+  ],
+  "priorityDate": "2014-12-01",
+  "filingDate": "2015-11-23",
+  "publicationDate": "2019-09-03",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2035-11-23 Anticipated expiration"
+  ],
+  "events": [
+   "2015-11-23 | Application filed by Element Six Technologies Ltd",
+   "2017-11-16 | Publication of US20170330816A1",
+   "2019-07-23 | Assigned to ELEMENT SIX LIMITED",
+   "2019-07-23 | Assigned to ELEMENT SIX LIMITED",
+   "2019-07-23 | Assigned to ELEMENT SIX LIMITED",
+   "2019-07-23 | Assigned to ELEMENT SIX TECHNOLOGIES LTD",
+   "2019-07-23 | Assigned to THE UNIVERSITY OF BRISTOL",
+   "2019-09-03 | Application granted",
+   "2019-09-03 | Publication of US10403557B2",
+   "Status | Active",
+   "2035-11-23 | Anticipated expiration"
+  ],
+  "abstract": "A semiconductor device comprising:",
+  "claim1": "1. A semiconductor device comprising: a semiconductor component; a diamond heat spreader; and a metal bond, wherein the semiconductor component is bonded to the diamond heat spreader via the metal bond, wherein the metal bond comprises a layer of chromium directly bonded to the diamond heat spreader and a further metal layer disposed between the layer of chromium and the semiconductor component, and wherein the semiconductor component is configured to operate at an areal power density of at least 1 kW/cm 2 and/or a linear power density of at least 1 W/mm.",
+  "claims_count": "15",
+  "family_pubs": [
+   "EP3227914A1",
+   "EP3227914B1",
+   "GB201421259D0",
+   "GB201520594D0",
+   "GB2534659A",
+   "GB2534659B",
+   "JP2018501649A",
+   "JP2019208071A",
+   "JP2022111113A",
+   "US20170330816A1",
+   "WO2016087243A1"
+  ],
+  "similar": [
+   "US9646949B2",
+   "TWI471986B",
+   "US6812067B2",
+   "US11488923B2",
+   "TW201316633A",
+   "JP7289889B2",
+   "ATE338737T1",
+   "JP2022111113A",
+   "US10660212B2",
+   "CN111682002B",
+   "KR20140086373A",
+   "TWI919893B",
+   "TWI923940B",
+   "US9099425B2",
+   "JP2015072958A"
+  ],
+  "cited_by": [
+   "CN113782505B | 哈尔滨工业大学 | Surface smoothing and connecting method of diamond radiating fin",
+   "CN120690761B | 研迈电子材料(上海)有限公司 | A copper-diamond-copper sandwich structure water-cooled heat sink and its preparation method"
+  ]
+ },
+ {
+  "query": "CN111500892B",
+  "url": "https://patents.google.com/patent/CN111500892B/en",
+  "http": 200,
+  "title": "Preparation method of large-size flaky diamond/copper composite material with ultrahigh thermal conductivity",
+  "pdf": "https://patentimages.storage.googleapis.com/55/b7/2d/21035a04f556f4/CN111500892B.pdf",
+  "pub_no": "CN111500892B",
+  "assignee_original": [
+   "Harbin Jinwei Technology Co ltd"
+  ],
+  "assignee_current": [
+   "Harbin Jinwei Technology Co ltd"
+  ],
+  "inventors": [
+   "武高辉",
+   "芶华松",
+   "林秀",
+   "陈国钦",
+   "王平平",
+   "修子扬",
+   "杨文澍",
+   "张强"
+  ],
+  "priorityDate": "2020-06-18",
+  "filingDate": "2020-06-18",
+  "publicationDate": "2021-08-31",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2040-06-18 Anticipated expiration"
+  ],
+  "events": [
+   "2020-06-18 | Application filed by Harbin Jinwei Technology Co ltd",
+   "2020-06-18 | Priority to CN202010559525.4A",
+   "2020-08-07 | Publication of CN111500892A",
+   "2021-08-31 | Application granted",
+   "2021-08-31 | Publication of CN111500892B",
+   "Status | Active",
+   "2040-06-18 | Anticipated expiration"
+  ],
+  "abstract": "A preparation method of a large-size flaky diamond/copper composite material with ultrahigh thermal conductivity relates to a preparation method of a diamond/copper composite material. Aims to solve the problems of low thermal conductivity and poor interface bonding strength of the diamond/copper composite material. The method comprises the following steps: filling the diamond particles coated with the metal film into a cavity of a graphite mold to obtain a prefabricated body; placing the preform in a crucible, placing massive pure copper and copper alloy on the upper part of the preform in the crucible, placing the preform in an air pressure infiltration furnace, regulating and controlling the structure and shape of an interface layer material under the argon protective atmosphere, heating to melt copper, preserving heat, carrying out pressure-maintaining infiltration, and finally carrying out pressure-maintaining stepped cooling. The volume fraction of diamond in the obtained composite material member is 60-85%, the thermal conductivity reaches 1500W/mK, the side length reaches 60-130 mm, and the thickness reaches 0.2-4 mm. The invention is suitable for preparing the diamond/copper composite material with high thermal conductivity.",
+  "claim1": "1. A preparation method of a large-size flaky diamond/copper composite material with ultrahigh thermal conductivity is characterized by comprising the following steps of: the method comprises the following steps: firstly, filling diamond particles coated with a metal film into a cavity of a graphite mold to obtain a prefabricated body; the filling amount of the diamond particles coated with the metal film is 60 to 85 percent of the volume of the graphite mold cavity; step one, preparing the metal film on the diamond particles plated with the metal film by adopting a magnetron sputtering method, and sequentially carrying out acid washing and alkali washing on the diamond particles before magnetron sputtering until the surface roughness is 50 nm-200 nm; the magnetron sputtering temperature is 100-400 ℃; the particle size of the diamond particles is one or a mixture of two of 90-110 mu m and 110-400 mu m in any proportion, wherein the diamond particles are single crystal diamond particles; the thermal conductivity of the diamond copper composite material member prepared by adopting the diamond particles with the particle sizes of 90-110 microns is 750-1000W/mK, the thermal conductivity of the diamond copper composite material member prepared by adopting the diamond particles with the particle sizes of 110-400 microns is 800-1300W/mK, and the thermal conductivity of the diamond copper composite material member prepared by adopting the diamond particles of a mixture with the particle sizes of 90-110 microns and 110-400 microns in any proportion is 900-1500W/mK; the material of the metal film on the surface of the diamond particle plated with the metal film is W or Ti, the thickness of the plated metal film is 50-400 nm, and the difference of the thicknesses is not more than 20 nm; secondly, placing the prefabricated body in a crucible, placing the blocky pure copper on the upper part of the prefabricated body in the crucible, and placing the crucible in an air pressure infiltration furnace; thirdly, preheating the prefabricated body to 1000-1050 ℃ under the argon protection atmosphere, and preserving heat for 1-5 hours to complete the regulation and control of the interface layer material tissue form; fourthly, heating the air pressure infiltration furnace to 1100-1300 ℃ under the protective atmosphere, and preserving the heat for 1-3 hours; fifthly, adjusting the air pressure in the air pressure infiltration furnace to 0.5-10 MPa, and maintaining the pressure ",
+  "claims_count": "8",
+  "family_pubs": [
+   "CN111500892A"
+  ],
+  "similar": [
+   "CN111500892A",
+   "CN108179302B",
+   "CN100400467C",
+   "CN108746637B",
+   "CN100472765C",
+   "CN112981164B",
+   "CN112981205B",
+   "CN105568037B",
+   "CN113097153A",
+   "CN108251733A",
+   "CN113210611B",
+   "CN104313385A",
+   "CN108774699A",
+   "CN115846667A",
+   "CN114427049A"
+  ],
+  "cited_by": [
+   "CN112226703B | 有研工程技术研究院有限公司 | Diamond/copper composite material and preparation method thereof",
+   "CN112281038B | 黑龙江科技大学 | Infiltration device and method for efficiently preparing diamond powder reinforced metal matrix composite",
+   "CN112974809B | 哈尔滨工业大学 | Method for coating copper on surface of diamond/copper composite material",
+   "CN113235020B | 南京航空航天大学 | Gradient diamond/copper composite material and preparation method thereof",
+   "CN113073294A | 扬州大学 | Heat-conducting insulating coating comprehensively plated on surface of high-heat-conducting integrated circuit packaging substrate and preparation method",
+   "CN113210611B | 湖南浩威特科技发展有限公司 | Copper diamond composite material with metal layer coated on surface and preparation method and application thereof",
+   "CN113957283A | 河南瀚银光电科技股份有限公司 | High-thermal-conductivity composite material with embedded structure and preparation method thereof",
+   "CN114029494B | 西北有色金属研究院 | A kind of preparation method of helical graphene film/copper layered composite material",
+   "CN114752809B | 南京瑞为新材料科技有限公司 | Diamond copper composite material and preparation method thereof",
+   "CN116162819B | 哈尔滨工业大学 | A method for preparing multi-phase interface high thermal conductivity diamond/aluminum composite materials",
+   "CN116516197B | 哈尔滨工业大学 | A method for preparing high thermal conductivity diamond/metal composite materials",
+   "CN117020209B | 赣州金顺科技有限公司 | Heat dissipation substrate and preparation method thereof",
+   "CN121295109B | 成都虹波实业股份有限公司 | Diamond-coated composite materials, copper composite materials and their preparation methods"
+  ]
+ },
+ {
+  "query": "CN122161445A",
+  "url": "https://patents.google.com/patent/CN122161445A/en",
+  "http": 404
+ },
+ {
+  "query": "CN122503683A",
+  "url": "https://patents.google.com/patent/CN122503683A/en",
+  "http": 404
+ },
+ {
+  "query": "CN118890850A",
+  "url": "https://patents.google.com/patent/CN118890850A/en",
+  "http": 200,
+  "title": "A nanofluid self-dispersing microchannel heat sink, space heat exchange system and method",
+  "pdf": "https://patentimages.storage.googleapis.com/ce/1a/35/014640cb3c94af/CN118890850A.pdf",
+  "pub_no": "CN118890850A",
+  "assignee_original": [
+   "Institute of Mechanics of CAS"
+  ],
+  "assignee_current": [
+   "Institute of Mechanics of CAS"
+  ],
+  "inventors": [
+   "陶跃群",
+   "刘秋生",
+   "何乃峰",
+   "高伟"
+  ],
+  "priorityDate": "2024-07-12",
+  "filingDate": "2024-07-12",
+  "publicationDate": "2024-11-01",
+  "legal_status": "Pending",
+  "expiration": null,
+  "events": [
+   "2024-07-12 | Application filed by Institute of Mechanics of CAS",
+   "2024-07-12 | Priority to CN202410934981.0A",
+   "2024-11-01 | Publication of CN118890850A",
+   "Status | Pending"
+  ],
+  "abstract": "The invention discloses a micro-channel heat sink, a space heat exchange system and a method for self-dispersing nano fluid in the technical field of electronic equipment heat dissipation, wherein a plurality of hydrodynamic cavitation flow channels are arranged side by side, and an inlet end and an outlet end of the hydrodynamic cavitation flow channels are respectively opposite to a nano working medium inlet and a nano working medium outlet; the hydrodynamic cavitation flow passage comprises an inlet section, a convergent section, a throat, a divergent section and an outlet section which are sequentially and continuously arranged; the sectional area of the tapered section is gradually reduced, so that the flow velocity of the nano fluid is increased, the pressure is reduced, and cavitation bubbles are generated; the sections of the throat are the same, so that the high flow speed and low pressure state of the nano fluid can be maintained, and cavitation bubbles are stably generated and increased; the sectional area of the tapered section is gradually increased, so that the flow velocity of the nano fluid is reduced, the pressure is increased, and cavitation bubbles collapse and impact the nano particles; the sections of the outlet section are the same, and the low-flow-rate and high-pressure state of the nano fluid can be maintained, so that cavitation bubbles are completely collapsed in the shell.",
+  "claim1": "1.一种纳米流体自分散的微通道热沉，其特征在于，包括： 1. A nanofluid self-dispersing microchannel heat sink, comprising: 构成所述微通道热沉(1)轮廓的扁平状壳体，所述壳体上任意的两个相对的窄面分别设置有纳米工质入口(6)和纳米工质出口(7)； A flat shell constituting the outline of the microchannel heat sink (1), wherein any two opposite narrow surfaces of the shell are respectively provided with a nano-working fluid inlet (6) and a nano-working fluid outlet (7); 所述壳体上至少一个宽面设置为主散热面(9)，用于与热源贴合； At least one wide surface on the housing is arranged as a main heat dissipation surface (9) for contacting with a heat source; 所述壳体内并排设置有多个水力空化流道(8)，并且所述水力空化流道(8)的入口端和出口端分别正对所述纳米工质入口(6)和纳米工质出口(7)； A plurality of hydraulic cavitation channels (8) are arranged side by side in the shell, and the inlet end and the outlet end of the hydraulic cavitation channel (8) are respectively opposite to the nano-working fluid inlet (6) and the nano-working fluid outlet (7); 所述水力空化流道(8)包括顺次且连续设置的入口段(10)、渐缩段(11)、喉部(12)、渐扩段(13)和出口段(14)； The hydrodynamic cavitation flow channel (8) comprises an inlet section (10), a tapered section (11), a throat (12), a gradually expanding section (13) and an outlet section (14) which are arranged in sequence and continuously; 所述渐缩段(11)的截面积逐渐减小，能够使纳米流体流速增大、压力降低，以产生空化气泡； The cross-sectional area of the tapered section (11) gradually decreases, which can increase the flow rate of the nanofluid and reduce the pressure, thereby generating cavitation bubbles; 所述喉部(12)的各处截面相同，能够维持纳米流体的高流速、低压力状态，以使空化气泡稳定产生并增大； The throat (12) has the same cross section at each location, which can maintain a high flow rate and low pressure state of the nanofluid, so that cavitation bubbles are stably generated and enlarged; 所述渐缩段(11)的截面积逐渐增大，能够使纳米流体流速减小、压力升高，以使空化气泡溃灭并冲击纳米颗粒； The cross-sectional area of the tapered section (11) gradually increases, which can reduce the flow rate of the nanofluid and increase the pressure, so that the cavitation bubbles collapse and impact the nanoparticles; 所述出口段(14)的各处截面相同，能够维持纳米流体的低流速、高压力状态，以使空化气泡在所述壳体内完全溃灭。 The outlet section (14) has the same cross section at each location, and can maintain a low flow rate and high pressure state of the nanofluid, so that the cavitation bubbles are completely collapsed in the shell.",
+  "claims_count": "10",
+  "family_pubs": [],
+  "similar": [
+   "CN113776367B",
+   "CN103954162B",
+   "CN110425914A",
+   "CN111463179B",
+   "CN110282596A",
+   "CN107039370B",
+   "CN105571356A",
+   "CN103997880B",
+   "CN221924681U",
+   "CN117345352A",
+   "CN101294779A",
+   "CN117202610A",
+   "CN114649284B",
+   "CN115241143B",
+   "CN117835659A"
+  ],
+  "cited_by": []
+ },
+ {
+  "query": "CN122278447A",
+  "url": "https://patents.google.com/patent/CN122278447A/en",
+  "http": 404
+ },
+ {
+  "query": "CN113488444B",
+  "url": "https://patents.google.com/patent/CN113488444B/en",
+  "http": 200,
+  "title": "Chip hot spot cooling system based on nanometer magnetic fluid",
+  "pdf": "https://patentimages.storage.googleapis.com/72/c3/22/a1da322a23f26e/CN113488444B.pdf",
+  "pub_no": "CN113488444B",
+  "assignee_original": [
+   "Huazhong University of Science and Technology"
+  ],
+  "assignee_current": [
+   "Shandong Weienthalpy Technology Co ltd"
+  ],
+  "inventors": [
+   "申利梅",
+   "童潇",
+   "唐佳新",
+   "黄涛"
+  ],
+  "priorityDate": "2021-06-29",
+  "filingDate": "2021-06-29",
+  "publicationDate": "2022-07-12",
+  "legal_status": "Active",
+  "expiration": null,
+  "events_status": [
+   "2041-06-29 Anticipated expiration"
+  ],
+  "events": [
+   "2021-06-29 | Application filed by Huazhong University of Science and Technology",
+   "2021-06-29 | Priority to CN202110722751.4A",
+   "2021-10-08 | Publication of CN113488444A",
+   "2022-07-12 | Application granted",
+   "2022-07-12 | Publication of CN113488444B",
+   "Status | Active",
+   "2041-06-29 | Anticipated expiration"
+  ],
+  "abstract": "Abstract Translated from Chinese 本发明公开了一种基于纳米磁流体的芯片热点冷却系统，属于芯片散热领域，该系统包括微通道主冷却单元、辅助冷却单元、冷水机组和系统控制器，微通道主冷却单元包括主微通道换热器、电磁阵列和纳米磁流体冷却液，冷水机组为芯片的整体散热提供冷量；电磁阵列形成磁场区域，利用纳米磁流体的磁热效应为芯片热点提供额外制冷量；辅助冷却单元包括辅微通道换热器和换热流体，用于带走纳米磁流体励磁时产生的热量。系统控制器包括控制单元、温度传感器和直流电源，可以动态监测芯片热点位置和温度，并通过调节磁场强度实现不同热点的定点动态散热。本发明能以较小的能耗实现芯片热点的快速冷却，有效预防芯片的局部热失效，提高芯片表面温度的均匀性。 The invention discloses a chip hot spot cooling system based on nano-magnetic fluid, belonging to the field of chip heat dissipation. The system includes a microchannel main cooling unit, an auxiliary cooling unit, a water chiller and a system controller. The microchannel main cooling unit includes a main microchannel Heat exchanger, electromagnetic array and nano-magnetic fluid cooling liquid, the chiller provides cooling capacity for the overall heat dissipation of the chip; the electromagnetic array forms a magnetic field area, and uses the magnetocaloric effect of the nano-magnetic fluid to provide additional cooling capacity for the hot spot of the chip; the auxiliary cooling unit includes auxiliary cooling capacity. The microchannel heat exchanger and heat exchange fluid are used to take away the heat generated when the nanomagnetic fluid is excited. The system controller includes a control unit, a temperature sensor and a DC power supply, which can dynamically monitor the location and temperature of chip hot spots, and realize fixed-point dynamic heat dissipation of different hot spots by adjusting the magnetic field strength. The invention can realize the rapid cooling of the hot spot of the chip with less energy consumption, effectively prevent the local thermal failure of the chip, and improve the uniformity of the surface temperature of the chip.",
+  "claim1": "1. A chip hot spot cooling system based on nanometer magnetic fluid is characterized by comprising a micro-channel main cooling unit, an auxiliary cooling unit and a water chilling unit (1); the micro-channel main cooling unit comprises a main micro-channel heat exchanger (5), an electromagnetic array (7) and a main flow path (9), wherein the main micro-channel heat exchanger (5) internally comprises a plurality of micro-channels, and two ends of each micro-channel heat exchanger are connected to the water chilling unit (1) through the main flow path (9) to form a circulation loop; the inflow section of the main microchannel heat exchanger (5) is positioned between the oppositely arranged electromagnetic arrays (7), and the outflow section is arranged in contact with the chip (12); the auxiliary cooling unit is attached to the upper surface and the lower surface of the inflow section of the main micro-channel heat exchanger (5) and communicated with the water chilling unit (1); a nano magnetic fluid is arranged in the main flow path (9), the nano magnetic fluid is excited and heated under the action of a magnetic field generated by the electromagnetic array (7) when flowing through the inflow section, the auxiliary cooling unit is used for absorbing heat generated in the excitation process of the nano magnetic fluid and cooling the excited nano magnetic fluid, and the cooled nano magnetic fluid is demagnetized and cooled when flowing through the outflow section and absorbs heat generated by the chip (12); and the fixed-point cooling of the hot point of the chip is realized by controlling the magnetic field area generated by each micro-channel of the inflow section of the electromagnetic array (7) corresponding to the main micro-channel heat exchanger (5).",
+  "claims_count": "10",
+  "family_pubs": [
+   "CN113488444A"
+  ],
+  "similar": [
+   "CN113488444A",
+   "US11774153B2",
+   "CN103199316B",
+   "CN113873849B",
+   "TW201502735A",
+   "CN113446883B",
+   "CN111883497A",
+   "CN107678524A",
+   "CN111811190B",
+   "CN105932525B",
+   "CN102201639B",
+   "EP4593162A1",
+   "CN115782559A",
+   "CN109817594B",
+   "CN116053644B"
+  ],
+  "cited_by": [
+   "CN114390772B | 江苏密特科智能装备制造有限公司 | Precision component of semiconductor equipment",
+   "CN114354008B | 中国科学院微电子研究所 | A temperature measurement structure and method for chip hotspots",
+   "CN116314078B | 西北工业大学 | A method and apparatus for heat dissipation of power module in electric servo system of high-speed aircraft",
+   "CN116273224B | 深圳先进技术研究院 | Magnetothermal Microfluidic System and Microfluidic Method",
+   "CN120977975B | 西安建筑科技大学 | Chip hot spot heat dissipation method and device based on micro robot"
+  ]
+ },
+ {
+  "query": "CN122055001A",
+  "url": "https://patents.google.com/patent/CN122055001A/en",
+  "http": 200,
+  "title": "Liquid cooling plate, heat exchange structure between chip and cooling plate and preparation method",
+  "pdf": null,
+  "pub_no": "CN122055001A",
+  "assignee_original": [
+   "Individual"
+  ],
+  "assignee_current": [
+   "Individual"
+  ],
+  "inventors": [
+   "钟建国"
+  ],
+  "priorityDate": "2026-02-03",
+  "filingDate": "2026-02-03",
+  "publicationDate": "2026-05-15",
+  "legal_status": "Pending",
+  "expiration": null,
+  "events": [
+   "2026-02-03 | Application filed by Individual",
+   "2026-02-03 | Priority to CN202610154399.1A",
+   "2026-05-15 | Publication of CN122055001A",
+   "Status | Pending"
+  ],
+  "abstract": "The invention relates to the field of chip heat dissipation, in particular to a liquid cooling plate, a heat exchange structure between the chip and the cold plate and a preparation method thereof, wherein the liquid cooling plate comprises a cold plate main body and a liquid cooling structure positioned in the cold plate main body, and is characterized in that a metal nanowire array grows on one surface of the cold plate main body facing a heat-conducting component and is used as a carrier connected between the heat-conducting component and the cold plate main body, the metal nanowire array grows in situ on the cold plate main body, the metal nanowire array grows in situ on the cold plate to replace a thermal interface material smeared on the cold plate, so that the cold plate and the heat-conducting component have good heat conducting performance, heat emitted by the heat-conducting component can be conducted to the cold plate through the metal nanowire array, and then is conducted to the outside through the cold plate, and better heat dissipation of the heat-conducting component can be achieved.",
+  "claim1": "1. A liquid cooling plate integrating in-situ growth metal nanowire thermal interfaces comprises a cold plate main body (1) and a liquid cooling structure (8) positioned in the cold plate main body (1), and is characterized in that the cold plate main body (1) is made of a copper material, one surface of the cold plate main body, which faces a heat-conducting component, is provided with a copper nanowire array which is directly grown in-situ and has no seed layer, the root of the copper nanowire array and metal grains of the cold plate main body (1) form a continuous lattice structure, no macroscopic physical interface exists between the copper nanowire array and the cold plate main body (1), and the copper nanowire array is used as a heat transmission channel and is configured to conduct heat from the heat-conducting component to the cold plate main body (1) directly.",
+  "claims_count": "10",
+  "family_pubs": [],
+  "similar": [
+   "EP2863426B1",
+   "US20160251769A1",
+   "US20110079418A1",
+   "CN120280416B",
+   "CN108511407A",
+   "KR20220018842A",
+   "US20220367317A1",
+   "CN115955903B",
+   "CN118610890A",
+   "US20030232463A1",
+   "CN115863275A",
+   "CN115810595A",
+   "RU2167469C2",
+   "CN118910550A",
+   "CN117650112A"
+  ],
+  "cited_by": []
+ }
+]

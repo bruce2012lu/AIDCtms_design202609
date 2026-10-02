@@ -1,0 +1,1533 @@
+
+===== p.1 =====
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+Contents lists available at ScienceDirect 
+International Journal of Heat and Mass Transfer 
+journal homepage: www.elsevier.com/locate/hmt 
+Heat transfer and pressure drop correlations for direct on-chip 
+microscale jet impingement cooling with alternating feeding and 
+draining jets 
+Tiwei Wei a , b , ∗, Herman Oprins a , Liang Fang b , Vladimir Cherman a , Eric Beyne a , 
+M. Baelmans b 
+a IMEC, Leuven 3001, Belgium 
+b Departement of Mechanical Engineering, KU Leuven, Leuven 3001,Belgium 
+a r t i c l e 
+i n f o 
+Article history: 
+Received 10 March 2021 
+Revised 5 July 2021 
+Accepted 15 August 2021 
+Available online 1 October 2021 
+Keywords: 
+Impingement jet cooling 
+Scaling analysis 
+Unit cell 
+Nusselt correlations 
+Friction factor 
+a b s t r a c t 
+Jet impingement cooling with distributed outlet conﬁguration is regarded as an eﬃcient cooling solu- 
+tion for high performance systems. This work develops the Nusselt number Nu f - R e d and pressure drop 
+k -factor correlations for microscale multi-jet impingement cooling with alternating feeding and draining 
+jets. An extensive design of experiments (DOE) of unit cell modeling-based simulations is used for the 
+correlation ﬁtting. In order to understand the ﬂow and thermal behavior, the impact of single variables 
+including the inlet diameter, outlet diameter, jet-to-target distance and nozzle length is studied system- 
+atically. On the other hand, this work ﬁrstly shows the predictive model with k - R e d , including the impact 
+of nozzle length t/L, cavity height H/L and inlet diameter ratio d i /L. Finally, the extracted correlations 
+are experimentally validated, both with experimental data of different jet impingement demonstrators, 
+as well as with the literature experimental data. 
+© 2021 Elsevier Ltd. All rights reserved. 
+1. Introduction 
+Jet impingement cooling on the chip backside is very promis- 
+ing due to the high heat transfer rates and the absence of thermal 
+interface material. The most commonly considered impingement 
+jet cooling implementation in literature is based on the common 
+outlet conﬁguration, shown in Fig. 1 . In this conﬁguration, the jet 
+ﬂow is injected through nozzle arrays and extracted through the 
+outlets on the edges of the cooler. However, the disadvantage of 
+jet impingement cooling with a common return is that the heat 
+transfer can be highly inﬂuenced by the “cross-ﬂow effects” where 
+the return ﬂows interact with the jets ﬂow [1–3] . The cooling per- 
+formance of jet cooling can be signiﬁcantly affected by a large 
+number of jets, especially for large die area applications. Kercher 
+and Tabakoff [4] and Florschuetz et al. [5] experimentally exam- 
+ined the detrimental effect of the crossﬂow on the heat trans- 
+fer coeﬃcient. Maddox et al. [2] investigated methods to manage 
+the spent ﬂow, such as angled conﬁning walls and anti-crossﬂows 
+(ACF) cooling structures or corrugated jet planes. Hollworth and 
+Dagan [6] found that the convective coeﬃcients can be improved 
+with 20–30% by arranging the outlet nozzles through the impinge- 
+∗Corresponding author at: IMEC, Leuven 3001, Belgium. 
+E-mail address: tiwei32@stanford.edu (T. Wei). 
+ment surface. However, this is not applicable for cooling on the 
+electronic devices. The second conﬁguration, jet Impingement cool- 
+ing with alternating feeding and draining jets shown in Fig. 1 (b) 
+is a more appealing variant for electronic cooling [ 7 , 8 ], where the 
+spent ﬂuid can be eﬃciently extracted through the outlet nozzles 
+that are distributed in between the inlet nozzles [ 1–3 , 7 ]. In the 
+next sections, a literature overview is provided for both nozzle 
+conﬁgurations. 
+1.1. Conﬁguration A: common outlets 
+Empirical correlations for heat transfer and pressure coeﬃcient 
+are very important to understand the functional relations regarding 
+different geometry parameters. Extensive literature studies about 
+single impingement jet cooling correlations covering different noz- 
+zle geometries for both submerged and free-surface jet conﬁgura- 
+tions are published in the last decades [9–12] . Garimella and Rice 
+[13] developed Nu d correlation for a single conﬁned circular sub- 
+merged jet. Womac et al. [14] developed correlations for a single 
+circular free-surface jet. The correlations with a single round noz- 
+zle, oriﬁce, or pipe are developed by Martin [15] . 
+Compared to single jet impingement, arrays of multiple jets can 
+achieve a higher heat transfer rate and more uniform temperature 
+distribution [16] . Weigand and Spring [17] summarized and com- 
+https://doi.org/10.1016/j.ijheatmasstransfer.2021.121865 
+0017-9310/© 2021 Elsevier Ltd. All rights reserved. 
+
+===== p.2 =====
+T. Wei, H. Oprins, L. Fang et al. 
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+Nomenclature 
+A 
+chip area mm 2 
+Bi 
+Biot number 
+d i 
+inlet diameter μm 
+d o 
+outlet diameter μm 
+f 
+friction loss coeﬃcient 
+H 
+standoff between the jet exit and the chip μm 
+K 
+pressure coeﬃcient 
+k si 
+thermal conductivity of silicon W/mK 
+k ﬂ
+thermal conductivity of the ﬂuid W/mK 
+L 
+unit cell length μm 
+Nu f 
+Nusselt number based on average interface temper- 
+ature of the chip 
+Nu j 
+Nusselt number based on average junction temper- 
+ature 
+Pr 
+Prandtl number 
+R th 
+thermal resistance K/W 
+R th 
+∗
+normalized thermal resistance K.cm 2 /W 
+R e d 
+Reynolds number 
+S d 
+chip size (length = width) μm 
+¯T chip 
+average temperature of the heat source °C 
+T in 
+coolant inlet temperature ° C 
+T amb 
+ambient temperature ° C 
+T s 
+average cooling surface temperature ° C 
+t 
+nozzle thickness μm 
+t c 
+chip thickness μm 
+¯V in 
+inlet velocity m/s 
+P 
+pressure difference between the inlet and outlet of 
+the cooler Pa 
+T avg 
+chip temperature increases ° C 
+α
+dimensionless inlet nozzle diameter d i /L 
+β
+dimensionless outlet nozzle diameter d o /L 
+γ
+dimensionless nozzle length t/L 
+ϕ
+dimensionless cavity height H/L 
+Subscripts 
+avg 
+average 
+ch 
+channel 
+i/in 
+inlet 
+o/out 
+outlet 
+hs 
+hotpots of the heater 
+n 
+nozzle 
+p 
+pumping 
+tot 
+total 
+th 
+thermal 
+pared the existing empirical correlations of multiple impinging air 
+jets for average and locally resolved heat transfer coeﬃcients, re- 
+spectively. Narumanchi et al. [18] reported that there is a good 
+match between CFD results and experimental data from Womac 
+et al. [14] over a wide range of Reynolds numbers for conﬁned 
+and unconﬁned submerged jets. Whelan and Robinson [19] re- 
+ported that the conﬁned submerged nozzles with contoured inlet 
+or inlet/outlet are the suggested nozzle conﬁgurations. Florschuetz 
+et al. [5] developed the correlations for the inline and staggered 
+nozzle patterns, and concluded that the staggered patterns re- 
+sulted in smaller heat transfer coeﬃcients than their inline coun- 
+terparts. Besides, Royne and Dey [20] also investigated the effect 
+of nozzle geometry on the heat transfer and pressure drop to 
+conﬁned-submerged jet arrays over a Reynolds number range of 
+10 0 0 ≤R e D ≤7700. It is reported that the sharp-edged and con- 
+toured nozzles can enhance the cooling performance in compari- 
+son to the conventional straight nozzle arrays for a given pumping 
+power. 
+Fig. 1. Impingement jet cooling conﬁgurations: (a) conﬁguration A: common out- 
+lets and (b) conﬁguration B distributed outlets conﬁgurations. 
+Azar [21] and Molana and Banooni [22] both present various av- 
+erage heat transfer coeﬃcient for single-phase liquid correlations. 
+Martin [23] developed correlations for multiple circular submerged 
+jets. Patil and Narayanan [24] proposed a criterion value S NN /d for 
+negligible cross ﬂow, and made a correction of Martin’s correla- 
+tion. The Womac et al. [25] correlation divided the entire heat 
+transfer area into two separate regions: the ‘‘impingement zone’’ 
+and the “wall-jet region” outside of the impingement zone. Ex- 
+periments conducted for the conﬁned-submerged liquid jet arrays 
+found that the heat transfer coeﬃcient was somewhat insensitive 
+to jet to-target spacing within the range of 2 ≤H/D ≤4 due to 
+the target surface being within the potential core of the issuing 
+jets. Robinson and Schnitzler [26] conducted experiments investi- 
+gating the impingement of water jet arrays under both free-surface 
+and submerged conditions. For the submerged jets, it was found 
+that heat transfer was insensitive to jet-to-target spacing changes 
+in the range of 2 ≤H/D ≤3. A monotonic decrease in heat trans- 
+fer was observed with increasing jet-to-target spacing in the range 
+of 5 ≤H/D ≤20. It was also found that a stronger dependence on 
+jet-to-jet spacing was encountered for smaller jet-to-target spac- 
+ing. The effect of jet-to-jet spacing for jet arrays was more closely 
+examined by Pan and Webb [27] . For the central jet module, the 
+stagnation point heat transfer coeﬃcient was found to be indepen- 
+dent of jet-to-jet spacing. Conversely, a dependence on the jet-to- 
+target spacing was discovered. The more recent work of Fabbri and 
+Dhir [28] involved both heat transfer to the jet arrays and the as- 
+sociated pressure drop across the jet nozzle plate. 
+The Reynolds correlations for stagnation Nusselt number and 
+average Nusselt number are summarized in Table 1 , together with 
+the methodology and the range for the R e d and H/D. In gen- 
+eral, there is an abundance of Nu f - R e d correlations for impinging 
+jets cooling in the literature, and they generally show Nu ∼a ·Re d 
+b , 
+where the exponent b is typically in the range of 0.5–0.8. How- 
+ever, most of the correlations derived from the analytical predic- 
+tions were based on the simpliﬁed assumption that each impinging 
+jet formed an individual cell or module. The local and average heat 
+transfer rates were determined for repeating modules surrounding 
+each jet in the array. These correlations are valid when the jet-to- 
+target distance and jet-to-jet spacing were larger, and the jet-to-jet 
+interactions are negligible. Since the jets were well-drained, there 
+was negligible crossﬂow between neighboring jets, and each jet es- 
+tablished a cell that behaved thermally as a single isolated imping- 
+ing jet. 
+2 
+
+===== p.3 =====
+T. Wei, H. Oprins, L. Fang et al. 
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+Table 1 
+State of the art Nusselt-Reynolds correlation for common outlets. 
+Source 
+Description 
+Provides 
+Methodology 
+Conditions 
+Reynolds 
+exponent 
+Reynolds number, cavity 
+height range 
+Martin [23] 
+Submerged, multiple, 
+circular 
+Nu d 
+Analytical 
+Tref = Tin 
+0.67 
+2000 < Re < 100,000; 2 ≤H/D ≤12 
+Martin [23] 
+Single, circular, submerged Nu d 
+Analytical 
+Tref = Tin 
+0.775 
+2000 < Re < 40,000; 2 ≤H/D ≤12 
+Womac (1994) 
+Multiple jets, submerged, 
+circular 
+Nu d+L 
+Analytical 
+Tref = Tin 
+0.5/0.8 
+5000 < Re < 200,000; 2 ≤S /D ≤4 
+Womac (1994) 
+Single, submerged, circular Nu d+L 
+Analytical 
+Tref = Tin 
+0.5/0.8 
+Re < 5000; 2 ≤S /D ≤4 
+Elison and Webb [39] 
+Submerged, single jet, 
+circular 
+Nu 0 
+Experiment 
+Tref = Tin 
+0.8 
+300 < Re < 7000; H/D < 8 
+Garimella and Rice [13] 
+single, conﬁned/submerged, 
+circular 
+Nu 0 
+Experiment 
+Tref = Tin 
+0.585 
+4000 < Re < 23000; 1 ≤S /D ≤5 
+Lee and Vafai (1999) 
+Submerged, Multiple, 
+circular 
+Nu d 
+Analytical 
+Tref = Tin 
+0.667 
+2000 < Re < 100000; 2 ≤H/D ≤12 
+Li and Garimella [40] 
+Single jet, circular, 
+conﬁned/submerged 
+Nu 1 . 9d+d /Nu 0 
+Experiment 
+Tref = Tin 
+0.5555/ 
+0.515 
+4000 < Re < 23000; 1 ≤H/D ≤5 
+Robinson and Schnitzlaer 
+[41] 
+Submerged, jet array, 
+circular 
+Q pump / Nu d / 2 
+Experiment 
+Tref = Tin 
+0.46 
+100 < Re < 10000; 
+2 ≤H/D ≤20 ; 3 ≤P / D ≤7 
+Meola [42] 
+Air/water, conﬁned, 
+circular, jet arrays 
+Nu d 
+Analytical 
+Tref = Tin 
+0.68 
+200 < Re < 100,000; 
+1.6 < H/D < 20 
+Tie et al. [43] 
+Submerged, jet arrays 
+Nu d 
+Experiment 
+Tref = (Tin + Tout)/2 0.51 
+1398.113 ≤R e ≤13440.4; 
+4.963 ≤Pr ≤9.311 
+Yonehara and Ito [44] 
+Free surface, liquid, 
+multiple jets 
+Nu d 
+Analytical 
+uniform temp 
+0.67 
+Re < 48000 
+P/D > 13.8 
+Jiji and Dagan [45] 
+Free surface, liquid, single 
+phase, multiple jets 
+Nu L 
+Experiment 
+uniform heat ﬂux 0.5 
+0.5 mm and 1.0 mm 
+3 mm < z < 10 mm 
+L = heater length 
+Fabbri and Dhir [28] 
+Free surface, liquid, single 
+phase, multiple jets 
+Nu d / p 
+Experimental 
+water and FC40 
+0.78 
+73 < Re < 3813 
+65 μm < dn < 250 μm 
+Vader et al. [46] 
+Liquid, planar, conﬁned, 
+Nu 0 
+Numerical 
+water 
+0.5 
+20000 < Re < 90000, 2.7 < Pr < 4.5 
+Liu et al. [47] 
+Liquid jet, free surface, 
+single phase 
+Nu 0 
+Analytical and 
+experimental 
+water 
+0.5 
+0 ≤r/d < 0.787 
+0.15 ≤Pr ≤3 
+Michna et al. [48] 
+Submerged/conﬁned/ 
+microjet arrays/ single 
+phase 
+Nu d 
+Experiment 
+Tref = Tin 
+0.55 
+50 < Red < 3500; D = 54 and 
+112 μm 
+Muszynski and 
+Andrzejczyk [49] 
+Conﬁned, multiple 
+Nu d 
+Experiment 
+LMTD 
+0.65 
+500 < Re < 2500 
+1.2. Conﬁguration B: distributed outlets 
+The description of correlations for conﬁgurations with local ex- 
+traction of the spent ﬂuid to a plenum is very limited in litera- 
+ture. The concept of a jet impingement array cooling with local 
+effusion nozzles was ﬁrst proposed by Huber and Viskanta [29] . 
+They developed Nu f correlations based on the experimental data 
+for a conﬁned 3 × 3 array with a center jet and spent air exit 
+ports. The validated ranges of the parameters for the correlation 
+are: 3400 < R e D < 20500, 4 < X n /D < 8 and 0.25 < H/D < 6.0. 
+The obtained experimental data can be applied to Martin’s cor- 
+relation [23] since both of them are based on the spent air 
+exits and without considering the crossﬂow effect. Rhee et al. 
+[30] employed a naphthalene sublimation method to determine lo- 
+cal heat/mass transfer coeﬃcients on the target plate. They found 
+that the heat/mass transfer for the smaller nozzle to target dis- 
+tance is improved signiﬁcantly and the augmented values are 60% 
+and 20% higher for H/D = 0.5 and 1.0, respectively than those with- 
+out the effusion holes. However, the performance with the cooling 
+performance with the effusion holes is similar to those without the 
+effusion holes for large gap distances. 
+Onstad et al. [ 3 , 31 ] showed that a geometry which incorporates 
+local extraction with a large exhaust area ratio, A e /A jet , is preferred 
+to maintain a high average heat transfer coeﬃcient. Three differ- 
+ent impingement arrays were studied, all of which had a jet-to- 
+jet spacing of Z n /D = 2.34, jet-to-target spacing of H/D = 1.18, 
+and extraction holes in the jet plane. Brunschwiler [7] demon- 
+strated and experimentally characterized the microscale liquid jet 
+impingement array cooling will locally distributed outlets, where 
+the number of inlet nozzles is up to 47,0 0 0. A simple heat trans- 
+fer correlation was developed based on the experimental data with 
+a ± 9% conﬁdence level. The experimental data were measured at 
+H/D = 1.2, which is in the stable impingement regime. Further- 
+more, the Reynolds number Re is below 800, which means the 
+considered ﬂow is laminar. Hoberg et al. [32] evaluated a new 
+nozzle array conﬁguration with six small extraction ports centered 
+around each injection nozzle. A Nu-Re correlation was proposed 
+for laminar-to-turbulent ﬂow, where the Reynolds number is in the 
+range of 50 0–10,0 0 0. However, this correlation was only extracted 
+at H/D = 1. Rattner [33] developed new correlations for Nusselt 
+number and pressure-drop k-factors based on 10 0 0 randomized 
+cases. The pressure-drop k -factor is calculated based on the inlet 
+and outlet boundary pressure difference, correcting for frictional 
+losses in the injection and return channels. The new correlations 
+for pressure drop ( k -factor) and heat transfer performance (Nus- 
+selt number, Nu f ) are valid over a wide range of Reynolds number 
+( R e j = 20–500), ﬂuid transport properties (Pr = 1–100), and com- 
+ponent geometries ( p/ D j = 1.8–7.1 and th/ D j = 0.1–4.0). 
+The objective of this study is to predict the thermal and hy- 
+draulic performance of multiple jet impingement cooling with lo- 
+cally distributed outlets. For that the dimensionless correlations 
+will be derived and validated in this paper. Firstly, the modeling 
+studies based on unit cell model will be introduced in Section 2 . 
+After that, the design of experiment (DOE) and ﬁtting of the cor- 
+relations based on the dimensionless parameters are investigated 
+systematically in Section 3 . The individual parameters impact is 
+shown in Section 3.2 and the combined parameters effects are 
+presented in Section 3.3 . The correlations for the Nusselt num- 
+ber and pressure coeﬃcient factor, as a function of the Reynolds 
+number and all relevant geometrical parameters are developed. 
+3 
+
+===== p.4 =====
+T. Wei, H. Oprins, L. Fang et al. 
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+Fig. 2. CFD model of the unit cell model extracted from the full cooler model: (a) 
+top view of the nozzle arrays; (b) unit cell model with single inlet and four outlets; 
+(c) 1/8 unit cell model. 
+Section 4 shows the experimental validations of the ﬁtted correla- 
+tions with the inhouse experimental results and also the literature 
+measurement data. 
+2. Numerical approach 
+2.1. Geometric conﬁguration of unit cell model 
+The schematic of the jet impingement cooling with distributed 
+outlets model is shown in Fig. 2 , for an 8 × 8 mm 2 chip. The liquid 
+coolant for this study is DI water. The impingement cooler geome- 
+try contains N × N array of inlet nozzles and distributed outlets in 
+between the inlets. After striking on the chip surface, the ﬂuid re- 
+turns to the outlet plenum through the effusion nozzles. The inlet 
+nozzles and outlet nozzles are both distributed on the nozzle plate, 
+where one inlet is surrounded by four outlets. The top view of the 
+nozzle plate with nozzle arrays presents quasiperiodic behavior. As 
+shown in Fig. 2 , the impingement jet cooler with an N × N jet ar- 
+ray, there are ﬁve design parameters needed to be considered for 
+the cooler geometry design: d i , d o , H, t, t c , L, where d i is the inlet 
+diameter, d o is the outlet diameter, t c represents the chip thick- 
+ness, H is the standoff between the jet exit and the heater, t is the 
+nozzle thickness, and L is the unit cell length, which is deﬁned as 
+below: 
+L = 
+A 
+N × N 
+(1) 
+where A is the chip area. L also represents the pitch between the 
+two neighboring inlet jets. Also, the ﬂow and thermal parameters 
+as the input conditions are listed as: ¯V in and T in , where T in is the 
+inlet temperature, and ¯V in is the inlet velocity. 
+In order to simplify the N × N nozzle arrays, unit cell with only 
+one inlet surrounded by four ¼ outlet with symmetry boundary 
+conditions can be used. For the further reduction of the compu- 
+tation cost, 1/8 model simpliﬁed from the unit cell model is in- 
+troduced, which can highly reduce the computation cost [36] . The 
+nozzle number N is actually determined by the inlet nozzle pitch L , 
+as shown in Fig. 2 b for a constant chip size S d assumption. There- 
+fore, as we scale the nozzle pitch L , then the nozzle number N will 
+also change correspondingly as N = S d /L. The impact of the nozzle 
+number is therefore modeled by changing the size of the unit cell 
+model, while maintaining a constant heat ﬂux boundary condition. 
+2.2. Unit cell model method 
+The conjugate heat transfer models consider conduction and 
+convection in the liquid domain of the model and conduction in 
+the solid domain. In this paper, conjugate heat transfer and ﬂuid 
+dynamics simulations (CHT CFD) have been performed to assess 
+the thermal and ﬂuidic behavior of an impingement cooler with 
+N × N nozzles array based on ANSYS FLUENT 18.0 [10] . This solid 
+domain represents the silicon die only. The rest of the solid can 
+be neglected due to the high cooling transfer rate of the jet cool- 
+ing. Our previous study shows that the thermal conductivity of 
+the cooler materials has negligible effects on the cooler thermal 
+and hydraulic performance [8] . A transition shear stress transport 
+(SST) model is used for the CFD simulations, since this type of tur- 
+bulence model offers a good compromise between accuracy and 
+computational time for jet impingement modeling and allows to 
+cover the large range of Re numbers from laminar ﬂow, over tran- 
+sitional ﬂow to turbulent ﬂow that is encountered in practical 
+cooling design. Moreover, the benchmarked studies shows that SST 
+model can predict the local or average Nu, and also local level 
+pressure coeﬃcient f with less than 5% difference in the range of 
+30 < Red < 40 0 0, compared with the reference Large eddy simu- 
+lation (LES) model [34] . The reported laminar to turbulence transi- 
+tion range for liquid jet impingement is between 10 0 0 and 30 0 0 
+[12] . Based on this range of considered Re numbers from lami- 
+nar to low Re turbulent ﬂow, a RANS based transition SST model 
+has been chosen [34] , using the “Semi Implicit Method for Pressure 
+Linked Equations (SIMPLE)” [17] algorithm as the solution method 
+and the Quadratic Upstream Interpolation for Convective Kinemat- 
+ics (QUICK) scheme [ 17 , 18 ] for the numerical discretization. The 
+power dissipation in the chip is represented as a heat ﬂux bound- 
+ary condition on the Si. The ﬂow conditions are applied as a veloc- 
+ity condition at the inlet and a pressure outlet boundary condition 
+for the outlet. For the model material properties, the density, vis- 
+cosity and other material properties of the ﬂuid/solid are assumed 
+to be constant during the simulation. All cavities are assumed to 
+be completely ﬁlled with the liquid coolant, without any the pres- 
+ence of air (submerged jets). 
+For the meshing of the CFD models, hybrid meshing is chosen. 
+The ﬂuid domain mesh is chosen as tetrahedron mesh cells. Prism 
+element cells are used for the meshing of the boundary layers with 
+minimal meshing size of 0.002 mm. The latter is calculated from 
+the y + < 1 constraint for the turbulence model near boundaries 
+[5] . The number of boundary layer grid cells in the normal direc- 
+tion to solid walls is set to 15. For the solid domain mesh prism 
+cells are used with a 20 μm mesh size. The grid convergence in- 
+dex (GCI) is used for the meshing sensitivity analysis. The GCI 12 
+and asymptotic range of convergence are evaluated for the unit cell 
+model. The grid sensitivity analysis using the Richardson extrapo- 
+lation [5] predicts a discretization error for the stagnation temper- 
+ature of 0.2%. The details of the mesh for the unit cell model can 
+be found in our previous study [34] . 
+For the boundary conditions of the unit cell modeling, a Dirich- 
+let boundary condition is used which means the velocity of the 
+liquid at all ﬂuid–solid boundaries are equal to zero (no slip con- 
+dition). The boundary condition for the cooler inlet is set as a con- 
+stant uniform inlet velocity while the static pressure for the outlet 
+is set to 0 Pa, as a reference pressure. This means all pressure data 
+obtained are speciﬁed relatively to the outlet pressure. As for the 
+thermal boundary conditions, the coolant inlet temperature is set 
+as a constant temperature. Moreover, constant heat ﬂux is applied 
+on the chip bottom to represent the power generation in the heat- 
+ing elements of the test chip. In addition, the bottom package of 
+the chip is regarded as thermal insulation. The ﬂuid and solid in- 
+terface is set as a ﬂow-thermal coupled boundary condition. The 
+convergence criteria for the unit cell modeling is set at 10–5 for 
+continuity, 10–6 for energy and 10–6 for k , w and momentum ( x, 
+y and z velocities), respectively. 
+Fig. 3 (b) shows an example of the unit cell modeling results of 
+4 × 4 inlet jet arrays with chip surface temperature distributions 
+for different nozzle diameters. The temperature distribution in the 
+Si and the pressure drop between inlet and outlet will be used in 
+the next sections. Uniform velocity proﬁle is applied on the in- 
+let boundary, and pressure out boundary condition is applied on 
+the outlet surface. The applied heat ﬂux is 37.5 W/cm 2 . The inlet 
+4 
+
+===== p.5 =====
+T. Wei, H. Oprins, L. Fang et al. 
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+Fig. 3. Temperature distribution for different inlet diameter d i /L: (a) d i /L = 0.05; (b) d i /L = 0.1; (c) d i /L = 0.2; (d) d i /L = 0.25. ( d O /L = 0.3, t/L = 0.1, and H/L = 0.3, 
+R e d = 1024) 
+temperature is kept as 10 °C. The temperature distributions across 
+the chip surface and symmetric faces can be visualized. It can be 
+seen that the temperature reduces as the inlet diameter becomes 
+larger. For small d i /L, the stagnation region and wall jet region are 
+very limited, resulting in a higher temperature at the outlet re- 
+gion. Moreover, the heat spreading through the silicon die domi- 
+nates as the inlet diameter is very small. As the inlet diameter be- 
+comes larger, the jet cooling stagnation region becomes larger and 
+the temperature drops. The impact will be studied in details in the 
+next sections. 
+3. Correlations development 
+3.1. Dimensionless analysis deﬁnition 
+The previous parametric analysis shows that there are a lot of 
+parameters included in the cooler geometry [35] . When the nozzle 
+number N is scaling, the other parameters are changed too. There- 
+fore, it is necessary to normalize the parameters to simplify the 
+design. The dimensionless analysis is known as a very powerful 
+tool to understand the physics in the area of heat transfer and ﬂuid 
+mechanics. It speciﬁes that the normalized physical behavior of the 
+impingement cooler is determined by the normalized proportions 
+of the geometrical design parameters (the dimensionless parame- 
+ters), and also the normalized ﬂow conditions. This phenomenon 
+can be exploited to generalize the obtained modeling results and 
+to understand the fundamental behavior of the multi-jet impinge- 
+ment cooler. 
+Taking advantage of the Buckingham π theorem, the above- 
+mentioned geometrical parameters and input/output parameters in 
+Section 2.1 are transferred to the dimensionless form. As a dimen- 
+sionless number of the heat transfer using d i as the characteristic 
+length scale, the Nusselt number in the unit cell is deﬁned as be- 
+low, with two deﬁnitions: 
+(1) Nusselt number based on average interface temperature of the 
+chip: 
+Nu f = h f d i 
+k ﬂ
+= 
+˙ 
+Q 
+A · T · d i 
+k ﬂ
+= 
+q · d i 
+
+T s −T in 
+
+· k ﬂ
+(2) 
+(2) Nusselt number based on average junction temperature: 
+Nu j = 
+˙ 
+Q 
+A · T · d i 
+k ﬂ
+= 
+q · d i 
+
+T chip −T in 
+
+· k ﬂ
+(3) 
+This term Nu j is actually used to correlate with the experiments. 
+This quantity includes the impact of the conduction in the Si. 
+The Reynolds number and the Prandtl number are deﬁned as 
+following: 
+Reyn olds numb er : Re d = ρd i V in 
+μ
+(4) 
+P randtl number : P r = μCp 
+k fl 
+(5) 
+where k fl is the thermal conductivity of the ﬂuid, μ is the dynamic 
+viscosity, and Cp is the speciﬁc heat. In addition, the T s shown 
+in Nu f is the ﬂuid and solid interface temperature, while ¯T chip is 
+based on the junction temperature. Since the focus of this study 
+is the geometrical aspect, the ﬂuid properties are kept constant in 
+this study. Therefore, the Prandtl number used in this work is ﬁxed 
+as 7.56, a representative value for DI water. 
+In order to generalize the parametric trend, we need to extract 
+the relation between the geometrical ﬂow parameters and normal- 
+ized heat transfer in the following form: 
+Nu f = f 
+
+Re d , d i 
+L , d o 
+L , H 
+L , t 
+L 
+
+Nu J = f 
+
+Re d , d i 
+L , d o 
+L , H 
+L , t 
+L , t c 
+L 
+
+(6) 
+where Nu f is the area averaged Nusselt number as function of the 
+jet diameter di 
+L and the other dimensionless variables. And also, 
+the t c 
+L is not included in Nu f function. The chip thickness impact 
+is actually included in Nu J . If the convective heat transfer increases, 
+the contribution of the thickness becomes more signiﬁcant. 
+The dimensionless number for the pressure-drop k -factor can 
+be expressed as following: 
+k = f 
+
+Re d , d i 
+L , d o 
+L , H 
+L , t 
+L 
+
+(7) 
+k = 
+P 
+ 1 
+2 ρ · ¯V 2 
+in 
+
+(8) 
+where k is the pressure coeﬃcient, and t is the thickness of the 
+nozzle plate. P is deﬁned as the pressure drop between the inlet 
+and outlet nozzle at the unit cell level. 
+5 
+
+===== p.6 =====
+T. Wei, H. Oprins, L. Fang et al. 
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+Table 2 
+List of dimensionless variables and range. 
+Parameter 
+Symbol 
+Range 
+R e d 
+R e d 
+32,64,128,216,512,1024,2048 
+d i /L 
+α
+0.01,0.1,0.2,0.3,0.4 
+d o /L 
+β
+0.05–0.5 
+t/L 
+γ
+0.1–1.2 
+H/L 
+ϕ
+0.05–2 
+As discussed in this section, the Nu f - R e d curves are the same 
+for different nozzles arrays with the same dimensionless parameter 
+ratios. Therefore, a single nozzle number N investigation can be 
+used for the extraction of the correlations for Nu f - R e d and k - R e d . 
+The ﬁtted predictive models can be used to extract the thermal 
+and hydraulic performance for arbitrary nozzle numbers. 
+In the following section, an extensive design of experiments 
+will be conducted by varying the dimensionless numbers. The di- 
+mensionless parameters include d i /L, d O /L, H/L, t/L, and t c /L. The 
+analysis is based on a ﬁxed chip size A , with nozzle array of N × N. 
+The study range for the dimensionless analysis parameter is listed 
+in Table 2 . 
+3.2. Variable impact analysis 
+In this section, the DOE analysis based on the listed dimen- 
+sionless parameters in Table 2 is presented: Section 3.2 shows the 
+individual effect of the geometrical parameters, and the scaling 
+trend ﬁtted as function, to decouple the effects of other parame- 
+ters; Section 3.3 presents the combined effects using the derived 
+functions from Section 3.2 as basis for the ﬁtting of the large DOE. 
+3.2.1. Heat spreading effects in silicon chip 
+In our test case, the thermal test chip is ﬂip-chip bonded on the 
+substrate, while the active heater region is at the bottom of the 
+chip. Therefore, the junction temperature T j is higher than the in- 
+terface temperature T s due to the heat conduction through silicon, 
+resulting in an additional thermal resistance. For high performance 
+cooling, this add resistance can be signiﬁcant, and even the dom- 
+inant contributor. In general applications, junction temperature T j 
+can be measured. For the evaluation of the cooling performance, T s 
+is needed. This section will discuss what is the relation between 
+Nu j and Nu f , and also how does it impact with the N scaling. 
+As deﬁned in Section 3.1 , Nu j is based on the junction tem- 
+perature while Nu f is based on the ﬂuid-solid interface temper- 
+ature. This means that the chip thickness effect is not included 
+in the Nu f . Considering a simpliﬁed thermal resistance network, 
+the total thermal resistance between junction and coolant contains 
+three parts: heat convection of the jet cooling, 1D heat conduction 
+through the Si and additional heat spreading effects through the 
+silicon substrate. Thus, we can get the following equation: 
+R th = 1 
+¯h f A 
++ t c 
+k s A + R spreading 
+(9) 
+R th = 1 
+¯h j A 
+(10) 
+where R th is the thermal resistance based on the average junction 
+temperature. A is the chip area. The equivalent heat transfer coeﬃ- 
+cient based on the average cooling interface temperature is deﬁned 
+as ¯h f while ¯h j is deﬁned as the heat transfer coeﬃcient based on 
+the junction temperature. R spreading represents the additional heat 
+spreading resistance from the cooling interface to the junction sur- 
+face due to the non-uniform temperature distribution caused by 
+the ﬂow distribution. 
+Fig. 4. Effect of the chip thickness on Nu j based on junction temperature for N = 4, 
+Re = 1024: (a) Nu j correlation ﬁtting with an additional part f( t c , ¯h f , A , k ) for the 
+silicon substrate with thermal conductivity of 149 W/(m K); (b) Nu j deﬁnition in- 
+cluding the substrate conduction for different material thermal conductivity ranging 
+from 149 to 20 0 0 W/(m K). 
+Since the Biot number ( Bi ) is deﬁned as: 
+Bi = 
+¯h f 
+k s 
+∗t c 
+(11) 
+where k s is the thermal conductivity of the silicon, and k f is the 
+thermal conductivity of the ﬂuid, Eq. (9 ) can be rewritten as fol- 
+lows 
+1 
+h j 
+= 1 
+¯h f 
+g ( Bi ) = 1 
+¯h f 
+
+1 + Bi + f 
+t c , ¯h f , A, k 
+(12) 
+In order to get the relation between N u j and f( Bi ) , different val- 
+ues of chip thickness are studied. Fig. 4 (a) shows the impact of 
+chip thickness on the heat source junction temperature. With the 
+increase of the chip thickness t c /L , the Nu j decreases, which shows 
+a clear impact of t c /L on Nu j . Based on the deﬁnitions, the Nu f is 
+kept constant for the change of t c /L , since the heat conduction is 
+decoupled from the equation. As shown in Fig. 4 (a), the add term 
+of “1 + Bi ” could not fully explain the difference between Nu f and 
+Nu j . Therefore, an additional part f( t c , ¯h f , A, k ) is needed for the 
+heat spreading effects inside the silicon. It can be seen that the 
+“1 + Bi + f” can capture the trend very well, shown in Fig. 4 (a). 
+6 
+
+===== p.7 =====
+T. Wei, H. Oprins, L. Fang et al. 
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+The relation Nu j between Nu f then can be expressed as below: 
+N u j = Nu f 
+g ( Bi ) = 
+Nu f 
+1 + Bi + 
+0 . 1 Bi + 1 . 1 B i 2 
+(13) 
+Most of the effect can be explained by conduction in Si. Addi- 
+tional conduction for extra heat spreading is included in f( Bi ). Ac- 
+cording to the relation Bi ∼t c 
+d i , the Bi is more pronounced for very 
+thin Si and for small nozzle diameter, shown in Fig. 4 (a). 
+Practically, for a t c 
+L = 1 , there is about 10% extra reduction be- 
+tween the red curve and blue curve in Fig.4 (a), which means that 
+there will be about 35% higher thermal resistance increase for full 
+Si thickness with 2 mm nozzle pitch. Therefore, it can be seen that 
+the heat conduction and spreading resistance in the chip become 
+increasingly dominant for higher values of the chip thickness. 
+In addition, the Nusselt number Nu j based on the junction 
+temperature including the substrate conduction is investigated for 
+different material thermal conductivity values, ranging from 149 
+W/(m K) to 20 0 0 W/(m K). This range covers most of the substrate 
+materials with different thermal conductivity in electronic appli- 
+cations, including silicon (130-150 W/m/K), SiC (360-490 W/m/K), 
+GaN (130 W/m/K), AlN (285 W/m/K) and diamond (20 0 0 W/m/K) 
+[38] . The Nusselt number Nu j as function of the normalized sub- 
+strate thickness t c /k s is plotted in Fig. 4 (b). The simulation results 
+indicate that the Nu j correlation ( Eq. (13 )) as function of this nor- 
+malized thickness, which is part of the deﬁned Bi number ( eq. 11 ), 
+still holds for a large range of materials if the t c /k s ratio is larger 
+than 1e-6 K.m 2 /W, since all the curves with different thermal con- 
+ductivity collapse in this range. 
+Therefore, using the expression of Eq. (12 ), we can use the di- 
+mensionless analysis relation Nu f - R e d without considering the im- 
+pact of the chip thickness, and add the impact of the chip thick- 
+ness to derive the ﬁnal value for Nu j . on the equation g( Bi ) . In this 
+way, the design of experiments for the cooler parameter analysis 
+can be simpliﬁed for the next sections. 
+In general, the main objective of the presented study is to pro- 
+vide correlations that can be used as a predictive modeling tool for 
+the thermo-hydraulic performance of the cooler. Since for highly 
+eﬃcient cooling, the relative contribution of the Si substrate be- 
+comes signiﬁcantly more important, we want to include the con- 
+tribution in the ﬁtted correlation. For the practical application, the 
+chip thickness can vary from full thickness (750 μm) down to sev- 
+eral tens of μm. Moreover, experimental results reported in litera- 
+ture are extracted for different Si thicknesses. 
+The problem with the decoupling of the temperature into a 
+convective and conductive resistance is that the resistance is de- 
+ﬁned for a uniform temperature, while the ﬂow and temperature 
+distribution of the coolant have an impact on the conduction in 
+the solid Si. The splitting in 3 parts “1 + Bi + ( 0 . 1 Bi + 1 . 1 B i 2 ) ” in 
+Eq. (13 ) was merely done to demonstrate that the simple conduc- 
+tion resistance is not suﬃcient to explain the temperature rise and 
+that an extra term is needed to account for the 3D spreading ef- 
+fects. 
+3.2.2. Effects of nozzle scaling 
+For the investigation of the nozzle scaling effects, the dimen- 
+sionless geometry parameters ( d i /L, d O /L, t/L, H/L) and dimension- 
+less velocity ( R e d ) listed in Table 2 are kept the same for differ- 
+ent nozzle numbers, ranging from N = 1 to N = 64. Fig. 5 shows the 
+impact of geometry parameters with different ratios, ranging from 
+0.01 to 0.4. As shown in Fig. 5 (a), the Nu f - R e d curves for all the 
+nozzle numbers collapse for the same dimensionless number. Ac- 
+cording to the dimensionless theory, the physics should be the 
+same if all the non-dimensional numbers related to geometry pa- 
+rameters and input parameters are kept constant. 
+As for the Nu f - R e d curves, the relation function can be ex- 
+pressed as following: 
+Nu f = f ( x ) ∗R e d 
+0 . 48 ∗( 
+di 
+L ) 
+−0 . 16 
+(14) 
+where the exponent of R e d is a function of d i /L. The correlation 
+f(x ) is also a function of the other parameters: d i /L, d O /L t/L and 
+H/L, and will be extracted later. 
+For the k −R e d correlation curve shown in Fig. 5 (b), the impact 
+of the dimensionless variables is also studied when the inlet num- 
+bers scale from 1 to 64. It shows that all the k −R e d curves col- 
+lapse for α is 0.4, and scatters for smaller values. In addition, it 
+is also observed that the scattering is more pronounced for high 
+Reynolds number. 
+Fig. 5 (c) and 5 (d) illustrate one example of the collapse curve 
+when varying the nozzle numbers, for the dimensionless number 
+of 0.1. In order to study the impact of different variables, the inlet 
+number N = 4 is chosen for the DOE simulations. 
+Conclusions can be summarized as below: 
+• The average Nusselt number Nu d −R e d curves for different noz- 
+zle numbers all collapse for the same dimensionless number 
+ratio. This makes it possible to ﬁnd a good dimensionless cor- 
+relation. 
+• The k −R e d collapses below R e d ≤10 0 0. At the Reynolds num- 
+ber R e d higher than 10 0 0, there are discrepancies, especially for 
+smaller α. This means that the pressure drop k-factor correla- 
+tion cannot be completely captured by the dimensionless anal- 
+ysis. 
+3.2.3. Effects of nozzle length 
+In this section, the impact of the nozzle length will be investi- 
+gated. Literature [36] reported that the ﬂow inside very short noz- 
+zle channels (t/L ≤0 . 1 ) would not reach the developed ﬂow regime. 
+Therefore, in the present model, the dimensionless nozzle length is 
+chosen beyond t/L > 0.1. Fig. 6 shows the impact of dimensionless 
+nozzle length t/L on the Nu f and f. As illustrated in Fig. 6 (a), the 
+Nu f −t 
+L curve slope is near zero and there is no trend of Nu f with 
+regard to t 
+L . Therefore, the dimensionless nozzle thickness t 
+L is not 
+included in the ﬁnal Nu f correlation. 
+The k −R e d correlation is shown in Fig. 6 (b), which shows that 
+the pressure coeﬃcient factor k increases as the t/L becomes larger. 
+The function between k and t/L for different d i /L is shown as a 
+linear relationship, as below: 
+k = a ∗
+ t 
+L 
+
++ b 
+(15) 
+In order to understand the effect of nozzle plate thickness, 
+the velocity distribution inside the jet cooling model is studied. It 
+shows that the jet ﬂow distribution at the stagnation and wall jet 
+region does not change as the nozzle length increases, resulting in 
+a stable cooling performance on the heating surface. 
+3.2.4. Effects of outlet diameter 
+The impact of the dimensionless outlet diameter is investigated 
+in this section, as shown in Fig. 7 . At the same time, the com- 
+bined effects of d O /L and H/L of the cavity height are also shown 
+in Fig. 7 , indicated as the same color. All the results for different 
+H/L plotted show only small scattering. In this study, the inlet di- 
+ameter is kept smaller than the outlet diameter to reduce the sys- 
+tem pressure drop, which is deﬁned as d o / d i ≥1. Therefore, a small 
+d i /L ratio of 0.05 is chosen as the reference value to guarantee that 
+the d O /L range can cover a larger range for d o in the analysis. As 
+shown in Fig. 7 (a), the Nusselt number keeps stable when the d O /L 
+is increasing. It can also be seen that the changes of Nu f are very 
+small when the dimensionless cavity height H/L is varied from 0.08 
+7 
+
+===== p.8 =====
+T. Wei, H. Oprins, L. Fang et al. 
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+Fig. 5. N scaling of the (a) average Nusselt number and (b) pressure drop k -factor as a function of Reynolds number, under different inlet/outlet diameter ratios. (c) and (d) 
+shows the collapse curve includes 6 selected values of N ( N = 1,2,4,8,16,64) for α = β = γ = ϕ = 0.1. 
+to 0.6. In addition, Nu f becomes larger when the Reynolds num- 
+ber R e d increases from 32 to 2048, as expected from the Nu f - R e d 
+shown in Fig. 5 . 
+The impact of dimensionless outlet diameter and cavity height 
+on the pressure coeﬃcient factor k is shown in Fig. 7 (b). It shows 
+that the cavity height has negligible effects on pressure drop, 
+where all the curves with the cavity height varying from 0.08 and 
+0.6 collapse. Moreveor, the inﬂuence of outlet diameter change be- 
+comes insigniﬁcant beyond d O /L = 0.1. The reason is that the pres- 
+sure drop inside the outlet nozzles dominates when d O /L is smaller 
+than 0.1. When d O /L is higher than 0.1, the pressure drop of the 
+cooler is dominated by the pressure inside the inlet nozzles and 
+impingement cavity. Therefore, there is only impact on the pres- 
+sure drop for d O /L smaller than 0.1. 
+For the Re = 512, H/L ∈ (0.08, 0.6), d i /L = 0.05, the function of k 
+and d O /L can be expressed as below: 
+k = e 
+
+−28 . 4 ∗ d o 
+L 
+
++ ϕ ( x ) 
+(16) 
+where ϕ(x ) represents the effects of other parameters.The main 
+conclusions can be summarized as below: 
+◦For d o / d i ≥1 . the variation of d o has no impact on Nu f - R e d 
+relation; 
+For d o / d i ≥2 ; the d o has no impact on k - R e d ; For d o / d i < 
+2 , the smaller d o /L has higher pressure coeﬃcient factor. 
+The ﬂow behaviors for different outlet diameters are analyzed 
+from the modeling results. In this test case, the ratio d i /L is chosen 
+as 0.3, where the ratio d o /L varies from 0.25 to 0.5. The conﬁne- 
+ment of the ﬂow happens at the nozzle outlet, as the d o /L = 0.25 is 
+smaller than d i /L = 0.3. As the d o is much smaller than d i ( d o ≪d i ), 
+the pressure drop is higher. However, the pressure drop reduces as 
+the d o /L becomes larger. On the other hand, the ﬂow regions with 
+stagnation region and wall jet region still keep the same as the 
+d o /L is increasing. In this study, the impact of the outlet diameter 
+d o /L is not included in the predictive model within the range of 0.1 
+to 0.5 since the effects can be negligible under this range. 
+3.2.5. Effects of cavity height 
+Fig. 8 shows the jet-to-target ratio H/L effects on heat transfer 
+and pressure drop varying from 0.01 to 2. For the general trend, 
+Nu f and f are both higher for very small cavity heights. For the 
+8 
+
+===== p.9 =====
+T. Wei, H. Oprins, L. Fang et al. 
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+Fig. 6. Impact of dimensionless t/L on the (a) Nusselt number Nu f and (b) Pressure coeﬃcient k under R e d = 1024. Flow distribution for different nozzle length: R e d = 1024, 
+d i / L = d o / L = 0.3, H/L = 0.3. 
+Fig. 7. Impact of outlet diameter ratio on the (a) Nu f and (b) pressure coeﬃcient factor k: d i /L = 0.05; 0 . 05 ≤d o / L ≤0 . 5 ; t/L = 0.4; d o / d i ≥1. 
+Fig. 8. Effects of cavity height H/L on the (a) Nu f and (b) Pressure coeﬃcient factor k , for a ﬁxed R e d = 1024 ( N = 4, t / d i = 1, Fl = 600 mL/min, R e d = 1024). 
+9 
+
+===== p.10 =====
+T. Wei, H. Oprins, L. Fang et al. 
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+Fig. 9. Impact of the jet-to-target at constant ﬂow ratio: (a) H/L = 0.01; (b) H/L = 0.03; (c) H/L = 0.05; (d) H/L = 0.1; (e) H/L = 0.2; (f) H/L = 0.3. (Reynolds number 
+R e d = 1024, d i / L = d o / L = 0.3, t/L = 0.1) 
+larger cavity height, the Nu f and f keep constant. As for the heat 
+transfer, the Nusselt number Nu f increases with the raise of H/L 
+as the cavity height ratio is below 0.2. This is due to the conﬁning 
+ﬂow as the inlet diameter is much higher than the cavity height 
+channel thickness, resulting in a higher pressure drop and higher 
+ﬂow velocity. There is a minimum value for Nu f and f as the H/L 
+is between 0.1 and 0.5. 
+For the pressure coeﬃcient factor k , there also exists a critical 
+point H critical /L with a minimal k . The behavior is more signiﬁcant 
+for larger inlet diameter ratio d i /L while the f keeps constant after 
+sharply decreases for smaller d i /L. For both cases of the heat trans- 
+fer and pressure drop, it can be seen that the critical point moves 
+toward higher H/L with the increasing of d i /L. In general, the im- 
+pact of cavity height on average Nu f and f are very small, for the 
+ratio range: 0.3 ≤H/L < 1, especially for the small nozzle diameter 
+ratio. For the pressure coeﬃcient factor k , the effects of H/L can be 
+neglected when the H/L is higher than H critical . 
+In order to provide insight into how the ﬂow changes for dif- 
+ferent gap values, CFD simulation results with the unit cell model 
+are shown in Fig. 9 . For H/L = 0.01, the ﬂow in the cavity height 
+shows like the channel ﬂow dominating most of the jet cooling 
+pressure drop, which is deﬁned as the “Pinch-off” regime in liter- 
+ature [7] . The heat transfer rate is higher inside the cavity height 
+channel, since the boundary layer along the channel is thin. With 
+the increasing of the H, the heat transfer decreases rapidly, as 
+shown in Fig. 8 . For H/L = 0.03, there is a hydraulic jump around 
+the inlet nozzle region, which is deﬁned as a “transition” regime 
+[7] . The heat transfer will deteriorate due to the thickening of the 
+ﬂow boundary layer [7] . On the other hand, the pressure of the 
+jet cooling decreases due to increasing channel thickness. As H is 
+further increased, the hydraulic jump will move towards the outlet 
+region, as shown in Fig. 9 (d). Since the boundary layer is thin be- 
+fore the hydraulic jump and becomes thicker afterward, the heat 
+transfer rate along the chip surface is higher. In addition, there is 
+also “recirculation” around the outlet region. For the cavity height 
+H/L larger than 0.3, the negative effects of hydraulic jump will be 
+reduced, and the heat transfer will keep constant. However, the re- 
+circulation ﬂow along the wall jet region becomes more and more 
+dominant, resulting in a higher pressure drop again, as shown 
+in Fig. 9 (b). The same physic phenomenon was also observed by 
+Brunschwiler [7] . However, the ﬂow physics used in their study is 
+based on the laminar ﬂow, with Reynolds number ranging from 11 
+to 402.6. And also, the dimensionless inlet diameter ranges from 
+0.1 to 0.3. This work extends the laminar ﬂow to transition ﬂow 
+with Re between 32 and 2048. Moreover, this work also covers a 
+wide range of the inlet nozzle diameter ratio d i /L from 0.1 to 0.6. 
+It is observed that the different ﬂow regimes (pinch-off, transition, 
+impingement) are different for smaller d i /L and larger d i /L. 
+3.2.6. Effects of inlet diameter 
+As shown in Fig. 10 , the impact of inlet nozzle diameter on 
+the Nu f and k is investigated, under smaller cavity height ratio 
+H/L = 0.5 and higher cavity height H/L = 1. In general, the Nu f in- 
+creases when the inlet diameter ratio d i /L increases from 0.02 to 
+0.4. This is attributed to the stagnation region corresponding to the 
+impingement surface becomes larger when the inlet nozzle diame- 
+ter increases. It is found that the heat transfer coeﬃcient decreases 
+when the jet diameter becomes larger [10] . The impact of inlet di- 
+ameter was also studied under different Reynolds number varying 
+from 32 to 2048. In the general trend, the Nu f - d i /L presents a good 
+linear function as below: 
+Nu f = α
+
+d i 
+L 
+
++ β
+(17) 
+As for the pressure drop coeﬃcient factor, the k factor shows 
+power-law function with d i /L, listed as below: 
+k ∼( d i 
+L ) b 
+(18) 
+3.3. Development of predictive models 
+As listed in Table 2 , the different dimensionless parameters are 
+combined for a full DOE analysis, with more than 10 0 0 simulations 
+for a ﬁxed N with no silicon thickness included. The ﬁttings for 
+Nu f - R e d and k - R e d are derived as function of dimensionless param- 
+eters. And the ﬁttings are actually based on the functions found in 
+Section 3.2 . As shown in Fig. 5 , the pressure drop is extremely high 
+when the normalized inlet diameter ratio comes to 0.01. Therefore, 
+10 
+
+===== p.11 =====
+T. Wei, H. Oprins, L. Fang et al. 
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+Fig. 10. Nusselt number Nu f (a) and pressure coeﬃcient factor k (b) as a function of dimensionless inlet nozzle diameter, where the t/L = 0.1 and H/L = 1, with larger cavity 
+height ratio ( d i /L = d O /L). 
+the dimensional inlet diameter and outlet diameter ratio are cho- 
+sen above 0.01 in order to keep the pressure drop in the reason- 
+able region. 
+Based on the multivariable regression analysis, the developed 
+empirical models with Nu f - R e d and k - R e d are shown below. From 
+the empirical model of Nu f −R e d , the maximum variation is be- 
+tween ±30%. This model also ﬁrst shows that the exponent of R e d 
+is as a function of d i /L. Other parameters such as outlet diameter, 
+cavity height and nozzle plate thickness are negligible when all the 
+parameters are under the conﬁned region. 
+Nu f = 
+ 
+5 . 64 
+
+d i 
+L 
+2 
++ 0 . 031 
+
+d i 
+L 
+
+−0 . 0 0 0632 
+	 
+H 
+L 
+−0 . 29 
+R e d 
+0 . 48 
+
+d i 
+L 
+−0 . 16 
+(19) 
+d i 
+L = d o 
+L = a ; 0 . 01 ≤a ≤0 . 4 ; 0 . 01 ≤H/L ≤0 . 4 ; 32 ≤Re d 
+≤2048 ; 0 . 05 ≤H/d i ≤20 ; 0 . 01 ≤t/L ≤0 . 4 
+
+The pressure coeﬃcient factor k correlations with the predictive 
+error between ±30% is also developed as below: 
+k = 
+
+ 
+21 . 2 ∗
+
+d i 
+L 
+
++ 14 . 5 
+
+R e d 
+−0 . 73 
+
+d i 
+L 
+
+−0 . 26 
+2 . 26 
+ t 
+L 
+
++ 0 . 89 
+
+
+0 . 37 
+H 
+L 
+
+0 . 15 + 0 . 55 
+
++ 0 . 8 
+ 
+(20) 
+d i 
+L = d o 
+L =a; 0 . 05 ≤a ≤0 . 6 ; 0 . 5 ≤H / d i ≤20 ; 32 ≤Re d 
+≤1024 ; t / L ≥0 . 1 
+
+For the k -Re empirical model, it can be seen that k has a linear 
+relationship with the t/L. The effects of the cavity are also captured 
+by the developed function. In Fig. 11 , the evaluation of the ﬁtting 
+agreement for all simulation results of the DOE is presented. 
+4. Experimental validations of predictive model 
+In order to validate the Nu correlations with Eq. (19 ) derived in 
+this paper, 2 different impingement coolers with large different in 
+nozzle dimensions are validated with the experimental data. The 
+ﬁrst one is our own demonstrator of 3D printed polymer cooler 
+with 300-750 μm nozzles [35] for three different nozzle arrays. 
+As shown in the previous study [35] , a simpliﬁed board level 
+polymer demonstrator cooler with a 4 × 4 array of 750 μm in- 
+lets and 5 × 5 array of 750 μm outlets has been demonstrated 
+and measured. The 3D printed chip cooler has been successfully 
+mounted to the chip package and no leakage is observed, illus- 
+trated in Fig. 12 . Temperature measurements are performed us- 
+ing the 32 × 32 array of diodes in the in-house Packaging Test 
+Chip Version Q (PTCQ) thermal test chip to visualize the chip tem- 
+perature distribution for the quasi-uniform power dissipation pat- 
+tern. The 95% conﬁdence interval of the calibrated sensitivity of 
+the temperature sensor on the test chip is - 1.55 ± 0.02 mV/ °C in 
+the temperature range between 10 and 75 °C for a current of 5 
+μA. A dedicated closed ﬂow loop is built to characterize the ther- 
+mal and hydraulic performance of the cooler. The ﬂuid used in this 
+measurement is Deionized water (DI water). The ﬂow rate in the 
+system is controlled by a mini-Cori ﬂow meter with accuracy of ±
+0.2% as a percentage of reading (%RD). The pressure drop between 
+the inlet and outlet is measured by a differential pressure gauge 
+that can withstand a static pressure of 10 bar. The scope of the 
+pressure drop is between 0.2 and 5 bar with an accuracy < ±0.5% 
+as a percentage of full scale (% FS). A stainless-steel basket ﬁlter 
+is used for the pump with a screen of 25 μm. The analysis of the 
+propagated measurement uncertainty results in a value of ± 1.8 % 
+for the reported thermal measurements [35] . The measured cool- 
+ing performance of the 3D printed coolers with 3 × 3, 4 × 4, and 
+8 × 8 inlet nozzle arrays are characterized in this paper. The sec- 
+ond one is the Si impingement cooler with 43 μm diameter noz- 
+zles. The measurement data are extracted from the literature [7] . 
+The demonstrations of the three coolers [38] and also the sil- 
+icon impingement jet cooler [7] are all shown in Fig. 13 . Table 3 
+lists the comparison between the designed value and measured 
+value of the nozzle diameters for the three coolers. Also, the di- 
+11 
+
+===== p.12 =====
+T. Wei, H. Oprins, L. Fang et al. 
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+Fig. 11. Correlations ﬁtting for heat transfer and ﬂow dynamics: (a) developed Nu f correlation versus CFD Nu f data (b) developed k factor correlation versus k_CFD. 
+Table 3 
+Comparison between the designed and fabricated parameters (unit: mm). 
+N × N array 
+Unit cell 
+d i (Design) 
+d i (Meas.) 
+d i /L (Meas.) 
+H/L(Meas.) 
+3 × 3 
+2.67 mm 
+0.8 mm 
+0.95 mm 
+0.36 
+0.33 
+4 × 4 
+2 mm 
+0.6 mm 
+0.75 mm 
+0.375 
+0.33 
+8 × 8 
+1mm 
+0.3 mm 
+0.38 mm 
+0.38 
+0.33 
+19044 [7] 
+0.15 mm 
+0.043 mm 
+0.287 
+0.33 
+Fig. 12. Experimental setup and cooler assembly with the thermal test vehicles. 
+mensionless number di/L with the measured values are also listed. 
+Since the cavity height designed for all the three coolers are mea- 
+sured as the same value with 650 μm, the dimensionless number 
+H/L used in the predictive model is H/L = 0.33. In general, it can 
+be seen that the measured di/L is a bit lager than the designed 
+value of d i /L = 0.3. For the predictive model validation, the mea- 
+sured thermal resistance and ﬂow rate are all transformed to the 
+Nu f - R e d correlations. The plotted Nu f - R e d relations for the coolers 
+with three different inlet nozzle arrays are used to validate the 
+predictive model, based on the dimensionless analysis. As shown 
+in Fig. 14 , it can be seen that the predictive model based on the 
+measured di/L value listed in Table 3 shows a good agreement with 
+the experimental results. 
+Moreover, the measurement data from Brunschwiler et al. are 
+also used to validate our developed predictive model, as shown in 
+Fig. 15 . The cooler parameters from Brunschwiler et al. [7] are im- 
+ported into the predictive model, where the nozzle diameter is 43 
+Fig. 13. Demonstrations of the three different version 3D printed coolers with (a) 3 × 3; (b) 4 × 4 and (c) 8 × 8; and also (d) the silicon based jet cooler with 19,044 
+nozzles from Brunschwiler et al. [7] . 
+12 
+
+===== p.13 =====
+T. Wei, H. Oprins, L. Fang et al. 
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+Fig. 14. Comparison of the measurements data and developed predictive model 
+Nu j - R e d for the 3D printed coolers with 3 × 3, 4 × 4 and 8 × 8 inlet nozzle ar- 
+rays. 
+Fig. 15. Comparison of the developed predictive model with literature experimental 
+data and correlations. 
+μm, unit cell length is 150 μm, and the nozzle number is 19044. It 
+can be seen that the predicted Nu f - R e d curve based on the geome- 
+try parameters shows good agreement with the experimental data 
+in the literature [7] , and this agreement is better than their Nu f - 
+R e d correlation. This is because the impacts of the d i / L and H/L 
+are included in our predictive model. Furthermore, the extracted 
+Nu f - R e d correlation is also compared with the state of art Nu f - R e d 
+correlations in the literature based on the 3D printed cooler con- 
+ﬁgurations, as reviewed in Section 1.2 . It can be seen that the most 
+matched developed model is Onstad’s model [3] , while the differ- 
+ence is larger for other models. However, the empirical constants 
+for the power-law relationship of Nu D versus Re D for Onstad’s 
+model are only limited to three different nozzle diameter values. 
+Moreover, it is also found that the predictive model developed by 
+Lindeman et al. [37] shows nicely predication in the large Reynolds 
+region above 10 0 0, but larger error in the small Reynolds number 
+region. It should be noted that our developed model is based on 
+the jet cooling with locally distributed outlets, which includes the 
+dimensionless term of d i / L and H/L. The developed Nu-Re model 
+applies to different d i / L and H/L ratios, under the range (0.01 ≤d i / L 
+≤0.4; 0.01 ≤H/L ≤0.4). In summary, the predictive model including 
+the effects of d i / L and H/L matches well with our in-house de- 
+veloped experimental results and also shows good agreement with 
+the available experimental Brunschwiler et al. data. 
+5. Conclusions 
+In this paper, non-dimensional correlations are developed for 
+the heat transfer in terms of the Nusselt number Nu f and pressure 
+coeﬃcient factor k as a function of the dimensionless geometrical 
+parameters for direct on-chip microscale liquid jet impingement 
+cooling with alternating feeding and draining nozzles. Those cor- 
+relations can be used as a predictive model to estimate the ther- 
+mal and hydraulic performance of a jet impingement cooler with 
+an N × N array on inlet nozzles and a N + 1 × N + 1 array of out- 
+let nozzles distributed between the inlet nozzles. The dimension- 
+less analysis is performed using conjugated heat transfer and ﬂuid 
+ﬂow unit cell CFD models using a transition SST turbulence model, 
+which has been validated with LES simulations [34] . An extensive 
+design of experiments analysis (DOE) has been performed based 
+on the listed dimensionless geometry parameters ( d i /L, d O /L, t/L, 
+H/L) and dimensionless velocity ( R e d ) to create the data set for the 
+ﬁtting of the correlations. 
+In the ﬁrst step, the impact of the individual geometrical pa- 
+rameters has been studied and a ﬁtting function has been pro- 
+posed to describe this impact. This study showed that the impact 
+of the chip thickness has a signiﬁcant impact on the junction tem- 
+perature of the application and that the relative impact of this con- 
+tribution increases as the convective heat transfer increases. Due 
+to the non-uniformity and the jet impingement ﬂow and the chip 
+surface temperature distribution, this impact is larger than just the 
+contribution of the one-dimensional conduction through the sili- 
+con of the chip, but also includes signiﬁcant contributions of ad- 
+ditional lateral heat spreading. Moreover, the effects of the nozzle 
+length, outlet diameter and cavity height are studied and quanti- 
+ﬁed in this work. 
+In the second step, the Nusselt number and k -factor correla- 
+tions are ﬁtted for all the dimensionless parameters based on the 
+previously derived functions for the individual parameters. The ﬁt- 
+ted correlations show maximum predictive error of ±30% for the 
+Nu f and the pressure coeﬃcient k factor correlation respectively, 
+based on a comparison of the ﬁtted values with the simulation val- 
+ues. The Nusselt number Nu f correlation has been experimentally 
+validated for both own test vehicle data of jet impingement cool- 
+ers with distribution nozzles with a nozzle diameter range of 300 
+– 800 μm, as well as for literature data for smaller 43 μm diameter 
+nozzles. For both sets of experiments, the developed correlations 
+show a very good agreement with the experimental data over the 
+Re range from 20 to 20 0 0. 
+Declaration of Competing Interest 
+The authors declare that they have no known competing ﬁnan- 
+cial interests or personal relationships that could have appeared to 
+inﬂuence the work reported in this paper. 
+CRediT authorship contribution statement 
+Tiwei Wei: Writing – review & editing, Investigation, Data cura- 
+tion, Methodology. Herman Oprins: Supervision, Resources, Writ- 
+ing – review & editing. Liang Fang: Software. Vladimir Cherman: 
+Methodology. Eric Beyne: Conceptualization, Funding acquisition. 
+M. Baelmans: Conceptualization, Supervision. 
+13 
+
+===== p.14 =====
+T. Wei, H. Oprins, L. Fang et al. 
+International Journal of Heat and Mass Transfer 182 (2022) 121865 
+References 
+◦
+[1] Tiwei W., 2020. “ll-in-one design integrates microﬂuidic cooling into electronic 
+chips,” Nature, vol. 585(7824), pages 188-189, September. 
+[2] J.F. Maddox , R.W. Knight , S.H. Bhavnani , Local thermal measurements of a con- 
+ﬁned array of impinging liquid jets for power electronics cooling, in: Proceed- 
+ings of the 31st Thermal Measurement, Modeling & Management Symposium 
+(SEMI-THERM), 2015, pp. 228–234 . 
+[3] AJ. Onstad , et al. , Flow and Heat Transfer for Jet Impingement Arrays with Lo- 
+cal Extraction, in: Proceedings of the Sixth International Symposium on Tur- 
+bulence and Shear Flow Phenomena, Begel House Inc., 2009, pp. 315–320 . 
+[4] D.M. Kercher , W. Tabakoff, Heat transfer by a square array of round air jets 
+impinging perpendicular to a ﬂat surface including the effect of spent air, J. 
+Eng. Power. Jan 92 (1) (1970) 73–82 . 
+[5] L.W. Florschuetz , DE. Metzger , Jet array impingement with crossﬂow-correla- 
+tion of streamwise resolved ﬂow and heat transfer distributions, Final Report, 
+Arizona State Univ, Tempe, 1981 . 
+[6] B.R. Hollworth , Arrays of impinging jets with spent ﬂuid removal through vent 
+holes on the target surface—Part 1: Average heat transfer, (1980): J. Eng. Power. 
+102 (4) (Oct 1980) 994–999 . 
+[7] T. Brunschwiler , et al. , Direct liquid jet-impingement cooling with micronsized 
+nozzle array and distributed return architecture, in: Proceedings of the IEEE In- 
+terSociety Conference on Thermal and Thermomechanical Phenomena in Elec- 
+tronic Systems, 2006, pp. 196–203 . 
+[8] T. Tiwei , et al. , High eﬃciency direct liquid jet impingement cooling of high 
+power devices using a 3D-shaped polymer cooler, in: Proceedings of the IEEE 
+International Electron Devices Meeting (IEDM), IEEE, 2017 . 
+[9] A .K. Shukla , A . Dewan , Flow and thermal characteristics of jet impingement: 
+comprehensive review, Int. J. Heat Technol. 35 (1) (2017) 153–166 . 
+[10] B.L. Button , K. Jambunathan , in: Jet Impingement Heat Transfer: A Bibliography 
+1976–1985, 15, Previews Heat Mass Transfer, 1989, pp. 149–178 . 
+[11] K. Jambunathan , et al. , A review of heat transfer data for single circular jet 
+impingement, Int. J. Heat Fluid Flow 13.2 (1992) 106–115 . 
+[12] N. Zuckerman , N. Lior , Jet impingement heat transfer: physics, correlations, 
+and numerical modeling, Adv. Heat Trans. 39 (2006) 565–631 . 
+[13] S.V. Garimella, R.A. Rice, Conﬁned and submerged liquid jet impingement heat 
+transfer, J. Heat Transf. 117 (4) (1995) 871–877, doi: 10.1115/1.2836304 . 
+[14] D.J. Womac , S. Ramadhyani , F.P. Incropera , Correlating equations for impinge- 
+ment cooling of small heat sources with single circular liquid jets, J. Heat 
+Transf. 115 (1) (1993) 106–115 . 
+[15] H. Martin , Impinging jets, in: Heat Exchanger Design Handbook, 2, Hemisphere 
+Publishing Corporation., 1983, pp. 2–5 . 
+[16] W. Tiwei , et al. , Experimental characterization and model validation of liquid 
+jet impingement cooling using a high spatial resolution and programmable 
+thermal test chip, Appl. Thermal Eng. 152 (2019) 308–318 . 
+[17] B. Weigand , S. Spring , Multiple jet impingement −a review. In TURBINE-09, in: 
+Proceedings of the International Symposium on Heat Transfer in Gas Turbine 
+Systems, 2009, pp. 101–142 . 
+[18] S.V. Narumanchi , V. Hassani , D. Bharathan , Modeling Single-Phase 
+and Boiling Liquid Jet Impingement Cooling in Power Electronics (No. 
+NREL/TP-540-38787), National Renewable Energy Lab.(NREL), Golden, CO 
+(United States), 2005 . 
+[19] B.P. Whelan , A.J. Robinson , Nozzle geometry effects in liquid jet array impinge- 
+ment, Appl. Thermal Eng. 29 (11-12) (2009) 2211–2221 . 
+[20] A. Royne , C.J. Dey , Effect of nozzle geometry on pressure drop and heat trans- 
+fer in submerged jet arrays, Int. J. Heat Mass Transf. 49 (3-4) (20 06) 80 0–804 . 
+[21] K. Azar , et al. , Electronics Cooling and the Need for Experimentation, in: Ther- 
+mal Measurements in Electronics Cooling, 1st, CRC Press, Boca Raton, 1997, 
+pp. 10–43 . 
+[22] M. Molana , S. Banooni , Investigation of heat transfer processes involved liquid 
+impingement jets: a review, Brazil. J. Chem. Eng. 30 (3) (2013) 413–435 . 
+[23] H. Martin , Heat and mass transfer between impinging gas jets and solid sur- 
+faces, Adv. Heat Transf. 13 (1977) 1–60 . 
+[24] V.A. Patil , V. Narayanan , Spatially resolved heat transfer rates in an impinging 
+circular microscale jet, Microscale Thermophys. Eng. 9 (2) (2005) 183–197 . 
+[25] D.J. Womac, F.P. Incropera, SS. Ramadhyani, Correlating equations for impinge- 
+ment cooling of small heat sources with multiple circular liquid jets, ASME. J. 
+Heat Transfer. 116 (2) (1994) 4 82–4 86, doi: 10.1115/1.2911423 . 
+[26] A.J. Robinson , E. Schnitzler , An experimental investigation of free and sub- 
+merged miniature liquid jet array impingement heat transfer, Experimen. Ther- 
+mal Fluid Sci. 32 (1) (2007) 1–13 . 
+[27] Y. Pan , B.W. Webb , Heat transfer characteristics of arrays of free-surface liquid 
+jets, (1995): J. Heat Transfer. 117 (4) (Nov 1995) 878–883 . 
+[28] M. Fabbri , V.K. Dhir , Optimized heat transfer for high power electronic cooling 
+using arrays of microjets, J. Heat Transf. 127 (20 05) (20 05) 760–769 . 
+[29] A .A .M. Huber , R. Viskanta , Effect of jet–jet spacing on convective heat transfer 
+to conﬁned, impinging arrays of axisymmetric air jets, Int. J. Heat Mass Transf. 
+37 (18) (1994) 2859–2869 . 
+[30] D. Rhee , P. Yoon , H. Cho , Local heat/mass transfer and ﬂow characteristics of 
+array impinging jets with effusion holes ejecting spent air, Int. J. Heat Mass 
+Transf. 46 (6) (2003) 1049–1061 . 
+[31] A. Onstad , C. Elkins , R. Moffat , Full-ﬁeld ﬂow measurements and heat transfer 
+of a compact jet impingement array with local extraction of spent ﬂuid, ASME 
+J. Heat Transf. 131 (8) (2009) 082201 . 
+[32] T.B. Hoberg , A.J. Onstad , J.K. Eaton , Heat transfer measurements for jet im- 
+pingement arrays with local extraction, Int. J. Heat Fluid Flow 31 (3) (2010) 
+460–467 . 
+[33] A.S. Rattner , General characterization of jet impingement array heat sinks with 
+interspersed ﬂuid extraction ports for uniform high-ﬂux cooling, J. Heat Transf. 
+139 (8) (2017) pp. 082201/1–082201/11 . 
+[34] W. Tiwei , et al. , in: “Conjugate Heat Transfer and Fluid Flow Modeling for 
+Liquid Microjet Impingement Cooling with Alternating Feeding and Draining 
+Channels”, 4, Fluids, 2019, p. 145 . 
+[35] W. Tiwei , et al. , Nozzle scaling effects for the thermohydraulic performance 
+of microjet impingement cooling with distributed returns, Appl. Thermal Eng. 
+180 (2020) 115767 . 
+[36] B. Kashi , D.H. Haustein , Dependence of submerged jet heat transfer on nozzle 
+length, Int. J. Heat Mass Transf. 121 (2018) 137–152 . 
+[37] B.A. Lindeman , J.M. Anderson , T.A. Shedd , Predictive model for heat transfer 
+performance of oblique and normally impinging jet arrays, Int. J. Heat Mass 
+Transf. 62 (2013) 612–619 . 
+[38] V. Cimalla , J. Pezoldt , O. Ambacher , Group III nitride and SiC based MEMS and 
+NEMS: materials properties, technology and applications, J. Phys. D Appl. Phys. 
+40 (20) (2007) 6386 . 
+[39] B. Elison , B.W. Webb , Local heat transfer to impinging liquid jets in the initially 
+laminar, transitional, and turbulent regimes – ScienceDirect, Int J Heat Mass 
+Transf 37 (1994) 1207–1216 . 
+[40] C.-Y. Li , S.V. Garimella , Prandtl-Number Effects and Generalized Correlations 
+for Conﬁned and Submerged Jet Impingement, International Journal of Heat 
+and Mass Transfer 44 (18) (2001) 3471–3480 . 
+[41] A.J. Robinson , E. Schnitzler , An experimental investigation of free and sub- 
+merged miniature liquid jet array impingement heat transfer, Experimental 
+Thermal and Fluid Science 32 (1) (2007) 1–13 . 
+[42] C. Meola , A new correlation of Nusselt number for impinging jets, Heat Trans- 
+fer Engineering 30 (3) (2009) 221–228 . 
+[43] P. Tie , Q. Li , Y. Xuan , Investigation on the submerged liquid jet arrays impinge- 
+ment cooling, Applied thermal engineering 31 (14-15) (2011) 2757–2763 . 
+[44] N. Yonehara , I. Ito , Cooling characteristics of impinging multiple water jets on 
+a horizontal plane, Technol. Rep. Kansai University 24 (1982) 267–281 . 
+[45] L.J. Jiji , Z. Dagan , Experimental Investigation of Single-Phase Multijet Impinge- 
+ment Cooling of an Array of Microelectronic Heat Sources, in: Proceedings 
+of the International Symposium on Cooling Technology for Electronic Equip- 
+ment, W. Aung, Washington, D.C., Hemisphere Publishing Corporation, 1987, 
+pp. 333–351 . 
+[46] D.T. Vader , F.P. Incropera , R. Viskanta , Local convective heat transfer from a 
+heated surface to an impinging planar jet of water, Int. J. Heat Mass Transfer 
+34 (1991) 611–623 . 
+[47] X. Liu , V.J.H. Lienhard , J.S. Lombara , Convective heat transfer by impingement 
+of circular liquid jets, J. Heat Transfer 113 (1991) 571–582 . 
+[48] G.J. Michna , et al. , The. Effect of Area Ration on Microjet Array Heat Transfer, 
+International Journal of Heat and Mass Transfer 54 (2011) 1782–1790 . 
+[49] T. Muszynski , R. Andrzejczyk , Heat transfer characteristics of hybrid micro- 
+jet–microchannel cooling module, Applied Thermal Engineering 93 (2016) 
+1360–1366 . 
+14 

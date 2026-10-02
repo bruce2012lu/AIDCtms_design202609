@@ -1,0 +1,1200 @@
+
+===== p.1 =====
+Contents lists available at ScienceDirect
+Applied Thermal Engineering
+journal homepage: www.elsevier.com/locate/apthermeng
+Nozzle scaling eﬀects for the thermohydraulic performance of microjet
+impingement cooling with distributed returns
+T.-W. Weia,b,⁎, H. Oprinsa, Liang Fangb, V. Chermana, I. De Wolfc, E. Beynea, M. Baelmansb
+a imec, Leuven, Belgium
+b Dept. Mech. Eng., KU Leuven, Leuven, Belgium
+c Dept. Materials Eng., KU Leuven, Leuven, Belgium
+H I G H L I G H T S
+• The impact of nozzle density for 3D printed jet cooler is experimentally measured.
+• A numerical parameter sensitivity study is used to ﬁnd optimal jet cooler design.
+• Constant cooling rate/pumping power requires diﬀerent optimal design parameters.
+• Best design nozzle density is between 30 cm−2 and 300 cm−2 for constant ﬂow rate.
+• Best design with highest nozzle density is for constant pumping power comparison.
+A R T I C L E I N F O
+Keywords:
+Impingement cooler
+Additive manufacturing
+Nozzle density
+Numerical modeling
+Cavity height
+Coeﬃcient of performance
+A B S T R A C T
+Previous research studies showed that bare die liquid multi-jet impingement coolers with locally distributed
+outlets using silicon processing, mechanical micromachining, and additive manufacturing technology can
+achieve high cooling eﬃciency for high power electronic applications. The nozzle density is a crucial factor for
+thermal performance as well as for selecting the required fabrication technology. However, general design
+guidelines for the optimal nozzle density and cavity height are still missing in literature. In this paper, the impact
+of nozzle density on direct multi-jet impingement jet cooling is investigated using experiments and numerical
+modeling for an N×N nozzle array. The general scaling analysis with experimentally validated models is in-
+vestigated based on three independent design parameters: nozzle density (N2/A), nozzle diameter (di) and cavity
+height (H). The objective is to ﬁnd the optimal design parameters and to study the scaling trends. The experi-
+mental studies show that a very good thermal performance for the 8 × 8 jet array cooler with 1 × 1 mm2
+cooling cells has be achieved as low as 0.13 cm2-K/W for a ﬂow rate of 1000 ml/min. The best cooler design,
+expressed as the cooler with the highest COP value, can be achieved in the middle range of the nozzle density
+between 30 and 300 nozzles per cm2 for the constant ﬂow rate consideration. Comparisons in terms of constant
+cooler ﬂow rate or constant pumping power will result in diﬀerent optimal design parameter values.
+1. Introduction
+Thermal management of high-power devices (MOSFETs, IGBTs) or
+high-performance systems (2.5D, 3D integration), is becoming more
+and more challenging. It is expected that the heat ﬂux for future high-
+power devices is on the order of 600–1000 W/cm2 [1]. Therefore, ad-
+vanced cooling concepts are needed to improve the cooling perfor-
+mance. Liquid jet impingement cooling [2] is regarded as an eﬀective
+cooling technique for high power electronics due to the high local
+cooling rate, better temperature uniformity and lower pressure drop
+compared with microchannel coolers. In literature studies, this cooling
+technique has been applied on the power module baseplate [3], on the
+substrate [4] or even on the bare die [5,6,7]. Among these techniques,
+bare die liquid jet impingement cooling with locally distributed outlet
+returns is regarded as the most eﬃcient cooling option where the liquid
+coolant is directly ejected from nozzles on the device backside resulting
+in a high cooling eﬃciency due to the absence of the thermal interface
+materials (TIM) and the lateral temperature gradient. Moreover, a
+lower pressure drop can be realized since the outlet ﬂow within the
+cooling unit cell can be removed locally whereas the pressure drop of
+https://doi.org/10.1016/j.applthermaleng.2020.115767
+Received 10 February 2020; Received in revised form 25 June 2020; Accepted 17 July 2020
+⁎ Corresponding author.
+E-mail address: tiwei.wei@imec.be (T.-W. Wei).
+Applied Thermal Engineering 180 (2020) 115767
+Available online 21 July 2020
+1359-4311/ © 2020 Elsevier Ltd. All rights reserved.
+T
+
+===== p.2 =====
+microchannel cooling is scaling with the channel length.
+In [8,9], a systematic review about microjet cooling techniques is
+presented and the thermal performance is benchmarked. Fig. 1 sum-
+marizes the published performance data in terms of the reported heat
+transfer coeﬃcient as a function of the jet nozzle density, where the
+nozzle density is deﬁned as the total nozzle number divided by the
+cooled chip area, shown as N2/A. In general, the chart shows an in-
+crease of the heat transfer for high nozzle density values. However, the
+highest achieved heat transfer is not obtained from the ﬁnest nozzle
+array. Furthermore, high nozzle densities require more expensive fab-
+rication techniques, such as the silicon and ceramic fabrication tech-
+niques, due to the complexity of the internal structure and the in-
+tegration with the chip packaging. Therefore, a thorough investigation
+of the impact of the nozzle density is very important for the design of an
+eﬃcient liquid impingement jet cooler and the selection of a cost-eﬃ-
+cient fabrication technique.
+Several studies showed the demonstrations and measurements for
+diﬀerent nozzle densities, based on jet nozzles with distributed returns.
+In [3], a metal based single-jet direct impingement cooler with nozzle
+density of 1.56 cm−2 was demonstrated on a single MOSFET semi-
+conductor showing a heat transfer coeﬃcient of 1.2 × 104 W/(m2 K)
+for a pumping power of 0.9 W. However, the obtained heat coeﬃcient
+distribution for single jet cooling is highly nonuniform, due to the dif-
+ferent ﬂow regions: stagnation region, wall jet region and decay region.
+In [6], Brunschwiler et al. demonstrated that Si based microjet array
+impingement coolers with 50,000 inlet/outlet nozzles, allow to increase
+the heat transfer coeﬃcient to 8.7 × 104 W/(m2 K) with 1.43 W
+pumping power. The nozzle density of this cooler is 12,500 cm−2.
+Moreover, Natarajan and Bezama [7] developed a microjet cooler with
+1600 inlets and 1681 outlets using multilayer ceramic technology, re-
+sulting a nozzle density of 888 cm−2. The main drawbacks of the Si or
+ceramic based coolers are the high pressure drop for the small diameter
+nozzles and the high fabrication cost. In our previous studies, polymer
+based 4×4 jet array coolers with nozzle density of 25 cm−2 and nozzle
+diameter of 0.6 mm were demonstrated with micromachining [9] and
+stereolithography 3D printing [19]. The multi-jet cooler with a nozzle
+Nomenclature
+A
+Chip Area, [mm2]
+di
+Inlet Nozzle diameter, [μm] or [mm]
+do
+Outlet Nozzle diameter, [μm] or [mm]
+di/L
+Nozzle Diameter Ratio, -/-
+f
+Pressure Coeﬃcient
+H
+Cavity Height, [mm]
+Hcritical
+Critical Cavity Height, [mm]
+L
+Nozzle Pitch (cooling unit cell length), [mm]
+N2
+Total number of inlet nozzles
+Nu
+Nusselt Number
+N2/A
+Nozzle Density, [
+−
+cm 2]
+Pin
+Inlet Pressure, [Pa]
+Pout
+Outlet Pressure, [Pa]
+Qhs
+Heat Generated in the Heater Cells, [W]
+∗
+Rth
+Normalized Thermal Resistance, [cm2-K/W]
+Re
+Reynolds Number
+Tavg
+Average Junction Temperature, [°C]
+Tin
+Coolant Inlet Temperature, [°C]
+t
+Nozzle length, [mm]
+V̇n
+Flow Rate per Nozzle, [ml/min]
+V̇
+Total ﬂow rate for all the nozzle arrays, [ml/min]
+∗
+Wp
+Normalized Pumping Power, [W/cm2]
+ΔPtot
+Pressure Diﬀerence between Inlet and Outlet, [Pa]
+Δpch
+Pressure Drop across the cavity height, [Pa]
+Δpnz
+Pressure Drop across the jet nozzle, [Pa]
+Δpjet
+Pressure Drop generated by Jet Cooling, [Pa]
+Δploss
+Pressure loss of Flow Expansion and Flow Contraction,
+[Pa]
+Subscripts
+avg
+average
+ch
+channel
+i/in
+inlet
+o/out
+outlet
+hs
+hotpots of the heater
+n
+nozzle
+p
+pumping
+tot
+total
+th
+thermal
+Acronyms
+COP
+Coeﬃcient of Performance
+BEOL
+Back-end of Line
+CAD
+Computer-aided Design
+CFD
+Computational Fluid Dynamics
+DI
+Deionized
+DOE
+Design of Experiment
+FL
+Flow Rate
+FS
+Percentage of Full Scale
+GCI
+Grid Convergence Index
+IGBT
+Insulated-Gate Bipolar Transistor
+MOSFET Metal–Oxide–Semiconductor Field-Eﬀect Transistor
+PCB
+Printed Circuit Board
+PTCQ
+Packaging Test Chip Version Q
+QUICK
+Quadratic Interpolation for Convective Kinetics
+RD
+Percentage of Reading
+SIMPLE
+Semi-Implicit Method for Pressure-Linked Equations
+SLA
+Stereolithography
+SST
+Shear Stress Transport
+TIM
+Thermal Interface Materials
+Fig. 1. Trend of the dissipated heat ﬂux in the chip as a function of the nozzle
+density of the cooler ().
+adapted from [9] (See above-mentioned references for further information.)
+T.-W. Wei, et al.
+Applied Thermal Engineering 180 (2020) 115767
+2
+
+===== p.3 =====
+density of 25 cm−2 can achieve heat transfer coeﬃcients up to
+6.25 × 104 W/(m2 K) with a pumping power as low as 0.3 W. However,
+the manufacturability of a micro-machined cooler is limited by the
+critical parameter of the drilling and milling tools.
+The thermal performance of the cooler is furthermore aﬀected by
+the nozzle diameter di and cavity height H which are usually coupled
+with the nozzle density N2/A. For a free-surface jet cooling, Womac
+et al. [20] observed that the H∕di ratio had a negligible eﬀect on the heat
+transfer based on the experimental study. For the single submerged and
+the conﬁned jet cooling, Garimella [21,22] experimentally investigated
+the eﬀect of H∕di, L∕di, and the ﬂow rate on heat transfer. They found
+that H∕di signiﬁcantly aﬀects the heat transfer performance of the
+system, especially for multiple conﬁned jet impingement cooling. Al-
+dabbagh and Sezai [23] also concluded that cavity height (H) sig-
+niﬁcantly aﬀects heat transfer performance. Afzal Husain [24] reported
+that at both low and high ﬂow rates, the change in cavity height does
+not aﬀect the pressure drop signiﬁcantly. However, the decrease in the
+spacing between the nozzle to the heated surface increases the heat
+transfer coeﬃcient monotonously.
+Brunschwiler et al. deﬁned four typical regimes based on the cavity
+height, which are the pinch-oﬀregime (H < Hcritical), the impingement
+regime, the transition regime, and the separation regime [6]. They
+observed that both the heat transfer and the pressure drop increase
+rapidly for reducing cavity height in the pinch-oﬀregime and that the
+heat transfer remains constant as a function of the cavity height in the
+impingement regime. In [25], the experimental study also showed that
+the thermal performance was insensitive to the gap at large spacing, but
+below a speciﬁc gap it degraded with decreasing gap. However, the
+studies are only limited to a speciﬁc nozzle density. From the discussion
+above, it is clear that there is an interaction between the impact of the
+nozzle density and the cavity height on the thermal and hydraulic
+performance of the impingement jet cooler.
+The focus of this paper is to investigate the combined impact of the
+jet array design parameters on the thermo-hydraulic cooler perfor-
+mance. These parameters are: 1) the nozzle density, 2) the cavity
+height, and 3) the nozzle diameter. This paper ﬁrst shows the design
+and fabrication of demonstrators for three diﬀerent nozzle densities
+with a 3 × 3, 4 × 4, and 8 × 8 nozzle array fabricated using 3D
+printing. In section III, the impact of the nozzle density on the thermal
+and hydraulic performance will be investigated experimentally. In
+section IV, a conjugate heat transfer and ﬂuid ﬂow Computational Fluid
+Dynamics (CFD) unit cell modeling approach is introduced and ex-
+perimentally validated. In the last section, the validated model is ap-
+plied to assess the combined thermal impact of the nozzle density on
+nozzle diameter and cavity height on the thermo-hydraulic perfor-
+mance through an extensive design of experiments. The objective of this
+study is to provide guideline for predicting the thermal/hydraulic
+performance of the cooler based on user’s constraint working condi-
+tions.
+2. Demonstration of 3D printed cooler with diﬀerent nozzle
+density
+2.1. Design of the microjet cooler
+The schematic of the microjet cooler with distributed returns is il-
+lustrated in Fig. 2. The inlet manifold is used to distribute the cold
+coolant over the N × N array of inlet nozzles. The nozzle arrays consist
+of several unit cells. The latter are deﬁned as cooler units with a single
+inlet in the center and four outlets located at the four corners. After the
+ﬂuid impinges onto the chip backside, the outlet manifold collects the
+ﬂow and evacuates the coolant through the outlet nozzles of an
+(N + 1) × (N + 1) array.
+Stereolithography (SLA) can achieve a high resolution in the mi-
+crometer range (for example 1 µm in Z direction (layer thickness) and a
+few to tens of microns in XY direction (pixel size) by using photo-
+polymers. Based on the manufacturability of the SLA technology, three
+diﬀerent versions of the jet impingement cooler are designed for the
+bare die thermal test chip package that contains an 8 × 8 mm2 thermal
+test chip [27]. Fig. 3 shows cross-sections of the design of the coolers
+with a 3 × 3, 4 × 4 and 8 × 8 inlet nozzle array. Therefore, the
+maximum nozzle density for the cooler demonstration is 100 cm−2. For
+this study on the impact of the nozzle density, the geometrical para-
+meters of the inlet and outlet plenum level are all kept ﬁxed. The inlet
+chamber is designed as 2.5 mm and the cavity height for the three full
+coolers is designed as 0.6 mm. Moreover, the nozzle diameter ratio di/L
+deﬁned as the nozzle diameter over the inlet nozzle pitch L is kept ﬁxed
+at 0.3 [see Table 1].
+2.2. Cooler fabrication and assembly
+The stereolithography SLA printing equipment Formlabs Form 2
+with high resolution of 0.13 mm for the XY draw plane and 0.406 mm
+for the Z build direction, is used in this study. With the high-resolution
+SLA, the coolers with 3 × 3, 4 × 4 and 8 × 8 nozzle arrays are suc-
+cessfully printed using one single process without assembly of the in-
+dividual parts. The bottom view of diﬀerent fabricated coolers is illu-
+strated in Fig. 4. Moreover, the 3D reconstructed microscope images are
+also shown in Fig. 4. It can be seen that all nozzles are functional with
+no blockages or trapped resin observed even for smallest 8 × 8 nozzle
+array design. Fig. 5 shows the distribution of the measured nozzle
+diameter for the diﬀerent nozzle arrays. In general, the actual nozzles
+diameters are within 18% diﬀerence from the nominal design values for
+4 × 4 and 8 × 8. However, a diﬀerence of 26% is found for 3 × 3 with
+a nominal nozzle diameter of 800 µm. This is due to the higher mea-
+surement uncertainty for the small nozzle diameter with relatively
+larger roughness. The fabricated larger nozzle diameter is expected to
+have a higher thermal resistance under the same ﬂow rate, but exhibit a
+lower pressure drop (larger diameters) and therefore will require a
+lower pumping power. The fabrication tolerance and impact of the
+Fig. 2. Schematic of the microjet array cooling: (a) cross section view of the full nozzle array with inlets and outlets; (b) geometry parameters deﬁnitions (schematic).
+adapted from [26]
+T.-W. Wei, et al.
+Applied Thermal Engineering 180 (2020) 115767
+3
+
+===== p.4 =====
+printing tolerance was investigated in our previous study [10].
+3. Experimental analysis of nozzle scaling trend
+3.1. Experimental set-up
+In order to characterize the thermal and hydraulic performance of
+Fig. 3. CAD (Computer-aided design) structures: (a) 8 × 8 array cooler with inside channels and enlarge view for three diﬀerent nozzle array (b) 3 × 3 (c) 4 × 4 and
+(d) 8 × 8.
+Table 1
+Nozzle density with respect to the 8 × 8 mm2 test chip with di/L = 0.3.
+Symbol
+N×N
+Nozzle density
+(cm−2)
+Cooling unit cell
+(mm)
+Nozzle diameter
+(mm)
+N1
+1×1
+1.56
+8
+2.4
+N2
+2×2
+6.25
+4
+1.2
+N3
+3×3
+14.06
+2.6
+0.8
+N4
+4×4
+25
+2
+0.6
+N6
+6×6
+56.25
+1.33
+0.4
+N8
+8×8
+100
+1
+0.3
+N12
+12×12
+225
+0.67
+0.2
+N16
+16×16
+400
+0.5
+0.15
+N20
+20×20
+625
+0.4
+0.12
+N32
+32×32
+1600
+0.25
+0.08
+Fig. 4. 3D reconstructed microscope images (top) and bottom view of the nozzle plate (bottom) of the fabricated 3D printed coolers: (a) N3: 3 × 3 (b) N4: 4 × 4 and
+(c) N8: 8 × 8.
+Fig. 5. Nozzle diameter statistics with diﬀerent nozzle array.
+T.-W. Wei, et al.
+Applied Thermal Engineering 180 (2020) 115767
+4
+
+===== p.5 =====
+the cooler, a dedicated closed loop temperature measurement and
+pressure drop measurement system [9] is used, shown in Fig. 6. The
+ﬂuid used in this measurement is Deionized water (DI water). The ﬂow
+rate in the system is controlled by a mini Cori ﬂow meter with accuracy
+of ± 0.2% as a percentage of reading (%RD). The pressure drop be-
+tween the inlet and outlet is measured by a diﬀerential pressure gauge
+that can withstand a static pressure of 10 bar. The scope of the pressure
+drop is between 0.2 and 5 bar with an accuracy < ± 0.5% as a per-
+centage of full scale (% FS). A stainless-steel basket ﬁlter is used for the
+pump with a screen of 25 μm. The thermal measurement set-up system
+is shown in Fig. 7. The cooler with 8.6 mm × 14 mm × 14 mm volume
+size is ﬁxed on the organic package substrate where the nozzle arrays
+are located on top of the Packaging Test Chip Version Q (PTCQ) thermal
+test chip [27].
+The programmable 8 × 8 mm2 thermal test chip contains a 32 × 32
+array of temperature sensors to measure the full chip temperature
+distribution map. The details of the thermal test chip are shown in
+Fig. 8. As illustrated in Fig. 8(a), the ﬂip-chip package of the bare die is
+soldered on the printed circuit board (PCB) test board, allowing the
+control of the temperature sensor diodes and resistor heaters. The
+heaters are constituted by metal meanders resistors in the backend of
+line (BEOL) that are controlled independently, resulting in a custo-
+mizable programmable power map with 832 heater cells with 75%
+heater uniformity, shown in Fig. 8(b). As shown in Fig. 8(c), the chip
+with an area of 8 × 8 mm2 contains a 32 × 32 array of 240 × 240 μm2
+square cells with additional peripheral circuits with I/O and control
+cells in the central cross of the chip. The used temperature sensor, in the
+center of each cell, is a diode, for which the voltage drop across diode at
+ﬁxed DC current can be used as the measure of temperature. This diode,
+with a size of 4.8 µm × 2.6 µm is shown in Fig. 8(d). The chip tem-
+perature distribution thus can be measured with a spatial resolution of
+240 μm, allowing the accurate capturing of local temperature eﬀects on
+the chip. The measurement uncertainty for the sensor and heater vol-
+tage are 1 mV and 1.6 mV respectively. The 95% conﬁdence interval of
+the calibrated sensitivity of the temperature sensor on the test chip is
+−1.55 ± 0.02 mV/°C in the temperature range between 10 and 75 °C
+for a current of 5 μA. The analysis of the propagated measurement
+uncertainty results in a value of ± 1.8% for the reported thermal re-
+sistance measurements.
+3.2. Characterization metrics deﬁnitions
+In order to characterize the thermal and hydraulic performance of
+the cooler, the characteristic metrics are deﬁned and explained in this
+section. First, the nozzle density in this study is deﬁned as follows:
+=
+ρ
+N2/A
+N
+(1)
+Since the thermal performance of the cooler scales with the chip
+area, the thermal resistance
+∗
+Rth is normalized as follows [19]:
+=
+−
+∗
+R
+A(T
+T )/(Q )
+th
+avg
+in
+hs
+(2)
+where the Qhs is the heat generated in the heater cells based on the
+measured electrical current and heater voltage. The total pressure drop
+ΔPtot is deﬁned as the pressure diﬀerence between inlet pressure Pin and
+outlet pressure Pout:
+=
+−
+ΔP
+P
+P
+tot
+in
+out
+(3)
+The normalized pumping power
+∗
+Wp is expressed as follows:
+=
+∗
+W
+V
+p
+̇ΔP /A
+tot
+(4)
+Therefore, the normalized pumping power will be independent of
+the chip area, for equal ﬂow rates per nozzle.
+3.3. Thermal/Hydraulic measurements
+The thermal performance measured by the thermal test chip with
+the three diﬀerent coolers is shown in Fig. 9 for a constant ﬂow rate
+(FL) of 1000 ml/min. It can be seen that the chip temperature reduces
+with increasing nozzle density. The observed trend with increasing
+cooling performance can be concluded as N3 < N4 < N8. The tem-
+perature proﬁle along the chip diagonal is also compared in Fig. 9(d).
+The comparison shows that a very good thermal performance
+∗
+Rth
+of
+0.13 cm2K/W for the 8 × 8 cooler with 1 × 1 mm2 cooling cells can be
+achieved.
+The experimental results in Fig. 10 show that the thermal resistance
+reduces when the nozzle density increases from 14 cm−2 to 100 cm−2.
+In this study, the nozzle density is limited to 100 cm−2 based on the
+current limitations on the 3D polymer printing technology. To extra-
+polate the thermal performance, a conjugate heat transfer and ﬂuid
+ﬂow CFD unit cell model is used to further investigate this scaling trend
+for the nozzle density up to 1600 cm−2, corresponding to a 32×32
+nozzle array on the 8×8 mm2 test chip. It was shown previously that the
+unit cell CFD model, extracted from the full N×N nozzle array is an
+eﬃcient and accurate method to study the thermal and hydraulic per-
+formance of an impingement cooler, as demonstrated for a 4×4 jet array
+cooler [6]. In the next section, the details of the unit cell model and
+modeling methodology will be introduced and validated.
+4. Modeling methodology and validation
+The unit cell modeling domain, shown in Fig. 11, corresponds to 1/8
+of one liquid cooling unit cell (Fig. 2b), which consist of a central inlet
+nozzle surrounded by four outlet nozzles. ANSYS Fluent 18.0 is used for
+the CFD modeling. The unit cell modeling approach is based on the
+assumption that there is no pressure gradient in the full N×N nozzle
+array. The ΔPtot is deﬁned as the pressure diﬀerence between inlet and
+outlet nozzle. The boundary condition for every inlet nozzle is set at a
+constant velocity. The static pressure for the outlets is set at 0 Pa. The
+ﬂuid/solid wall on each side is considered as a symmetry boundary. A
+constant heat ﬂux is applied on the chip bottom to represent the heating
+in the test chip. The coolant inlet temperature is set at a constant
+temperature value of 10 °C.
+The mesh is performed in the ANSYS ﬂuent mesh module. The
+governing equations in the numerical simulation are the momentum
+and energy equations, deﬁned in ANSYS. For the meshing of the unit
+cell shown in Fig. 11(a), tetrahedral meshing cells are used in the ﬂuid
+domain. The ﬁrst layer thickness for the boundary layer along the ﬂuid
+wall is 1 µm to make sure the grid is ﬁne enough to get y + <1 in the
+viscous sublayer in case of the 600 µm nozzle. For the cases with a high
+nozzle density, the mesh is scaled in order to keep a constant ratio
+between the element size and the nozzle diameter. For the unit cell
+model,
+extensive
+design
+of
+experiments
+are
+performed
+for
+the
+Fig. 6. Schematic of the ﬂow loop measurements system with pressure and ﬂow
+rate control.
+T.-W. Wei, et al.
+Applied Thermal Engineering 180 (2020) 115767
+5
+
+===== p.6 =====
+dimensionless analysis and parametric analysis. Therefore, meshing
+sensitivity is needed to make sure the modeling results are mesh in-
+dependent. Table 2 lists the grid convergence index (GCI) analysis for
+diﬀerent nozzle array for a ﬁxed cavity height. The ﬁnal chosen mesh
+size is between 0.005 mm and 0.02 mm for the nozzle array from 4×4 to
+32×32, resulting the element number between 0.6 million to 1 million
+in the computation domain.
+For the numerical scheme, the Semi-Implicit Method for Pressure-
+Linked Equations (SIMPLE) algorithm is used as the solution method
+while the Quadratic Interpolation for Convective Kinetics (QUICK)
+scheme is chosen for the numerical discretization. The convergence
+criteria were set at 10-5 for continuity, 10-6 for energy and 10-6 for k, ω
+and momentum (x, y and z components of velocity), respectively.
+For the studied ﬂow rate range from 100 ml/min to 1000 ml/min,
+the corresponding Reynolds number, based on the jet diameter, is be-
+tween 50 and 2000. Since the laminar to turbulent transition for jet
+impingement ﬂows occurs for Red numbers between 1000 and 3000
+[8], the coolant ﬂow is expected to be in the laminar regime or the
+transition regime for the considered cases. To cover both regimes in the
+CFD model, a transition Shear Stress Transport (SST) model is used for
+the simulations. In our previous study [32], the transition SST model
+has been validated with a reference Large Eddy Simulation (LES) model
+Fig. 7. Cooler assembly and experiment set up for the temperature measurement of the microjet cooling.
+Fig. 8. Introductions of the PTCQ thermal test chip: (a) thermal test chip package schematic; (b) layout of one heater cell; (c) indication of one temperature sensor
+(diode sensor); (d) and (e) dimensions and structure details of the diode temperature sensor.
+T.-W. Wei, et al.
+Applied Thermal Engineering 180 (2020) 115767
+6
+
+===== p.7 =====
+for the same unit cell geometry. It was shown that the transition Shear
+Stress Transport (SST) model shows excellent ability to predict the
+stagnation Nu number and the average Nu number, as well as the local
+level pressure coeﬃcient f with less than 5% diﬀerence in the range of
+30 < Red less than 4000, compared with the reference LES model. This
+justiﬁes the use of the faster transition SST model in the extensive de-
+sign of experiments with a high level of conﬁdence, instead of the time
+consuming LES model.
+In Fig. 11, the unit cell model schematic with the boundary condi-
+tions and solid–ﬂuid domain are indicated. The ﬂow boundary condi-
+tions are declared in the inlet and outlet, as illustrated in Fig. 11(b). The
+ﬁnal mesh of the unit cell model for 4×4 nozzle array with nozzle
+diameter of 0.6 mm is shown in Fig. 11(c). The material properties are
+listed in Table 3.
+The ﬂow regions and temperature distribution for unit cell modeling
+results for a ﬂow rate of 1.47 m/s is shown in Fig. 12. The applied heat
+ﬂux is 37.5 W/cm2. From the ﬂow streamline, the jet ﬂow behaviors
+can be observed in Fig. 12(a). Moreover, it is found that the lowest
+temperature is in the stagnation region of the jet ﬂow, as indicated in
+Fig. 12(b).
+The comparison between the experimental measurements and the
+results of the CFD unit cell model is shown in Fig. 13. A good agreement
+can be observed between the modeling and experimental results.
+Therefore, the CFD model with the unit cell approach is successfully
+validated, and it can be used for the extrapolation of the thermal per-
+formance for higher nozzle densities beyond 100 nozzles per cm2. As
+discussed in Fig. 13, the experimental results show that there is a de-
+crease of thermal resistance when the nozzle density increases from
+14 cm−2 to 100 cm−2 for a ﬁxed cavity height and diameter ratio.
+Using the validated model, this analysis can be generalized for a large
+range of cavity heights and diameter ratios. The range of dimensions
+are listed in Table 4.
+Fig. 9. Comparison of the temperature distribution for (a) 3 × 3 (b) 4 × 4 and (c) 8 × 8 nozzle array; (d) temperature proﬁles comparison along the chip diagonal
+(H = 0.6 mm, Qhs = 40 W, FL = 1000 ml/min).
+Fig. 10. Experimental results expressed as normalized thermal resistance as a
+function of the nozzle density for three diﬀerent nozzle density values
+14.06 cm−2, 25 cm−2 and 100 cm−2.
+T.-W. Wei, et al.
+Applied Thermal Engineering 180 (2020) 115767
+7
+
+===== p.8 =====
+As shown in Fig. 13(b), there are two opposing trends observed for
+the pressure drop as a function of the number of nozzles: for low nozzle
+density values, the pressure drop between the inlet and the outlet of the
+unit cell is dominated by contribution from the cavity region; for nozzle
+density values, the pressure drop inside the inlet andoutlet nozzles
+dominates. Speciﬁcally, the pressure drop reduces signiﬁcantly with the
+increase of the nozzle density up to 25 cm−2. This can be explained due
+to the fact that the pressure drop contribution for the channel ﬂow in
+the cavity region Δpch decreases due to the reduction of the distance
+between inlet and outlet of each unit cell for an increase of the nozzle
+density and the corresponding reduction of the unit cell dimensions. It
+can be observed, that this leads to a high cooler pressure drop for the
+extreme case of the single jet cooler, where the unit cell length is equal
+to half of the chip size. However, this trend of the pressure drop re-
+duction turns to go up at certain point (25 cm−2) as the nozzle density
+keeps growing. This is mainly due to the dominant contribution of
+pressure drop Δpnz inside inlet and outlet nozzles from that point on.
+Indeed, the Δpnz goes up with the reduction of the nozzle diameter due
+to the increasing nozzle density. The total pressure drop becomes very
+high for larger nozzle arrays due to the smaller nozzle diameter with
+high aspect ratio, for a constant ﬂow rate. These trends are discussed in
+more detail in section 5.3.1.
+5. Nozzle scaling analysis with validated model
+5.1. Criteria for comparison
+The objective of this study is to ﬁnd the best combination of the
+design variables and study the scaling trends. An extensive parameter
+sensitivity study has been performed by varying the three variables:
+nozzle density: N2/A, cavity height H and nozzle diameter ratio di/L.
+The parameters and their range are listed in Table 4.
+The outputs of the model are the thermal resistance and pressure
+drop or pumping power as introduced in Section 3.2. In order to
+compare the cooling performance for diﬀerent cooler geometries, there
+are mainly two criteria for the comparison.
+The ﬁrst option is to compare the thermal performance at a constant
+ﬂow rate, since the ﬂow rate is a typical system level parameter for the
+closed loop cooling and limited by the pump. For a smaller nozzle
+diameter, a larger velocity per nozzle is needed for the same ﬂow rate,
+resulting in higher pressure drop and pumping power. Therefore, the
+trade-oﬀbetween the thermal resistance and pumping power should be
+taken into account in this analysis. A metric that can be used to include
+both aspects, is the coeﬃcient of performance (COP) [29,30,33], de-
+ﬁned as the ratio between the cooling power and the required pumping
+power. In the context of the impingement cooling, the COP can be
+deﬁned as follows:
+=
+=
+COP
+Cooling Power
+Required pump power
+Max allowed temp increase Rth
+Required pump power
+/
+(5)
+Therefore, the beneﬁcial eﬀect of the thermal resistance and the
+detrimental eﬀect of the pressure drop can be combined, where a higher
+COP indicates a better cooler design. The deﬁnition of the general COP
+is deﬁned as the desired heat power divided by the required pumping
+power, where the required pumping power includes the chiller power,
+and ﬂuidic tube connection consumed power. It should be noted that
+the COP deﬁned in this paper only includes the required pumping
+power related to the pressure drop between the cooler inlet and outlet,
+while the system level tube connections, chiller power, and others are
+Fig. 11. Unit cell model for 4×4 nozzle
+array: (a) one quarter model of the full
+nozzle array; (b) 1/8 model: unit cell model;
+(c) meshing details of the unit cell model.
+Table 2
+GCI analysis for the unit cell model with diﬀerent nozzle array (di/L = 0.3,
+H = 0.6 mm, Vin = 1.47 m/s).
+Nozzle array
+Mesh size
+(mm)
+GCI12
+Asymptotic range of
+convergence
+×
+4
+4
+0.02
+0.0000
+1.0000
+×
+6
+6
+0.02
+−0.0002
+0.9990
+×
+8
+8
+0.01
+0.0002
+0.9999
+×
+10
+10
+0.01
+−0.0013
+0.9994
+×
+12
+12
+0.005
+0.0001
+1.0000
+×
+20
+20
+0.005
+0.0008
+0.9995
+×
+32
+32
+0.005
+0.0008
+0.9991
+Table 3
+Dimensions and Material properties.
+Material
+Speciﬁc heat [J/(kg K)]
+Thermal conductivity
+Si
+556.9
+149 W/m K
+Water
+4182
+Piecewise-linear, Temperature dependent
+T.-W. Wei, et al.
+Applied Thermal Engineering 180 (2020) 115767
+8
+
+===== p.9 =====
+not taken into account, resulting in an artiﬁcially high value for the
+reported COP. The reason is that we want to perform a relative thermo-
+hydraulic performance comparison of diﬀerent cooler design para-
+meters, following the methodology introduced in [33].
+The second option is the comparison for a constant pumping power.
+For smaller nozzle diameters, the pressure drop is higher for a constant
+ﬂow rate. Therefore, a smaller ﬂow rate needs to be used to maintain a
+constant pumping power. By comparing the thermal performance at a
+constant pumping power, the energy eﬃciency of the coolers is com-
+pared, which determines how much heat is removed for the same re-
+quired pumping power, taking into account the hydraulic aspects.
+5.2. Single variable analysis
+5.2.1. Fixed cavity height
+Fig. 13 shows the improvement of thermal performance and an in-
+crease of the pressure drop for increasing nozzle density for constant
+ﬂow rate and cavity height. The trade-oﬀis shown in Fig. 14 in terms of
+the COP, plotted as a function of nozzle density and nozzle diameter for
+a ﬁxed ﬂow rate of 600 ml/min and a cavity height ﬁxed at 200 µm.
+The parameters di/L and N2/A are varied according to Table 2. As the
+nozzle density increases, the COP ﬁrst increases very fast until the range
+around 100–200 cm−2 and then the COP decreases slowly. It can also
+be observed that the higher inlet diameter ratio, the larger the COP is.
+The impact of the nozzle diameter ratio is larger than the impact of the
+nozzle density. At a nozzle density of 100 cm−2 (8×8 array), the COP
+for di/L = 0.4 and 0.3 are respectively 100 and 40 times higher than the
+COP for di/L = 0.1, while the diﬀerence between the COP for N2/A = 1
+and 100 is a factor of 13 for a constant di/L = 0.3. Therefore, the
+comparison indicates that the nozzle diameter is the dominant para-
+meter for the thermal performance of the jet impingement cooling,
+where the di/L ratio should be chosen as high as possible. The di/L ratio
+is limited by the unit cell conﬁguration ( <
+<
+d L
+0
+/
+i
+2
+2 ) and by the
+consideration to maintain suﬃcient structural rigidity of the nozzle
+plate. Therefore, the value of di/L = 0.3 is chosen as a reference value
+for the nozzle diameter, even when higher values for di/L still further
+improve the COP.
+5.2.2. Cavity height impact
+In order to better understand the thermal and hydraulic behavior of
+the cooler, the temperature increase and pressure drop as a function of
+the diﬀerent cavity heights are plotted in Fig. 14, assuming a constant
+ﬂow rate of 600 ml/min and a diameter ratio of di/L = 0.3. It can be
+seen that the temperature increases rapidly as H decreases when the
+cavity height is below 0.1 mm. This phenomenon can be explained by
+the “Pinch-oﬀregime” observed by Brunschwiler et al. [6]. For the
+pinch-oﬀregime with very thin cavity height, the pressure drop is very
+high since the ﬂow is conﬁned inside the thinner cavity channel. As the
+cavity height is higher than H = 0.2 mm, the ﬂow regime moves to the
+“impingement” regime, where the heat transfer performance and
+pressure drop both keep stable.
+Besides, it is also observed that the average temperature for
+Fig. 12. Unit cell modeling results: (a) ﬂow streamline with arrows; (b) temperature contour on the chip surface under heat ﬂux of 37.5 W/cm2. (Vin = 1.47 m/s,
+Tin = 10 °C).
+T.-W. Wei, et al.
+Applied Thermal Engineering 180 (2020) 115767
+9
+
+===== p.10 =====
+diﬀerent nozzle densities are very close to each other in the “pinch-oﬀ”
+regime, shown in Fig. 15(a). This behavior is consistent with the results
+shown in Fig. 13(a), that the thermal performance will be saturated
+with the increment of the nozzle density. However, there is a large
+temperature diﬀerence in the “impingement” regime, showing that the
+higher nozzle density can achieve lower chip temperature for a constant
+ﬂow rate.
+As for the pressure drop in the “pinch-oﬀ” regime shown in
+Fig. 15(b), the higher nozzle density (N = 32) shows lower pressure
+drop. This is due to the short nozzle pitch L for higher nozzle density.
+The short channel length L along the wall jet region results in a pressure
+drop decrease in the thinner cavity channel, which is the dominating
+factor for the overall unit cell pressure. However, this trend changes
+inversely in the “impingement” regime, showing that the higher nozzle
+density can generate higher pressure drop. This is because the pressure
+in this regime is dominated by the nozzle channel pressure, where the
+nozzle diameter for higher N is very small.
+In general, it can be seen that there are two diﬀerent trends for the
+variation of the cavity height, from thermal and hydraulic point for
+view. In the next section, the interactions between the impact of the
+nozzle density and the cavity height on the thermal and hydraulic
+performance of the impingement jet cooler will be discussed.
+5.3. Combined impacts
+In Section 5.2.1, the investigation of the single variable shows that
+the inlet nozzle diameter is the dominant parameter, which should be
+optimized ﬁrst. Next, the combined impact of nozzle density and cavity
+height are studied in this section.
+5.3.1. Comparison 1: Constant ﬂow rate
+The ﬁnal design of experiment (DOE) results with the combined
+eﬀects of the nozzle density and cavity height on the COP are sum-
+marized in Fig. 15, for a ﬂow rate of 0.3 L/min and 0.6 L/min. The
+opposing trends for the thermal and hydraulic performance result in a
+complex proﬁle for the COP as a function of the nozzle density and
+cavity height, revealing a maximum for the COP in the middle range of
+the nozzle density. As shown in Fig. 16(a) for the inlet diameter ratio of
+di/L = 0.3, the highest COP is found for the range between 30 cm−2
+and 300 cm−2, and the cavity height eﬀects are negligible between
+0.15 mm and 0.6 mm. The region with high COP values becomes nar-
+rower as the ﬂow rate increases to 0.6 L/min, as illustrated in
+Fig. 16(b). The highest COP is now located between the range of
+50 cm−2 to 100 cm−2.
+The proﬁle of the COP surface can be explained based on the hy-
+draulic analysis of the unit cell model. In general, the pressure drop of
+the unit cell includes several parts: the pressure drop along the inlet/
+outlet nozzle
+−
+Δpin
+nozzle and
+−
+Δpout
+nozzle, the pressure drop along the
+cavity channel Δpchanneland the pressure drop generated by the jet
+cooling Δpjet, and also the pressure loss Δploss due to the ﬂow expansion
+and ﬂow contraction. In order to understand the impact of the nozzle
+density on the pressure drop, a simpliﬁed ﬁrst-order analysis is per-
+formed, shown as below:
+=
++
++
++
++
+−
+−
+Δp
+Δp
+Δp
+Δp
+Δp
+Δp
+tot
+nz
+in
+nz
+out
+ch
+jet
+loss
+(6)
+For a constant ﬂow rate, the pressure drop of the cooler Δpunit is very
+high at thinner cavity thickness H. The reason is that the dominant
+Fig. 13. Experimental validation of the nozzle scaling trend on the (a) nor-
+malized thermal resistance and (b) pressure drop with the unit cell modeling
+approach (cavity height H = 0.6 mm, constant nozzle diameter ratio di/
+L = 0.3).
+Table 4
+List of parameters and range.
+Parameter
+Symbol
+Values
+Nozzle density
+N2/A
+1.56; 14; 25; 76.56; 100; 156; 225; 400; 625;
+1600 cm−2
+Cavity height
+H
+0.01:0.01:1 mm
+Nozzle diameter ratio
+di/L
+0.025; 0.05; 0.1; 0.2; 0.3; 0.4
+Fig. 14. The thermal impact COP as function of the nozzle density, under the
+constant cavity height (H = 0.2 mm, FL = 0.6 L/min).
+T.-W. Wei, et al.
+Applied Thermal Engineering 180 (2020) 115767
+10
+
+===== p.11 =====
+pressure drop is the pressure drop across the impingement cavity
+channel Δpch, which is inversely proportional to the cavity thickness H,
+shown as below:
+LV
+H
+Δp
+~
+̇
+ch
+n
+4
+(7)
+where the V̇n is the ﬂow rate per nozzle, deﬁned as total ﬂow rate divide
+total inlet nozzle number
+V
+N
+̇
+2. The cavity height H is deﬁned as the
+hydraulic length for the simpliﬁed channel ﬂow model.
+On the other hand, for a ﬁxed cavity height H, the pressure drop will
+be very high for low nozzle density, since the outlet drainage is far from
+the inlet. As the nozzle density is higher than 100 cm−2, the pressure
+will also increase due to the scaling down of the nozzle diameter di,
+resulting in a higher pressure drop inside the nozzles Δpnozzle, which can
+be explained in the following equation (for laminar ﬂow):
+=
+−
+μtV
+π d
+Δp
+8
+̇
+( /2)
+in
+nozzle
+n
+i
+4
+(8)
+where the nozzle length t is deﬁned as the length of the pipe ﬂow, μ is
+the dynamic viscosity, V̇ is the volumetric ﬂow rate, and di is the dia-
+meter of the nozzle. The combined eﬀect of the pressure contributions
+results in a complex behavior as function of the nozzle density.
+In summary, for the scaling analysis, a constant nozzle diameter
+ratio di/L is considered, resulting in a constant nozzle velocity regard-
+less of the number N since the total nozzle area remains constant. The
+pressure drop for high nozzle densities is dominated by the contribution
+of the pressure drop in the inlet and outlet nozzle. This contribution
+scales with di
+-4 with V̇nozzle
+2
+and with the friction factor f. Since:
+o di scales with N−1
+o
+−
+V
+scales with N
+̇nozzle
+2
+o f scales with Re-1 ~ di
+-1 ~ N (for laminar ﬂow)
+Therefore, this contribution scales with N, resulting in a high
+pressure drop for large nozzle densities.
+5.3.2. Comparison 2: Constant pumping power
+For a constant pumping power consideration, good thermal per-
+formance of the cooler is expressed by a low value of the normalized
+thermal resistance Rth. This is equivalent with a high value of the COP,
+as shown in Eq. (5). The nozzle diameter ratio di/L is still kept as 0.3 in
+this study. The normalized thermal resistance contour is plotted as
+function of nozzle density and cavity height, for a constant pumping
+power of 0.1 W/cm2 and 0.2 W/cm2, shown in Fig. 17. In general, for a
+constant cavity height, the thermal resistance decreases as the nozzle
+density increases. Moreover, it is observed that the lowest thermal re-
+sistance is found at the region with higher nozzle density and lower
+cavity height, which is located at the top left corner of the chart.
+Fig. 18 shows the thermal resistance curves as function of the nozzle
+density and cavity height, for a constant pumping power of 0.2 W/cm2.
+It shows that the lowest thermal resistance is in the thin cavity range
+(“pinch-oﬀ”) around 10 µm, for diﬀerent nozzle arrays. For higher
+Fig. 15. Unit cell modeling results: (a) temperature increase and (b) pressure drop as function of cavity height between 0.01 mm and 1 mm (di/L = 0.3,
+FL = 600 ml/min).
+Fig. 16. COP contour as function of the nozzle density and cavity height under diﬀerent ﬂow rate: (a) FL = 0.3 L/min and (b) FL = 0.6 L/min (di/L = 0.3).
+T.-W. Wei, et al.
+Applied Thermal Engineering 180 (2020) 115767
+11
+
+===== p.12 =====
+cavity heights H, beyond 200 µm, deﬁned as the impingement jet re-
+gime, the thermal resistance remains stable as a function of the cavity
+height, with small variations. However, the nozzle scaling trend is
+diﬀerent for di/L = 0.1 and for di/L = 0.3, as illustrated in Fig. 19. In
+general, the thermal resistance for the nozzle diameter ratio di/L = 0.3
+is much lower than for di/L = 0.1, which means that a larger nozzle
+diameter ratio is better for the thermal cooling performance. Speciﬁ-
+cally, for constant cavity height at di/L = 0.1, it shows that the lowest
+thermal resistance is located in the middle range of the nozzle density
+around 100 cm−2. For the larger inlet diameter ratio di/L = 0.3, the
+thermal performance can be further improved by increasing the nozzle
+density.
+In summary, it is found that a high as possible inlet diameter ratio
+di/L = 0.3 is optimal for the cooler design, which is based on the design
+constraint. As for the impact of nozzle density for a constant pumping
+power, the optimal design for the nozzle density is around 1,000 cm−2,
+with optimal cavity height range between 0.01 mm and 0.05 mm, based
+on the cooler bonding techniques [31].
+6. Conclusion
+This paper focuses on the nozzle scaling eﬀects of the chip level 3D
+printed microjet cooler using high resolution additive manufacturing.
+Firstly, the experimental studies show that a very good thermal per-
+formance for 8 × 8 cooler with 1 × 1 mm2 cooling cells can be
+achieved as low as 0.13 cm2-K/W for a ﬂow rate of 1,000 ml/min.
+Coolers with three nozzle densities have been fabricated and experi-
+mentally characterized, including a 3×3, 4×4 and 8×8 inlet nozzle
+array. A trend of increasing thermal performance for increasing nozzle
+density has been observed. The comparison between experiments with
+a thermal test chip and CFD modeling results shows good agreement
+with maximum diﬀerence below 15%. The validated CFD models have
+been used to extrapolate the experimental data in order the ﬁnd the
+optimal cooler geometry and to understand the nozzle scaling eﬀects.
+To this end, an extensive parameter sensitivity study has been per-
+formed with the CFD model by varying the three major design vari-
+ables: nozzle density: N2/A, cavity height H and nozzle diameter ratio
+di/L.
+In order to compare the cooling performance for diﬀerent cooler
+geometries, two criteria have been considered as the basis for the
+comparison: (1) constant coolant ﬂow rate and (2) constant pumping
+power. First, it is found that the nozzle diameter ratio is the dominant
+parameter with a higher impact than the nozzle density and cavity
+height. Secondly, it is shown that the best cooler design, expressed as
+the highest value of the COP, can be achieved in the middle range of the
+Fig. 17. Characteristic contour of cooler under diﬀerent required pumping power for a constant di/L = 0.3: (a) normalized pumping power of 0.1 W/cm2; (b)
+normalized pumping power of 0.2 W/cm2.
+Fig. 18. Thermal resistance curves as function of nozzle density with diﬀerent
+inlet diameter ratio, for a constant pumping power (di/L = 0.3,
+∗
+Wp =0.2 W/
+cm2).
+Fig. 19. Thermal resistance curves as function of nozzle density with diﬀerent
+inlet diameter ratio, for a constant pumping power (
+∗
+Wp = 0.2 W/cm2).
+T.-W. Wei, et al.
+Applied Thermal Engineering 180 (2020) 115767
+12
+
+===== p.13 =====
+nozzle density between 30 cm−2 to 300 cm−2 for the constant ﬂow rate
+consideration. The optimal region for the high COP values becomes
+narrower as the ﬂow rate increases. For the constant pumping power
+consideration however, the lowest thermal resistance is found at the
+values of higher nozzle density and lower cavity height. Moreover, it is
+shown that the thermal performance can be further improved by in-
+creasing the nozzle density, for the larger inlet diameter ratios, whereas
+a saturation or even reverse trend is found for smaller inlet diameter
+ratios. This analysis clearly indicates that the optimal design para-
+meters of the impingement cooler strongly depend on basis that is
+chosen for the comparison of the cooler performance. Comparisons in
+terms of constant cooler ﬂow rate or constant pumping power will re-
+sult in diﬀerent optimal design parameter values.
+Declaration of Competing Interest
+The authors declare that they have no known competing ﬁnancial
+interests or personal relationships that could have appeared to inﬂu-
+ence the work reported in this paper.
+Acknowledgments
+This work was performed as part of the imec Industrial Aﬃliation
+Program on 3D System Integration and has been strongly supported by
+the imec partners and the imec Reliability, Electrical testing, Modeling
+and 3D technology teams.
+References
+[1] H. Lee, D.D. Agonafer, Y. Won, F. Houshmand, C. Gorle, M. Asheghi, K.E. Goodson,
+Thermal modeling of extreme heat ﬂux microchannel coolers for GaN-on-SiC
+semiconductor devices, Journal of Electronic Packaging 138 (2016) 010907.
+[2] B.W. Webb, C.-F. Ma, Single-phase liquid jet impingement heat transfer, Advances
+in Heat Transfer 26 (1995) 105–217.
+[3] K. Gould, S.Q. Cai, C. Neft, S. Member, Liquid jet impingement cooling of a silicon
+carbide power conversion module for vehicle applications, IEEE Trans. Power
+Electronics 30 (6) (2015) 2975–2984.
+[4] R. Skuriat, C.M. Johnson, Thermal performance of baseplate and direct substrate
+cooled power modules, in: Proc. 4th IET Int. Conf. Power Electron. Mach. Drives,
+2008, pp. 548–552.
+[5] J. Jorg, S. Taraborrelli, G. Sarriegui, R.W. De Doncker, R. Kneer, W. Rohlfs, Direct
+single impinging jet cooling of a mosfet power electronic module, IEEE Trans.
+Power Electronics 33 (5) (2018) 4224–4237.
+[6] T. Brunschwiler et al., Direct liquid jet-impingement cooling with micronsized
+nozzle array and distributed return architecture, in: Proc. IEEE Therm.
+Thermomechanical Phenom. Electron. Syst., 2006, pp. 196–203.
+[7] G. Natarajan, R.J. Bezama, Microjet cooler with distributed returns, Heat Transf.
+Eng. 28 (8–9) (2010) 779–787.
+[8] N. Zuckerman, N. Lior, Jet impingement heat transfer: physics, correlations, and
+numerical modeling, Adv. Heat Transfer 39 (2006) 565–631.
+[9] T. Wei, et al., High-Eﬃciency Polymer-Based Direct Multi-Jet Impingement Cooling
+Solution for High-Power Devices, IEEE Trans. Power Electron. 34 (7) (July 2019)
+6601–6612.
+[10] E.N. Wang, L. Zhang, J.-M. Koo, J.G. Maveety, E.A. Sanchez, K.E. Goodson,
+T.W. Kenny, Micromachined jets for liquid impingement cooling for VLSI chips, J.
+Microeletromech. Sys. 13 (5) (October 2004) 833–842.
+[11] E.A. Browne, G.J. Michna, M.K. Jensen, Y. Peles, Microjet array single-phase and
+ﬂow boiling heat transfer with R134a, Int. J. Heat Mass Transf. 53 (23–24) (2010)
+5027–5034.
+[12] Y. Han, B.L. Lau, G. Tang, X. Zhang, Thermal management of hotspots using dia-
+mond heat spreader on Si microcooler for GaN devices, IEEE Trans. Compon.
+Packag. Manuf. Technol. 5 (12) (2015) 1740–1746.
+[13] B.P. Whelan, R. Kempers, A.J. Robinson, A liquid-based system for CPU cooling
+implementing a jet array impingement waterblock and a tube array remote heat
+exchanger, Appl. Therm. Eng. 39 (2012) 86–94.
+[14] M.R. Overholt, A. McCandless, K.W. Kelly, C.J. Becnel, S. Motakef, “Micro-Jet
+Arrays for Cooling of Electronic Equipment”, in Proc, ASME 3rd International
+Conference on Microchannels and Minichannels, 2005, pp. 249–252.
+[15] T. Acikalin, C. Schroeder, “Direct liquid cooling of bare die packages using a mi-
+crochannel cold plate,” in Proc. IEEE Therm. Thermomechanical Phenom. Electron.
+Syst., 2014, pp. 673–679.
+[16] M.K. Sung, I. Mudawar, Single-phase hybrid micro-channel/micro-jet impingement
+cooling, Int. J. Heat Mass Transf. 51 (17–18) (2008) 4342–4352.
+[17] J. Jorg, S. Taraborrelli, et al., “Hot spot removal in power electronics by means of
+direct liquid jet cooling,” in Proc. IEEE Therm. Thermomechanical Phenom.
+Electron. Syst., 2017, pp. 471–481.
+[18] A. J. Robinson, W. Tan, R. Kempers, et al., “A new hybrid heat sink with impinging
+micro-jet arrays and microchannels fabricated using high volume additive manu-
+facturing,” in Proc. IEEE Annu. IEEE Semicond. Therm. Meas. Manag. Symp., 2017,
+pp. 179–186.
+[19] T. Wei et al., Experimental Characterization of a Chip Level 3D Printed Microjet
+Liquid Impingement Cooler for High Performance Systems, in: IEEE Transactions on
+Components, Packaging and Manufacturing Technology. doi: 10.1109/TCPMT.
+2019.2905610.
+[20] D.J. Womac, S. Ramadhyani, F.P. Incropera, Correlating Equations for Impingement
+Cooling of Small Heat Sources with Single Circular Liquid Jets, J. Heat Transfer 115
+(1) (1993) 106–115.
+[21] S.V. Garimella, R.A. Rice, Conﬁned and Submerged Liquid Jet Impingement Heat
+Transfer, J. Heat Transfer 117 (4) (1995) 871–877, https://doi.org/10.1115/1.
+2836304.
+[22] S.V. Garimella, V.P. Schroeder, Local heat transfer distributions in conﬁned mul-
+tiple air jet impingement, J. Electron. Packag. 123 (3) (2001) 165–172.
+[23] L.B.Y. Aldabbagh, I. Sezai, Numerical simulation of threedimensional laminar
+multiple impinging square jets, Int. J. Heat Fluid Flow 23 (4) (2002) 509–518,
+https://doi.org/10.1016/S0142-727X(02)00141-8.
+[24] A. Husain, et al., Thermal performance analysis and optimization of microjet
+cooling of high-power light-emitting diodes, J. Thermophys Heat Transfer 27 (2)
+(April 2013) 235–245, https://doi.org/10.2514/1.T3931.
+[25] G.M. Chrysler, R.C. Chu, R.E. Simons, Jet impingement boiling of a dielectric
+coolant in narrow gaps, in: Proceedings of 1994 4th Intersociety Conference on
+Thermal Phenomena in Electronic Systems (I-THERM), Washington, DC, USA,
+1994, pp. 1–8.
+[26] Bryon Moyer, Spray-On Cooling, EE journal, October, 2018.
+[27] H. Oprins, V. Cherman, T. Webers, et al., Characterization and benchmarking of the
+low intertier thermal resistance of three-dimensional hybrid Cu/dielectric wafer-to-
+wafer bonding. ASME. J. Electron. Packag. 2017;139(1):011008-011008-9.
+[28] J. Pﬁtzner, Poiseuille and his law, Anaesthesia. 31 (2) (1976) (published Mar 1976).
+pp. 273–5.
+[29] P.A. de Oliveira, J.R. Barbosa, Novel two-phase jet impingement heat sink for active
+cooling of electronic devices, Appl. Therm. Eng. 112 (5) (2017) 952–964.
+[30] S. K. Waye, S. Narumanchi, M, et al., Advanced liquid cooling for a traction drive
+inverter using jet impingement and microﬁnned enhanced surfaces, in: Fourteenth
+Intersociety Conference on Thermal and Thermomechanical Phenomena in
+Electronic Systems (ITherm), Orlando, FL, 2014, pp. 1064-1073.
+[31] Daniel Bae, Raphael Mandel, Michael Ohadi, Eﬀect of bonding structure and heater
+design on performance enhancement of feeds embedded Manifold-Microchannel
+cooling, InterPACK (2017) 74158.
+[32] T.W. Wei, H. Oprins, V. Cherman, E. Beyne, M. Baelmans, Conjugate heat transfer
+and ﬂuid ﬂow modeling for liquid microjet impingement cooling with alternating
+feeding and draining channels, Fluids 4 (3) (2019) 145.
+[33] Mark E. Steinke, Satish G. Kandlikar, Single-phase liquid heat transfer in plain and
+enhanced microchannels, in: ASME 4th International Conference on Nanochannels,
+Microchannels, and Minichannels, American Society of Mechanical Engineers
+Digital Collection, 2006, pp. 943–951.
+T.-W. Wei, et al.
+Applied Thermal Engineering 180 (2020) 115767
+13
