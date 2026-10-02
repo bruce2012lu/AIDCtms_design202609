@@ -1,0 +1,155 @@
+[
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 4402,
+    "h": 1731,
+    "captions_on_page": [
+      "Figure 1: Schematic of the Frontier supercomputer cooling architecture. The HTW system com- prises three parallel subloops, each serving dedicated CDU clusters through plate heat exchangers. A variable-speed pump drives the supply flow from the cooling tower basin through the subloops, and warm retu"
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 2975,
+    "h": 2478,
+    "captions_on_page": [
+      "Figure 2: Digital twin framework for cooling system optimization. The physical layer provides operational data, the Modelica-based digital twin predicts thermal and energy performance, and the optimization layer determines energy-minimal control setpoints subject to thermal safety con- straints."
+    ]
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 3498,
+    "h": 459,
+    "captions_on_page": [
+      "Figure 3: Annual operating conditions for the Frontier HTW cooling loop in 2023: (a) total com- putational heat load, (b) supply and return temperatures with 42◦C constraint threshold, and (c) total pump flow rate. Gray traces show 10-minute data; colored lines show 7-day rolling means."
+    ]
+  },
+  {
+    "file": "figures/p019_i1.jpg",
+    "page": 19,
+    "w": 3498,
+    "h": 349,
+    "captions_on_page": [
+      "Figure 3: Annual operating conditions for the Frontier HTW cooling loop in 2023: (a) total com- putational heat load, (b) supply and return temperatures with 42◦C constraint threshold, and (c) total pump flow rate. Gray traces show 10-minute data; colored lines show 7-day rolling means."
+    ]
+  },
+  {
+    "file": "figures/p019_i2.jpg",
+    "page": 19,
+    "w": 3498,
+    "h": 459,
+    "captions_on_page": [
+      "Figure 3: Annual operating conditions for the Frontier HTW cooling loop in 2023: (a) total com- putational heat load, (b) supply and return temperatures with 42◦C constraint threshold, and (c) total pump flow rate. Gray traces show 10-minute data; colored lines show 7-day rolling means."
+    ]
+  },
+  {
+    "file": "figures/p020_i0.jpg",
+    "page": 20,
+    "w": 964,
+    "h": 962,
+    "captions_on_page": [
+      "Figure 4: Baseline over-pumping diagnosis: (a) measured baseline flow versus analytically computed minimum safe flow, and (b) distribution of the over-pumping ratio. The median ratio of 1.5× indicates systematic over-pumping across all operating conditions.",
+      "Figure 6 presents the monthly total cooling energy for all four strategies. Winter months (January",
+      "Figure 5: Annual cooling energy breakdown by component (pump vs. CT fan) for each optimization strategy. Stacked bars show the relative contributions; total values are annotated in thousands of kWh."
+    ]
+  },
+  {
+    "file": "figures/p024_i0.jpg",
+    "page": 24,
+    "w": 3164,
+    "h": 524,
+    "captions_on_page": [
+      "Figure 8: Representative summer week (July) comparing Baseline, Strategy B, and Strategy C: (a) flow rate, (b) supply temperature setpoint, (c) total cooling power, and (d) return tempera- ture with constraint thresholds. Strategy C maintains near-complete constraint compliance while achieving signi"
+    ]
+  },
+  {
+    "file": "figures/p024_i1.jpg",
+    "page": 24,
+    "w": 3164,
+    "h": 522,
+    "captions_on_page": [
+      "Figure 8: Representative summer week (July) comparing Baseline, Strategy B, and Strategy C: (a) flow rate, (b) supply temperature setpoint, (c) total cooling power, and (d) return tempera- ture with constraint thresholds. Strategy C maintains near-complete constraint compliance while achieving signi"
+    ]
+  },
+  {
+    "file": "figures/p024_i2.jpg",
+    "page": 24,
+    "w": 3164,
+    "h": 522,
+    "captions_on_page": [
+      "Figure 8: Representative summer week (July) comparing Baseline, Strategy B, and Strategy C: (a) flow rate, (b) supply temperature setpoint, (c) total cooling power, and (d) return tempera- ture with constraint thresholds. Strategy C maintains near-complete constraint compliance while achieving signi"
+    ]
+  },
+  {
+    "file": "figures/p024_i3.jpg",
+    "page": 24,
+    "w": 3160,
+    "h": 430,
+    "captions_on_page": [
+      "Figure 8: Representative summer week (July) comparing Baseline, Strategy B, and Strategy C: (a) flow rate, (b) supply temperature setpoint, (c) total cooling power, and (d) return tempera- ture with constraint thresholds. Strategy C maintains near-complete constraint compliance while achieving signi"
+    ]
+  },
+  {
+    "file": "figures/p032_i0.jpg",
+    "page": 32,
+    "w": 1485,
+    "h": 660,
+    "captions_on_page": [
+      "Figure A1: Monthly total cooling energy savings (%) by control policy. Color intensity indicates magnitude. Co-optimization strategies (B and C) outperform flow-only optimization (A) across all months, with the advantage most pronounced during shoulder and winter seasons.",
+      "Figure A3 evaluates whether the optimization commands remain compatible with conservative actuator and process limits. The unconstrained Strategy B produces large step-to-step flow and supply-temperature changes that frequently exceed the adopted limits of ±50 kg/s and ±1 ◦C per 10-minute interval. ",
+      "Figure A4 shows the annual pump power duration curves for the baseline and all optimized strate- gies. All optimization strategies shift the curve downward relative to the baseline, confirming substantial reduction in pump power across operating hours. The largest reduction is achieved by Strategy A"
+    ]
+  },
+  {
+    "file": "figures/p033_i0.jpg",
+    "page": 33,
+    "w": 401,
+    "h": 434,
+    "captions_on_page": [
+      "Figure A2: Joint distribution of flow rate and supply temperature for (a) Baseline, (b) Strategy B, and (c) Strategy C. Contour lines show kernel density estimates; dotted lines indicate mean values. Co-optimization shifts the operating envelope toward lower flow and higher supply temperature, while",
+      "Figure A3: Step-to-step ramp-rate comparison between unconstrained Strategy B and ramp- constrained Strategy C during a summer week: (a) flow rate changes with ±50 kg/s limit, and (b) Tsupply setpoint changes with ±1◦C limit. Strategy C respects both operational constraints while Strategy B frequent"
+    ]
+  },
+  {
+    "file": "figures/p033_i1.jpg",
+    "page": 33,
+    "w": 409,
+    "h": 480,
+    "captions_on_page": [
+      "Figure A2: Joint distribution of flow rate and supply temperature for (a) Baseline, (b) Strategy B, and (c) Strategy C. Contour lines show kernel density estimates; dotted lines indicate mean values. Co-optimization shifts the operating envelope toward lower flow and higher supply temperature, while",
+      "Figure A3: Step-to-step ramp-rate comparison between unconstrained Strategy B and ramp- constrained Strategy C during a summer week: (a) flow rate changes with ±50 kg/s limit, and (b) Tsupply setpoint changes with ±1◦C limit. Strategy C respects both operational constraints while Strategy B frequent"
+    ]
+  },
+  {
+    "file": "figures/p033_i2.jpg",
+    "page": 33,
+    "w": 427,
+    "h": 382,
+    "captions_on_page": [
+      "Figure A2: Joint distribution of flow rate and supply temperature for (a) Baseline, (b) Strategy B, and (c) Strategy C. Contour lines show kernel density estimates; dotted lines indicate mean values. Co-optimization shifts the operating envelope toward lower flow and higher supply temperature, while",
+      "Figure A3: Step-to-step ramp-rate comparison between unconstrained Strategy B and ramp- constrained Strategy C during a summer week: (a) flow rate changes with ±50 kg/s limit, and (b) Tsupply setpoint changes with ±1◦C limit. Strategy C respects both operational constraints while Strategy B frequent"
+    ]
+  },
+  {
+    "file": "figures/p033_i3.jpg",
+    "page": 33,
+    "w": 3161,
+    "h": 702,
+    "captions_on_page": [
+      "Figure A2: Joint distribution of flow rate and supply temperature for (a) Baseline, (b) Strategy B, and (c) Strategy C. Contour lines show kernel density estimates; dotted lines indicate mean values. Co-optimization shifts the operating envelope toward lower flow and higher supply temperature, while",
+      "Figure A3: Step-to-step ramp-rate comparison between unconstrained Strategy B and ramp- constrained Strategy C during a summer week: (a) flow rate changes with ±50 kg/s limit, and (b) Tsupply setpoint changes with ±1◦C limit. Strategy C respects both operational constraints while Strategy B frequent"
+    ]
+  },
+  {
+    "file": "figures/p033_i4.jpg",
+    "page": 33,
+    "w": 3161,
+    "h": 703,
+    "captions_on_page": [
+      "Figure A2: Joint distribution of flow rate and supply temperature for (a) Baseline, (b) Strategy B, and (c) Strategy C. Contour lines show kernel density estimates; dotted lines indicate mean values. Co-optimization shifts the operating envelope toward lower flow and higher supply temperature, while",
+      "Figure A3: Step-to-step ramp-rate comparison between unconstrained Strategy B and ramp- constrained Strategy C during a summer week: (a) flow rate changes with ±50 kg/s limit, and (b) Tsupply setpoint changes with ±1◦C limit. Strategy C respects both operational constraints while Strategy B frequent"
+    ]
+  }
+]

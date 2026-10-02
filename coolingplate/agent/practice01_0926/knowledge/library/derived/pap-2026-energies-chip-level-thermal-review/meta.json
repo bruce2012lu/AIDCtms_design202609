@@ -1,0 +1,11 @@
+{
+  "id": "pap-2026-energies-chip-level-thermal-review",
+  "sha256": "9a1d82e734993d484a22b9a636e3c34b8ec9531d08704021a3296c1bbf877eef",
+  "source": "repo:agents/AIDCtms/coolingplate/papers/pdfs/13_MDPI_2026_ChipLevel_ThermalMgmt_Review.pdf",
+  "extracted_at": "2026-10-02T23:31:49",
+  "pages": 56,
+  "chars": 193003,
+  "chunks": 156,
+  "tables": 0,
+  "figures": 39
+}
