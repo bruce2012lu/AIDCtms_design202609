@@ -1,0 +1,20 @@
+[
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 4000,
+    "h": 1564,
+    "captions_on_page": [
+      "Figure 1: NVIDIA GB200 Grace Blackwell Superchip: (a) Layout, (b) Heat flux."
+    ]
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 2633,
+    "h": 2228,
+    "captions_on_page": [
+      "Figure 2: Cooling system layout: (a) Baseline parallel channel design, (b) Generative design. Temperature distribution: (c) Baseline parallel channel design, (d) Generative design."
+    ]
+  }
+]

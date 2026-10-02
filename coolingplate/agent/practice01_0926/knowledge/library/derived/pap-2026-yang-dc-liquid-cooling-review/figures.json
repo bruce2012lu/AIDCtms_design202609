@@ -1,0 +1,160 @@
+[
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 867,
+    "h": 529,
+    "captions_on_page": [
+      "图1　数据中心PUE统计图",
+      "Fig.1　Data center PUE statistics chart"
+    ]
+  },
+  {
+    "file": "figures/p002_i1.jpg",
+    "page": 2,
+    "w": 848,
+    "h": 541,
+    "captions_on_page": [
+      "图1　数据中心PUE统计图",
+      "Fig.1　Data center PUE statistics chart"
+    ]
+  },
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 781,
+    "h": 448,
+    "captions_on_page": [
+      "图2　数据中心液冷文献统计（2015-2024）",
+      "Fig.2　Statistics of liquid cooling literature in data centers (2015-2024)",
+      "图3 冷板式液冷示意图",
+      "Fig.3 Schematic diagram of cold plate liquid cooling"
+    ]
+  },
+  {
+    "file": "figures/p003_i1.jpg",
+    "page": 3,
+    "w": 694,
+    "h": 427,
+    "captions_on_page": [
+      "图2　数据中心液冷文献统计（2015-2024）",
+      "Fig.2　Statistics of liquid cooling literature in data centers (2015-2024)",
+      "图3 冷板式液冷示意图",
+      "Fig.3 Schematic diagram of cold plate liquid cooling"
+    ]
+  },
+  {
+    "file": "figures/p003_i2.jpg",
+    "page": 3,
+    "w": 916,
+    "h": 542,
+    "captions_on_page": [
+      "图2　数据中心液冷文献统计（2015-2024）",
+      "Fig.2　Statistics of liquid cooling literature in data centers (2015-2024)",
+      "图3 冷板式液冷示意图",
+      "Fig.3 Schematic diagram of cold plate liquid cooling"
+    ]
+  },
+  {
+    "file": "figures/p005_i0.jpg",
+    "page": 5,
+    "w": 1341,
+    "h": 708,
+    "captions_on_page": [
+      "图4 微通道冷板结构图",
+      "Fig.4 Schematic diagram of microchannel cold plate structure"
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 909,
+    "h": 406,
+    "captions_on_page": [
+      "图5　自然对流单相浸没式液冷系统示意图",
+      "Fig.5　Schematic diagram of natural convection single-phase immersion cooling system",
+      "图6 强制对流单相浸没式液冷示意图",
+      "Fig.6 Schematic diagram of forced convection single-phase"
+    ]
+  },
+  {
+    "file": "figures/p006_i1.jpg",
+    "page": 6,
+    "w": 677,
+    "h": 417,
+    "captions_on_page": [
+      "图5　自然对流单相浸没式液冷系统示意图",
+      "Fig.5　Schematic diagram of natural convection single-phase immersion cooling system",
+      "图6 强制对流单相浸没式液冷示意图",
+      "Fig.6 Schematic diagram of forced convection single-phase"
+    ]
+  },
+  {
+    "file": "figures/p006_i2.jpg",
+    "page": 6,
+    "w": 658,
+    "h": 267,
+    "captions_on_page": [
+      "图5　自然对流单相浸没式液冷系统示意图",
+      "Fig.5　Schematic diagram of natural convection single-phase immersion cooling system",
+      "图6 强制对流单相浸没式液冷示意图",
+      "Fig.6 Schematic diagram of forced convection single-phase"
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 654,
+    "h": 304,
+    "captions_on_page": [
+      "图7 射流冲击浸没式液冷示意图",
+      "Fig.7 Schematic diagram of jet impingement immersion cooling"
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 650,
+    "h": 352,
+    "captions_on_page": [
+      "图8　两相浸没式液冷示意图",
+      "Fig.8　Schematic diagram of two-phase immersion cooling",
+      "图9 喷淋式液冷示意图",
+      "Fig.9 Schematic diagram of spray cooling"
+    ]
+  },
+  {
+    "file": "figures/p008_i1.jpg",
+    "page": 8,
+    "w": 672,
+    "h": 349,
+    "captions_on_page": [
+      "图8　两相浸没式液冷示意图",
+      "Fig.8　Schematic diagram of two-phase immersion cooling",
+      "图9 喷淋式液冷示意图",
+      "Fig.9 Schematic diagram of spray cooling"
+    ]
+  },
+  {
+    "file": "figures/p008_i2.jpg",
+    "page": 8,
+    "w": 650,
+    "h": 395,
+    "captions_on_page": [
+      "图8　两相浸没式液冷示意图",
+      "Fig.8　Schematic diagram of two-phase immersion cooling",
+      "图9 喷淋式液冷示意图",
+      "Fig.9 Schematic diagram of spray cooling"
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 482,
+    "h": 437,
+    "captions_on_page": [
+      "图10 喷雾冷却传热机制示意图",
+      "Fig.10 Schematic diagram of heat transfer mechanism for"
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "id": "pap-2026-jadhav-frontier-dt-cooling-opt",
+  "sha256": "b84351bf66fc3a32b731f1b102bcd62d1a24bfb4d7f6c6aeea251971af4c7597",
+  "source": "files/papers/pap-2026-jadhav-frontier-dt-cooling-opt.pdf",
+  "extracted_at": "2026-10-02T23:32:46",
+  "pages": 35,
+  "chars": 71162,
+  "chunks": 61,
+  "tables": 9,
+  "figures": 16
+}
