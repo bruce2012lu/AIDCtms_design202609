@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI服务器热管理系统 - 系统原理图</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg:#eaf0f6;--panel:#f5f8fb;--card:#ffffff;--border:#cdd8e4;
+            --text:#1e2d3d;--muted:#6b8299;--accent:#00a67a;
+            --cold:#0a8fbf;--hot:#e86520;--danger:#d03040;--warning:#d09500;
+            --shadow:rgba(20,40,70,0.08);
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;overflow:hidden;height:100vh;}
+        .font-tech{font-family:'Rajdhani',sans-serif;}
+        .top-bar{background:rgba(255,255,255,0.88);border-bottom:1px solid var(--border);backdrop-filter:blur(14px);box-shadow:0 1px 4px var(--shadow);}
+        .status-dot{width:8px;height:8px;border-radius:50%;animation:pdot 2s infinite;}
+        @keyframes pdot{0%,100%{box-shadow:0 0 4px currentColor;}50%{box-shadow:0 0 10px currentColor,0 0 18px currentColor;}}
+        .side-panel{background:var(--panel);border-right:1px solid var(--border);width:226px;min-width:226px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent;box-shadow:1px 0 6px var(--shadow);}
+        .side-panel.right{border-right:none;border-left:1px solid var(--border);box-shadow:-1px 0 6px var(--shadow);}
+        .panel-section{border-bottom:1px solid var(--border);padding:13px 14px;}
+        .panel-title{font-size:10.5px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:9px;display:flex;align-items:center;gap:5px;font-weight:500;}
+        .stat-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:12.5px;}
+        .stat-label{color:var(--muted);}
+        .stat-value{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14.5px;color:var(--text);}
+        .gpu-bar-wrap{margin:5px 0;}
+        .gpu-bar-label{display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:2px;}
+        .gpu-bar-track{height:5px;background:rgba(0,0,0,0.06);border-radius:3px;overflow:hidden;}
+        .gpu-bar-fill{height:100%;border-radius:3px;transition:width .8s,background .8s;}
+        .alert-item{display:flex;align-items:flex-start;gap:7px;padding:7px 8px;border-radius:6px;margin-bottom:5px;font-size:11.5px;line-height:1.4;transition:background .2s;}
+        .alert-item:hover{background:rgba(0,0,0,0.03);}
+        .alert-icon{width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;flex-shrink:0;margin-top:1px;}
+        .bottom-bar{background:rgba(255,255,255,0.92);border-top:1px solid var(--border);padding:9px 18px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;box-shadow:0 -1px 4px var(--shadow);backdrop-filter:blur(10px);}
+        .control-group{display:flex;align-items:center;gap:9px;}
+        .control-label{font-size:11.5px;color:var(--muted);white-space:nowrap;}
+        input[type="range"]{-webkit-appearance:none;width:110px;height:4px;background:var(--border);border-radius:2px;outline:none;}
+        input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--accent);cursor:pointer;box-shadow:0 0 6px rgba(0,166,122,0.4);}
+        .mode-btn{padding:4px 13px;border-radius:5px;font-size:11.5px;border:1px solid var(--border);background:white;color:var(--muted);cursor:pointer;transition:all .2s;font-family:'Noto Sans SC',sans-serif;}
+        .mode-btn:hover{border-color:var(--accent);color:var(--text);}
+        .mode-btn.active{background:rgba(0,166,122,0.1);border-color:var(--accent);color:var(--accent);}
+        .mode-btn.off{border-color:var(--danger);color:var(--danger);background:rgba(208,48,64,0.06);}
+        .canvas-wrap{flex:1;position:relative;overflow:hidden;background:var(--bg);}
+        #schematic{display:block;width:100%;height:100%;}
+        .tooltip{position:absolute;pointer-events:none;background:rgba(255,255,255,0.96);border:1px solid var(--border);border-radius:8px;padding:11px 15px;font-size:11.5px;min-width:175px;opacity:0;transform:translateY(4px);transition:opacity .15s,transform .15s;z-index:100;backdrop-filter:blur(10px);box-shadow:0 4px 16px rgba(0,0,0,0.1);}
+        .tooltip.visible{opacity:1;transform:translateY(0);}
+        .tooltip-title{font-weight:700;font-size:13.5px;margin-bottom:7px;padding-bottom:6px;border-bottom:1px solid var(--border);color:var(--text);}
+        .tooltip-row{display:flex;justify-content:space-between;padding:2px 0;color:var(--muted);}
+        .tooltip-row span:last-child{color:var(--text);font-family:'Rajdhani',sans-serif;font-weight:600;}
+        .legend-bar{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.9);padding:5px 14px;border-radius:18px;border:1px solid var(--border);font-size:10.5px;color:var(--muted);backdrop-filter:blur(8px);box-shadow:0 2px 8px var(--shadow);}
+        .legend-grad{width:110px;height:7px;border-radius:4px;}
+        .log-item{padding:4px 0;border-bottom:1px solid rgba(180,195,210,0.4);font-size:11px;line-height:1.4;display:flex;gap:6px;}
+        .log-time{color:var(--muted);white-space:nowrap;font-family:'Rajdhani',sans-serif;font-size:11px;}
+        @media(prefers-reduced-motion:reduce){.status-dot{animation:none;}.gpu-bar-fill{transition:none;}}
+    </style>
+</head>
+<body class="flex flex-col h-screen">
+
+<!-- 顶部 -->
+<header class="top-bar px-5 py-2.5 flex items-center justify-between flex-shrink-0">
+    <div class="flex items-center gap-3.5">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,var(--cold),var(--accent));">
+            <i class="fas fa-microchip text-sm text-white"></i>
+        </div>
+        <div>
+            <h1 class="font-tech text-lg font-bold tracking-wide" style="color:var(--text);">AI Server Thermal Management</h1>
+            <p class="text-xs" style="color:var(--muted);">液冷散热系统原理图 · 实时监控</p>
+        </div>
+    </div>
+    <div class="flex items-center gap-6">
+        <div class="flex items-center gap-2 text-xs" style="color:var(--muted);"><i class="fas fa-clock"></i><span class="font-tech" id="clock">--:--:--</span></div>
+        <div class="flex items-center gap-2 text-xs"><span class="status-dot" style="background:var(--accent);color:var(--accent);"></span><span style="color:var(--accent);" id="sysStatus">系统运行正常</span></div>
+        <div class="flex items-center gap-2 text-xs" style="color:var(--muted);">PUE <span class="font-tech text-base font-bold" style="color:var(--text);" id="pueVal">1.15</span></div>
+    </div>
+</header>
+
+<!-- 主体 -->
+<div class="flex flex-1 overflow-hidden">
+    <!-- 左面板 -->
+    <aside class="side-panel" aria-label="系统监控面板">
+        <div class="panel-section">
+            <div class="panel-title"><i class="fas fa-chart-line"></i>系统总览</div>
+            <div class="stat-row"><span class="stat-label">总功耗</span><span class="stat-value" id="totalPower" style="color:var(--warning);">2,140 W</span></div>
+            <div class="stat-row"><span class="stat-label">冷却液流量</span><span class="stat-value" id="flowRate" style="color:var(--cold);">120 L/min</span></div>
+            <div class="stat-row"><span class="stat-label">供水温度</span><span class="stat-value" id="supplyTemp" style="color:var(--cold);">18.0 °C</span></div>
+            <div class="stat-row"><span class="stat-label">回水温度</span><span class="stat-value" id="returnTemp" style="color:var(--hot);">40.2 °C</span></div>
+            <div class="stat-row"><span class="stat-label">温差</span><span class="stat-value" id="deltaTemp" style="color:var(--accent);">22.2 °C</span></div>
+            <div class="stat-row"><span class="stat-label">散热效率</span><span class="stat-value" id="efficiency" style="color:var(--accent);">94.7%</span></div>
+        </div>
+        <div class="panel-section">
+            <div class="panel-title"><i class="fas fa-microchip"></i>GPU 温度</div>
+            <div id="gpuBars"></div>
+        </div>
+        <div class="panel-section">
+            <div class="panel-title"><i class="fas fa-fan"></i>风扇状态</div>
+            <div class="stat-row"><span class="stat-label">机柜风扇</span><span class="stat-value" id="fanSpeed">4,200 RPM</span></div>
+            <div class="stat-row"><span class="stat-label">排风温度</span><span class="stat-value" id="exhaustTemp" style="color:var(--hot);">38.5 °C</span></div>
+        </div>
+        <div class="panel-section">
+            <div class="panel-title"><i class="fas fa-tint"></i>冷却液参数</div>
+            <div class="stat-row"><span class="stat-label">类型</span><span class="stat-value text-xs">丙二醇水溶液</span></div>
+            <div class="stat-row"><span class="stat-label">浓度</span><span class="stat-value">35%</span></div>
+            <div class="stat-row"><span class="stat-label">管路压力</span><span class="stat-value" id="pressure">2.5 bar</span></div>
+            <div class="stat-row"><span class="stat-label">液位</span><span class="stat-value" style="color:var(--accent);" id="levelStatus">正常</span></div>
+        </div>
+    </aside>
+
+    <!-- Canvas -->
+    <main class="canvas-wrap" role="img" aria-label="热管理系统原理图">
+        <canvas id="schematic"></canvas>
+        <div class="legend-bar">
+            <span>低温</span>
+            <div class="legend-grad" style="background:linear-gradient(90deg,#2ea0d0,#20c0a0,#e0b020,#e05030);"></div>
+            <span>高温</span>
+            <span style="margin-left:10px;color:var(--cold);">● 供水</span>
+            <span style="color:var(--hot);">● 回水</span>
+            <span style="color:var(--accent);">● 正常</span>
+            <span style="color:var(--warning);">● 预警</span>
+            <span style="color:var(--danger);">● 告警</span>
+        </div>
+        <div class="tooltip" id="tooltip"><div class="tooltip-title" id="ttTitle"></div><div id="ttBody"></div></div>
+    </main>
+
+    <!-- 右面板 -->
+    <aside class="side-panel right" aria-label="告警信息面板">
+        <div class="panel-section">
+            <div class="panel-title"><i class="fas fa-bell"></i>告警信息</div>
+            <div id="alertList"></div>
+        </div>
+        <div class="panel-section">
+            <div class="panel-title"><i class="fas fa-info-circle"></i>组件详情</div>
+            <div id="detailPanel" class="text-xs" style="color:var(--muted);line-height:1.7;">点击原理图中的组件查看详细参数</div>
+        </div>
+        <div class="panel-section">
+            <div class="panel-title"><i class="fas fa-history"></i>运行记录</div>
+            <div id="logList" class="text-xs" style="color:var(--muted);"></div>
+        </div>
+    </aside>
+</div>
+
+<!-- 底部控制栏 -->
+<footer class="bottom-bar flex-shrink-0">
+    <div class="control-group">
+        <span class="control-label">计算负载</span>
+        <input type="range" id="loadSlider" min="0" max="100" value="75" aria-label="计算负载">
+        <span class="font-tech font-bold text-sm" id="loadVal" style="color:var(--warning);min-width:34px;">75%</span>
+    </div>
+    <div class="control-group">
+        <span class="control-label">运行模式</span>
+        <button class="mode-btn active" data-mode="normal">正常</button>
+        <button class="mode-btn" data-mode="perf">高性能</button>
+        <button class="mode-btn" data-mode="quiet">静音</button>
+    </div>
+    <div class="control-group">
+        <span class="control-label">目标供水温度</span>
+        <input type="range" id="targetTempSlider" min="12" max="25" value="18" step="0.5" aria-label="目标供水温度">
+        <span class="font-tech font-bold text-sm" id="targetTempVal" style="color:var(--cold);min-width:42px;">18.0°C</span>
+    </div>
+    <div style="flex:1;"></div>
+    <div class="control-group">
+        <button class="mode-btn" id="togglePump"><i class="fas fa-power-off mr-1"></i>水泵</button>
+        <button class="mode-btn" id="toggleFan"><i class="fas fa-fan mr-1"></i>风扇</button>
+    </div>
+</footer>
+
+<script>
+/* ===================== 全局状态 ===================== */
+const S = {
+    load:75, mode:'normal', targetTemp:18,
+    pumpOn:true, fanOn:true, time:0,
+    hover:null, selected:null,
+    gpuTemps:[72,68,75,70,82,65],
+    gpuPowers:[340,325,355,330,380,310],
+    supplyT:18, returnT:40.2,
+    towerInT:35, towerOutT:25,
+    flowRate:120, pressure:2.5,
+    fanRpm:4200, exhaustT:38.5,
+    cduEff:94.7
+};
+
+/* ===================== Canvas 基础 ===================== */
+const canvas = document.getElementById('schematic');
+const ctx = canvas.getContext('2d');
+const ttEl = document.getElementById('tooltip');
+let W, H, sc, ox, oy;
+const DW = 1200, DH = 640;
+
+function resize() {
+    const dpr = devicePixelRatio || 1;
+    const r = canvas.parentElement.getBoundingClientRect();
+    canvas.width = r.width * dpr;
+    canvas.height = r.height * dpr;
+    canvas.style.width = r.width + 'px';
+    canvas.style.height = r.height + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    W = r.width; H = r.height;
+    sc = Math.min(W / DW, H / DH) * 0.9;
+    ox = (W - DW * sc) / 2;
+    oy = (H - DH * sc) / 2;
+}
+addEventListener('resize', resize);
+resize();
+
+function X(x) { return ox + x * sc; }
+function Y(y) { return oy + y * sc; }
+function Sz(s) { return Math.max(0.5, s * sc); }
+
+/* ===================== 浅色版温度→颜色 ===================== */
+function lerp3(a, b, t) { return [a[0]+(b[0]-a[0])*t, a[1]+(b[1]-a[1])*t, a[2]+(b[2]-a[2])*t]; }
+function tRGB(temp) {
+    /* 浅色调映射：保持辨识度但整体更柔和 */
+    if (temp <= 20) return lerp3([30,150,210],[20,190,180],Math.max(0,(temp-10)/10));
+    if (temp <= 30) return lerp3([20,190,180],[220,175,20],(temp-20)/10);
+    if (temp <= 40) return lerp3([220,175,20],[225,90,25],(temp-30)/10);
+    return lerp3([225,90,25],[210,45,35],Math.min(1,(temp-40)/10));
+}
+function tCSS(temp, a) {
+    const c = tRGB(temp);
+    return a !== undefined ? `rgba(${c[0]|0},${c[1]|0},${c[2]|0},${a})` : `rgb(${c[0]|0},${c[1]|0},${c[2]|0})`;
+}
+/* 浅色版更柔和的温度色 */
+function tCSS_light(temp, a) {
+    const c = tRGB(temp);
+    /* 与白色混合使其更亮 */
+    const mix = 0.35;
+    const r = c[0]+(255-c[0])*mix, g = c[1]+(255-c[1])*mix, b = c[2]+(255-c[2])*mix;
+    return a !== undefined ? `rgba(${r|0},${g|0},${b|0},${a})` : `rgb(${r|0},${g|0},${b|0})`;
+}
+
+/* ===================== 组件定义 ===================== */
+const comps = [
+    { id:'tower', label:'室外冷却塔', sub:'Dry Cooler', x:20, y:125, w:120, h:330 },
+    { id:'cdu', label:'CDU 换热单元', sub:'Coolant Dist. Unit', x:220, y:150, w:130, h:270 },
+    { id:'pump', label:'循环水泵', sub:'Variable Speed', x:425, y:178, w:90, h:78 },
+];
+const GX = 600, GW = 62, GH = 185, GG = 14;
+for (let i = 0; i < 6; i++) {
+    comps.push({ id:`gpu${i}`, label:`GPU ${i+1}`, sub:`Cold Plate`, x:GX+i*(GW+GG), y:208, w:GW, h:GH, isGpu:true, gi:i });
+}
+const rackBox = { x:GX-22, y:168, w:6*(GW+GG)-GG+44, h:268, label:'AI 服务器集群 · 8U 液冷机柜' };
+
+/* ===================== 管道定义 ===================== */
+const SY = 222, RY = 393, PW = 10;
+const pipes = [
+    { id:'s1', pts:[[140,SY],[220,SY]], tS:25, tE:25, d:1 },
+    { id:'s2', pts:[[350,SY],[425,SY]], tS:18, tE:18, d:1 },
+    { id:'s3', pts:[[515,SY],[580,SY]], tS:18, tE:18, d:1 },
+    { id:'s4', pts:[[580,SY],[960,SY]], tS:18, tE:18, d:1 },
+    { id:'r1', pts:[[960,RY],[580,RY]], tS:40, tE:40, d:-1 },
+    { id:'r2', pts:[[580,RY],[350,RY]], tS:40, tE:40, d:-1 },
+    { id:'r3', pts:[[220,RY],[140,RY]], tS:35, tE:35, d:-1 },
+    /* CDU内部 */
+    { id:'ci1', pts:[[252,SY],[252,148]], tS:25, tE:35, d:-1, internal:true },
+    { id:'ci2', pts:[[252,148],[318,148]], tS:35, tE:35, d:1, internal:true },
+    { id:'ci3', pts:[[318,148],[318,SY]], tS:35, tE:25, d:1, internal:true },
+];
+/* GPU竖管 */
+for (let i = 0; i < 6; i++) {
+    const gx = GX + i*(GW+GG) + GW/2;
+    pipes.push({ id:`gv${i}`, pts:[[gx,SY],[gx,RY]], tS:18, tE:40, d:1 });
+}
+
+/* ===================== 粒子系统 ===================== */
+const parts = [];
+function initParts() {
+    parts.length = 0;
+    pipes.forEach(p => {
+        if (p.internal) return;
+        const n = p.id.startsWith('gv') ? 6 : 9;
+        for (let i = 0; i < n; i++) {
+            parts.push({ pid:p.id, t:Math.random(), spd:(0.0015+Math.random()*0.003)*p.d, sz:1.8+Math.random()*2.2 });
+        }
+    });
+}
+initParts();
+
+function pathPt(pts, t) {
+    t = ((t % 1) + 1) % 1;
+    let total = 0;
+    const segs = [];
+    for (let i = 1; i < pts.length; i++) {
+        const dx = pts[i][0]-pts[i-1][0], dy = pts[i][1]-pts[i-1][1];
+        segs.push(Math.sqrt(dx*dx+dy*dy));
+        total += segs[segs.length-1];
+    }
+    let tgt = t * total;
+    for (let i = 0; i < segs.length; i++) {
+        if (tgt <= segs[i] + 0.001) {
+            const f = segs[i] > 0 ? tgt/segs[i] : 0;
+            return [pts[i][0]+(pts[i+1][0]-pts[i][0])*f, pts[i][1]+(pts[i+1][1]-pts[i][1])*f];
+        }
+        tgt -= segs[i];
+    }
+    return pts[pts.length-1];
+}
+
+/* ===================== 绘制函数 ===================== */
+function drawGrid() {
+    ctx.strokeStyle = 'rgba(170,190,210,0.35)';
+    ctx.lineWidth = 0.5;
+    const step = Sz(40);
+    for (let x = ox % step; x < W; x += step) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+    for (let y = oy % step; y < H; y += step) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+}
+
+function drawAmbient() {
+    const cx = X(GX+3*(GW+GG)), cy = Y(300);
+    const int = S.load / 100;
+    const r = Sz(260) * (0.5+int*0.5);
+    const g = ctx.createRadialGradient(cx,cy,0,cx,cy,r);
+    g.addColorStop(0,`rgba(240,120,50,${0.07*int})`);
+    g.addColorStop(0.6,`rgba(230,80,30,${0.02*int})`);
+    g.addColorStop(1,'rgba(234,240,246,0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(cx-r,cy-r,r*2,r*2);
+    /* 冷源光晕 */
+    const tx2 = X(80), ty2 = Y(290);
+    const g2 = ctx.createRadialGradient(tx2,ty2,0,tx2,ty2,Sz(160));
+    g2.addColorStop(0,'rgba(40,160,220,0.06)');
+    g2.addColorStop(1,'rgba(234,240,246,0)');
+    ctx.fillStyle = g2;
+    ctx.fillRect(tx2-Sz(160),ty2-Sz(160),Sz(320),Sz(320));
+}
+
+function rrect(x,y,w,h,r) {
+    r = Math.min(r,w/2,h/2);
+    ctx.beginPath();
+    ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+    ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y);
+    ctx.closePath();
+}
+
+function drawPipes() {
+    pipes.forEach(p => {
+        const isInt = p.internal;
+        const isGpu = p.id.startsWith('gv');
+
+        /* 外壁 - 浅色版 */
+        if (!isInt) {
+            ctx.strokeStyle = 'rgba(200,215,228,0.9)';
+            ctx.lineWidth = Sz(PW+6);
+            ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+            ctx.beginPath();
+            p.pts.forEach((pt,i) => i===0 ? ctx.moveTo(X(pt[0]),Y(pt[1])) : ctx.lineTo(X(pt[0]),Y(pt[1])));
+            ctx.stroke();
+        }
+
+        if (isInt) {
+            ctx.setLineDash([Sz(4),Sz(4)]);
+            ctx.strokeStyle = 'rgba(140,170,195,0.35)';
+            ctx.lineWidth = Sz(4);
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            p.pts.forEach((pt,i) => i===0 ? ctx.moveTo(X(pt[0]),Y(pt[1])) : ctx.lineTo(X(pt[0]),Y(pt[1])));
+            ctx.stroke();
+            ctx.setLineDash([]);
+            return;
+        }
+
+        /* 流体颜色 - 浅色版更鲜明 */
+        if (isGpu) {
+            const grad = ctx.createLinearGradient(X(p.pts[0][0]),Y(p.pts[0][1]),X(p.pts[1][0]),Y(p.pts[1][1]));
+            grad.addColorStop(0, tCSS(p.tS, 0.75));
+            grad.addColorStop(1, tCSS(p.tE, 0.75));
+            ctx.strokeStyle = grad;
+        } else {
+            ctx.strokeStyle = tCSS(p.tS, 0.7);
+        }
+        ctx.lineWidth = Sz(PW);
+        ctx.beginPath();
+        p.pts.forEach((pt,i) => i===0 ? ctx.moveTo(X(pt[0]),Y(pt[1])) : ctx.lineTo(X(pt[0]),Y(pt[1])));
+        ctx.stroke();
+
+        /* 流向箭头 */
+        if (!isGpu) {
+            const mid = pathPt(p.pts, 0.5);
+            const nxt = pathPt(p.pts, 0.52);
+            const mx = X(mid[0]), my = Y(mid[1]);
+            const ang = Math.atan2(Y(nxt[1])-my, X(nxt[0])-mx);
+            const as = Sz(8);
+            ctx.fillStyle = 'rgba(255,255,255,0.8)';
+            ctx.beginPath();
+            ctx.moveTo(mx+Math.cos(ang)*as, my+Math.sin(ang)*as);
+            ctx.lineTo(mx+Math.cos(ang+2.5)*as, my+Math.sin(ang+2.5)*as);
+            ctx.lineTo(mx+Math.cos(ang-2.5)*as, my+Math.sin(ang-2.5)*as);
+            ctx.closePath(); ctx.fill();
+        }
+    });
+}
+
+function drawParticles() {
+    if (!S.pumpOn) return;
+    parts.forEach(p => {
+        const pipe = pipes.find(pp => pp.id === p.pid);
+        if (!pipe) return;
+        const pos = pathPt(pipe.pts, p.t);
+        const temp = pipe.tS + (pipe.tE - pipe.tS) * p.t;
+        const c = tRGB(temp);
+        const px = X(pos[0]), py = Y(pos[1]), sz = Sz(p.sz);
+        /* 光晕 - 浅色版更柔和 */
+        const gl = ctx.createRadialGradient(px,py,0,px,py,sz*3);
+        gl.addColorStop(0,`rgba(${c[0]|0},${c[1]|0},${c[2]|0},0.45)`);
+        gl.addColorStop(0.6,`rgba(${c[0]|0},${c[1]|0},${c[2]|0},0.1)`);
+        gl.addColorStop(1,'rgba(234,240,246,0)');
+        ctx.fillStyle = gl;
+        ctx.fillRect(px-sz*3,py-sz*3,sz*6,sz*6);
+        /* 核心高亮 */
+        const bright = [Math.min(255,c[0]+80)|0, Math.min(255,c[1]+80)|0, Math.min(255,c[2]+80)|0];
+        ctx.fillStyle = `rgba(${bright[0]},${bright[1]},${bright[2]},0.9)`;
+        ctx.beginPath(); ctx.arc(px,py,Math.max(1,sz*0.7),0,Math.PI*2); ctx.fill();
+        /* 白色高光点 */
+        ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        ctx.beginPath(); ctx.arc(px,py,Math.max(0.5,sz*0.25),0,Math.PI*2); ctx.fill();
+    });
+}
+
+function drawSensor(x, y, text, color) {
+    const px = X(x), py = Y(y), s = Sz(5);
+    ctx.fillStyle = color;
+    ctx.beginPath(); ctx.moveTo(px,py-s); ctx.lineTo(px+s,py); ctx.lineTo(px,py+s); ctx.lineTo(px-s,py); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = 'rgba(30,45,61,0.8)';
+    ctx.font = `bold ${Sz(10)}px Rajdhani`;
+    ctx.textAlign = 'center';
+    ctx.fillText(text, px, py - s - Sz(3));
+}
+
+function drawComponents() {
+    /* 机柜框 */
+    const rb = rackBox, hRack = S.hover==='rack' || S.selected==='rack';
+    ctx.strokeStyle = hRack ? 'rgba(0,166,122,0.6)' : 'rgba(160,180,200,0.5)';
+    ctx.lineWidth = Sz(hRack ? 2.2 : 1.5);
+    ctx.setLineDash([Sz(6),Sz(4)]);
+    rrect(X(rb.x),Y(rb.y),Sz(rb.w),Sz(rb.h),Sz(12));
+    ctx.stroke();
+    ctx.setLineDash([]);
+    /* 机柜背景填充 */
+    ctx.fillStyle = hRack ? 'rgba(0,166,122,0.03)' : 'rgba(220,232,242,0.25)';
+    rrect(X(rb.x),Y(rb.y),Sz(rb.w),Sz(rb.h),Sz(12));
+    ctx.fill();
+    ctx.fillStyle = 'rgba(80,110,140,0.7)';
+    ctx.font = `500 ${Sz(12)}px 'Noto Sans SC'`;
+    ctx.textAlign = 'center';
+    ctx.fillText(rb.label, X(rb.x+rb.w/2), Y(rb.y-10));
+
+    /* 管道标签 */
+    ctx.font = `bold ${Sz(11)}px 'Noto Sans SC'`;
+    ctx.textAlign = 'left';
+    ctx.fillStyle = 'rgba(10,143,191,0.7)';
+    ctx.fillText('供水管 (二次侧低温)', X(562), Y(SY-14));
+    ctx.fillStyle = 'rgba(232,101,32,0.7)';
+    ctx.fillText('回水管 (二次侧高温)', X(562), Y(RY+22));
+    ctx.fillStyle = 'rgba(10,143,191,0.45)';
+    ctx.font = `${Sz(9)}px 'Noto Sans SC'`;
+    ctx.textAlign = 'center';
+    ctx.fillText('一次侧供水 →', X(180), Y(SY-32));
+    ctx.fillStyle = 'rgba(232,101,32,0.45)';
+    ctx.fillText('← 一次侧回水', X(180), Y(RY+42));
+
+    /* 传感器 */
+    drawSensor(162, SY-22, S.towerOutT.toFixed(1)+'°C', tCSS(S.towerOutT));
+    drawSensor(385, SY-22, S.supplyT.toFixed(1)+'°C', tCSS(S.supplyT));
+    drawSensor(548, SY-22, S.supplyT.toFixed(1)+'°C', tCSS(S.supplyT));
+    drawSensor(548, RY+26, S.returnT.toFixed(1)+'°C', tCSS(S.returnT));
+    drawSensor(385, RY+26, S.returnT.toFixed(1)+'°C', tCSS(S.returnT));
+    drawSensor(162, RY+26, S.towerInT.toFixed(1)+'°C', tCSS(S.towerInT));
+
+    /* 各组件 */
+    comps.forEach(comp => {
+        const isH = S.hover===comp.id, isSel = S.selected===comp.id;
+        const cx = X(comp.x), cy = Y(comp.y), cw = Sz(comp.w), ch = Sz(comp.h), r = Sz(8);
+
+        /* 悬停发光 */
+        if (isH || isSel) {
+            const gl = ctx.createRadialGradient(cx+cw/2,cy+ch/2,0,cx+cw/2,cy+ch/2,cw*0.8);
+            gl.addColorStop(0,'rgba(0,166,122,0.08)');
+            gl.addColorStop(1,'rgba(234,240,246,0)');
+            ctx.fillStyle = gl;
+            ctx.fillRect(cx-cw*0.3,cy-ch*0.3,cw*1.6,ch*1.6);
+        }
+
+        /* 组件背景 - 浅色版白色卡片 */
+        const bg = ctx.createLinearGradient(cx,cy,cx,cy+ch);
+        bg.addColorStop(0, isH ? 'rgba(255,255,255,0.98)' : 'rgba(255,255,255,0.92)');
+        bg.addColorStop(1, isH ? 'rgba(248,252,255,0.98)' : 'rgba(245,250,255,0.92)');
+        rrect(cx,cy,cw,ch,r); ctx.fillStyle = bg; ctx.fill();
+
+        /* 投影 */
+        ctx.shadowColor = 'rgba(20,50,80,0.08)';
+        ctx.shadowBlur = Sz(8);
+        ctx.shadowOffsetY = Sz(2);
+        rrect(cx,cy,cw,ch,r); ctx.fill();
+        ctx.shadowColor = 'transparent';
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetY = 0;
+
+        /* 边框 */
+        let bc = 'rgba(180,200,220,0.7)';
+        if (comp.isGpu) {
+            const temp = S.gpuTemps[comp.gi];
+            if (temp > 82) bc = 'rgba(208,48,64,0.8)';
+            else if (temp > 72) bc = 'rgba(208,149,0,0.7)';
+            else bc = 'rgba(0,166,122,0.5)';
+        }
+        if (isH) bc = 'rgba(0,166,122,0.8)';
+        if (isSel) bc = 'rgba(0,166,122,1)';
+        ctx.strokeStyle = bc; ctx.lineWidth = Sz(isSel?2.2:1.2);
+        rrect(cx,cy,cw,ch,r); ctx.stroke();
+
+        ctx.textAlign = 'center';
+
+        if (comp.isGpu) {
+            const idx = comp.gi, temp = S.gpuTemps[idx], pw = S.gpuPowers[idx];
+            /* 芯片图示 */
+            const iy = cy+ch*0.12, iS = Sz(16);
+            ctx.fillStyle = tCSS_light(temp,0.25);
+            rrect(cx+cw/2-iS,iy,iS*2,iS*1.4,Sz(3)); ctx.fill();
+            ctx.strokeStyle = tCSS(temp,0.4); ctx.lineWidth = Sz(0.7);
+            rrect(cx+cw/2-iS,iy,iS*2,iS*1.4,Sz(3)); ctx.stroke();
+            ctx.strokeStyle = tCSS(temp,0.3);
+            for (let p=0;p<4;p++){
+                const px2=cx+cw/2-iS*0.6+p*iS*0.4;
+                ctx.beginPath();ctx.moveTo(px2,iy);ctx.lineTo(px2,iy-Sz(4));ctx.stroke();
+                ctx.beginPath();ctx.moveTo(px2,iy+iS*1.4);ctx.lineTo(px2,iy+iS*1.4+Sz(4));ctx.stroke();
+            }
+            /* 标签 */
+            ctx.fillStyle='#2a3d50'; ctx.font=`bold ${Sz(12)}px Rajdhani`;
+            ctx.fillText(`GPU ${idx+1}`, cx+cw/2, cy+ch*0.5);
+            /* 温度 */
+            ctx.fillStyle = tCSS(temp); ctx.font=`bold ${Sz(18)}px Rajdhani`;
+            ctx.fillText(`${temp.toFixed(0)}°C`, cx+cw/2, cy+ch*0.72);
+            /* 功耗 */
+            ctx.fillStyle='rgba(107,130,153,0.7)'; ctx.font=`${Sz(10)}px Rajdhani`;
+            ctx.fillText(`${pw}W`, cx+cw/2, cy+ch*0.88);
+        } else {
+            /* 标签 */
+            ctx.fillStyle='#1e2d3d'; ctx.font=`bold ${Sz(13)}px 'Noto Sans SC'`;
+            ctx.fillText(comp.label, cx+cw/2, cy+ch*0.2);
+            ctx.fillStyle='rgba(107,130,153,0.6)'; ctx.font=`${Sz(8.5)}px Rajdhani`;
+            ctx.fillText(comp.sub, cx+cw/2, cy+ch*0.32);
+
+            ctx.font=`bold ${Sz(15)}px Rajdhani`;
+            if (comp.id==='tower') {
+                ctx.fillStyle=tCSS(S.towerOutT);
+                ctx.fillText(`${S.towerOutT.toFixed(1)}°C 出水`, cx+cw/2, cy+ch*0.5);
+                ctx.fillStyle=tCSS(S.towerInT); ctx.font=`${Sz(13)}px Rajdhani`;
+                ctx.fillText(`${S.towerInT.toFixed(1)}°C 入水`, cx+cw/2, cy+ch*0.63);
+                /* 风扇 */
+                const fcy = cy+ch*0.8, fr = Sz(14);
+                const fa = S.fanOn ? S.time*2 : 0;
+                ctx.strokeStyle='rgba(60,130,180,0.35)'; ctx.lineWidth=Sz(1.3);
+                for(let i=0;i<3;i++){
+                    const a=fa+i*Math.PI*2/3;
+                    ctx.beginPath();ctx.moveTo(cx+cw/2,fcy);
+                    ctx.lineTo(cx+cw/2+Math.cos(a)*fr,fcy+Math.sin(a)*fr);ctx.stroke();
+                }
+                ctx.beginPath();ctx.arc(cx+cw/2,fcy,Sz(2.5),0,Math.PI*2);
+                ctx.fillStyle='rgba(60,130,180,0.5)';ctx.fill();
+            } else if (comp.id==='cdu') {
+                ctx.fillStyle=tCSS(S.supplyT);
+                ctx.fillText(`${S.supplyT.toFixed(1)}°C 供水`, cx+cw/2, cy+ch*0.48);
+                ctx.fillStyle=tCSS(S.returnT); ctx.font=`${Sz(13)}px Rajdhani`;
+                ctx.fillText(`${S.returnT.toFixed(1)}°C 回水`, cx+cw/2, cy+ch*0.61);
+                ctx.fillStyle='rgba(0,166,122,0.8)'; ctx.font=`${Sz(11)}px Rajdhani`;
+                ctx.fillText(`效率 ${S.cduEff.toFixed(1)}%`, cx+cw/2, cy+ch*0.75);
+                /* 波浪线 */
+                const wy = cy+ch*0.88, ww = Sz(60);
+                ctx.strokeStyle='rgba(0,166,122,0.2)'; ctx.lineWidth=Sz(1.5);
+                ctx.beginPath();
+                for(let i=0;i<=20;i++){
+                    const wx=cx+cw/2-ww/2+i*(ww/20);
+                    const wwy=wy+Math.sin(i*0.8+S.time*2)*Sz(3);
+                    i===0?ctx.moveTo(wx,wwy):ctx.lineTo(wx,wwy);
+                }
+                ctx.stroke();
+            } else if (comp.id==='pump') {
+                ctx.fillStyle = S.pumpOn ? 'rgba(0,166,122,0.9)' : 'rgba(208,48,64,0.9)';
+                ctx.fillText(S.pumpOn?'RUNNING':'STOPPED', cx+cw/2, cy+ch*0.52);
+                ctx.fillStyle='rgba(107,130,153,0.6)'; ctx.font=`${Sz(11)}px Rajdhani`;
+                ctx.fillText(`${S.flowRate.toFixed(0)} L/min`, cx+cw/2, cy+ch*0.72);
+                /* 水泵旋转 */
+                if (S.pumpOn) {
+                    const pcx=cx+cw/2, pcy=cy+ch*0.35, pr=Sz(10), pa=S.time*4;
+                    ctx.strokeStyle='rgba(0,166,122,0.3)'; ctx.lineWidth=Sz(1.2);
+                    for(let i=0;i<4;i++){
+                        const a=pa+i*Math.PI/2;
+                        ctx.beginPath();ctx.arc(pcx,pcy,pr,a,a+0.6);ctx.stroke();
+                    }
+                }
+            }
+            /* LED */
+            const ledC = (comp.id==='pump'&&!S.pumpOn)||(comp.id==='tower'&&!S.fanOn) ? '#d03040' : '#00a67a';
+            const lx=cx+cw-Sz(10), ly=cy+Sz(10);
+            ctx.beginPath();ctx.arc(lx,ly,Sz(3.5),0,Math.PI*2);ctx.fillStyle=ledC;ctx.fill();
+            const lg=ctx.createRadialGradient(lx,ly,0,lx,ly,Sz(9));
+            lg.addColorStop(0,ledC==='#d03040'?'rgba(208,48,64,0.2)':'rgba(0,166,122,0.2)');
+            lg.addColorStop(1,'rgba(234,240,246,0)');
+            ctx.fillStyle=lg;ctx.fillRect(lx-Sz(9),ly-Sz(9),Sz(18),Sz(18));
+        }
+    });
+}
+
+/* ===================== 主绘制 ===================== */
+function draw() {
+    /* 整体背景 */
+    ctx.fillStyle = '#eaf0f6';
+    ctx.fillRect(0,0,W,H);
+    drawGrid();
+    drawAmbient();
+    drawPipes();
+    drawParticles();
+    drawComponents();
+}
+
+/* ===================== 数据模拟 ===================== */
+function simData() {
+    if (!S.pumpOn) return;
+    const lf = S.load / 100;
+    const mm = S.mode==='perf'?1.2:S.mode==='quiet'?0.7:1;
+    const n = ()=>(Math.random()-0.5)*1.5;
+
+    for (let i=0;i<6;i++){
+        const base = 32 + lf*48*mm;
+        const variance = Math.sin(S.time*0.4+i*1.1)*3 + Math.sin(S.time*0.17+i*2.3)*2;
+        S.gpuTemps[i] += (base + variance + n()*lf - S.gpuTemps[i]) * 0.08;
+        S.gpuTemps[i] = Math.max(28, Math.min(95, S.gpuTemps[i]));
+        S.gpuPowers[i] = Math.round(180 + lf*220*mm + n()*15 + Math.sin(S.time*0.3+i)*10);
+        S.gpuPowers[i] = Math.max(100, S.gpuPowers[i]);
+    }
+    const avgGpuOut = S.gpuTemps.reduce((a,b)=>a+b,0)/6 * 0.48;
+    S.supplyT += (S.targetTemp + n()*0.5 - S.supplyT) * 0.06;
+    S.returnT += (avgGpuOut + n()*0.8 - S.returnT) * 0.06;
+    S.towerInT += (S.returnT * 0.85 + n()*0.5 - S.towerInT) * 0.05;
+    S.towerOutT += (S.targetTemp - 3 + n()*0.5 - S.towerOutT) * 0.05;
+    const targetFlow = 60 + lf*80*mm;
+    S.flowRate += (targetFlow + n()*3 - S.flowRate) * 0.05;
+    S.flowRate = Math.max(0, S.flowRate);
+    S.pressure = 1.2 + (S.flowRate/160)*2 + n()*0.1;
+    const targetRpm = S.fanOn ? (2000 + lf*4000*mm) : 0;
+    S.fanRpm += (targetRpm + n()*50 - S.fanRpm) * 0.06;
+    S.fanRpm = Math.max(0, S.fanRpm);
+    S.exhaustT += (S.returnT * 0.9 - 5 + n()*1 - S.exhaustT) * 0.05;
+    const idealDelta = S.returnT - S.supplyT;
+    S.cduEff += (92 + idealDelta * 0.2 + n()*0.5 - S.cduEff) * 0.04;
+    S.cduEff = Math.min(99, Math.max(85, S.cduEff));
+
+    /* 更新管道温度 */
+    pipes.forEach(p => {
+        if (p.id.startsWith('gv')) { p.tS=S.supplyT; p.tE=S.returnT+(Math.sin(S.time*0.3+p.tS)*2); }
+        else if (p.id==='s1'){p.tS=S.towerOutT;p.tE=S.towerOutT;}
+        else if (p.id==='s2'||p.id==='s3'||p.id==='s4'){p.tS=S.supplyT;p.tE=S.supplyT;}
+        else if (p.id==='r1'||p.id==='r2'){p.tS=S.returnT;p.tE=S.returnT;}
+        else if (p.id==='r3'){p.tS=S.towerInT;p.tE=S.towerInT;}
+        else if (p.id==='ci1'){p.tS=S.towerOutT;p.tE=S.towerInT;}
+        else if (p.id==='ci2'){p.tS=S.towerInT;p.tE=S.towerInT;}
+        else if (p.id==='ci3'){p.tS=S.towerInT;p.tE=S.towerOutT;}
+    });
+}
+
+/* ===================== UI 更新 ===================== */
+function updateUI() {
+    const totalP = S.gpuPowers.reduce((a,b)=>a+b,0)+Math.round(S.flowRate*1.5)+Math.round(S.fanRpm*0.05);
+    document.getElementById('totalPower').textContent = totalP.toLocaleString()+' W';
+    document.getElementById('flowRate').textContent = S.flowRate.toFixed(0)+' L/min';
+    const sEl = document.getElementById('supplyTemp');
+    sEl.textContent = S.supplyT.toFixed(1)+' °C'; sEl.style.color = tCSS(S.supplyT);
+    const rEl = document.getElementById('returnTemp');
+    rEl.textContent = S.returnT.toFixed(1)+' °C'; rEl.style.color = tCSS(S.returnT);
+    document.getElementById('deltaTemp').textContent = (S.returnT-S.supplyT).toFixed(1)+' °C';
+    document.getElementById('efficiency').textContent = S.cduEff.toFixed(1)+'%';
+    document.getElementById('fanSpeed').textContent = Math.round(S.fanRpm).toLocaleString()+' RPM';
+    const eEl = document.getElementById('exhaustTemp');
+    eEl.textContent = S.exhaustT.toFixed(1)+' °C'; eEl.style.color = tCSS(S.exhaustT);
+    document.getElementById('pressure').textContent = S.pressure.toFixed(1)+' bar';
+    document.getElementById('pueVal').textContent = (1+S.fanRpm*0.00003+(S.load>80?0.05:0)).toFixed(2);
+
+    /* GPU 温度条 */
+    let bh = '';
+    for (let i=0;i<6;i++){
+        const t=S.gpuTemps[i],p=S.gpuPowers[i],pct=Math.min(100,(t/100)*100);
+        bh+=`<div class="gpu-bar-wrap"><div class="gpu-bar-label"><span style="color:var(--muted);">GPU ${i+1}</span><span style="color:${tCSS(t)};font-family:Rajdhani;font-weight:700;">${t.toFixed(1)}°C / ${p}W</span></div><div class="gpu-bar-track"><div class="gpu-bar-fill" style="width:${pct}%;background:${tCSS(t)};"></div></div></div>`;
+    }
+    document.getElementById('gpuBars').innerHTML = bh;
+
+    /* 系统状态 */
+    const maxT = Math.max(...S.gpuTemps);
+    const stEl = document.getElementById('sysStatus');
+    const dotEl = stEl.previousElementSibling;
+    if (!S.pumpOn) {
+        stEl.textContent='水泵已停机'; stEl.style.color=dotEl.style.color=dotEl.style.background='var(--danger)';
+    } else if (maxT>85) {
+        stEl.textContent='温度告警'; stEl.style.color=dotEl.style.color=dotEl.style.background='var(--danger)';
+    } else if (maxT>78) {
+        stEl.textContent='温度预警'; stEl.style.color=dotEl.style.color=dotEl.style.background='var(--warning)';
+    } else {
+        stEl.textContent='系统运行正常'; stEl.style.color=dotEl.style.color=dotEl.style.background='var(--accent)';
+    }
+}
+
+function updateAlerts() {
+    const div = document.getElementById('alertList');
+    let h = '';
+    for (let i=0;i<6;i++){
+        if(S.gpuTemps[i]>82){
+            h+=`<div class="alert-item"><div class="alert-icon" style="background:rgba(208,48,64,0.1);color:var(--danger);"><i class="fas fa-exclamation"></i></div><div><div style="color:var(--danger);font-weight:500;">GPU ${i+1} 温度过高</div><div style="color:var(--muted);">${S.gpuTemps[i].toFixed(1)}°C，超过阈值 82°C</div></div></div>`;
+        } else if(S.gpuTemps[i]>75){
+            h+=`<div class="alert-item"><div class="alert-icon" style="background:rgba(208,149,0,0.08);color:var(--warning);"><i class="fas fa-exclamation"></i></div><div><div style="color:var(--warning);font-weight:500;">GPU ${i+1} 温度预警</div><div style="color:var(--muted);">${S.gpuTemps[i].toFixed(1)}°C，接近阈值 82°C</div></div></div>`;
+        }
+    }
+    if(!S.pumpOn) h+=`<div class="alert-item"><div class="alert-icon" style="background:rgba(208,48,64,0.1);color:var(--danger);"><i class="fas fa-power-off"></i></div><div><div style="color:var(--danger);font-weight:500;">循环水泵已停机</div><div style="color:var(--muted);">冷却液循环已停止</div></div></div>`;
+    if(S.pressure>3.2) h+=`<div class="alert-item"><div class="alert-icon" style="background:rgba(208,149,0,0.08);color:var(--warning);"><i class="fas fa-tint"></i></div><div><div style="color:var(--warning);font-weight:500;">管路压力偏高</div><div style="color:var(--muted);">${S.pressure.toFixed(1)} bar</div></div></div>`;
+    if(!h) h='<div style="text-align:center;padding:16px 0;color:var(--accent);font-size:12px;"><i class="fas fa-check-circle" style="margin-right:4px;"></i>暂无告警</div>';
+    div.innerHTML = h;
+}
+
+function updateDetail() {
+    const div = document.getElementById('detailPanel');
+    const id = S.selected;
+    if(!id){div.innerHTML='<span style="color:var(--muted);">点击原理图中的组件查看详细参数</span>';return;}
+    let rows = '';
+    const r = (l,v,c) => `<div class="tooltip-row"><span>${l}</span><span${c?' style="color:'+c+'"':''}>${v}</span></div>`;
+    if(id==='tower') rows=r('类型','干式冷却器')+r('进风温度','28.0 °C')+r('出水温度',S.towerOutT.toFixed(1)+' °C',tCSS(S.towerOutT))+r('进水温度',S.towerInT.toFixed(1)+' °C',tCSS(S.towerInT))+r('散热风量','12,000 m³/h')+r('风扇状态',S.fanOn?'运行中':'已停止',S.fanOn?'var(--accent)':'var(--danger)');
+    else if(id==='cdu') rows=r('型号','CDU-300H')+r('一次侧进水',S.towerOutT.toFixed(1)+' °C',tCSS(S.towerOutT))+r('一次侧出水',S.towerInT.toFixed(1)+' °C',tCSS(S.towerInT))+r('二次侧供水',S.supplyT.toFixed(1)+' °C',tCSS(S.supplyT))+r('二次侧回水',S.returnT.toFixed(1)+' °C',tCSS(S.returnT))+r('换热效率',S.cduEff.toFixed(1)+'%','var(--accent)')+r('额定热量','300 kW');
+    else if(id==='pump') rows=r('类型','变频离心泵')+r('运行状态',S.pumpOn?'运行中':'已停止',S.pumpOn?'var(--accent)':'var(--danger)')+r('流量',S.flowRate.toFixed(0)+' L/min','var(--cold)')+r('扬程','25 m')+r('转速',S.pumpOn?Math.round(S.flowRate/120*3200)+' RPM':'0 RPM')+r('出口压力',S.pressure.toFixed(2)+' bar')+r('额定功率','450 W');
+    else if(id.startsWith('gpu')){const i=parseInt(id.replace('gpu',''));const t=S.gpuTemps[i],p=S.gpuPowers[i];rows=r('芯片','NVIDIA H100 80GB')+r('温度',t.toFixed(1)+' °C',tCSS(t))+r('功耗',p+' W','var(--warning)')+r('冷板类型','微通道铜冷板')+r('热阻','0.015 °C/W')+r('流量分配',(S.flowRate/6).toFixed(1)+' L/min')+r('温度状态',t>82?'告警':t>75?'预警':'正常',t>82?'var(--danger)':t>75?'var(--warning)':'var(--accent)');}
+    else if(id==='rack') rows=r('型号','8U 液冷机柜')+r('GPU 数量','6 × H100')+r('总功耗',S.gpuPowers.reduce((a,b)=>a+b,0)+' W')+r('散热方式','液冷 + 风冷混合')+r('进水温度',S.supplyT.toFixed(1)+' °C',tCSS(S.supplyT))+r('出水温度',S.returnT.toFixed(1)+' °C',tCSS(S.returnT))+r('排风温度',S.exhaustT.toFixed(1)+' °C',tCSS(S.exhaustT));
+    const comp=comps.find(c=>c.id===id);
+    const label=comp?comp.label:(id==='rack'?rackBox.label:'');
+    div.innerHTML=`<div style="font-weight:700;font-size:13px;margin-bottom:8px;color:var(--text);">${label}</div>${rows}`;
+}
+
+/* 日志 */
+const logs = [];
+function addLog(msg) {
+    const now = new Date();
+    logs.unshift({ts:now.toTimeString().slice(0,8), msg});
+    if(logs.length>30) logs.length=30;
+    renderLogs();
+}
+function renderLogs() {
+    document.getElementById('logList').innerHTML = logs.slice(0,12).map(l=>`<div class="log-item"><span class="log-time">${l.ts}</span><span>${l.msg}</span></div>`).join('');
+}
+addLog('系统启动，初始化完成');
+addLog('冷却塔风扇启动');
+addLog('循环水泵启动，流量 120 L/min');
+addLog('CDU 换热单元就绪');
+
+function updateClock() {
+    document.getElementById('clock').textContent = new Date().toTimeString().slice(0,8);
+}
+
+/* ===================== 交互 ===================== */
+canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX-rect.left, my = e.clientY-rect.top;
+    let found = null;
+    for (const c of comps) {
+        const cx=X(c.x),cy=Y(c.y),cw=Sz(c.w),ch=Sz(c.h);
+        if(mx>=cx&&mx<=cx+cw&&my>=cy&&my<=cy+ch){found=c.id;break;}
+    }
+    if(!found){const rb=rackBox;if(mx>=X(rb.x)&&mx<=X(rb.x+rb.w)&&my>=Y(rb.y)&&my<=Y(rb.y+rb.h))found='rack';}
+    S.hover=found; canvas.style.cursor=found?'pointer':'default';
+    if(found&&!found.startsWith('gpu')){
+        const comp=comps.find(c=>c.id===found);
+        const lx=found==='rack'?rackBox.x+rackBox.w/2:comp.x+comp.w/2;
+        const ly=found==='rack'?rackBox.y:comp.y;
+        let ttR='';
+        if(found==='tower')ttR=`出水: ${S.towerOutT.toFixed(1)}°C | 进水: ${S.towerInT.toFixed(1)}°C`;
+        else if(found==='cdu')ttR=`供水: ${S.supplyT.toFixed(1)}°C | 回水: ${S.returnT.toFixed(1)}°C | 效率: ${S.cduEff.toFixed(1)}%`;
+        else if(found==='pump')ttR=`流量: ${S.flowRate.toFixed(0)} L/min | ${S.pumpOn?'运行中':'已停止'}`;
+        else if(found==='rack')ttR=`总功耗: ${S.gpuPowers.reduce((a,b)=>a+b,0)}W | 6×GPU`;
+        document.getElementById('ttTitle').textContent=found==='rack'?rackBox.label:(comp?comp.label:'');
+        document.getElementById('ttBody').innerHTML=`<div style="color:var(--muted);font-size:11px;">${ttR}</div>`;
+        let tx2=X(lx)+20,ty2=Y(ly)-10;
+        if(tx2+200>W) tx2=X(lx)-200;
+        if(ty2<10) ty2=10;
+        ttEl.style.left=tx2+'px'; ttEl.style.top=ty2+'px';
+        ttEl.classList.add('visible');
+    } else { ttEl.classList.remove('visible'); }
+});
+canvas.addEventListener('mouseleave', ()=>{S.hover=null;ttEl.classList.remove('visible');});
+canvas.addEventListener('click', ()=>{
+    if(S.hover){
+        if(S.selected!==S.hover){S.selected=S.hover;updateDetail();addLog(`选中组件: ${comps.find(c=>c.id===S.hover)?.label||rackBox.label}`);}
+        else{S.selected=null;updateDetail();}
+    }
+});
+
+/* 控制面板 */
+document.getElementById('loadSlider').addEventListener('input',e=>{S.load=parseInt(e.target.value);document.getElementById('loadVal').textContent=S.load+'%';addLog(`计算负载调整为 ${S.load}%`);});
+document.getElementById('targetTempSlider').addEventListener('input',e=>{S.targetTemp=parseFloat(e.target.value);document.getElementById('targetTempVal').textContent=S.targetTemp.toFixed(1)+'°C';addLog(`目标供水温度调整为 ${S.targetTemp.toFixed(1)}°C`);});
+document.querySelectorAll('[data-mode]').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('[data-mode]').forEach(b=>b.classList.remove('active'));btn.classList.add('active');S.mode=btn.dataset.mode;addLog(`切换运行模式: ${{normal:'正常',perf:'高性能',quiet:'静音'}[S.mode]}`);});});
+document.getElementById('togglePump').addEventListener('click',function(){S.pumpOn=!S.pumpOn;this.classList.toggle('off',!S.pumpOn);addLog(S.pumpOn?'循环水泵已启动':'循环水泵已停机');});
+document.getElementById('toggleFan').addEventListener('click',function(){S.fanOn=!S.fanOn;this.classList.toggle('off',!S.fanOn);addLog(S.fanOn?'冷却塔风扇已启动':'冷却塔风扇已停止');});
+
+/* ===================== 主循环 ===================== */
+let lastSim=0, lastUI=0;
+function loop(ts){
+    S.time=ts*0.001;
+    if(S.pumpOn){const sm=S.mode==='perf'?1.3:S.mode==='quiet'?0.6:1;parts.forEach(p=>{p.t+=p.spd*sm;if(p.t>1)p.t-=1;if(p.t<0)p.t+=1;});}
+    if(ts-lastSim>50){simData();lastSim=ts;}
+    if(ts-lastUI>500){updateUI();updateAlerts();updateClock();lastUI=ts;}
+    draw();
+    requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>

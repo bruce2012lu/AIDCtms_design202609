@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="算力冷却系统新业务BP v3.0：AI原生、专家主导、虚拟验证、样机试验与项目交付">
+  <title>算力冷却系统新业务BP · v3.0 AI-Native / 20260905</title>
+  <style>
+    :root{--navy:#0b2239;--blue:#175cd3;--teal:#087a70;--gold:#a66d12;--ink:#172033;--muted:#5d687a;--line:#d8e1eb;--bg:#eef3f8;--soft:#f7f9fc;--ok:#087a55;--warn:#946200;--bad:#b42318;--purple:#6941c6}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.72 "Microsoft YaHei","PingFang SC","Segoe UI",Arial,sans-serif}
+    .page{max-width:1220px;margin:auto;background:#fff;box-shadow:0 12px 44px rgba(10,31,68,.10)}
+    header{padding:62px 68px 50px;color:#fff;background:#0b2239;position:relative;overflow:hidden}
+    header:before{content:"AI-NATIVE ENGINEERING";position:absolute;right:44px;top:26px;font:700 12px/1 Consolas,monospace;letter-spacing:.18em;color:rgba(255,255,255,.32)}
+    header:after{content:"";position:absolute;width:360px;height:360px;border:70px solid rgba(8,122,112,.22);border-radius:50%;right:-190px;bottom:-230px}
+    .kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#e0bf70;font-weight:700}.subtitle{font-size:19px;max-width:960px;color:#e4edf7}
+    h1{font-size:42px;line-height:1.18;margin:13px 0 10px}h2{font-size:26px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:9px;margin:0 0 17px}h3{font-size:19px;color:#174474;margin:28px 0 10px}h4{font-size:15px;color:var(--navy);margin:18px 0 5px}
+    .meta,.tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.pill{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:5px 11px;background:rgba(255,255,255,.08);font-size:12.5px}
+    .conf{margin-top:24px;border-left:4px solid #d6b866;padding-left:14px;color:#dce8f3;font-size:12.5px;max-width:1000px}
+    nav{padding:28px 66px;background:#f8fafc;border-bottom:1px solid var(--line)}nav h2{font-size:18px}.toc{columns:2;column-gap:36px}.toc a{display:block;text-decoration:none;color:#183b69;padding:3px 0;break-inside:avoid}.toc a:hover{text-decoration:underline}
+    main{padding:42px 66px 68px}section{margin:0 0 50px;scroll-margin-top:16px}.overview{padding:42px 66px;border-bottom:1px solid var(--line);break-after:page}
+    .decision{font-size:18px;font-weight:700;color:var(--navy);background:#eef5ff;border-left:6px solid var(--blue);padding:16px 19px;border-radius:8px}.lead{font-size:16px;background:#f1f7f6;border-left:5px solid var(--teal);padding:14px 18px;border-radius:8px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:15px 0}.grid.two{grid-template-columns:repeat(2,1fr)}.card{border:1px solid var(--line);border-radius:10px;padding:15px;background:#fff}.card b{display:block;color:var(--blue);font-size:18px}.card small{color:var(--muted)}
+    table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:13.2px}th{background:#102d4f;color:#fff;font-weight:600;text-align:left}th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top}tbody tr:nth-child(even) td{background:#f8fafc}.num{text-align:right;font-variant-numeric:tabular-nums}.total td{background:#eaf4f1!important;font-weight:700;color:#075e54}
+    .callout{border:1px solid #c7d8f9;background:#f3f7ff;border-radius:9px;padding:14px 17px;margin:16px 0}.risk{border-color:#efc7c3;background:#fff7f6}.ok{border-color:#b9dfce;background:#f3fbf7}.warn{border-color:#ead69d;background:#fffaf0}
+    .tag{display:inline-block;border-radius:5px;padding:1px 6px;font-size:11px;font-weight:700;white-space:nowrap}.a{background:#e6f6ef;color:var(--ok)}.m{background:#eee9fe;color:var(--purple)}.na{background:#feeceb;color:var(--bad)}.g{background:#e8f1ff;color:var(--blue)}
+    .formula{font:12.5px/1.75 Consolas,"Microsoft YaHei",monospace;background:#101828;color:#f2f4f7;padding:13px 15px;border-radius:8px;overflow:auto;white-space:pre-wrap}.small{font-size:12.5px;color:var(--muted)}.nowrap{white-space:nowrap}
+    .flow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:18px 0}.step{position:relative;border-top:4px solid var(--teal);background:#f5f9fb;padding:13px 10px;min-height:118px}.step b{display:block;color:var(--navy);margin-bottom:5px}.step span{font-size:12.5px;color:var(--muted)}
+    .gate{font-weight:700;color:var(--teal)}.footer{padding:26px 66px;background:var(--navy);color:#d4dfeb;font-size:12.5px}.footer b{color:#fff}
+    @media(max-width:900px){header,nav,main,.overview,.footer{padding-left:22px;padding-right:22px}.grid,.grid.two,.flow{grid-template-columns:1fr}.toc{columns:1}h1{font-size:34px}table{display:block;overflow-x:auto}.step{min-height:auto}}
+    @media print{body{background:#fff;font-size:11.5px}.page{box-shadow:none;max-width:none}header,nav,main,.overview,.footer{padding-left:28px;padding-right:28px}table,.card,.callout,.flow{break-inside:avoid}a{color:inherit}.toc{columns:1}}
+    @page{size:A4;margin:13mm 11mm}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header id="top">
+    <div class="kicker">Business Plan · v3.0 AI-Native Operating Model · Confidential</div>
+    <h1>算力冷却系统新业务BP</h1>
+    <div class="subtitle">以领域专家为主体、AI工程平台为杠杆，在12个月内完成首代50–200 kW代表性CDU从需求定义、系统设计、虚拟验证、样机试制到客户试点交付，形成可复用的热管理数字资产与交付能力</div>
+    <div class="tags">
+      <span class="pill">12个月首代产品</span><span class="pill">专家主导</span><span class="pill">AI驱动设计</span><span class="pill">数字线程</span><span class="pill">虚实验证闭环</span><span class="pill">轻资产交付</span>
+    </div>
+    <div class="meta">
+      <span class="pill">版本：v3.0 AI-Native</span><span class="pill">日期：2026-09-05</span><span class="pill">基线：BP v2.1 / 2026-08-22</span><span class="pill">建议复盘：G0后每月</span>
+    </div>
+    <div class="conf"><b>文件属性：</b>供股东、董事会与核心团队讨论的业务设计稿。AI不承担产品责任，不替代工程签署、试验认证或客户验收。本文件不虚构市场份额、合同价格、产品毛利或AI效率收益；所有经济点值须由客户合同、供应商报价、样机试验和项目回款解锁。</div>
+  </header>
+
+  <section class="overview" id="overview">
+    <h2>董事会概述｜购买“AI原生工程能力”的验证期权</h2>
+    <div class="decision">建议立项的不是传统设备制造团队，也不是通用AI软件团队，而是一家以热管理专家为责任主体、以工程智能平台为生产系统、以验证数据为核心资产的算力冷却系统公司。</div>
+    <div class="grid">
+      <div class="card"><b>战略目标</b>把专家知识转化为可计算规则、模型、模板和证据链，将一次性项目经验沉淀为可复用产品能力。</div>
+      <div class="card"><b>12个月首个交付闭环</b>SRR/PDR/CDR → Alpha/Beta → DVT/FAT → 客户试点/SAT；形成首代可交付配置基线。</div>
+      <div class="card"><b>商业边界</b>公司拥有架构、模型、应用控制、验证方法、配置数据和客户责任；制造与部分试验受控外协。</div>
+    </div>
+    <h3>与v2.1的核心差异</h3>
+    <table>
+      <thead><tr><th>维度</th><th>v2.1 OEM经营模型</th><th>v3.0 AI原生经营模型</th><th>不变的纪律</th></tr></thead>
+      <tbody>
+        <tr><td>生产力核心</td><td>微笑曲线两端的架构、控制、qualification与客户责任</td><td><b>专家 + AI工程平台 + 数字线程</b>成为统一生产系统</td><td>最终设计、质量和合同责任不外包</td></tr>
+        <tr><td>研发流程</td><td>工程师驱动设计，工具辅助</td><td>结构化需求驱动多方案生成、自动计算、约束检查和证据编排</td><td>AI结果必须可追溯、可复算、可审查</td></tr>
+        <tr><td>团队结构</td><td>精干职能团队</td><td>少量全职领域专家为主，配平台工程、数据/仿真与供应链质量</td><td>阶段性编制、外部专家、轻资产制造</td></tr>
+        <tr><td>产品资产</td><td>CDU、应用控制、测试与项目数据</td><td>实体产品与“规格库—模型库—规则库—测试库—故障库”双轮资产</td><td>客户数据授权、IP归属、版本治理</td></tr>
+        <tr><td>门禁逻辑</td><td>样机、PoC、合同、BOM、现金逐步解锁</td><td>增加模型可信度、虚拟—实体相关性和AI治理门</td><td>无证据不扩编、不扩产、不承诺量产</td></tr>
+      </tbody>
+    </table>
+    <div class="callout ok"><b>建议首期决策：</b>批准12个月首代产品计划，按M1 SRR、M3 PDR、M4 CDR、M6 Alpha、M8 Beta、M10 DVT、M11 FAT、M12客户试点/SAT逐门释放。任何关键门未通过，只允许整改，不得用压缩试验、放宽责任或提前备货追回进度。</div>
+  </section>
+
+  <nav aria-label="目录">
+    <h2>目录</h2>
+    <div class="toc">
+      <a href="#s1">1. 战略定位与商业命题</a>
+      <a href="#s2">2. AI原生经营系统</a>
+      <a href="#s3">3. 产品与平台架构</a>
+      <a href="#s4">4. 12个月集成主计划与关键路径</a>
+      <a href="#s5">5. 专家型团队与组织机制</a>
+      <a href="#s6">6. 软件与AI工程平台建设规划</a>
+      <a href="#s7">7. 虚拟验证与实体试验体系</a>
+      <a href="#s8">8. 硬件建设、打样与供应链交付</a>
+      <a href="#s9">9. 商业模式与客户进入</a>
+      <a href="#s10">10. 阶段门禁、资金与KPI</a>
+      <a href="#s11">11. 风险、治理与责任边界</a>
+      <a href="#s12">12. 0–24个月董事会行动计划</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="s1">
+      <h2>1. 战略定位与商业命题</h2>
+      <p class="lead"><b>一句话定位：</b>面向高密算力设施，以专家签署的AI辅助工程流程，快速交付可验证、可制造、可运维的液冷系统及其数字化工程包。</p>
+      <h3>1.1 客户购买的不是单台设备</h3>
+      <div class="grid">
+        <div class="card"><b>更快形成可信方案</b><small>把客户工况、机柜负载、一次/二次侧边界、冗余和服务约束转化为可审计的系统方案。</small></div>
+        <div class="card"><b>更早暴露工程风险</b><small>在投料前检查热工、水力、控制、材料、故障域、可制造性和可维护性。</small></div>
+        <div class="card"><b>更完整交付证据</b><small>交付配置基线、模型假设、仿真结果、试验报告、FAT/SAT和变更记录。</small></div>
+      </div>
+      <h3>1.2 护城河假设</h3>
+      <table>
+        <thead><tr><th>能力层</th><th>形成方式</th><th>可复制资产</th><th>验证方式</th></tr></thead>
+        <tbody>
+          <tr><td>专家知识</td><td>系统、热流体、控制、可靠性、制造与现场专家共同定义规则</td><td>设计准则、约束、FMEA、评审清单</td><td>专家评审一致性、缺陷前移率</td></tr>
+          <tr><td>工程模型</td><td>一维系统模型、CFD/FEA、控制模型、降额与故障模型</td><td>参数化模型、验证算例、模型适用域</td><td>与台架和现场数据的相关性</td></tr>
+          <tr><td>设计数据</td><td>项目、试验、供应商、质量和运行数据回灌</td><td>部件库、曲线库、故障库、成本与交期库</td><td>版本完整性、可追溯性、复用率</td></tr>
+          <tr><td>交付体系</td><td>受控OEM、试验资源和现场服务网络</td><td>DVP、FAT/SAT、工艺与质量模板</td><td>一次通过、准时交付、质保表现</td></tr>
+        </tbody>
+      </table>
+      <div class="callout warn"><b>待验证假设：</b>AI能否缩短方案迭代、减少重复工程和提高知识复用，当前为管理假设，不预设具体百分比。必须用同类项目的基准工时、迭代轮次、缺陷和试验返工数据验证。</div>
+    </section>
+
+    <section id="s2">
+      <h2>2. AI原生经营系统</h2>
+      <p>AI原生不是在现有流程末端增加聊天机器人，而是让每项工作都以结构化输入、机器可执行模型、可追溯输出和专家签署运行。</p>
+      <div class="flow">
+        <div class="step"><b>1 需求建模</b><span>解析URS/RFQ，形成需求、假设、冲突、缺口与责任边界</span></div>
+        <div class="step"><b>2 方案生成</b><span>按规则与部件库生成候选架构、P&amp;ID、BOM和控制策略</span></div>
+        <div class="step"><b>3 虚拟验证</b><span>热工水力、控制、故障、结构和可制造性自动编排</span></div>
+        <div class="step"><b>4 专家签署</b><span>审查证据、偏差、模型适用域和残余风险，冻结设计</span></div>
+        <div class="step"><b>5 实体验证</b><span>打样、台架、环境、可靠性、FAT/SAT与相关性校准</span></div>
+        <div class="step"><b>6 数据回灌</b><span>将试验、缺陷、成本、交付和运行数据更新到数字资产</span></div>
+      </div>
+      <h3>2.1 四类AI代理与权限</h3>
+      <table>
+        <thead><tr><th>代理</th><th>任务</th><th>允许自动化</th><th>必须人工批准</th></tr></thead>
+        <tbody>
+          <tr><td>需求代理</td><td>文档解析、条款映射、冲突检查、追问清单</td><td>草拟结构化URS和偏离表</td><td>客户边界、验收标准、责任接受</td></tr>
+          <tr><td>设计代理</td><td>参数化方案、部件筛选、P&amp;ID/BOM草案、规则检查</td><td>生成候选方案与比较</td><td>架构冻结、安全关键选型</td></tr>
+          <tr><td>验证代理</td><td>生成算例、调度求解器、检查结果、形成报告草案</td><td>批量仿真和证据归档</td><td>模型适用性、结果接受、试验减免</td></tr>
+          <tr><td>交付代理</td><td>配置核对、测试记录、问题单、文档包与变更影响</td><td>一致性检查和报告编排</td><td>放行、偏离、变更、发货与客户验收</td></tr>
+        </tbody>
+      </table>
+      <div class="formula">AI输出状态 = Draft → Machine-Checked → Expert-Reviewed → Approved → Released
+只有 Released 状态可用于采购、制造、试验或客户交付。
+每次状态变化必须记录：输入版本、模型/规则版本、工具版本、执行人、审批人、时间与证据链接。</div>
+      <h3>2.2 五个不可由AI替代的专家签署点</h3>
+      <p><b>SRR</b>（需求与责任边界）→ <b>PDR</b>（架构与模型适用性）→ <b>CDR</b>（详细设计冻结）→ <b>VVR</b>（虚拟—实体相关性及残余风险）→ <b>Release</b>（FAT、偏离与发货放行）。AI只作为受控工具参与，不在RACI中担任R或A。</p>
+    </section>
+
+    <section id="s3">
+      <h2>3. 产品与平台架构</h2>
+      <h3>3.1 双产品体系</h3>
+      <table>
+        <thead><tr><th>产品</th><th>近期范围</th><th>公司自留</th><th>外部协同</th></tr></thead>
+        <tbody>
+          <tr><td><b>实体冷却系统</b></td><td>代表性50–200 kW CDU及应用控制；后续扩展Pod级并联与冷板托盘</td><td>需求、架构、控制应用、关键规格、DVP、最终放行、客户责任</td><td>标准部件、控制硬件、BSW、钣金/管路、装配、部分测试与现场施工</td></tr>
+          <tr><td><b>AI工程平台</b></td><td>需求建模、参数化设计、仿真编排、知识库、证据链、配置与变更管理</td><td>数据模型、领域规则、工作流、评价函数、验证数据和权限体系</td><td>基础模型、CAE求解器、PLM/ALM接口、算力与通用软件组件</td></tr>
+        </tbody>
+      </table>
+      <h3>3.2 首代产品边界与12个月完成定义</h3>
+      <p>首代产品选择一个具有客户牵引、试验资源可得且供应链可控的<b>50–200 kW范围内代表性CDU配置</b>，配套应用控制软件、HMI/通信、数据采集与诊断，以及支撑该产品研发的AI工程平台MVP。具体额定点由M1客户URS、平台工况和台架能力共同冻结，不在本BP中虚构。</p>
+      <div class="formula">Product Baseline = 热负荷 + 流量/压差 + ATD + TCS/FWS + 工质/材料
++ 冗余/故障态 + 水质/过滤 + 控制/通信 + 环境/降额 + FAT/SAT + 服务边界</div>
+      <table>
+        <thead><tr><th>首代范围</th><th>必须包含</th><th>12个月交付状态</th><th>明确不包含</th></tr></thead>
+        <tbody>
+          <tr><td>CDU实体系统</td><td>机械/流体回路、板换、泵阀、过滤、传感、控制柜、线束、网络与必要安全功能</td><td>完成Alpha、Beta、DVT、FAT和一处客户试点SAT，形成受控As-built基线</td><td>多容量全系列量产、专用重资产产线、未经客户牵引的冷板托盘</td></tr>
+          <tr><td>应用控制</td><td>状态机、泵阀控制、告警联锁、故障降级、本地/远程权限、参数与日志</td><td>受控发布版本随试点配置交付，具备回滚、诊断和测试证据</td><td>未经验证的自主闭环AI控制、以云端模型替代本地安全逻辑</td></tr>
+          <tr><td>AI工程平台MVP</td><td>需求结构化、规则/部件库、模型编排、验证证据、配置与变更追溯</td><td>打通一个产品从URS到SAT的数字线程，并用实际项目数据评估效果</td><td>通用工业大模型、面向外部销售的平台产品、训练规模指标</td></tr>
+        </tbody>
+      </table>
+      <div class="callout ok"><b>“完成首代产品”的定义：</b>不是展示样机可运行，而是首代硬件、软件、模型、BOM、ICD、DVP、FAT/SAT、问题关闭、供应商和客户交付资料处于同一受控版本；客户试点完成SAT且残余问题有责任人、计划与风险接受记录。</div>
+      <div class="callout risk"><b>禁止：</b>在客户平台、工况、Q–ΔP、冗余和故障边界未冻结前，承诺“支持多少机柜/何种GPU”；在模型未与试验相关前，用纯仿真结果替代qualification或安全关键试验。</div>
+    </section>
+
+    <section id="s4">
+      <h2>4. 12个月集成主计划与关键路径</h2>
+      <p class="lead">主计划以M1启动、M12完成首个客户试点SAT为目标。阶段日期是内部计划基线，不是对客户的无条件承诺；客户输入、长周期件、台架和现场条件任一延迟，必须通过变更控制重排，不得删减安全与可靠性验证。</p>
+      <table>
+        <thead><tr><th>月份/评审</th><th>产品与软件</th><th>硬件、样机与试验</th><th>客户/供应链依赖</th><th>主要交付物与退出门</th></tr></thead>
+        <tbody>
+          <tr><td><b>M1｜SRR</b></td><td>冻结软件分层、数据字典和平台MVP范围；建立需求库与代码仓</td><td>冻结代表产品边界、试验资源方案和长周期件清单</td><td>客户提供平台/工况/接口/验收输入；核心专家到位</td><td>结构化URS、责任矩阵、主计划、初始DVP；<span class="gate">需求完整且责任可接受</span></td></tr>
+          <tr><td><b>M2–M3｜PDR</b></td><td>控制架构、HMI/通信、数据采集设计；完成系统模型和SIL骨架</td><td>多方案比较、P&amp;ID、初始BOM、ICD-0、DFMEA；完成关键件RFQ</td><td>供应商曲线/样件/交期；客户确认一次/二次侧边界</td><td>PDR包、模型卡、供应商短名单、台架方案；<span class="gate">概念可制造、可测试、无未接受重大风险</span></td></tr>
+          <tr><td><b>M4｜CDR</b></td><td>应用控制Alpha基线、测试用例、CI/CD与SBOM；平台打通URS—模型—DVP</td><td>冻结Alpha图纸/BOM/ICD-1、检验与装配包，释放长周期件</td><td>OEM完成可制造性评审并承诺试制窗口</td><td>CDR签署、Alpha构建包；<span class="gate">设计基线完整，采购只按Released版本执行</span></td></tr>
+          <tr><td><b>M5–M6｜Alpha</b></td><td>MIL/SIL转HIL；完成状态机、基本HMI/通信、采集与安全降级联调</td><td>Alpha一批试制、台架冒烟/性能/故障测试，校准系统模型</td><td>关键件到料、台架热源/水侧/仪器可用，OEM问题快速闭环</td><td>Alpha报告、模型相关性V1、问题清单；<span class="gate">核心回路和安全状态成立，方可冻结Beta整改</span></td></tr>
+          <tr><td><b>M7–M8｜Beta</b></td><td>软件Beta、诊断规则、权限/日志、回归自动化；完成ICD一致性检查</td><td>接近交付BOM的Beta一批，执行预DVT、可制造性和维修性验证</td><td>第二来源样件、客户试点配置和现场接口初步冻结</td><td>Beta基线、ICD-2、DVT就绪评审；<span class="gate">重大Alpha问题关闭，DVT样机与方法获质量批准</span></td></tr>
+          <tr><td><b>M9–M10｜DVT</b></td><td>软件候选发布版，HIL回归、漏洞/SBOM检查、数据回灌与报告自动编排</td><td>完成全工况、故障、可靠性及适用的环境/EMC/安规试验，形成相关性V2</td><td>第三方试验窗口；客户完成现场调查、接入与SAT方案确认</td><td>DVT报告、缺陷关闭、交付BOM候选；<span class="gate">无开放安全/重大缺陷，残余偏差被书面接受</span></td></tr>
+          <tr><td><b>M11｜FAT/试点放行</b></td><td>冻结Release Candidate、参数、日志字典、部署/回滚和网络安全基线</td><td>按客户配置执行FAT、运输前检查和交付配置核验</td><td>客户见证/认可FAT；现场电、水、网络、基础和停机窗口Ready</td><td>FAT签署、As-built候选、发货批准；<span class="gate">质量负责人放行且现场就绪</span></td></tr>
+          <tr><td><b>M12｜客户试点/SAT/G2</b></td><td>现场部署、遥测、诊断和版本核验；冻结首代软件与平台证据包</td><td>安装联调、SAT/试运行、问题分级与服务移交</td><td>客户验收主体在场；合同、保险、服务与回款节点有效</td><td>SAT、首代As-built、试点报告和G2包；<span class="gate">决定小批、整改或停止</span></td></tr>
+        </tbody>
+      </table>
+      <h3>4.1 关键路径与计划控制</h3>
+      <div class="formula">关键路径：客户URS/责任边界 → PDR → CDR → 长周期件/OEM排产 → Alpha
+→ 模型校准与Beta整改 → DVT → 客户配置FAT → 现场Ready → SAT/G2
+
+并行但不可缺失：软件DevSecOps与HIL｜AI平台数字线程｜第二来源｜合同/保险｜台架/第三方试验｜客户现场准备</div>
+      <ul>
+        <li><b>关键依赖：</b>具名客户输入、部件曲线及样件、长周期件交期、OEM试制窗口、可复用台架、第三方试验档期、客户现场电/水/网络/施工条件。</li>
+        <li><b>进度规则：</b>每周更新关键路径、浮时、问题燃尽与13周现金；任何关键任务预计滑移超过内部阈值，提交恢复方案和门禁影响，不以未验证并行作业掩盖延期。</li>
+        <li><b>退出规则：</b>SRR/PDR/CDR/DVT/FAT/SAT均须有具名专家签署；未通过时只允许整改预算，不允许提前进入下一阶段的批量采购、客户承诺或发货。</li>
+      </ul>
+      <p class="small">每个阶段只允许受控迭代，不允许绕过设计冻结直接采购，也不允许用AI生成文档掩盖缺失证据。虚拟验证用于筛选设计和前移缺陷，不能替代法规、合同、质量计划要求的实体试验。</p>
+    </section>
+
+    <section id="s5">
+      <h2>5. 专家型团队与组织机制</h2>
+      <p class="lead">组织原则：专家不是AI的“审核尾端”，而是规则定义者、模型责任人和工程签署人；AI承担资料处理、候选生成、批量计算、一致性检查与知识复用。</p>
+      <h3>5.1 阶段1核心团队建议：不超过8名核心FTE</h3>
+      <table>
+        <thead><tr><th>角色</th><th>建议配置</th><th>核心责任</th><th>不可被AI替代的签署</th></tr></thead>
+        <tbody>
+          <tr><td>业务负责人/产品总师</td><td>1</td><td>客户、产品、商业边界、资源与项目组合</td><td>URS、报价边界、客户承诺</td></tr>
+          <tr><td>系统架构/热流体专家</td><td>1–2</td><td>热工水力、P&amp;ID、部件匹配、系统故障域</td><td>系统架构与性能边界</td></tr>
+          <tr><td>控制与软件专家</td><td>1</td><td>状态机、冗余、故障降级、通信、网络安全</td><td>控制策略与软件放行</td></tr>
+          <tr><td>仿真与AI工程负责人</td><td>1</td><td>模型体系、代理工作流、数据接口、评测与MLOps</td><td>模型适用域与平台版本</td></tr>
+          <tr><td>试验/可靠性与质量负责人</td><td>1</td><td>DVP、FMEA、台架、FAT/SAT、问题闭环</td><td>试验接受、质量偏离、最终放行</td></tr>
+          <tr><td>供应链/NPI/项目交付</td><td>1–2</td><td>RFQ、供应商、样机、制造、现场与成本进度</td><td>供应商批准与交付基线</td></tr>
+        </tbody>
+      </table>
+      <p class="small">财务、法务、HR、信息安全和采购运营可由母公司共享或按需外部采购。CFD、结构、EMC、安规、材料兼容、保险与合同可使用专家池，但不得外包最终工程和质量责任。</p>
+      <h3>5.2 组织运行节奏</h3>
+      <div class="grid">
+        <div class="card"><b>每日</b><small>AI生成任务包、异常和依赖；责任人确认优先级，不以“代理已完成”等同于工程完成。</small></div>
+        <div class="card"><b>每周</b><small>设计与验证评审；检查需求覆盖、模型偏差、问题燃尽、成本交期和现金。</small></div>
+        <div class="card"><b>每门禁</b><small>跨专业专家签署；质量负责人有独立停发权；商业负责人不得替代技术和质量批准。</small></div>
+      </div>
+      <h3>5.3 12个月阶段投入与单一责任人</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>主责A</th><th>核心投入</th><th>支持投入</th><th>阶段管理焦点</th></tr></thead>
+        <tbody>
+          <tr><td>M1 SRR</td><td>业务负责人/产品总师</td><td>产品、系统、质量、AI/仿真</td><td>财法、客户接口</td><td>冻结需求、责任、计划和现金边界</td></tr>
+          <tr><td>M2–M4 PDR/CDR</td><td>系统架构负责人</td><td>系统、控制软件、AI/仿真、质量、供应链</td><td>OEM、部件与CAE专家</td><td>完成架构、模型、ICD、BOM和设计冻结</td></tr>
+          <tr><td>M5–M8 Alpha/Beta</td><td>系统架构负责人；质量负责人对试验独立A</td><td>控制软件、系统、试验质量、AI/仿真、NPI</td><td>OEM驻厂、台架与专项专家</td><td>软硬件联调、模型校准、缺陷闭环和Beta就绪</td></tr>
+          <tr><td>M9–M10 DVT</td><td>质量/可靠性负责人</td><td>试验质量、系统、控制、数据、供应链</td><td>第三方试验与安全专家</td><td>完成DVP、相关性、法规/合同适用试验与放行依据</td></tr>
+          <tr><td>M11–M12 FAT/SAT</td><td>质量负责人对放行A；业务负责人对客户承诺A</td><td>质量、项目交付、控制软件、系统、供应链</td><td>客户、OEM、EPC/现场服务</td><td>配置一致、现场Ready、验收、服务和回款证据</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><b>激励建议：</b>绩效同时绑定客户价值、复用资产、设计质量、试验一次通过、回款和现金安全；不得只按代码量、文档量、仿真次数或营收考核。</div>
+    </section>
+
+    <section id="s6">
+      <h2>6. 软件与AI工程平台建设规划</h2>
+      <h3>6.1 首代软件分层与Build / Buy / Partner</h3>
+      <table>
+        <thead><tr><th>软件域</th><th>首代必须能力</th><th>建设方式</th><th>责任与验收</th></tr></thead>
+        <tbody>
+          <tr><td>嵌入式/PLC应用控制</td><td>状态机、泵阀与变频控制、冗余/降级、联锁、掉电重启、参数管理</td><td><b>核心逻辑自研</b>；PLC/控制器运行时与驱动采购；定向开发须完整IP/源码移交</td><td>控制软件负责人A；MIL/SIL/HIL、代码审查、故障注入和回滚通过</td></tr>
+          <tr><td>HMI与通信</td><td>本地操作、权限、告警、趋势、维护模式；与BMS/DCIM及现场协议对接</td><td>界面与点表/语义自研；成熟协议栈、HMI运行环境采购；专项驱动可外协</td><td>控制软件负责人A；ICD、点表、异常通信和兼容测试通过</td></tr>
+          <tr><td>数据采集与诊断</td><td>时间同步、质量码、事件/日志、运行数据、规则诊断、服务导出</td><td>数据字典、采集逻辑和诊断规则自研；数据库/时序组件采购或开源合规使用</td><td>AI/仿真负责人A，质量负责人批准诊断用途；丢包、断网、恢复和数据完整性测试</td></tr>
+          <tr><td>AI工程平台MVP</td><td>需求解析、规则/部件库、模型调用、算例编排、报告草案、审批与证据链接</td><td>领域模型、工作流、连接器和评测集自研；基础模型与CAE求解器采购且可替换</td><td>AI/仿真负责人A；可复算、可回滚、适用域告警、客户数据隔离</td></tr>
+          <tr><td>需求/模型/验证/配置数字线程</td><td>URS—模型—DVP—缺陷—BOM/软件—FAT/SAT双向追溯</td><td>数据模型与关键接口内部控制；ALM/PLM/问题管理工具优先采购集成</td><td>产品总师对需求A、系统总师对基线A；Release配置不得存在断链</td></tr>
+          <tr><td>DevSecOps与软件供应链</td><td>代码仓、评审、CI、自动测试、制品签名、SBOM、漏洞、版本、发布/回滚</td><td>平台工具采购/开源；流水线、门禁和安全策略自研；渗透/专项审计第三方</td><td>控制软件负责人A，质量参与发布；未经签名与审批的制品不得部署</td></tr>
+        </tbody>
+      </table>
+      <div class="callout warn"><b>安全架构原则：</b>安全关键控制和本地保护必须由确定性逻辑在边缘控制器内执行；生成式AI和云端诊断不得直接改写运行参数或旁路联锁。远程功能默认最小权限、可禁用、可审计。</div>
+      <h3>6.2 12个月软件增量计划</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>控制/HMI/数据</th><th>AI平台与数字线程</th><th>DevSecOps与退出条件</th></tr></thead>
+        <tbody>
+          <tr><td>M1</td><td>软件需求、控制状态与接口框架</td><td>数据域、需求模型、知识来源登记</td><td>代码仓/分支/评审/制品规则建立；SRR签署</td></tr>
+          <tr><td>M2–M3</td><td>控制对象模拟器、状态机骨架、点表与HMI原型</td><td>需求代理、系统模型连接器、DVP追溯原型</td><td>静态检查、单元测试、依赖/SBOM扫描进入CI；PDR通过</td></tr>
+          <tr><td>M4</td><td>Alpha功能基线、通信与基本安全降级</td><td>URS—模型—DVP数字线程MVP</td><td>版本签名、部署/回滚；CDR冻结Alpha版本</td></tr>
+          <tr><td>M5–M6</td><td>MIL/SIL/HIL、Alpha联调、数据采集与异常日志</td><td>台架数据回灌、仿真—实测比较V1</td><td>自动回归和缺陷关联；核心功能及安全状态通过</td></tr>
+          <tr><td>M7–M8</td><td>Beta诊断、权限、维护模式和接口鲁棒性</td><td>变更影响、配置核验与DVT证据编排</td><td>软件FMEA、漏洞处置、HIL全量回归；Beta发布</td></tr>
+          <tr><td>M9–M10</td><td>候选发布版、性能/稳定性、现场通信兼容</td><td>模型相关性V2、DVT报告和适用域告警</td><td>SBOM/许可证/高危漏洞审查；DVT软件门通过</td></tr>
+          <tr><td>M11–M12</td><td>客户配置、FAT/SAT脚本、部署/回滚、现场监测</td><td>交付证据包、As-built追溯和试点数据闭环</td><td>Release签署；试点版本与开发环境可复现</td></tr>
+        </tbody>
+      </table>
+      <h3>6.3 平台六层架构</h3>
+      <table>
+        <thead><tr><th>层级</th><th>首期能力</th><th>核心资产</th><th>验收标准</th></tr></thead>
+        <tbody>
+          <tr><td>数据与权限层</td><td>项目空间、权限、版本、审计、客户隔离</td><td>数据字典、访问策略、保留与删除规则</td><td>敏感数据不越界，操作可审计</td></tr>
+          <tr><td>领域知识层</td><td>标准、规格、部件曲线、设计规则、历史问题</td><td>可引用来源的知识库与规则库</td><td>答案带来源、版本、有效期</td></tr>
+          <tr><td>工程模型层</td><td>系统水力/热平衡、控制、降额和故障模型</td><td>模型卡、校准数据、适用域</td><td>基准算例与实测相关性达门槛</td></tr>
+          <tr><td>代理编排层</td><td>需求、设计、验证、交付代理和审批流</td><td>提示、工具、流程、评价集</td><td>关键任务可重复、可回滚</td></tr>
+          <tr><td>工程工具层</td><td>CAD/CAE/控制/PLM/ALM/测试数据接口</td><td>参数映射、自动脚本、配置连接器</td><td>输入输出版本一致，无手工丢链</td></tr>
+          <tr><td>证据与交付层</td><td>需求覆盖、报告、问题、变更和放行包</td><td>数字线程和电子签署记录</td><td>任一结论可追到输入、模型和审批</td></tr>
+        </tbody>
+      </table>
+      <h3>6.4 AI平台Build / Buy原则</h3>
+      <table>
+        <thead><tr><th>对象</th><th>策略</th><th>理由</th></tr></thead>
+        <tbody>
+          <tr><td>领域规则、评价函数、工作流与工程知识图谱</td><td><b>内部拥有</b></td><td>构成差异化和责任证据</td></tr>
+          <tr><td>通用大模型与推理服务</td><td>多供应商可替换</td><td>避免模型锁定，按安全、效果、成本路由</td></tr>
+          <tr><td>CAE/CAD/PLM/测试软件</td><td>商业工具集成</td><td>使用成熟求解器和工程生态，不重复造轮子</td></tr>
+          <tr><td>关键自动化脚本、接口和评测集</td><td>内部或完整IP受让</td><td>确保可维护、可迁移、可审计</td></tr>
+          <tr><td>客户私有部署与数据域</td><td>按合同选择</td><td>满足保密、出口、网络和数据主权要求</td></tr>
+        </tbody>
+      </table>
+      <div class="callout risk"><b>平台建设红线：</b>首期不建设通用“工业大模型”，不以训练参数规模作为成果；先打通一个产品、一个流程、一个可信数据闭环。任何外部模型不得默认取得客户图纸、运行数据或公司未公开知识的训练权。</div>
+    </section>
+
+    <section id="s7">
+      <h2>7. 虚拟验证与实体试验体系</h2>
+      <h3>7.1 验证金字塔</h3>
+      <table>
+        <thead><tr><th>层级</th><th>对象</th><th>方法</th><th>关键输出</th></tr></thead>
+        <tbody>
+          <tr><td>规则检查</td><td>单位、范围、接口、材料、标准和BOM一致性</td><td>确定性规则与静态检查</td><td>违规项、缺失项、追溯矩阵</td></tr>
+          <tr><td>部件/子系统模型</td><td>泵、阀、板换、过滤器、管路、传感器</td><td>供应商曲线、代理模型、台架校准</td><td>Q–ΔP、换热、降额与不确定性</td></tr>
+          <tr><td>系统虚拟样机</td><td>CDU与负载回路、冗余和故障态</td><td>一维系统仿真、控制MIL/SIL/HIL、必要的CFD/FEA</td><td>性能包络、瞬态、控制稳定性、风险</td></tr>
+          <tr><td>实体样机</td><td>工程样机、关键件和控制系统</td><td>台架、故障注入、环境、EMC/安规与可靠性</td><td>DVP结果、相关性、整改证据</td></tr>
+          <tr><td>项目现场</td><td>安装边界、一次侧、IT负载、BMS/DCIM</td><td>FAT、SAT/ISAT、试运行和运行监测</td><td>验收、As-built、服务基线</td></tr>
+        </tbody>
+      </table>
+      <h3>7.2 模型可信度门</h3>
+      <div class="formula">模型可信度 = 验证算例覆盖 × 数据质量 × 相关性 × 适用域明确度 × 版本可追溯性
+若任一安全关键模型无实体校准，结果只能标记为“工程假设”，不得作为减免试验或客户承诺依据。</div>
+      <p>建议为每个模型建立Model Card：目的、所有者、输入输出、方程/求解器、假设、数据来源、验证算例、误差指标、适用范围、禁止用途、版本和审批记录。</p>
+      <h3>7.3 代表性试验矩阵</h3>
+      <ul>
+        <li>性能：不同ATD、流量、压差、工质、环境、负载、洁净/污堵状态。</li>
+        <li>故障：单泵/传感器/通信/电源故障，阀卡滞，过滤压差，泄漏告警，失流与恢复。</li>
+        <li>控制：稳态误差、扰动、切换、重启、失联、本地/远程优先级和安全状态。</li>
+        <li>可靠性：启停、压力、温度、振动、材料兼容、连接件、密封与维护操作。</li>
+        <li>交付：FAT重复性、运输后检查、现场接口、SAT/ISAT和异常恢复。</li>
+      </ul>
+      <h3>7.4 软硬件接口与集成基线</h3>
+      <table>
+        <thead><tr><th>接口域</th><th>ICD最低内容</th><th>验证方法</th><th>版本基线</th></tr></thead>
+        <tbody>
+          <tr><td>流体/热接口</td><td>边界点、流量/压差、温度、工质、压力、材料、水质、排放与维护</td><td>模型、部件台架、系统台架、泄漏/压力与故障试验</td><td>ICD-0 PDR；ICD-1 CDR；ICD-2 Beta；ICD-3 FAT</td></tr>
+          <tr><td>电气/控制接口</td><td>供电、接地、IO、传感量程/精度、执行器安全状态、线束与柜内边界</td><td>IO仿真、SIL/HIL、点对点、断线/短路/掉电与恢复</td><td>电气图、IO表、BOM、控制软件和参数必须同版</td></tr>
+          <tr><td>通信/数据接口</td><td>协议、点表、单位、质量码、时钟、告警、权限、网络分区和远程边界</td><td>协议仿真、异常报文、断网、时钟漂移、权限与网络安全测试</td><td>点表、HMI、BMS/DCIM映射、日志字典随软件Release冻结</td></tr>
+          <tr><td>安全/责任接口</td><td>联锁、急停、泄漏/失流响应、本地与远程优先级、人工接管和通知责任</td><td>故障注入、联锁旁路检查、恢复演练和客户见证</td><td>未经质量负责人批准不得改变安全状态或告警分级</td></tr>
+        </tbody>
+      </table>
+      <div class="formula">集成顺序：模型在环MIL → 软件在环SIL → 控制器/IO硬件在环HIL
+→ 控制柜台架 → CDU Alpha → CDU Beta/DVT → 客户配置FAT → 现场SAT
+任何阶段发现接口变更：ECR/ECO → 影响分析 → ICD/软件/BOM同步升版 → 回归测试 → 专家批准。</div>
+    </section>
+
+    <section id="s8">
+      <h2>8. 硬件建设、打样与供应链交付</h2>
+      <h3>8.1 首代硬件边界与建设方式</h3>
+      <table>
+        <thead><tr><th>硬件域</th><th>内部自研设计与签署</th><th>采购/OEM/外协</th><th>首代验证重点</th></tr></thead>
+        <tbody>
+          <tr><td>机械结构与流体回路</td><td>系统布置、P&amp;ID、管径/材料/连接、排气排液、维修性与图纸</td><td>钣金、机加、管路、焊接和表面处理由受控OEM制造</td><td>尺寸、清洁度、压力/泄漏、振动、运输和维护操作</td></tr>
+          <tr><td>换热与泵阀过滤</td><td>选型计算、工作包络、冗余/故障域、控制和降额规则</td><td>板换、泵、阀、过滤器按AVL采购；关键件推进第二来源</td><td>供应商曲线复核、Q–ΔP/换热、污堵、切换和失效安全</td></tr>
+          <tr><td>传感与仪表</td><td>测点、量程/精度、诊断覆盖、校准和数据质量要求</td><td>传感器、仪表和校准服务按AVL采购</td><td>精度、漂移、断线/异常值、可更换性和追溯</td></tr>
+          <tr><td>控制柜、线束与网络</td><td>电气架构、IO、联锁、接地、布线、网络分区和ICD</td><td>PLC/控制器、VFD、IO、HMI、交换机采购；柜装/线束由OEM执行</td><td>点对点、EMC/安规适用项、掉电重启、通信与网络安全</td></tr>
+          <tr><td>安全与现场接口</td><td>泄漏/失流保护、急停、压力边界、告警升级、一次/二次侧责任</td><td>适用的环境、EMC、安规及材料试验由第三方执行</td><td>故障注入、保护动作、恢复、客户接口和责任可验证</td></tr>
+        </tbody>
+      </table>
+      <h3>8.2 样机批次与配置纪律</h3>
+      <table>
+        <thead><tr><th>批次</th><th>时间与数量原则</th><th>目的与配置纪律</th><th>退出条件</th></tr></thead>
+        <tbody>
+          <tr><td>Alpha工程样机</td><td>M5–M6；一批，至少形成一台可完整台架测试的整机</td><td>证明系统架构、控制与关键功能；允许工程件，但偏离必须显式记录</td><td>核心回路、安全状态、初步性能和模型相关成立</td></tr>
+          <tr><td>Beta/DVT样机</td><td>M7–M10；一批，数量按DVT并行、返修和客户配置风险核定</td><td>接近交付BOM，受控软件、序列化、OEM工艺和检验记录完整</td><td>DVT通过、重大缺陷关闭、FAT程序可重复</td></tr>
+          <tr><td>客户Pilot配置</td><td>M11–M12；按已签试点合同配置，不预建无订单库存</td><td>冻结BOM/ECO/PCN、客户参数、软件Release、工装与检验</td><td>FAT放行、现场Ready、SAT完成、服务与追溯就绪</td></tr>
+        </tbody>
+      </table>
+      <h3>8.3 台架与测试资源建设</h3>
+      <table>
+        <thead><tr><th>资源</th><th>策略</th><th>M1–M12动作</th><th>控制原则</th></tr></thead>
+        <tbody>
+          <tr><td>内部基础台架</td><td>自建必要的数据采集、控制柜/IO、部件与软件联调能力</td><td>M1方案、M2采购/改造、M4可用于控制柜、M5支持Alpha</td><td>仪器校准、测量不确定性、数据版本和安全操作受控</td></tr>
+          <tr><td>系统热工水力台架</td><td>租赁、共享或与合作方共建优先；只补足高频关键能力</td><td>M1锁定资源，M3完成验收方法，M5–M10执行Alpha/Beta/DVT</td><td>不得因自建台架延期关键路径；能力边界与客户工况匹配</td></tr>
+          <tr><td>HIL与故障注入</td><td>内部掌握模型、测试用例和自动化；通用硬件采购</td><td>M3骨架、M5进入Alpha、M8覆盖Beta、M10形成发布回归</td><td>安全关键故障、接口异常和版本回归必须可重复</td></tr>
+          <tr><td>第三方试验</td><td>环境、EMC、安规、材料/可靠性等按适用性外部执行</td><td>M2确认标准与档期，M7预检，M9–M10正式或项目认可试验</td><td>由质量负责人定义范围并接受报告，第三方不替代最终放行</td></tr>
+          <tr><td>客户现场SAT</td><td>客户/EPC提供现场条件，公司拥有SAT方法和结果签署</td><td>M7启动勘察，M9冻结方案，M11 Ready评审，M12执行</td><td>现场未Ready不得以远程演示替代SAT或冒险发货</td></tr>
+        </tbody>
+      </table>
+      <h3>8.4 供应链数字线程</h3>
+      <p>每个采购件必须绑定规格版本、供应商型号、曲线/证书、替代规则、交期、MOQ、PCN、检验方法和使用项目。AI可做匹配与变更影响分析，但供应商批准、偏离接受和第二来源认可由工程、质量与供应链共同签署。</p>
+      <h3>8.5 标准交付包</h3>
+      <div class="grid two">
+        <div class="card"><b>技术与制造</b><small>冻结URS、P&amp;ID、接口、BOM、图纸、软件/参数、检验与追溯、备件和维护。</small></div>
+        <div class="card"><b>验证与合规</b><small>需求追溯、模型卡、虚拟验证、DVP、FMEA、FAT/SAT、偏离与问题关闭。</small></div>
+        <div class="card"><b>客户与现场</b><small>安装条件、责任矩阵、调试计划、培训、验收主体、SLA和升级机制。</small></div>
+        <div class="card"><b>数字资产</b><small>As-built配置、日志字典、权限、版本、远程诊断边界和数据使用授权。</small></div>
+      </div>
+    </section>
+
+    <section id="s9">
+      <h2>9. 商业模式与客户进入</h2>
+      <h3>9.1 收入结构</h3>
+      <table>
+        <thead><tr><th>收入线</th><th>收费依据</th><th>客户价值</th><th>当前状态</th></tr></thead>
+        <tbody>
+          <tr><td>需求定义与NRE</td><td>边界澄清、平台适配、专项模型和验证</td><td>减少前期不确定性，避免免费定制</td><td><span class="tag na">待合同验证</span></td></tr>
+          <tr><td>冷却系统设备</td><td>冻结配置、工况、冗余和交付范围</td><td>可验证实体系统与单一责任界面</td><td><span class="tag na">ASP/毛利待验证</span></td></tr>
+          <tr><td>系统集成与交付</td><td>管路、控制、BMS/DCIM、FAT/SAT和现场服务</td><td>缩短集成与验收周期</td><td><span class="tag na">项目化</span></td></tr>
+          <tr><td>软件与持续服务</td><td>诊断、版本维护、健康报告、延保与备件</td><td>配置透明、故障定位和持续改进</td><td><span class="tag na">待装机验证</span></td></tr>
+          <tr><td>联合开发与授权</td><td>客户专用模块、冷板托盘、模型/接口授权</td><td>共同缩短新平台开发</td><td><span class="tag na">后续期权</span></td></tr>
+        </tbody>
+      </table>
+      <h3>9.2 首批客户筛选</h3>
+      <ul>
+        <li>有明确IT平台、热负荷、接口、项目时点和最终验收主体。</li>
+        <li>接受付费NRE/PoC，并愿意提供必要工况与验证数据。</li>
+        <li>责任可封顶、可投保、可追偿，不要求无限免费迭代。</li>
+        <li>项目已获电、已融资/预算、已开工或具备可信实施路径。</li>
+        <li>允许形成可匿名复用的工程规则和非客户专属方法资产。</li>
+      </ul>
+      <div class="callout risk"><b>No-Go：</b>只提供概念需求却要求固定价和确定性能；免费无限PoC；平台持续变化但拒绝变更计价；无最终验收人；要求AI/仿真替代强制试验；责任超出可承保与可追偿范围。</div>
+    </section>
+
+    <section id="s10">
+      <h2>10. 阶段门禁、资金与KPI</h2>
+      <h3>10.1 12个月首代产品门禁与后续复制门</h3>
+      <table>
+        <thead><tr><th>门禁</th><th>周期</th><th>核心目标</th><th>必须证据</th><th>决策</th></tr></thead>
+        <tbody>
+          <tr><td><b>G0 立项/SRR</b></td><td>M1</td><td>锁定团队、客户问题、首代边界和12个月主计划</td><td>具名专家、书面需求、责任矩阵、产品边界、平台MVP、关键依赖、逐月预算与13周现金</td><td>启动/整改/停止</td></tr>
+          <tr><td><b>G1 设计冻结</b></td><td>M2–M4</td><td>通过PDR/CDR，证明方案可制造、可验证且AI工程流程可审查</td><td>结构化URS、候选架构、模型卡、虚拟验证、DFMEA、DVP、ICD、Alpha图纸/BOM/软件与OEM评审</td><td>批准Alpha采购与打样</td></tr>
+          <tr><td><b>EV 工程验证门</b></td><td>M5–M10</td><td>完成Alpha、Beta与DVT，建立虚拟—实体相关性</td><td>受控样机、MIL/SIL/HIL、DVT、相关性报告、重大缺陷关闭、供应商NPI、第三方试验及交付配置候选</td><td>批准客户配置FAT；不是扩产门</td></tr>
+          <tr><td><b>G2 小批硬门</b></td><td>M11–M12</td><td>完成FAT和至少一处客户试点SAT，决定是否进入小批</td><td>首代Released/As-built基线；DVT/FAT/SAT签署；至少两个付费验证合同或等效不可撤销订单且其中一个完成SAT；两个同边界合同价；Alpha/Beta/Pilot批次证据；关键件双源或批准的单源退出计划；无开放重大缺陷；项目贡献和峰值资金可计算；责任可保、可封顶、可追偿</td><td><b>小批/限期整改/停止</b></td></tr>
+          <tr><td><b>G3 复制扩张</b></td><td>M13–M24</td><td>证明重复交付、现场服务和正向项目经济</td><td>第二批次/第二客户证据、持续回款、现金调整后贡献、FAT/SAT趋势、批次一致性、质保与服务数据</td><td>扩张/聚焦/停止</td></tr>
+        </tbody>
+      </table>
+      <div class="callout risk"><b>G2一票否决：</b>未完成客户试点SAT；存在开放安全/重大质量缺陷；硬件、软件、参数、BOM与ICD版本不一致；关键模型未完成实体校准；客户责任不可保或不可封顶；压力现金跌破董事会安全线。任一成立，不得以“样机已运行、AI平台已上线、框架入围或融资到账”批准小批。</div>
+      <h3>10.2 资金用途原则</h3>
+      <table>
+        <thead><tr><th>资金池</th><th>优先投入</th><th>释放依据</th><th>不得投入</th></tr></thead>
+        <tbody>
+          <tr><td>专家团队</td><td>稀缺全职专家、短期专项评审</td><td>关键签署能力与任务负荷</td><td>无明确责任的职能堆叠</td></tr>
+          <tr><td>AI工程平台</td><td>数据底座、规则、模型、接口、评测和安全</td><td>一个产品闭环的里程碑</td><td>通用大模型训练与展示性功能</td></tr>
+          <tr><td>样机与试验</td><td>代表性样机、台架、关键工况与可靠性</td><td>DVP与客户项目需求</td><td>未冻结方案的批量物料</td></tr>
+          <tr><td>供应链与交付</td><td>NPI、工装、双源、质量驻厂、现场服务</td><td>冻结BOM和签约项目</td><td>领先订单的专用产线</td></tr>
+          <tr><td>责任与合规</td><td>合同、保险、网络安全、IP和产品责任</td><td>客户与区域边界</td><td>用免责声明替代工程控制</td></tr>
+        </tbody>
+      </table>
+      <p class="small">AI原生不自动增加v2.1的阶段上限：阶段1不超过800万元，阶段2最高1,200万元，阶段3最高1,500万元；后两阶段仍为条件期权。实际拨付须以人员offer、软件/算力报价、样机BOM、试验报价、客户付款、供应商账期、0–24个月月度模型和13周现金重新核定，不得因行业景气或AI概念放宽。</p>
+      <h3>10.3 核心KPI</h3>
+      <table>
+        <thead><tr><th>维度</th><th>指标</th><th>解释</th></tr></thead>
+        <tbody>
+          <tr><td>工程效率</td><td>需求结构化周期、方案迭代周期、复用率、人工返工</td><td>必须与传统基线对比，不单报AI调用量</td></tr>
+          <tr><td>设计质量</td><td>需求覆盖、评审缺陷、试验前发现率、ECO数量</td><td>衡量缺陷是否前移</td></tr>
+          <tr><td>模型可信</td><td>验证算例覆盖、相关误差、适用域外调用、版本可追溯</td><td>按模型和工况分层，不给单一“准确率”</td></tr>
+          <tr><td>实体验证</td><td>DVP通过、FAT一次通过、故障关闭、试验返工</td><td>防止虚拟结果自证</td></tr>
+          <tr><td>商业交付</td><td>付费NRE/PoC、交付周期、项目贡献、回款、质保</td><td>收入与现金同时看</td></tr>
+          <tr><td>资产沉淀</td><td>规则/模型/测试复用、数据完整、专家单点消除</td><td>证明业务可复制而非纯人力项目</td></tr>
+        </tbody>
+      </table>
+      <p class="small"><b>12个月里程碑KPI：</b>按期通过SRR/PDR/CDR/Alpha/Beta/DVT/FAT/SAT；安全关键需求、测试与配置保持全量追溯；发布版本不存在开放安全/重大缺陷；虚拟—实体偏差按模型、工况和适用域报告；至少两个付费验证合同或等效不可撤销订单，其中一个完成客户试点SAT。除上述治理硬项外，不预设未经基线验证的“AI提效百分比”或产品性能点值。</p>
+    </section>
+
+    <section id="s11">
+      <h2>11. 风险、治理与责任边界</h2>
+      <table>
+        <thead><tr><th>风险</th><th>表现</th><th>控制</th><th>触发动作</th></tr></thead>
+        <tbody>
+          <tr><td>AI幻觉/错误工具调用</td><td>伪造参数、来源或不合理设计</td><td>受控数据、确定性校验、工具白名单、引用与审批</td><td>冻结代理版本，回溯受影响输出</td></tr>
+          <tr><td>模型适用域越界</td><td>在未校准工况外给出确定结论</td><td>Model Card、边界告警、不确定性与实体校准</td><td>降级为工程假设并补试验</td></tr>
+          <tr><td>数据/IP泄露</td><td>客户资料进入公共训练或跨项目泄露</td><td>项目隔离、最小权限、禁止训练条款、审计和脱敏</td><td>停用连接、事件响应、客户通知</td></tr>
+          <tr><td>自动化偏差放大</td><td>错误规则批量传播到多个项目</td><td>规则版本、回归评测、金标算例、分级发布</td><td>撤回版本并重跑影响项目</td></tr>
+          <tr><td>专家单点</td><td>知识只存在个人脑中或无人能签署</td><td>双人覆盖、决策记录、规则化与继任</td><td>关键岗位空缺则冻结发布</td></tr>
+          <tr><td>样机/质量事故</td><td>漏液、失流、IT损害、批次缺陷</td><td>DVP、FMEA、FAT、追溯、保险、召回与追偿</td><td>停发、隔离、8D、召回评估</td></tr>
+          <tr><td>供应商锁定</td><td>关键件、BSW或模型服务不可替换</td><td>接口抽象、源码/IP权利、双源与迁移演练</td><td>启动替代和step-in</td></tr>
+          <tr><td>商业不可复制</td><td>每单高度定制、NRE无法回收</td><td>配置化边界、变更计价、复用KPI、客户筛选</td><td>停止低复用项目或提高NRE</td></tr>
+          <tr><td>现金与责任失配</td><td>长账期、保函、库存和无限责任占用资金</td><td>13周现金、预付款、责任上限、保险与No-Go</td><td>冻结招聘、采购和CapEx</td></tr>
+        </tbody>
+      </table>
+      <h3>11.1 人机责任矩阵</h3>
+      <div class="formula">AI：建议、生成、计算、检查、编排、记录
+专家：定义、质疑、裁决、签署、承担专业责任
+质量负责人：独立放行、偏离批准、停发与召回
+业务负责人：客户承诺、合同边界、资源和现金
+董事会：阶段资金、重大责任、专用产能与组织扩张</div>
+      <div class="callout risk"><b>不可转移原则：</b>无论使用何种AI、外部软件、制造商或测试机构，公司作为品牌与合同主体仍须对设计控制、配置一致性、最终放行、客户沟通和产品责任负责。</div>
+      <h3>11.2 从v2.1完整继承的风险纪律</h3>
+      <ul>
+        <li><b>证据纪律：</b>市场、标准、平台参数和经济输入继续按A/E/F/M/NA管理；NA不得由AI补成“行业通常值”，模型输出不得伪装成原厂、机构或试验结论。</li>
+        <li><b>市场隔离：</b>TAM只作外部锚，不得推导SAM/SOM、收入、份额、产能或预算；不同边界数据不可相加、相减或跨版本拼接。</li>
+        <li><b>项目资格：</b>继续检查获电、融资/预算、开工、平台和服务地理；没有最终验收人、有效工况和付款责任的项目不得货币化或备专用料。</li>
+        <li><b>工程质量：</b>容量必须绑定工况、Q–ΔP、ATD、工质、材料、冗余和故障态；qualification只对应具体客户、平台、BOM与版本，不宣称统一“大厂认证”。</li>
+        <li><b>虚实边界：</b>AI和虚拟验证用于方案筛选、缺陷前移和证据编排，不能替代必要的部件、系统、可靠性、环境、EMC/安规、FAT、SAT或客户约定实体试验。</li>
+        <li><b>供应链责任：</b>OEM、BSW、CAE和第三方试验不转移最终责任；维持AVL、PCN、ECR/ECO、追溯、源码/IP、SBOM、漏洞SLA、审计和step-in权利。</li>
+        <li><b>现金纪律：</b>按下一证据和已签项目峰值资金释放；维持13周现金和压力情景。未达门禁即冻结下一期资金、招聘、专用库存和非关键CapEx。</li>
+        <li><b>产品路线：</b>无客户NRE、采购意向、热输入、清晰IP和订单覆盖，不启动冷板托盘或专用重资产产线。</li>
+      </ul>
+    </section>
+
+    <section id="s12">
+      <h2>12. 0–24个月董事会行动计划</h2>
+      <table>
+        <thead><tr><th>时段</th><th>产品与客户</th><th>AI平台与数据</th><th>样机与验证</th><th>组织与经营</th></tr></thead>
+        <tbody>
+          <tr><td><b>M1–M3</b></td><td>冻结首代边界、客户URS和试点路径；完成SRR/PDR</td><td>建立项目数据域、需求代理、规则骨架、系统模型和DevSecOps</td><td>完成DVP草案、ICD-0、台架方案、关键件RFQ</td><td>核心专家到位；完成G0、预算、现金、IP和责任协议</td></tr>
+          <tr><td><b>M4–M6</b></td><td>完成CDR与Alpha配置</td><td>打通URS—模型—DVP；发布控制Alpha、HMI/通信和采集基线</td><td>Alpha打样、HIL/台架联调、模型校准V1</td><td>完成G1；OEM/NPI和长周期件受控，客户试点合同推进</td></tr>
+          <tr><td><b>M7–M9</b></td><td>冻结Beta与客户现场接口</td><td>加入诊断、变更影响、自动回归和测试数据回灌</td><td>Beta打样、预DVT、DVT及第三方适用试验</td><td>质量协议、保险、现场勘察和第二来源推进</td></tr>
+          <tr><td><b>M10–M12</b></td><td>完成首代产品、客户配置与试点SAT</td><td>冻结软件Release、As-built数字线程和现场诊断闭环</td><td>DVT关闭、客户配置FAT、发货、安装、SAT与试运行</td><td>完成G2；以合同、质量、责任和现金证据决定是否小批</td></tr>
+          <tr><td><b>M13–M18</b></td><td>在G2通过后执行受控小批和第二客户适配</td><td>形成可复用配置族、模型更新审批和服务知识闭环</td><td>验证FAT重复性、批次一致性、现场问题与维修性</td><td>验证项目贡献、回款、质保准备和服务成本</td></tr>
+          <tr><td><b>M19–M24</b></td><td>复制第二工况，评估Pod级扩展；冷板仍按客户牵引</td><td>规则、模型、测试和供应链数据跨项目版本化复用</td><td>可靠性、质保、第二来源与变更数据复盘</td><td>完成G3；决定聚焦、扩张或停止</td></tr>
+        </tbody>
+      </table>
+      <h3>12.1 24个月成功定义</h3>
+      <div class="grid">
+        <div class="card"><b>产品成功</b><small>M12前至少一个可交付配置完成虚拟—实体—客户现场闭环，关键需求具有可追溯证据。</small></div>
+        <div class="card"><b>平台成功</b><small>AI流程在真实项目中稳定复用，效率与质量改善有基准数据，不依赖单一模型供应商。</small></div>
+        <div class="card"><b>业务成功</b><small>取得付费验证与客户验收，项目贡献和回款可计算，责任与现金风险受控。</small></div>
+      </div>
+      <div class="callout ok"><b>最终判断标准：</b>如果业务仍主要依赖专家手工完成、AI只生成文档，或虚拟结果不能被实体试验校准，则“AI原生”命题未成立；如果样机可工作但无付费客户、正向项目贡献和可控责任，则商业命题未成立。两者必须同时通过。</div>
+    </section>
+  </main>
+
+  <div class="footer">
+    <b>算力冷却系统新业务BP · v3.0 AI-Native / 20260905</b><br>
+    基于《算力冷却系统新业务BP v2.1 OEM Operating Model / 20260822》重构，保留轻资产OEM、项目级qualification、证据门禁、合同责任与现金纪律；新增专家型组织、AI工程平台、数字线程、模型可信度和虚拟—实体相关性门禁。<br>
+    本文件不覆盖历史版本。市场、ASP、BOM、毛利、ROIC、AI效率收益、预算与现金跑道均须以实时书面证据解锁。
+  </div>
+</div>
+</body>
+</html>
