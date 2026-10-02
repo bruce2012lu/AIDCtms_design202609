@@ -1,0 +1,345 @@
+[
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 685,
+    "h": 575,
+    "captions_on_page": [
+      "Fig. 1. Schematic of the application of a customizable 3-D printed cooler on a high-performance 3-D module.",
+      "Fig. 2. Chip-level impingement cooler concept. (a) Schematic of multijet cooler. (b) Top view of the nozzle plate with jets array [6]."
+    ]
+  },
+  {
+    "file": "figures/p002_i1.jpg",
+    "page": 2,
+    "w": 977,
+    "h": 282,
+    "captions_on_page": [
+      "Fig. 1. Schematic of the application of a customizable 3-D printed cooler on a high-performance 3-D module.",
+      "Fig. 2. Chip-level impingement cooler concept. (a) Schematic of multijet cooler. (b) Top view of the nozzle plate with jets array [6]."
+    ]
+  },
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 713,
+    "h": 356,
+    "captions_on_page": [
+      "Fig. 3. Design consideration. (a) Critical design parameters limitations for the use of 3-D printing for impingement coolers. (b) Indication of the impact of wall thickness on the gap S in the outlet plenum between adjacent inlet nozzles.",
+      "Fig. 4. CAD structure of 3-D printed 4 × 4 cooler. (a) Transparent view. (b) Cross-sectional view."
+    ]
+  },
+  {
+    "file": "figures/p003_i1.jpg",
+    "page": 3,
+    "w": 1039,
+    "h": 468,
+    "captions_on_page": [
+      "Fig. 3. Design consideration. (a) Critical design parameters limitations for the use of 3-D printing for impingement coolers. (b) Indication of the impact of wall thickness on the gap S in the outlet plenum between adjacent inlet nozzles.",
+      "Fig. 4. CAD structure of 3-D printed 4 × 4 cooler. (a) Transparent view. (b) Cross-sectional view."
+    ]
+  },
+  {
+    "file": "figures/p003_i2.jpg",
+    "page": 3,
+    "w": 780,
+    "h": 392,
+    "captions_on_page": [
+      "Fig. 3. Design consideration. (a) Critical design parameters limitations for the use of 3-D printing for impingement coolers. (b) Indication of the impact of wall thickness on the gap S in the outlet plenum between adjacent inlet nozzles.",
+      "Fig. 4. CAD structure of 3-D printed 4 × 4 cooler. (a) Transparent view. (b) Cross-sectional view."
+    ]
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 754,
+    "h": 299,
+    "captions_on_page": [
+      "Fig. 5. Internal CAD structures comparison between (a) mechanical MM cooler [6] and (b) 3-D printed cooler.",
+      "Fig. 6. Cooler structure with the pressure reduction of shape optimization. (a) MM cooler. (b) 3-D printed cooler.",
+      "Fig. 7. CFD models with meshing for the comparison of the MM and 3-D printed coolers. (a) MM cooler model. (b) 3-D printed cooler. (c) Bottom view of the 3-D printed cooler model mesh with quasi-uniform heater cells in the test chip. (d) Detailed view of the heater cell meshing. (e) Boundary layer m"
+    ]
+  },
+  {
+    "file": "figures/p004_i1.jpg",
+    "page": 4,
+    "w": 730,
+    "h": 265,
+    "captions_on_page": [
+      "Fig. 5. Internal CAD structures comparison between (a) mechanical MM cooler [6] and (b) 3-D printed cooler.",
+      "Fig. 6. Cooler structure with the pressure reduction of shape optimization. (a) MM cooler. (b) 3-D printed cooler.",
+      "Fig. 7. CFD models with meshing for the comparison of the MM and 3-D printed coolers. (a) MM cooler model. (b) 3-D printed cooler. (c) Bottom view of the 3-D printed cooler model mesh with quasi-uniform heater cells in the test chip. (d) Detailed view of the heater cell meshing. (e) Boundary layer m"
+    ]
+  },
+  {
+    "file": "figures/p004_i2.jpg",
+    "page": 4,
+    "w": 732,
+    "h": 451,
+    "captions_on_page": [
+      "Fig. 5. Internal CAD structures comparison between (a) mechanical MM cooler [6] and (b) 3-D printed cooler.",
+      "Fig. 6. Cooler structure with the pressure reduction of shape optimization. (a) MM cooler. (b) 3-D printed cooler.",
+      "Fig. 7. CFD models with meshing for the comparison of the MM and 3-D printed coolers. (a) MM cooler model. (b) 3-D printed cooler. (c) Bottom view of the 3-D printed cooler model mesh with quasi-uniform heater cells in the test chip. (d) Detailed view of the heater cell meshing. (e) Boundary layer m"
+    ]
+  },
+  {
+    "file": "figures/p005_i0.jpg",
+    "page": 5,
+    "w": 781,
+    "h": 661,
+    "captions_on_page": [
+      "Fig. 8. Pressure comparison between MM and printed cooler for a ﬂow rate of 650 mL/min drawn on the same scale. (a) MM cooler with pressure drop \u0002Ptotal = 0.18 bar. (b) 3-D printed cooler with pressure drop \u0002Ptotal = 0.15 bar.",
+      "Fig. 9. Comparison between the MM cooler and 3-D printed cooler based on the modeling study. (a) Pressure drop comparison as a function of ﬂow rate. (b) Thermal resistance comparison.",
+      "Fig. 10. Demonstration of the 3-D printed cooler. (a) Photograph of the 3-D printed cooler. (b) Bottom view of the nozzle plate with inlet/outlet nozzles. (c) Detail of the channels in cross section of the cooler.",
+      "Fig. 11. Defect measurements of the 3-D printed coolers using SAM inspection. (a) Printed cooler with blocked nozzles and tapered nozzles. (b) Printed cooler without blocked nozzles."
+    ]
+  },
+  {
+    "file": "figures/p005_i1.jpg",
+    "page": 5,
+    "w": 553,
+    "h": 455,
+    "captions_on_page": [
+      "Fig. 8. Pressure comparison between MM and printed cooler for a ﬂow rate of 650 mL/min drawn on the same scale. (a) MM cooler with pressure drop \u0002Ptotal = 0.18 bar. (b) 3-D printed cooler with pressure drop \u0002Ptotal = 0.15 bar.",
+      "Fig. 9. Comparison between the MM cooler and 3-D printed cooler based on the modeling study. (a) Pressure drop comparison as a function of ﬂow rate. (b) Thermal resistance comparison.",
+      "Fig. 10. Demonstration of the 3-D printed cooler. (a) Photograph of the 3-D printed cooler. (b) Bottom view of the nozzle plate with inlet/outlet nozzles. (c) Detail of the channels in cross section of the cooler.",
+      "Fig. 11. Defect measurements of the 3-D printed coolers using SAM inspection. (a) Printed cooler with blocked nozzles and tapered nozzles. (b) Printed cooler without blocked nozzles."
+    ]
+  },
+  {
+    "file": "figures/p005_i2.jpg",
+    "page": 5,
+    "w": 769,
+    "h": 237,
+    "captions_on_page": [
+      "Fig. 8. Pressure comparison between MM and printed cooler for a ﬂow rate of 650 mL/min drawn on the same scale. (a) MM cooler with pressure drop \u0002Ptotal = 0.18 bar. (b) 3-D printed cooler with pressure drop \u0002Ptotal = 0.15 bar.",
+      "Fig. 9. Comparison between the MM cooler and 3-D printed cooler based on the modeling study. (a) Pressure drop comparison as a function of ﬂow rate. (b) Thermal resistance comparison.",
+      "Fig. 10. Demonstration of the 3-D printed cooler. (a) Photograph of the 3-D printed cooler. (b) Bottom view of the nozzle plate with inlet/outlet nozzles. (c) Detail of the channels in cross section of the cooler.",
+      "Fig. 11. Defect measurements of the 3-D printed coolers using SAM inspection. (a) Printed cooler with blocked nozzles and tapered nozzles. (b) Printed cooler without blocked nozzles."
+    ]
+  },
+  {
+    "file": "figures/p005_i3.jpg",
+    "page": 5,
+    "w": 788,
+    "h": 356,
+    "captions_on_page": [
+      "Fig. 8. Pressure comparison between MM and printed cooler for a ﬂow rate of 650 mL/min drawn on the same scale. (a) MM cooler with pressure drop \u0002Ptotal = 0.18 bar. (b) 3-D printed cooler with pressure drop \u0002Ptotal = 0.15 bar.",
+      "Fig. 9. Comparison between the MM cooler and 3-D printed cooler based on the modeling study. (a) Pressure drop comparison as a function of ﬂow rate. (b) Thermal resistance comparison.",
+      "Fig. 10. Demonstration of the 3-D printed cooler. (a) Photograph of the 3-D printed cooler. (b) Bottom view of the nozzle plate with inlet/outlet nozzles. (c) Detail of the channels in cross section of the cooler.",
+      "Fig. 11. Defect measurements of the 3-D printed coolers using SAM inspection. (a) Printed cooler with blocked nozzles and tapered nozzles. (b) Printed cooler without blocked nozzles."
+    ]
+  },
+  {
+    "file": "figures/p005_i4.jpg",
+    "page": 5,
+    "w": 723,
+    "h": 318,
+    "captions_on_page": [
+      "Fig. 8. Pressure comparison between MM and printed cooler for a ﬂow rate of 650 mL/min drawn on the same scale. (a) MM cooler with pressure drop \u0002Ptotal = 0.18 bar. (b) 3-D printed cooler with pressure drop \u0002Ptotal = 0.15 bar.",
+      "Fig. 9. Comparison between the MM cooler and 3-D printed cooler based on the modeling study. (a) Pressure drop comparison as a function of ﬂow rate. (b) Thermal resistance comparison.",
+      "Fig. 10. Demonstration of the 3-D printed cooler. (a) Photograph of the 3-D printed cooler. (b) Bottom view of the nozzle plate with inlet/outlet nozzles. (c) Detail of the channels in cross section of the cooler.",
+      "Fig. 11. Defect measurements of the 3-D printed coolers using SAM inspection. (a) Printed cooler with blocked nozzles and tapered nozzles. (b) Printed cooler without blocked nozzles."
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 785,
+    "h": 277,
+    "captions_on_page": [
+      "Fig. 12. SAM measurement for assessing the depth of the printed nozzles. (a) SAM image with focused depth on cooler bottom layer and (b) nozzle plate layer. (c) Indication of the depth of different layers.",
+      "Fig. 13. Evaluation of the fabricated nozzle diameter. (a) Nozzle diameter variation measurements with 4 × 4 cooler. (b) Normal distributions of inlet/outlet nozzle diameters.",
+      "Fig. 14. Comparison between the nominal design and the fabricated 4×4 jet array cooler at four different locations.",
+      "Fig. 15. Detail of the PTCQ thermal test chip. (a) Overview of the thermal test chip patterns. (b) PTCQ BGA package. (c) Conﬁgurations of 832 programmable heater cells. (d) Conﬁgurations of 32 × 32 array diode temperature sensors."
+    ]
+  },
+  {
+    "file": "figures/p006_i3.jpg",
+    "page": 6,
+    "w": 529,
+    "h": 428,
+    "captions_on_page": [
+      "Fig. 12. SAM measurement for assessing the depth of the printed nozzles. (a) SAM image with focused depth on cooler bottom layer and (b) nozzle plate layer. (c) Indication of the depth of different layers.",
+      "Fig. 13. Evaluation of the fabricated nozzle diameter. (a) Nozzle diameter variation measurements with 4 × 4 cooler. (b) Normal distributions of inlet/outlet nozzle diameters.",
+      "Fig. 14. Comparison between the nominal design and the fabricated 4×4 jet array cooler at four different locations.",
+      "Fig. 15. Detail of the PTCQ thermal test chip. (a) Overview of the thermal test chip patterns. (b) PTCQ BGA package. (c) Conﬁgurations of 832 programmable heater cells. (d) Conﬁgurations of 32 × 32 array diode temperature sensors."
+    ]
+  },
+  {
+    "file": "figures/p006_i5.jpg",
+    "page": 6,
+    "w": 669,
+    "h": 513,
+    "captions_on_page": [
+      "Fig. 12. SAM measurement for assessing the depth of the printed nozzles. (a) SAM image with focused depth on cooler bottom layer and (b) nozzle plate layer. (c) Indication of the depth of different layers.",
+      "Fig. 13. Evaluation of the fabricated nozzle diameter. (a) Nozzle diameter variation measurements with 4 × 4 cooler. (b) Normal distributions of inlet/outlet nozzle diameters.",
+      "Fig. 14. Comparison between the nominal design and the fabricated 4×4 jet array cooler at four different locations.",
+      "Fig. 15. Detail of the PTCQ thermal test chip. (a) Overview of the thermal test chip patterns. (b) PTCQ BGA package. (c) Conﬁgurations of 832 programmable heater cells. (d) Conﬁgurations of 32 × 32 array diode temperature sensors."
+    ]
+  },
+  {
+    "file": "figures/p006_i6.jpg",
+    "page": 6,
+    "w": 753,
+    "h": 369,
+    "captions_on_page": [
+      "Fig. 12. SAM measurement for assessing the depth of the printed nozzles. (a) SAM image with focused depth on cooler bottom layer and (b) nozzle plate layer. (c) Indication of the depth of different layers.",
+      "Fig. 13. Evaluation of the fabricated nozzle diameter. (a) Nozzle diameter variation measurements with 4 × 4 cooler. (b) Normal distributions of inlet/outlet nozzle diameters.",
+      "Fig. 14. Comparison between the nominal design and the fabricated 4×4 jet array cooler at four different locations.",
+      "Fig. 15. Detail of the PTCQ thermal test chip. (a) Overview of the thermal test chip patterns. (b) PTCQ BGA package. (c) Conﬁgurations of 832 programmable heater cells. (d) Conﬁgurations of 32 × 32 array diode temperature sensors."
+    ]
+  },
+  {
+    "file": "figures/p006_i7.jpg",
+    "page": 6,
+    "w": 606,
+    "h": 493,
+    "captions_on_page": [
+      "Fig. 12. SAM measurement for assessing the depth of the printed nozzles. (a) SAM image with focused depth on cooler bottom layer and (b) nozzle plate layer. (c) Indication of the depth of different layers.",
+      "Fig. 13. Evaluation of the fabricated nozzle diameter. (a) Nozzle diameter variation measurements with 4 × 4 cooler. (b) Normal distributions of inlet/outlet nozzle diameters.",
+      "Fig. 14. Comparison between the nominal design and the fabricated 4×4 jet array cooler at four different locations.",
+      "Fig. 15. Detail of the PTCQ thermal test chip. (a) Overview of the thermal test chip patterns. (b) PTCQ BGA package. (c) Conﬁgurations of 832 programmable heater cells. (d) Conﬁgurations of 32 × 32 array diode temperature sensors."
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 666,
+    "h": 507,
+    "captions_on_page": [
+      "Fig. 16. Experimental setup for the cooler characterization. (a) Assembly of the cooler on the test chip package and PCB. (b) O-ring used for sealing of the cooler on the package substrate. (c) Temperature map measurement for the 3-D printed cooler for a ﬂow rate of 600 mL/min.",
+      "Fig. 17. Thermal characterization of the 3-D printed cooler. (a) Measured temperature proﬁle under different ﬂow rates. (b) Validation of predicted model based on corrected nozzle diameter.",
+      "Fig. 9(a) shows the comparison of the pressure drop for the two coolers on the level of the full cooler. In this section, the hydraulic results are extracted from the full-level CFD models in order to analyze the contribution of different components for the overall pressure drop. This total pressure"
+    ]
+  },
+  {
+    "file": "figures/p007_i1.jpg",
+    "page": 7,
+    "w": 453,
+    "h": 387,
+    "captions_on_page": [
+      "Fig. 16. Experimental setup for the cooler characterization. (a) Assembly of the cooler on the test chip package and PCB. (b) O-ring used for sealing of the cooler on the package substrate. (c) Temperature map measurement for the 3-D printed cooler for a ﬂow rate of 600 mL/min.",
+      "Fig. 17. Thermal characterization of the 3-D printed cooler. (a) Measured temperature proﬁle under different ﬂow rates. (b) Validation of predicted model based on corrected nozzle diameter.",
+      "Fig. 9(a) shows the comparison of the pressure drop for the two coolers on the level of the full cooler. In this section, the hydraulic results are extracted from the full-level CFD models in order to analyze the contribution of different components for the overall pressure drop. This total pressure"
+    ]
+  },
+  {
+    "file": "figures/p007_i2.jpg",
+    "page": 7,
+    "w": 485,
+    "h": 392,
+    "captions_on_page": [
+      "Fig. 16. Experimental setup for the cooler characterization. (a) Assembly of the cooler on the test chip package and PCB. (b) O-ring used for sealing of the cooler on the package substrate. (c) Temperature map measurement for the 3-D printed cooler for a ﬂow rate of 600 mL/min.",
+      "Fig. 17. Thermal characterization of the 3-D printed cooler. (a) Measured temperature proﬁle under different ﬂow rates. (b) Validation of predicted model based on corrected nozzle diameter.",
+      "Fig. 9(a) shows the comparison of the pressure drop for the two coolers on the level of the full cooler. In this section, the hydraulic results are extracted from the full-level CFD models in order to analyze the contribution of different components for the overall pressure drop. This total pressure"
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 597,
+    "h": 445,
+    "captions_on_page": [
+      "Fig. 18. CFD simulation results for the pressure drop analysis of 3-D printed cooler and the indications of the pressure deﬁned positions. (Note: The curves in the ﬁgure are all simulation results from the CFD model.)",
+      "Fig. 19. System-level CFD modeling results of the 3-D printed 4×4 cooler. (a) Impact of the nozzle diameter on the thermal performance using CFD modeling. (b) Full-CFD model validation with experimental results."
+    ]
+  },
+  {
+    "file": "figures/p008_i1.jpg",
+    "page": 8,
+    "w": 586,
+    "h": 453,
+    "captions_on_page": [
+      "Fig. 18. CFD simulation results for the pressure drop analysis of 3-D printed cooler and the indications of the pressure deﬁned positions. (Note: The curves in the ﬁgure are all simulation results from the CFD model.)",
+      "Fig. 19. System-level CFD modeling results of the 3-D printed 4×4 cooler. (a) Impact of the nozzle diameter on the thermal performance using CFD modeling. (b) Full-CFD model validation with experimental results."
+    ]
+  },
+  {
+    "file": "figures/p008_i2.jpg",
+    "page": 8,
+    "w": 519,
+    "h": 425,
+    "captions_on_page": [
+      "Fig. 18. CFD simulation results for the pressure drop analysis of 3-D printed cooler and the indications of the pressure deﬁned positions. (Note: The curves in the ﬁgure are all simulation results from the CFD model.)",
+      "Fig. 19. System-level CFD modeling results of the 3-D printed 4×4 cooler. (a) Impact of the nozzle diameter on the thermal performance using CFD modeling. (b) Full-CFD model validation with experimental results."
+    ]
+  },
+  {
+    "file": "figures/p008_i3.jpg",
+    "page": 8,
+    "w": 532,
+    "h": 437,
+    "captions_on_page": [
+      "Fig. 18. CFD simulation results for the pressure drop analysis of 3-D printed cooler and the indications of the pressure deﬁned positions. (Note: The curves in the ﬁgure are all simulation results from the CFD model.)",
+      "Fig. 19. System-level CFD modeling results of the 3-D printed 4×4 cooler. (a) Impact of the nozzle diameter on the thermal performance using CFD modeling. (b) Full-CFD model validation with experimental results."
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 613,
+    "h": 471,
+    "captions_on_page": [
+      "Fig. 20. Comparison of the measured chip temperature map for the heat sink, micromachined cooler, and the 3-D printed cooler. (a) Three demon- strators’ comparison. (b) Deﬁned PTCQ hot spots power map. (c) Measured temperature map with 3-D printed cooling. (d) Measured temperature proﬁle comparison."
+    ]
+  },
+  {
+    "file": "figures/p009_i1.jpg",
+    "page": 9,
+    "w": 622,
+    "h": 371,
+    "captions_on_page": [
+      "Fig. 20. Comparison of the measured chip temperature map for the heat sink, micromachined cooler, and the 3-D printed cooler. (a) Three demon- strators’ comparison. (b) Deﬁned PTCQ hot spots power map. (c) Measured temperature map with 3-D printed cooling. (d) Measured temperature proﬁle comparison."
+    ]
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 195,
+    "h": 258,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p010_i1.jpg",
+    "page": 10,
+    "w": 383,
+    "h": 489,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p010_i2.jpg",
+    "page": 10,
+    "w": 283,
+    "h": 353,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p010_i3.jpg",
+    "page": 10,
+    "w": 293,
+    "h": 347,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p010_i4.jpg",
+    "page": 10,
+    "w": 266,
+    "h": 329,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p010_i5.jpg",
+    "page": 10,
+    "w": 407,
+    "h": 447,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p010_i6.jpg",
+    "page": 10,
+    "w": 569,
+    "h": 763,
+    "captions_on_page": []
+  }
+]

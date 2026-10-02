@@ -1,0 +1,11 @@
+[
+  {
+    "file": "tables/p009_t0.csv",
+    "page": 9,
+    "rows": 12,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 1: Sample calculations of discretization error"
+    ]
+  }
+]

@@ -1,0 +1,202 @@
+[
+  {
+    "file": "tables/p025_t0.csv",
+    "page": 25,
+    "rows": 2,
+    "cols": 16,
+    "captions_on_page": [
+      "Table 1. Mean Energy Flow Rates for May 16, 2013, Test Conditions",
+      "Table 2. Mean Server Data for May 16, 2013, Test Conditions"
+    ]
+  },
+  {
+    "file": "tables/p025_t1.csv",
+    "page": 25,
+    "rows": 2,
+    "cols": 10,
+    "captions_on_page": [
+      "Table 1. Mean Energy Flow Rates for May 16, 2013, Test Conditions",
+      "Table 2. Mean Server Data for May 16, 2013, Test Conditions"
+    ]
+  },
+  {
+    "file": "tables/p026_t0.csv",
+    "page": 26,
+    "rows": 3,
+    "cols": 13,
+    "captions_on_page": [
+      "Table 3. Mean Energy Flow Rates for August 8, 2013, Test Conditions"
+    ]
+  },
+  {
+    "file": "tables/p026_t1.csv",
+    "page": 26,
+    "rows": 3,
+    "cols": 13,
+    "captions_on_page": [
+      "Table 3. Mean Energy Flow Rates for August 8, 2013, Test Conditions"
+    ]
+  },
+  {
+    "file": "tables/p027_t0.csv",
+    "page": 27,
+    "rows": 3,
+    "cols": 13,
+    "captions_on_page": [
+      "Table 4. Mean Energy Flow Rates using Backup Reference Flow Meter for August 8, 2013",
+      "Table 5. Mean Server Data for August 8, 2013, Test Conditions"
+    ]
+  },
+  {
+    "file": "tables/p027_t1.csv",
+    "page": 27,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 4. Mean Energy Flow Rates using Backup Reference Flow Meter for August 8, 2013",
+      "Table 5. Mean Server Data for August 8, 2013, Test Conditions"
+    ]
+  },
+  {
+    "file": "tables/p027_t2.csv",
+    "page": 27,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 4. Mean Energy Flow Rates using Backup Reference Flow Meter for August 8, 2013",
+      "Table 5. Mean Server Data for August 8, 2013, Test Conditions"
+    ]
+  },
+  {
+    "file": "tables/p028_t0.csv",
+    "page": 28,
+    "rows": 3,
+    "cols": 13,
+    "captions_on_page": [
+      "Table 6. Mean Energy Flow Rates, Two States While Rack in Production (Hour Timeframe)",
+      "Table 7. Mean Server Data, Two States While Rack in Production (Hour Timeframe)"
+    ]
+  },
+  {
+    "file": "tables/p028_t1.csv",
+    "page": 28,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 6. Mean Energy Flow Rates, Two States While Rack in Production (Hour Timeframe)",
+      "Table 7. Mean Server Data, Two States While Rack in Production (Hour Timeframe)"
+    ]
+  },
+  {
+    "file": "tables/p030_t0.csv",
+    "page": 30,
+    "rows": 3,
+    "cols": 11,
+    "captions_on_page": [
+      "Table 8. Mean Energy Flow Rates for March 27, 2014, Test Conditions",
+      "Table 9. Mean Server Data for March 27, 2014, Test Conditions",
+      "Table 10. Mean Energy Flow Rates for May 7, 2014"
+    ]
+  },
+  {
+    "file": "tables/p030_t1.csv",
+    "page": 30,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 8. Mean Energy Flow Rates for March 27, 2014, Test Conditions",
+      "Table 9. Mean Server Data for March 27, 2014, Test Conditions",
+      "Table 10. Mean Energy Flow Rates for May 7, 2014"
+    ]
+  },
+  {
+    "file": "tables/p030_t2.csv",
+    "page": 30,
+    "rows": 3,
+    "cols": 13,
+    "captions_on_page": [
+      "Table 8. Mean Energy Flow Rates for March 27, 2014, Test Conditions",
+      "Table 9. Mean Server Data for March 27, 2014, Test Conditions",
+      "Table 10. Mean Energy Flow Rates for May 7, 2014"
+    ]
+  },
+  {
+    "file": "tables/p031_t0.csv",
+    "page": 31,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 11. Mean Server Data for May 7, 2014"
+    ]
+  },
+  {
+    "file": "tables/p042_t0.csv",
+    "page": 42,
+    "rows": 2,
+    "cols": 10,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p042_t1.csv",
+    "page": 42,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p042_t2.csv",
+    "page": 42,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p042_t3.csv",
+    "page": 42,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p042_t4.csv",
+    "page": 42,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p043_t0.csv",
+    "page": 43,
+    "rows": 2,
+    "cols": 23,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p043_t1.csv",
+    "page": 43,
+    "rows": 3,
+    "cols": 13,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p043_t2.csv",
+    "page": 43,
+    "rows": 3,
+    "cols": 13,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p043_t3.csv",
+    "page": 43,
+    "rows": 3,
+    "cols": 13,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p043_t4.csv",
+    "page": 43,
+    "rows": 3,
+    "cols": 13,
+    "captions_on_page": []
+  }
+]

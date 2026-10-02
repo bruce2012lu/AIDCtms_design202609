@@ -1,0 +1,26 @@
+﻿"nletport _a1 _
+PI Controlle
+PI
+r Supply
+e Setpoint
+portb2
+_
+let
+t_in er",,"portb1
+_ Condenser
+r
+Heat Exchanger
+eps=eta
+M
+Three-way Valve
+porta2
+_"
+"r Supply
+e Setpoint
+portb2
+_
+let
+t_in",,
+,,M
+,er,
+,,Chilled Wate

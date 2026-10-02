@@ -1,0 +1,88 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 1137,
+    "h": 495,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p001_i1.jpg",
+    "page": 1,
+    "w": 336,
+    "h": 172,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 985,
+    "h": 588,
+    "captions_on_page": [
+      "Figure 1. Graphic of Aquarius fixed cold plate and server trays"
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 875,
+    "h": 507,
+    "captions_on_page": [
+      "Figure 2. Conceptual design of the Aquarius cooling technology"
+    ]
+  },
+  {
+    "file": "figures/p012_i0.jpg",
+    "page": 12,
+    "w": 457,
+    "h": 540,
+    "captions_on_page": [
+      "Figure 3. Rack hardware (front view, back view)."
+    ]
+  },
+  {
+    "file": "figures/p012_i1.jpg",
+    "page": 12,
+    "w": 465,
+    "h": 435,
+    "captions_on_page": [
+      "Figure 3. Rack hardware (front view, back view)."
+    ]
+  },
+  {
+    "file": "figures/p014_i0.jpg",
+    "page": 14,
+    "w": 999,
+    "h": 848,
+    "captions_on_page": [
+      "Figure 4. Cooling system schematic for the HPC Data Center located in the ESIF."
+    ]
+  },
+  {
+    "file": "figures/p017_i0.jpg",
+    "page": 17,
+    "w": 980,
+    "h": 442,
+    "captions_on_page": [
+      "Figure 5. Diagram, metering locations"
+    ]
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 1432,
+    "h": 364,
+    "captions_on_page": [
+      "Figure 6. Power data from Powershelf, supplying compute nodes, for 20-h data set"
+    ]
+  },
+  {
+    "file": "figures/p020_i0.jpg",
+    "page": 20,
+    "w": 1430,
+    "h": 738,
+    "captions_on_page": [
+      "Figure 7. Facility Btu meter data for 20-h data set"
+    ]
+  }
+]

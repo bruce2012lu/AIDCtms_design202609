@@ -1,0 +1,52 @@
+﻿,,,,"t
+F",,t,,"c
+A",,"Q
+[mm2/s]","Pr
+[ - ]","U c
+p
+[kJ/m3K]"
+Water solution:,,,[°C],,[°C],,[wt-%],,,,,
+,Water solution:,,,[°C],,[°C],,[wt-%],,,,
+,Validity limits,,,-50<x<0,,x<y<100,,,,"7,55","67,2",3697
+Ethylene glycol,,,-20,,-10,,"36,19",,,,,
+,Ethylene glycol,,,-20,,-10,,,,,,
+,Validity limits,,,-50<x<0,,x<y<100,,,,"20,73","204,1",3785
+Propylene glycol,,,-20,,-10,,"39,41",,,,,
+,Propylene glycol,,,-20,,-10,,,,,,
+,Validity limits,,,-45<x<0,,x<y<40,,,,"12,60","128,4",4003
+Ethyl alcohol,,,-20,,-10,,"29,73",,,,,
+,Ethyl alcohol,,,-20,,-10,,,,,,
+,Validity limits,,,-73<x<0,,x<y<40,,,,"5,59","49,2",3795
+Methyl alcohol,,,-20,,-10,,"24,87",,,,,
+,Methyl alcohol,,,-20,,-10,,,,,,
+,Validity limits,,,-40<x<0,,x<y<40,,,,"16,99","148,7",3562
+Glycerol,,,-20,,-10,,"46,28",,,,,
+,Glycerol,,,-20,,-10,,,,,,
+,Validity limits,,,-84<x<0,,x<y<20,,,,"3,08","27,1",4041
+Ammonia,,,-20,,-10,,"13,46",,,,,
+,Ammonia,,,-20,,-10,,,,,,
+,Validity limits,,,"37,5<x<0",,x<y<40,,,,"4,73","34,6",3803
+Potassium carbonate,,,-20,,-10,,"30,95",,,,,
+,Potassium carbonate,,,-20,,-10,,,,,,
+,Validity limits,,,-50<x<0,,x<y<40,,,,"3,75","25,3",3579
+Calcium chloride,,,-20,,-10,,"20,82",,,,,
+,Calcium chloride,,,-20,,-10,,,,,,
+,Validity limits,,,"33,5<x<0",,x<y<40,,,,"4,85","35,3",3674
+Magnesium chloride,,,-20,,-10,,"16,59",,,,,
+,Magnesium chloride,,,-20,,-10,,,,,,
+,Validity limits,,,-21<x<0,,x<y<40,,,,"3,57","26,3",3908
+Sodium chloride,,,-20,,-10,,"22,62",,,,,
+,Sodium chloride,,,-20,,-10,,,,,,
+,Validity limits,,,-50<x<0,,x<y<40,,,,"4,91","39,2",3734
+Potassium acetate,,,-20,,-10,,"27,91",,,,,
+,Potassium acetate,,,-20,,-10,,,,,,
+,Validity limits,,,-50<x<0,,x<y<40,,,,"2,98","21,9",3719
+Potassium formate,,,-20,,-10,,"28,94",,,,,
+,,,,-20,,-10,,,,,,
+Validity limits,,,-75<x<0,,x<y<40,,,,,"3,66","25,9",3688
+,,,,-75<x<0,,x<y<40,,,,,,
+Lithium chloride,,,-20,,-10,,"13,66",,,,,
+,,,,-20,,-10,,,,,,
+,,,,,,,,,,,,
+Input values:,,,-20,,-10,,,,,,,
+,,,,-20,,-10,,,,,,

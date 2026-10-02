@@ -1,0 +1,21 @@
+﻿"stateGraphRoot
+root
+FC Mode freCoo active
+deaBan4
+TCHWSupSet + tWai
+con1 TCHWSupWSE <= con4
+tWai
+PMC Mode swi parMecCoo active
+else: pre(y)
+Cooling Mod deaBan3
+Signal TApp + tWai
+con2 TWetBul + con3
+tWai TCHWRetWSE >
+FMC Mode fulMecCoo active","stateGraphRoot
+root
+tWai
+con4
+swi",
+,tWai con4,
+,,
+,,tWai con3

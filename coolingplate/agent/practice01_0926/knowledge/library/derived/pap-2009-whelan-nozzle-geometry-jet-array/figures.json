@@ -1,0 +1,44 @@
+[
+  {
+    "file": "figures/p001_i1.jpg",
+    "page": 1,
+    "w": 975,
+    "h": 547,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p001_i2.jpg",
+    "page": 1,
+    "w": 229,
+    "h": 265,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 382,
+    "h": 512,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p031_i0.jpg",
+    "page": 31,
+    "w": 476,
+    "h": 720,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p032_i0.jpg",
+    "page": 32,
+    "w": 540,
+    "h": 597,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p036_i0.jpg",
+    "page": 36,
+    "w": 459,
+    "h": 720,
+    "captions_on_page": []
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "file": "tables/p008_t0.csv",
+    "page": 8,
+    "rows": 3,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p008_t1.csv",
+    "page": 8,
+    "rows": 3,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p008_t2.csv",
+    "page": 8,
+    "rows": 4,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p008_t3.csv",
+    "page": 8,
+    "rows": 2,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p016_t0.csv",
+    "page": 16,
+    "rows": 5,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p018_t0.csv",
+    "page": 18,
+    "rows": 2,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p021_t0.csv",
+    "page": 21,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p021_t1.csv",
+    "page": 21,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p021_t2.csv",
+    "page": 21,
+    "rows": 3,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p021_t3.csv",
+    "page": 21,
+    "rows": 3,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p021_t4.csv",
+    "page": 21,
+    "rows": 3,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p023_t0.csv",
+    "page": 23,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p023_t1.csv",
+    "page": 23,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p026_t1.csv",
+    "page": 26,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": []
+  }
+]

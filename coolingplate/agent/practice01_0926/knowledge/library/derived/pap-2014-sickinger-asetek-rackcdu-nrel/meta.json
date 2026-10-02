@@ -1,0 +1,11 @@
+{
+  "id": "pap-2014-sickinger-asetek-rackcdu-nrel",
+  "sha256": "5e2ef6f0cdd40551763de33d7eae896f843a35b389dd6053b33195510b69693d",
+  "source": "files/papers/pap-2014-sickinger-asetek-rackcdu-nrel.pdf",
+  "extracted_at": "2026-10-02T23:32:00",
+  "pages": 43,
+  "chars": 84930,
+  "chunks": 76,
+  "tables": 23,
+  "figures": 0
+}

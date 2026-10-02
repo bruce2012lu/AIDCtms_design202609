@@ -1,0 +1,11 @@
+{
+  "id": "pap-2019-sickinger-aquila-coldplate-nrel",
+  "sha256": "b4fada9c70deb4e41b2c8809aa177dafbedd36e88a43ba7cfa4612bfabff86c6",
+  "source": "files/papers/pap-2019-sickinger-aquila-coldplate-nrel.pdf",
+  "extracted_at": "2026-10-02T23:32:01",
+  "pages": 24,
+  "chars": 38330,
+  "chunks": 37,
+  "tables": 4,
+  "figures": 10
+}

@@ -1,0 +1,11 @@
+{
+  "id": "pap-2018-lazic-dc-cooling-mpc",
+  "sha256": "2ed89618deb9a1fa6ff96b655c1506249f838ddef2a7cd76f608e06e228ef859",
+  "source": "files/papers/pap-2018-lazic-dc-cooling-mpc.pdf",
+  "extracted_at": "2026-10-02T23:29:14",
+  "pages": 10,
+  "chars": 35088,
+  "chunks": 29,
+  "tables": 4,
+  "figures": 0
+}

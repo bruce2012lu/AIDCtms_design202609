@@ -1,0 +1,38 @@
+[
+  {
+    "file": "tables/p018_t0.csv",
+    "page": 18,
+    "rows": 2,
+    "cols": 20,
+    "captions_on_page": [
+      "Table 1. Discovery Round of Testing"
+    ]
+  },
+  {
+    "file": "tables/p018_t1.csv",
+    "page": 18,
+    "rows": 2,
+    "cols": 20,
+    "captions_on_page": [
+      "Table 1. Discovery Round of Testing"
+    ]
+  },
+  {
+    "file": "tables/p018_t2.csv",
+    "page": 18,
+    "rows": 2,
+    "cols": 20,
+    "captions_on_page": [
+      "Table 1. Discovery Round of Testing"
+    ]
+  },
+  {
+    "file": "tables/p021_t1.csv",
+    "page": 21,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 2. Mean Energy Flow Rates for 20-hour data set"
+    ]
+  }
+]

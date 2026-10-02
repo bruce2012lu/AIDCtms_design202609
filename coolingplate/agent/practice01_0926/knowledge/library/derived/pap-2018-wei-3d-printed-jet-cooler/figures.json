@@ -1,0 +1,159 @@
+[
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 558,
+    "h": 523,
+    "captions_on_page": [
+      "Figure 1. Schematic of impingement jet cooler. A: Cross-section of the chip  level jet impingement cooler revealing the internal structure with inlet and  outlet plenum, the nozzle plate and the impingement cavity. B: Top view of  the distribution of the inlet and outlets in the nozzle plate.",
+      "Figure 2. Results of the unit cell CFD simulation: Average thermal  resistance as function of pumping power for the different nozzle diameter  ratios and number of nozzles.",
+      "Figure 3. Results of the unit cell CFD simulation: Maximal thermal  resistance as function of pumping power for the different nozzle diameter  ratios and number of nozzles.",
+      "Fig.2 and Fig.3 show the visual representation of the  trade-off between the obtained thermal resistance and the  required pumping power for the average and maximum  temperatures respectively. For the best thermal performance"
+    ]
+  },
+  {
+    "file": "figures/p002_i1.jpg",
+    "page": 2,
+    "w": 615,
+    "h": 466,
+    "captions_on_page": [
+      "Figure 1. Schematic of impingement jet cooler. A: Cross-section of the chip  level jet impingement cooler revealing the internal structure with inlet and  outlet plenum, the nozzle plate and the impingement cavity. B: Top view of  the distribution of the inlet and outlets in the nozzle plate.",
+      "Figure 2. Results of the unit cell CFD simulation: Average thermal  resistance as function of pumping power for the different nozzle diameter  ratios and number of nozzles.",
+      "Figure 3. Results of the unit cell CFD simulation: Maximal thermal  resistance as function of pumping power for the different nozzle diameter  ratios and number of nozzles.",
+      "Fig.2 and Fig.3 show the visual representation of the  trade-off between the obtained thermal resistance and the  required pumping power for the average and maximum  temperatures respectively. For the best thermal performance"
+    ]
+  },
+  {
+    "file": "figures/p002_i2.jpg",
+    "page": 2,
+    "w": 633,
+    "h": 498,
+    "captions_on_page": [
+      "Figure 1. Schematic of impingement jet cooler. A: Cross-section of the chip  level jet impingement cooler revealing the internal structure with inlet and  outlet plenum, the nozzle plate and the impingement cavity. B: Top view of  the distribution of the inlet and outlets in the nozzle plate.",
+      "Figure 2. Results of the unit cell CFD simulation: Average thermal  resistance as function of pumping power for the different nozzle diameter  ratios and number of nozzles.",
+      "Figure 3. Results of the unit cell CFD simulation: Maximal thermal  resistance as function of pumping power for the different nozzle diameter  ratios and number of nozzles.",
+      "Fig.2 and Fig.3 show the visual representation of the  trade-off between the obtained thermal resistance and the  required pumping power for the average and maximum  temperatures respectively. For the best thermal performance"
+    ]
+  },
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 675,
+    "h": 289,
+    "captions_on_page": [
+      "Figure 4. Schematic and grid of the conjugated CFD model for the plenum  level study for 4 inlet nozzles.    (1) Lateral feeding plenum:  A temperature gradient across  the chip surface due to non-uniform cooling can reduce the  cooling efficiency. In order to reduce the temperature  gradient across",
+      "Figure 5. Modeling results from the plenum level model: impact of inlet  nozzle diameter on the chip uniformity.",
+      "Figure 6. Modeling results from the plenum level model: chip temperature  profile for different inlet diameters.",
+      "Figure 7. CFD model of  the full impingement cooler. Only the fluidic  domain is visualized."
+    ]
+  },
+  {
+    "file": "figures/p003_i1.jpg",
+    "page": 3,
+    "w": 665,
+    "h": 377,
+    "captions_on_page": [
+      "Figure 4. Schematic and grid of the conjugated CFD model for the plenum  level study for 4 inlet nozzles.    (1) Lateral feeding plenum:  A temperature gradient across  the chip surface due to non-uniform cooling can reduce the  cooling efficiency. In order to reduce the temperature  gradient across",
+      "Figure 5. Modeling results from the plenum level model: impact of inlet  nozzle diameter on the chip uniformity.",
+      "Figure 6. Modeling results from the plenum level model: chip temperature  profile for different inlet diameters.",
+      "Figure 7. CFD model of  the full impingement cooler. Only the fluidic  domain is visualized."
+    ]
+  },
+  {
+    "file": "figures/p003_i2.jpg",
+    "page": 3,
+    "w": 418,
+    "h": 338,
+    "captions_on_page": [
+      "Figure 4. Schematic and grid of the conjugated CFD model for the plenum  level study for 4 inlet nozzles.    (1) Lateral feeding plenum:  A temperature gradient across  the chip surface due to non-uniform cooling can reduce the  cooling efficiency. In order to reduce the temperature  gradient across",
+      "Figure 5. Modeling results from the plenum level model: impact of inlet  nozzle diameter on the chip uniformity.",
+      "Figure 6. Modeling results from the plenum level model: chip temperature  profile for different inlet diameters.",
+      "Figure 7. CFD model of  the full impingement cooler. Only the fluidic  domain is visualized."
+    ]
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 674,
+    "h": 349,
+    "captions_on_page": [
+      "Figure 8. Impact of the plenum level thickness on the flow distribution in the  4x4 array of inlet nozzles.",
+      "Figure 9. CFD model of 3D printed cooler with solid and fluid domains.",
+      "Figure 10. Contour plots of the full cooler CFD models showing the impact  of the thermal conductivity of the cooler materials for different flow rates.",
+      "Figure 11. Modeling results for the impact of the cooler material on the chip  temperature. A: Chip temperature as a function of flow rate for the different  materials. B: Chip temperature as a function of cooler material thermal  conductivity for different power levels.",
+      "Figure 12. Link between the nozzle geometry and the fabrication technology  options: mechanical machining process, 3D printing and Silicon processing"
+    ]
+  },
+  {
+    "file": "figures/p004_i2.jpg",
+    "page": 4,
+    "w": 614,
+    "h": 339,
+    "captions_on_page": [
+      "Figure 8. Impact of the plenum level thickness on the flow distribution in the  4x4 array of inlet nozzles.",
+      "Figure 9. CFD model of 3D printed cooler with solid and fluid domains.",
+      "Figure 10. Contour plots of the full cooler CFD models showing the impact  of the thermal conductivity of the cooler materials for different flow rates.",
+      "Figure 11. Modeling results for the impact of the cooler material on the chip  temperature. A: Chip temperature as a function of flow rate for the different  materials. B: Chip temperature as a function of cooler material thermal  conductivity for different power levels.",
+      "Figure 12. Link between the nozzle geometry and the fabrication technology  options: mechanical machining process, 3D printing and Silicon processing"
+    ]
+  },
+  {
+    "file": "figures/p004_i3.jpg",
+    "page": 4,
+    "w": 325,
+    "h": 267,
+    "captions_on_page": [
+      "Figure 8. Impact of the plenum level thickness on the flow distribution in the  4x4 array of inlet nozzles.",
+      "Figure 9. CFD model of 3D printed cooler with solid and fluid domains.",
+      "Figure 10. Contour plots of the full cooler CFD models showing the impact  of the thermal conductivity of the cooler materials for different flow rates.",
+      "Figure 11. Modeling results for the impact of the cooler material on the chip  temperature. A: Chip temperature as a function of flow rate for the different  materials. B: Chip temperature as a function of cooler material thermal  conductivity for different power levels.",
+      "Figure 12. Link between the nozzle geometry and the fabrication technology  options: mechanical machining process, 3D printing and Silicon processing"
+    ]
+  },
+  {
+    "file": "figures/p004_i4.jpg",
+    "page": 4,
+    "w": 338,
+    "h": 274,
+    "captions_on_page": [
+      "Figure 8. Impact of the plenum level thickness on the flow distribution in the  4x4 array of inlet nozzles.",
+      "Figure 9. CFD model of 3D printed cooler with solid and fluid domains.",
+      "Figure 10. Contour plots of the full cooler CFD models showing the impact  of the thermal conductivity of the cooler materials for different flow rates.",
+      "Figure 11. Modeling results for the impact of the cooler material on the chip  temperature. A: Chip temperature as a function of flow rate for the different  materials. B: Chip temperature as a function of cooler material thermal  conductivity for different power levels.",
+      "Figure 12. Link between the nozzle geometry and the fabrication technology  options: mechanical machining process, 3D printing and Silicon processing"
+    ]
+  },
+  {
+    "file": "figures/p006_i1.jpg",
+    "page": 6,
+    "w": 673,
+    "h": 273,
+    "captions_on_page": [
+      "Figure 16. Results of the SAM analysis of a printed cooler with internal  defects: open nozzles without resin residues (layer A), open nozzles with  tapered edges (layer B), blocked nozzles (layer C).",
+      "Figure 17. Design (top row) and photographs of the nozzle plates (bottom  row) of the fabricated 3D printed coolers for the 4 cooler designs.",
+      "Figure 18. Diameter measurements of the inlet nozzles in the printed coolers.  The red dashed box indicated the unit cell."
+    ]
+  },
+  {
+    "file": "figures/p006_i2.jpg",
+    "page": 6,
+    "w": 679,
+    "h": 272,
+    "captions_on_page": [
+      "Figure 16. Results of the SAM analysis of a printed cooler with internal  defects: open nozzles without resin residues (layer A), open nozzles with  tapered edges (layer B), blocked nozzles (layer C).",
+      "Figure 17. Design (top row) and photographs of the nozzle plates (bottom  row) of the fabricated 3D printed coolers for the 4 cooler designs.",
+      "Figure 18. Diameter measurements of the inlet nozzles in the printed coolers.  The red dashed box indicated the unit cell."
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 629,
+    "h": 525,
+    "captions_on_page": [
+      "Figure 19. Experimental (markers) and modeling results (solid lines) of the  cooler thermal resistance for the four fabricated coolers as a function of the  coolant flow rate. The modeling results are obtained for the fabricated  dimensions.",
+      "Figure 20.  Modeling results for the impact of the printing tolerance on the  thermal and hydraulic performance of the printed coolers for a coolant flow  rate of 1000 ml/min.",
+      "Fig. 20 shows the comparison of the CFD modeling  results for the designed and the fabricated nozzle diameters,  indicating a similar performance for the fabricated 4×4 and"
+    ]
+  }
+]

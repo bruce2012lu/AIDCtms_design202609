@@ -1,0 +1,11 @@
+{
+  "id": "pap-2007-melinder-aqueous-secondary-fluids-thesis",
+  "sha256": "169f84811dcf59d5d82f3cbc8278322507317b8b2f16f0643154db6101fa1b8e",
+  "source": "files/papers/pap-2007-melinder-aqueous-secondary-fluids-thesis.pdf",
+  "extracted_at": "2026-10-02T23:31:58",
+  "pages": 144,
+  "chars": 197403,
+  "chunks": 186,
+  "tables": 81,
+  "figures": 5
+}

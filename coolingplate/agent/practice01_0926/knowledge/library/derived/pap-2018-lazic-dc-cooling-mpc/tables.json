@@ -1,0 +1,34 @@
+[
+  {
+    "file": "tables/p003_t1.csv",
+    "page": 3,
+    "rows": 3,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p003_t2.csv",
+    "page": 3,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p007_t0.csv",
+    "page": 7,
+    "rows": 6,
+    "cols": 10,
+    "captions_on_page": [
+      "Table 2: Average power and water cost (% data) for each controller, restricted to time points and AHUs for which CAT was within 0.25C of xCAT sp and pressure within 0.004 of xDP sp , stratiﬁed by values of the disturbances."
+    ]
+  },
+  {
+    "file": "tables/p008_t0.csv",
+    "page": 8,
+    "rows": 4,
+    "cols": 13,
+    "captions_on_page": [
+      "Table 3: Average total cost (% data) of each controller, restricted to time points and fancoils for which LAT-EWT and DP were within 0.25C and 0.004wg of their respective setpoints, stratiﬁed by values of the disturbances."
+    ]
+  }
+]

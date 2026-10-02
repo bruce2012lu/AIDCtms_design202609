@@ -1,0 +1,88 @@
+[
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 580,
+    "h": 502,
+    "captions_on_page": [
+      "Figure 1. Primary-only chilled water system  1"
+    ]
+  },
+  {
+    "file": "figures/p008_i1.jpg",
+    "page": 8,
+    "w": 574,
+    "h": 508,
+    "captions_on_page": [
+      "Figure 1. Primary-only chilled water system  1"
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 629,
+    "h": 513,
+    "captions_on_page": [
+      "Figure 2. Air-cooled DX system  8"
+    ]
+  },
+  {
+    "file": "figures/p026_i3.jpg",
+    "page": 26,
+    "w": 190,
+    "h": 766,
+    "captions_on_page": [
+      "Figure 10. Modelica implementation of a primary-only chilled water system with an integrated  6"
+    ]
+  },
+  {
+    "file": "figures/p026_i4.jpg",
+    "page": 26,
+    "w": 382,
+    "h": 766,
+    "captions_on_page": [
+      "Figure 10. Modelica implementation of a primary-only chilled water system with an integrated  6"
+    ]
+  },
+  {
+    "file": "figures/p026_i5.jpg",
+    "page": 26,
+    "w": 382,
+    "h": 766,
+    "captions_on_page": [
+      "Figure 10. Modelica implementation of a primary-only chilled water system with an integrated  6"
+    ]
+  },
+  {
+    "file": "figures/p032_i0.jpg",
+    "page": 32,
+    "w": 757,
+    "h": 643,
+    "captions_on_page": [
+      "Figure 13. Breakdown of electricity usage of cooling system at PLR = 1.00    7",
+      "Figure 14(a) illustrates the normalized operation time of each cooling mode under different PLRs.  8"
+    ]
+  },
+  {
+    "file": "figures/p033_i0.jpg",
+    "page": 33,
+    "w": 568,
+    "h": 427,
+    "captions_on_page": [
+      "Figure 14(b) describes the relationship between PUEs and different PLRs. Among the four PLRs,  2",
+      "Figure 14. Operational status at different PLRs  4",
+      "Figure 15(a) shows the detailed energy consumption by each cooling component at different PLRs.  5"
+    ]
+  },
+  {
+    "file": "figures/p033_i1.jpg",
+    "page": 33,
+    "w": 562,
+    "h": 403,
+    "captions_on_page": [
+      "Figure 14(b) describes the relationship between PUEs and different PLRs. Among the four PLRs,  2",
+      "Figure 14. Operational status at different PLRs  4",
+      "Figure 15(a) shows the detailed energy consumption by each cooling component at different PLRs.  5"
+    ]
+  }
+]

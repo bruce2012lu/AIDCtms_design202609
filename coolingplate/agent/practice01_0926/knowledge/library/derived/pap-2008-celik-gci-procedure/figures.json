@@ -1,0 +1,20 @@
+[
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 774,
+    "h": 416,
+    "captions_on_page": [
+      "Figure 1(a): Axial velocity profiles for a two-dimensional turbulent backward-facing-step"
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 774,
+    "h": 418,
+    "captions_on_page": [
+      "Figure 2(a): Axial velocity profiles for a two-dimensional laminar backward-facing-step"
+    ]
+  }
+]

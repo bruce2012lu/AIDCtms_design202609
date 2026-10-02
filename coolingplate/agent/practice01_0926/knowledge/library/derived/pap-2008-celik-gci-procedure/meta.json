@@ -1,0 +1,11 @@
+{
+  "id": "pap-2008-celik-gci-procedure",
+  "sha256": "3e22d96c3c0ac7c27e7daabcca92ca6e8b09e30d7ae7d8f24ffd273c01fa2397",
+  "source": "files/papers/pap-2008-celik-gci-procedure.pdf",
+  "extracted_at": "2026-10-02T23:31:18",
+  "pages": 15,
+  "chars": 24283,
+  "chunks": 23,
+  "tables": 1,
+  "figures": 2
+}

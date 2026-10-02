@@ -1,0 +1,612 @@
+[
+  {
+    "file": "tables/p017_t0.csv",
+    "page": 17,
+    "rows": 8,
+    "cols": 17,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p022_t0.csv",
+    "page": 22,
+    "rows": 10,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p025_t0.csv",
+    "page": 25,
+    "rows": 12,
+    "cols": 11,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p026_t0.csv",
+    "page": 26,
+    "rows": 8,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p026_t1.csv",
+    "page": 26,
+    "rows": 9,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p027_t0.csv",
+    "page": 27,
+    "rows": 3,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 2.2 is given as an aid to mix additive and water in the right  proportions to get a certain freezing point. The table gives mixing  proportions and values of refractive index, n20°C,  of each of the  aqueous solutions at 20°C, all as a function of the additive concen- tration that corresponds ",
+      "Table 2.2. Density, molar conc., mixing masses and refractive  index of aqueous solutions with conc. giving tF = -15°C."
+    ]
+  },
+  {
+    "file": "tables/p029_t0.csv",
+    "page": 29,
+    "rows": 12,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p029_t1.csv",
+    "page": 29,
+    "rows": 8,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p031_t0.csv",
+    "page": 31,
+    "rows": 6,
+    "cols": 8,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p031_t1.csv",
+    "page": 31,
+    "rows": 7,
+    "cols": 8,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p033_t0.csv",
+    "page": 33,
+    "rows": 9,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p033_t1.csv",
+    "page": 33,
+    "rows": 8,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p035_t0.csv",
+    "page": 35,
+    "rows": 10,
+    "cols": 8,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p047_t0.csv",
+    "page": 47,
+    "rows": 9,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p048_t0.csv",
+    "page": 48,
+    "rows": 22,
+    "cols": 8,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p052_t0.csv",
+    "page": 52,
+    "rows": 18,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p053_t0.csv",
+    "page": 53,
+    "rows": 20,
+    "cols": 14,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p054_t0.csv",
+    "page": 54,
+    "rows": 26,
+    "cols": 14,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p055_t0.csv",
+    "page": 55,
+    "rows": 18,
+    "cols": 15,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p056_t0.csv",
+    "page": 56,
+    "rows": 20,
+    "cols": 10,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p058_t0.csv",
+    "page": 58,
+    "rows": 11,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p059_t0.csv",
+    "page": 59,
+    "rows": 12,
+    "cols": 7,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p060_t0.csv",
+    "page": 60,
+    "rows": 19,
+    "cols": 10,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p061_t0.csv",
+    "page": 61,
+    "rows": 18,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p062_t0.csv",
+    "page": 62,
+    "rows": 18,
+    "cols": 10,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p063_t0.csv",
+    "page": 63,
+    "rows": 12,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p063_t1.csv",
+    "page": 63,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p068_t0.csv",
+    "page": 68,
+    "rows": 5,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 4.1. Basic thermophysical properties of ethyl alcohol"
+    ]
+  },
+  {
+    "file": "tables/p069_t0.csv",
+    "page": 69,
+    "rows": 7,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 4.1. Basic thermophysical properties … (cont.)"
+    ]
+  },
+  {
+    "file": "tables/p071_t0.csv",
+    "page": 71,
+    "rows": 4,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 4.2 gives coefficients of aqueous solutions of ethyl alcohol  obtained from the Matlab program. The freezing point, tF, is cho- sen as x and the temperature, t, as y. Symbols from Table 4.1.",
+      "Table 4.2. Coefficients for properties of ethyl alcohol"
+    ]
+  },
+  {
+    "file": "tables/p071_t1.csv",
+    "page": 71,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 4.2 gives coefficients of aqueous solutions of ethyl alcohol  obtained from the Matlab program. The freezing point, tF, is cho- sen as x and the temperature, t, as y. Symbols from Table 4.1.",
+      "Table 4.2. Coefficients for properties of ethyl alcohol"
+    ]
+  },
+  {
+    "file": "tables/p073_t0.csv",
+    "page": 73,
+    "rows": 11,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p073_t1.csv",
+    "page": 73,
+    "rows": 10,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p074_t0.csv",
+    "page": 74,
+    "rows": 8,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p074_t2.csv",
+    "page": 74,
+    "rows": 17,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p075_t0.csv",
+    "page": 75,
+    "rows": 40,
+    "cols": 24,
+    "captions_on_page": [
+      "Table 4.3. Example with basic thermophysical properties of  aqueous solutions (here for tF = -20°C and t = -10°C)"
+    ]
+  },
+  {
+    "file": "tables/p076_t0.csv",
+    "page": 76,
+    "rows": 7,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 4.4. Basic thermophysical properties of ethyl alcohol"
+    ]
+  },
+  {
+    "file": "tables/p077_t0.csv",
+    "page": 77,
+    "rows": 46,
+    "cols": 13,
+    "captions_on_page": [
+      "Table 4.5. Example with thermophysical properties (for tF = - 20°C and t = -10°C) based on the basic properties in Table 4.4."
+    ]
+  },
+  {
+    "file": "tables/p079_t0.csv",
+    "page": 79,
+    "rows": 11,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p079_t1.csv",
+    "page": 79,
+    "rows": 9,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p080_t0.csv",
+    "page": 80,
+    "rows": 4,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p080_t2.csv",
+    "page": 80,
+    "rows": 18,
+    "cols": 10,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p081_t0.csv",
+    "page": 81,
+    "rows": 7,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 4.6. Basic thermophysical properties of lithium chloride"
+    ]
+  },
+  {
+    "file": "tables/p082_t0.csv",
+    "page": 82,
+    "rows": 6,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 4.6. Basic thermophysical properties … (cont.)"
+    ]
+  },
+  {
+    "file": "tables/p083_t0.csv",
+    "page": 83,
+    "rows": 4,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 4.6. Basic thermophysical properties … (cont.)"
+    ]
+  },
+  {
+    "file": "tables/p084_t0.csv",
+    "page": 84,
+    "rows": 7,
+    "cols": 9,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p085_t0.csv",
+    "page": 85,
+    "rows": 11,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p085_t1.csv",
+    "page": 85,
+    "rows": 17,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p086_t0.csv",
+    "page": 86,
+    "rows": 7,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 4.7. Basic thermophysical properties of potassium formate"
+    ]
+  },
+  {
+    "file": "tables/p087_t0.csv",
+    "page": 87,
+    "rows": 6,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 4.7. Basic thermophysical properties … (cont.)"
+    ]
+  },
+  {
+    "file": "tables/p088_t0.csv",
+    "page": 88,
+    "rows": 3,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 4.7. Basic thermophysical properties … (cont.)"
+    ]
+  },
+  {
+    "file": "tables/p090_t0.csv",
+    "page": 90,
+    "rows": 11,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p090_t1.csv",
+    "page": 90,
+    "rows": 9,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p096_t0.csv",
+    "page": 96,
+    "rows": 11,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p096_t1.csv",
+    "page": 96,
+    "rows": 9,
+    "cols": 7,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p098_t0.csv",
+    "page": 98,
+    "rows": 7,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p098_t1.csv",
+    "page": 98,
+    "rows": 10,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p100_t0.csv",
+    "page": 100,
+    "rows": 11,
+    "cols": 7,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p100_t1.csv",
+    "page": 100,
+    "rows": 10,
+    "cols": 7,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p102_t0.csv",
+    "page": 102,
+    "rows": 12,
+    "cols": 7,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p102_t1.csv",
+    "page": 102,
+    "rows": 7,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p103_t0.csv",
+    "page": 103,
+    "rows": 5,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p104_t0.csv",
+    "page": 104,
+    "rows": 10,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p104_t1.csv",
+    "page": 104,
+    "rows": 8,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p108_t0.csv",
+    "page": 108,
+    "rows": 11,
+    "cols": 11,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p109_t0.csv",
+    "page": 109,
+    "rows": 9,
+    "cols": 9,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p110_t0.csv",
+    "page": 110,
+    "rows": 10,
+    "cols": 11,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p111_t0.csv",
+    "page": 111,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p116_t0.csv",
+    "page": 116,
+    "rows": 9,
+    "cols": 8,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p119_t0.csv",
+    "page": 119,
+    "rows": 17,
+    "cols": 6,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p120_t0.csv",
+    "page": 120,
+    "rows": 8,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p121_t1.csv",
+    "page": 121,
+    "rows": 8,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p122_t0.csv",
+    "page": 122,
+    "rows": 8,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p122_t1.csv",
+    "page": 122,
+    "rows": 11,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p123_t0.csv",
+    "page": 123,
+    "rows": 11,
+    "cols": 10,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p124_t0.csv",
+    "page": 124,
+    "rows": 6,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p139_t0.csv",
+    "page": 139,
+    "rows": 7,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 2.3. Conversion chart of additive concentrations",
+      "Table 2.4. Index of refraction of aqueous solutions at 20°C, n20°C, as function of the additive concentration"
+    ]
+  },
+  {
+    "file": "tables/p139_t1.csv",
+    "page": 139,
+    "rows": 5,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 2.3. Conversion chart of additive concentrations",
+      "Table 2.4. Index of refraction of aqueous solutions at 20°C, n20°C, as function of the additive concentration"
+    ]
+  },
+  {
+    "file": "tables/p140_t0.csv",
+    "page": 140,
+    "rows": 2,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 2.5. Thermal volume expansion, TVE, of aqueous solu- tions with concentrations giving tF = -15ºC and water."
+    ]
+  },
+  {
+    "file": "tables/p140_t1.csv",
+    "page": 140,
+    "rows": 5,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 2.5. Thermal volume expansion, TVE, of aqueous solu- tions with concentrations giving tF = -15ºC and water."
+    ]
+  },
+  {
+    "file": "tables/p140_t2.csv",
+    "page": 140,
+    "rows": 3,
+    "cols": 8,
+    "captions_on_page": [
+      "Table 2.5. Thermal volume expansion, TVE, of aqueous solu- tions with concentrations giving tF = -15ºC and water."
+    ]
+  }
+]
