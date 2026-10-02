@@ -1,0 +1,32 @@
+﻿"Figure 13. Connections of the Intermediate hoses
+Ordering information for the Intermediate hoses to supply and return the water are listed in the following
+table. Hoses can either be stainless steel or EPDM, depending on the data center requirements.
+Table 15. Water connection ordering information",,,
+"Part
+number","Feature
+code",Description,Purpose
+Stainless steel hoses,,,
+CTO only,C2R0,"ThinkSystem N1380 Neptune Stainless
+Steel Hose Connection",Internal water manifold for stainless steel hoses
+4XH7A99480,C2KT,"ThinkSystem N1380 Neptune 0.51M
+and 0.84M Stainless Steel Hose Set","Two stainless steel intermediate hoses for an
+N1380 installed starting in rack position U1-U9"
+4XH7A99481,C2KS,"ThinkSystem N1380 Neptune 1.14M
+and 1.42M Stainless Steel Hose Set","Two stainless steel intermediate hoses for an
+N1380 installed starting in rack position U10-U22"
+4XH7A99482,C2KR,"ThinkSystem N1380 Neptune 1.73M
+and 2M Stainless Steel Hose Set","Two stainless steel intermediate hoses for an
+N1380 installed starting in rack position U23-U36"
+EPDM hoses,,,
+CTO only,BYKK,"ThinkSystem N1380 Neptune EPDM
+Hose Connection",Internal water manifold for EPDM hoses
+4XH7A99483,C2KQ,"ThinkSystem N1380 Neptune 2.2M and
+2.8M EPDM Hose Set","Two EPDM intermediate hoses for an N1380
+installed starting in rack position U1-U9"
+4XH7A99484,C2KP,"ThinkSystem N1380 Neptune 2.8M and
+3.4M EPDM Hose Set","Two EPDM intermediate hoses for an N1380
+installed starting in rack position U10-U22"
+4XH7A99485,C2KN,"ThinkSystem N1380 Neptune 3.4M and
+3.8M EPDM Hose Set","Two EPDM intermediate hoses for an N1380
+installed starting in rack position U23-U36"
+,,,

@@ -1,0 +1,261 @@
+[
+  {
+    "file": "tables/p012_t0.csv",
+    "page": 12,
+    "rows": 21,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 1. Standard specifications - SC777 V4 tray"
+    ]
+  },
+  {
+    "file": "tables/p013_t0.csv",
+    "page": 13,
+    "rows": 8,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p014_t0.csv",
+    "page": 14,
+    "rows": 18,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 2. Standard specifications: ThinkSystem N1380 enclosure"
+    ]
+  },
+  {
+    "file": "tables/p015_t0.csv",
+    "page": 15,
+    "rows": 12,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 3. Base CTO models"
+    ]
+  },
+  {
+    "file": "tables/p016_t0.csv",
+    "page": 16,
+    "rows": 5,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 4. Configurations"
+    ]
+  },
+  {
+    "file": "tables/p018_t0.csv",
+    "page": 18,
+    "rows": 18,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 5. GPU specifications"
+    ]
+  },
+  {
+    "file": "tables/p020_t0.csv",
+    "page": 20,
+    "rows": 20,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 6. Drive and adapter combinations (HPC and AI for Science configuration)",
+      "Table 7. Drive mounting kits",
+      "Table 8. Quantities of drive cages required based on desired number of drives"
+    ]
+  },
+  {
+    "file": "tables/p020_t1.csv",
+    "page": 20,
+    "rows": 6,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 6. Drive and adapter combinations (HPC and AI for Science configuration)",
+      "Table 7. Drive mounting kits",
+      "Table 8. Quantities of drive cages required based on desired number of drives"
+    ]
+  },
+  {
+    "file": "tables/p021_t0.csv",
+    "page": 21,
+    "rows": 19,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 9. E3.S EDSFF trayless PCIe 5.0 NVMe SSDs"
+    ]
+  },
+  {
+    "file": "tables/p022_t0.csv",
+    "page": 22,
+    "rows": 16,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 10. Drive and adapter combinations (HPC and AI for Science configuration)",
+      "Table 11. Slot ordering information"
+    ]
+  },
+  {
+    "file": "tables/p023_t0.csv",
+    "page": 23,
+    "rows": 25,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 12. Optical cables"
+    ]
+  },
+  {
+    "file": "tables/p024_t0.csv",
+    "page": 24,
+    "rows": 21,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 13. Copper cables"
+    ]
+  },
+  {
+    "file": "tables/p025_t0.csv",
+    "page": 25,
+    "rows": 7,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 14. Network adapters"
+    ]
+  },
+  {
+    "file": "tables/p029_t0.csv",
+    "page": 29,
+    "rows": 13,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 15. Water connection ordering information"
+    ]
+  },
+  {
+    "file": "tables/p030_t0.csv",
+    "page": 30,
+    "rows": 4,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 16. Commissioning Kit field upgrade"
+    ]
+  },
+  {
+    "file": "tables/p031_t0.csv",
+    "page": 31,
+    "rows": 6,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 17. N1380 power conversion stations"
+    ]
+  },
+  {
+    "file": "tables/p032_t0.csv",
+    "page": 32,
+    "rows": 10,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 18. Power capacity based on power policy selected"
+    ]
+  },
+  {
+    "file": "tables/p033_t0.csv",
+    "page": 33,
+    "rows": 11,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 19. Power cables"
+    ]
+  },
+  {
+    "file": "tables/p037_t0.csv",
+    "page": 37,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 20. External Diagnostics Handset ordering information"
+    ]
+  },
+  {
+    "file": "tables/p038_t0.csv",
+    "page": 38,
+    "rows": 10,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 21. Enabling NC-SI on the embedded network port",
+      "Table 22. IPMI-over-LAN settings"
+    ]
+  },
+  {
+    "file": "tables/p039_t0.csv",
+    "page": 39,
+    "rows": 4,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 23. Enable System Guard in the factory (CTO orders)"
+    ]
+  },
+  {
+    "file": "tables/p042_t0.csv",
+    "page": 42,
+    "rows": 17,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 24. XClarity One license information"
+    ]
+  },
+  {
+    "file": "tables/p048_t0.csv",
+    "page": 48,
+    "rows": 7,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 25. Secure Boot options"
+    ]
+  },
+  {
+    "file": "tables/p049_t0.csv",
+    "page": 49,
+    "rows": 12,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 26. Detailed dimensions"
+    ]
+  },
+  {
+    "file": "tables/p052_t0.csv",
+    "page": 52,
+    "rows": 27,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 27. Pressure drop for S45 (45°C into the N1380 enclosure)",
+      "Table 28. Pressure drop for S40 (40°C into the N1380 enclosure)",
+      "Table 29. Pressure drop for S32 (32°C into the N1380 enclosure)"
+    ]
+  },
+  {
+    "file": "tables/p053_t0.csv",
+    "page": 53,
+    "rows": 20,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 30. Pressure drop for S27 (27°C into the N1380 enclosure)"
+    ]
+  },
+  {
+    "file": "tables/p058_t0.csv",
+    "page": 58,
+    "rows": 3,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 31. Premier Deploy for Infrastructure"
+    ]
+  },
+  {
+    "file": "tables/p061_t0.csv",
+    "page": 61,
+    "rows": 8,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 32. Genie Lift GL-8 ordering information",
+      "Table 33. Ordering information for the Genie Lift fixtures and Utility Cart"
+    ]
+  }
+]

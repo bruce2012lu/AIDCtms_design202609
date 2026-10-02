@@ -1,0 +1,22 @@
+﻿Components,,Specification,
+Limited warranty,,Three-year customer-replaceable unit and onsite limited warranty with 9x5/NBD.,
+Dimensions,,"Width: 540 mm (21.3 in.), height: 572 mm (22.5 in.), depth: 1302 mm (51.2 in.). See Physical and
+electrical specifications for details.",
+Weight,,"Empty enclosure (with midplane and cables): 94 kg (208 lbs)
+Fully configured enclosure with 4x power conversion stations and 8x SC777 V4 server trays:
+470 kg (1036 lbs)",
+"Models
+The SC777 V4 node and N1380 enclosure are confgi ured by using the confgi ure-to-order (CTO) process with
+the Lenovo Cluster Solutions confgi urator (x-confgi ) or in Lenovo Data Center Solution Confgi urator (DCSC).",,,
+"DCSC users: To confgi ure SC777 V4 and N1380 in DCSC, you will need to be in AI & HPC –
+ThinkSystem Hardware mode. General Purpose mode cannot be used to confgi ure these systems.",,,
+"The following table lists the base CTO models and base feature codes
+Table 3. Base CTO models",,,
+"Machine
+Type/Model",Feature code,,Description
+7DMPCTOLWW,C51L,,ThinkSystem SC777 V4 Neptune Tray (3-Year Base Warranty)
+7DKACTOLWW,C51L,,ThinkSystem SC777 V4 Neptune Tray (5-Year Warranty Ready)
+7DDHCTOLWW,BYJZ,,ThinkSystem N1380 Neptune Enclosure (3-Year Warranty)
+"The ThinkSystem SC777 V4 node is equipped with high-performance GPUs. It falls under classifci ation
+5A992.z per U.S. Government Export regulations, and its market and customer availability are controlled,
+potentially necessitating an export license.",,,

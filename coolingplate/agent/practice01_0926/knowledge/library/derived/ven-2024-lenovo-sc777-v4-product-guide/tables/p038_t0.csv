@@ -1,0 +1,42 @@
+﻿"The 1Gb onboard port and one of the 25Gb onboard ports (port 1) on the front of the SC777 V4 ofefr a
+connection to the XCC for remote management. This shared-NIC functionality allows the ports to be used
+both for operating system networking and for remote management.
+Remote server management is provided through industry-standard interfaces:
+Intelligent Platform Management Interface (IPMI) Version 2.0
+Simple Network Management Protocol (SNMP) Version 3 (no SET commands; no SNMP v1)
+Common Information Model (CIM-XML)
+Representational State Transfer (REST) support
+Redfsih support (DMTF compliant)
+Web browser - HTML 5-based browser interface (Java and ActiveX not required) using a responsive
+design (content optimized for device being used - laptop, tablet, phone) with NLS support
+The 25Gb Port 1 connector supports NC-SI. You can enable NC-SI in the factory using the feature code
+listed in the following table. If the feature code isn't selected, the port will have NC-SI disabled.
+Table 21. Enabling NC-SI on the embedded network port",
+Feature code,Description
+BEXY,ThinkSystem NC-SI enabled on SFP28 Port (Port 1)
+"IPMI via the Ethernet port (IPMI over LAN) is supported, however it is disabled by default. For CTO orders
+you can specify whether you want to the feature enabled or disabled in the factory, using the feature codes
+listed in the following table.
+Table 22. IPMI-over-LAN settings",
+Feature code,Description
+B7XZ,Disable IPMI-over-LAN (default)
+B7Y0,Enable IPMI-over-LAN
+"XCC3 Premier
+In the SC777 V4, XCC3 has the Premier level of features built into the server. XCC3 Premier is equivalent to
+the XCC2 Premium ofefring in ThinkSystem V3 servers.",
+"Confgi urator tip: Even though XCC3 Premier is a standard feature of the SC777 V4, it does not appear in
+the list of feature codes in the confgi urator.",
+"XCC3 Premier includes the following functions:
+System Guard - Monitor hardware inventory for unexpected component changes, and simply log the
+event or prevent booting
+Neighbor Group - Enables administrators to manage and synchronize confgi urations and frimware
+level across multiple servers
+Syslog alerting
+Lenovo SED security key management
+Boot video capture and crash video capture
+Virtual console collaboration - Ability for up to 6 remote users to be log into the remote session
+simultaneously
+Remote console
+System utilization data and graphic view
+Single sign on with Lenovo XClarity Administrator
+Update frimware from a repository",

@@ -1,0 +1,53 @@
+﻿"The SC777 V4 has 2x 25GbE onboard ports. The ports are connected to an onboard NVIDIA ConnectX-6 Lx
+controller, implemented with SFP28 cages for optical or copper connections. Supports 1Gb, 10Gb and 25Gb
+connections. Locations of these ports is shown in the Components and connectors section.
+25GbE Port 1 supports NC-SI for remote management. For factory orders, to specify which ports should
+have NC-SI enabled, use the feature codes listed in the Remote Management section. If neither is chosen,
+both ports will have NC-SI disabled by default.
+For the specifci ations of the 25GbE ports including the supported transceivers and cables, see the
+ConnectX-6 Lx product guide:
+https://lenovopress.lenovo.com/lp1364-thinksystem-mellanox-connectx-6-lx-25gbe-sfp28-ethernet-
+adapters
+OSFP 800Gb ports
+The AI Training confgi uration includes two OSFP interface boards (feature C8X0), each providing two OSFP
+ports. Supported connections are each up to 800 Gb/s (a total of 3200 Gb/s with 4x ports).
+The following table lists the supported optical cables.
+Table 12. Optical cables",,,
+Part number,"Feature
+code",Description,"NVIDIA part
+number"
+NVIDIA NDR Multi Mode Fibre Optical Cables,,,
+4X97A81748,BQJN,Lenovo 3m NVIDIA NDR Multi Mode Optical Cable,980-9I73U-000003
+4X97A81749,BQJP,Lenovo 5m NVIDIA NDR Multi Mode Optical Cable,980-9I73V-000005
+4X97A81750,BQJQ,Lenovo 7m NVIDIA NDR Multi Mode MPO12 APC Optical Cable,980-9I57W-000007
+4X97A81751,BQJR,Lenovo 10m NVIDIA NDR Multi Mode Optical Cable,980-9I57X-00N010
+4X97A81752,BQJS,Lenovo 20m NVIDIA NDR Multi Mode Optical Cable,980-9I57Z-000020
+4X97A85349,BSN6,Lenovo 30M NVIDIA NDR Multi Mode MPO12 APC Optical Cable,980-9I570-00N030
+NVIDIA XDR SM MPO12 APC Optical Cable,,,
+4X97B11375,CCVD,Lenovo 3M NVIDIA SM MPO12 APC Optical Cable (Generic),980-9I55A-00N003
+4X97B05747,C98S,Lenovo 5M NVIDIA XDR SM MPO12 APC Optical Cable (Generic),980-9I55B-00N005
+4X97B05748,C98T,Lenovo 10M NVIDIA XDR SM MPO12 APC Optical Cable (Generic),980-9I58D-00N010
+4X97B05750,C98U,Lenovo 15M NVIDIA XDR SM MPO12 APC Optical Cable (Generic),980-9I58E-00N015
+4X97B05751,C98V,Lenovo 20M NVIDIA XDR SM MPO12 APC Optical Cable (Generic),980-9I58F-00N020
+4X97B05752,C98W,Lenovo 30M NVIDIA XDR SM MPO12 APC Optical Cable (Generic),980-9I58G-00N030
+4X97B09056,CB2T,Lenovo 50M NVIDIA SM MPO12 APC Optical Cable (Generic),980-9I58H-00N050
+NVIDIA SM MPO12/APC to 2xSM MPO12/APC Split Optical Cable,,,
+4X97B14779,CGUV,"Lenovo 3M NVIDIA SM MPO12/APC to 2xSM MPO12/APC Optical
+_ _
+Cable (Generic)",980-9I58K-00N003
+4X97B14780,CGUW,"Lenovo 5M NVIDIA SM MPO12/APC to 2xSM MPO12/APC Optical
+_ _
+Cable (Generic)",980-9I58L-00N005
+4X97B14781,CGUX,"Lenovo 10M NVIDIA SM MPO12/APC to 2xSM MPO12/APC
+_ _
+Optical Cable (Generic)",980-9I58N-00N010
+4X97B14782,CGUY,"Lenovo 15M NVIDIA SM MPO12/APC to 2xSM MPO12/APC
+_ _
+Optical Cable (Generic)",980-9I56P-00N020
+4X97B14783,CGUZ,"Lenovo 20M NVIDIA SM MPO12/APC to 2xSM MPO12/APC
+_ _
+Optical Cable (Generic)",980-9I56Q-00N030
+4X97B14784,CGV0,"Lenovo 30M NVIDIA SM MPO12/APC to 2xSM MPO12/APC
+_ _
+Optical Cable (Generic)",980-9I56R-000050
+,,,

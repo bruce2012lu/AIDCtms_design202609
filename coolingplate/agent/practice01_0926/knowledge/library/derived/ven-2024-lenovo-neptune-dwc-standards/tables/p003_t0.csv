@@ -1,0 +1,86 @@
+﻿"Solution Tiers for performance & efficiency
+Lenovo has adopted OCP’s method of describing the cooling tiers to bring consistency to the difefrent
+methods of efcfi iencies a data center can achieve. The following table describes Lenovo’s ranking for each
+tier using de-ionized water and Lenovo’s open-loop cold plate and water loop designs.
+Table 1. Comparison of the Lenovo cooling tiers",,,
+,Gold Tier Standard (Best),"Silver Tier Standard
+(Moderate)","Bronze Tier Standard
+(Acceptable)"
+"Ambient Room
+Temperature","25°C to 35°C
+ASHRAE A2",18°C to 27°C,"15°C to 25°C
+ASHRAE H1"
+FWS Temperature,40°C to 45°C,27°C to 32°C,17°C
+"TCS Secondary
+Temperature",45°C to 50°C,32°C to 37°C,Up to 25°C
+"Liquid Cooling
+Infrastructure","High-efficiency liquid cooling
+systems compatible with warm
+water, redundant pumps and
+plumbing, leak detection and
+containment systems","Efficient liquid cooling
+solutions suitable for cooler
+water temperatures, backup
+cooling solutions","Entry-level liquid cooling
+solutions, basic leak
+detection systems and
+procedures"
+"TCS Loop Cooling
+Distribution Unit
+(CDU)","N+1 or N+N Redundant
+Aisle/Data Center Loop
+BMS Integration
+Fluid pH & Chemistry
+Monitoring Continuous
+DI Water Based","N+1 Aisle Level CDU,
+Fluid Chemistry
+Monitoring Monthly
+DI Water Based","N+1 Aisle Level or in-
+Rack CDU, Fluid
+Chemistry Quarterly, DI
+Water / PG25"
+"Lenovo Professional
+Services
+Maintenance &
+Monitoring Package",Available,Available,Available
+"Data Center Cooling
+Loop","High Heat Capture 95%-100%
+with
+Insulated Rack only or
+RDHX with 2nd W17 TCS
+Loop","Moderate Heat Capture or
+High Heat Capture
+80-85% without RDHX
+95-100% with RDHX
+and 2nd W17 TCS Loop","Standard Heat Capture
+70% with CPU only"
+"Power and Energy
+Efficiency","Energy-efficient cooling solutions,
+power distribution units (PDUs)
+designed for liquid-cooled
+servers, renewable energy
+integration","Energy-efficient cooling
+systems, power
+management strategies,
+monitoring and analysis of
+energy usage","Energy-efficient cooling
+solutions within budget
+constraints, monitoring of
+power usage"
+"Safety and
+Compliance","Compliance with industry
+standards, regular safety
+inspections, emergency
+shutdown procedures","Compliance with safety
+standards, training
+programs for staff on safety
+protocols, emergency
+response plans","Basic safety measures for
+liquid cooling systems, staff
+training on safety protocols
+and equipment handling"
+"The design of the liquid cooling loop infrastructure that can provide the various tiers described in the table
+can be visualized in the fgi ure below. This layout is referenced in the ASHRAIE TC 9.9 Standard and is
+typically of how the Facility Water System and Technology Cooling Systems are designed as separate
+loops. This approach keeps facility liquid separate from technology liquid thus allows for difefrent liquids to
+be used in each loop.",,,

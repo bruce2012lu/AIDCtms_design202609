@@ -1,0 +1,44 @@
+﻿"Configurations
+There are two primary confgi urations ofefred with the SC777 V4. Block diagrams for these confgi urations are
+shown in the System architecture section.
+HPC and AI for Science confgi uration:
+4x B200 GPU Modules directly connected to processors with x16 interface (2 to each processor)
+Network connectivity options:
+Up to 6x ConnectX-7 (single-port 400Gb adapters or dual-port 200Gb adapters), each with a
+Gen5 x16 connection
+Up to 3x ConnectX-8 (single-port 800Gb adapters), each with a Gen5 x32 connection (two x16
+connections)
+Up to 8x E3.S 1T NVMe drives for data storage, directly connected to a processor (4 to each
+processor), with a x4 host interface
+PCIe adapters and drives are mutually exclusive; supported combinations are as follows:
+2x drives can be used with 5x adapters
+4x drives can be used with 4x adapters
+6x drives can be used with 3x adapters
+8x drives can be used with 2x adapters
+2x E3.S 1T NVMe drives for OS boot, connected via a switched x4 host interface to CPU 2
+2x 25Gb Ethernet SFP28 onboard connectors based on Mellanox ConnectX-6 Lx controller
+AI Training confgi uration:
+4x B200 GPU Modules connected to processors with x16 interface (2 to each processor)
+4x ConnectX-8 I/O modules to enable high-speed PCIe Gen6 x16 GPUDirect connectivity to the GPUs
+and Gen5 x16 connectivity to the processors
+Each ConnectX-8 switch has directly connected to it:
+1x B200 GPU Module via Gen6 x16
+1x Grace processor via Gen5 x16
+1x 800 Gb OSFP network connection
+2x E3.S drives for storage
+Additional network connectivity options:
+2x ConnectX-7 (single-port 400Gb adapters or dual-port 200Gb adapters), each with a Gen5
+x16 connection
+1x ConnectX-8 (single-port 800Gb adapter), with a Gen5 x32 connection (two x16 connections)
+2x E3.S 1T NVMe drives for OS boot, connected via a switched x4 host interface to CPU 2
+2x 25Gb Ethernet SFP28 onboard connectors based on Mellanox ConnectX-6 Lx controller
+The feature codes listed in the following table form the building blocks used to create the above
+confgi urations.
+Table 4. Confgi urations",,,
+Configuration,Feature code,Description,Qty
+"HPC and AI for
+Science
+configuration",C8X1,ThinkSystem SC777 V4 MCIO Breakout Board,2
+"AI Training
+configuration",C8WZ,ThinkSystem SC777 V4 NVIDIA Dual XDR IO Module,2
+,,,

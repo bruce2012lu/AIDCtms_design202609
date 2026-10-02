@@ -1,0 +1,41 @@
+﻿"Secure Management Hub
+Lenovo’s proprietary Management Hub is an on-premises virtual appliance that acts as the bridge between
+your infrastructure and the cloud.
+On-Premises Security with Cloud Flexibility - your infrastructure has no direct connection to the
+cloud, greatly reducing your attack surface from external threats while still having the deployment
+beneftis, fel xibility, and scalability of a cloud solution.
+Authentication and Authorization - built on a Zero Trust Architecture and requiring OTP Application
+authentication for all users to handle the support of all customers’ servers and client devices. Role-
+based access controls help defni e and restrict permissions based on user roles.
+Template-Driven Lifecycle Control
+Lenovo’s unifei d management model eliminates fragmented server administration, allowing you to deploy,
+track, and maintain your entire infrastructure fel et from a single cloud-native dashboard.
+Automated Confgi uration and Compliance: Leverage scalable, repeatable device templates to
+rapidly deploy frimware updates, operating systems, and core baseboard management controller
+(BMC/UEFI) simultaneously across multiple sites. XClarity One continuously analyzes hardware
+compliance, shifting out-of-compliance systems to a critical status until a template re-deployment
+aligns them back to corporate standards.
+Global Asset Visibility and Fleet Telemetry: Centralize real-time tracking of component health,
+warranty status, and comprehensive hardware inventories. The platform aggregates live usage data,
+including memory allocation, power consumption, and processor thermal trends, giving you total
+operational awareness whether a server resides in a centralized data center or a remote edge
+environment.
+Centralized management via Lenovo XClarity One can be integrated into your environment as an optional
+component. License information for XClarity One is listed in the following table.
+Table 24. XClarity One license information",,
+Part number,Feature code,Description
+Starter licenses (limited to 10 devices per organization),,
+7S0X001EWW,SF8Y,"XClarity One - Starter, Per Endpoint w/1 Yr SW S&S"
+7S0X001FWW,SF8Z,"XClarity One - Starter, Per Endpoint w/2 Yr SW S&S"
+7S0X001GWW,SF90,"XClarity One - Starter, Per Endpoint w/3 Yr SW S&S"
+7S0X001HWW,SF91,"XClarity One - Starter, Per Endpoint w/4 Yr SW S&S"
+7S0X001JWW,SF92,"XClarity One - Starter, Per Endpoint w/5 Yr SW S&S"
+Standard licenses,,
+7S0X000LWW,SCJC,"XClarity One - Standard, Per Endpoint w/1 Yr SW S&S"
+7S0X001CWW,SENW,"XClarity One - Standard, Per Endpoint w/2Yr SW S&S"
+7S0X000MWW,SCJD,"XClarity One - Standard, Per Endpoint w/3 Yr SW S&S"
+7S0X001DWW,SENX,"XClarity One - Standard, Per Endpoint w/4Yr SW S&S"
+7S0X000NWW,SCJE,"XClarity One - Standard, Per Endpoint w/5 Yr SW S&S"
+7S0X000VWW,SFQ1,"XClarity One - Standard, Per Endpoint w/6Yr SW S&S"
+7S0X000WWW,SFQ2,"XClarity One - Standard, Per Endpoint w/7Yr SW S&S"
+,,

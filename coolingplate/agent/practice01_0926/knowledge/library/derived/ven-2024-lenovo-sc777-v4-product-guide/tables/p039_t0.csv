@@ -1,0 +1,31 @@
+﻿"Enterprise Strict Security mode - Enforces CNSA 1.0 level security
+Remotely viewing video with graphics resolutions up to 1600x1200 at 75 Hz with up to 23 bits per
+pixel, regardless of the system state
+Remotely accessing the server using the keyboard and mouse from a remote client
+International keyboard mapping support
+Redirecting serial console via SSH
+Component replacement log (Maintenance History log)
+Access restriction (IP address blocking)
+Displaying graphics for real-time and historical power usage data and temperature
+Mapping the ISO and image flies located on the local client as virtual drives for use by the server
+Mounting the remote ISO and image flies via HTTPS, SFTP, CIFS, and NFS
+Power capping
+With XCC3 Premier, for CTO orders, you can request that System Guard be enabled in the factory and the
+frist confgi uration snapshot be recorded. To add this to an order, select feature code listed in the following
+table. The selection is made in the Security tab of the confgi urator.
+Table 23. Enable System Guard in the factory (CTO orders)",
+Feature code,Description
+BUT2,Enable System Guard
+"For more information about System Guard, see https://pubs.lenovo.com/xcc3/nn1ia c systemguard
+_ _
+Remote management using the SMM3
+The N1380 enclosure includes a System Management Module 3 (SMM), installed in the rear of the enclosure.
+See Enclosure rear view for the location of the SMM. The SMM provides remote management of both the
+enclosure and the individual servers installed in the enclosure. The SMM can be accessed through a web
+browser interface and via Intelligent Platform Management Interface (IPMI) 2.0 commands.
+The SMM provides the following functions:
+Remote connectivity to XCC controllers in each node in the enclosure
+Node-level reporting and control (for example, node virtual reseat/reset)
+Enclosure power management
+Enclosure thermal management
+Enclosure inventory",

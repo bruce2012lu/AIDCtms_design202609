@@ -1,0 +1,31 @@
+﻿"I/O expansion
+The SC777 V4 node supports up to 6x front-accessible slots, depending on the confgi uration:
+Slots 1, 2, 3: PCIe 5.0 x16 slots connected to CPU 1
+Slots 4, 5, 6: PCIe 5.0 x16 slots connected to CPU 2
+The location of the slots is shown in the following fgi ure.
+Figure 10. SC777 V4 PCIe slots
+Slot availability is based on the confgi uration selected.
+In the HPC and AI for Science confgi uration (see the Confgi urations section), PCIe adapters and data drives
+share the same PCIe connections to the processors. The following table lists the supported combinations of
+adapters and drives.
+Table 10. Drive and adapter combinations (HPC and AI for Science confgi uration)",,,,,
+Front adapter slots,,Data drives (E3.S 1T),Boot drives (E3.S 1T),,
+1-2 adapters,,8 data drives,2 boot drives,,
+3 adapters,,6 data drives,2 boot drives,,
+4 adapters,,4 data drives,2 boot drives,,
+5 adapters,,2 data drives,2 boot drives,,
+6 adapters,,0 data drives,2 boot drives,,
+"The AI Training confgi uration (see the Confgi urations section) supports:
+2x OSFP interfaces installed in slots 3 and 4 (feature C8X0) (see OSFP 800Gb ports section)
+2x PCIe adapters in slots 2 and 5
+Slots are implemented using 1-slot risers. Ordering information for the risers plus the OSFP interface cage for
+AI Training confgi urations is in the following table.
+Table 11. Slot ordering information",,,,,
+Feature code,Description,,,Slots where used,Max qty
+HPC and AI for Science configuration,,,,,
+C51P,ThinkSystem SC777 V4 Neptune Riser Kit - Slot 1,,,"1, 6",2
+C51N,ThinkSystem SC777 V4 Neptune Riser Kit - Slot 2/3/4/5/6,,,"2, 3, 4, 5",4
+AI Training configuration,,,,,
+C8X0,ThinkSystem SC777 V4 OSFP IO Kit (two OSFP 800Gb cages),,,"3, 4",2
+C51N,ThinkSystem SC777 V4 Neptune Riser Kit - Slot 2/3/4/5/6,,,"2, 5",2
+Onboard ports,,,,,

@@ -1,0 +1,23 @@
+﻿Components,Specification
+"Systems
+management","Operator panel with status LEDs. Optional External Diagnostics Handset with LCD display. Clarity
+Controller 3 (XCC3) embedded management based on the ASPEED AST2600 baseboard
+management controller (BMC), XClarity One centralized infrastructure delivery. Optional XCC3
+Premier to enable remote control functions and other features. Lenovo power/energy meter based
+on TI INA228 for 100Hz power measurements with >97% accuracy.
+System Management Module (SMM3) in the N1380 enclosure provides additional systems
+management functions from power monitoring to liquid leakage detection on chassis, tray and
+power conversation station level."
+"Operating
+systems
+supported","Ubuntu is Supported & Certified. See the Operating system support section for details and specific
+versions."
+Limited warranty,"Three-year or five-year customer-replaceable unit and onsite limited warranty with 9x5 next business
+day (NBD)."
+"Service and
+support","Optional service upgrades are available through Lenovo Services: 4-hour or 2-hour response time, 6-
+hour fix time, 1-year or 2-year warranty extension, software support for Lenovo hardware and some
+third-party applications."
+Dimensions,"Width: 546 mm (21.5 inches), height: 53 mm (2.1 inches), depth: 760 mm (29.9 inches)"
+Weight,36.5 kg (80.5 lbs)
+,

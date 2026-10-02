@@ -1,0 +1,24 @@
+﻿Table 19. Power cables,,,,
+"Part
+number","Feature
+code",Description,Connector,"Quantity
+required"
+Power cables routed from the floor,,,,
+4L67A90301,BYKG,"3M, 32A 240-415V, 3-Phase WYE IEC Floor
+Rack Power Cable",32A IEC plug (3ph+G+N),1 per PCS
+4L67A90172,BYKV,"2.8M, 63A 240-415V, 3-Phase WYE IEC to
+Y-Splitter Rack Power Cable",60A IEC plug (3ph+G+N),"1 of each per 2
+PCS units"
+4L67A97427,C4KW,"0.95M, 63A 240-415V, 3-Phase Y-Splitter
+Floor Power Cable","60A IEC plug (3ph+G+N),
+use with BYKV",
+Power cables routed from above the rack cabinet,,,,
+4L67A90302,BYKE,"3M, 32A 240-415V, 3-Phase WYE IEC Top
+Rack Power Cable",32A IEC plug (3ph+G+N),1 per PCS
+4L67A90172,BYKV,"2.8M, 63A 240-415V, 3-Phase WYE IEC to
+Y-Splitter Rack Power Cable",60A IEC plug (3ph+G+N),"1 of each per 2
+PCS units"
+4L67A90284,BYKF,"0.95M, 63A 240-415V, 3-Phase Y-Splitter
+Top Power Cable","60A IEC plug (3ph+G+N),
+use with BYKV",
+,,,,

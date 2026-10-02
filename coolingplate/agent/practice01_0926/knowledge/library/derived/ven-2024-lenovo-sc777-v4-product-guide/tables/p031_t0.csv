@@ -1,0 +1,26 @@
+﻿"Power conversion stations
+The N1380 enclosure supports up to four water-cooled Power Conversion Stations. The use of water-cooled
+power conversion stations enables an even greater amount of heat can be removed from the data center
+using water instead of air-conditioning.
+The Power Conversion Stations supply internal system power to a 48V busbar. This innovative design
+merges power conversion, rectifci ation, and distribution into a single unit, a departure from traditional setups
+that require separate units, including separate power supplies, resulting in best-in-class efcfi iency.
+Figure 14. N1380 power conversion stations
+The N1380 supports the power conversion stations listed in the following table.
+Table 17. N1380 power conversion stations",,,,,,
+"Part
+number","Feature
+code",Description,Quantities,Efficiency,Connector,Input
+4P57A82022,BYKH,"ThinkSystem N1380 Neptune 15kW
+3-Phase 380-480V Titanium Power
+Conversion Station","2, 3, 4",Titanium,"Harting Han-
+ECO 10B","3-phase
+380V-
+480Vac
+30A per
+phase"
+"Quantities of 2, 3 or 4 are supported. The power conversion stations provide N+1 redundancy with
+oversubscription.",,,,,,
+"Tip: Use Lenovo Capacity Planner to determine the power needs for your rack installation. See the
+Lenovo Capacity Planner section for details.",,,,,,
+,,,,,,

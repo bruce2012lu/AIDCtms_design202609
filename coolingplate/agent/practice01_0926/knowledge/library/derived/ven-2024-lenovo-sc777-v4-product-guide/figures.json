@@ -1,0 +1,175 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 1500,
+    "h": 1022,
+    "captions_on_page": [
+      "Figure 1. The Lenovo ThinkSystem SC777 V4 Neptune Server (AI Training configuration)"
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 1204,
+    "h": 477,
+    "captions_on_page": [
+      "Figure 2. Front view of the ThinkSystem SC777 V4",
+      "Figure 3. Inside view of the SC777 V4 server in the water-cooled tray"
+    ]
+  },
+  {
+    "file": "figures/p007_i1.jpg",
+    "page": 7,
+    "w": 1194,
+    "h": 868,
+    "captions_on_page": [
+      "Figure 2. Front view of the ThinkSystem SC777 V4",
+      "Figure 3. Inside view of the SC777 V4 server in the water-cooled tray"
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 1230,
+    "h": 812,
+    "captions_on_page": [
+      "Figure 4. Front view of the N1380 enclosure"
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 1230,
+    "h": 858,
+    "captions_on_page": [
+      "Figure 5. Rear view of the N1380 enclosure (water hoses removed for clarity)"
+    ]
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 1166,
+    "h": 757,
+    "captions_on_page": [
+      "Figure 6. SC777 V4 system architectural block diagram - HPC and AI for Science workloads"
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 1172,
+    "h": 805,
+    "captions_on_page": [
+      "Figure 7. SC777 V4 system architectural block diagram - AI Training workloads"
+    ]
+  },
+  {
+    "file": "figures/p018_i0.jpg",
+    "page": 18,
+    "w": 1206,
+    "h": 470,
+    "captions_on_page": [
+      "Figure 8. GB200-NVL4 NVLink topology"
+    ]
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 1148,
+    "h": 757,
+    "captions_on_page": [
+      "Figure 9. SC777 V4 internal drive bays"
+    ]
+  },
+  {
+    "file": "figures/p022_i0.jpg",
+    "page": 22,
+    "w": 1174,
+    "h": 241,
+    "captions_on_page": [
+      "Figure 10. SC777 V4 PCIe slots"
+    ]
+  },
+  {
+    "file": "figures/p027_i0.jpg",
+    "page": 27,
+    "w": 1184,
+    "h": 850,
+    "captions_on_page": [
+      "Figure 11. N1380 enclosure water connections"
+    ]
+  },
+  {
+    "file": "figures/p028_i0.jpg",
+    "page": 28,
+    "w": 1215,
+    "h": 846,
+    "captions_on_page": [
+      "Figure 12. Hose lengths based on the position of the N1380 enclosure in the rack cabinet"
+    ]
+  },
+  {
+    "file": "figures/p029_i0.jpg",
+    "page": 29,
+    "w": 1230,
+    "h": 828,
+    "captions_on_page": [
+      "Figure 13. Connections of the Intermediate hoses"
+    ]
+  },
+  {
+    "file": "figures/p031_i0.jpg",
+    "page": 31,
+    "w": 780,
+    "h": 805,
+    "captions_on_page": [
+      "Figure 14. N1380 power conversion stations"
+    ]
+  },
+  {
+    "file": "figures/p035_i0.jpg",
+    "page": 35,
+    "w": 970,
+    "h": 724,
+    "captions_on_page": [
+      "Figure 15. System I/O Board"
+    ]
+  },
+  {
+    "file": "figures/p036_i0.jpg",
+    "page": 36,
+    "w": 1224,
+    "h": 528,
+    "captions_on_page": [
+      "Figure 16. SC777 V4 Front operator panel"
+    ]
+  },
+  {
+    "file": "figures/p037_i0.jpg",
+    "page": 37,
+    "w": 960,
+    "h": 658,
+    "captions_on_page": [
+      "Figure 17. SC777 V4 External Diagnostics Handset"
+    ]
+  },
+  {
+    "file": "figures/p040_i0.jpg",
+    "page": 40,
+    "w": 1031,
+    "h": 572,
+    "captions_on_page": [
+      "Figure 18. System management module in the N1380 enclosure"
+    ]
+  },
+  {
+    "file": "figures/p050_i0.jpg",
+    "page": 50,
+    "w": 776,
+    "h": 849,
+    "captions_on_page": [
+      "Figure 19. Enclosure dimensions"
+    ]
+  }
+]

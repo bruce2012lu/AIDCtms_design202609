@@ -1,0 +1,22 @@
+﻿Table 25. Secure Boot options,,,
+"Part
+number","Feature
+code",Description,Purpose
+CTO only,BPKQ,"TPM 2.0 with Secure
+Boot",Configure the system in the factory with Secure Boot enabled.
+CTO only,BPKR,TPM 2.0,"Configure the system without Secure Boot enabled. Customers can
+enable Secure Boot later if desired."
+,,,
+"Tip: If Secure Boot is not enabled in the factory, it can be enabled later by the customer. However once
+Secure Boot is enabled, it cannot be disabled.",,,
+"Operating system support
+The SC777 V4 supports the following operating systems:
+Red Hat Enterprise Linux 9.6
+Red Hat Enterprise Linux 10.0
+Ubuntu 24.04 LTS 64-bit
+See Operating System Interoperability Guide (OSIG) for the complete list of supported, certifei d, and tested
+operating systems, including version and point releases:
+https://lenovopress.lenovo.com/osig#servers=sc777-v4-7dmp
+Also review the latest LeSI Best Recipe to see the operating systems that are supported via Lenovo Scalable
+Infrastructure (LeSI):
+https://support.lenovo.com/us/en/solutions/HT505184#5",,,

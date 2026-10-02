@@ -1,0 +1,44 @@
+﻿"Table 6. Drive and adapter combinations (HPC and AI for Science confgi uration)
+Data drives (E3.S 1T) Boot drives (E3.S 1T) Front adapter slots
+0 data drives 2 boot drives 6 adapters
+2 data drives 2 boot drives 5 adapters
+4 data drives 2 boot drives 4 adapters
+6 data drives 2 boot drives 3 adapters
+8 data drives 2 boot drives 2 adapters
+In the AI Training confgi uration (see the Confgi urations section), there is no restriction regarding the
+numbers of drives
+NVMe drives are connected to CPUs as follows:
+Drives 0-1 are boot drives connected to CPU 2
+Drives 2-5 are data storage drives connected to CPU 2
+Drives 6-9 are data storage drives connected to CPU 1
+The feature codes to select the appropriate storage cage are listed in the following table.",,,,,
+"Tip: To confgi ure boot drives, specify feature C51T plus either feature C77X (1x boot drive) or C51U (2x
+boot drives). See the table below. The boot drive kit is only required when 8 performance and 2 boot
+drives are installed.",,,,,
+Table 7. Drive mounting kits,,,,,
+Feature code,Description,,"Max
+qty",,Purpose
+C51T,"ThinkSystem SC777 V4 Neptune PCIe Switch Board
+for Boot Drives",,1,,Enables the use of boot drives
+C77X,ThinkSystem SC777 V4 Neptune Single E3.S 1T Kit,,3*,,Cage for a single drive
+C51U,ThinkSystem SC777 V4 Neptune Dual E3.S 1T Kit,,5*,,"Cage for two drives (not for E3.S
+2T drives)"
+"* See the table below for guidance on quantities required
+Each drive bay supports 1x or 2x E3.S 1T drives. If a bay is to have only 1 drive, order feature C77X for that
+bay; if a bay is to have 2 drives, order feature C51U for that bay. The following table lists the required
+quantities of each drive bay cage
+Table 8. Quantities of drive cages required based on desired number of drives",,,,,
+Desired drive count,,"Quantity of single-drive cages
+required (feature C77X)",,"Quantity of dual-drive cages
+required (feature C51U)",
+Boot drives (bays 0-1),,,,,
+1 drive,,1x C77X,,0,
+2 drives,,0,,1x C51U,
+Data storage drives (bays 2-9),,,,,
+1 drive,,1x C77X,,0,
+2 drives,,2x C77X,,0,
+2 drives,,0,,1x C51U,
+3 drives,,1x C77X,,1x C51U,
+4 drives,,0,,2x C51U,
+5 drives,,1x C77X,,2x C51U,
+,,,,,

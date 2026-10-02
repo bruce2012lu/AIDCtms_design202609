@@ -1,0 +1,43 @@
+﻿"The power conversion stations have the following features:
+80 PLUS Titanium certifei d
+Input: 380~480Vac, 3-phase WYE
+Input current: 30A per phase)
+N+1 power redundancy
+Power management confgi ured through the SMM
+Built-in overload and surge protection
+Full telemetry of PCS available through SMM GUI or Redfsih including: energy, power, voltage, current,
+and overall conversion efcfi iency
+Power policies and power output
+The following table lists the enclosure power capacity based on the power policy and the number of power
+modules installed.",,
+"N+0 and N+N not supported: The SC777 V4 does not support N+0 (non-redundant) or N+N power
+supplies in the N1380 enclosure.",,
+Table 18. Power capacity based on power policy selected,,
+Number of PCS units in Nominal State,N+1 redundancy,
+,N+1 Policy (see notes),Chassis capacity (DC)
+1,-,-
+2,1+1,18 KW (15 KW)*
+3,2+1,36 KW (30 KW)*
+4,3+1,54 KW (45 KW)*
+"* The numbers in parentheses are the chassis power capacity if no throttling is required when the redundancy
+is degraded (e.g. 3+1 and 1 PSU fails)
+Notes:
+With N+1, if there is a PSU fault, the power capacity is reduced to <= the value shown in parentheses
+within 1 second. Example: If 3+1 policy is selected & all 4 PSUs are operational, the power capacity is
+54KWDC. If a PSU faults, the power is reduced to <=45KW within 1 second. GPU trays are hard
+throttled w PWRBRK#. Intel trays are proprotionally throttled with Psys power capping
+If the chassis is in the degraded redundancy state, due to 1 or more PSU faults, and an additional
+PSU fails, the chassis will attempt to stay alive by hard-throttling the trays (via PROCHOT# &
+PWRBRK#), but there is no guarantee. There is risk that the chassis could power of fif the PSU rating
+is exceeded
+For the redundant power policies, only OVS modes are selectable in SMM (ie. OVS is always enabled).
+When a user creates a hardware confgi in DCSC, a chassis max power estimate is completed, via an
+LCP API call. If the chassis DC max power is in between the chassis degraded power capacity shown
+in parentheses and the chassis normal power capacity, a warning is displayed stating that the server
+could be throttled if a PSU fails. If the customer doesn’t want potential throttling, they either need to
+reduce their confgi or select a difefrent combo of PSUs/policy to achieve a higher power budget
+Power cables
+The power conversion stations function at a 32A current, but the power cables enable two PCS units to
+share a single 63A connection from the data center. Consequently, for racks fully equipped with 12 power
+conversion stations, only six power connections from the data center are needed.
+The N1380 enclosure supports the following power cables.",,

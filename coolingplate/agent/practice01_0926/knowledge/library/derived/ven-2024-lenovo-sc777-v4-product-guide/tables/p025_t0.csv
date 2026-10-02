@@ -1,0 +1,22 @@
+﻿"Network adapters
+The SC777 V4 supports up to 6 network adapters installed in the front PCIe slots. The following table lists
+the supported adapters.
+Table 14. Network adapters",,,
+Feature code,Description,Max qty,
+,,"HPC and AI for
+Science
+configuration","AI Training
+configuration"
+BKSN,"ThinkSystem NVIDIA ConnectX-7 NDR OSFP400 1-port
+PCIe Gen5 x16 InfiniBand Adapter DWC",6,2
+BKSL,"ThinkSystem NVIDIA ConnectX-7
+NDR200/HDR/200GbE QSFP112 2-Port PCIe Gen5 x16
+Adapter (SharedIO) DWC",6,2
+CAGC,"ThinkSystem NVIDIA ConnectX-8 8180 800Gbs XDR IB
+/ 2x400GbE OSFP 1-Port PCIe Gen6 x16 DWC (Generic
+FW)",3,1
+"For more information, including the supported transceivers and cables, see the adapter product guides:
+ConnectX-7: https://lenovopress.lenovo.com/lp1692-thinksystem-nvidia-connectx-7-ndr-infni iband-
+400gbe-osfp-adapters
+ConnectX-8: https://lenovopress.lenovo.com/lp2163-thinksystem-nvidia-connectx-8-8180-800gbs-
+osfp-pcie-gen6-x16-adapter",,,

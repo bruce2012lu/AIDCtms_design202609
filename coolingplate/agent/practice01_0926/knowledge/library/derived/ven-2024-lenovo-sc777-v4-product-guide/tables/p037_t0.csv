@@ -1,0 +1,21 @@
+﻿"Figure 17. SC777 V4 External Diagnostics Handset
+Ordering information for the External Diagnostics Handset with is listed in the following table.
+Table 20. External Diagnostics Handset ordering information",,
+Part number,Feature code,Description
+4TA7A64874,1410 BEUX,ThinkSystem External Diagnostics Handset
+"System status with XClarity One Mobile
+The XClarity One Mobile app includes a tethering function where you can connect your Android or iOS device
+to the server via USB to see the status of the server.
+Download the XClarity One Mobile app from these sites:
+Google Play Store
+Apple App Store
+The steps to connect the mobile device to the server are as follows:
+1. In the XCC web interface under BMC Confgi uration > Network, set the USB mode to Shared mode:
+Owned by BMC
+2. Connect the mobile device via a USB cable to the server's USB port with the management symbol
+3. In iOS or Android settings, enable Personal Hotspot or USB Tethering
+4. Launch the Lenovo XClarity Mobile app
+Once connected you can see the following information:
+Server status including error logs (read only, no login required)
+Server management functions (XClarity login credentials required)
+Remote management",,

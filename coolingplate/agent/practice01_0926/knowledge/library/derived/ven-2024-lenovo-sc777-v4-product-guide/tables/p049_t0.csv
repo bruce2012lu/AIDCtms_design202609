@@ -1,0 +1,35 @@
+﻿"Physical and electrical specifications
+Eight SC777 V4 server trays are installed in the N1380 enclosure. Each SC777 V4 tray has the following
+dimensions:
+Width: 546 mm (21.5 inches)
+Height: 53 mm (2.1 inches)
+Depth: 760 mm (29.9 inches) (799 mm, including the water connections at the rear of the server)
+The N1380 enclosure has the following overall physical dimensions, excluding components that extend
+outside the standard chassis, such as EIA fal nges, front security bezel (if any), and power conversion station
+handles:
+Width: 540 mm (21.3 inches)
+Height: 572 mm (22.5 inches)
+Depth: 1302 mm (51.2 inches)
+The following table lists the detailed dimensions. See the fgi ure below for the defni ition of each dimension.
+Table 26. Detailed dimensions",
+Dimension,Description
+483 mm,"X = Width, to the outsides of the front EIA flanges
+a"
+448 mm,"X = Width, to the rack rail mating surfaces
+b"
+540 mm,"X = Width, to the outer most chassis body feature
+c"
+572 mm,"Y = Height, from the bottom of chassis to the top of the chassis
+a"
+1062 mm,"Z = Depth, from the rack flange mating surface to the rearmost I/O port surface
+a"
+1076 mm,"Z = Depth, from the rack flange mating surface to the rearmost feature of the chassis body
+b"
+1114 mm,"Z = Depth, from the rack flange mating surface to the rearmost feature such as power supply handle
+c"
+226 mm,"Z = Depth, from the forwardmost feature on front of EIA flange to the rack flange mating surface
+d"
+226 mm,"Z = Depth, from the front of security bezel (if applicable) or forwardmost feature to the rack flange mating
+e
+surface"
+,

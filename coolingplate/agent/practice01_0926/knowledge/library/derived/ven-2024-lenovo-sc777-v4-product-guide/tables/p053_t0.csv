@@ -1,0 +1,54 @@
+﻿"SC777 V4
+quantity","1 power conversion
+station","2 power conversion
+stations","3 power conversion
+stations","4 power conversion
+stations"
+2,0.30,0.30,0.31,0.32
+3,0.31,0.32,0.32,0.34
+4,0.32,0.33,0.34,0.35
+5,0.34,0.35,0.35,0.37
+6,0.36,0.37,0.38,0.39
+7,0.38,0.39,0.40,0.42
+8,0.40,0.41,0.43,0.45
+Table 30. Pressure drop for S27 (27°C into the N1380 enclosure),,,,
+"SC777 V4
+quantity","1 power conversion
+station","2 power conversion
+stations","3 power conversion
+stations","4 power conversion
+stations"
+,Pressure drop (bar),Pressure drop (bar),Pressure drop (bar),Pressure drop (bar)
+1,0.25,0.25,0.25,0.25
+2,0.25,0.26,0.26,0.26
+3,0.26,0.27,0.27,0.28
+4,0.27,0.28,0.28,0.30
+5,0.29,0.29,0.30,0.32
+6,0.30,0.31,0.32,0.33
+7,0.32,0.33,0.34,0.35
+8,0.34,0.35,0.36,0.38
+"Water fol w rates
+45°C water temperature
+Water fol w rate per SC777 V4 tray: 7.0 lpm
+Water fol w rate per PCS : 3.4 lpm
+Water fol w rate per enclosure: the sum of 7.0 lpm*(the number of trays) and 3.4 lpm*(the
+number of PCS)
+40°C water temperature
+Water fol w rate per SC777 V4 tray: 6.0 lpm
+Water fol w rate per PCS : 2.8 lpm
+Water fol w rate per enclosure: the sum of 6.0 lpm*(the number of trays) and 2.8 lpm*(the
+number of PCS)
+32°C water temperature
+Water fol w rate per SC777 V4 tray: 4.8 lpm
+Water fol w rate per PCS : 2.2 lpm
+Water fol w rate per enclosure: the sum of 4.8 lpm*(the number of trays) and 2.2 lpm*(the
+number of PCS)
+27°C water temperature
+Water fol w rate per SC777 V4 tray: 4.4 lpm
+Water fol w rate per PCS : 2.0 lpm
+Water fol w rate per enclosure: the sum of 4.4 lpm*(the number of trays) and 2.0 lpm*(the
+number of PCS)
+For example, when an N1380 enclosure is installed with eight SC777 V4 trays and four PCS, and the water
+temperature is 45°C, the enclosure water fol w rate is 69.6 lpm (7.0 lpm*8 and 3.4 lpm*4)
+For details on Lenovo Neptune direct water-cooling standards, see the following document:
+Lenovo Neptune Direct Water-Cooling Standards",,,,

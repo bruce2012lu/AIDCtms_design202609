@@ -1,0 +1,38 @@
+﻿"The following table lists the supported direct-attach copper (DAC) cables.
+Table 13. Copper cables",,,
+Part number,"Feature
+code",Description,"NVIDIA part
+number"
+NVIDIA NDRx2 OSFP800 Finned to NDRx2 OSFP800 Flat Copper Cables,,,
+4X97A84581,BRKC,"Lenovo 1M NVIDIA NDRx2 OSFP800 Finned to NDRx2 OSFP800
+Flat Top Passive Copper Cable",980-9IA0H-00N001
+4X97A84582,BRKD,"Lenovo 1.5M NVIDIA NDRx2 OSFP800 Finned to NDRx2 OSFP800
+Flat Top Passive Copper Cable",980-9IA0H-27N01A
+4X97A84584,BRKF,"Lenovo 3M NVIDIA NDRx2 OSFP800 Finned to NDRx2 OSFP800
+Flat Top Active Copper Cable",980-9I601-00N003
+NVIDIA NDRx2 OSFP800 to 2x NDR OSFP400 Splitter Copper Cables,,,
+4X97A81827,BQJV,"Lenovo 1m NVIDIA NDRx2 OSFP800 to 2x NDR OSFP400 Passive
+Copper Splitter Cable",980-9I432-00N001
+4X97A81828,BQJW,"Lenovo 1.5m NVIDIA NDRx2 OSFP800 to 2x NDR OSFP400
+Passive Copper Splitter Cable",980-9I926-00N01A
+4X97A81829,BQJX,"Lenovo 2m NVIDIA NDRx2 OSFP800 to 2x NDR OSFP400 Passive
+Copper Splitter Cable",980-9I924-00N002
+4X97A81830,BQJY,"Lenovo 3m NVIDIA NDRx2 OSFP800 to 2x NDR OSFP400 Passive
+Copper Splitter Cable",980-9I92N-00N003
+NVIDIA XDR OSFP to 2xOSFP Active Copper Splitter Cable,,,
+4X97B05741,C98M,"Lenovo 1m NVIDIA XDR OSFP to 2xOSFP Active Copper Splitter
+cable (Generic)",980-9IAO5-00X001
+4X97B05742,C98N,"Lenovo 1.5m NVIDIA XDR OSFP to 2xOSFP Active Copper Splitter
+cable (Generic)",980-9IAO5-00X01A
+4X97B05743,C98P,"Lenovo 2m NVIDIA XDR OSFP to 2xOSFP Active Copper Splitter
+cable (Generic)",980-9IAO5-00X002
+Lenovo IB Twin Port NDR OSFP112 to 2x NDR OSFP Splitter Copper Cables,,,
+4X97B16876,CK2A,"Lenovo 1M Luxshare 400Gx2 OSFP112 to 2x 400G OSFP Passive
+Copper Splitter Cable",-
+4X97B16877,CK2B,"Lenovo 1.5M Luxshare 400Gx2 OSFP112 to 2x 400G OSFP
+Passive Copper Splitter Cable",-
+4X97B16878,CK2C,"Lenovo 2M Luxshare 400Gx2 OSFP112 to 2x 400G OSFP Passive
+Copper Splitter Cable",-
+4X97B16879,CK2D,"Lenovo 3M Luxshare 400Gx2 OSFP112 to 2x 400G OSFP Passive
+Copper Splitter Cable",-
+,,,

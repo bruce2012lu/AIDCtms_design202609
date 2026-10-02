@@ -1,0 +1,49 @@
+﻿"Standard specifications - N1380 enclosure
+The ThinkSystem N1380 enclosure provides shared high-power and high-efcfi iency power conversion
+stations. The SC777 V4 servers connect to the midplane of the N1380 enclosure. This midplane connection
+is for power (via a 48V busbar) and control only; the midplane does not provide any I/O connectivity.
+The following table lists the standard specifci ations of the enclosure.
+Table 2. Standard specifci ations: ThinkSystem N1380 enclosure",
+Components,Specification
+Machine type,7DDH - 3-year warranty
+Form factor,13U rack-mounted enclosure
+"Maximum number
+of SC777 V4 nodes
+supported",Up to 8x server nodes per enclosure
+Node support,"ThinkSystem SC750 V4
+ThinkSystem SC777 V4"
+Enclosures per rack,Up to three N1380 enclosures per 42U or 48U rack
+"System
+Management
+Module (SMM)","The hot-swappable System Management Module (SMM3) is the management device for the
+enclosure. Provides integrated systems management functions and controls the power and
+cooling features of the enclosure. Provides remote browser and CLI-based user interfaces for
+remote access via the dedicated Gigabit Ethernet port. Remote access is to both the
+management functions of the enclosure as well as the XClarity Controller 3 (XCC3) in each node.
+The SMM has two Ethernet ports which enables a single incoming Ethernet connection to be
+daisy chained across 3 enclosures and 48 nodes, thereby significantly reducing the number of
+Ethernet switch ports needed to manage an entire rack of SC777 V4 nodes and enclosures."
+Ports,"Two RJ45 port on the rear of the enclosure for 10/100/1000 Ethernet connectivity to the SMM3
+for power and cooling management."
+I/O architecture,None integrated. Use top-of-rack networking and storage switches.
+Power supplies,"Up to 4x water-cooled hot-swap power conversion stations (PCS), depending on the power
+policy and the power requirements of the installed server node trays. N+1 redundancy. PCS units
+are installed at the rear of the enclosure. Single power domain supplies power to all nodes. 80
+PLUS Titanium compliant. Built-in overload and surge protection."
+Cooling,Direct water cooling supplied by water hoses connected to the rear of the enclosure.
+System LEDs,"SMM has four LEDs: system error, identification, status, and system power. Each power
+conversion station (PCS) has AC, DC, and error LEDs. Nodes have more LEDs."
+"Systems
+management","Browser-based enclosure management through an Ethernet port on the SMM at the rear of the
+enclosure. Integrated Ethernet switch provides direct access to the XClarity Controller (XCC)
+embedded management of the installed nodes. Nodes provide more management features."
+Temperature,"Operating water temperature:
+2°C to 45°C (35.6°F to 113°F) (ASHRAE S45* compliant)
+Operating air temperature:
+5°C to 40°C (41°F to 104°F) (ASHRAE A3 compliant)
+See Operating Environment for more information.
+* ASHRAE S45, formerly known as ASHRAE W45"
+Electrical power,"380~480Vac, 3-phase WYE"
+Power cords,"Custom power cables for direct data center attachment, 1 dedicated (32A) or 1 shared (63A) per
+power module"
+,

@@ -1,0 +1,40 @@
+﻿Desired drive count,,,"Quantity of single-drive cages
+required (feature C77X)","Quantity of dual-drive cages
+required (feature C51U)",,
+6 drives,,,0,3x C51U,,
+7 drives,,,1x C77X,3x C51U,,
+8 drives,,,0,4x C51U,,
+"Controllers for internal storage
+The drives of the SC777 V4 are connected to integrated NVMe storage controllers.
+If desired, RAID functionality is provided by the installed operating system (software RAID)
+Internal drive options
+The following tables list the drive options for internal storage of the server.
+Trayless drives:
+E3.S EDSFF trayless PCIe 5.0 NVMe SSDs",,,,,,
+"SED support: The tables include a column to indicate which drives support SED encryption. The
+encryption functionality can be disabled if needed. Note: Not all SED-enabled drives have ""SED"" in the
+description.",,,,,,
+Table 9. E3.S EDSFF trayless PCIe 5.0 NVMe SSDs,,,,,,
+Part number,"Feature
+code",Description,,,"SED
+support","Max
+Qty"
+E3.S trayless SSDs - PCIe 5.0 NVMe - Mixed Use/Mainstream (3-5 DWPD),,,,,,
+4XB7B12184,CEC4,"ThinkSystem E3.S 1T VA 1.6TB Mixed Use NVMe PCIe 5.0 x4 Trayless
+SSD",,,Support,10
+4XB7B12185,CEC5,"ThinkSystem E3.S 1T VA 3.2TB Mixed Use NVMe PCIe 5.0 x4 Trayless
+SSD",,,Support,10
+4XB7B12186,CEC6,"ThinkSystem E3.S 1T VA 6.4TB Mixed Use NVMe PCIe 5.0 x4 Trayless
+SSD",,,Support,10
+4XB7B12187,CEC7,"ThinkSystem E3.S 1T VA 12.8TB Mixed Use NVMe PCIe 5.0 x4 Trayless
+SSD",,,Support,10
+E3.S trayless SSDs - PCIe 5.0 NVMe - Read Intensive/Entry (<3 DWPD),,,,,,
+4XB7B12180,CE88,"ThinkSystem E3.S 1T VA 1.92TB Read Intensive NVMe PCIe 5.0 x4
+Trayless SSD",,,Support,10
+4XB7B12181,CE87,"ThinkSystem E3.S 1T VA 3.84TB Read Intensive NVMe PCIe 5.0 x4
+Trayless SSD",,,Support,10
+4XB7B12182,CE86,"ThinkSystem E3.S 1T VA 7.68TB Read Intensive NVMe PCIe 5.0 x4
+Trayless SSD",,,Support,10
+4XB7B12183,CE85,"ThinkSystem E3.S 1T VA 15.36TB Read Intensive NVMe PCIe 5.0 x4
+Trayless SSD",,,Support,10
+,,,,,,
