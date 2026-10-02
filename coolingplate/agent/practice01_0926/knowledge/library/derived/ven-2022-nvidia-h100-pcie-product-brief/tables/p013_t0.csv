@@ -1,0 +1,5 @@
+﻿,Parameter,,,Value,
+Total NVLink bridges supported by NVIDIA H100,,,3,,
+Total NVLink Rx and Tx lanes supported,,,48,,
+Data rate per NVIDIA H100 NVLink lane (each direction),,,100 Gbps,,
+Total maximum NVLink bandwidth,,,600 Gbytes per second,,

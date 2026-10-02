@@ -1,0 +1,13 @@
+﻿,Specification,,,Description1,
+SR-IOV support,,,Supported -- 32 VF (virtual functions),,
+BAR address (physical function),,,"BAR0: 16 MiB1
+BAR1: 128 GiB1
+BAR3: 32 MiB1",,
+BAR address (virtual function),,,"BAR0: 5 MiB, (256 KiB per VF)1
+BAR1: 80 GiB, 64-bit (4 GiB per VF)1
+BAR3: 640 MiB, 64-bit (32 MiB per VF)1",,
+Message signaled interrupts,,,"MSI-X: Supported
+MSI: Not supported",,
+ARI Forwarding,,,Supported,,
+Driver support,,,"Linux: R520 or later
+Windows: R520 or later",,

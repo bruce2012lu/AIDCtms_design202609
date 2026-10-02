@@ -1,0 +1,8 @@
+﻿,Specification,,,Units,,,Description,
+"T
+AVG",,,°C,,,Average temperature of all internal GPU sensors,,
+"T
+LIMIT",,,°C,,,"GPU and HBM temperature limit – current distance in degrees C
+from software slowdown event",,
+"T
+HBM",,,°C,,,Maximum temperature of all HBM sensors,,

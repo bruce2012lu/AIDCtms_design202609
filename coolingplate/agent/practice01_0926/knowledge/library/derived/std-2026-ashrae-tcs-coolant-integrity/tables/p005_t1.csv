@@ -1,0 +1,68 @@
+﻿Field Verification Checklist,,,,,,,
+,,,,,,,
+Topic,What to verify,,Examples of,,Why it matters,Why it matters,
+,,,methods / evidence,,,,
+"Coolant
+formulation","Manufacturer,
+concentration, quality
+and inhibitor package
+match design basis","Refractometer/density
+check; chemical
+vendor
+documentation;
+mixing procedure",,,"Hydraulic/thermal
+performance and
+chemistry
+stability are
+concentration-
+dependent",,
+"Particulate /
+cleanliness","Filtration strategy
+implemented and
+effective","Filter ratings;
+differential pressure
+trends; flushing
+records; cleanliness
+sampling plan",,,,Protects,
+,,,,,,sensitive heat,
+,,,,,,transfer surfaces,
+,,,,,,and valves;,
+,,,,,,reduces,
+,,,,,,commissioning,
+,,,,,,churn,
+"Air
+management","Air separators, vents,
+and purge points
+function; high points are
+able to be vented",,Functional test,,,Avoids air,
+,,,results; vent,,,"binding,",
+,,,locations; purge,,,"cavitation,",
+,,,procedure; observed,,,"corrosion, and",
+,,,stable DP/flow after,,,performance,
+,,,transients,,,instability,
+"Stainless
+surface
+condition","Post-fabrication
+cleaning/passivation
+completed and
+documented","ASTM A380/A967-
+based procedure;
+ferrous contamination
+tests; records",ASTM A380/A967-,,,Reduces,
+,,,based procedure;,,,localized,
+,,,ferrous contamination,,,corrosion and,
+,,,tests; records,,,metal release,
+,,,,,,into coolant,
+"Lifecycle
+changes","Expansion/maintenance
+plan includes fluid QA
+before reconnecting","MOP/SOP; sampling
+schedule; acceptance
+criteria; corrective
+actions",,,,Phased,
+,,,,,,deployments can,
+,,,,,,re-introduce,
+,,,,,,contamination or,
+,,,,,,alter chemistry,
+,,,,,,,
+,,,,,,,

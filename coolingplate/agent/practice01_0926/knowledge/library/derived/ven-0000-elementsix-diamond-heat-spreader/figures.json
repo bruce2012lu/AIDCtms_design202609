@@ -1,0 +1,105 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 2217,
+    "h": 1086,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p001_i1.jpg",
+    "page": 1,
+    "w": 674,
+    "h": 159,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p001_i2.jpg",
+    "page": 1,
+    "w": 1013,
+    "h": 576,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p002_i0.jpg",
+    "page": 2,
+    "w": 1081,
+    "h": 745,
+    "captions_on_page": [
+      "Figure 2 – Details of the die / heat spreader / micro-cooler stack used  to investigate synthetic diamond’s ability to cool hot spots in silicon  chips.",
+      "Figure 1 – Room temperature thermal conductivity of different  thermal grades of synthetic diamond manufactured by Element Six, in  comparison to standard thermal management materials."
+    ]
+  },
+  {
+    "file": "figures/p002_i1.jpg",
+    "page": 2,
+    "w": 971,
+    "h": 798,
+    "captions_on_page": [
+      "Figure 2 – Details of the die / heat spreader / micro-cooler stack used  to investigate synthetic diamond’s ability to cool hot spots in silicon  chips.",
+      "Figure 1 – Room temperature thermal conductivity of different  thermal grades of synthetic diamond manufactured by Element Six, in  comparison to standard thermal management materials."
+    ]
+  },
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 1080,
+    "h": 718,
+    "captions_on_page": [
+      "Figure 3 – Maximum hotspot temperature versus total heating power,  with and without a diamond heat spreader.",
+      "Figure 4 – Infra-red camera images at 54 W heating power (a) without  and (b) with a diamond heat spreader.",
+      "Figure 5 – Calculated heat flux at the upper surface of the  microchannel/microjet cooler, with and without a synthetic diamond  heat spreader."
+    ]
+  },
+  {
+    "file": "figures/p003_i1.jpg",
+    "page": 3,
+    "w": 920,
+    "h": 644,
+    "captions_on_page": [
+      "Figure 3 – Maximum hotspot temperature versus total heating power,  with and without a diamond heat spreader.",
+      "Figure 4 – Infra-red camera images at 54 W heating power (a) without  and (b) with a diamond heat spreader.",
+      "Figure 5 – Calculated heat flux at the upper surface of the  microchannel/microjet cooler, with and without a synthetic diamond  heat spreader."
+    ]
+  },
+  {
+    "file": "figures/p003_i2.jpg",
+    "page": 3,
+    "w": 424,
+    "h": 159,
+    "captions_on_page": [
+      "Figure 3 – Maximum hotspot temperature versus total heating power,  with and without a diamond heat spreader.",
+      "Figure 4 – Infra-red camera images at 54 W heating power (a) without  and (b) with a diamond heat spreader.",
+      "Figure 5 – Calculated heat flux at the upper surface of the  microchannel/microjet cooler, with and without a synthetic diamond  heat spreader."
+    ]
+  },
+  {
+    "file": "figures/p003_i3.jpg",
+    "page": 3,
+    "w": 398,
+    "h": 153,
+    "captions_on_page": [
+      "Figure 3 – Maximum hotspot temperature versus total heating power,  with and without a diamond heat spreader.",
+      "Figure 4 – Infra-red camera images at 54 W heating power (a) without  and (b) with a diamond heat spreader.",
+      "Figure 5 – Calculated heat flux at the upper surface of the  microchannel/microjet cooler, with and without a synthetic diamond  heat spreader."
+    ]
+  },
+  {
+    "file": "figures/p004_i0.jpg",
+    "page": 4,
+    "w": 1435,
+    "h": 1351,
+    "captions_on_page": [
+      "Figures 2, 4 and 5 are courtesy of A-Star’s Institute of Microelectronics. © Element Six. 2026. ELEMENTSIX, the e6 logo and Diafilm are trade marks of the Element Six Group. e6.com | e6cvd.com"
+    ]
+  },
+  {
+    "file": "figures/p004_i1.jpg",
+    "page": 4,
+    "w": 284,
+    "h": 161,
+    "captions_on_page": [
+      "Figures 2, 4 and 5 are courtesy of A-Star’s Institute of Microelectronics. © Element Six. 2026. ELEMENTSIX, the e6 logo and Diafilm are trade marks of the Element Six Group. e6.com | e6cvd.com"
+    ]
+  }
+]

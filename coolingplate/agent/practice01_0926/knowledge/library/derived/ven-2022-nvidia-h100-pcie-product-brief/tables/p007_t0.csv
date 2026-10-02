@@ -1,0 +1,23 @@
+﻿,Specification,,,NVIDIA H100,
+Product SKU,,,"P1010 SKU 200
+NVPN: 699-21010-0200-xxx",,
+Total board power,,,"PCIe 16-pin 450 W or 600 W power mode:
+• 350 W default
+• 350 W maximum
+• 200 W minimum
+PCIe 16-pin 300 W power mode:
+• 310 W default
+• 310 W maximum
+• 200 W minimum",,
+Thermal solution,,,Passive,,
+Mechanical form factor,,,"Full-height, full-length (FHFL) 10.5”, dual-slot",,
+GPU SKU,,,GH100-200,,
+PCI Device IDs,,,"Device ID: 0x2331
+Vendor ID: 0x10DE
+Sub-Vendor ID: 0x10DE
+Sub-System ID: 0x1626",,
+GPU clocks,,,"Base: 1,125 MHz
+Boost: 1,755 MHz",,
+Performance states,,,P0,,
+VBIOS,,,"EEPROM size: 8 Mbit
+UEFI: Supported",,

@@ -1,0 +1,16 @@
+[
+  {
+    "file": "tables/p001_t0.csv",
+    "page": 1,
+    "rows": 5,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p005_t1.csv",
+    "page": 5,
+    "rows": 30,
+    "cols": 8,
+    "captions_on_page": []
+  }
+]

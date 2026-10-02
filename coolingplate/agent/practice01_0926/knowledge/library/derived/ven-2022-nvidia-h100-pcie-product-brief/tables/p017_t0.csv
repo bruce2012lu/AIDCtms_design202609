@@ -1,0 +1,4 @@
+﻿,,"Note: The power adapter supports the four Sideband signals, hardware-strapped per Row 3. This",
+,,strapping corresponds to the “151 – 300 W” power level PCIe CEM 5.0 specification (shown in,
+,,"Row 3). As a result, it supports only a 310 W TGP for the H100 PCIe card. To support a TGP of 350",
+,,"W, a power adapter or cable strapped as in Row 1 or Row 2 should be used.",

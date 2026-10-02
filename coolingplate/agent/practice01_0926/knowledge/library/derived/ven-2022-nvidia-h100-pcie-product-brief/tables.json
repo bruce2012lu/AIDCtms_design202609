@@ -1,0 +1,125 @@
+[
+  {
+    "file": "tables/p002_t0.csv",
+    "page": 2,
+    "rows": 3,
+    "cols": 12,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p007_t0.csv",
+    "page": 7,
+    "rows": 10,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 1 through Table 3 the product, memory, and software specifications for the NVIDIA H100  PCIe card.",
+      "Table 1.  Product Specifications"
+    ]
+  },
+  {
+    "file": "tables/p008_t0.csv",
+    "page": 8,
+    "rows": 7,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 2.  Memory Specifications",
+      "Table 3.  Software Specifications"
+    ]
+  },
+  {
+    "file": "tables/p008_t1.csv",
+    "page": 8,
+    "rows": 6,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 2.  Memory Specifications",
+      "Table 3.  Software Specifications"
+    ]
+  },
+  {
+    "file": "tables/p008_t2.csv",
+    "page": 8,
+    "rows": 7,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 2.  Memory Specifications",
+      "Table 3.  Software Specifications"
+    ]
+  },
+  {
+    "file": "tables/p009_t0.csv",
+    "page": 9,
+    "rows": 21,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 4 provides the PCIe reported temperatures and Table 5 provides the thermal  specifications for the NVIDIA H100 PCIe card.",
+      "Table 4.  H100 PCIe Reported Temperatures"
+    ]
+  },
+  {
+    "file": "tables/p009_t1.csv",
+    "page": 9,
+    "rows": 4,
+    "cols": 9,
+    "captions_on_page": [
+      "Table 4 provides the PCIe reported temperatures and Table 5 provides the thermal  specifications for the NVIDIA H100 PCIe card.",
+      "Table 4.  H100 PCIe Reported Temperatures"
+    ]
+  },
+  {
+    "file": "tables/p010_t0.csv",
+    "page": 10,
+    "rows": 7,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 5.  Thermal Specifications"
+    ]
+  },
+  {
+    "file": "tables/p013_t0.csv",
+    "page": 13,
+    "rows": 5,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 6.  H100 PCIe Card NVLink Speed and Bandwidth"
+    ]
+  },
+  {
+    "file": "tables/p016_t0.csv",
+    "page": 16,
+    "rows": 5,
+    "cols": 12,
+    "captions_on_page": [
+      "Table 7.  PCIe CEM 5.0 16-Pin PCIe PSU Power Level vs. Sense Logic",
+      "Table 8 lists supported auxiliary power connections for the NVIDIA H100 GPU card.",
+      "Table 8.  Supported Auxiliary Power Connections"
+    ]
+  },
+  {
+    "file": "tables/p016_t1.csv",
+    "page": 16,
+    "rows": 3,
+    "cols": 6,
+    "captions_on_page": [
+      "Table 7.  PCIe CEM 5.0 16-Pin PCIe PSU Power Level vs. Sense Logic",
+      "Table 8 lists supported auxiliary power connections for the NVIDIA H100 GPU card.",
+      "Table 8.  Supported Auxiliary Power Connections"
+    ]
+  },
+  {
+    "file": "tables/p017_t0.csv",
+    "page": 17,
+    "rows": 4,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p022_t0.csv",
+    "page": 22,
+    "rows": 33,
+    "cols": 9,
+    "captions_on_page": [
+      "Table 9.  Languages Supported"
+    ]
+  }
+]

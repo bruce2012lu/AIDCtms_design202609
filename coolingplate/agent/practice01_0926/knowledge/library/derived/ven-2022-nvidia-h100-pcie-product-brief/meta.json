@@ -1,0 +1,11 @@
+{
+  "id": "ven-2022-nvidia-h100-pcie-product-brief",
+  "sha256": "66ed708d7fb1a7dc5adb83e4852243a99c47d0c19afb3d501211f052f6d28fa7",
+  "source": "files/vendor_docs/ven-2022-nvidia-h100-pcie-product-brief.pdf",
+  "extracted_at": "2026-10-02T23:41:09",
+  "pages": 23,
+  "chars": 30944,
+  "chunks": 29,
+  "tables": 13,
+  "figures": 10
+}

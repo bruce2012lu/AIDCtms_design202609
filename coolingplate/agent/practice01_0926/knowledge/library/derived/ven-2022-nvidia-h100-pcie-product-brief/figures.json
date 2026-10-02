@@ -1,0 +1,95 @@
+[
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 1369,
+    "h": 852,
+    "captions_on_page": [
+      "Figure 1.  NVIDIA H100 with NVLink Bridge Volumetric"
+    ]
+  },
+  {
+    "file": "figures/p011_i1.jpg",
+    "page": 11,
+    "w": 733,
+    "h": 221,
+    "captions_on_page": [
+      "Figure 2.  NVIDIA H100 Airflow Directions"
+    ]
+  },
+  {
+    "file": "figures/p012_i0.jpg",
+    "page": 12,
+    "w": 2026,
+    "h": 1054,
+    "captions_on_page": [
+      "Figure 3.  NVIDIA H100 PCIe Card Dimensions"
+    ]
+  },
+  {
+    "file": "figures/p014_i0.jpg",
+    "page": 14,
+    "w": 1596,
+    "h": 303,
+    "captions_on_page": [
+      "Figure 5.  NVLink Connector Placement – Top View"
+    ]
+  },
+  {
+    "file": "figures/p015_i0.jpg",
+    "page": 15,
+    "w": 320,
+    "h": 852,
+    "captions_on_page": [
+      "Figure 6.  PCIe 16-Pin Power Connector"
+    ]
+  },
+  {
+    "file": "figures/p016_i0.jpg",
+    "page": 16,
+    "w": 1276,
+    "h": 346,
+    "captions_on_page": [
+      "Figure 7.  CPU 8-Pin to PCIe 16-Pin Power Adapter"
+    ]
+  },
+  {
+    "file": "figures/p017_i0.jpg",
+    "page": 17,
+    "w": 248,
+    "h": 575,
+    "captions_on_page": [
+      "Figure 8 shows the CPU 8-pin to PCIe 16-pin power adapter pin assignments.",
+      "Figure 8.  CPU 8-Pin to PCIe 16-Pin Power Adapter Pin Assignments"
+    ]
+  },
+  {
+    "file": "figures/p018_i0.jpg",
+    "page": 18,
+    "w": 354,
+    "h": 619,
+    "captions_on_page": [
+      "Figure 9.  Enhanced Straight Extender",
+      "Figure 10.  Legacy Long Offset and Straight Extenders"
+    ]
+  },
+  {
+    "file": "figures/p018_i1.jpg",
+    "page": 18,
+    "w": 426,
+    "h": 303,
+    "captions_on_page": [
+      "Figure 9.  Enhanced Straight Extender",
+      "Figure 10.  Legacy Long Offset and Straight Extenders"
+    ]
+  },
+  {
+    "file": "figures/p020_i0.jpg",
+    "page": 20,
+    "w": 1099,
+    "h": 530,
+    "captions_on_page": [
+      "Figure 11.  NVIDIA AI Enterprise Software Stack"
+    ]
+  }
+]

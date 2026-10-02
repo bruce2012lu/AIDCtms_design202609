@@ -1,0 +1,11 @@
+{
+  "id": "std-2026-ashrae-tcs-coolant-integrity",
+  "sha256": "6675f2dc36802260f0397b579b6b02967b74b6ef0da4033748c5a7b78e0b2f8a",
+  "source": "files/standards/std-2026-ashrae-tcs-coolant-integrity.pdf",
+  "extracted_at": "2026-10-02T23:28:18",
+  "pages": 6,
+  "chars": 18223,
+  "chunks": 18,
+  "tables": 2,
+  "figures": 0
+}

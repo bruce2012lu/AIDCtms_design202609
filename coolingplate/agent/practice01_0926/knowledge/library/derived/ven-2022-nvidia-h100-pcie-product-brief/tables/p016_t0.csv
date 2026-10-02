@@ -1,0 +1,6 @@
+﻿,Power Level,,,Sideband 3 (Sense0),,,Sideband 4 (Sense1),,,Maximum TGP,
+451 - 600 W,,,0,,,0,,,350 W,,
+301 - 450 W,,,1 (float),,,0,,,350 W,,
+151 - 300 W,,,0,,,1 (float),,,310 W,,
+Up to 150 W,,,1 (float),,,1 (float),,,"Not supported. Insufficient
+power",,

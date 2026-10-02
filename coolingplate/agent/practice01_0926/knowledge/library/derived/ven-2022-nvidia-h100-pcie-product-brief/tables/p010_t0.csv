@@ -1,0 +1,12 @@
+﻿Specification,Applies to,,Thermal Parameter,
+,,,Value,
+Thermal qualification temperature,GPU,"T = 87°C
+AVG",,
+,HBM,"T = 95°C
+HBM",,
+Maximum operating temperature,GPU,"T = 0°C
+LIMIT",,
+Hardware slowdown temperature (50% clock slowdown),GPU,"T = -2°C
+LIMIT",,
+Hardware shutdown temperature,GPU,"T = -5°C
+LIMIT",,

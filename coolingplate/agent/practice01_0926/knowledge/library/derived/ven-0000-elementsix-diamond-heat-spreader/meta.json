@@ -1,0 +1,11 @@
+{
+  "id": "ven-0000-elementsix-diamond-heat-spreader",
+  "sha256": "7a04e174d08de4f327c365651db273f91a5cf2c9109656f5a20200dea65b39be",
+  "source": "repo:agents/AIDCtms/coolingplate/papers/pdfs/05_ElementSix_Diamond_HeatSpreader_CaseStudy.pdf",
+  "extracted_at": "2026-10-02T23:32:48",
+  "pages": 4,
+  "chars": 7151,
+  "chunks": 7,
+  "tables": 0,
+  "figures": 11
+}

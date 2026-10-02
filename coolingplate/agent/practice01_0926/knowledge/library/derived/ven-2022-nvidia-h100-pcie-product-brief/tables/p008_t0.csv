@@ -1,0 +1,13 @@
+﻿,Specification,,,NVIDIA H100,
+PCI Express interface,,,"PCI Express Gen5 x16; Gen5 x8; Gen4 x16
+Lane and polarity reversal supported",,
+Multi-Instance GPU (MIG),,,Supported (seven instances),,
+Secure Boot (CEC),,,Supported,,
+Zero Power,,,Not supported,,
+Power connectors and headers,,,One PCIe 16-pin auxiliary power connector,,
+Weight,,,"Board: 1200g grams (excluding bracket, extenders, and bridges)
+NVLink bridge: 20.5 grams per bridge (x 3 bridges)
+Bracket with screws: 20 grams
+Enhanced straight extender: 35 grams
+Long offset extender: 48 grams
+Straight extender: 32 grams",,
