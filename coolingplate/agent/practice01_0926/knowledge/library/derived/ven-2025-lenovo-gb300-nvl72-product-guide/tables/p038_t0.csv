@@ -1,0 +1,41 @@
+﻿"Air temperature and humidity
+Air temperature/humidity requirements:
+ASHRAE standard A2
+Temperature operating:
+Meets ASHRAE standard A2 (10°C to 35°C)
+Maximum rate of change (°C /hr) ≤ 20
+Operating temperature de-rated 1C per 300m (10,00ft) to 1,371m (4,500ft) above sea
+level
+Humidity operating:
+20% - 80%, non-condensing
+Humidity transition rate < 10%/hr
+Acoustics idle/working mode:
+Fan control from BMC with multiple temperature input
+Sound pressure level (LpAm): up to 82.9 dB
+Estimated that the rack will operate around 92dBA from rack rear, typical ambient and rack
+exercised
+Altitude:
+Supports 0 – 5,000 ft (0 - 1,524m)
+Temperature Non-operating: w/o PKG
+-40C to 70C (Rack shipped with pressurized nitrogen)
+Non-operating with Di-H20: 5-70C
+Non-operating with PG25: 10-70C
+Water requirements
+For details on the NVIDIA GB300 NVL72 direct water-cooling standards, see the following table:
+Table 27. Temperature, LPM and psi values",,
+Fluid Supply Temperature,Required Rack Flow,Rack Pressure Drop
+25°C,59 LPM,2.3 psi
+30°C,71 LPM,3.2 psi
+35°C,89 LPM,4.9 psi
+40°C,119 LPM,8.5 psi
+45°C,177 LPM,18.4 psi
+"Standard specifci ations of the Lenovo GB300 NVL Switch Tray.
+Operating water temperature: 2°C to 50°C (35.6°F to 122°F) (ASHRAE W45 compliant)
+Particulate contamination
+Airborne particulates (including metal fal kes or particles) and reactive gases acting alone or in combination
+with other environmental factors such as humidity or temperature might damage the system that might cause
+the system to malfunction or stop working altogether.
+The following specifci ations indicate the limits of particulates that the system can tolerate:
+Reactive gases:
+The copper reactivity level shall be less than 200 Angstroms per month (Å/month)
+The silver reactivity level shall be less than 200 Å/month",,

@@ -1,0 +1,4 @@
+﻿Status,Color,Description
+Off,None,The system is working correctly.
+Blinking (4 HZ),Amber,A critical event has been detected.
+Solid on,Amber,A non-recoverable event has been detected.

@@ -1,0 +1,4 @@
+﻿Status,Color,Description
+Blinking,Green,The PMC module is currently performing a firmware update.
+Solid on,Green,The PMC module is operating normally.
+Solid on,Amber,Over-temperature warning.

@@ -1,0 +1,4 @@
+﻿Status,Color,Description
+Blinking,Green,The System is booting. The boot process may take up to five minutes to complete.
+Solid on,Green,The System is powered on and operating normally.
+Solid on,Red,A critical error has occurred.

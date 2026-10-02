@@ -1,0 +1,31 @@
+﻿"Compo-
+nent","Management
+interface",Access method,Function
+,"GPU
+management","NVIDIA System
+Management
+Interface (nvidia-
+smi)",In-band monitoring and management of the GPUs
+"Manage-
+ment
+switch","NVIDIA Cumulus
+Linux","• NVUE CLI
+• Redfish API",Network configuration
+"NVLink
+switch
+tray","• NVIDIA
+Cumulus
+Linux
+• Switch BMC","• NVUE CLI
+• Redfish API
+• Redfish CLI","• Monitoring of the system inventory and firmware version
+• Firmware updates
+• System log collection"
+"Power
+shelf","Power
+Management
+Controller","• Web GUI
+• Redfish CLI","• Firmware updates
+• Monitoring of the system inventory and health status
+• Power management
+• System log collection"

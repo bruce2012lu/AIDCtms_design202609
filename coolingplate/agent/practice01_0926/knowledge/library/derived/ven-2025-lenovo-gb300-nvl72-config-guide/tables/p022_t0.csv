@@ -1,0 +1,7 @@
+﻿1 E1.S drive backplane,2 OSFP card
+3 BMC card,4 TPM card
+5 HMC card,6 CMOS battery (CR2032)
+7 Compute board with cold plate (primary),8 Busbar cable
+9 Compute board with cold plate (secondary),10 M.2 drive assembly
+11 Fans,12 Power distribution board
+13 DPU adapter (BlueField-3 B3240),

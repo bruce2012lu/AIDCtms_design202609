@@ -1,0 +1,12 @@
+﻿"Connect (QD)s, and cold plates for the CPUs, GPUs, CX-8 NICs and all NVL Switch components.
+The following table lists the reference design cooling percentages.
+Table 15. NVIDIA GB300 NVL72 reference",,
+Subsystem,Cooling Method,% of Heat Removed
+Compute Trays,"Hybrid (primarily liquid, some air)",Part of overall 90 % liquid / 10 % air
+"NVL Switch
+Trays",Fully liquid-cooled,Included in the 90 % liquid
+"Rack Ancillary
+Systems",Air-cooled,~10 %
+"Total Rack
+Cooling Split",~90 % liquid / ~10 % air,N/A
+,,

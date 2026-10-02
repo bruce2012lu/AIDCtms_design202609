@@ -1,0 +1,4 @@
+﻿Status,Color,Description
+Off,None,AC power loss detected across all power supply units.
+Blinking (1 HZ),Green,"AC input is detected, but only the 12VSB is active. The power supply unit is in a
+Smart-on state."

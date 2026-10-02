@@ -1,0 +1,213 @@
+[
+  {
+    "file": "tables/p005_t0.csv",
+    "page": 5,
+    "rows": 14,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 1. Standard specifications NVIDIA GB300 NVL72 rack"
+    ]
+  },
+  {
+    "file": "tables/p011_t0.csv",
+    "page": 11,
+    "rows": 21,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 2. Standard specifications GB300 Compute tray"
+    ]
+  },
+  {
+    "file": "tables/p012_t0.csv",
+    "page": 12,
+    "rows": 14,
+    "cols": 2,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p013_t0.csv",
+    "page": 13,
+    "rows": 18,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 3. Standard specifications GB300 NVL Switch Tray"
+    ]
+  },
+  {
+    "file": "tables/p014_t0.csv",
+    "page": 14,
+    "rows": 8,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 4. Base CTO models"
+    ]
+  },
+  {
+    "file": "tables/p015_t0.csv",
+    "page": 15,
+    "rows": 35,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 5. Bill of Materials for Non-redundant Power with 6 Power Shelves",
+      "Table 6. Bill of Materials for Redundant Power with 8 Power Shelves"
+    ]
+  },
+  {
+    "file": "tables/p016_t0.csv",
+    "page": 16,
+    "rows": 26,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 7. Method to configure the NVIDIA GB300 NVL72"
+    ]
+  },
+  {
+    "file": "tables/p017_t0.csv",
+    "page": 17,
+    "rows": 9,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 8. On-site spare Compute Trays",
+      "Table 9. On-site NVLink Switch Tray"
+    ]
+  },
+  {
+    "file": "tables/p019_t0.csv",
+    "page": 19,
+    "rows": 18,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 10. GPU specifications"
+    ]
+  },
+  {
+    "file": "tables/p021_t0.csv",
+    "page": 21,
+    "rows": 22,
+    "cols": 7,
+    "captions_on_page": [
+      "Table 11. Drive mounting kits",
+      "Table 12. E1.S EDSFF drives"
+    ]
+  },
+  {
+    "file": "tables/p022_t0.csv",
+    "page": 22,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 13. Data and boot drives"
+    ]
+  },
+  {
+    "file": "tables/p023_t0.csv",
+    "page": 23,
+    "rows": 6,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 14. Network adapters"
+    ]
+  },
+  {
+    "file": "tables/p025_t0.csv",
+    "page": 25,
+    "rows": 7,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 15. NVIDIA GB300 NVL72 reference"
+    ]
+  },
+  {
+    "file": "tables/p027_t0.csv",
+    "page": 27,
+    "rows": 24,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 16. Available Service kits",
+      "Table 17. Manifold information",
+      "Table 18. Liquid Cooling Manifold"
+    ]
+  },
+  {
+    "file": "tables/p028_t0.csv",
+    "page": 28,
+    "rows": 19,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 19. Standard specifications Power shelf",
+      "Table 20. Bus Bar specifications"
+    ]
+  },
+  {
+    "file": "tables/p029_t0.csv",
+    "page": 29,
+    "rows": 19,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 21. Other rack components",
+      "Table 22. Power shelf cables"
+    ]
+  },
+  {
+    "file": "tables/p030_t0.csv",
+    "page": 30,
+    "rows": 6,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p032_t0.csv",
+    "page": 32,
+    "rows": 11,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 23. BMC Server Management"
+    ]
+  },
+  {
+    "file": "tables/p033_t0.csv",
+    "page": 33,
+    "rows": 17,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 24. SBIOS (Grace BIOS)",
+      "Table 25. Local management cabling"
+    ]
+  },
+  {
+    "file": "tables/p036_t0.csv",
+    "page": 36,
+    "rows": 12,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 26. Detailed dimensions"
+    ]
+  },
+  {
+    "file": "tables/p038_t0.csv",
+    "page": 38,
+    "rows": 8,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 27. Temperature, LPM and psi values"
+    ]
+  },
+  {
+    "file": "tables/p041_t0.csv",
+    "page": 41,
+    "rows": 3,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 28. Premier Deploy for Infrastructure"
+    ]
+  },
+  {
+    "file": "tables/p045_t0.csv",
+    "page": 45,
+    "rows": 4,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 29. Genie Lift GL-8 ordering information"
+    ]
+  }
+]

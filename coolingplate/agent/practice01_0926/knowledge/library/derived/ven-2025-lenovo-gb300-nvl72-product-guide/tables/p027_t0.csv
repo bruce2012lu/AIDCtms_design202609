@@ -1,0 +1,34 @@
+﻿Table 16. Available Service kits,,
+Part number,Service kit FRU,Description
+4XH7B14786,03PV563,"GB300 Service tool package
+L2 PN: STL7C32889"
+4XF7B19042,03RR355,"N2 Filler Tube Kit
+L2 PN: STL7C49361"
+"Manifold information is listed in the following table.
+Table 17. Manifold information",,
+Part number,Feature code,Description
+CTO only,CA40,"Manifold ASM, Top Feed"
+CTO only,C5RN,"Manifold R&L, Bottom Feed"
+"The liquid cooling manifold information is listed in the following table.
+Table 18. Liquid Cooling Manifold",,
+Components,Specification,
+Ownership,Vendor,
+System Support,Per NVIDIA reference,
+Universal,Per NVIDIA reference,
+"Hybrid Tray
+Support",N/A,
+Material,Manifold shall be made from 304L or 316L austenitic stainless steel,
+Serviceability,Serviceable from rear of the rack,
+Mounting,Per NVIDIA reference,
+QD Type,UQDB04,
+Bleed Valve,Manifold should employ UQD04 on top of manifold for bleed valve port,
+"Hose
+Connection",Manifold shall use tri-clamp connectors for hose adaption,
+"QD Type to
+CDU",1” FD83 BSPP,
+"Static Pressure
+at QD",30psi,
+Form Factor,Per NVIDIA reference,
+"For details on Lenovo Neptune direct water-cooling standards, see the following document:
+Lenovo Neptune Direct Water-Cooling Standards https://lenovopress.lenovo.com/lp2018-lenovo-neptune-
+direct-water-cooling-standards",,

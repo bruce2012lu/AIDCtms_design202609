@@ -1,0 +1,5 @@
+﻿Combining different parallelism methods can mitigate the limitations of individual techniques.,,Using
+both expert and pipeline parallelism can double user interactivity with minimal loss in throughput.,,
+"Similarly, integrating tensor, expert, and pipeline parallelism can triple GPU throughput without",,
+sacrificing user interactivity. Combining different parallelisms for the right deployment scenario is an,,
+exhaustive solution space exploration and requires a large set of compute resources.,,

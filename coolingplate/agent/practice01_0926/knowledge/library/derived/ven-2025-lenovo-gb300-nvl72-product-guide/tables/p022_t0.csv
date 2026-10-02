@@ -1,0 +1,21 @@
+﻿"I/O expansion
+The NVIDIA GB300 NVL72 node supports up to 3x front-accessible slots, depending on the confgi uration:
+Slots 1, 2: PCIe 5.0 x16 slots connected to CPU 1
+Slots 3: PCIe 5.0 x16 slot connected to CPU 2
+The location of the slots is shown in the following fgi ure.
+Figure 12. NVIDIA GB300 NVL72 PCIe slots
+Slot availability is based on the confgi uration selected. Derived parts come standard within the
+7DLZCTO2WW GB300 Compute tray BOM.
+PCIe adapters and data drives share the same PCIe connections to the processors. The following table lists
+the supported data and boot drives.
+Table 13. Data and boot drives",,
+Front adapter slots,Data drives (E1.S),Boot drives (E1.S)
+1-2-3 adapters,4 - 8 data drives*,1 boot drive
+"* 4x E1.S drives populated by default in the Compute Tray
+OSFP 800Gb ports
+The GB300 Compute tray confgi uration includes two OSFP interface boards (feature CCCS), each providing
+two OSFP ports. Supported connections are each up to 800 Gb/s (a total of 3200 Gb/s with 4x ports).
+Supported cables and transceivers follow ConnectX‑8 OSFP compatibility matrix.
+For more information, including the supported transceivers and cables, see the adapter product guide:
+ConnectX-8: https://lenovopress.lenovo.com/lp2163-thinksystem-nvidia-connectx-8-8180-800gbs-
+osfp-pcie-gen6-x16-adapter",,

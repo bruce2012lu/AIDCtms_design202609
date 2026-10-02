@@ -1,0 +1,4 @@
+﻿Status,Color,Description
+Off,None,The System is booting.
+Solid on,Green,All fans are operating normally.
+Solid on,Red,One or more fans have malfunctioned. Identify and replace the failed fan.

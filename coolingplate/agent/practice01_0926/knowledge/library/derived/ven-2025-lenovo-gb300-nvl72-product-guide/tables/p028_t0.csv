@@ -1,0 +1,36 @@
+﻿"Power shelf
+The Lenovo NVIDIA GB300 NVL72 supports up to 6 or 8 power shelves. The use of water-cooled power
+conversion stations enables an even greater amount of heat can be removed from the data center using
+water instead of air-conditioning.
+The Power Shelves supply internal system power to a 50V busbar. This innovative design merges power
+conversion, rectifci ation, and distribution into these power units, a departure from traditional setups that
+require separate units, including separate power supplies, resulting in best-in-class efcfi iency.
+The following table lists specifci ations for Power Shelf.
+Table 19. Standard specifci ations Power shelf",
+Components,Specification
+"Type / Form
+Factor",1U 19” MGX Rack Compliant
+Output Power,"33 kW
+6x 33 kW power shelves (198 kW)
+8x 33 kW power shelves (264 kW)"
+Output Voltage,50VDC
+Output Current,Per Power Shelf Specification
+AC Feed,Per Power Shelf Specification
+PSUs,6x 5.5kW hot-swappable single phase PSU modules
+Input Voltage,Wide input voltage range of 200-277VAC (346-480 VAC WYE 5 wires)
+"AC input
+options","Single phase or three-phase input (208/240/277 Vac nominal)
+Single input connector"
+Efficiency,Minimum 97.5% PSUs Peak 96.5% @230Vac
+Management,Support for PMI or PMC
+Current Sharing,PSU balancing via Active Sharing or Droop methods
+Power Whip,"1x 60A IEC60309 whip per power shelf
+7 pin 60A AC input connector
+Power whip should be secured to the back of the rack
+Considerations should be made for rack shipment"
+"The following table lists Bus Bar specifci ations.
+Table 20. Bus Bar specifci ations",
+Components,Specification
+Type,MGX Rack Compliant
+Current Rating,1400A
+The following table lists other rack components.,

@@ -1,0 +1,14 @@
+﻿"Models
+The NVIDIA GB300 NVL72 rack is confgi ured by using the confgi ure-to-order (CTO) process with the Lenovo
+Cluster Solutions confgi urator (x-confgi ) or in Lenovo Data Center Solution Confgi urator (DCSC).
+The following table lists the base CTO models and base feature codes
+Table 4. Base CTO models",,
+"Machine
+Type/Model",Feature code,Description
+7DJVCTO2WW,C5RK,"48U MGX Rack (Rack Base Non-redundant Power, 6 Shelves)"
+7DJVCTO2WW,C5RJ,"48U MGX Rack (Rack Base Redundant Power, 8 Shelves)"
+7DLZCTO2WW,CAAX,GB300 Compute tray
+7DJYCTO3WW,C63C,GB300 NVL Switch Tray
+7DJWCTO1WW,C5RL,SN2201 Management Switch
+"The Lenovo NVIDIA GB300 NVL72 node is equipped with high-performance GPUs. It is RoHS complaint and
+meets all the environmental certifci ations.",,

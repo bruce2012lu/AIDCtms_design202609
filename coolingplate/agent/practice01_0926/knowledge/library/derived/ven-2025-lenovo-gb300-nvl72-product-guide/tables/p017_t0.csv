@@ -1,0 +1,42 @@
+﻿"Spare Compute Trays
+To guarantee a consistent next business day response objective and minimize potential downtime, we
+strongly recommend the purchase of on-site spare Compute Trays and NVLink Switch Trays. Lenovo
+recommends a minimum spare-to-production ratio of 2%, however the ideal number of spares depends on
+the scale of your deployment. Contact Lenovo Services for tailored guidance on the appropriate number of
+spares.
+The following Compute Tray Base alternatives are available for selection:
+Table 8. On-site spare Compute Trays",,,
+Base selection,,"Feature Code
+(7DLZCTO2WW)",Description
+Rack Installed compute Trays,,CABF,1U 4GPU GB300 DWC Front IO
+"Spare compute Trays with
+individual node packaging",,CD96,"1U 4GPU GB300 DWC Front IO w Package - Mainly for
+customer who would like to order for replacement or as a spare"
+"Service Spare compute Trays with
+individual node packaging",,CCQD,"1U 4GPU GB300 DWC Front IO w/o E1.S, w Package – For
+Service, for repair purpose"
+"The following NVLink Switch Tray alternatives are available for selection:
+Table 9. On-site NVLink Switch Tray",,,
+Part Number,Description,,
+4SG7B11357,Lenovo NVIDIA GB300 NVL72 1U Switch Tray,,
+"NVIDIA GB300 NVL72 HPM
+The NVIDIA GB300 NVL72 leverages two NVIDIA GB300 NVL72 host processor motherboards (HPMs) per
+tray that integrate processors, memory and GPU accelerators in a powerful package.
+Processors
+Memory
+GPU accelerators
+Processors
+Each of the NVIDIA GB300 NVL72 HPMs include one NVIDIA Grace processor, as part of the NVIDIA GB300
+NVL72 module. The processors are standard in all confgi urations of the NVIDIA GB300 NVL72.
+Each processor has the following features:
+72 Arm Neoverse V2 cores with 4x 128b SVE2
+Up to 3.1 GHz base frequency
+3.0 GHz all-core SIMD frequency
+L1 cache: 64KB i-cache + 64KB d-cache
+L2 cache: 1MB per core
+L3 cache: 114MB
+64 PCIe Gen5 lanes (implemented as 8x x8)
+300 GB/s bi-directional NVLink-C2C connectivity between processors
+450 GB/s bi-directional NVLink connectivity to two GPUs each
+NVIDIA Scalable Coherency Fabric (SCF) with 3.2 terabytes/s bisection bandwidth interconnecting
+Cores, Memory and IO",,,

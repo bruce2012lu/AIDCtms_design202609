@@ -1,0 +1,4 @@
+﻿Status,Color,Description
+Blinking (1 HZ),Yellow,The beacon command is used to locate the OSFP card.
+Solid on,Yellow,"A physical link is established in InfiniBand mode. This status is
+not applicable in Ethernet mode."

@@ -1,0 +1,32 @@
+﻿Components,Specification
+Fans,"Eight 1U Dual Rotor 40x56 Fans
+Supports up to 34k/32.5k RPM"
+Electrical power,"Input source: 50V MGX rack power bus bar
+Input range: 47.5V – 51.5V (50V nominal)"
+Power cords,"Custom power cables for direct data center attachment, 1 dedicated (32A) or 1 shared (63A) per
+power module"
+External USB,"One USB 3.0 port
+One USB 2.0 for debug use"
+Video,One video port ( Mini Display Port ). Maximum resolution is 1920x1200 32bpp at 60Hz.
+Security features,"Power-on password, administrator's password, Trusted Platform Module (TPM), supporting TPM
+2.0."
+BMC Management,"Embedded management based on the ASPEED AST2600 baseboard management
+controller (BMC)
+One RJ-45 Connector (10/100/1000 Mbps RJ-45)
+NVIDIA management software provides additional systems management functions from
+power monitoring to liquid leakage detection, tray and power conversation station level"
+"Operating systems
+supported","Ubuntu is Supported & Certified. See the Operating system support section for details and
+specific versions."
+Limited warranty,"Three-year or five-year customer-replaceable unit and onsite limited warranty with 9x5 next
+business day (NBD)."
+"Service and
+support","Optional service upgrades are available through Lenovo Services: 4-hour or 2-hour response time,
+6-hour fix time, 1-year or 2-year warranty extension, software support for Lenovo hardware and
+some third-party applications."
+Dimensions,"Width: 438 mm (17 inches), height: 43.6 mm (1.72 inches), depth: 766 mm (30.16 inches)"
+Weight,29 kg (63.93 lbs)
+"Notes:
+Onsite spares (Compute trays and NVL Switch Trays) would be needed to support an onsite Next Business
+Day Service Level target. 2% of the order recommended quantity. For Compute Tray base alternatives
+available for selection, see the Spare Compute Trays section.",

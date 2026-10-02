@@ -1,0 +1,50 @@
+﻿"Physical and electrical specifications
+The Lenovo 48U MGX Rack has the following dimensions:
+Width: 600 mm (23.6 inches)
+Height: 2,294 mm (90.3 inches)
+Depth: 1,068 mm (42.05 inches) - Expands to 1,200 mm with extension frame
+Weight: 185 kg (407.8 lbs)
+GB300 Compute trays are installed onto the rack. Each GB300 Compute tray has the following dimensions:
+Width: 438 mm (17.3 inches)
+Height: 43.6 mm (1.72 inches)
+Depth: 766 mm (29.9 inches) (799 mm, including the water connections at the rear of the server)
+Weight: 29 kg (63.93 lbs)
+The GB300 NVL Switch Tray has the following overall physical dimensions, excluding components that
+extend outside the standard chassis, such as EIA fal nges, front security bezel (if any), and power conversion
+station handles:
+Width: 438 mm (17.3 inches)
+Height: 43.6 mm (1.72 inches)
+Depth: 770 mm (30.3 inches)
+Weight: 17 kg (37.5 lbs)
+The NVIDIA SN2201 48 port DC switch has the following dimensions:
+Width: 438 mm (17.3 inches)
+Height: 43.6 mm (1.72 inches)
+Depth: 781 mm (28.3 inches)
+Weight: 11.39 kg (25.1 lbs)
+The Power Shelf has the following dimensions:
+Width: 448 mm (17.6 inches)
+Height: 43.6 mm (1.72 inches)
+Depth: 718.5 mm (28.3 inches)
+The following table lists the detailed dimensions. See the fgi ure below for the defni ition of each dimension.
+Table 26. Detailed dimensions",
+Dimension,Description
+483 mm,"X = Width, to the outsides of the front EIA flanges
+a"
+448 mm,"X = Width, to the rack rail mating surfaces
+b"
+540 mm,"X = Width, to the outer most chassis body feature
+c"
+572 mm,"Y = Height, from the bottom of chassis to the top of the chassis
+a"
+1062 mm,"Z = Depth, from the rack flange mating surface to the rearmost I/O port surface
+a"
+1076 mm,"Z = Depth, from the rack flange mating surface to the rearmost feature of the chassis body
+b"
+1114 mm,"Z = Depth, from the rack flange mating surface to the rearmost feature such as power supply handle
+c"
+226 mm,"Z = Depth, from the forwardmost feature on front of EIA flange to the rack flange mating surface
+d"
+226 mm,"Z = Depth, from the front of security bezel (if applicable) or forwardmost feature to the rack flange mating
+e
+surface"
+,

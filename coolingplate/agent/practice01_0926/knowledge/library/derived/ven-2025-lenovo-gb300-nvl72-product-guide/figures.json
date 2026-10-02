@@ -1,0 +1,152 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 464,
+    "h": 1200,
+    "captions_on_page": [
+      "Figure 1. The Lenovo NVIDIA GB300 NVL72"
+    ]
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 812,
+    "h": 807,
+    "captions_on_page": [
+      "Figure 2. Front view of the Lenovo NVIDIA GB300 NVL72 rack",
+      "Figure 3. Front view of the GB300 Compute Tray"
+    ]
+  },
+  {
+    "file": "figures/p006_i1.jpg",
+    "page": 6,
+    "w": 1189,
+    "h": 400,
+    "captions_on_page": [
+      "Figure 2. Front view of the Lenovo NVIDIA GB300 NVL72 rack",
+      "Figure 3. Front view of the GB300 Compute Tray"
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 1273,
+    "h": 417,
+    "captions_on_page": [
+      "Figure 4. Rear view of the GB300 Compute Tray",
+      "Figure 5. Inside view of the GB300 Compute in the water-cooled tray"
+    ]
+  },
+  {
+    "file": "figures/p007_i1.jpg",
+    "page": 7,
+    "w": 1266,
+    "h": 847,
+    "captions_on_page": [
+      "Figure 4. Rear view of the GB300 Compute Tray",
+      "Figure 5. Inside view of the GB300 Compute in the water-cooled tray"
+    ]
+  },
+  {
+    "file": "figures/p008_i0.jpg",
+    "page": 8,
+    "w": 1317,
+    "h": 764,
+    "captions_on_page": [
+      "Figure 6. Internal view of the GB300 NVL Switch Tray",
+      "Figure 7. Front view of the NVLink™ Switch Tray"
+    ]
+  },
+  {
+    "file": "figures/p008_i1.jpg",
+    "page": 8,
+    "w": 1337,
+    "h": 495,
+    "captions_on_page": [
+      "Figure 6. Internal view of the GB300 NVL Switch Tray",
+      "Figure 7. Front view of the NVLink™ Switch Tray"
+    ]
+  },
+  {
+    "file": "figures/p009_i0.jpg",
+    "page": 9,
+    "w": 1284,
+    "h": 773,
+    "captions_on_page": [
+      "Figure 8. 1U GB300 Compute Tray system architectural block diagram"
+    ]
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 1199,
+    "h": 782,
+    "captions_on_page": [
+      "Figure 9. GB300 NVL Switch Tray system architectural block diagram"
+    ]
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 1206,
+    "h": 470,
+    "captions_on_page": [
+      "Figure 10. Compute Tray NVLink topology"
+    ]
+  },
+  {
+    "file": "figures/p020_i0.jpg",
+    "page": 20,
+    "w": 1087,
+    "h": 646,
+    "captions_on_page": [
+      "Figure 11. NVIDIA GB300 NVL72 internal drive bays"
+    ]
+  },
+  {
+    "file": "figures/p022_i0.jpg",
+    "page": 22,
+    "w": 1196,
+    "h": 281,
+    "captions_on_page": [
+      "Figure 12. NVIDIA GB300 NVL72 PCIe slots"
+    ]
+  },
+  {
+    "file": "figures/p026_i0.jpg",
+    "page": 26,
+    "w": 1209,
+    "h": 768,
+    "captions_on_page": [
+      "Figure 13. Water connections to the MGX Rack cabinet"
+    ]
+  },
+  {
+    "file": "figures/p029_i0.jpg",
+    "page": 29,
+    "w": 1190,
+    "h": 575,
+    "captions_on_page": [
+      "Figure 14. Power shelf"
+    ]
+  },
+  {
+    "file": "figures/p032_i0.jpg",
+    "page": 32,
+    "w": 1206,
+    "h": 482,
+    "captions_on_page": [
+      "Figure 15. NVIDIA GB300 NVL72 Front operator panel"
+    ]
+  },
+  {
+    "file": "figures/p037_i0.jpg",
+    "page": 37,
+    "w": 776,
+    "h": 849,
+    "captions_on_page": [
+      "Figure 16. Enclosure dimensions"
+    ]
+  }
+]

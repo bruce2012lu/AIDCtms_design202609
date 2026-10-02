@@ -1,0 +1,5 @@
+﻿Status,Color,Description
+Off,None,The link is down. Check the cable.
+Blinking,Yellow,A link error has been detected. Verify cable integrity and replace it if needed.
+Blinking,Green,The link is established with active traffic.
+Solid on,Green,The link is established with no active traffic.

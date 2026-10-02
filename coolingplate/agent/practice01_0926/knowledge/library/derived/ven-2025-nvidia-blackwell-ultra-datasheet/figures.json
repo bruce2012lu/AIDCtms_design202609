@@ -1,0 +1,23 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 990,
+    "h": 559,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p001_i1.jpg",
+    "page": 1,
+    "w": 623,
+    "h": 607,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p003_i0.jpg",
+    "page": 3,
+    "w": 991,
+    "h": 507,
+    "captions_on_page": []
+  }
+]

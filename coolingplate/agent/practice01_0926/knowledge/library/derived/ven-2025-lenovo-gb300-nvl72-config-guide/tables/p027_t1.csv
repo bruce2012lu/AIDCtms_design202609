@@ -1,0 +1,7 @@
+﻿Status,Color,Description
+Off,Green,The output voltage is off.
+Blinking (4 HZ),Green,"AC input is normal, but the voltage output is off."
+Solid on,Green,The output voltage is active.
+Off,Amber,The power supply unit is operating normally without faults.
+Blinking (4 HZ),Amber,The power supply unit is in bootloader mode.
+Solid on,Amber,A fault has been detected.

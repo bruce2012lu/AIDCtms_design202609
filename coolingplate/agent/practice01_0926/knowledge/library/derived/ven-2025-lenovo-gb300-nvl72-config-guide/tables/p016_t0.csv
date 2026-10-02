@@ -1,0 +1,31 @@
+﻿Contaminant,Limits
+Reactive gases,"Severity level G1 as per ANSI/ISA 71.04-19851:
+• The copper reactivity level shall be less than 200 Angstroms per month (Å/month ≈ 0.0035 μg/
+cm2-hour weight gain).2
+• The silver reactivity level shall be less than 200 Angstroms per month (Å/month ≈ 0.0035 μg/
+cm2-hour weight gain).3
+• The reactive monitoring of gaseous corrosivity must be conducted approximately 5 cm (2 in.) in
+front of the rack on the air inlet side at one-quarter and three-quarter frame height off the floor
+or where the air velocity is much higher."
+"Airborne
+particulates","Data centers must meet the cleanliness level of ISO 14644-1 class 8.
+For data centers without airside economizer, the ISO 14644-1 class 8 cleanliness might be met by
+choosing one of the following filtration methods:
+• The room air might be continuously filtered with MERV 8 filters.
+• Air entering a data center might be filtered with MERV 11 or preferably MERV 13 filters.
+For data centers with airside economizers, the choice of filters to achieve ISO class 8 cleanliness
+depends on the specific conditions present at that data center.
+• The deliquescent relative humidity of the particulate contamination should be more than 60%
+RH.4
+• Data centers must be free of zinc whiskers.5"
+"1 ANSI/ISA-71.04-1985. Environmental conditions for process measurement and control systems: Airborne
+contaminants. Instrument Society of America, Research Triangle Park, North Carolina, U.S.A.
+2 The derivation of the equivalence between the rate of copper corrosion growth in the thickness of the corrosion
+product in Å/month and the rate of weight gain assumes that Cu2S and Cu2O grow in equal proportions.
+3 The derivation of the equivalence between the rate of silver corrosion growth in the thickness of the corrosion
+product in Å/month and the rate of weight gain assumes that Ag2S is the only corrosion product.
+4 The deliquescent relative humidity of particulate contamination is the relative humidity at which the dust absorbs
+enough water to become wet and promote ionic conduction.
+5 Surface debris is randomly collected from 10 areas of the data center on a 1.5 cm diameter disk of sticky
+electrically conductive tape on a metal stub. If examination of the sticky tape in a scanning electron microscope
+reveals no zinc whiskers, the data center is considered free of zinc whiskers.",

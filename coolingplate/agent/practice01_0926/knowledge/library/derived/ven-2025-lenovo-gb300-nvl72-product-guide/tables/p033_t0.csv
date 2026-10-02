@@ -1,0 +1,22 @@
+﻿Component,Description,
+Security,Microchip EROT (CEC1736-S0-I/2ZW-PROTO2),
+Failover,The BMC supports boot failover/recovery using primary and secondary SPI flash.,
+"The following table lists the features of the SBIOS.
+Table 24. SBIOS (Grace BIOS)",,
+Component,Description,
+Type,UEFI,
+Boot Support,USB/ PXE/ HDD,
+"TCM Support
+(PRC)",Not Supported,
+"TPM support
+(ROW)",Yes,
+ACPI,ACPI 6.5 compatible,
+"Firmware
+Codebase",AMI Based,
+BIOS Features,The BIOS supports boot failover/recovery using primary and secondary SPI flash,
+"The following table lists the supported CAT6 cables.
+Table 25. Local management cabling",,
+Part Number,Feature code,Description
+4X97B04866,CCYY,2.5m Green Cat6 Cable
+4X97B04864,CCYW,2m Green Cat6 Cable
+,,

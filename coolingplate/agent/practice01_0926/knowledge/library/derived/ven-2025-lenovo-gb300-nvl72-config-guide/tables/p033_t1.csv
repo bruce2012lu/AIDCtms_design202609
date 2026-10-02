@@ -1,0 +1,4 @@
+﻿Status,Color,Description
+Off,None,The drive is not present or power is unavailable.
+Solid on,Blue,The drive is operating normally.
+Solid on,Amber,A drive failure has been detected.

@@ -1,0 +1,6 @@
+﻿Status,Color,Description
+Off,None,The drive is not present or power is disconnected.
+Blinking (4 HZ),Green,Drive activity is in progress; removal is allowed.
+Solid on,Green,The drive is powered and active; removal is allowed.
+Blinking (4 HZ),White,Drive activity is in progress; removal is not allowed.
+Solid on,White,The drive is powered and active; removal is not allowed.

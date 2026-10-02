@@ -1,0 +1,4 @@
+﻿Status,Color,Description
+Off,None,The output voltage is off.
+Blinking,Green,"AC input is normal, but the voltage output is off."
+Solid on,Green,The output voltage is active.

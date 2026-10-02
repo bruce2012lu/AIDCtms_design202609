@@ -1,0 +1,38 @@
+﻿"Tip: To confgi ure boot drives, specify feature C58W plus feature CERX or C43X (1x boot drive). See the
+table below. The boot drive kit is only required when 8 performance and 1 boot drives are installed.",,,,,,
+Table 11. Drive mounting kits,,,,,,
+Feature code,,Description,,"Max
+qty",Purpose,
+C58W,,PG8A0N/PG8C0N M.2 Riser,,1,"Enables the use of boot
+drive",
+CA62,,GB300 15mm 4-Bay E1.S BP,,2,Backplane board,
+CERX,,"Samsung PM9A3 1.92T MZ1L21T9HCLS-00A07 M.2 NVMe
+SSD",,1,"M.2 NVMe drive for OS
+boot",
+C43X,,"Micron 7450PRO 1.92T MTFDKBG1T9TFR-1BC15ABYY M.2
+NVMe SSD",,1,"M.2 NVMe drive for OS
+boot",
+"Controllers for internal storage
+The drives of the NVIDIA GB300 NVL72 are connected to integrated NVMe storage controllers.
+If desired, RAID functionality is provided by the installed operating system (software RAID only)
+Internal drive options
+The following table lists the drive options for internal storage of the Compute Tray or server.
+Table 12. E1.S EDSFF drives",,,,,,
+Part number,"Feature
+code",,Description,,,"Max
+Qty"
+E1.S trayless SSDs - PCIe 5.0 NVMe,,,,,,
+CTO only,CFY3,,Solidigm PS1010 7.68T SB5PHU7X076TNV1 E1.S 9.5mm NVMe SSD without Tray,,,8
+CTO only,CG6E,,Kioxia XD8 3.84T KXD8DRJ93T84 E1.S 15mm NVMe SSD without Tray,,,8
+CTO only,CA5C,,"Micron 9550 3.84T MTFDLCE3T8THA-1BK1DABYY E1.S 15mm NVMe SSD without
+Tray",,,8
+E1.S without latch SSDs - PCIe 5.0 NVMe,,,,,,
+CTO only,CFY2,,Micron 9550 7.68T MTFDLCE7T6THA-1BK1DABYY E1.S 15mm SSD without Latch,,,8
+CTO only,C7VJ,,Sandisk SN861 3.84T SDS6A7638PKP8X7 E1.S 15mm SSD without Latch,,,8
+CTO only,C7VH,,Samsung PM9D3a 3.84T MZTL63T8HFLT-00AW7 E1.S 9.5mm SSD without Latch,,,8
+CTO only,C8XR,,"Samsung PM9D3a 7.68T MZTL67T6HBLC-00AW7 E1.S 9.5mm SED NVMe SSD
+without Tray",,,8
+M.2 NVMe SSDs - PCIe 4.0 NVMe,,,,,,
+CTO only,C43X,,Micron 7450PRO 1.92T MTFDKBG1T9TFR-1BC15ABYY M.2 NVMe SSD,,,1
+CTO only,CERX,,Samsung PM9A3 1.92T MZ1L21T9HCLS-00A07 M.2 NVMe SSD,,,1
+,,,,,,

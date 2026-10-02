@@ -1,0 +1,35 @@
+﻿"Standard specifications - GB300 NVL Switch Tray
+The following table lists the standard specifci ations of the Lenovo GB300 NVL Switch Tray.
+Table 3. Standard specifci ations GB300 NVL Switch Tray",
+Components,Specification
+Machine type,7DJY - 3-year warranty
+Form factor,"GB300 NVL Switch architecture system in a water-cooled compute tray, installed horizontally in a
+rack"
+I/O architecture,"None integrated. The NVL72 configuration includes connections for all 72 GPUs with no front OSPF
+connections. Use top-of-rack networking switches."
+Power Supply,"Input Source: Input Power will be 50V from the bus bar (Power Shelf)
+Input Range: 47.5-51.5V (50V nominal)"
+Cooling,Direct water cooling supplied by water hoses connected to the rear of the enclosure.
+System LEDs,"System error, identification, status, and system power. Each power conversion station (PCS) has AC,
+DC, and error LEDs."
+"Systems
+management","The NVL Switch Tray includes connection for a COMe module board used for NVL Switch Tray
+management."
+Temperature,"Operating water temperature:
+2°C to 50°C (35.6°F to 122°F) (ASHRAE W45 compliant)
+Operating air temperature:
+5°C to 40°C (41°F to 104°F) (ASHRAE A3 compliant)
+See Operating Environment for more information."
+Electrical power,3-phase 200V-480Vac
+Power cords,"Custom power cables for direct data center attachment, 1 dedicated (32A) or 1 shared (63A) per
+power module"
+Ports,"DisplayPort , 1x USB port and 2x RJ-45 1GbE."
+Limited warranty,"Three-year or five-year customer-replaceable unit and onsite limited warranty with 9x5 next business
+day (NBD)."
+"Service and
+support","Optional service upgrades are available through Lenovo Services: 4-hour or 2-hour response time,
+6-hour fix time, 1-year or 2-year warranty extension, software support for Lenovo hardware and
+some third-party applications."
+Dimensions,"Width: 438 mm (17 inches), height: 43.6 mm (1.72 inches), depth: 766 mm (30.16 inches)"
+Weight,17 kg (37.5 lbs)
+,

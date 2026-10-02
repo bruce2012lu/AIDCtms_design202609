@@ -1,0 +1,39 @@
+﻿"See Service kit table for more information
+Notes:
+Onsite spares (Compute trays and NVL Switch Trays) would be needed to support an onsite Next
+Business Day Service Level target. 2% of the order recommended quantity. For Compute Tray base
+alternatives available for selection, see the Spare Compute Trays section.
+Rack cabinets
+The GB300 Compute trays, GB300 NVL Switch Trays, SN2201 Management Switches and Power Shelves
+are supported in the following racks:
+7DJVCTO2WW Lenovo 48U MGX Rack
+Genie Material Lift
+Considering the weight of the trays in the server, an onsite material lift is required to allow service by a single
+person. If you do not already have a material lift available, Lenovo ofefrs the Genie Lift GL-8 material lift as
+confgi urable option to the rack cabinets. Ordering information is listed in the following table.
+Note: If neither the Genie Lift GL-8 nor the ServerLift SL-350x is available onsite when onsite service is
+required, the customer will be responsible for getting the system to a suitable work surface (with access to
+power) prior to service technician arrival and returning the system to the rack when service is complete prior
+to service technician departure.
+Table 29. Genie Lift GL-8 ordering information",
+Part number,Description
+4XF7B02087,"Genie Lift GL-8 (Standard Base) Material Lift Option Kit
+Genie GL-8 material lift
+Load platform
+Foot-release brake"
+"Lenovo Financial Services
+Why wait to obtain the technology you need now? No payments for 90 days and predictable, low monthly
+payments make it easy to budget for your Lenovo solution.
+Flexible
+Our in-depth knowledge of the products, services and various market segments allows us to ofefr
+greater fel xibility in structures, documentation and end of lease options.
+100% Solution Financing
+Financing your entire solution including hardware, software, and services, ensures more predictability
+in your project planning with fxied, manageable payments and low monthly payments.
+Device as a Service (DaaS)
+Leverage latest technology to advance your business. Customized solutions aligned to your needs.
+Flexibility to add equipment to support growth. Protect your technology with Lenovo's Premier
+Support service.
+24/7 Asset management
+Manage your fni anced solutions with electronic access to your lease documents, payment histories,
+invoices and asset information.",

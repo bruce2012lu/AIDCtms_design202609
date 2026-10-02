@@ -1,0 +1,14 @@
+﻿"Network adapters
+The NVIDIA GB300 NVL72 supports up to 3 network adapters installed in the front PCIe slots. The following
+table lists the supported adapters.
+Table 14. Network adapters",,,
+Part Number,Feature code,Description,"Max
+Qty"
+CTO only,CCCS,"NVIDIA 900-9X86E-00CX-ST0 CX-8 IO Board Partner Cooled with 2 CX-
+8 NIC",2
+CTO only,C58N,"NVIDIA BF3 B3240 900-9D3B6-00CN-PA0 2X400G FHHL QSFP11 DPU
+NIC",1
+CTO only,C5CN,NVIDIA 900-24764-0000-000 HMC SKU1 for GB300,1
+"For more information, including the supported transceivers and cables, see the adapter product guide:
+ConnectX-8: https://lenovopress.lenovo.com/lp2163-thinksystem-nvidia-connectx-8-8180-800gbs-
+osfp-pcie-gen6-x16-adapter",,,

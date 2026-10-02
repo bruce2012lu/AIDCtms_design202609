@@ -1,0 +1,429 @@
+[
+  {
+    "file": "tables/p011_t0.csv",
+    "page": 11,
+    "rows": 2,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p015_t0.csv",
+    "page": 15,
+    "rows": 6,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p016_t0.csv",
+    "page": 16,
+    "rows": 4,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 1.  Limits for particulates and gases"
+    ]
+  },
+  {
+    "file": "tables/p016_t1.csv",
+    "page": 16,
+    "rows": 2,
+    "cols": 4,
+    "captions_on_page": [
+      "Table 1.  Limits for particulates and gases"
+    ]
+  },
+  {
+    "file": "tables/p017_t0.csv",
+    "page": 17,
+    "rows": 5,
+    "cols": 4,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p019_t0.csv",
+    "page": 19,
+    "rows": 6,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 2.  Components on the compute tray front view"
+    ]
+  },
+  {
+    "file": "tables/p020_t0.csv",
+    "page": 20,
+    "rows": 5,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p020_t1.csv",
+    "page": 20,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p021_t0.csv",
+    "page": 21,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 3.  Components on the compute tray rear view"
+    ]
+  },
+  {
+    "file": "tables/p022_t0.csv",
+    "page": 22,
+    "rows": 7,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 4.  Components on the compute tray top view",
+      "Table 5.  Components on the management switch front view"
+    ]
+  },
+  {
+    "file": "tables/p022_t1.csv",
+    "page": 22,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 4.  Components on the compute tray top view",
+      "Table 5.  Components on the management switch front view"
+    ]
+  },
+  {
+    "file": "tables/p023_t0.csv",
+    "page": 23,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 5. Components on the management switch front view (continued)",
+      "Table 6.  Components on the management switch rear view"
+    ]
+  },
+  {
+    "file": "tables/p024_t0.csv",
+    "page": 24,
+    "rows": 6,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 7.  Components on the NVLink switch tray front view"
+    ]
+  },
+  {
+    "file": "tables/p024_t1.csv",
+    "page": 24,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 7.  Components on the NVLink switch tray front view"
+    ]
+  },
+  {
+    "file": "tables/p024_t2.csv",
+    "page": 24,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 7.  Components on the NVLink switch tray front view"
+    ]
+  },
+  {
+    "file": "tables/p025_t0.csv",
+    "page": 25,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p025_t1.csv",
+    "page": 25,
+    "rows": 7,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p026_t0.csv",
+    "page": 26,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 8.  Components on the NVLink switch tray rear view",
+      "Table 9.  Components on the power shelf front view"
+    ]
+  },
+  {
+    "file": "tables/p026_t1.csv",
+    "page": 26,
+    "rows": 3,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 8.  Components on the NVLink switch tray rear view",
+      "Table 9.  Components on the power shelf front view"
+    ]
+  },
+  {
+    "file": "tables/p027_t0.csv",
+    "page": 27,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p027_t1.csv",
+    "page": 27,
+    "rows": 7,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p027_t2.csv",
+    "page": 27,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p028_t0.csv",
+    "page": 28,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 10.  Components on the power shelf rear view"
+    ]
+  },
+  {
+    "file": "tables/p029_t0.csv",
+    "page": 29,
+    "rows": 3,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 11.  Components on the rack front view"
+    ]
+  },
+  {
+    "file": "tables/p030_t0.csv",
+    "page": 30,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 12.  Components on the rack rear view"
+    ]
+  },
+  {
+    "file": "tables/p031_t0.csv",
+    "page": 31,
+    "rows": 4,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 13.  Compute tray LEDs"
+    ]
+  },
+  {
+    "file": "tables/p032_t0.csv",
+    "page": 32,
+    "rows": 5,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p032_t1.csv",
+    "page": 32,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p032_t2.csv",
+    "page": 32,
+    "rows": 6,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p032_t3.csv",
+    "page": 32,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p032_t4.csv",
+    "page": 32,
+    "rows": 5,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p033_t0.csv",
+    "page": 33,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 14.  Management switch LEDs"
+    ]
+  },
+  {
+    "file": "tables/p033_t1.csv",
+    "page": 33,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 14.  Management switch LEDs"
+    ]
+  },
+  {
+    "file": "tables/p033_t2.csv",
+    "page": 33,
+    "rows": 6,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 14.  Management switch LEDs"
+    ]
+  },
+  {
+    "file": "tables/p033_t3.csv",
+    "page": 33,
+    "rows": 3,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 14.  Management switch LEDs"
+    ]
+  },
+  {
+    "file": "tables/p034_t0.csv",
+    "page": 34,
+    "rows": 5,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p034_t1.csv",
+    "page": 34,
+    "rows": 5,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p034_t2.csv",
+    "page": 34,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p034_t3.csv",
+    "page": 34,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p034_t4.csv",
+    "page": 34,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p035_t0.csv",
+    "page": 35,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 15.  NVLink switch tray LEDs"
+    ]
+  },
+  {
+    "file": "tables/p035_t1.csv",
+    "page": 35,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 15.  NVLink switch tray LEDs"
+    ]
+  },
+  {
+    "file": "tables/p035_t2.csv",
+    "page": 35,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 15.  NVLink switch tray LEDs"
+    ]
+  },
+  {
+    "file": "tables/p035_t3.csv",
+    "page": 35,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 15.  NVLink switch tray LEDs"
+    ]
+  },
+  {
+    "file": "tables/p036_t0.csv",
+    "page": 36,
+    "rows": 3,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 16.  Power shelf LEDs"
+    ]
+  },
+  {
+    "file": "tables/p036_t1.csv",
+    "page": 36,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 16.  Power shelf LEDs"
+    ]
+  },
+  {
+    "file": "tables/p036_t2.csv",
+    "page": 36,
+    "rows": 7,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 16.  Power shelf LEDs"
+    ]
+  },
+  {
+    "file": "tables/p036_t3.csv",
+    "page": 36,
+    "rows": 2,
+    "cols": 2,
+    "captions_on_page": [
+      "Table 16.  Power shelf LEDs"
+    ]
+  },
+  {
+    "file": "tables/p037_t0.csv",
+    "page": 37,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p037_t1.csv",
+    "page": 37,
+    "rows": 7,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p037_t2.csv",
+    "page": 37,
+    "rows": 4,
+    "cols": 3,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p041_t0.csv",
+    "page": 41,
+    "rows": 17,
+    "cols": 3,
+    "captions_on_page": [
+      "Table 17.  Parts list"
+    ]
+  }
+]

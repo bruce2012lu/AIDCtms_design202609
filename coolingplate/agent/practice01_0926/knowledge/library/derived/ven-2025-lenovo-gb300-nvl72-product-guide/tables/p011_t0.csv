@@ -1,0 +1,46 @@
+﻿"Standard specifications - GB300 Compute tray
+The following table lists the standard specifci ations of the Lenovo NVIDIA GB300 Compute tray.
+Table 2. Standard specifci ations GB300 Compute tray",
+Components,Specification
+Machine type,7DLZ - 3-year warranty
+Form factor,"GB300 Compute architecture system in a hybrid air/water-cooled compute tray, installed
+horizontally in a rack"
+Processor,"Two NVIDIA Grace processors, with 72 Arm Neoverse V2 cores, core speeds of up to 3.1 GHz
+base frequency, and TDP rating of 300W. Supports PCIe 5.0 for high performance connectivity to
+network adapters and NVMe drives."
+Chipset,None. Integrated into the processor.
+GPUs,"Four NVIDIA Blackwell B300 GPUs per tray, each with 288 GB HBM3e memory"
+CPU memory,"Up to 480GB of LPDDR5x ECC memory per processor, memory operates at 4266 MHz"
+Memory maximum,960GB per Compute Tray
+Memory protection,"ECC with Single Error Correction (SEC), Double Error Detection (DED, parity, scrubbing,
+poisoning, and page off-lining"
+Disk drive bays,"Each Compute Tray supports up to 8x EDSFF E1.S NVMe SSDs, installed in 8 internal drive bays
+(non-hot-swap). Only 4x 8x EDSFF E1.S NVMe SSDs populated in reference architecture. Each
+drive has a PCIe Gen5 x4 host interface."
+"Maximum internal
+storage",61.4TB using 8x 7.68TB E1.S NVMe SSDs
+Storage controllers,"Onboard NVMe ports (RAID provided by operating system, if desired)
+Software RAID only (no hardware RAID controller)"
+Optical drive bays,None
+Network interfaces,"Four OSFP (NVIDIA CX8)
+CX8 I/O board 900-9X86E-00CX-SP0 – up to 800Gb/s"
+"PCI Expansion
+slots","One PCIe Gen5 x16 Slot (BlueField-3 DPU)
+Two PCIe Gen5 x16 Slot (OSFP Boards)"
+Power Supply,"Input Source: Input Power will be 50V from the bus bar (Power Shelf)
+Input Range: 47.5-51.5V (50V nominal)"
+Cooling,"Hybrid cooling:
+The CPU, GPU, and HBM (GPU memory) are liquid cooled managed by a CDU, rear
+manifold, quick disconnects and cold plates
+Front option components, Power Distribution Board, and M.2 are air cooled managed by
+8x built-in fans"
+System LEDs,"System identification, reset, and system power. Each power conversion station (PCS) has AC, DC,
+and error LEDs."
+Temperature,"ASHRAE standard A2 compliant
+Operating air temperature:
+10°C to 35°C (50°F to 95°F)
+Operating air temperature:
+De-rated 1C per 300m (10,00ft) to 1,371m (4,500ft) above sea level
+Maximum rate of change (°C /hr) ≤ 20
+See Operating Environment for more information."
+,

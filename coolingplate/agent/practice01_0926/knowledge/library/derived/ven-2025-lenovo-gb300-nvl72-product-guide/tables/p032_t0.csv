@@ -1,0 +1,33 @@
+﻿"Local management
+The following fgi ure shows the ports and LEDs on the front of the GB300 Compute tray.
+Figure 15. NVIDIA GB300 NVL72 Front operator panel
+The LEDs are as follows:
+Identifci ation (ID) LED (blue)to identify a specifci server to local service engineers
+Error LED (yellow): Indicates if there is a system error.
+Drive LED: Indicates activity on any drive
+Additionally, the following table lists the features of the BMC Server Management.
+Table 23. BMC Server Management",
+Component,Description
+BMC Chip,ASPEED 2600
+Management,BMC Management Board
+"Firmware
+Update",Web / Redfish / Tool OOB update
+Telemetry,"Temperature, voltage, power, current of CPU/GPU/HSC/HW monitor chip/PCIe Card
+Fan PWM and tachometer
+BMC SEL
+CPER Log"
+"Reference
+Solution","NVIDIA Design Kit, AMI GB300 code base"
+"Dedicate/Share
+MGMT Port",Dedicate MGMT port only
+"Firmware
+Codebase",AMI based
+Feature Support,"KVM and virtual media- Network Connectivity for Management
+Thermal and Fan Management- IPMI (SSIF) to the host CPU
+Redfish Host Interface
+UART/SOL support
+Run Power Control
+FW update/recovery for SBIOS/VBIOS/FPGA/BMC
+Get boot progress code
+Show FRU information"
+,

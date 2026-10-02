@@ -1,0 +1,20 @@
+﻿Index,Description,Type
+"For more information about ordering parts:
+1. Go to http://datacentersupport.lenovo.com and navigate to the support page for your rack solution.
+2. Click Parts.
+3. Enter the serial number to view a listing of parts for your rack solution.",,
+1,Cable cartridge,F
+2,Manifold,F
+3,Busbar,F
+4,Leakage drip pan assembly,F
+5,Blank panel,C
+6,Ejector bar,C
+7,Rail,F
+8,Power supply unit,T1
+9,PMC module,T1
+10,Power shelf,F
+11,Management switch,F
+12,NVLink switch tray,F
+13,Compute tray,F
+14,E1.S drive,T1
+15,M.2 drive,F

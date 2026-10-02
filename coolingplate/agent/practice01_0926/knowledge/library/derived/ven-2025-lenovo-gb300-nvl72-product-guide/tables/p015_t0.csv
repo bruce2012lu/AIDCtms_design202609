@@ -1,0 +1,43 @@
+﻿"Configurations
+There are two primary confgi urations ofefred with the NVIDIA GB300 NVL72. Block diagrams for Compute
+Tray and Switch Tray leveraged in these confgi urations are shown in the System architecture section.
+The following table lists the Bill of Materials for the Non-redundant Power with 6 Power Shelves
+Table 5. Bill of Materials for Non-redundant Power with 6 Power Shelves",,
+Feature code,Description,Quantity
+7DJVCTO2WW,"48U MGX Rack (Rack Base Non-redundant Power, 6 Shelves)",1
+C5RK,"Rack Base Non-redundant Power, 6 Shelves",1
+C5RR,"Power Shelf, 1U, 33kW",6
+C5RN *,"Manifold R&L, Bottom Feed",1
+C5RT,"NVL Power Whips Pair, Standard",3
+7DJYCTO3WW,1U Compute Tray leverages the NVIDIA GB300 NVL72,18
+CCCT,Nvidia GB300 NVL72 HPM 1CPU:2GPU PC,2
+C7VH**,Samsung PM9D3a 3.84T MZTL63T8HFLT-00AW7 E1.S 9.5mm SSD without Latch,4
+CA62,GB300 15mm 4-Bay E1.S BP,2
+BTMB,PG8A0N/PG8C0N M.2 Riser,1
+C58W,ThinkSystem M.2 SATA/x4 NVMe 2-Bay Adapter,1
+CERX,Samsung PM9A3 1.92T MZ1L21T9HCLS-00A07 M.2 NVMe SSD,1
+C58N,Nvidia BF3 B3240 900-9D3B6-00CN-PA0 2X400G FHHL QSFP11 DPU NIC,1
+CCCS,Nvidia 900-9X86E-00CX-ST0 CX-8 IO Board Partner Cooled with 2 CX-8 NIC,1
+C5CN,Nvidia 900-24764-0000-000 HMC SKU1 for GB300,1
+CC57,GB300 PCIe Riser Cable,1
+CCCU,"GB300 Waterloop ASM Coldplate inner manifold
+_",1
+CC5E,GB300 1RU Busbar Cable,1
+CC50,GB300 Latch E1S for one tray,1
+7DJYCTO3WW,Lenovo NVIDIA GB300 NVLink Switch Tray,9
+C63C,GB300 NVL72 NS Switch Tray Base,1
+C6MW,GB300 NVL72 Redundant Power Shelf Solution,1
+7DJWCTO2WW,NVIDIA SN2201 48 port DC switch,2
+C5RL,NVIDIA SN2201 48 port DC switch,1
+C6MV,GB300 NVL72 Non-Redunant Power Shelf Solution,1
+"* Either C5RN Bottom feed or CA40 Top feed
+** Up to 8 drives are supported
+The following table lists the Bill of Materials for Redundant Power with 8 Power Shelves
+Table 6. Bill of Materials for Redundant Power with 8 Power Shelves",,
+Feature code,Description,Quantity
+7DJVCTO2WW,"48U MGX Rack (Rack Base Non-redundant Power, 8 Shelves)",1
+C5RJ,"Rack Base Redundant Power, 8 Shelves",1
+C5RR,"Power Shelf, 1U, 33kW",8
+C5RN *,"Manifold R&L, Bottom Feed",1
+C5RT,"NVL Power Whips Pair, Standard",4
+,,

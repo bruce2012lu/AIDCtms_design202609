@@ -1,0 +1,83 @@
+﻿,,,,
+,System Spec,,GB300 NVL72,GB200 NVL72
+,,,,
+,,,72 Grace Blackwell Ultra GPUs,72 Grace Blackwell GPUs
+NVL72 Rack Configuration,,,,
+,,,,
+,,,18,18
+,Compute Trays,,,
+,,,,
+,,,9,9
+,NVLink Switch Trays,,,
+,,,,
+,,,"4 Blackwell GPUs |
+2 Grace CPUs","4 Blackwell GPUs |
+2 Grace CPUs"
+,GPUs | CPUs Per Compute,,,
+,Node,,,
+,,,,
+,,,72 | 36,72 | 36
+,Total Rack GPUs | CPUs,,,
+,,,,
+,,,"1,080 / 1,440
+petaFLOPS","720 / 1,440
+petaFLOPS"
+,FP4 Tensor Core,,,
+,Dense/Sparse,,,
+,,,,
+,,,"360 / 720
+petaFLOPS","360 / 720
+petaFLOPS"
+,FP8/FP6 Tensor Core,,,
+,Dense/Sparse,,,
+,,,,
+,,,"12/ 24
+petaOPS","360 / 720
+petaOPS"
+,INT8 Tensor Core,,,
+,Dense/Sparse,,,
+,,,,
+,,,"180 / 360
+petaFLOPS","180 / 360
+petaFLOPS"
+,FP16/BF16 Tensor Core,,,
+,Dense/Sparse,,,
+,,,,
+,,,"90 / 180
+petaFLOPS","90 / 180
+petaFLOPS"
+,TF32 Tensor Core,,,
+,Dense/Sparse,,,
+,,,,
+,,,"5,760
+teraFLOPS","5,760
+teraFLOPS"
+FP32,,,,
+,,,,
+,,,"100
+teraFLOPS","2,880
+teraFLOPS"
+FP64/FP64 Tensor Core,,,,
+,,,,
+,,,HBM3e,HBM3e
+,HBM Memory Architecture,,,
+,,,,
+,,,20 TB,13.5 TB
+,HBM Memory Size,,,
+,,,,
+,,,576 TB/s,Up to 576 TB/s
+,HBM Memory Bandwidth,,,
+,,,,
+,,,37 TB,Up to 31 TB
+,Fast Memory,,,
+,,,,
+,,,9 NVLink Switches,9 NVLink Switches
+,NVLink Switch,,,
+,,,,
+,,,130 TB/s,130 TB/s
+,NVLink Bandwidth,,,
+,Bidirectional,,,
+,,,,
+,,,2592 Arm Neoverse V2 cores,2592 Arm Neoverse V2 cores
+,CPU Cores,,,
+,,,,

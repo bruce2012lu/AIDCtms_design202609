@@ -1,0 +1,7 @@
+﻿Status,Color,Description
+Off,None,The link is down.
+Blinking (1 HZ),Amber,Beaconing (locating) is active on any one of the NVLink ports.
+Blinking (2 HZ),Amber,A link error has been detected.
+Solid on,Amber,The physical link is established.
+Blinking (1 HZ),Green,The logical link is established and active.
+Solid on,Green,The logical link is established with no active traffic.

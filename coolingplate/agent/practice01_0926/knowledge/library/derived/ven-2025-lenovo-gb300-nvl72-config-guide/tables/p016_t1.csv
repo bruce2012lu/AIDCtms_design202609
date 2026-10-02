@@ -1,0 +1,10 @@
+﻿"Compo-
+nent","Management
+interface",Access method,Function
+"Compute
+tray",Host BMC,"• Web GUI
+• Redfish API","• Monitoring of the system inventory
+• System configuration change (e.g., BMC network setting)
+• System network setting
+• Firmware updates
+• Service data collection"

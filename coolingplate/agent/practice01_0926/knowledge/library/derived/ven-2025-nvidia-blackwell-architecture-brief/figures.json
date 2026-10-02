@@ -1,0 +1,108 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 397,
+    "h": 313,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p006_i0.jpg",
+    "page": 6,
+    "w": 548,
+    "h": 877,
+    "captions_on_page": [
+      "Figure 1.  NVIDIA Grace Blackwell Ultra Superchip with ConnectX-8  SuperNICs"
+    ]
+  },
+  {
+    "file": "figures/p007_i0.jpg",
+    "page": 7,
+    "w": 964,
+    "h": 580,
+    "captions_on_page": [
+      "Figure 2.  NVIDIA Blackwell Architecture’s Technological Breakthroughs"
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 588,
+    "h": 484,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p014_i0.jpg",
+    "page": 14,
+    "w": 769,
+    "h": 684,
+    "captions_on_page": [
+      "Figure 4.  NVIDIA GB300 NVL72"
+    ]
+  },
+  {
+    "file": "figures/p015_i0.jpg",
+    "page": 15,
+    "w": 1431,
+    "h": 728,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p016_i0.jpg",
+    "page": 16,
+    "w": 602,
+    "h": 514,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p017_i0.jpg",
+    "page": 17,
+    "w": 890,
+    "h": 598,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 496,
+    "h": 424,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p020_i0.jpg",
+    "page": 20,
+    "w": 1429,
+    "h": 745,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p021_i0.jpg",
+    "page": 21,
+    "w": 577,
+    "h": 501,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p022_i0.jpg",
+    "page": 22,
+    "w": 568,
+    "h": 509,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p023_i2.jpg",
+    "page": 23,
+    "w": 538,
+    "h": 472,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p027_i0.jpg",
+    "page": 27,
+    "w": 812,
+    "h": 503,
+    "captions_on_page": [
+      "Figure 13. Three AI Scaling Laws"
+    ]
+  }
+]

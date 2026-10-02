@@ -1,0 +1,331 @@
+[
+  {
+    "file": "figures/p001_i0.jpg",
+    "page": 1,
+    "w": 3097,
+    "h": 1067,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p010_i0.jpg",
+    "page": 10,
+    "w": 2122,
+    "h": 1458,
+    "captions_on_page": [
+      "Fig. 1: DGX GB200 Rack Configuration - Front view of four 72-GPU racks"
+    ]
+  },
+  {
+    "file": "figures/p011_i0.jpg",
+    "page": 11,
+    "w": 1215,
+    "h": 816,
+    "captions_on_page": [
+      "Fig. 2: DGX GB300 Rack Configuration - Front view of four 72-GPU racks",
+      "Fig. 3: DGX GB200 Rack Configuration - Rear view"
+    ]
+  },
+  {
+    "file": "figures/p011_i1.jpg",
+    "page": 11,
+    "w": 2543,
+    "h": 1398,
+    "captions_on_page": [
+      "Fig. 2: DGX GB300 Rack Configuration - Front view of four 72-GPU racks",
+      "Fig. 3: DGX GB200 Rack Configuration - Rear view"
+    ]
+  },
+  {
+    "file": "figures/p012_i0.jpg",
+    "page": 12,
+    "w": 1426,
+    "h": 804,
+    "captions_on_page": [
+      "Fig. 4: DGX GB300 Rack Configuration - Rear view"
+    ]
+  },
+  {
+    "file": "figures/p013_i0.jpg",
+    "page": 13,
+    "w": 1452,
+    "h": 624,
+    "captions_on_page": [
+      "Fig. 5: DGX GB200 Compute Tray",
+      "Fig. 6: DGX GB300 Compute Tray"
+    ]
+  },
+  {
+    "file": "figures/p013_i1.jpg",
+    "page": 13,
+    "w": 814,
+    "h": 375,
+    "captions_on_page": [
+      "Fig. 5: DGX GB200 Compute Tray",
+      "Fig. 6: DGX GB300 Compute Tray"
+    ]
+  },
+  {
+    "file": "figures/p014_i0.jpg",
+    "page": 14,
+    "w": 1579,
+    "h": 1117,
+    "captions_on_page": [
+      "Fig. 7: DGX GB200 Compute Tray - Block diagram"
+    ]
+  },
+  {
+    "file": "figures/p015_i0.jpg",
+    "page": 15,
+    "w": 1185,
+    "h": 912,
+    "captions_on_page": [
+      "Fig. 8: DGX GB300 Compute Tray - Block diagram",
+      "Fig. 9: DGX GB200 Compute Tray - Top view"
+    ]
+  },
+  {
+    "file": "figures/p015_i1.jpg",
+    "page": 15,
+    "w": 2729,
+    "h": 1211,
+    "captions_on_page": [
+      "Fig. 8: DGX GB300 Compute Tray - Block diagram",
+      "Fig. 9: DGX GB200 Compute Tray - Top view"
+    ]
+  },
+  {
+    "file": "figures/p016_i0.jpg",
+    "page": 16,
+    "w": 1583,
+    "h": 808,
+    "captions_on_page": [
+      "Fig. 10: DGX GB300 Compute Tray - Top view",
+      "Fig. 11: DGX GB200 Compute Tray - Front view",
+      "Fig. 12: DGX GB300 Compute Tray - Front view"
+    ]
+  },
+  {
+    "file": "figures/p016_i1.jpg",
+    "page": 16,
+    "w": 1596,
+    "h": 365,
+    "captions_on_page": [
+      "Fig. 10: DGX GB300 Compute Tray - Top view",
+      "Fig. 11: DGX GB200 Compute Tray - Front view",
+      "Fig. 12: DGX GB300 Compute Tray - Front view"
+    ]
+  },
+  {
+    "file": "figures/p016_i2.jpg",
+    "page": 16,
+    "w": 1226,
+    "h": 276,
+    "captions_on_page": [
+      "Fig. 10: DGX GB300 Compute Tray - Top view",
+      "Fig. 11: DGX GB200 Compute Tray - Front view",
+      "Fig. 12: DGX GB300 Compute Tray - Front view"
+    ]
+  },
+  {
+    "file": "figures/p017_i0.jpg",
+    "page": 17,
+    "w": 2858,
+    "h": 1146,
+    "captions_on_page": [
+      "Fig. 13: NVLink Switch Tray - Top view"
+    ]
+  },
+  {
+    "file": "figures/p018_i0.jpg",
+    "page": 18,
+    "w": 1592,
+    "h": 649,
+    "captions_on_page": [
+      "Fig. 14: NVLink Switch Tray - Top view",
+      "Fig. 15: Power Shelf - Top view"
+    ]
+  },
+  {
+    "file": "figures/p018_i1.jpg",
+    "page": 18,
+    "w": 2028,
+    "h": 481,
+    "captions_on_page": [
+      "Fig. 14: NVLink Switch Tray - Top view",
+      "Fig. 15: Power Shelf - Top view"
+    ]
+  },
+  {
+    "file": "figures/p019_i0.jpg",
+    "page": 19,
+    "w": 2274,
+    "h": 237,
+    "captions_on_page": [
+      "Fig. 16: DGX GB200 TOR Ethernet Switch"
+    ]
+  },
+  {
+    "file": "figures/p022_i0.jpg",
+    "page": 22,
+    "w": 2127,
+    "h": 417,
+    "captions_on_page": [
+      "Fig. 1: DGX GB200 Compute and Switch Trays - Identification of network port locations"
+    ]
+  },
+  {
+    "file": "figures/p023_i0.jpg",
+    "page": 23,
+    "w": 1189,
+    "h": 246,
+    "captions_on_page": [
+      "Fig. 2: DGX GB300 Compute and Switch Trays - Identification of network port locations",
+      "Fig. 3: DGX GB200 Compute and Switch Trays - Identification of network port types"
+    ]
+  },
+  {
+    "file": "figures/p023_i1.jpg",
+    "page": 23,
+    "w": 2167,
+    "h": 697,
+    "captions_on_page": [
+      "Fig. 2: DGX GB300 Compute and Switch Trays - Identification of network port locations",
+      "Fig. 3: DGX GB200 Compute and Switch Trays - Identification of network port types"
+    ]
+  },
+  {
+    "file": "figures/p024_i0.jpg",
+    "page": 24,
+    "w": 1022,
+    "h": 328,
+    "captions_on_page": [
+      "Fig. 4: DGX GB300 Compute and Switch Trays - Identification of network port types"
+    ]
+  },
+  {
+    "file": "figures/p030_i0.jpg",
+    "page": 30,
+    "w": 512,
+    "h": 249,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p060_i0.jpg",
+    "page": 60,
+    "w": 794,
+    "h": 258,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p060_i1.jpg",
+    "page": 60,
+    "w": 794,
+    "h": 258,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p061_i1.jpg",
+    "page": 61,
+    "w": 185,
+    "h": 149,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p061_i2.jpg",
+    "page": 61,
+    "w": 1540,
+    "h": 525,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p061_i3.jpg",
+    "page": 61,
+    "w": 1540,
+    "h": 525,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p062_i0.jpg",
+    "page": 62,
+    "w": 1656,
+    "h": 338,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p062_i1.jpg",
+    "page": 62,
+    "w": 830,
+    "h": 782,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p062_i2.jpg",
+    "page": 62,
+    "w": 668,
+    "h": 302,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p063_i0.jpg",
+    "page": 63,
+    "w": 666,
+    "h": 332,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p063_i1.jpg",
+    "page": 63,
+    "w": 1280,
+    "h": 550,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p064_i0.jpg",
+    "page": 64,
+    "w": 482,
+    "h": 542,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p064_i1.jpg",
+    "page": 64,
+    "w": 580,
+    "h": 660,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p065_i0.jpg",
+    "page": 65,
+    "w": 631,
+    "h": 1005,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p066_i0.jpg",
+    "page": 66,
+    "w": 622,
+    "h": 730,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p066_i1.jpg",
+    "page": 66,
+    "w": 871,
+    "h": 452,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p067_i0.jpg",
+    "page": 67,
+    "w": 452,
+    "h": 438,
+    "captions_on_page": []
+  },
+  {
+    "file": "figures/p068_i1.jpg",
+    "page": 68,
+    "w": 175,
+    "h": 150,
+    "captions_on_page": []
+  }
+]

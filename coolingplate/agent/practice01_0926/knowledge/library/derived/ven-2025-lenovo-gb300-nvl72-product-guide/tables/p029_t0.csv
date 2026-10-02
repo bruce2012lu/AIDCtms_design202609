@@ -1,0 +1,30 @@
+﻿Table 21. Other rack components,,,
+Components,Specification,,
+"Rack Leak
+Detection
+Module","Standalone 3rd party leak detection modules that connect into the OOB Management Switch
+for rack manager
+Several CDU models possess external port for leak detection to work in conjunction with a
+rack leak pan
+Other vendors (i.e. Rittal) provide off the shelf options for Rack Managers
+Per NVIDIA leak detection strategy and customer requirement",,
+Dummy Panels,Required to fill in unused rack slots,,
+Rack adapters,Adapters to mount 19” IT gear in ORV3 rack,,
+Rack Leak Tray,Per NVIDIA reference,,
+Rack Manager,"Optional rack manager developed by Lenovo to manage power, leak detection and OOB
+management",,
+"The following image shows the power shelf.
+Figure 14. Power shelf
+The following table lists the supported power cables.
+Table 22. Power shelf cables",,,
+Part Number,Feature code,Description,Quantity
+4L67B04869,CCZ9,3.5m 1U 33kW Power Whip,4
+4L67B04867,CCZ7,1.5m 1U 33kW Power Whip,4
+Delta for Thailand,,,
+4XF7B11367,CCZ6,Lenovo NVIDIA GB300 NVL72 33kW 1U Delta Th Power Shelf,8
+4TA7B11361,CCYS,Lenovo NVIDIA GB300 NVL72 33kW 1U Delta Th PMC Power Shelf,8
+4P57B11364,CCZ8,Lenovo NVIDIA GB300 NVL72 5500W Delta Th Power Supply,8
+Delta Power,,,
+4XF7B11366,CCZ5,Lenovo NVIDIA GB300 NVL72 33kW 1U Delta Power Shelf,8
+4TA7B11360,CCZ1,Lenovo NVIDIA GB300 NVL72 33kW 1U Delta Power PMC Shelf,8
+4P57B11363,CCZA,Lenovo NVIDIA GB300 NVL72 5500W Delta Power Supply,8

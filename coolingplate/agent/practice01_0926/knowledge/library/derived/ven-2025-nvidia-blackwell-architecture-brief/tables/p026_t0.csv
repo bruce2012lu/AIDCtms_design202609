@@ -1,0 +1,35 @@
+﻿,,,2.2/4.5 petaFLOPS,2.2/4.5 petaFLOPS
+,FP16/BF16 Tensor,,,
+,Core,,,
+,Dense/Sparse,,,
+,,,,
+,,,1.1/2.2 petaFLOPS,1.1/2.2 petaFLOPS
+,TF32 Tensor Core,,,
+,Dense/Sparse,,,
+,,,,
+,,,75 teraFLOPS,75 teraFLOPS
+,FP32,,,
+,,,,
+,,,,
+,,,1.2 teraFLOPS,37 teraFLOPS
+,FP64 Tensor Core |,,,
+,FP64,,,
+,,,,
+,,,270 GB HBM3e | 7.7 TB/s,Up to 192 GB HBM3e | 7.7 TB/s
+,GPU memory |,,,
+,Bandwidth,,,
+,,,,
+,,,1100 W,1000W
+,Max thermal design,,,
+,power (TDP),,,
+,,,,
+,,,"NVLink 5
+PCIe Gen6","NVLink 5
+PCIe Gen5"
+Interconnect,,,,
+,,,,
+,,,"NVIDIA HGX B300 partner and
+NVIDIA-Certified Systems","NVIDIA HGX B200 partner and
+NVIDIA-Certified Systems"
+Server options,,,,
+,,,,

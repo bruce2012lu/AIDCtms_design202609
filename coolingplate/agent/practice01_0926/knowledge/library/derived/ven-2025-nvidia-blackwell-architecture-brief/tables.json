@@ -1,0 +1,32 @@
+[
+  {
+    "file": "tables/p013_t0.csv",
+    "page": 13,
+    "rows": 67,
+    "cols": 5,
+    "captions_on_page": [
+      "Table 2.  System Specifications for GB300 NVL72 and GB200 NVL72"
+    ]
+  },
+  {
+    "file": "tables/p025_t0.csv",
+    "page": 25,
+    "rows": 44,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p026_t0.csv",
+    "page": 26,
+    "rows": 31,
+    "cols": 5,
+    "captions_on_page": []
+  },
+  {
+    "file": "tables/p029_t0.csv",
+    "page": 29,
+    "rows": 5,
+    "cols": 3,
+    "captions_on_page": []
+  }
+]

@@ -1,0 +1,5 @@
+﻿Status,Color,Description
+Off,None,The system is off.
+Blinking (1 HZ),Green,The system is in power-off state.
+Blinking (4 HZ),Green,The system is running POST.
+Solid on,Green,The system is on and running.

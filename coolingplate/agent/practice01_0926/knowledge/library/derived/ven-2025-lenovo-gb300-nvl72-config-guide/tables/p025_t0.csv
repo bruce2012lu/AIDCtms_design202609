@@ -1,0 +1,4 @@
+﻿Status,Color,Description
+Blinking,Green,The system is booting or resetting.
+Solid on,Green,The system is working correctly.
+Solid on,Amber,An error has been detected.

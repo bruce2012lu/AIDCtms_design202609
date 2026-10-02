@@ -1,0 +1,31 @@
+﻿"Components and connectors
+The table below shows the main system components of the rack scale solution. This is to depict an overall
+hardware confgi urability, and capability, for the complex set of feature options that the system needs to be
+able to support in hardware. Not all confgi urable combinations, or feature options, are shown here; such as
+DIMM memory options, TPM, or storage options as examples. Also not shown are the TOR switches which
+are dependent on customer network topology confgi uration.
+Table 1. Standard specifci ations NVIDIA GB300 NVL72 rack",,
+Components,Quantity,Description
+Rack,1,48U MGX Rack
+GPU Compute Trays,18,NVL72: 1U trays with 2x GB300 HPM
+NVL Switch Trays,9,NVIDIA product NVL72: 1U tray with no OSFP (non-scalable)
+50V Power Shelf,6-8,"Quantity dependent on rack configuration and customer power redundancy
+configuration"
+TOR Switches,2,"MSN2201-CSMRC NVIDIA Spectrum based 1GbE/100GbE 1U Open Ethernet
+switch"
+"Cable Cartridge
+Backplane*",4,"Provided by NVIDIA, including mechanicals. May not be populated in rack
+depending on customer configuration"
+CDU,1,Various CDU Options
+Liquid Cool Manifolds,2,"Rear Left and Rear Right (Inlet and Outlet), top and bottom feed manifolds are
+available"
+Bus Bar,1,Supports single 1400A bus bar in the middle rear
+"* Is a collection of many high-speed NVLink channels providing the interconnection between every GPU to
+every NVSwitch Tray. The copper wires are protected by a chassis to ensure no damage to the connectors or
+wires within the cartridge.
+The GB300 Compute trays, GB300 NVL Switch Trays, Power Shelves and Top of Rack switches are all
+integrated and rack mounted. Below is a high-level rack overview of the NVL72 rack confgi uration.",,
+"Note: Confgi uration choices are:
+Customer can choose 6 or 8 power shelves.
+Customer can choose either Top‑Feed Manifold (CA40) or Bottom‑Feed Manifold (C5RN)",,
+,,

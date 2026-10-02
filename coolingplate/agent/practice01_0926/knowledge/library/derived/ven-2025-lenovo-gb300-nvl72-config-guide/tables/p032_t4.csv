@@ -1,0 +1,5 @@
+﻿Status,Color,Description
+Blinking (4 HZ),Green,The link is operating at the maximum supported speed.
+Blinking (2 HZ),Green,The link is operating below the maximum supported speed.
+Solid on,Green,The link is active.
+Blinking (4 HZ),Yellow,An error has occurred to the link.

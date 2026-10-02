@@ -1,0 +1,44 @@
+﻿,,,,
+,,,HGX B300,HGX B200
+,,,,
+,,,,
+,,,Per Server Specs Below,
+,,,,
+,,,,
+,,,16 Blackwell Ultra Die for 8 GPUs,16 Blackwell Die for 8 GPUs
+Blackwell GPUs,,,,
+,,,,
+,,,108/144 petaFLOPS,72/144 petaFLOPS
+,FP4 Tensor Core,,,
+,Dense/Sparse,,,
+,,,,
+,,,36/72 petaFLOPS,36/72 petaFLOPS
+,FP8/FP6 Tensor Core,,,
+,Dense/Sparse,,,
+,,,,
+,,,2.1 TB,Up to 1.4 TB
+Fast Memory,,,,
+,,,,
+,,,62 TB/s,Up to 62 TB/s
+,Aggregate Memory,,,
+,Bandwidth,,,
+,,,,
+,,,14.4 TB/s,14.4 TB/s
+,Aggregate NVLink,,,
+,Switch Bandwidth,,,
+,,,,
+,,,Per GPU Specs Below,
+,,,,
+,,,,
+,,,14/18 petaFLOPS,9/18 petaFLOPS
+,FP4 Tensor Core,,,
+,Dense/Sparse,,,
+,,,,
+,,,4.5/9 petaFLOPS,4.5/9 petaFLOPS
+,FP8/FP6 Tensor Core,,,
+,Dense/Sparse,,,
+,,,,
+,,,0.15/ 0.30 petaOPS,4.5/9 petaOPS
+,INT8 Tensor Core,,,
+,Dense/Sparse,,,
+,,,,

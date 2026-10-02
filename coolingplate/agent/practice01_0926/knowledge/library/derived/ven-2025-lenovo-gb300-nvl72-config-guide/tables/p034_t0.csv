@@ -1,0 +1,6 @@
+﻿Status,Color,Description
+Off,None,"The Link is down. Ensure that both near-end and far-end connectors are fully
+seated and verify cable integrity."
+Solid on,Yellow,The link is established.
+Blinking,Green,The link is connected with active traffic.
+Solid on,Green,The link is connected with no active traffic.

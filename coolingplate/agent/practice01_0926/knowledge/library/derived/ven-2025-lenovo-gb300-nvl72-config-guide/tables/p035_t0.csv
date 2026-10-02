@@ -1,0 +1,9 @@
+﻿Status,Color,Description
+Solid on,Green,The power supply unit is operating normally.
+Blinking,Yellow,"The power supply unit continues to operate, but warning events have been
+detected. These include over-temperature, high power, over-current events, or
+degraded fan speed."
+Solid on,Yellow,"• The AC cord is disconnected or AC power has been lost while the second power
+supply still has AC input power. Ensure the AC cord is securely connected to the
+inactive unit.
+• A power supply unit failure has occurred. Verify input voltage."

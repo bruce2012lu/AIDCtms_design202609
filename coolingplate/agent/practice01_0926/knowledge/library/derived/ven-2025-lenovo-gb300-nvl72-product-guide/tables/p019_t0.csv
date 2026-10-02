@@ -1,0 +1,27 @@
+﻿"GPU accelerators
+The NVIDIA GB300 NVL72 HPM boards support four onboard NVIDIA B300 GPUs. The following table lists
+the specifci ations for each GPU and for the full package. Measured performance will vary by application.
+The following table lists the specifci ations for each GPU.
+Table 10. GPU specifci ations",
+Specification,NVIDIA SXM B300 DLC (per GPU)†
+FP64,1.25 TFLOPS
+FP64 Tensor Core,1.25 TFLOPS
+FP32,75 teraFLOPS
+TF32 Tensor Core,"2,250 teraFLOPS*"
+BFLOAT16 Tensor,"4,500 teraFLOPS*"
+FP16 Tensor Core,"4,500 teraFLOPS*"
+FP8 Tensor Core,"9,000 teraFLOPS*"
+FP4 Tensor Core,"18,000 teraFLOPS*"
+INT8 Tensor Core,375 TOPS*
+GPU Memory,288 GB HBM3e per GPU
+GPU Memory Bandwidth,7.7 TB/s
+GPU Memory ECC,Supported (enabled by default)
+Multi-Instance GPUs (MIG),Up to 7 Instances
+Total Graphics Power (TGP),1100W
+Interconnect,"NVLink between GPUs: 1.8 TB/s (full mesh)
+NVLink to CPUs: 450GB/s per GPU
+PCIe Gen6 x16: 256GB/s per GPU"
+"† Listed values in this column are per NVIDIA Blackwell SXM GPU
+* With structural sparsity enabled
+The following fgi ure shows how the GPUs interconnect.
+Figure 10. Compute Tray NVLink topology",
