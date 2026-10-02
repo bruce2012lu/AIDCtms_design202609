@@ -1,0 +1,46 @@
+// tetin file version 1.1
+// written by ICEM CFD - version 26.1 on Mon Sep 21 00:26:33 2026
+
+set_triangulation_tolerance 0.001
+# In ICEM CFD 4.2 the family_boco file is no longer tied to tetin
+# read_family_boco family_boco
+define_family FLUID color 12109107
+define_family INLET_JET color 4652601
+define_family WALL_ORIFICE color 16663101
+define_family WALL_LID color 3407183
+define_family WALL_IMP color 15694643
+define_family FIN color 3406177
+define_family RETURN_SLOT color 6748211
+define_family SYM color 15434803
+define_family GEOM color 16663866
+define_family POINT color 14392627
+define_family CRV color 3362046
+
+prescribed_point -1.5 -1.2 0 family POINT name c000
+prescribed_point 1.5 -1.2 0 family POINT name c100
+prescribed_point 1.5 1.2 0 family POINT name c110
+prescribed_point -1.5 1.2 0 family POINT name c010
+prescribed_point -1.5 -1.2 8 family POINT name c001
+prescribed_point 1.5 -1.2 8 family POINT name c101
+prescribed_point 1.5 1.2 8 family POINT name c111
+prescribed_point -1.5 1.2 8 family POINT name c011
+prescribed_point 0 0 2.5 family FLUID name p_mat
+prescribed_point 0 0 3.5 family POINT name p_orif_b
+prescribed_point 0 0 6 family POINT name p_orif_t
+prescribed_point 0 0 8 family POINT name p_pl_t
+define_curve family CRV tetra_size 1e+10 name axis_orif vertex1 p_orif_b vertex2 p_orif_t
+bspline
+2,2,0
+0,0,1,1
+0,0,3.5
+0,0,6
+define_curve family CRV tetra_size 1e+10 name axis_pl vertex1 p_orif_t vertex2 p_pl_t
+bspline
+2,2,0
+0,0,1,1
+0,0,6
+0,0,8
+affix 0
+define_model 1e+10 reference_size 1
+define_prism_meshing_parameters law 0 nlay 3 hratio 1.2 min_quality 0.01 fillet 0.1 tetra_smooth_limit 0.3
+return

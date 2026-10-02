@@ -1,0 +1,14 @@
+# ICEM CFD Project Settings
+# UC-01b view project — Python Cartesian hex imported from Fluent msh
+# Units: meters (Fluent). Official circle geom is icem/uc01b.tin (mm) — do not overlay.
+
+array set file_name {
+    domain uc01b.uns
+    tetin {}
+    settings uc01b.prj
+    project_dir .
+    family_boco {}
+    attributes {}
+    blocking {}
+    domains_dir .
+}
