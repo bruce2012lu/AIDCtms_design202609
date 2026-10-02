@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GB300 热管理系统 · 子系统与零部件成本分析报告 · v1.7 · 2026-08-22</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+:root{
+  --navy:#102a43; --navy2:#173f5f; --teal:#087f8c; --gold:#d3a62b;
+  --ink:#17212b; --muted:#637282; --bg:#eef2f5; --card:#fff; --line:#d8e1e8; --side:286px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;color:var(--ink);background:#f5f7f9;line-height:1.9;font-size:16px}
+a{color:#0b6e75;text-decoration:none}
+a:hover{text-decoration:underline}
+aside.toc{position:fixed;left:0;top:0;bottom:0;width:var(--side);background:var(--navy);color:#d7e4ef;overflow-y:auto;z-index:200;box-shadow:2px 0 14px rgba(15,42,67,.18);transition:transform .25s}
+body.toc-collapsed aside.toc{transform:translateX(calc(-1 * var(--side) + 46px))}
+.toc-head{padding:22px 44px 16px 18px;border-bottom:1px solid rgba(255,255,255,.12);position:sticky;top:0;background:var(--navy);z-index:2}
+.toc-head .brand{font-size:11px;letter-spacing:2px;color:#8fb4c9;margin-bottom:6px}
+.toc-head h1{font-size:15px;line-height:1.5;color:#fff}
+.toc-toggle{position:absolute;right:10px;top:20px;width:30px;height:30px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;border-radius:6px;cursor:pointer}
+.toc nav{padding:12px 10px 36px}
+.toc details{margin:5px 0}
+.toc summary{cursor:pointer;padding:9px 10px;border-radius:6px;font-size:13.5px;font-weight:700;color:#f2f7fb;list-style:none}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary::before{content:"▸ ";color:var(--gold)}
+.toc details[open] summary::before{content:"▾ "}
+.toc summary:hover,.toc a:hover{background:rgba(255,255,255,.08);text-decoration:none}
+.toc a{display:block;color:#b7c9d6;font-size:13px;padding:6px 10px 6px 23px;border-radius:6px;line-height:1.45}
+.toc a.active{background:#0e6672;color:#fff;box-shadow:inset 3px 0 0 #f0c75e}
+.toc .l2{padding-left:32px;font-size:12.5px}
+main{margin-left:var(--side);min-width:0;transition:margin-left .25s}
+body.toc-collapsed main{margin-left:46px}
+.wrap{max-width:1160px;margin:0 auto;padding:20px 42px 90px}
+.cover{background:linear-gradient(155deg,#102a43 0%,#173f5f 48%,#087f8c 100%);color:#fff;padding:64px 42px 46px;border-bottom:5px solid var(--gold)}
+.cover .inner{max-width:1080px;margin:0 auto}
+.kicker{display:inline-block;border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:4px 14px;font-size:12.5px;letter-spacing:1.5px;color:#d7efe8;margin-bottom:18px}
+.cover h1{max-width:920px;font-size:34px;line-height:1.32;font-weight:800;margin-bottom:12px}
+.cover h2{max-width:900px;font-size:16px;font-weight:500;color:#cfe8e4;margin-bottom:22px}
+.cover .meta{display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));gap:16px 28px;font-size:13.5px;color:#d7e8e4;border-top:1px solid rgba(255,255,255,.22);padding-top:16px}
+.cover .meta b{display:block;font-size:12px;color:#f0d27a;margin-bottom:2px}
+section{margin:44px 0 64px;scroll-margin-top:22px}
+.h-sec{display:flex;align-items:center;gap:16px;margin:0 0 28px;padding:0 0 14px;border-bottom:1px solid #b9c8d4}
+.h-sec .no{background:var(--navy);color:#fff;border-radius:10px;min-width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-weight:800;box-shadow:0 5px 14px rgba(16,42,67,.18)}
+.h-sec h2{font-size:26px;color:var(--navy);font-weight:800}
+.h-sec .en{margin-top:3px;font-size:11.5px;color:var(--muted);letter-spacing:.08em}
+h3{scroll-margin-top:20px;margin:38px 0 16px;padding:10px 14px;border-left:5px solid var(--teal);border-radius:0 7px 7px 0;background:linear-gradient(90deg,#eaf4f5 0,rgba(234,244,245,.25) 72%,transparent);font-size:19px;color:var(--navy2)}
+h4{margin:22px 0 10px;font-size:16.5px;color:var(--navy2)}
+p{max-width:88ch;margin:12px 0}
+.lead{background:#e8f5f3;border-left:5px solid var(--teal);padding:18px 20px;border-radius:0 8px 8px 0;margin:22px 0;font-size:16.5px}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin:16px 0;box-shadow:0 4px 18px rgba(16,42,67,.06)}
+.callout{border-radius:10px;padding:13px 16px;margin:14px 0;font-size:14.5px}
+.callout.key{background:#fffbeb;border-left:5px solid var(--gold)}
+.callout.info{background:#eef6ff;border-left:5px solid #0284c7}
+.callout.tip{background:#ecfdf5;border-left:5px solid #16a34a}
+.callout.risk{background:#fef2f2;border-left:5px solid #dc2626}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:22px 0}
+.kpi{background:#fff;border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:11px;padding:18px 12px;text-align:center;box-shadow:0 3px 14px rgba(16,42,67,.06)}
+.kpi .v{font-size:26px;font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums}
+.kpi .l{margin-top:8px;font-size:13px;color:var(--muted);line-height:1.5}
+.tbl-wrap{overflow:auto;margin:18px 0 10px;border-radius:9px;border:1px solid #c8d3dc;background:#fff;box-shadow:0 3px 14px rgba(16,42,67,.06)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:13.5px}
+thead th{position:sticky;top:0;background:#173f5f;color:#fff;padding:10px 12px;text-align:left;font-weight:600}
+tbody td{padding:8px 12px;border-bottom:1px solid #edf1f4;vertical-align:top}
+tbody tr:nth-child(even){background:#f6f8fa}
+tbody tr:hover{background:#eaf4f5}
+td.r,th.r{text-align:right}
+td.c,th.c{text-align:center}
+.num{font-variant-numeric:tabular-nums}
+.sub{background:#e7edf2!important;font-weight:700}
+.tot{background:#dff0eb!important;font-weight:800}
+.note{font-size:12.5px;color:var(--muted);margin:6px 0 18px;padding-left:10px;border-left:2px solid #b7c5cf}
+.chart{width:100%;height:400px}
+.chart-box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px;margin:18px 0;box-shadow:0 4px 18px rgba(16,42,67,.06)}
+.chart-box .cap{font-size:14.5px;font-weight:700;color:var(--navy);padding-bottom:10px;border-bottom:1px dashed var(--line);margin-bottom:8px;line-height:1.55}
+.chart-box .cap-sub{font-size:12.5px;font-weight:500;color:var(--muted);margin-top:6px;line-height:1.65}
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+ul.dot{list-style:none}
+ul.dot li{padding:8px 8px 8px 24px;position:relative;border-bottom:1px dashed #dce4ea}
+ul.dot li::before{content:"◆";position:absolute;left:4px;top:10px;color:var(--teal);font-size:11px}
+.tag{display:inline-block;background:#e0f2f1;color:#0d5c5f;border-radius:4px;padding:0 6px;font-size:12px;font-weight:700}
+.lv{display:inline-block;border-radius:4px;padding:1px 7px;font-size:12px;font-weight:700;white-space:nowrap}
+.lv-sys{background:#102a43;color:#fff}
+.lv-sub{background:#087f8c;color:#fff}
+.lv-part{background:#eef6ff;color:#0b4f8a;border:1px solid #bfdbfe}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.filters button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;cursor:pointer;font-size:13px;color:var(--navy2)}
+.filters button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+#masterTbl{min-width:0;width:100%;table-layout:fixed}
+#masterTbl th,#masterTbl td{white-space:normal;word-break:break-word;overflow-wrap:anywhere;line-height:1.55}
+#masterTbl col.c-lv{width:8%}
+#masterTbl col.c-name{width:16%}
+#masterTbl col.c-kw{width:11%}
+#masterTbl col.c-scope{width:16%}
+#masterTbl col.c-usd{width:12%}
+#masterTbl col.c-cny{width:11%}
+#masterTbl col.c-unit{width:14%}
+#masterTbl col.c-qty{width:12%}
+#masterTbl tbody td:first-child{position:sticky;left:0;background:inherit;z-index:1}
+#masterTbl tr.src-row td{background:#eef4f7;color:#2c3d4d;font-size:13px;font-weight:400;padding:8px 12px 12px;border-bottom:1px solid #c8d3dc}
+#masterTbl tr.src-row .src-lab{display:inline-block;background:#173f5f;color:#fff;border-radius:4px;padding:1px 7px;margin-right:8px;font-size:12px;font-weight:700;white-space:nowrap}
+#catalog .tbl-wrap{overflow-x:visible}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:14px 0}
+.box{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px;border-top:3px solid var(--teal)}
+.box.navy{border-top-color:var(--navy)}
+.box.gold{border-top-color:var(--gold)}
+.box b{display:block;color:var(--navy);font-size:14px}
+.box span{display:block;margin-top:4px;font-size:12.5px;color:var(--muted);line-height:1.6}
+footer{background:var(--navy);color:#b7c9d6;padding:26px 42px;font-size:12.5px;line-height:1.7}
+@media(max-width:980px){
+  :root{--side:250px}
+  .kpis,.chart-grid,.cover .meta{grid-template-columns:1fr 1fr}
+  .cover h1{font-size:26px}
+  .wrap{padding:16px 22px 70px}
+}
+@media(max-width:720px){
+  aside.toc{transform:translateX(calc(-1 * var(--side) + 46px))}
+  main{margin-left:46px}
+  .kpis,.chart-grid,.cover .meta{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<aside class="toc" id="toc">
+  <div class="toc-head">
+    <div class="brand">AIDCTMS · COST</div>
+    <h1>GB300 热管理成本分析</h1>
+    <button class="toc-toggle" id="tocBtn" title="折叠/展开目录">☰</button>
+  </div>
+  <nav>
+    <details open>
+      <summary>报告导读</summary>
+      <a href="#cover">封面</a>
+      <a href="#howto">怎么读 / 口径地图</a>
+      <a href="#exec">核心结论</a>
+      <a href="#method">方法与数据可信度</a>
+    </details>
+    <details open>
+      <summary>系统与边界</summary>
+      <a href="#arch">热管理架构</a>
+      <a href="#scope">三层成本边界</a>
+    </details>
+    <details open>
+      <summary>成本拆解</summary>
+      <a href="#recon">多方口径对账</a>
+      <a href="#subsys">子系统成本</a>
+      <a href="#parts">零部件成本</a>
+      <a href="#cdu">CDU 内部 BOM</a>
+      <a class="l2" href="#row-cdu">行级 CDU 方案与案例</a>
+      <a href="#project">项目配置测算</a>
+      <a href="#catalog">全量成本明细总表</a>
+      <a href="#unitpx">单位千瓦价附属对照</a>
+      <a class="l2" href="#unitpx-use">用法：主数字仍是美元/柜</a>
+      <a class="l2" href="#unitpx-map">金额 → 千瓦价对照</a>
+      <a class="l2" href="#unitpx-dual">国内 vs 海外</a>
+      <a class="l2" href="#unitpx-ruler">三把尺子</a>
+      <a class="l2" href="#audit">口径自检表</a>
+    </details>
+    <details open>
+      <summary>定价与预测</summary>
+      <a href="#price">定价机制</a>
+      <a href="#forecast">五年价格趋势</a>
+      <a class="l2" href="#mkt-scope">市场规模五种口径</a>
+      <a href="#risk">风险与观察点</a>
+    </details>
+    <details>
+      <summary>附录</summary>
+      <a href="#src">参考文献</a>
+    </details>
+  </nav>
+</aside>
+
+<main>
+<header class="cover" id="cover">
+  <div class="inner">
+    <div class="kicker">GB300 NVL72 · 热管理系统 · 成本 · 定价 · 五年预测</div>
+    <h1>GB300 热管理系统子系统与零部件成本分析报告</h1>
+    <h2>基于 cost 目录本地设计/调研文件，交叉核对中国与国际公开数据后给出分层成本、定价机制与 2026–2031 双市场价格路径。v1.7 修复图表占比标注与布局遮挡。</h2>
+    <div class="meta">
+      <div><b>版本</b>v1.7 · 2026-08-22</div>
+      <div><b>对象平台</b>NVIDIA GB300 NVL72 / OEM 155 kW 包络</div>
+      <div><b>汇率工作假设</b>1 USD = 7.2 CNY（仅用于换算）</div>
+      <div><b>本地底稿</b>Bernstein 1GW 拆解、冷却总体设计、CDU 设计、供应链调研</div>
+      <div><b>外部交叉</b>Morgan Stanley / TechPowerUp、Bernstein、东吴、九方、天下工场、Yobitel / Uptime / 451、Adam Silva、QY Research</div>
+      <div><b>性质</b>公开信息综合，不构成投资或采购报价</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<section id="howto">
+  <div class="h-sec"><div class="no">00</div><div><h2>本报告怎么读：口径地图</h2><div class="en">HOW TO READ · LAYER × MARKET × DENOMINATOR</div></div></div>
+  <p class="lead">后面所有金额先按<b>原始表</b>隔离，再按成本层、市场和功率分母解释。Bernstein 柜内液冷 5.1 万美元来自机柜 BOM 表；柜外设施热管理 21.1 万美元来自另一张设施表，二者不是包含关系。主数字保持<b>美元/柜、万元、美元/块</b>；单位千瓦价只用于同口径换算校验。</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>层</th><th>覆盖什么</th><th>不覆盖什么</th><th>主数字中枢</th><th>附属千瓦价（见第 11 章）</th><th>功率分母</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>L1 托盘冷却</td><td>GPU/CPU/NVSwitch 冷板、托盘管路、托盘 UQD</td><td>柜级歧管、CDU、一次侧、风冷机房</td><td><b>49,860 美元</b>（约 4.99 万美元）</td><td>357 美元/kW · 2,570 元/kW</td><td>运行液冷约 139.5 kW</td></tr>
+      <tr><td>L2 共享 CDU</td><td>L1 + Manifold + 柜级 UQD + 行级 CDU 分摊</td><td>专用 1+1、一次侧、机房风冷</td><td>区间 8–12 万，<b>中枢 107,400 美元</b></td><td>716 美元/kW · 5,155 元/kW</td><td>液冷选型 150 kW</td></tr>
+      <tr><td>L2 专用 2×200 kW</td><td>同上，但 CDU 1 用 1 备、专柜不分摊</td><td>设施风冷、一次侧及其他设施配套</td><td>海外液冷小计 <b>15.1–18.9 万美元</b>；国内 <b>82–104 万元</b>（≈11.4–14.4 万美元）</td><td>海外 1,007–1,260 美元/kW；国内 759–963 美元/kW</td><td>负荷 150 kW；两套市场不可按汇率互换</td></tr>
+      <tr><td>Bernstein 机柜 BOM</td><td>柜内液冷硬件</td><td>柜外设施热管理</td><td><b>5.1 万美元/柜</b></td><td>—</td><td>独立表；不计入下行</td></tr>
+      <tr><td>Bernstein 柜外设施热管理</td><td>设施级风冷 11.0 + 柜外液冷 4.4 + 配套基础设施 5.7</td><td>柜内液冷 5.1、IT 整柜</td><td><b>21.1 万美元/柜</b>；13 亿美元/GW；占 DC capex 3.6%</td><td>1,249 美元/kW @ 169 kW</td><td>换算值仅作校验，不作拆分来源</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>功率尺子</th><th>典型锚点</th><th>用在哪一行</th><th>禁止事项</th></tr></thead>
+    <tbody>
+      <tr><td>① 设备额定冷量</td><td>CDU 200 / 600 kW；塔 250 kW</td><td>CDU、干冷器出厂价与元/kW</td><td>不可把铭牌 kW 当单柜发热</td></tr>
+      <tr><td>② 机柜排热负荷</td><td>NVIDIA 参考 142 kW；Lenovo 135 TDP / 155 EDP；液冷选型 150 kW；残余风 25 kW</td><td>L1 / L2 / 项目测算</td><td><b>150 kW 液冷 + 25 kW 风侧不得加成 175 kW</b></td></tr>
+      <tr><td>③ 设施 / 土建</td><td>Bernstein 169 kW/柜；1 GW = 5,929 柜</td><td>柜外设施表、1 GW、Vertiv SAM、KPMG/JLL 土建</td><td>企业级 DLC 1,875–5,000 美元/kW 是改造口径，不是本 BOM</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout key"><b>国内 / 海外是两套价，不是同一商品打八折。</b>国内二次侧工程包、国产 CDU 按千瓦竞标；海外认证件买的是名录、现场数据和漏液责任。同一行若只写一个市场，不要横向当“谁报高了”。<b>拒绝</b>把个别中文稿“液冷 38 万美元、占机柜 42%”当作本报告单柜 BOM。</div>
+</section>
+
+<section id="exec">
+  <div class="h-sec"><div class="no">01</div><div><h2>核心结论</h2><div class="en">KEY TAKEAWAYS</div></div></div>
+  <p class="lead">公开数字首先要分清<b>来自哪张表</b>。Bernstein 机柜 BOM 表给出柜内液冷 <b>5.1 万美元/柜</b>；设施表给出柜外设施热管理 <b>21.1 万美元/柜</b>，由设施级风冷 11.0 万、柜外液冷 4.4 万和配套基础设施 5.7 万组成，不含 5.1 万。项目二次侧液冷回路约 <b>8–12 万美元/柜</b>，专用 2×200 kW 方案另按项目报价核算。</p>
+  <div class="kpis">
+    <div class="kpi"><div class="v">$49.9k</div><div class="l">托盘级液冷 BOM<br>Morgan Stanley / 多方转述</div></div>
+    <div class="kpi"><div class="v">$80–120k</div><div class="l">二次侧液冷回路<br>冷板+Manifold+UQD+CDU 分摊</div></div>
+    <div class="kpi"><div class="v">$211k</div><div class="l">柜外设施热管理<br>Bernstein 设施表，不含 $51k</div></div>
+    <div class="kpi"><div class="v">3.6%</div><div class="l">占 1GW 全口径 capex<br>$1.3B / GW 热管理</div></div>
+  </div>
+  <ul class="dot">
+    <li><b>含量在升、单价在降。</b>GB300 相对 GB200：独立冷板、UQD 用量约翻倍，托盘冷却从约 4.15 万美元升至约 4.99 万美元（+20%）；单只 NVUQD03 从 70–80 美元降至 40–50 美元。</li>
+    <li><b>国内/海外是两套价格。</b>二次侧国内约 3,000–5,000 元/kW，海外高 50%–100%；CDU 国内约 1,000–1,100 元/kW，海外约 200–240 美元/kW（约 1,440–1,730 元/kW）。</li>
+    <li><b>定价不是单一成本加成。</b>认证溢价、冗余倍数、每千瓦标尺、TCO/PUE 议价、长约阶梯同时起作用。英伟达链赚认证与可靠性，国内 CSP 链赚交付与国产替代。</li>
+    <li><b>未来五年：总量大涨、单价走势需按对象分别跟踪。</b>国内通用 CDU 年降 6%–10%，海外认证件年降 2%–5%；沿用 Bernstein 设施表口径的柜外设施热管理参考路径为 <b>21.0–23.0 万美元</b>，不包含柜内液冷 5.1 万。</li>
+    <li><b>全量摊平见第 10 章总表；千瓦价对照见第 11 章。</b>每一行已标<b>总系统 / 子系统 / 零部件</b>，并写清对应热功率（kW）。可用左侧目录或表上筛选按钮只看一层。</li>
+  </ul>
+</section>
+
+<section id="method">
+  <div class="h-sec"><div class="no">02</div><div><h2>方法与数据可信度</h2><div class="en">METHOD &amp; TRIANGULATION</div></div></div>
+  <p>本报告先吃透 <code>solutions/cost</code> 本地文件，再检索中英文公开源交叉验证。同一数字至少对照两类来源后才进入“建议采用值”；无法对齐的标为口径差，而不是取平均抹平。</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>来源层</th><th>文件 / 出处</th><th>贡献</th><th>可信度</th></tr></thead>
+    <tbody>
+      <tr><td>本地设计</td><td>NVIDIA_GB300_NVL72冷却系统总体设计报告 v2.0 / v1.9</td><td>142/155 kW 边界、90/10 液气比、2×200 kW CDU、FAT 工况</td><td>高（工程基线）</td></tr>
+      <tr><td>本地设计</td><td>NVIDIA_GB300_NVL72_CDU系统设计报告 v1.16/v1.17</td><td>板换 UA、泵差压、冗余与控制边界</td><td>高</td></tr>
+      <tr><td>本地研究</td><td>Bernstein 1GW 拆解中译本（2025-10-27）</td><td>机柜 BOM 表：柜内液冷 5.1 万；设施表：风冷 11.0 + 柜外液冷 4.4 + 配套基础设施 5.7 = 21.1 万</td><td>高（机构模型；两表隔离）</td></tr>
+      <tr><td>本地研究</td><td>数据中心热管理系统供应链与成本调研报告 2026</td><td>浙商/东方 BOM、国产化率、四大件结构</td><td>中高（券商汇总）</td></tr>
+      <tr><td>国际投行</td><td>Morgan Stanley，经 TechPowerUp / Lianli / TGM 转述</td><td>GB300 托盘冷却 49,860 美元</td><td>中高（二手转述，三家数字一致）</td></tr>
+      <tr><td>国际咨询</td><td>MarketsandMarkets（2026-03）/ Grand View（官网 2026-08 核）/ Persistence / TBRC / Axis 汇总 GMI、Mordor</td><td>全球液冷<b>设备</b>市场 2026–2033；2026 年 41–82 亿美元。与东吴、IDC 整机不是同一分子</td><td>中（口径差大，只取区间，不取平均抹平）</td></tr>
+      <tr><td>整机跟踪</td><td>IDC《中国半年度液冷服务器市场（2024 下半年）跟踪》，新闻稿 2025-04-08</td><td>中国液冷<b>服务器整机</b> 2024 年 23.7 亿美元、2029 年 162 亿美元，CAGR 46.8%</td><td>高（官方新闻稿；分子是整机不是热管理）</td></tr>
+      <tr><td>设备厂商收入</td><td>Dell'Oro Group Data Center Liquid Cooling ARR，新闻稿 2026-01-08</td><td>全球液冷<b>设备制造商</b>收入：2025 年接近 30 亿美元，2029 年约 70 亿美元；含 DLC / 浸没 / RDHx</td><td>高（官方新闻稿；约数，非精确到小数）</td></tr>
+      <tr><td>中国卖方</td><td>东吴证券《AI 行业液冷专题》（2026-08）；东吴计算机 2026-07 Rubin 拆解</td><td>二次侧 3–5 千元/kW、一次侧 1.5–2 千元/kW、CDU 约占二次侧一半；Rubin 单柜液冷 14–16 万美元（不作 GB300 中枢）</td><td>中（需分层使用）</td></tr>
+      <tr><td>中国卖方转述</td><td>九方智投《液冷的逻辑与投资机遇》</td><td>国内 CDU 约 1,000–1,100 元/kW；海外 CDU 200–240 美元/kW；认证快接头国内约 600 元/对、海外约 1,300 元/对</td><td>中（券商转述，作辅证）</td></tr>
+      <tr><td>产业研究</td><td>天下工场《中国数据中心液冷 2026》</td><td>整柜液冷国产 5–8 千元/kW、海外 8–12 千元/kW；UQD 量产成本 30–50 元/只</td><td>中（行业转述，已核到原文段落）</td></tr>
+      <tr><td>行业访谈</td><td>腾讯新闻《聊一聊液冷》（2025-08-31）</td><td>北美/欧洲主流 70 kW CDU ≈ 3 万美元；150 kW ≈ 3.5–4.0 万美元；GB300 小冷板 200–300 美元</td><td>中（从业者访谈，非机构模型）</td></tr>
+      <tr><td>设施改造口径</td><td>Yobitel 汇总 Uptime Institute / 451 Research / OCP；Adam Silva Consulting 2026</td><td>企业级 DLC 1,875–5,000 美元/kW；实验室 16 柜规模 3,500–5,000 美元/kW</td><td>中（明确<b>非本 BOM</b>）</td></tr>
+      <tr><td>土建 / 机电</td><td>ThePricer 转 KPMG（€90–150 万/MW）；JLL / Archdesk 2026 液冷机房 450–520 万美元/MW</td><td>冷却土建与机房机电，不是单柜硬件</td><td>中（设施层，不作单柜中枢）</td></tr>
+      <tr><td>出货均价</td><td>QY Research CDU 2026 版：2025 年约 6 万台、均价约 1.6 万美元/台；Standalone 子集约 1.1 万台、约 3.6 万美元/台</td><td>含大量小机，不能当 200 kW 单价</td><td>中（定义差，只作警示）</td></tr>
+      <tr><td>厂商公开</td><td>Vertiv CoolChip CDU 70–2,300 kW 产品页；NVIDIA NVL72 AI Factory RA；CEJN / OCP UQD</td><td>产品能力与架构，极少给单价</td><td>高（规格）/ 低（价格）</td></tr>
+      <tr><td>行级 CDU 规格与案例</td><td>Vertiv / CoolIT / Motivair-Schneider / nVent / 英维克产品页；OCP Project Deschutes；ORNL Frontier CDU 论文；Supermicro xAI Colossus；LLNL El Capitan</td><td>行级/柜级/集中式拓扑、带柜数、具名站点</td><td>规格高；具名站点中高；厂商“已部署于超大规模”未点名则中</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout key"><b>对账原则：</b>Morgan Stanley 的 5 万美元 ≈ Bernstein 机柜 BOM 表的柜内液冷 5.1 万美元。Bernstein 设施表的 21.1 万美元已由 11.0 + 4.4 + 5.7 构成，<b>不含 5.1 万</b>。若另算 26.2 万，只能标注“作者跨表加总”，不能称 Bernstein 原始拆解。</div>
+</section>
+
+<section id="arch">
+  <div class="h-sec"><div class="no">03</div><div><h2>热管理架构与成本对象</h2><div class="en">ARCHITECTURE</div></div></div>
+  <p>本地总体设计把热量分成三条链：芯片→冷板→TCS；CDU 板换→FWS；FWS→室外冷源。残余空气由 CRAH/RDHx 处理。生产基线是<b>同源高温水 + L2L CDU</b>，L2A 只作无一次水试点。</p>
+  <div class="flow">
+    <div class="box navy"><b>IT / TCS</b><span>72×B300 + 36×Grace；18 Compute + 9 Switch；独立冷板、盲插歧管、UQD、漏液检测</span></div>
+    <div class="box"><b>CDU</b><span>200 kW L2L；项目 2 套 1 用 1 备；双泵、板换、过滤、控制</span></div>
+    <div class="box gold"><b>FWS / 室外</b><span>闭式塔或绝热干冷器 250 kW 初选；峰值冷机可选；UPS 续冷 ≥5 min</span></div>
+    <div class="box"><b>残余风冷</b><span>OEM 约 10% 热量；设计 25 kW；2×25 kW CRAH/RDHx</span></div>
+  </div>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>参数</th><th>公开 / 设计值</th><th>对成本的含义</th></tr></thead>
+    <tbody>
+      <tr><td>NVIDIA 参考功率</td><td>Enterprise RA：整柜最高约 142 kW（8×33 kW 电源架）</td><td>行业对标常用点；公开页强调全液冷机柜，未单列美元 BOM</td></tr>
+      <tr><td>Lenovo 峰值包络</td><td>135 kW TDP / 155 kW EDP</td><td>设备按 150 kW 液冷、25 kW 风侧分别选型，不得加总成 175 kW</td></tr>
+      <tr><td>液 / 气热分配</td><td>OEM 约 90% / 10%；行业混合常见 70–72% 液冷</td><td>液冷含量随 OEM 上升，风侧不能取消</td></tr>
+      <tr><td>进水 / 接口标准</td><td>ASHRAE W45，18–45℃；OCP UQD 为开放快接头标准，NVUQD03 为英伟达缩小规格</td><td>高温水可去冷机，压低一次侧 OPEX，抬高板换 UA 与泵扬程；认证件与白牌 UQD 不是同一商品</td></tr>
+      <tr><td>流量包络</td><td>Lenovo 表 59–177 L/min，压降 16–127 kPa</td><td>CDU 必须覆盖宽流量，不能按固定 10 K 反推</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="scope">
+  <div class="h-sec"><div class="no">04</div><div><h2>成本边界与原始表隔离</h2><div class="en">COST SCOPE</div></div></div>
+  <p>项目 L1/L2 可按包含关系分析；Bernstein 的 21.1 万属于另一张柜外设施表，不能作为 L1/L2 的上位层。</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>层级</th><th>包含</th><th>建议采用值（2026）</th><th>谁在买</th></tr></thead>
+    <tbody>
+      <tr><td>L1 托盘 / IT 侧</td><td>GPU/CPU/NVSwitch 冷板、托盘管路、托盘 UQD</td><td>区间 <b>4.8–5.2 万美元</b>，中枢 <b>49,860 美元</b></td><td>ODM / 服务器 BOM</td></tr>
+      <tr><td>L2 二次侧液冷包</td><td>L1 + Manifold + 柜级 UQD + 分摊或专用 CDU + 二次侧管路</td><td>共享：区间 <b>8–12 万美元</b>，中枢 <b>107,400 美元</b><br>专用 2×200 kW：海外液冷小计 <b>15.1–18.9 万美元</b>（层叙述常写 12–18 万）；国内 <b>82–104 万元</b></td><td>ODM + 液冷集成商。国内 82–104 万 ≠ 海外 15.1–18.9 万的汇率换算</td></tr>
+      <tr><td>Bernstein 机柜 BOM</td><td>柜内液冷</td><td><b>51,000 美元</b></td><td>机柜 BOM；不含于下行</td></tr>
+      <tr><td>Bernstein 柜外设施表</td><td>设施风冷 + 柜外液冷 + 配套基础设施</td><td><b>211,000 美元</b> = 110,000 + 44,000 + 57,000</td><td>设施口径；不含柜内液冷</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="chart-box"><div class="cap">图 4-1 项目液冷口径与 Bernstein 设施口径（美元/柜）<div class="cap-sub">前三柱为项目液冷分析；末柱为另一张 Bernstein 柜外设施表，<b>不可相加</b>。</div></div><div id="c1" class="chart" style="height:380px"></div></div>
+</section>
+
+<section id="recon">
+  <div class="h-sec"><div class="no">05</div><div><h2>多方口径对账</h2><div class="en">RECONCILIATION</div></div></div>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>来源</th><th>数字</th><th>实际覆盖</th><th>本报告处理</th></tr></thead>
+    <tbody>
+      <tr><td>Morgan Stanley（2025-11，三家媒体同数）</td><td>GB300 冷却 49,860；计算托盘 2,260×18=40,680；交换托盘 1,020×9=9,180</td><td>L1 托盘冷却</td><td>采用为 L1 中枢</td></tr>
+      <tr><td>同口径 GB200 / Rubin</td><td>GB200 ≈41,500；Vera Rubin NVL144 ≈55,700（+17%）</td><td>L1 代际</td><td>采用为含量趋势</td></tr>
+      <tr><td>Bernstein Exhibit 1–2</td><td>机柜 BOM：柜内液冷 51；设施表：风冷 110 + 柜外液冷 44 + 配套基础设施 57 = 211（千美元）</td><td>两张独立表</td><td>51 与 MS 对齐；211 仅作柜外设施口径</td></tr>
+      <tr><td>浙商（GB200）</td><td>冷板 37,800；CDU 30,000；Manifold 12,000；UQD 12,000；Switch 7,100；合计 98,900</td><td>L2 二次侧包</td><td>作 GB200 L2 锚点</td></tr>
+      <tr><td>东方（GB200）</td><td>合计 61.89 万元（约 8.6 万美元，汇率差+口径差）</td><td>L2</td><td>结构一致，绝对值取区间</td></tr>
+      <tr><td>国海 / 国信</td><td>8.48 万 / 7.99 万美元</td><td>L2 偏紧</td><td>作下限</td></tr>
+      <tr><td>东吴（2026）</td><td>二次侧 3–5 千元/kW；一次侧国内 1.5–2 千元/kW，海外高 50–100%</td><td>按 kW 的工程报价</td><td>用于国内/海外价差</td></tr>
+      <tr><td>行业转述 CDU</td><td>国内 ≈1,000–1,100 元/kW；海外 200–240 美元/kW</td><td>CDU 硬件</td><td>用于 CDU 单价</td></tr>
+      <tr><td>Vertiv（Bernstein 转述）</td><td>传统 2.5–3.0、高密 3.0–3.5 百万美元/MW</td><td>厂商可服务市场，含更多电气/交付</td><td>作上限参照，不直接当单柜 BOM</td></tr>
+      <tr><td>东吴液冷专题（2026-08）市场空间</td><td>全球液冷 2026/2030 年 102 / 873 亿美元（一次侧 29/213 + 二次侧 73/660）</td><td>含一次侧冷源与工程，远宽于咨询公司“液冷设备市场”</td><td>与 MaM 41 亿、GVR 82 亿是<b>口径差</b>，分层见<a href="#mkt-scope">第 13.6 节</a>；不取平均</td></tr>
+      <tr><td>IDC vs Dell'Oro（常被误读为冲突）</td><td>IDC：中国液冷服务器整机 2024 年 23.7 亿 → 2029 年 162 亿；Dell'Oro：全球液冷设备厂商收入 2025 年接近 30 亿 → 2029 年约 70 亿</td><td>IDC 分子是整机（GPU/主板/电源都算）；Dell'Oro 分子是冷板/CDU/浸没槽/RDHx 厂商出货</td><td><b>口径差，不是冲突</b>。2029 年中国整机 162 亿可以大于全球设备 70 亿。换算与检查清单见<a href="#mkt-scope">第 13.6 节</a></td></tr>
+      <tr><td>东吴计算机（2026-07）Rubin 拆解</td><td>Rubin 级 NVL72 液冷 14–16 万美元（柜内 6–7 万 + CDU/二次侧 8–9 万）</td><td>下一代 + 2N CDU，不是 GB300 共享包</td><td>解释含量上行；<b>不改</b> GB300 L2 中枢 10.74 万</td></tr>
+      <tr><td>个别中文稿</td><td>GB300 液冷约 38 万美元、占机架 42%</td><td>未披露分项，与 MS / 浙商及 Bernstein 两表口径均冲突</td><td><b>拒绝</b>作本报告单柜 BOM</td></tr>
+      <tr><td>QY Research CDU 均价</td><td>2025 年约 1.6 万美元/台（约 6 万台）；Standalone 子集约 3.6 万美元/台（约 1.1 万台）</td><td>全球出货混合机型，含大量 &lt;500 kW 甚至机架小机</td><td>不能 ÷kW 当 200 kW 单价；与海外认证 4.0–4.8 万美元/200 kW 不是同一商品</td></tr>
+      <tr><td>Yobitel / Uptime / 451；Adam Silva 2026</td><td>企业 DLC 1,875–5,000 美元/kW；16 柜实验室 3,500–5,000 美元/kW</td><td>含改造、二次侧配管、小规模摊销，排除一次侧排热厂</td><td>设施/改造口径，<b>非本 BOM</b>；与 L2 716 美元/kW 不可横向</td></tr>
+      <tr><td>ThePricer 转 KPMG；JLL / Archdesk 2026</td><td>KPMG 约 90–150 万欧元/MW（约 1,000–1,500 美元/kW）；液冷机房机电 450–520 万美元/MW</td><td>土建、TES 环路、安装调试或整栋机电</td><td>设施层。旧转述 1,000–1,500 美元/kW 保留并标明土建；新值 4.5–5.2 百万美元/MW 作对照，<b>不改</b>单柜中枢</td></tr>
+      <tr><td>经销商博客（2024 北美 200 kW CDU）</td><td>约 1.8–2.5 万美元/台 ≈ 90–125 美元/kW</td><td>未给出认证、冗余与品牌，低于本报告海外 200–240 美元/kW</td><td>置信低，<b>不采用</b>为中枢，不与东吴/九方取平均</td></tr>
+      <tr><td>兆瓦级行级 CDU 千瓦价</td><td>CoolIT 称 CHx1500“best cost per kW”，未公布美元数；Vertiv 1350/2300、Motivair 2.5 MW 产品页均<b>不标价</b></td><td>同机柜足迹上冷量翻倍，密度（kW/m²）上升，但不等于已核实的出厂千瓦价下降</td><td><b>不改</b>海外 200–240 美元/kW（200 kW 认证机）与国内 1,000–1,100 元/kW。规模效应只作家数：70 kW 机 429 美元/kW（第 11 章）已高于 200 kW 机</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="chart-box"><div class="cap">图 5-1 同一机柜、不同口径：不要横向当“谁报高了”<div class="cap-sub">Bernstein 柜内液冷与柜外设施热管理来自两张表，<b>不可相加</b>；Vertiv SAM 亦非本 BOM。</div></div><div id="c2" class="chart" style="height:420px"></div></div>
+</section>
+
+<section id="subsys">
+  <div class="h-sec"><div class="no">06</div><div><h2>子系统成本</h2><div class="en">SUBSYSTEM COST</div></div></div>
+  <h3 id="subsys-l2">6.1 二次侧液冷包（建议结构，GB300）</h3>
+  <p>以浙商 GB200 结构为骨架，按 GB300 独立冷板与 UQD 增量修正。汇率 7.2。</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>子系统</th><th class="r">GB200 锚点（美元）</th><th class="r">GB300 建议（美元）</th><th class="r">约合人民币</th><th class="r">占 L2</th><th>变化逻辑</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>冷板 / Compute Tray 冷却</td><td class="r num">37,800</td><td class="r num">40,700</td><td class="r num">29.3 万</td><td class="r">38%</td><td>独立冷板。MS 精确值 2,260×18=40,680，本结构取整 40,700（+20 美元）</td></tr>
+      <tr><td>Switch Tray 冷却</td><td class="r num">7,100</td><td class="r num">9,200</td><td class="r num">6.6 万</td><td class="r">9%</td><td>交换芯片全液冷。MS 精确值 1,020×9=9,180，本结构取整 9,200（+20 美元）</td></tr>
+      <tr><td>Manifold + 柜内主管</td><td class="r num">12,000</td><td class="r num">13,500</td><td class="r num">9.7 万</td><td class="r">13%</td><td>接口点数增加，本体变化不大</td></tr>
+      <tr><td>UQD / QDC</td><td class="r num">12,000</td><td class="r num">22,000</td><td class="r num">15.8 万</td><td class="r">21%</td><td>用量约 252 对或约 350 只；单价腰斩、总量翻倍</td></tr>
+      <tr><td>CDU 分摊（行级共享）</td><td class="r num">30,000</td><td class="r num">22,000</td><td class="r num">15.8 万</td><td class="r">20%</td><td>200–600 kW 行级分摊到 4–8 柜；见下节专用情景</td></tr>
+      <tr class="tot"><td>L2 二次侧合计（共享 CDU）</td><td class="r num">98,900</td><td class="r num">107,400</td><td class="r num">77.3 万</td><td class="r">100%</td><td>相对 GB200 +9%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">分项 40,700+9,200+13,500+22,000+22,000=<b>107,400</b>。相对 MS 托盘精确值 40,680+9,180=49,860，本结构托盘侧多 40 美元，是为让 L2 中枢整除；<b>L1 中枢仍用 49,860，不以 49,900 另立中枢</b>。占比四舍五入合计可能到 101%，以金额 107,400 为准。UQD 取 22,000：252 对 × 45 美元/只 × 2 ≈ 22,680，与“350 只 × 45 ≈ 15,750”到“券商 2.8 万”的区间中位接近。CDU 22,000 对应约 1 台 200 kW 国产机（约 22 万元）分摊到约 1.4 柜，或 1 台 600 kW 海外机分摊到 6–8 柜。</p>
+
+  <h3>6.2 Bernstein 两张表：机柜 BOM 与柜外设施热管理</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>原始表 / 子系统</th><th class="r">千美元/柜</th><th class="r">十亿美元/GW</th><th class="r">占本表合计</th><th class="r">占全口径 DC capex</th></tr></thead>
+    <tbody>
+      <tr><td>机柜 BOM 表：柜内液冷（独立口径）</td><td class="r num">51</td><td class="r num">—</td><td class="r">—</td><td class="r">—</td></tr>
+      <tr><td>设施表：设施级风冷系统</td><td class="r num">110</td><td class="r num">—</td><td class="r">52.1%</td><td class="r">—</td></tr>
+      <tr><td>设施表：柜外液冷设施</td><td class="r num">44</td><td class="r num">—</td><td class="r">20.9%</td><td class="r">—</td></tr>
+      <tr><td>设施表：配套基础设施</td><td class="r num">57</td><td class="r num">—</td><td class="r">27.0%</td><td class="r">—</td></tr>
+      <tr class="tot"><td>设施表合计（不含柜内液冷 51）</td><td class="r num">211</td><td class="r num">1.3</td><td class="r">100%</td><td class="r">3.6%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout info"><b>读法：</b>4.4 万是设施表中的柜外液冷设施分摊，不是本项目 2×200 kW 专用 CDU 报价；11.0 万是设施级风冷系统分摊，不是本项目 25 kW 残余风冷成本。13 亿美元/GW 与 1,249 美元/kW只校验 21.1 万量级，不是拆分来源。</div>
+</section>
+
+<section id="parts">
+  <div class="h-sec"><div class="no">07</div><div><h2>零部件成本</h2><div class="en">COMPONENT COST</div></div></div>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>零部件</th><th>规格锚点</th><th class="r">国际单价</th><th class="r">国内单价</th><th class="r">单柜用量</th><th class="r">单柜价值</th><th>壁垒 / 国产化</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>GPU 冷板</td><td>独立微通道，单封装至约 1.4–3.6 kW</td><td class="r">市场 200–400 美元/块；合计按中枢 280–400</td><td class="r">认证件约 7–9 折；白牌更低（不作中枢）</td><td class="r">72</td><td class="r"><b>2.02–2.88 万美元</b></td><td>高；国产化约 70%+</td></tr>
+      <tr><td>CPU / 其他冷板</td><td>Grace、VRM、内存、光模块</td><td class="r">80–200 美元</td><td class="r">更低</td><td class="r">36+</td><td class="r">0.5–1.0 万</td><td>中高</td></tr>
+      <tr><td>NVSwitch 冷板</td><td>交换托盘</td><td class="r">含于 1,020 美元/托盘</td><td class="r">—</td><td class="r">9 托盘</td><td class="r">0.92 万</td><td>与芯片协同</td></tr>
+      <tr><td>UQD / NVUQD03</td><td>无滴漏、盲插/手插</td><td class="r">40–50 美元/只（前代 70–80）</td><td class="r">约 300–600 元/对</td><td class="r">约 250 对或 350 只</td><td class="r">1.6–2.8 万</td><td>高；国产化约 60%+</td></tr>
+      <tr><td>Manifold</td><td>盲插、均流、漏液</td><td class="r">1.2–1.5 万/柜</td><td class="r">约 8–11 万人民币</td><td class="r">1 套</td><td class="r">1.2–1.5 万</td><td>中高</td></tr>
+      <tr><td>行级/柜式 CDU</td><td>70–2,300 kW 谱系</td><td class="r">200–240 美元/kW</td><td class="r">1,000–1,100 元/kW</td><td class="r">视冗余</td><td class="r">见 CDU 节</td><td>控制软件；国产化约 47–70%</td></tr>
+      <tr><td>屏蔽泵 / 磁泵</td><td>N+1，TCS 侧</td><td class="r">占 CDU 硬件 18–25%（与第 8 章 BOM 对齐）</td><td class="r">飞龙/南方/大元</td><td class="r">2–4 台/CDU</td><td class="r">0.3–0.8 万/柜分摊</td><td>密封与寿命</td></tr>
+      <tr><td>板式换热器</td><td>污堵 UA≥66.7 kW/K（200 kW/3K）</td><td class="r">SWEP / Alfa / 丹佛斯</td><td class="r">国产板换已进入</td><td class="r">1–2 /CDU</td><td class="r">0.2–0.6 万/柜分摊</td><td>逼近温差</td></tr>
+      <tr><td>阀 / 过滤器 / 传感器</td><td>50–500 µm，电导率、漏液</td><td class="r">丹佛斯 / GF</td><td class="r">部分国产</td><td class="r">一套</td><td class="r">0.2–0.5 万</td><td>中</td></tr>
+      <tr><td>冷却液（水基）</td><td>DI 或 PG25</td><td class="r">可忽略 capex</td><td class="r">低</td><td class="r">回路容积</td><td class="r">&lt;0.1 万</td><td>水质管理是 OPEX</td></tr>
+      <tr><td>一次侧干冷器/闭式塔</td><td>250 kW 初选</td><td class="r">一次侧 1.5–2 千元/kW 国内；海外 +50–100%</td><td class="r">国产为主</td><td class="r">N+1 多柜分摊</td><td class="r">国内 12–20 万元；海外 2.5–5.0 万美元</td><td>工程交付。2.5–5.0 万是美元、不是把国内 12–20 万再当美元</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="chart-box"><div class="cap">图 7-1 GB300 二次侧建议结构（共享 CDU，107,400 美元）<div class="cap-sub">分母=107,400。冷板 40,700（37.9%）+ Switch 9,200（8.6%）+ Manifold 13,500（12.6%）+ UQD 22,000（20.5%）+ CDU 分摊 22,000（20.5%）= 107,400。占比四舍五入到 0.1% 合计 100.1%，以金额为准。五项是同一 L2 包的分项，可加总。</div></div><div id="c3" class="chart" style="height:480px"></div></div>
+  <h3 id="parts-gap">7.2 常被漏计、却会改报价的五项</h3>
+  <p>第 7.1 节主表已列出冷板、UQD、CDU 内件。招标漏项多半出在下面五类——原文有行但容易被当成“含在 CDU 里”。交叉引用如下，千瓦价对照见<a href="#unitpx">第 11 章</a>。</p>
+  <ul class="dot">
+    <li><b>漏液检测。</b>CDU 内传感约占售价 6–10%，加上柜内漏液绳/点式探头约 1.2–2.2 万元/柜（第 8 章、第 10 章零部件行）。天下工场指出国产漏液传感器仍偏进口、是整柜安全件；Uptime 2022/2024 DLC 调查把泄漏与系统故障列为主要顾虑。覆盖：二次侧保护回路。不覆盖：一次侧室外管网检漏。</li>
+    <li><b>水质与冷却液。</b>DI / PG25 初次灌装 capex 通常 &lt;1,000 美元，可忽略；费用在 OPEX（电导率、补液、菌控）。覆盖：工质本身。不覆盖：板换污堵后的换片与停机。</li>
+    <li><b>安装、冲洗、FAT。</b>第 9 章单列 4–8 万元 / 0.8–1.5 万美元。覆盖：二次侧回路灌装、氦检、FAT-B 3K 端温差。不覆盖：一次侧塔基础与土建。</li>
+    <li><b>一次侧排热。</b>东吴：国内 1,500–2,000 元/kW，海外高 50–100%（BAC / Marley 等）。总体设计 250 kW 塔 N+1，分摊 12–20 万元/柜。覆盖：冷源额定 kW。不覆盖：机柜瞬时发热，也不是 KPMG/JLL 整栋机电。</li>
+    <li><b>认证溢价。</b>第 12 章乘数 1.3–2.0×。买的是 NVIDIA / OCP / 超大规模名录、百万小时现场数据和漏液责任，不是多买一公斤铜。覆盖：认证 CDU、NVUQD03、冷板。不覆盖：白牌量产件（天下工场：UQD 量产成本可到 30–50 元/只，与认证件不可比）。</li>
+  </ul>
+</section>
+
+<section id="cdu">
+  <div class="h-sec"><div class="no">08</div><div><h2>CDU 内部成本与专用/共享情景</h2><div class="en">CDU BOM &amp; REDUNDANCY</div></div></div>
+  <p>CDU 是“泵+板换+阀+传感器+钣金+控制软件”。硬件可组装，溢价在<b>控制、认证、漏液责任和交付周期</b>。2026 年海外交付常见 6–12 个月，这本身就是价格。</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>200 kW L2L CDU 内部</th><th class="r">占 CDU 出厂价</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>循环泵组（N+1）</td><td class="r">18–25%</td><td>屏蔽/磁泵，失效窗口 30–60 s</td></tr>
+      <tr><td>板式换热器</td><td class="r">12–18%</td><td>FAT-B 3K 端温差抬高 UA</td></tr>
+      <tr><td>阀、过滤器、膨胀、管路</td><td class="r">12–16%</td><td>一二次侧隔离</td></tr>
+      <tr><td>传感器与漏液</td><td class="r">6–10%</td><td>流量/压力/温度/电导率</td></tr>
+      <tr><td>控制器、通信、软件</td><td class="r">10–18%</td><td>真正护城河；群控、Redfish/SNMP</td></tr>
+      <tr><td>钣金、配电、装配测试</td><td class="r">15–22%</td><td>FAT、氦检、灌装</td></tr>
+      <tr><td>认证、质保、毛利</td><td class="r">15–25%</td><td>NV/OCP/超大规模准入</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>情景</th><th>配置</th><th class="r">CDU 硬件</th><th class="r">摊到单柜</th><th>适用</th></tr></thead>
+    <tbody>
+      <tr><td>A 国内行级共享</td><td>1×600 kW，带 6 柜</td><td class="r">约 66 万元</td><td class="r">约 1.5 万美元</td><td>国内 CSP / 智算</td></tr>
+      <tr><td>B 海外行级共享</td><td>1×600 kW，带 6 柜</td><td class="r">12.0–14.4 万美元（中位约 13.2 万）</td><td class="r">约 2.0–2.4 万美元（中位 2.2）</td><td>美欧 colo / 超大规模。200–240 美元/kW × 600</td></tr>
+      <tr class="sub"><td>C 本项目设计（建议报价）</td><td>2×200 kW，1 用 1 备，服务 1 柜</td><td class="r">硬件 40–44 万元 / 8.0–9.6 万美元；项目行 40–50 万元 / 8.0–10.0 万美元</td><td class="r">国内硬件 5.6–6.1 万美金；海外 8.0–10.0 万美金</td><td>与本地总体设计一致。40–44 万=1,000–1,100 元/kW×200×2；40–50 万含第二台折扣波动与轻认证，用来加总第 9 章 82–104 万</td></tr>
+      <tr><td>D 行级 2N</td><td>2×1.2 MW 带 12 柜</td><td class="r">视品牌</td><td class="r">2.5–5.0 万美元</td><td>万卡舱</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout tip"><b>报价务必写清冗余。</b>把情景 A 的 1.5 万美元和情景 C 的 8 万美元放在同一张比价表里，会得出虚假的“国产便宜 80%”。差的是<b>是否 1 用 1 备、是否专柜、是否含控制软件与认证</b>。</div>
+
+  <h3 id="row-cdu">8.2 行级 CDU 方案与落地案例</h3>
+  <p class="lead">第 8.1 节已经给出共享 vs 专用的成本锚点。本节回答三件事：行级 CDU <b>长什么样</b>、<b>谁真正用过</b>、<b>一台到底能带几柜</b>。差价几乎全部落在 CDU 一格：共享分摊约 <b>22,000 美元/柜</b>（L2 包 107,400）；专用 2×200 kW 独占约 <b>5.6–10 万美元</b>（L2 12–18 万美元，国内液冷小计 82–104 万元）。冷板、歧管、UQD 两方案几乎一样，不在这里重报价。</p>
+
+  <h4>三种拓扑</h4>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>拓扑</th><th>典型位置与冷量</th><th>覆盖</th><th>不覆盖 / 代价</th><th>适用</th></tr></thead>
+    <tbody>
+      <tr><td>柜级专用（In-rack / sidecar）</td><td>柜底 1–4U 或旁挂 L2A；约 70–250 kW</td><td>单柜故障域；FAT 边界清晰；可单柜停机</td><td>装机冷量远大于负荷（本设计 400 kW 保 150 kW，冗余率约 167%）；占 U 位或旁柜</td><td>认证样柜、多租户、上架节奏不确定。本目录 2×200 kW 属此类</td></tr>
+      <tr class="sub"><td>行级共享（In-row / end-of-row）</td><td>排端或列间标准柜位（常见 600/750/800/900 mm）；约 300 kW–2.5 MW</td><td>一台挂 3–12 柜二次侧母管；capex 按柜分摊</td><td>故障域=整排；水力耦合；检修需隔离/旁通；多租户责任模糊</td><td>同业主、同代际、一次上满一排。情景 A/B</td></tr>
+      <tr><td>集中式 / 灰区（Room / perimeter）</td><td>机房周边或机电间；常 ≥1.6 MW</td><td>多排或整舱；一次侧接口少</td><td>二次侧管网长、水容量大、平衡更难；漏液隔离半径大</td><td>超算舱、万卡仓、OCP Deschutes 级 2 MW 机</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">NVIDIA MGX / OEM 公开页把三种都列为可选项：Lenovo 写 in-rack 或 in-row 软管进 MGX 柜；Supermicro GB300 数据表写 In-Rack 至 250 kW（N+1 泵）、In-Row 至 1.8 MW（最多 8 柜）、L2A sidecar 至 200 kW。NVIDIA 公开口径是机柜进水按 ASHRAE <b>W45</b> 设计，CDU 一次侧通常还要再低一个逼近温差（约 3–4 K）。设备额定 kW ≠ 机柜排热 kW，150+25 不得加成 175。</p>
+
+  <h4>产品谱系（2025–2026 公开规格）</h4>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>厂商 / 型号</th><th>形态</th><th class="r">额定冷量</th><th>泵 / 水温</th><th>占地</th><th>公开千瓦价</th></tr></thead>
+    <tbody>
+      <tr><td>Vertiv CoolChip（原 Liebert XDU）70 / 100 / 450 / 600 / 1350 / 2300</td><td>In-rack / 排端 / 周边</td><td class="r">L2L 至 2,300 kW @ 4°C ATD；L2A 70 kW</td><td>冗余泵、双路电源；支持 W45；二次侧 ±1°C</td><td>600 kW：约 600×1200 mm；1350：900×1243；2300：1200×1200</td><td>未公开</td></tr>
+      <tr><td>CoolIT CHx1500 / CHx2000</td><td>行级 L2L</td><td class="r">宣称 1,364 / 2,269 kW（标称 1.5 / 2.0 MW）；CHx2000 @ 5°C ATD</td><td>二次侧扬程宣称 44–53 psi；群控最多 20 台、Redfish</td><td>750×1200 mm</td><td>未公开。厂商称 CHx1500“best cost per kW”，无美元数</td></tr>
+      <tr><td>CoolIT AHx180 / AHx240</td><td>L2A 行/柜侧</td><td class="r">约 180 / 240 kW</td><td>无一次水，排热进冷热通道</td><td>标准柜位量级</td><td>未公开</td></tr>
+      <tr><td>Motivair by Schneider MCDU-15…70</td><td>行级 / 灰区</td><td class="r">约 105 kW–2.5 MW（MCDU-70 2.5 MW）</td><td>双泵+VFD；目标约 1.5 L/min·kW；群控可扩至 10 MW 级</td><td>随型号，偏机电间</td><td>未公开</td></tr>
+      <tr><td>nVent RackChiller CDU40 / 100 / 800</td><td>柜内 / 行级</td><td class="r">40 / 100 / 800+ kW @ 6 K（800）</td><td>冗余泵、变频；SNMP/Modbus；运行中可维护</td><td>CDU800：800×1200×2200 mm</td><td>未公开</td></tr>
+      <tr><td>Supermicro（OEM 集成）</td><td>柜内 / 行级 / L2A</td><td class="r">柜内至 250 kW；行级至 1.8 MW（最多 8 柜）；L2A 180–240 kW</td><td>N+1 或双冗余泵</td><td>随整柜方案</td><td>未公开（随整柜报价）</td></tr>
+      <tr><td>OCP Project Deschutes（Google 贡献规格）</td><td>下一代 2 MW CDU</td><td class="r">2,000 kW @ 3°C 逼近</td><td>无密封泵、双路 PDU；DI / PG25；IT 侧 80–90 psi</td><td>约 65×47.2 in（宽×深），高 93.1 in</td><td>规格不是商品价</td></tr>
+      <tr><td>英维克 Coolinside XCRow</td><td>行级 L2L</td><td class="r">产品册 300 / 400 / 500 / 600 / 630 / 1,400 / 2,000 kW</td><td>单泵至四泵；一次侧约 35°C 供水</td><td>300 kW 档约 600×1200；大机 800–1200 mm 宽</td><td>未公开。本报告国内中枢仍 1,000–1,100 元/kW</td></tr>
+      <tr><td>申菱 CDU200–800 档 / CDU300 系统</td><td>分布式 / 柜式</td><td class="r">公开表 200–800 kW 档；宣传“支持 150 kW/柜、PUE&lt;1.15”</td><td>一次/二次约 35/40°C 量级</td><td>随型号</td><td>未公开</td></tr>
+      <tr><td>Chilldyne CF-CDU（负压）</td><td>柜/行</td><td class="r">公开常见约 300 kW 级</td><td>负压回路，漏液先吸回</td><td>专用管路</td><td>未公开。2025 年末报道被大金收购</td></tr>
+      <tr><td>JetCool / Boyd / LiquidStack / Delta / 高澜 / 同飞 / 依米康 / 曙光</td><td>柜内或浸没为主</td><td class="r">行级独立数据表本次未系统核到</td><td>—</td><td>—</td><td>不作中枢。LiquidStack 主线是浸没槽</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">千瓦价列全部“未公开”是事实，不是遗漏。海外 200–240 美元/kW、国内 1,000–1,100 元/kW 仍只适用于本报告 <b>200 kW 认证/国产行级机</b>；600 kW 国内约 66 万元、海外 12.0–14.4 万美元由此推出，不外推到 2 MW 机。</p>
+
+  <h4>具名落地案例（只收录可查证的）</h4>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>业主 / 站点</th><th>供应商与形态</th><th>规模（公开）</th><th>时间</th><th>来源与可信度</th></tr></thead>
+    <tbody>
+      <tr><td>ORNL Frontier（美国橡树岭）</td><td>计算侧 CDU，<b>行/舱级共享</b>。论文未写品牌型号</td><td><b>25 台、单台额定 1.6 MW</b>；<b>每台带 3 个计算柜</b>；一次侧 ASHRAE W32（最高 32°C）；定压差控制</td><td>2022 上线，2025 冷却论文</td><td>高。ORNL/DOE：<i>Providing Thermal Stability… Frontier</i>，doi:10.2172/3013860</td></tr>
+      <tr><td>LLNL El Capitan</td><td>CoolIT 直液冷冷板（Split-Flow）+ HPE Cray EX；CDU 型号未点名</td><td>超 11,000 节点；机柜密度公开约 400 kW/柜；一次侧约 85°F（约 29°C）温水+冷却塔</td><td>2024 TOP500</td><td>高（冷板/整机）；中（CDU 型号）。LLNL 官网 + CoolIT / HPE 新闻稿</td></tr>
+      <tr><td>xAI Colossus（孟菲斯）</td><td>Supermicro <b>柜内 CDU</b>，一柜一台（H100 代，不是 NVL72 行级）</td><td>每柜 8×4U、64 颗 H100 + 柜底 CDU；设施水进 CDU，室外冷机；公开集群约 10–20 万 GPU</td><td>2024–2025</td><td>高。Supermicro 案例 PDF + ServeTheHome 现场。形态=专用柜级，用来对照行级</td></tr>
+      <tr><td>Meta Catalina（GB200 改编）</td><td><b>L2A 侧舱</b>（AALC），不是 L2L 行级 CDU</td><td>两台约 120 kW 计算柜配四台冷却侧柜；另有设施液冷楼可用阀组直供</td><td>Hot Chips 2025 公开</td><td>高。Meta/OCP + DCD。改造风冷机房的路径，与本报告 L2L 共享不是同一拓扑</td></tr>
+      <tr><td>Google TPU 机群 / OCP Deschutes</td><td>自研 Deschutes CDU，第四代已部署；第五代 2 MW 规格贡献给 OCP</td><td>公开称 2020 起逾 2,000 个 TPU Pod、可用性约 99.999%；规格：2 MW @ 3 K 逼近</td><td>规格 2025-09；舰队叙述 2025 峰会</td><td>高（OCP 规格 PDF）；中高（舰队数字来自 Google/OCP 演讲转述）</td></tr>
+      <tr><td>CoolIT CHx 系列“超大规模 AI 机房”</td><td>CHx2000 行级，厂商称 2024-10 量产并已装机</td><td>宣称单台带 12× GB200/GB300 NVL72（按 120 kW 柜）</td><td>2024–2026</td><td>中。厂商自述，<b>未点业主名</b></td></tr>
+      <tr><td>国内 CSP / 运营商（阿里、腾讯、字节、百度、三家运营商）</td><td>英维克 Coolinside、申菱、高澜等</td><td>券商/公司稿称腾讯液冷机房份额、英维克累计 &gt;1–2 GW 液冷项目；高澜 2026 年中标中建二局华东 CDU 集采、电信内蒙古信息园 D10 <b>干冷器</b></td><td>2021 起批量，2025–26 订单密集</td><td>中。能确认“谁在供货”，<b>公开可查的「站点+型号+台数+带柜数」几乎没有</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout info"><b>公开可查证的行级具名案例仍然有限。</b>超大规模（Azure、OCI、CoreWeave、国内具体园区）几乎不披露 CDU 品牌与台数。Microsoft / Oracle / CoreWeave 本次<b>未写入表</b>，避免用二手博客杜撰供应商。xAI 与 Meta 写进来，是因为它们证明了“柜级专用 / L2A 侧舱”同样在大规模落地，不能默认所有 GB200/300 都走行级共享。</div>
+
+  <h4>一台行级 CDU 带几柜</h4>
+  <p>经验值要先锁<b>机柜液冷负荷</b>，再除以 CDU <b>额定冷量</b>，最后扣冗余与水力余量。</p>
+  <ul class="dot">
+    <li><b>热容量上限。</b>GB300 按 150 kW 液冷选型：600 kW 机满载约 <b>4 柜</b>；1.35 MW ≈ 9 柜；2.0 MW ≈ 13 柜。CoolIT 写 CHx2000 带 12×120 kW GB200（合计 1.44 MW &lt; 2.0 MW）或“12× GB300”，那是按 120 kW 柜或含余量的营销口径，按 150–155 kW 应下调到约 <b>10–12 柜</b>。Supermicro 写 1.8 MW 最多 <b>8 柜</b>（225 kW/柜，余量更大）。Frontier：1.6 MW ÷ 3 柜 ≈ 533 kW/柜，对应超算大柜，不是 NVL72。</li>
+    <li><b>本报告情景 A「600 kW 带 6 柜」</b>意味着单柜只摊到 100 kW 冷量，或按多样性不满载。用于国内 CSP 约 100 kW 级或混部；<b>不能</b>直接当成 6 台满载 GB300。</li>
+    <li><b>水力限制往往先于热容量。</b>二次侧常用 1.2–1.5 L/min·kW（CoolIT 宣称 1.2；Motivair / ASHRAE 常见 1.5）。150 kW 柜约 <b>180–225 L/min</b>，与第 3 章 Lenovo 表 59–177 L/min 同量级。4 柜并行就要 720–900 L/min，母管、接头和 CDU 扬程（CoolIT 宣称 35–53 psi 可用压头）会先顶死。流量不平衡靠平衡阀、定流量阀、变频泵群控和压差旁通，不是把 CDU 额定 kW 除过去就结束。</li>
+    <li><b>水容量与检修。</b>行级二次侧容积远大于单柜回路，冲洗/FAT 窗口更长；母管无旁通时，停一台 CDU = 停整排。</li>
+  </ul>
+
+  <h4>冗余拓扑与故障域</h4>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>拓扑</th><th>做法</th><th>单泵故障</th><th>单 CDU 故障</th><th>母管检修</th><th>代价</th></tr></thead>
+    <tbody>
+      <tr><td>行级 N（单机+泵 N+1）</td><td>一台 CDU，机内双泵</td><td>机内切换，排仍在线（秒–分钟）</td><td>整排掉液冷</td><td>整排停</td><td>capex 最低</td></tr>
+      <tr><td>行级 N+1</td><td>两台互为备用，或邻排可倒送</td><td>同上</td><td>负荷倒到邻机，可能降额</td><td>需隔离阀/旁通</td><td>第二台有折扣，仍远低于每柜 1+1</td></tr>
+      <tr><td>双母管 + 双 CDU</td><td>每柜两路进水</td><td>单路可切</td><td>单侧失电不灭柜</td><td>可单侧隔离</td><td>管件、UQD、阀组翻倍</td></tr>
+      <tr><td>柜级 2×200 kW 1+1</td><td>本设计</td><td>单柜内切换</td><td>只影响本柜</td><td>不影响邻柜</td><td>CDU 独占 5.6–10 万美元</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4>TCO 对比框架（只用已有锚点）</h4>
+  <p>不新造单价。按液冷负荷 150 kW/柜，1 MW 负荷 ≈ 6.7 柜：</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>科目</th><th class="r">行级共享（情景 A/B）</th><th class="r">柜级专用 2×200 kW</th><th>差额怎么读</th></tr></thead>
+    <tbody>
+      <tr><td>CDU 摊到单柜</td><td class="r">约 1.5 万（国内）/ 2.2 万（海外中枢）美元</td><td class="r">5.6–10 万美元</td><td>差价几乎全在这一格</td></tr>
+      <tr><td>L2 二次侧包</td><td class="r">107,400 美元</td><td class="r">12–18 万美元；国内 82–104 万元</td><td>冷板/歧管/UQD 相同，CDU 从 2.2 万换成 6–10 万</td></tr>
+      <tr><td>1 MW 负荷的 CDU 硬件（6.7 柜）</td><td class="r">约 10–15 万美元（6.7×1.5–2.2 万）</td><td class="r">约 37–67 万美元（6.7×5.6–10 万）</td><td>共享 capex 效率大约 <b>3–5 倍</b>（与开篇框架一致）</td></tr>
+      <tr><td>利用率</td><td class="r">600 kW 带 4 台满载 GB300 ≈ 100%；带 6 柜则按多样性</td><td class="r">400 kW 装机 / 150 kW 负荷 = 37.5% 装机利用率</td><td>专用买的是故障域，不是千瓦</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>结论会被三个变量翻面：<b>① 实际带柜数</b>（4 柜满载 vs 6 柜欠载）；<b>② 可用性合同</b>（单排可接受降额，还是必须柜级 1+1）；<b>③ 上架节奏</b>（半年才上满一排时，共享机先空转，专用可以按柜投资）。运维人力共享更少巡检点，但一次漏液/母管作业影响面大，可用性要按“排”而不是“柜”折算，本报告不编造小时级 MTTR。</p>
+  <div class="chart-box"><div class="cap">图 8-1 600 kW 行级机：带柜数 vs 单柜 CDU 分摊（美元）<div class="cap-sub">纵轴=单柜分摊美元。国内曲线=66 万元÷7.2÷带柜数；海外=13.2 万美元÷带柜数；虚线=专用 2×200 kW 中位 7.8 万美元（不随分摊下降）。<b>150 kW/柜满载时 600 kW 只够约 4 柜</b>；6 柜是情景 A，隐含约 100 kW/柜或负载多样性，<b>不是</b> 6 台满载 GB300。4 柜以右为热容量越界区。</div></div><div id="c9" class="chart" style="height:480px"></div></div>
+</section>
+
+<section id="project">
+  <div class="h-sec"><div class="no">09</div><div><h2>按本目录设计的项目测算</h2><div class="en">PROJECT BUILD-UP</div></div></div>
+  <p>边界：155 kW 峰值包络、150 kW 液冷选型、25 kW 风侧、2×200 kW CDU。给出国内 CSP 与海外认证两套。</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>科目</th><th class="r">国内 CSP（万元）</th><th class="r">海外认证（万美元）</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>L1 托盘冷板+托盘 UQD</td><td class="r num">28–32</td><td class="r num">4.8–5.2</td><td>随服务器走，业主很少单买</td></tr>
+      <tr><td>Manifold + 柜级接头管路</td><td class="r num">10–14</td><td class="r num">1.5–2.2</td><td>GB300 点数上升</td></tr>
+      <tr><td>2×200 kW CDU（1+1）</td><td class="r num">40–50</td><td class="r num">8.0–10.0</td><td>硬件底 40–44 万元（20–22 万×2）；上沿到 50 万含轻认证/工况。海外 8.0–9.6 万为 4.0–4.8×2，上沿 10.0 含认证</td></tr>
+      <tr><td>二次侧安装、冲洗、FAT</td><td class="r num">4–8</td><td class="r num">0.8–1.5</td><td>两套市场，<b>不是</b> 4–8 万元 ÷7.2。国内 4–8 万≈0.56–1.11 万美金；海外 0.8–1.5 万美金≈5.8–10.8 万元</td></tr>
+      <tr class="sub"><td>液冷小计</td><td class="r num">82–104</td><td class="r num">15.1–18.9</td><td>专用冗余情景</td></tr>
+      <tr><td>残余风冷 CRAH/RDHx</td><td class="r num">8–14</td><td class="r num">1.5–2.5</td><td>本项目 25 kW 级选型；不同于 Bernstein 设施表的设施级风冷系统分摊 11.0 万美元</td></tr>
+      <tr><td>一次侧干冷器/塔分摊</td><td class="r num">12–20</td><td class="r num">2.5–5.0</td><td>250 kW N+1 <b>多柜分摊</b>。若把 250 kW×1,500–2,000 元/kW 记到单柜，会得到 37.5–50 万元/台，那是单台出厂，不是本行</td></tr>
+      <tr class="tot"><td>项目热管理可视报价</td><td class="r num">102–138 万</td><td class="r num">19–26 万美金</td><td>与 Bernstein 21.1 万美金同量级</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">国内 102–138 万元 = <b>14.2–19.2 万美元</b>（÷7.2），中位 120 万元 = 16.7 万美元。海外 19–26 万美元 = 136.8–187.2 万元。两套是不同市场的项目包，差额主要来自 CDU 认证溢价、一次侧品牌和安装人工，而不是冷板铜材。国内 102–138 万<b>不是</b> 10.2–13.8 万美元。</p>
+  <div class="chart-box"><div class="cap">图 9-1 国内 CSP vs 海外认证：项目热管理构成（取区间中位）<div class="cap-sub">两套市场各自为分母，<b>不要用同一个分母</b>。国内中位合计 <b>16.7 万美元</b>（=120 万元÷7.2）：托盘 4.2（25.1%）+ 歧管 1.7（10.2%）+ CDU 6.3（37.7%）+ FAT 0.8（4.8%）+ 风侧 1.5（9.0%）+ 一次侧 2.2（13.2%）。海外中位合计 <b>22.9 万美元</b>：5.0（21.8%）+ 1.9（8.3%）+ 9.0（39.3%）+ 1.2（5.2%）+ 2.0（8.7%）+ 3.8（16.6%）。海外六项中位加总 22.9，略高于表列区间中位 22.5（19–26 万），差在分项四舍五入，以分项中位为准。同一柱内可加总；两柱不可相加。</div></div><div id="c4" class="chart" style="height:500px"></div></div>
+</section>
+
+<section id="catalog">
+  <div class="h-sec"><div class="no">10</div><div><h2>全量成本明细总表</h2><div class="en">MASTER COST CATALOG · 总系统 / 子系统 / 零部件 × 热功率</div></div></div>
+  <p class="lead">下表把本报告出现过的成本全部摊平。每一行先标<b>总系统 / 子系统 / 零部件</b>，再写清对应<b>热功率（kW）</b>。<b>来源与区间</b>单独占一行，避免右侧被裁切。CDU、干冷器写的是<b>设备额定冷量</b>，不是机柜瞬时发热；机柜侧写的是<b>排热负荷</b>。汇率 1 USD = 7.2 CNY。单柜价值取建议中枢，区间见来源行。</p>
+  <div class="kpis">
+    <div class="kpi"><div class="v">7</div><div class="l">总系统行<br>设施表 / 项目报价 / 1GW / 代际对照</div></div>
+    <div class="kpi"><div class="v">18</div><div class="l">子系统行<br>L1 / L2 / 两表分项 / 项目风侧 / CDU</div></div>
+    <div class="kpi"><div class="v">21</div><div class="l">零部件行<br>冷板 / UQD / CDU 内件 / 塔 / CRAH</div></div>
+    <div class="kpi"><div class="v">46</div><div class="l">明细合计<br>金额不可跨层相加</div></div>
+  </div>
+  <div class="callout info"><b>功率锚点（勿混加）：</b>NVIDIA 公开参考 <b>142 kW</b>；Lenovo 峰值包络 <b>155 kW</b>；液冷设备选型 <b>150 kW</b>；残余风侧选型 <b>25 kW</b>（与 150 不可加总成 175）；Bernstein 设施支撑 <b>169 kW/柜</b>；OEM 液/气约 <b>90% / 10%</b> → 155 kW 时约 <b>139.5 / 15.5 kW</b>。GPU 合计 <b>72 × 1.4 = 100.8 kW</b>（Bernstein 表作 101 kW）。</div>
+  <div class="filters" id="lvFilter">
+    <button class="on" data-lv="all">全部</button>
+    <button data-lv="总系统">只看总系统</button>
+    <button data-lv="子系统">只看子系统</button>
+    <button data-lv="零部件">只看零部件</button>
+  </div>
+  <div class="tbl-wrap">
+  <table id="masterTbl">
+    <colgroup>
+      <col class="c-lv"><col class="c-name"><col class="c-kw"><col class="c-scope">
+      <col class="c-usd"><col class="c-cny"><col class="c-unit"><col class="c-qty">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>层级</th>
+        <th>名称</th>
+        <th class="r">对应热功率</th>
+        <th>功率口径</th>
+        <th class="r">单柜中枢（美元）</th>
+        <th class="r">单柜中枢（万元）</th>
+        <th class="r">单位成本</th>
+        <th>用量 / 配置</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-lv="总系统"><td><span class="lv lv-sys">总系统</span></td><td>Bernstein 柜外设施热管理</td><td class="r num">169 kW</td><td>设施表换算分母，仅用于校验</td><td class="r num">211,000</td><td class="r num">151.9</td><td class="r num">1,249 美元/kW</td><td>1 柜</td></tr>
+      <tr class="src-row" data-lv="总系统"><td colspan="8"><span class="src-lab">来源与区间</span>Bernstein《AI Value Chain》2025-10-27：设施级风冷 11.0 万美元 + 柜外液冷 4.4 万 + 配套基础设施 5.7 万 = <b>21.1 万美元/柜</b>，不包含机柜 BOM 表的柜内液冷 5.1 万。13 亿美元/GW、3.6% 与 1,249 美元/kW仅作换算校验。</td></tr>
+      <tr data-lv="总系统"><td><span class="lv lv-sys">总系统</span></td><td>项目可视报价 · 国内 CSP</td><td class="r num">155 kW 包络<br>液 150 + 风 25</td><td>本目录 2×200 kW CDU 设计；风/液裕量不叠加</td><td class="r num">141,700–191,700</td><td class="r num">102–138</td><td class="r num">914–1,237 美元/kW（按 155）</td><td>1 柜，专用 1+1</td></tr>
+      <tr class="src-row" data-lv="总系统"><td colspan="8"><span class="src-lab">来源与区间</span>第 9 章：国内可视报价 <b>102–138 万元/柜</b>。按 7.2 折美元为 <b>14.17–19.17 万美元</b>（表列 141,700–191,700）。中位 120 万元 = 16.67 万美元。旧版曾把 141,700 误标成“中位”、并把 102–138 万元误当成 10.2–13.8 万美元去除以 155 得到 660–890 美元/kW，<b>已改正</b>。102 万/155 kW=6,581 元/kW=914 美元/kW；138 万/155=8,903 元/kW=1,237 美元/kW。</td></tr>
+      <tr data-lv="总系统"><td><span class="lv lv-sys">总系统</span></td><td>项目可视报价 · 海外认证</td><td class="r num">155 kW 包络<br>液 150 + 风 25</td><td>同上，含认证溢价</td><td class="r num">190,000–260,000</td><td class="r num">137–187</td><td class="r num">1,226–1,677 美元/kW</td><td>1 柜，专用 1+1</td></tr>
+      <tr class="src-row" data-lv="总系统"><td colspan="8"><span class="src-lab">来源与区间</span>同一项目配置叠加 NVIDIA / OCP / 超大规模认证与品牌溢价后为 <b>19–26 万美元/柜</b>（137–187 万元）。它与 Bernstein 柜外设施 21.1 万仅作量级参照，覆盖范围不同，不得据此合并。</td></tr>
+      <tr data-lv="总系统"><td><span class="lv lv-sys">总系统</span></td><td>1 GW 热管理合计</td><td class="r num">1,000,000 kW</td><td>Bernstein：5,929 柜 × 169 kW</td><td class="r num">—</td><td class="r num">—</td><td class="r num">1.3 十亿美元/GW</td><td>5,929 柜</td></tr>
+      <tr class="src-row" data-lv="总系统"><td colspan="8"><span class="src-lab">来源与区间</span>Bernstein Exhibit 列 <b>5,929 柜</b>、支撑功率 169 kW/柜。算术 1,000,000÷169=<b>5,917</b>，表列多 12 柜（约 0.2%），<b>以 Exhibit 5,929 为准</b>。5,929 × 21.1 万 = 12.51 亿美元，Bernstein 取整 <b>13 亿美元/GW</b>。此行是规模加总，不可再与单柜行相加。</td></tr>
+      <tr data-lv="总系统"><td><span class="lv lv-sys">总系统</span></td><td>Vertiv 可服务市场（参照，非本 BOM）</td><td class="r num">1,000 kW</td><td>厂商 SAM：传统 2.5–3.0、高密 3.0–3.5 百万美元/MW</td><td class="r num">折单柜约 42–59 万</td><td class="r num">303–425</td><td class="r num">2,500–3,500 美元/kW</td><td>按 169 kW/柜折算</td></tr>
+      <tr class="src-row" data-lv="总系统"><td colspan="8"><span class="src-lab">来源与区间</span>Vertiv 披露可服务市场（SAM）：传统机房 250–300 万美元/MW，高密 300–350 万美元/MW。按 169 kW/柜折算单柜约 42–59 万美元。含更多电气、交付与服务，<b>不作本报告单柜硬件价</b>，只作上限参照。</td></tr>
+      <tr data-lv="总系统"><td><span class="lv lv-sys">总系统</span></td><td>GB200 托盘冷却（代际对照）</td><td class="r num">约 120–132 kW</td><td>上一代机柜热量，非 GB300</td><td class="r num">41,500</td><td class="r num">29.9</td><td class="r num">约 315–346 美元/kW</td><td>1 柜 L1</td></tr>
+      <tr class="src-row" data-lv="总系统"><td colspan="8"><span class="src-lab">来源与区间</span>Morgan Stanley，经 TechPowerUp / Lianli / TGM 转述：GB200 托盘冷却 <b>41,500 美元</b>。GB300 L1 升至 49,860 美元，相对约 <b>+20%</b>。此行为代际对照，不是 GB300 报价。</td></tr>
+      <tr data-lv="总系统"><td><span class="lv lv-sys">总系统</span></td><td>Rubin NVL144 托盘冷却（前瞻）</td><td class="r num">高于 GB300，含量约 +17%</td><td>下一代平台，热量随功率上升</td><td class="r num">55,700</td><td class="r num">40.1</td><td class="r num">随功率上升，单位美元/kW 可能持平或略降</td><td>1 柜 L1</td></tr>
+      <tr class="src-row" data-lv="总系统"><td colspan="8"><span class="src-lab">来源与区间</span>Morgan Stanley 转述 Rubin NVL144 托盘冷却 <b>55,700 美元</b>，相对 GB300 约 +17%。用于解释第 13 章“含量上行、单价难腰斩”，不是当前可采买报价。</td></tr>
+      <tr class="sub" data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>L2 二次侧液冷包（共享 CDU）</td><td class="r num">150 kW</td><td>液冷设备选型负荷</td><td class="r num">107,400</td><td class="r num">77.3</td><td class="r num">716 美元/kW</td><td>1 柜</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>建议中枢 <b>10.74 万美元</b> = Compute 冷板 4.07 + Switch 0.92 + Manifold 1.35 + UQD 2.2 + 行级 CDU 分摊 2.2。由浙商 GB200 二次侧 9.89 万按 GB300 接口点数上调。共享 CDU 口径，不是本项目 2×200 kW 专用。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>L2 二次侧液冷包（运行热量）</td><td class="r num">139.5 kW</td><td>155 kW × 90% OEM 液冷比</td><td class="r num">107,400</td><td class="r num">77.3</td><td class="r num">770 美元/kW</td><td>1 柜</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>与上一行同一 10.74 万美元包，分母改为运行热量 155 kW × 90% = 139.5 kW，单位成本变为 770 美元/kW。金额不变，只改千瓦口径。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>L2 二次侧 · 专用 2×200 kW</td><td class="r num">150 kW 负荷<br>400 kW 装机</td><td>负荷 150；设备冷量 2×200</td><td class="r num">海外 151,000–189,000<br>国内 ≈113,900–144,400</td><td class="r num">国内 82–104<br>海外 108.7–136.1</td><td class="r num">海外 1,007–1,260<br>国内 759–963 美元/kW（按 150）</td><td>1 柜独占 1+1</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>第 9 章液冷小计是<b>两套市场</b>：国内 <b>82–104 万元</b> = 11.39–14.44 万美元 = 759–963 美元/kW（÷150）；海外 <b>15.1–18.9 万美元</b> = 1,007–1,260 美元/kW（÷150）。美元列写海外、万元列写国内，<b>不是</b> 82–104 万 ÷7.2 = 15.1–18.9 万。因 1 柜独占 2×200 kW CDU（1 用 1 备）。装机冷量 400 kW 不可当发热。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>L1 托盘 / IT 侧冷却</td><td class="r num">111.6 kW 计算托盘<br>+ 交换托盘</td><td>MS：18×6.2 kW；整柜液冷约 130–140 kW</td><td class="r num">49,860</td><td class="r num">35.9</td><td class="r num">约 357 美元/kW（按 139.5）</td><td>18+9 托盘</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>Morgan Stanley，经 TechPowerUp / Lianli / TGM 三家转述一致：18 × 2,260 + 9 × 1,020 = <b>49,860 美元</b>。与 Bernstein 柜内液冷 5.1 万美元互相支撑，定义为托盘 / IT 侧，不含柜级歧管与 CDU。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>Bernstein 机柜 BOM：柜内液冷</td><td class="r num">—</td><td>机柜 BOM 表，独立口径</td><td class="r num">51,000</td><td class="r num">36.7</td><td class="r num">不作设施千瓦价</td><td>1 柜</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>Bernstein 机柜 BOM 表：柜内液冷 <b>5.1 万美元</b>，可与 MS 托盘冷却 4.99 万交叉验证；不计入设施表的 21.1 万。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>Bernstein 设施表：柜外液冷</td><td class="r num">—</td><td>柜外液冷设施分摊</td><td class="r num">44,000</td><td class="r num">31.7</td><td class="r num">不单独换算</td><td>设施分摊</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>设施表中的柜外液冷 <b>4.4 万美元/柜</b>；不是本项目 2×200 kW 专用 CDU 报价，也不以项目 150 kW 分母反算。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>Bernstein 设施表：设施级风冷系统</td><td class="r num">—</td><td>设施级空气处理分摊</td><td class="r num">110,000</td><td class="r num">79.2</td><td class="r num">不单独换算</td><td>设施分摊</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>设施级风冷系统 <b>11.0 万美元</b>不是本项目按 25 kW 选型的残余风冷。两者对象、边界和分母均不同。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>Bernstein 设施表：配套基础设施</td><td class="r num">—</td><td>设施配套分摊</td><td class="r num">57,000</td><td class="r num">41.0</td><td class="r num">不单独换算</td><td>设施分摊</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>本项目残余风冷</td><td class="r num">25 kW 选型<br>15.5 kW 运行</td><td>选型 25；155×10%=15.5</td><td class="r num">国内 11,100–19,400<br>海外 15,000–25,000</td><td class="r num">国内 8–14<br>海外 10.8–18.0</td><td class="r num">国内 444–776 / 海外 600–1,000 美元/kW（按 25）</td><td>2×25 kW CRAH/RDHx</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>一次侧排热（干冷器/闭式塔）</td><td class="r num">250 kW/台<br>分摊约 150–200 kW/柜</td><td>设备额定 250；N+1 分摊</td><td class="r num">国内 16,700–27,800<br>海外 25,000–50,000</td><td class="r num">国内 12–20<br>海外 18.0–36.0</td><td class="r num">国内 1.5–2.0 千元/kW；海外 +50–100%</td><td>N+1</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>东吴：一次侧国内 <b>1,500–2,000 元/kW</b>，海外高 50–100%。12–20 万元 / 2.5–5.0 万美元是<b>多柜共享 N+1 后的单柜分摊</b>，两列按市场各写，不是 12–20 万÷7.2。若 250 kW×1,500–2,000 元/kW 记到单台，得 37.5–50 万元/台，那是出厂价，不是本行。250 kW 是设备额定，不是单柜发热。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>Compute Tray 冷却（18 盘合计）</td><td class="r num">111.6 kW</td><td>18 × 6.2 kW（MS）</td><td class="r num">40,680</td><td class="r num">29.3</td><td class="r num">365 美元/kW</td><td>18 托盘</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>Morgan Stanley：单盘冷却 2,260 美元 × 18 = <b>40,680 美元</b>。单盘需冷约 6.2 kW（耗电约 6.6 kW），18 盘合计 111.6 kW。含该盘冷板、托盘管路与托盘级 UQD。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>Switch Tray 冷却（9 盘合计）</td><td class="r num">约 27.9 kW</td><td>139.5 − 111.6，均摊到 9 盘</td><td class="r num">9,180</td><td class="r num">6.6</td><td class="r num">329 美元/kW</td><td>9 托盘</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>Morgan Stanley：交换托盘冷却 1,020 美元 × 9 = <b>9,180 美元</b>。热量按整柜液冷运行 139.5 kW 减去计算托盘 111.6 kW，约 27.9 kW 均摊到 9 盘（约 3.1 kW/盘）。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>Manifold + 柜内主管</td><td class="r num">150 kW</td><td>分配整柜液冷流量</td><td class="r num">13,500</td><td class="r num">9.7</td><td class="r num">90 美元/kW</td><td>1 套/柜</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>浙商 GB200 歧管锚点 12,000 美元；GB300 因独立冷板与盲插点数增加，取中枢 <b>13,500 美元</b>（约 1.2–1.5 万美元）。分配整柜 150 kW 液冷流量，1 套/柜。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>UQD / QDC 全集</td><td class="r num">150 kW</td><td>所有液冷支路接口</td><td class="r num">22,000</td><td class="r num">15.8</td><td class="r num">147 美元/kW</td><td>约 252 对或 350 只</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>单柜 UQD 价值中枢 <b>2.2 万美元</b>，区间 1.6–2.8 万。用量约 252 对或约 350 只（视是否计盲插座）。NVUQD03 单只约 40–50 美元，前代 70–80 美元；国内约 300–600 元/对。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>CDU 分摊（行级共享）</td><td class="r num">200–600 kW 设备<br>摊 150 kW 负荷</td><td>设备冷量 ≠ 单柜发热</td><td class="r num">22,000</td><td class="r num">15.8</td><td class="r num">147 美元/kW 负荷</td><td>4–8 柜共享</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>行级 200–600 kW CDU 由 4–8 柜共享，摊到单柜约 <b>2.2 万美元</b>。国内设备千瓦价约 1,000–1,100 元/kW。设备冷量不是单柜发热，600 kW 机带 4–6 柜时单柜分摊约 1.5 万美元。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>CDU 专用 2×200 kW（1+1）</td><td class="r num">400 kW 装机<br>保 150 kW 负荷</td><td>冗余冷量，不是 400 kW 发热</td><td class="r num">国内 55,600–69,400<br>海外 80,000–100,000</td><td class="r num">40–50（国内项目行）<br>硬件底 40–44</td><td class="r num">国内 139–174 / 海外 200–250 美元/kW 装机</td><td>2 台</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>硬件底：1,000–1,100 元/kW × 200 × 2 = <b>40–44 万元</b>（5.56–6.11 万美元）。项目行 <b>40–50 万元</b> 用来加总第 9 章 82–104 万，上沿含轻认证。海外 2×(4.0–4.8) = 8.0–9.6 万，项目上沿 10.0 万。旧版 61,000–96,000 把国内高沿 44 万÷7.2 与海外 9.6 万拼成一格，已拆开。400 kW 是冗余冷量。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>二次侧安装 / 冲洗 / FAT</td><td class="r num">150 kW</td><td>随液冷回路</td><td class="r num">国内 5,600–11,100<br>海外 8,000–15,000</td><td class="r num">国内 4–8<br>海外 5.8–10.8</td><td class="r num">国内 37–74 美元/kW<br>海外 53–100 美元/kW</td><td>1 柜回路</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>第 9 章两列<b>不是互为汇率</b>：国内 4–8 万元 = 5,600–11,100 美元；海外 0.8–1.5 万美元 = 5.8–10.8 万元。旧版把 8,000–15,000 美元与 4–8 万元写在同一格，算术不成立，已拆开。随 150 kW 液冷回路走，不随 CDU 装机加倍。</td></tr>
+      <tr data-lv="子系统"><td><span class="lv lv-sub">子系统</span></td><td>浙商 GB200 二次侧包（对照）</td><td class="r num">约 120–132 kW</td><td>GB200 机柜，非 GB300</td><td class="r num">98,900</td><td class="r num">71.2</td><td class="r num">约 750–824 美元/kW</td><td>1 柜</td></tr>
+      <tr class="src-row" data-lv="子系统"><td colspan="8"><span class="src-lab">来源与区间</span>浙商 / 东方 GB200 拆解：冷板 3.78 + CDU 3.0 + Manifold 1.2 + UQD 1.2 + Switch 0.71 = <b>9.89 万美元</b>。仅供代际对照；GB300 二次侧共享包上调至 10.74 万。</td></tr>
+      <tr class="sub" data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>单块 GPU 冷板</td><td class="r num">1.4 kW</td><td>B300 TDP</td><td class="r num">280–400（单块）</td><td class="r num">0.20–0.29</td><td class="r num">200–286 美元/kW</td><td>72 块</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>Morgan Stanley：冷板是托盘冷却 BOM 最贵件，单块低数百美元。本表取 <b>280–400 美元/块</b>（约 0.20–0.29 万元），对应 B300 TDP 1.4 kW，即 200–286 美元/kW。72 块合计见下一行。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>GPU 冷板合计</td><td class="r num">100.8–101 kW</td><td>72 × 1.4 kW</td><td class="r num">20,200–28,800</td><td class="r num">14.5–20.7</td><td class="r num">200–286 美元/kW</td><td>72</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>72 × 1.4 kW = 100.8 kW（Bernstein 表作 101 kW）。72 × 280–400 美元 = <b>20,160–28,800 美元</b>（表列 20,200–28,800）。旧版写成 2.4–3.5 万美元是乘法错误（72×280=20,160，不是 24,000），已改正。含于 Compute Tray 4.068 万美元，不是额外再加一层。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>CPU / Grace 冷板</td><td class="r num">约 0.3–0.5 kW/颗</td><td>36 颗 Grace，归入“其他芯片”44 kW 的一部分</td><td class="r num">80–200（单块）</td><td class="r num">0.06–0.14</td><td class="r num">160–670 美元/kW</td><td>36</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>36 颗 Grace 冷板，单块约 80–200 美元，与 GPU 冷板同在 Compute Tray。热量约 0.3–0.5 kW/颗，归入 Bernstein“其他芯片”约 44 kW 的一部分，不单独对外报价。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>其他冷板（VRM / 内存 / 光模块等）</td><td class="r num">合计约 20–30 kW</td><td>托盘内非 GPU/CPU 热点</td><td class="r num">含于 40.7k</td><td class="r num">—</td><td class="r num">—</td><td>按托盘</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>VRM、内存、光模块等热点冷板不单独报价，费用含于 Compute Tray 4.07 万美元。合计热量约 20–30 kW，属托盘内非 GPU/CPU 部分。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>NVSwitch 冷板（单托盘）</td><td class="r num">约 3.1 kW/托盘</td><td>27.9 kW / 9</td><td class="r num">1,020（整托盘冷却）</td><td class="r num">0.73</td><td class="r num">329 美元/kW</td><td>9 托盘</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>Morgan Stanley 交换托盘冷却价 <b>1,020 美元/盘</b>，含该盘冷板与托盘管路，不是单块 NVSwitch 冷板出厂价。9 盘 × 3.1 kW ≈ 27.9 kW。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>Compute Tray 冷却套件（单盘）</td><td class="r num">6.2 kW</td><td>MS：耗电约 6.6，需冷约 6.2</td><td class="r num">2,260</td><td class="r num">1.63</td><td class="r num">365 美元/kW</td><td>18</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>Morgan Stanley：单盘 <b>2,260 美元</b>，含该盘 GPU/CPU/其他冷板、托盘 UQD 与管路。耗电约 6.6 kW，需冷约 6.2 kW。18 盘合计即 L1 计算侧 4.07 万美元。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>UQD / NVUQD03（单只）</td><td class="r num">支路约 0.4–1.4 kW</td><td>一对进出服务一块冷板或一段歧管</td><td class="r num">40–50</td><td class="r num">0.029–0.036</td><td class="r num">约 30–125 美元/kW 支路</td><td>约 252 对 / 350 只</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>NVUQD03 单只约 <b>40–50 美元</b>（0.029–0.036 万元）；前代 70–80 美元。国内约 300–600 元/对。一对进出服务一块冷板或一段歧管，支路热量约 0.4–1.4 kW。整柜约 252 对或 350 只。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>盲插歧管本体</td><td class="r num">150 kW</td><td>整柜均流</td><td class="r num">12,000–15,000</td><td class="r num">8.6–10.8</td><td class="r num">80–100 美元/kW</td><td>1</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>浙商 GB200 歧管为 12,000 美元；GB300 取 <b>1.2–1.5 万美元</b>（8.6–10.8 万元），对应整柜 150 kW 均流。与上行“Manifold + 柜内主管 13,500”是同一套硬件的零件口径。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>L2L CDU 单机 200 kW（国内）</td><td class="r num">200 kW</td><td>设备额定冷量</td><td class="r num">27,800–30,600</td><td class="r num">20–22</td><td class="r num">1,000–1,100 元/kW<br>139–153 美元/kW</td><td>1 台</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>国内行业转述 CDU 千瓦价 <b>1,000–1,100 元/kW</b>，200 kW 单机约 20–22 万元（2.78–3.06 万美元，约 139–153 美元/kW）。200 kW 是设备额定冷量。2 台 1+1 见子系统“CDU 专用”行。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>L2L CDU 单机 200 kW（海外认证）</td><td class="r num">200 kW</td><td>设备额定冷量</td><td class="r num">40,000–48,000</td><td class="r num">28.8–34.6</td><td class="r num">200–240 美元/kW</td><td>1 台</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>海外认证 CDU 约 <b>200–240 美元/kW</b>，200 kW 单机 4.0–4.8 万美元（28.8–34.6 万元）。相对国内溢价约 50–100%，买的是认证名录、现场数据和漏液责任。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>行级 CDU 600 kW（国内）</td><td class="r num">600 kW</td><td>设备额定；约带 4–6 柜</td><td class="r num">91,700</td><td class="r num">66</td><td class="r num">1,100 元/kW</td><td>1 台</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>600 kW × 1,100 元/kW ≈ <b>66 万元</b>（约 9.17 万美元）。约带 4–6 柜时，摊到单柜约 1.5 万美元（按 6 柜）。设备冷量 600 kW ≠ 单柜发热。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>行级 CDU 600 kW（海外）</td><td class="r num">600 kW</td><td>设备额定</td><td class="r num">120,000–144,000</td><td class="r num">86–104</td><td class="r num">200–240 美元/kW</td><td>1 台</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>海外 200–240 美元/kW × 600 kW = <b>12.0–14.4 万美元</b>（86–104 万元）。6 柜分摊时单柜约 2.0–2.4 万美元，对应子系统“CDU 分摊 2.2 万”中枢。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>CDU 循环泵组（N+1）</td><td class="r num">随 200 kW CDU</td><td>输送 150 kW 级热量所需流量</td><td class="r num">占 CDU 18–25%</td><td class="r num">约 3.6–5.5</td><td class="r num">—</td><td>2–4 台/CDU</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>占单台 CDU 售价的 <b>18–25%</b>，国内 200 kW 机约 3.6–5.5 万元。屏蔽泵或磁泵，2–4 台/CDU（含 N+1）。输送的是 150 kW 级热量所需流量，不是单独按千瓦卖。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>板式换热器</td><td class="r num">200 kW</td><td>FAT-B：污堵 UA≥66.7 kW/K（3K）</td><td class="r num">占 CDU 12–18%</td><td class="r num">约 2.4–4.0</td><td class="r num">—</td><td>1–2 /CDU</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>占 CDU 售价 <b>12–18%</b>，约 2.4–4.0 万元。品牌常见 SWEP / Alfa Laval / 丹佛斯 / 国产。FAT-B 要求污堵工况 UA ≥ 66.7 kW/K（3 K 端温差），对应 200 kW 换热量。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>阀 / 过滤器 / 膨胀罐</td><td class="r num">200 kW 回路</td><td>一二次侧隔离</td><td class="r num">占 CDU 12–16%</td><td class="r num">约 2.4–3.5</td><td class="r num">—</td><td>一套/CDU</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>占 CDU 售价 <b>12–16%</b>，约 2.4–3.5 万元/套。过滤精度 50–500 µm，承担一二次侧隔离、膨胀与排污。随 200 kW 回路成套，不按单柜再乘一次。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>传感器与漏液检测</td><td class="r num">150–200 kW 回路</td><td>保护整柜热量路径</td><td class="r num">占 CDU 6–10% + 柜内小件</td><td class="r num">约 1.2–2.2</td><td class="r num">—</td><td>流量/压力/温度/电导率/漏液</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>CDU 内传感约占售价 <b>6–10%</b>，加上柜内漏液绳/点式探头，合计约 1.2–2.2 万元。测点含流量、压力、温度、电导率与漏液。总体设计失效窗口 30–90 秒。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>CDU 控制器与软件</td><td class="r num">200 kW 及群控</td><td>不直接标 kW，按所控冷量</td><td class="r num">占 CDU 10–18%</td><td class="r num">约 2.0–4.0</td><td class="r num">年费另约 3–8% CDU 价</td><td>1 套/CDU</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>占 CDU 售价 <b>10–18%</b>，约 2.0–4.0 万元，是认证件真正溢价点。群控、预测维护、水质监测年费另约 CDU 价的 3–8%。按所控 200 kW 及多机群控计价，不直接标千瓦。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>冷却液（DI / PG25）</td><td class="r num">携带 150 kW</td><td>工质，不是冷源</td><td class="r num">&lt;1,000</td><td class="r num">&lt;0.1</td><td class="r num">可忽略 capex</td><td>回路容积</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>DI 水或 PG25 初次灌装 capex 通常 <b>&lt;1,000 美元（&lt;0.1 万元）</b>，可忽略。费用在 OPEX：水质维护与补液。工质携带 150 kW 热量，本身不是冷源。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>闭式冷却塔 / 绝热干冷器</td><td class="r num">250 kW/台</td><td>室外排热额定</td><td class="r num">国内分摊 16,700–27,800<br>海外分摊 25,000–50,000</td><td class="r num">国内 12–20<br>海外 18.0–36.0</td><td class="r num">国内 1.5–2.0 千元/kW；海外 +50–100%</td><td>N+1，2 台初选</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>总体设计初选 250 kW/台、N+1 共 2 台。东吴一次侧国内 1,500–2,000 元/kW，分摊到单柜 <b>12–20 万元（2.5–5.0 万美元）</b>。250 kW 是室外排热额定，不是单柜发热。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>峰值冷机（选配）</td><td class="r num">200 kW</td><td>极端气象补冷</td><td class="r num">视项目，常不计入基线 BOM</td><td class="r num">—</td><td class="r num">—</td><td>可选 1 台</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>仅当全年无法维持 FWS 进水时选配，约 200 kW 补冷。基线 BOM 通常不计；计入时按项目询价，不作统一中枢。W45 高温水路线的目标是尽量去掉这台冷机。</td></tr>
+      <tr data-lv="零部件"><td><span class="lv lv-part">零部件</span></td><td>CRAH / RDHx 单台</td><td class="r num">25 kW</td><td>残余空气侧</td><td class="r num">约 7,500–12,500</td><td class="r num">4–7</td><td class="r num">300–500 美元/kW</td><td>2 台</td></tr>
+      <tr class="src-row" data-lv="零部件"><td colspan="8"><span class="src-lab">来源与区间</span>单台 25 kW 约 0.75–1.25 万美元（4–7 万元），即 300–500 美元/kW。2 台对应项目风侧合计 <b>8–14 万元/柜</b>。不要与 Bernstein 设施表的设施级风冷系统 11.0 万美元混用。</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">读表：灰色横条是该条的完整来源与区间，不再挤在最右一列。同一套硬件会出现两行金额（例如 L2 按 150 kW 选型、按 139.5 kW 运行），美元/kW 不同。总系统行之间<b>不可相加</b>。零部件加总也不等于总系统，因为存在分摊、冗余和口径重叠。GB200 对照行仅供代际比较。把上表金额系统折成双币种千瓦价，见下一章，<b>不改本表列结构</b>。</p>
+</section>
+
+<section id="unitpx">
+  <div class="h-sec"><div class="no">11</div><div><h2>单位千瓦价附属对照</h2><div class="en">USD/kW &amp; CNY/kW ANNEX · 不改主数字</div></div></div>
+  <h3 id="unitpx-use">11.1 怎么用这一章</h3>
+  <p class="lead">第 4–10 章继续以<b>美元/柜、万元/柜、美元/块</b>为主数字。本章只回答：“这个金额对应多少钱/kW？国内和海外差多少？”<b>不替代、不改写</b>前面各章主表。单独打印对照页仍保留，但读者不必再另开附属文件。</p>
+  <div class="callout info"><b>三把尺子不要混：</b>① 设备额定（CDU/塔铭牌 kW）；② 机柜排热负荷（142 / 150 / 155 / 169 kW）；③ 设施/土建（美元/MW）。企业级 DLC 1,875–5,000 美元/kW 是改造口径，不是 GB300 单柜 BOM。150 kW 液冷与 25 kW 风侧<b>不可加总成 175 kW</b>。</div>
+
+  <h3 id="unitpx-map">11.2 主报告金额 → 美元/kW / 元/kW</h3>
+  <p>下表左边是第 4–10 章已经采用的金额，右边是附属折算。金额本身以主报告为准。汇率 1 USD = 7.2 CNY，仅用于换算。</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>主报告位置 / 口径</th><th class="r">主报告金额</th><th>分母</th><th class="r">美元/kW</th><th class="r">元/kW</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>L1 托盘冷却（MS）</td><td class="r num">49,860 美元</td><td>139.5 kW 运行液冷</td><td class="r num">357</td><td class="r num">2,570</td></tr>
+      <tr><td>Compute 单盘 2,260 美元</td><td class="r num">2,260 美元</td><td>6.2 kW</td><td class="r num">365</td><td class="r num">2,628</td></tr>
+      <tr><td>Switch 单盘 1,020 美元</td><td class="r num">1,020 美元</td><td>约 3.1 kW</td><td class="r num">329</td><td class="r num">2,369</td></tr>
+      <tr><td>L2 共享 CDU 包</td><td class="r num">107,400 美元</td><td>150 kW 选型</td><td class="r num">716</td><td class="r num">5,155</td></tr>
+      <tr><td>L2 专用 · 海外液冷小计</td><td class="r num">15.1–18.9 万美元</td><td>150 kW 负荷</td><td class="r num">1,007–1,260</td><td class="r num">7,250–9,072</td></tr>
+      <tr><td>L2 专用 · 国内液冷小计</td><td class="r num">82–104 万元</td><td>150 kW 负荷</td><td class="r num">759–963</td><td class="r num">5,467–6,933</td></tr>
+      <tr><td>Bernstein 柜外设施热管理</td><td class="r num">211,000 美元</td><td>169 kW 设施</td><td class="r num">1,249</td><td class="r num">8,993</td></tr>
+      <tr><td>1 GW 热管理（校验）</td><td class="r num">13 亿美元</td><td>1,000,000 kW</td><td class="r num">1,300</td><td class="r num">9,360</td></tr>
+      <tr><td>第 9 章国内项目</td><td class="r num">102–138 万元（=14.2–19.2 万美元）</td><td>155 kW 包络</td><td class="r num">914–1,237</td><td class="r num">6,581–8,903</td></tr>
+      <tr><td>第 9 章海外认证</td><td class="r num">19–26 万美元</td><td>155 kW 包络</td><td class="r num">1,226–1,677</td><td class="r num">8,827–12,074</td></tr>
+      <tr><td>国内 CDU 单机</td><td class="r num">20–22 万元 / 200 kW</td><td>设备额定</td><td class="r num">139–153</td><td class="r num">1,000–1,100</td></tr>
+      <tr><td>海外 CDU 单机</td><td class="r num">4.0–4.8 万美元 / 200 kW</td><td>设备额定</td><td class="r num">200–240</td><td class="r num">1,440–1,730</td></tr>
+      <tr><td>UQD 整柜 22,000 美元</td><td class="r num">22,000 美元</td><td>150 kW</td><td class="r num">147</td><td class="r num">1,058</td></tr>
+      <tr><td>GPU 冷板 280–400 美元</td><td class="r num">280–400 美元/块</td><td>1.4 kW</td><td class="r num">200–286</td><td class="r num">1,440–2,059</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">同一套硬件换分母，金额不变、美元/kW 会变。国内 82–104 万元与海外 15.1–18.9 万美元是两套市场，<b>不是</b>同一笔钱的汇率换算。覆盖：比价与招标标尺。不覆盖：把第 10 章总表改成“每格双币种千瓦价”。</p>
+
+  <h3 id="unitpx-dual">11.3 国内 vs 海外单位千瓦价</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>科目</th><th>功率口径</th><th class="r">国内</th><th class="r">海外 / 国际</th><th class="r">海外÷国内</th><th>来源与口径说明</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>CDU 硬件</td><td>设备额定 kW</td><td class="r">1,000–1,100 元/kW<br>139–153 美元/kW</td><td class="r">200–240 美元/kW<br>1,440–1,730 元/kW</td><td class="r">约 1.5–1.7×</td><td>东吴 2026-08；九方转述。覆盖认证/行级硬件，不含专柜 1+1 整包</td></tr>
+      <tr><td>70 kW CDU</td><td>设备 70 kW</td><td class="r">约 1,000–1,140 元/kW</td><td class="r">约 3.0 万美元<br><b>429 美元/kW</b></td><td class="r">约 2.8×</td><td>腾讯新闻 2025-08：北美/欧洲主流 70 kW ≈ 3 万美元。小机固定成本摊不薄，与 200 kW 机不是打架</td></tr>
+      <tr><td>150 kW CDU</td><td>设备 150 kW</td><td class="r">约 1,000–1,130 元/kW</td><td class="r">3.5–4.0 万美元<br><b>233–267 美元/kW</b></td><td class="r">约 1.6–1.9×</td><td>同上访谈。落在本报告海外 200–240 美元/kW 上沿，交叉验证通过</td></tr>
+      <tr><td>二次侧工程包</td><td>液冷负荷 kW</td><td class="r"><b>3,000–5,000 元/kW</b></td><td class="r"><b>4,500–9,000 元/kW</b></td><td class="r">1.5–2.0×</td><td>东吴：二次侧单 kW 3–5 千元，海外高 50–100%。本报告 L2 中枢 5,155 元/kW 落在国内区间上沿（GB300 接口点数更高）</td></tr>
+      <tr><td>一次侧排热</td><td>冷源额定 kW</td><td class="r"><b>1,500–2,000 元/kW</b></td><td class="r">2,250–4,000 元/kW</td><td class="r">1.5–2.0×</td><td>东吴；海外品牌 BAC / Marley。设备额定，不是机柜发热</td></tr>
+      <tr><td>整柜液冷招标</td><td>机柜功率 kW</td><td class="r"><b>5,000–8,000 元/kW</b></td><td class="r"><b>8,000–12,000 元/kW</b></td><td class="r">约 1.5×</td><td>天下工场 2026 原文已核：“海外整柜方案单千瓦成本约 8,000 至 1.2 万元，国产方案 5,000 至 8,000 元”。置信中，作招标标尺而非中枢</td></tr>
+      <tr><td>冷却土建</td><td>设施 MW</td><td class="r">少见单独披露</td><td class="r">1,000–1,500 美元/kW（KPMG/ThePricer）；对照 4,500–5,200 美元/kW（JLL/Archdesk 液冷机房机电）</td><td class="r">—</td><td>两套设施口径，都<b>非本 BOM</b>。旧值保留并标明土建；新值更宽，不取平均</td></tr>
+      <tr><td>DLC 设施（企业/改造）</td><td>装机 kW</td><td class="r">—</td><td class="r">1,875–5,000 美元/kW</td><td class="r">口径更宽</td><td>Yobitel 汇总 Uptime / 451 / OCP；Adam Silva 实验室更贵。不作单柜价</td></tr>
+      <tr><td>Vertiv SAM</td><td>设施 MW</td><td class="r">—</td><td class="r">2,500–3,500 美元/kW</td><td class="r">上限</td><td>Bernstein 转述，含电气交付</td></tr>
+      <tr><td>GPU 冷板</td><td>1.4 kW / 块</td><td class="r">约 1,400–2,200 元/块<br>1,000–1,570 元/kW</td><td class="r">200–400 美元/块<br>143–286 美元/kW</td><td class="r">约 1.2–1.5×</td><td>MS 转述“低数百美元”；GoKawiil/Lianli 点名约 300 美元；腾讯访谈 GB300 小冷板 200–300 美元。本报告中枢仍 280–400，新访谈落在下沿，不改中枢</td></tr>
+      <tr><td>UQD / QDC</td><td>只 / 对</td><td class="r">认证 300–600 元/对<br>白牌量产 30–50 元/只</td><td class="r">NVUQD03 40–50 美元/只<br>认证对约 1,300 元</td><td class="r">1.5–2.2×（认证）</td><td>九方：国内约 600 元/对、海外约 1,300 元；天下工场量产成本 30–50 元/只。认证件与白牌不是同一商品</td></tr>
+      <tr><td>全球 CDU 出货均价</td><td>混合机型 / 台</td><td class="r">—</td><td class="r">约 1.6 万美元/台（全市场）；Standalone 约 3.6 万美元/台</td><td class="r">不可直接 ÷kW</td><td>QY Research 2025/2026。含大量小机，不能当 200 kW 单价</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="chart-box"><div class="cap">图 11-1 国内 vs 海外：关键科目单位千瓦价（区间中位，统一折元/kW）<div class="cap-sub">单位元/kW。各科目分母不同（设备额定 / 负荷 / 设施），柱<b>不可相减</b>。L2 海外柱 6,500 是东吴二次侧工程包中位，不是 107,400×1.5。</div></div><div id="c7" class="chart" style="height:460px"></div></div>
+  <div class="callout key">国内二次侧 3–5 千元/kW 与主报告 L2 中枢 5,155 元/kW 落在同一区间上沿。Bernstein 柜外设施热管理只保留 211,000÷169 = 1,249 美元/kW 的独立换算校验，不放入本图与项目科目横比。</div>
+
+  <h3 id="unitpx-ruler">11.4 三把尺子：设备额定 ≠ 机柜排热 ≠ 设施 MW</h3>
+  <p>把第 00 章口径地图落到千瓦价上，只记三条：</p>
+  <ul class="dot">
+    <li><b>设备额定。</b>CDU 200 kW、塔 250 kW 是铭牌冷量。国内 1,000–1,100 元/kW、海外 200–240 美元/kW 都除这个分母。</li>
+    <li><b>机柜排热。</b>L1 / L2 / 项目行除 139.5 / 150 / 155 kW。OEM 约 90% 液 / 10% 风 → 155 kW 时约 139.5 / 15.5 kW。GPU 72 × 1.4 = 100.8 kW。液冷与风侧分别选型，禁止 150+25=175。</li>
+    <li><b>设施 / 土建。</b>Bernstein 169 kW/柜、1 GW、KPMG、JLL、Vertiv SAM、企业 DLC 都走这一把。数字可以对照，不能加进第 10 章单柜硬件。</li>
+  </ul>
+  <h3 id="audit">11.5 数据一致性与口径自检</h3>
+  <p>下表列出读者可自行复核的勾稽关系。结论列的“通过”指算术成立；“口径差”指数字保留但覆盖范围不同，不得当成第二个中枢。</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>校验项</th><th>关系式</th><th>期望值</th><th>报告实际</th><th>结论</th></tr></thead>
+    <tbody>
+      <tr><td>L1 托盘加总</td><td>18×2,260 + 9×1,020</td><td>49,860 美元</td><td>49,860（第 5/10 章）</td><td>通过</td></tr>
+      <tr><td>L2 共享加总</td><td>40,700+9,200+13,500+22,000+22,000</td><td>107,400 美元</td><td>107,400（第 6/10 章、图 7-1）</td><td>通过。托盘侧相对 MS 精确值多 40 美元，已在第 6 章注明</td></tr>
+      <tr><td>Bernstein 设施表加总</td><td>110+44+57（千美元）</td><td>211</td><td>211,000 美元（第 6.2 / 10 章）</td><td>通过；机柜 BOM 的 51 不参与</td></tr>
+      <tr><td>L1 汇率</td><td>49,860×7.2</td><td>35.90 万元</td><td>35.9 万元</td><td>通过</td></tr>
+      <tr><td>L2 汇率</td><td>107,400×7.2</td><td>77.33 万元</td><td>77.3 万元</td><td>通过</td></tr>
+      <tr><td>设施表汇率</td><td>211,000×7.2</td><td>151.92 万元</td><td>151.9 万元</td><td>通过；仅换算校验</td></tr>
+      <tr><td>国内项目汇率</td><td>102–138 万元÷7.2</td><td>14.17–19.17 万美元</td><td>141,700–191,700 美元；914–1,237 美元/kW @155</td><td>通过（已改正旧版 141,700 当中位、660–890 美元/kW）</td></tr>
+      <tr><td>CDU 千瓦价×额定</td><td>1,000–1,100 元/kW×200</td><td>20–22 万元/台</td><td>20–22 万元；2 台硬件 40–44 万；项目行 40–50 万</td><td>通过。40–50 万是项目报价上沿，不是把硬件改成第二个中枢</td></tr>
+      <tr><td>GPU 冷板×72</td><td>280–400×72</td><td>20,160–28,800 美元</td><td>20,200–28,800 美元（第 7/10 章）</td><td>通过（已改正旧版 2.4–3.5 万）</td></tr>
+      <tr><td>不同口径千瓦价</td><td>49,860÷139.5；107,400÷150；211,000÷169</td><td>357；716；1,249 美元/kW</td><td>第 11.2 节同数</td><td>算术通过；第三项仅为设施表校验，不是拆分来源</td></tr>
+      <tr><td>1 GW 柜数×单柜</td><td>5,929×211,000</td><td>12.51 亿美元</td><td>取整 13 亿美元（Bernstein）</td><td>通过（取整）。1,000,000÷169=5,917，以 Exhibit 5,929 为准</td></tr>
+      <tr><td>预测曲线 vs 情景</td><td>13.4 节 2031 端点 = 13.5 节基准</td><td>21.0 万美元</td><td>21.0 / 21.0</td><td>通过。17–18 与 26–30 是情景尾部</td></tr>
+      <tr><td>国内 vs 海外专用 L2</td><td>82–104 万元÷7.2 vs 15.1–18.9 万美元</td><td>11.4–14.4 万 vs 15.1–18.9 万</td><td>第 9/10/11 章已拆开</td><td>口径差：两套市场，禁止当汇率换算</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">单独打印页：<a href="GB300_热管理成本_单位千瓦价附属对照_20260819.html">GB300_热管理成本_单位千瓦价附属对照_20260819.html</a>（数字与本章对齐，已随 v1.4 同步）。</p>
+</section>
+
+<section id="price">
+  <div class="h-sec"><div class="no">12</div><div><h2>热管理方案定价机制</h2><div class="en">PRICING MECHANISM</div></div></div>
+  <p>市场同时用四把尺子。能讲清自己在用哪一把，报价才比较得起来。每千瓦这把尺子的公开对照见<a href="#unitpx">第 11 章</a>。</p>
+  <h3>12.1 四把尺子</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>尺子</th><th>公式直觉</th><th>谁用</th><th>2026 标尺</th></tr></thead>
+    <tbody>
+      <tr><td>① 物料成本加成</td><td>BOM ×（1+制造）×（1+毛利）</td><td>泵、板换、通用管路</td><td>毛利 15–35%</td></tr>
+      <tr><td>② 每千瓦</td><td>单价 × 保证冷量 × 冗余系数</td><td>CDU、一次侧、总包</td><td>二次侧 3–5 千元/kW（国内）；海外 ×1.5–2.0</td></tr>
+      <tr><td>③ 每柜 / 每托盘</td><td>平台固定 BOM</td><td>冷板、UQD、Manifold</td><td>GB300 托盘冷却 ≈5.0 万美元</td></tr>
+      <tr><td>④ 价值 / TCO</td><td>省电 + 提高上架率 + 缩短交付</td><td>Vertiv/施耐德/全栈</td><td>高密 300–350 万美元/MW 量级（厂商 SAM，不是纯硬件）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>12.2 价格乘数</h3>
+  <ul class="dot">
+    <li><b>认证乘数 1.3–2.0×。</b>进入英伟达 / OCP / 超大规模名录的冷板、UQD、CDU，比同等换热能力的白牌贵 30%–100%。买的是百万小时现场数据和漏液责任。</li>
+    <li><b>冗余乘数。</b>N+1 泵已含在单机价；<b>整机 1 用 1 备 ≈ 1.8–2.0×</b>（第二台有折扣）。2N 母管再加 10–20% 安装。</li>
+    <li><b>工况乘数。</b>W45 / 3K 端温差 / PG25 比常温 DI 水 5K 更贵：板换更大、泵扬程更高、材料相容测试更长。</li>
+    <li><b>批量阶梯。</b>100 柜以上长约常见 8–15% 折扣；样品与首套 FAT 可能加 20–40%。</li>
+    <li><b>交付乘数。</b>海外 6–12 个月交期下，现货或短交期可再加 10–25%。</li>
+    <li><b>软件订阅。</b>群控、预测维护、水质监测正在从一次性硬件转向年费，约占 CDU 价 3–8%/年。</li>
+  </ul>
+  <h3>12.3 双市场定价</h3>
+  <div class="card">
+    <p><b>英伟达 / 国际超大规模链：</b>规格由平台锁定，ODM 代工利润薄，认证件价格黏。买方对 TCO 敏感、对单价不敏感。</p>
+    <p><b>中国 CSP / 运营商链：</b>集中式 L2L + 工程总包，价格按千瓦和项目竞标。国产 CDU 市占已高，拼交付、预付和本地运维。海外溢价 50–100% 在一次侧和认证 CDU 上最明显。</p>
+  </div>
+  <h3>12.4 可用报价模板</h3>
+  <p class="lead">出厂价 ≈ 保证冷量(kW) × 市场千瓦价 × 冗余系数 × 认证系数 × 工况系数 × 交期系数 − 批量折扣 + 软件年费现值。</p>
+  <p>例：200 kW × 1,100 元/kW × 1.9（1+1）× 1.15（认证）× 1.08（W45/3K）≈ <b>52 万元</b>。硬件底是 20–22 万×1.9≈38–42 万，接近第 8 章 40–44 万；52 万是叠认证/工况后的报价例，对应第 9 章项目行上沿 50 万，<b>不是</b>把硬件中枢改写成 52 万。</p>
+</section>
+
+<section id="forecast">
+  <div class="h-sec"><div class="no">13</div><div><h2>未来五年价格趋势（2026–2031）</h2><div class="en">FIVE-YEAR OUTLOOK</div></div></div>
+  <h3>13.1 需求：功率密度与渗透率</h3>
+  <ul class="dot">
+    <li>GB300 单柜 142–155 kW（NVIDIA Enterprise RA 写“整柜最高约 142 kW”），Rubin / NVL144 冷却 BOM 已看到约 +17%；Bernstein 称 Rubin Ultra 柜内电源含量可到 GB200 的 7–8 倍，热流密度继续抬升。东吴 2026-07 给 Rubin 级单柜液冷 14–16 万美元，是含量上行的卖方锚点，<b>不回改</b> GB300 L2 中枢。</li>
+    <li>冷板仍是主流（咨询口径 2026 年份额约 55%，国内研究称液冷中冷板占 80–90%）。浸没增速更快，但不是 GB300 生产基线。</li>
+    <li>全球液冷<b>设备</b>市场（2026-08 再核，属第 13.6 节口径②）：MarketsandMarkets 2026-03 仍为 2026 年 40.7 亿 → 2033 年 276.5 亿，CAGR 31.5%；Grand View 官网现为 2025 年 66.5 亿、2026 年 81.7 亿、2033 年 294.6 亿，CAGR 20.1%（旧转述 66 / 82 / 295 亿，差异为四舍五入，<b>不改中枢</b>）；Persistence 2026 年 57 亿 → 2033 年 292 亿，CAGR 26.4%。Axis 另列 GMI 2026 年 60 亿、CAGR 18.2%；Mordor 67.7 亿 → 2031 年 187.9 亿，CAGR 22.65%。区间仍是 2026 年约 41–82 亿美元，CAGR 约 18–31%。Dell'Oro 2025 年接近 30 亿、2029 年约 70 亿落在该层偏紧（厂商出货、避免 ODM 重复计）。东吴 102 / 873 亿是口径③（含一次侧工程），IDC 中国 23.7 / 162 亿是口径④（整机），分层与「中国整机为何可大于全球设备」见<a href="#mkt-scope">第 13.6 节</a>，此处不重复推导。本报告设备层中位仍为<b>2026 年约 60 亿美元，2031 年约 180–200 亿美元，CAGR ≈ 25%</b>。</li>
+  </ul>
+  <h3>13.2 供给：产能、国产化、交期</h3>
+  <ul class="dot">
+    <li>国内英维克、申菱、高澜、同飞等扩产，通用 CDU 和冷板进入价格战区间；2026 已出现“增收不增利”。</li>
+    <li>海外 Vertiv / 施耐德 / CoolIT / Boyd 仍卡认证与超大规模份额，交期 6–12 个月支撑溢价。</li>
+    <li>UQD、高端泵阀、密封材料国产化未完成，是价格黏性最强的零件。</li>
+    <li>3M 退出 PFAS 后，两相氟化液供给收缩；GB300 水基路线受影响小，浸没路线受影响大。</li>
+  </ul>
+  <h3>13.3 技术进步与研发成本</h3>
+  <ul class="dot">
+    <li><b>把单价打下去的：</b>NVUQD03 小型化、冷板良率、模块化 CDU、标准化 OCP 接口、一次侧高温水去冷机。</li>
+    <li><b>把含量抬上去的：</b>独立冷板、盲插点数、3K 端温差板换、漏液检测、群控软件、800V 机柜带来的电-热联合设计。</li>
+    <li><b>研发：</b>微通道/3D 打印冷板、磁泵、数字孪生控制是持续费用。认证场测往往数百万小时，摊销要求放量。新玩家若摊不薄，只能做白牌或二供。</li>
+  </ul>
+  <h3>13.4 双市场价格指数（2026=100）</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>指标</th><th class="r">2026</th><th class="r">2027</th><th class="r">2028</th><th class="r">2029</th><th class="r">2030</th><th class="r">2031</th><th>路径</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>国内通用 CDU（元/kW）</td><td class="r">1,100</td><td class="r">1,010</td><td class="r">930</td><td class="r">860</td><td class="r">800</td><td class="r">750</td><td>年降约 7–8%，产能释放</td></tr>
+      <tr><td>海外认证 CDU（美元/kW）</td><td class="r">220</td><td class="r">210</td><td class="r">202</td><td class="r">195</td><td class="r">188</td><td class="r">182</td><td>年降约 3–4%，认证黏性</td></tr>
+      <tr><td>NV 链冷板（L1 托盘，美元）</td><td class="r">49,860</td><td class="r">52,000</td><td class="r">55,700</td><td class="r">54,000</td><td class="r">53,000</td><td class="r">52,000</td><td>2026 与 L1 中枢 49,860 对齐；其后随 Rubin 含量上升</td></tr>
+      <tr><td>UQD 单只（美元）</td><td class="r">45</td><td class="r">42</td><td class="r">39</td><td class="r">36</td><td class="r">34</td><td class="r">32</td><td>国产替代+标准件化</td></tr>
+      <tr><td>单柜 UQD 价值（美元）</td><td class="r">22,000</td><td class="r">23,000</td><td class="r">21,500</td><td class="r">20,000</td><td class="r">19,000</td><td class="r">18,000</td><td>只数仍高，单价下降占优</td></tr>
+      <tr><td>国内二次侧（元/kW）</td><td class="r">4,000</td><td class="r">3,700</td><td class="r">3,450</td><td class="r">3,250</td><td class="r">3,100</td><td class="r">2,950</td><td>竞标降价</td></tr>
+      <tr><td>海外二次侧（元/kW 当量）</td><td class="r">6,500</td><td class="r">6,300</td><td class="r">6,100</td><td class="r">5,950</td><td class="r">5,800</td><td class="r">5,700</td><td>降得慢</td></tr>
+      <tr class="tot"><td>柜外设施热管理参考（万美元/柜）</td><td class="r">21.1</td><td class="r">22.0</td><td class="r">23.0</td><td class="r">22.2</td><td class="r">21.5</td><td class="r">21.0</td><td>沿用 Bernstein 设施表口径，不含柜内 5.1 万</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-box"><div class="cap">图 13-1 CDU 千瓦价：国内 vs 海外<div class="cap-sub">国内轴=元/kW（设备额定）；海外轴=美元/kW（设备额定）。两轴单位不同，<b>不可比柱高</b>。与第 13.4 节表一致。</div></div><div id="c5" class="chart" style="height:400px"></div></div>
+    <div class="chart-box"><div class="cap">图 13-2 柜外设施热管理参考（万美元）<div class="cap-sub">沿用 Bernstein 设施表口径，不含机柜 BOM 的 5.1 万美元。</div></div><div id="c6" class="chart" style="height:400px"></div></div>
+  </div>
+  <h3>13.5 情景</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>情景</th><th>触发</th><th>2031 柜外设施热管理</th><th>国内 CDU 元/kW</th></tr></thead>
+    <tbody>
+      <tr><td>基准</td><td>AI 资本开支仍增，国产放量，Rubin 如期</td><td class="r">21.0 万美元（=13.4 节 2031 曲线端点）</td><td class="r">750</td></tr>
+      <tr><td>乐观降本</td><td>标准件化+认证放开+铜价回落</td><td class="r">17–18 万美元</td><td class="r">650</td></tr>
+      <tr><td>含量上行</td><td>NVL144 / 两相冷板 / 强制 2N</td><td class="r">26–30 万美元</td><td class="r">850（高端机）</td></tr>
+      <tr><td>需求不及预期</td><td>电力瓶颈、上架推迟</td><td class="r">19 万美元但出货腰斩</td><td class="r">600（价格战）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout key"><b>一句话预测：</b>未来五年热管理市场金额随 AI 机柜放量增长；国内通用硬件单价下降。柜外设施热管理预测与机柜 BOM 预测必须分别维护，不能跨表拼成一个“全栈”中枢。</div>
+
+  <h3 id="mkt-scope">13.6 市场规模的五种口径：为什么中国整机会大过全球设备</h3>
+  <p class="lead">常被问到的一句：「IDC 说中国液冷服务器 2024 年 23.7 亿美元、2029 年 162 亿美元；Dell'Oro 说全球液冷设备 2025 年接近 30 亿美元、2029 年约 70 亿美元。中国怎么比世界还大？」<b>不矛盾，分子不是同一个东西。</b>单柜项目成本、Bernstein 柜外设施表与市场规模口径是三套坐标，本节只处理后者。</p>
+
+  <h4>口径阶梯</h4>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>级</th><th>分子是什么</th><th>覆盖</th><th>不覆盖</th><th>代表数据（已核到公开稿）</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>① 零部件</td><td>冷板、UQD、泵、板换、阀的出厂额</td><td>零件层</td><td>CDU 整机、管路工程、服务器</td><td>无独立权威全球 TAM。本报告用单柜零件价（冷板 280–400 美元/块、UQD 40–50 美元/只），<b>不作市场规模中枢</b></td></tr>
+      <tr><td>② 液冷设备</td><td>设备制造商收入 / 设备市场</td><td>冷板模组、CDU、Manifold、浸没槽、RDHx</td><td>GPU/主板/电源；一次侧土建</td><td>Dell'Oro：全球厂商收入 2025 年接近 <b>30</b> 亿美元 → 2029 年约 <b>70</b> 亿美元（DLC+浸没+RDHx）。咨询窄口径 2026 年 <b>41–82</b> 亿（MaM 40.7 / GVR 81.7），本报告设备层中位仍 60 亿</td></tr>
+      <tr><td>③ 设备 + 一次侧工程</td><td>二次侧设备加冷源、塔、安装合同</td><td>② + 一次侧冷源与工程</td><td>IT 整机、电气土建大楼</td><td>东吴 2026/2030 年 <b>102 / 873</b> 亿美元（一次侧 29/213 + 二次侧 73/660）</td></tr>
+      <tr><td>④ 液冷服务器整机</td><td>只要交付形态是液冷，整机售价全计</td><td>GPU/CPU/内存/主板/电源/机箱 + 所带液冷件</td><td>机房一次侧、土建；不是“热管理市场”</td><td>IDC 中国：2024 年 <b>23.7</b> 亿美元（出货超 23 万台，同比 +67.0%）→ 2029 年 <b>162</b> 亿美元，CAGR <b>46.8%</b></td></tr>
+      <tr><td>⑤ 数据中心设施 / 土建机电</td><td>机房冷却土建或整栋机电，按 kW/MW</td><td>TES、安装调试、或液冷机房机电</td><td>单柜硬件 BOM；也不是年度 TAM</td><td>KPMG 约 1,000–1,500 美元/kW（土建）；JLL/Archdesk 液冷机房机电 4.5–5.2 百万美元/MW。Bernstein 1 GW 全口径 <b>350</b> 亿美元、热管理 13 亿（3.6%）是<b>单项目锚点</b>，不是全球年度市场</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Dell'Oro 原文用 <i>manufacturer revenue</i>（制造商收入），在设备商出货层计一次，避免 ODM 把冷板/CDU 集成进整柜后再计一遍。IDC 排名前三是浪潮信息、超聚变、宁畅（约七成），卖的是整机。咨询 41–82 亿与 Dell'Oro 30/70 亿同属口径②，覆盖宽窄和是否去重不同，<b>不取平均抹平</b>。</p>
+
+  <h4>换算规则（量级校验，不是精确桥接）</h4>
+  <ul class="dot">
+    <li><b>整机 → 设备：</b>热管理硬件约占液冷整机售价 <b>5%–10%</b>只能作为量级系数。Bernstein 21.1 万是柜外设施表，不含柜内液冷，不能直接当成整机内嵌硬件 BOM。</li>
+    <li><b>热管理 → 数据中心全口径 capex：</b>Bernstein <b>3.6%</b>（公开转述约 4%）。分母是 1 GW 机房总投资，不是整机售价。两套系数不要串用。</li>
+    <li>IDC 2024 年出货超 23 万台 → 隐含均价约 1.0 万美元/台，主体是 2U/节点级液冷服务器，不是 NVL72 整柜。因此 5%–10% 用在 23.7 亿上，只做<b>数量级核对</b>。</li>
+  </ul>
+
+  <h4>粗对齐算例</h4>
+  <p>中国 2024 整机 23.7 亿美元 × 5%–10% ≈ <b>1.2–2.4 亿美元</b>设备口径。对照 Dell'Oro 全球 2025 年接近 30 亿美元，中国约占 <b>4%–8%</b>，包含关系成立：世界设备收入里装得下中国折算后的设备额。公开稿<b>未</b>给出 Dell'Oro 的中国设备份额，上式不能当成官方份额。</p>
+  <p>更刺眼的对比在远端：<b>2029 年 IDC 中国整机 162 亿 &gt; Dell'Oro 全球设备约 70 亿</b>。162 × 5%–10% ≈ 8–16 亿美元，仍低于 70 亿。看起来“中国比世界大”，是把整机柱和设备柱画在同一张图上。</p>
+
+  <h4>增速差</h4>
+  <p>IDC 2024→2029 CAGR = <b>46.8%</b>（新闻稿原数；约 47%）。Dell'Oro 2025→2029：接近 30 亿 → 约 70 亿，四年复合约 <b>23%–24%</b>。整机口径被 GPU 单价上涨与出货放量放大两次；设备口径只跟冷却硬件走，且单价在国内还有下行。两条曲线不应被解释成“中国渗透率超过全球”。</p>
+
+  <div class="chart-box"><div class="cap">图 13-3 五种口径的量级对照（亿美元，对数轴）<div class="cap-sub">柱<b>不可相减、不可当冲突</b>。①无独立 TAM 不画金额；⑤的 350 是 1 GW 项目全口径，不是年度市场。横轴为对数，长短不代表线性倍数。</div></div><div id="c8" class="chart" style="height:480px"></div></div>
+  <div class="callout key"><b>比市场规模前先问三件事：</b>① 分子是整机还是设备？② 含不含一次侧与土建？③ 是设备出货额，还是含工程服务的合同额？答不上其中任何一项，就不要把两条公开数横比。</div>
+</section>
+
+<section id="risk">
+  <div class="h-sec"><div class="no">14</div><div><h2>风险与使用注意</h2><div class="en">RISKS</div></div></div>
+  <ul class="dot">
+    <li>比“液冷市场”数字前先问三件事（完整阶梯见<a href="#mkt-scope">第 13.6 节</a>）：分子是整机还是设备？含不含一次侧与土建？是设备出货额还是含工程服务的合同额？2026 年咨询 41–82 亿、东吴 102 / 873 亿、IDC 中国整机 23.7 / 162 亿、Dell'Oro 全球设备约 30 / 70 亿，都不是同一分子。</li>
+    <li>Morgan Stanley 原文未公开，本报告用 TechPowerUp / Lianli / TGM 等独立转述交叉；若原文含/不含歧管，L1 可能差几千美元。TechPowerUp 正文误写 32 颗 Grace，官方为 36，功率锚点仍用 142 / 155 kW。</li>
+    <li>铜、不锈钢、电子控制器价格未做月度指数挂钩，材料冲击可 ±5–10%。</li>
+    <li>技术路线若快速切两相/浸没，当前冷板+UQD 学习曲线资产会减值。</li>
+    <li>Bernstein 21.1 万美元只按设施表的 169 kW/柜换算为 1,249 美元/kW，用于量级校验；不得改用本项目 155 kW 或 NVIDIA 142 kW 分母，也不得把换算值当作拆分来源。</li>
+  </ul>
+</section>
+
+<section id="src">
+  <div class="h-sec"><div class="no">15</div><div><h2>参考文献与本地底稿</h2><div class="en">SOURCES</div></div></div>
+  <h4>本地文件（cost / solutions）</h4>
+  <ul class="dot">
+    <li>Bernstein《AI Value Chain: How much does a GW of data center capacity actually cost》2025-10-27，及中译本（柜内液冷 51、风冷 110、柜外液冷 44、热管理合计 211 千美元/柜；1.3 十亿美元/GW；占 capex 3.6%）。</li>
+    <li>NVIDIA GB300 NVL72 冷却系统总体设计报告 v1.9 / v2.0（2026-08）。</li>
+    <li>NVIDIA GB300 NVL72 CDU 系统设计报告 v1.16 / v1.17（2026-08）。</li>
+    <li>数据中心热管理系统方案零部件供应链与成本调研报告（2026）。</li>
+    <li>附属页 <a href="GB300_热管理成本_单位千瓦价附属对照_20260819.html">GB300_热管理成本_单位千瓦价附属对照_20260819.html</a>（主要内容已并入第 11 章）。</li>
+  </ul>
+  <h4>国际公开</h4>
+  <ul class="dot">
+    <li>TechPowerUp，2025-11-05/06：<i>Liquid Cooling for NVIDIA GB300 “Blackwell Ultra” NVL72 Costs Nearly $50,000</i>，转述 Morgan Stanley：18×2,260 + 9×1,020 = 49,860 美元；Rubin NVL144 约 +17% 至 55,710 美元。</li>
+    <li>Lianli / TGM / GoKawiil：同口径 GB300 49,860；GB200 ≈41,500；Rubin ≈55,700；冷板约 300 美元/块（NVSwitch 约 200）。</li>
+    <li>NVIDIA Enterprise Reference Architecture — NVL72 AI Factory：整柜最高约 142 kW，8×33 kW 电源架；产品页强调全液冷，不给美元 BOM。</li>
+    <li>CEJN / OCP：UQD 为 Intel 倡议的开放快接头标准（UQD02/04/06/08）；NVUQD03 为平台缩小规格，与白牌不是同一商品。</li>
+    <li>Vertiv CoolChip CDU 产品页与 600/1350/2300 kW 数据表（2025–2026）：L2L 至 2,300 kW @ 4°C ATD，支持 W45，冗余泵；<b>不公布美元/kW</b>。高（规格）/ 低（价格）。<a href="https://www.vertiv.com/en-us/products-catalog/thermal-management/high-density-solutions/vertiv-coolchip-cdu/">vertiv.com</a></li>
+    <li>CoolIT CHx1500（2025-03）/ CHx2000（2025-04）新闻稿与产品页：行级 750×1200 mm；宣称带 9 / 12 台 GB200 NVL72（按 120 kW）；CHx2000 标称 2 MW @ 5°C ATD、群控 20 台。DCD 转载。高（规格）/ 中（带柜营销口径）/ 低（价格）。</li>
+    <li>Motivair by Schneider Electric MCDU 系列（2025–2026）：105 kW–2.5 MW，MCDU-70 为 2.5 MW；目标约 1.5 L/min·kW。DCD 2025。高（规格）/ 低（价格）。</li>
+    <li>nVent RackChiller CDU40/100/800：行级 800+ kW @ 6 K，800×1200×2200 mm。高（规格）。</li>
+    <li>OCP <i>Project Deschutes: Data Center Facilities</i>（2025-09-05）：2 MW CDU @ 3°C 逼近，DI/PG25。高（规格）。Google 舰队 2,000+ TPU Pod / 99.999% 为演讲转述，中高。</li>
+    <li>ORNL/DOE <i>Providing Thermal Stability for an Exascale Supercomputer: A Case Study of Frontier's Cooling System</i>，doi:10.2172/3013860：25×1.6 MW CDU，每台 3 计算柜，W32。高。</li>
+    <li>LLNL《How El Capitan keeps its cool》；CoolIT / HPE 关于 El Capitan、Frontier 直液冷新闻稿。高（冷板与密度）；CDU 型号未公开。</li>
+    <li>Supermicro <i>Inside the 100K GPU xAI Colossus Cluster</i> PDF；ServeTheHome 现场：柜内 CDU，一柜一台。高。GB300 数据表：In-Row 至 1.8 MW、最多 8 柜。高（OEM 选项，非站点）。</li>
+    <li>Meta Catalina / Hot Chips 2025；DCD 2025-08：AALC 侧舱。高。</li>
+    <li>IDC《中国半年度液冷服务器市场（2024 下半年）跟踪》，新闻稿 2025-04-08（<a href="https://my.idc.com/getdoc.jsp?containerId=prCHC53302025">prCHC53302025</a>）：中国液冷<b>服务器</b>市场 2024 年 23.7 亿美元（同比 +67.0%，出货超 23 万台），2024–2029 年 CAGR 46.8%，2029 年 162 亿美元。前三厂商浪潮信息、超聚变、宁畅约七成。可信度高（官方稿）；分子是整机。</li>
+    <li>Dell'Oro Group《Data Center Liquid Cooling Advanced Research Report》新闻稿 2026-01-08（<a href="https://www.delloro.com/news/data-center-liquid-cooling-market-to-approach-7-billion-by-2029-as-ai-deployments-accelerate/">delloro.com</a>）：全球数据中心液冷<b>制造商收入</b> 2025 年 roughly double、接近 30 亿美元，2029 年 approximately 70 亿美元。覆盖 DLC、浸没、RDHx。可信度高（官方稿，约数）。公开稿未披露中国份额。</li>
+    <li>MarketsandMarkets（2026-03，CH 8110）：2026 年 40.7 亿 → 2033 年 276.5 亿，CAGR 31.5%。</li>
+    <li>Grand View Research 官网（2026-08 核）：2025 年 66.5 亿，2026 年 81.7 亿，2033 年 294.6 亿，CAGR 20.1%（旧转述 66 / 82 / 295 亿，四舍五入差，中枢不改）。</li>
+    <li>Persistence Market Research：2026 年 57 亿 → 2033 年 292 亿，CAGR 26.4%；冷板份额&gt;55%。</li>
+    <li>The Business Research Company：2025 年 51 亿 → 2030 年 161.6 亿，CAGR 26%。</li>
+    <li>Axis Intelligence 2026 汇总：另列 GMI 2026 年 60 亿、CAGR 18.2%；Mordor 67.7 亿 → 2031 年 187.9 亿，CAGR 22.65%。</li>
+    <li>Vertiv CoolChip CDU 产品页（70–2,300 kW，L2A/L2L，4℃ 逼近温差）；不公布美元/kW。</li>
+    <li>Yobitel Knowledge Base《Direct-to-Chip Liquid Cooling》：企业级 DLC 1,875–5,000 美元/kW，称汇总 Uptime Institute / 451 Research / OCP 参考设计；排除一次侧排热厂与土建。明确非本 BOM。</li>
+    <li>Adam Silva Consulting《Data Center Cooling Economics 2026》：16 柜实验室规模 DLC 3,500–5,000 美元/kW。明确非本 BOM。</li>
+    <li>ThePricer《How Much Does It Cost To Cool An AI Data Center?》：转述 KPMG 液冷技术+安装+调试约 €90–150 万/MW，约写成 100–150 万美元/MW（1,000–1,500 美元/kW）。土建口径。</li>
+    <li>KPMG Ireland《Disrupting Data Centre Design》（2024-12）：TES 环路与调试约 €90–110 万/MW；densification 约 €120–150 万/MW。施工成本，不含机柜。</li>
+    <li>JLL / Archdesk 2026（经 Axis、MillionMiner 转述）：液冷机房机电约 450–520 万美元/MW，风冷约 180 万美元/MW。设施层对照，不作单柜中枢。</li>
+    <li>QY Research《Global Coolant Distribution Units (CDU) Market Research Report 2026》：2025 年约 6 万台、均价约 1.6 万美元/台。Standalone 子集约 1.1 万台、约 3.6 万美元/台。含大量小机。</li>
+    <li>Investing.com / B17 等对 Bernstein 1GW 的公开转述：热管理约占 4%；本报告柜外设施口径以本地中译本 Exhibit 为准（3.6%、211k）。</li>
+  </ul>
+  <h4>中国公开</h4>
+  <ul class="dot">
+    <li>东吴证券《AI 行业液冷专题：从可选到必选，国产供应链突破加速》（2026-08，曾朵红 / 阮巧燕）：二次侧 3–5 千元/kW，一次侧国内 1.5–2 千元/kW、海外高 50–100%；全球空间 2026/2030 年 102 / 873 亿美元（含一次侧，口径宽于咨询）。金融界 2026-08-14 转载。</li>
+    <li>东吴证券《液冷，下一代 AIDC 基础设施，Rubin 带来行业确定性》（2026-07-22）：Rubin 级 NVL72 液冷约 14–16 万美元（柜内 6–7 万 + CDU/二次侧 8–9 万）。不作 GB300 中枢。</li>
+    <li>九方智投《液冷的逻辑与投资机遇》：国内 CDU 约 1,000–1,100 元/kW，海外 200–240 美元/kW；认证快接头国内约 600 元/对、海外约 1,300 元/对。</li>
+    <li>天下工场产业研究院《中国数据中心液冷 2026》：海外整柜方案约 8,000–12,000 元/kW，国产 5,000–8,000 元/kW；UQD 量产成本 30–50 元/只。原文已核。</li>
+    <li>英维克 Coolinside 行级 CDU 产品规格册（2025-04 PDF）：XCRow 300–2,000 kW。高（规格）。累计 GW 级交付与腾讯/阿里/字节份额为公司或券商转述，中。</li>
+    <li>申菱 CDU 档位公开表 / CDU300 系统宣传（支持约 150 kW/柜）。中（规格+宣传）。</li>
+    <li>采招网等：高澜股份 2026 年中标中建二局华东 CDU 及二次侧材料集采、中国电信内蒙古信息园 D10 干冷器。中（中标属实，型号台数未公开）。</li>
+    <li>腾讯新闻《聊一聊液冷》（2025-08-31）：北美/欧洲主流 70 kW CDU ≈ 3 万美元、150 kW ≈ 3.5–4.0 万美元；GB300 小冷板 200–300 美元，GB200 大冷板 600–700 美元。</li>
+    <li>浙商 / 东方等对 GB200 BOM 的拆解（见本地调研报告汇总）。</li>
+    <li>Uptime Institute Direct Liquid Cooling Survey 2022 / Cooling Systems Survey 2024：泄漏与成本是 DLC 主要顾虑（定性，不提供单柜美元）。</li>
+  </ul>
+  <div class="callout info">免责声明：数字来自公开信息与工程逻辑推演，存在口径、汇率、配置和时点差异。采购与投标请以有效报价、OEM ICD 和 FAT 保证点为准。</div>
+</section>
+</div>
+
+<footer>
+  GB300 热管理系统子系统与零部件成本分析报告 v1.7 · 2026-08-22 · 图表可读性修复：补充占比标注与布局修正 · 左侧目录可折叠。不构成投资或采购承诺。
+</footer>
+</main>
+
+<script>
+(function(){
+  const btn = document.getElementById('tocBtn');
+  btn.addEventListener('click', () => document.body.classList.toggle('toc-collapsed'));
+  const filterBar = document.getElementById('lvFilter');
+  if (filterBar) {
+    filterBar.addEventListener('click', ev => {
+      const b = ev.target.closest('button');
+      if (!b) return;
+      filterBar.querySelectorAll('button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      const lv = b.getAttribute('data-lv');
+      document.querySelectorAll('#masterTbl tbody tr').forEach(tr => {
+        tr.style.display = (lv === 'all' || tr.getAttribute('data-lv') === lv) ? '' : 'none';
+      });
+    });
+  }
+  const links = document.querySelectorAll('aside.toc a');
+  const map = [...links].map(a => ({a, el: document.querySelector(a.getAttribute('href'))})).filter(x => x.el);
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(l => l.classList.remove('active'));
+      const hit = map.find(m => m.el === e.target);
+      if (hit) hit.a.classList.add('active');
+    });
+  }, {rootMargin:'-18% 0px -70% 0px', threshold:0});
+  map.forEach(m => io.observe(m.el));
+
+  if (!window.echarts) return;
+  const C = {navy:'#102a43', teal:'#087f8c', gold:'#d3a62b', blue:'#0284c7', amber:'#d97706', mute:'#94a3b8'};
+  function init(id, opt){ const el=document.getElementById(id); if(!el) return; echarts.init(el).setOption(opt); }
+  function fmtInt(n){ return Math.round(n).toLocaleString('en-US'); }
+  function pct(v, tot){ return (v / tot * 100).toFixed(1); }
+
+  init('c1', {
+    tooltip:{trigger:'axis',formatter:function(ps){
+      return ps.map(function(p){ return p.axisValue.replace(/\n/g,' ') + '：<b>' + fmtInt(p.value) + '</b> 美元/柜'; }).join('<br/>');
+    }},
+    grid:{left:16,right:16,top:36,bottom:8,containLabel:true},
+    xAxis:{type:'category',axisLabel:{interval:0,fontSize:11,lineHeight:14},
+      data:['L1 托盘','L2 二次侧\n共享CDU','L2 专用海外中位\n15.1–18.9万','Bernstein 柜外设施\n另表口径']},
+    yAxis:{type:'value',name:'美元/柜',nameGap:8,splitNumber:4},
+    series:[{type:'bar',barMaxWidth:56,data:[49860,107400,170000,211000],itemStyle:{color:C.teal},
+      label:{show:true,position:'top',fontSize:11,formatter:function(p){ return fmtInt(p.value); }}}]
+  });
+
+  init('c2', {
+    tooltip:{trigger:'axis',formatter:function(ps){
+      return ps.map(function(p){ return p.axisValue.replace(/\n/g,' ') + '：<b>' + fmtInt(p.value) + '</b> 美元/柜'; }).join('<br/>');
+    }},
+    grid:{left:16,right:16,top:36,bottom:8,containLabel:true},
+    xAxis:{type:'category',axisLabel:{interval:0,fontSize:11,lineHeight:14},
+      data:['MS 托盘','Bernstein 机柜BOM\n柜内液冷','浙商 L2','Bernstein 设施表\n柜外热管理','Vertiv SAM\n(按169kW折算)']},
+    yAxis:{type:'value',name:'美元/柜',nameGap:8},
+    series:[{name:'公开数字',type:'bar',barMaxWidth:48,data:[49860,51000,98900,211000, Math.round(3.0e6*0.169)],
+      itemStyle:{color:C.navy},label:{show:true,position:'top',fontSize:11,formatter:function(p){ return fmtInt(p.value); }}}]
+  });
+
+  (function(){
+    const TOT=107400;
+    const pie=[
+      {value:40700,name:'冷板',itemStyle:{color:C.teal}},
+      {value:9200,name:'Switch',itemStyle:{color:C.navy}},
+      {value:13500,name:'Manifold',itemStyle:{color:C.gold}},
+      {value:22000,name:'UQD',itemStyle:{color:C.blue}},
+      {value:22000,name:'CDU 分摊',itemStyle:{color:C.amber}}
+    ];
+    init('c3', {
+      tooltip:{trigger:'item',formatter:function(p){
+        return p.marker + p.name + '：<b>' + fmtInt(p.value) + '</b> 美元（' + pct(p.value,TOT) + '%）<br/>分母 107,400 美元';
+      }},
+      legend:{bottom:4,left:'center',itemWidth:12,itemHeight:8,textStyle:{fontSize:11},
+        formatter:function(name){
+          const row=pie.find(function(d){ return d.name===name; });
+          return row ? (name + ' ' + pct(row.value,TOT) + '%') : name;
+        }},
+      series:[{type:'pie',radius:['34%','58%'],center:['50%','44%'],
+        avoidLabelOverlap:true,minShowLabelAngle:0,
+        label:{show:true,position:'outside',alignTo:'labelLine',bleedMargin:6,
+          fontSize:11,lineHeight:16,color:'#17212b',
+          formatter:function(p){ return p.name + '\n' + fmtInt(p.value) + ' 美元（' + pct(p.value,TOT) + '%）'; }},
+        labelLine:{show:true,length:16,length2:14,smooth:false},
+        data:pie}]
+    });
+  })();
+
+  (function(){
+    const names=['托盘冷板','歧管接头','CDU 1+1','安装 FAT','残余风冷','一次侧分摊'];
+    const cn=[4.2,1.7,6.3,0.8,1.5,2.2], os=[5.0,1.9,9.0,1.2,2.0,3.8];
+    const cnTot=16.7, osTot=22.9;
+    init('c4', {
+      tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:function(ps){
+        const i=ps[0].dataIndex;
+        return names[i] + '（区间中位）<br/>' +
+          ps[0].marker + '国内 CSP：<b>' + cn[i].toFixed(1) + '</b> 万美元（占国内合计 ' + cnTot + ' 万的 ' + pct(cn[i],cnTot) + '%）<br/>' +
+          ps[1].marker + '海外认证：<b>' + os[i].toFixed(1) + '</b> 万美元（占海外合计 ' + osTot + ' 万的 ' + pct(os[i],osTot) + '%）';
+      }},
+      legend:{top:4,left:'center',itemWidth:12,itemHeight:8,textStyle:{fontSize:12}},
+      grid:{left:8,right:96,top:40,bottom:8,containLabel:true},
+      xAxis:{type:'value',name:'万美元',nameGap:8,min:0,max:11,splitNumber:5},
+      yAxis:{type:'category',data:names,inverse:true,axisLabel:{interval:0,fontSize:12}},
+      series:[
+        {name:'国内 CSP（合计 16.7 万）',type:'bar',barCategoryGap:'28%',barGap:'18%',data:cn,itemStyle:{color:C.teal},
+          label:{show:true,position:'right',fontSize:10,distance:4,
+            formatter:function(p){ return p.value.toFixed(1)+'（'+pct(p.value,cnTot)+'%）'; }}},
+        {name:'海外认证（合计 22.9 万）',type:'bar',data:os,itemStyle:{color:C.navy},
+          label:{show:true,position:'right',fontSize:10,distance:4,
+            formatter:function(p){ return p.value.toFixed(1)+'（'+pct(p.value,osTot)+'%）'; }}}
+      ]
+    });
+  })();
+
+  init('c5', {
+    tooltip:{trigger:'axis',formatter:function(ps){
+      return ps[0].axisValue + ' 年<br/>' +
+        ps.map(function(p){
+          const unit = p.seriesName.indexOf('国内')>=0 ? ' 元/kW' : ' 美元/kW';
+          return p.marker + p.seriesName + '：<b>' + p.value + '</b>' + unit;
+        }).join('<br/>');
+    }},
+    legend:{top:4,left:'center',itemWidth:12,itemHeight:8},
+    grid:{left:8,right:8,top:44,bottom:8,containLabel:true},
+    xAxis:{type:'category',data:['2026','2027','2028','2029','2030','2031']},
+    yAxis:[
+      {type:'value',name:'国内 元/kW',nameGap:10,min:700,max:1200},
+      {type:'value',name:'海外 美元/kW',nameGap:10,min:170,max:230}
+    ],
+    series:[
+      {name:'国内 CDU 元/kW',type:'line',symbol:'circle',symbolSize:8,data:[1100,1010,930,860,800,750],itemStyle:{color:C.teal},
+        label:{show:true,position:'top',fontSize:10,formatter:function(p){ return p.dataIndex===0||p.dataIndex===5 ? p.value : ''; }}},
+      {name:'海外 CDU 美元/kW',type:'line',yAxisIndex:1,symbol:'circle',symbolSize:8,data:[220,210,202,195,188,182],itemStyle:{color:C.navy},
+        label:{show:true,position:'bottom',fontSize:10,formatter:function(p){ return p.dataIndex===0||p.dataIndex===5 ? p.value : ''; }}}
+    ]
+  });
+
+  init('c6', {
+    tooltip:{trigger:'axis',formatter:function(ps){
+      return ps[0].axisValue + ' 年：<b>' + ps[0].value + '</b> 万美元/柜';
+    }},
+    grid:{left:8,right:16,top:36,bottom:8,containLabel:true},
+    xAxis:{type:'category',data:['2026','2027','2028','2029','2030','2031']},
+    yAxis:{type:'value',name:'万美元/柜',nameGap:10,min:16,max:26},
+    series:[{name:'柜外设施热管理参考',type:'line',smooth:true,symbol:'circle',symbolSize:8,data:[21.1,22.0,23.0,22.2,21.5,21.0],
+      itemStyle:{color:C.gold},areaStyle:{color:'rgba(211,166,43,.15)'},
+      label:{show:true,position:'top',fontSize:11,formatter:function(p){ return p.value + ' 万'; }}}]
+  });
+
+  init('c9', {
+    tooltip:{trigger:'axis',formatter:function(ps){
+      const n=ps[0].axisValue;
+      const note = n==='4柜' ? '<br/><i>150 kW/柜满载热容量上限</i>' : (n==='6柜' ? '<br/><i>情景 A：约 100 kW/柜或负载多样性，非 6 台满载</i>' : '');
+      return '带柜数 ' + n + note + '<br/>' +
+        ps.map(function(p){ return p.marker + p.seriesName + '：<b>' + fmtInt(p.value) + '</b> 美元/柜'; }).join('<br/>');
+    }},
+    legend:{top:4,left:'center',itemWidth:12,itemHeight:8,textStyle:{fontSize:11}},
+    grid:{left:8,right:28,top:44,bottom:8,containLabel:true},
+    xAxis:{type:'category',name:'带柜数',nameLocation:'middle',nameGap:26,
+      data:['2柜','3柜','4柜','5柜','6柜','7柜','8柜'],axisLabel:{interval:0}},
+    yAxis:{type:'value',name:'单柜 CDU 分摊（美元）',nameGap:10,min:0,max:90000,splitNumber:5},
+    series:[
+      {name:'国内 600 kW（66 万元）',type:'line',symbol:'circle',symbolSize:8,
+        data:[45800,30600,22900,18300,15300,13100,11500],itemStyle:{color:C.teal},
+        label:{show:true,position:'bottom',fontSize:10,formatter:function(p){ return (p.dataIndex===2||p.dataIndex===4) ? fmtInt(p.value) : ''; }}},
+      {name:'海外 600 kW（13.2 万美元）',type:'line',symbol:'circle',symbolSize:8,
+        data:[66000,44000,33000,26400,22000,18900,16500],itemStyle:{color:C.navy},
+        label:{show:true,position:'top',fontSize:10,formatter:function(p){ return (p.dataIndex===2||p.dataIndex===4) ? fmtInt(p.value) : ''; }}},
+      {name:'专用 2×200 kW 中位',type:'line',symbol:'none',
+        data:[78000,78000,78000,78000,78000,78000,78000],itemStyle:{color:C.gold},lineStyle:{type:'dashed',width:2},
+        label:{show:true,position:'top',fontSize:10,formatter:function(p){ return p.dataIndex===0 ? '78,000' : ''; }},
+        markLine:{symbol:'none',label:{show:true,formatter:'满载热容量上限 ≈4 柜（150 kW/柜）',fontSize:11,color:'#b91c1c'},
+          lineStyle:{color:'#dc2626',type:'dashed',width:1.4},data:[{xAxis:'4柜'}]},
+        markArea:{silent:true,itemStyle:{color:'rgba(220,38,38,0.06)'},
+          label:{show:true,position:'insideTop',formatter:'4 柜以右：热容量越界（非 6 台满载）',color:'#b91c1c',fontSize:11},
+          data:[[{xAxis:'4柜'},{xAxis:'8柜'}]]}}
+    ]
+  });
+
+  init('c8', {
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:function(ps){
+      return ps.map(function(p){ return p.marker+p.seriesName+'：'+(p.value?p.value+' 亿美元':'不画金额'); }).join('<br/>');
+    }},
+    legend:{top:4,left:'center',itemWidth:12,itemHeight:8},
+    grid:{left:8,right:118,top:40,bottom:8,containLabel:true},
+    xAxis:{type:'log',min:8,logBase:10,name:'亿美元（对数）',nameGap:8},
+    yAxis:{type:'category',axisLabel:{interval:0,fontSize:11,width:210,overflow:'break'},data:[
+      '⑤ 1GW 设施全口径（项目，非年度）',
+      '④ 中国液冷服务器整机（IDC）',
+      '③ 设备+一次侧工程（东吴）',
+      '② 全球液冷设备（Dell\'Oro）',
+      '① 零部件（⊂②，无独立 TAM）'
+    ]},
+    series:[
+      {name:'近端年',type:'bar',data:[350,23.7,102,30,'-'],itemStyle:{color:'#087f8c'},
+        label:{show:true,position:'right',fontSize:11,formatter:function(p){
+          if(p.dataIndex===4) return '无独立 TAM';
+          if(p.dataIndex===0) return '350（1GW 项目）';
+          if(p.dataIndex===1) return '23.7（2024）';
+          if(p.dataIndex===2) return '102（2026）';
+          return '≈30（2025）';
+        }}},
+      {name:'远端年',type:'bar',data:['-',162,873,70,'-'],itemStyle:{color:'#102a43'},
+        label:{show:true,position:'right',fontSize:11,formatter:function(p){
+          if(!p.value) return '';
+          if(p.dataIndex===1) return '162（2029）';
+          if(p.dataIndex===2) return '873（2030）';
+          return '≈70（2029）';
+        }}}
+    ]
+  });
+
+  init('c7', {
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},formatter:function(ps){
+      return ps[0].axisValue + '<br/>' +
+        ps.map(function(p){ return p.marker + p.seriesName + '：<b>' + fmtInt(p.value) + '</b> 元/kW（区间中位）'; }).join('<br/>');
+    }},
+    legend:{top:4,left:'center',itemWidth:12,itemHeight:8},
+    grid:{left:8,right:72,top:40,bottom:8,containLabel:true},
+    xAxis:{type:'value',name:'元/kW（中位）',nameGap:8},
+    yAxis:{type:'category',inverse:true,axisLabel:{interval:0,fontSize:12},
+      data:['GPU 冷板','CDU 硬件','一次侧排热','二次侧工程包','L2 共享包','整柜液冷工程']},
+    series:[
+      {name:'国内',type:'bar',barCategoryGap:'32%',barGap:'20%',data:[1285,1050,1750,4000,5155,6500],itemStyle:{color:C.teal},
+        label:{show:true,position:'right',fontSize:10}},
+      {name:'海外',type:'bar',data:[1544,1584,3125,6750,6500,10000],itemStyle:{color:C.navy},
+        label:{show:true,position:'right',fontSize:10}}
+    ]
+  });
+
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.chart').forEach(el => { const c=echarts.getInstanceByDom(el); if(c) c.resize(); });
+  });
+})();
+</script>
+</body>
+</html>

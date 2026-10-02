@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>行业液冷产品对标分析 v1.2 · 液冷底座 / CoolChip / 竞品</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#182536;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f6f9fc;--warn:#a65b00;--red:#b42318}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}.page{max-width:1180px;margin:auto;background:#fff;box-shadow:0 8px 30px #102a4c18}
+header{padding:48px 58px 34px;background:var(--navy);color:#fff}header h1{font-size:34px;line-height:1.25;margin:8px 0}.sub{font-size:17px;color:#d7e6f5}.meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.pill{border:1px solid #ffffff55;border-radius:16px;padding:4px 10px;font-size:12px}
+nav{padding:20px 58px;background:var(--soft);border-bottom:1px solid var(--line)}nav a{color:var(--blue);text-decoration:none;margin-right:16px;display:inline-block}main{padding:30px 58px 58px}
+h2{font-size:22px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:7px;margin:34px 0 14px}h3{font-size:17px;color:#174f83;margin:22px 0 8px}.lead{border-left:5px solid var(--blue);background:#eef5ff;padding:14px 17px;border-radius:7px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.card{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:12px;background:var(--soft)}.card b{display:block;font-size:22px;color:var(--navy)}
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13px}th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top;text-align:left}th{background:var(--navy);color:#fff}tr:nth-child(even) td{background:#f8fafc}
+.diagram{border:1px solid var(--line);border-radius:9px;padding:14px;background:#fbfcfe;overflow-x:auto}.diagram svg{display:block;margin:0 auto}
+.figcap{margin:7px 2px 18px;color:var(--muted);font-size:12px;line-height:1.55}.figcap strong{color:var(--navy)}
+.note{border:1px solid #e3ca8d;background:#fff9e9;padding:12px 15px;border-radius:7px;margin:12px 0}.risk{border-color:#efb5b2;background:#fff5f4}
+.small{color:var(--muted);font-size:12px}.tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;background:#e6f6f2;color:var(--teal);font-weight:700}
+.tagw{background:#fff3d6;color:var(--warn)}.tagr{background:#fde8e6;color:var(--red)}
+footer{padding:18px 58px;background:var(--navy);color:#d5e1ec;font-size:12px}
+@media(max-width:800px){header,nav,main,footer{padding-left:22px;padding-right:22px}.grid,.grid3{grid-template-columns:1fr 1fr}}
+@media print{body{background:#fff}.page{box-shadow:none}nav{display:none}@page{size:A4;margin:12mm}}
+</style>
+</head>
+<body><div class="page">
+<header>
+  <div>INDUSTRY BENCHMARK · LIQUID COOLING PRODUCTS</div>
+  <h1>行业液冷产品对标分析</h1>
+  <div class="sub">以两份 2025-08 原图为骨架（图内厂家铭牌已去除），交叉 2026-09 公开页与竞品 · v1.2</div>
+  <div class="meta">
+    <span class="pill">版本 v1.2</span>
+    <span class="pill">2026-09-05</span>
+    <span class="pill">源材料 2025-08-08</span>
+    <span class="pill">L2A / L2L</span>
+    <span class="pill">30 kW–2.5 MW</span>
+    <span class="pill">GB300 适配校核</span>
+  </div>
+</header>
+<nav>
+  <a href="#scope">范围</a>
+  <a href="#sourcesum">两份材料</a>
+  <a href="#factory">液冷底座</a>
+  <a href="#coolchip">CoolChip 拆解</a>
+  <a href="#ladder">能力阶梯</a>
+  <a href="#peers">竞品矩阵</a>
+  <a href="#gb300">GB300 适配</a>
+  <a href="#select">选型建议</a>
+  <a href="#refs">来源</a>
+</nav>
+<main>
+
+<section id="scope">
+<h2>1. 范围、结论与使用限制</h2>
+<p class="lead"><strong>一句话：</strong>维谛把“液冷底座”做成<strong>产品族 + 冷源拓扑 + 补冷 + 管路/机柜/换液服务</strong>的完整链路；公开规格在 70 kW L2A 与 30/121/450/600/1350/2300 kW L2L 上很完整，但<strong>121 与 450 kW 之间没有行级 SKU</strong>。对 NVIDIA GB300 NVL72（公开 142 kW、OEM 峰值 155 kW、约 90/10 混合冷却），单柜更贴 200 kW 级 L2L，多柜共母管才轮到 600/1350/2300 kW。</p>
+<div class="grid">
+  <div class="card"><b>50–95%</b>Vertiv 宣传冷板带走热量；GB300 OEM 约 90/10，不得用宽区间作保证</div>
+  <div class="card"><b>10–45℃</b>CoolChip 二次侧产品窗；运行必须跟订单 OEM 流量表</div>
+  <div class="card"><b>4℃ ATD</b>全球页 L2L 标称工况（121/600/1350/2300）；中国册未逐型写端温差</div>
+  <div class="card"><b>121↔450</b>Vertiv 行级空档；CoolIT CHx200 / 本项目 2×200 kW 落在此处</div>
+</div>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>材料 A</td><td>维谛技术《Vertiv CoolChip CDU 冷板液冷解决方案》，文号 E-X6216519-0825，©2025-08。本地可读摘录 <code>assets/src_pdf/coolchip.txt</code>。</td></tr>
+<tr><td>材料 B</td><td>《23 - How to get AI ready 重构AI算力工厂的液冷底座 - 0808.pdf》。文字层为空（扫描幻灯），v1.1 已按页渲染入库 <code>assets/src_pdf_pages/ai_ready/</code>，<strong>页码与数字一律按原图抄录</strong>。目录三章：液冷架构选择 / 液冷实施关键 / 液冷服务变革。</td></tr>
+<tr><td>互联网补强</td><td>Vertiv 全球产品页（含 CDU 2300）、CoolChip Family DS、CDU 70/600 手册；CoolIT CHx；Schneider/Motivair；华为 FusionCol600-L；nVent RackChiller；英维克/申菱；Supermicro/LITEON；NVIDIA RA / Lenovo LP2357。</td></tr>
+<tr><td>不做的事</td><td>不把宣传冷量相加；不把 L2A 70 kW 写成 GB300 生产基线；不把卫生级卡盘口径直接套到未冻结的 ICD；不给未公开的美元/kW。</td></tr>
+</table>
+</section>
+
+<section id="sourcesum">
+<h2>2. 两份源材料整理</h2>
+<h3>2.1 材料 A · CoolChip CDU 方案册（可核原文）</h3>
+<p>方案册不是单一 CDU 数据表，而是<strong>冷板液冷系统产品包</strong>：CDU + 液冷机柜 + In-Rack Manifold + In-Row SFN + 移动换液 + CoolLoop 冷机/冷塔 + 补冷空调。</p>
+<table>
+<tr><th>册内主题</th><th>原文要点</th><th>对标含义</th></tr>
+<tr><td>价值主张</td><td>极致节能、风液混合、全面可靠；服务 AIGC 与双碳</td><td>卖的是链路，不是单机 kW</td></tr>
+<tr><td>机房新布局</td><td>风冷微模块、液冷微模块、浸没试点<strong>共存</strong></td><td>与 NVIDIA“fully liquid-cooled”营销语并存时，仍须留残余风冷</td></tr>
+<tr><td>风液混合</td><td>冷板带走约 50–95%，其余须补冷</td><td>宣传区间。GB300 Lenovo 写约 90/10，设计按 OEM</td></tr>
+<tr><td>冷源三方案</td><td>同源冷塔 / 同源冷机 / 不同源（液冷一套 + 风侧另一套）</td><td>不同源初投资高、水温适配好；无冷机方案节水/分期更好</td></tr>
+<tr><td>补冷三组合</td><td>冷冻水空调 / 动态双冷源 / 混动双擎（CoolPhase）</td><td>册内用星级对比，非正式保证点</td></tr>
+<tr><td>可靠功能</td><td>双泵双电源监测与自动切换、智能补液、全路径漏液（机柜+CDU+二次侧环管）、T/P/F 与温湿度/防凝露</td><td>行业行级 CDU 的标配清单</td></tr>
+<tr><td>L2A vs L2L</td><td>L2A：风改液、0 冷塔、0 架高地板、低初投、实验室/边缘。L2L：新建智算、100 kW+、高出柜率、NVIDIA 认证</td><td>GB300 生产部署只应 L2L</td></tr>
+<tr><td>二次侧网络</td><td>不锈钢环管、流量均分、定位漏检、单机柜故障半径、模块预制</td><td>故障域设计比 CDU 本体更决定可用性</td></tr>
+<tr><td>机柜/歧管</td><td>手插或盲插；UQD08 / UQD04 / UQDB04；6/12/18 口；42/48/52U</td><td>Lenovo GB300 公开 UQDB04，接口族可对上，数量须 ICD</td></tr>
+<tr><td>换液</td><td>移动式在线换液，过滤、7 寸屏、失压过压保护</td><td>SAT/运维工装，不是冷量设备</td></tr>
+</table>
+
+<h3>2.2 材料 B · How to get AI ready / 液冷底座（原图已核）</h3>
+<div class="note"><strong>材料状态：</strong>17 页扫描幻灯，文字层为空。v1.1 按页渲染后按原图摘录。页码为幻灯页脚（封面后从 p.2 起）。<strong>三套液气比不得混用：</strong>本册 p.3 写 70/30；p.11 SuperPOD 写 72/28；GB300 OEM 约 90/10。</div>
+<table>
+<tr><th>原图页</th><th>原文要点</th><th>对标含义</th></tr>
+<tr><td>p.2 芯片升级</td><td>GPU TDP：A100≈400W → H100≈700W → B200≈1000W → Rubin Ultra≈3600W → Feynman 宣称至 4400W。单柜：H100≈41 kW → GB200 NVL72 132 kW → Vera Rubin NVL144 200+ kW → Ultra NVL576 600 kW → Feynman 1000 kW/柜。来源标注 Omdia / NVIDIA / SemiAnalysis。</td><td>趋势图，不是订单保证。GB300 公开 142 / OEM 155 落在 132 与 200+ 之间。</td></tr>
+<tr><td>p.3 制冷链路</td><td>机柜液冷 70% + 风冷 30%。机房：风侧房间/列间/背板/风墙；液侧液液 XDU <strong>60–1350 kW</strong>。室外：高温走塔/干冷，低温走冷机。</td><td>维谛通用示意。禁止用 70/30 替换 GB300 90/10，也禁止取消 CRAH。</td></tr>
+<tr><td>p.5–6 架构选择</td><td>先问兼容性。风/液看规模、服务器、风液比与水温；高/低温看冷源、架构、PUE。同源：高温干冷/塔 + 双冷源 + 液液 CDU；低温冷机 20–28℃ 冷冻水末端或 30–38℃ 水冷末端；另有<strong>氟液 CDU</strong>（风冷冷凝器 + 风机盘管）。非同源：风冷+液冷自由组合。</td><td>与方案册三冷源红蓝管同一套故事。GB300 生产基线走液液 CDU。</td></tr>
+<tr><td>p.7–8 高低温 / 无水</td><td>过去：高水温干冷器/冷却塔。未来：改冷机，并可在二次侧加小冷机。无水方案：氟泵冷凝器 + 氟液 CDU；示例柜 <strong>37.5 kW/R（风 15 + 液 22.5）</strong>，进风 24℃ / 出风 37℃。</td><td>37.5 kW 是中密兼容示例，不是 GB300 155 kW 生产柜。</td></tr>
+<tr><td>p.10 设计输入</td><td>热管理链：芯片 → 机柜集热 → 列间集热 → 室外散热。五项：过滤 <strong>&lt;50 μm</strong>；流体 <strong>25–45℃</strong>；比流量 <strong>1.0–1.5 L/min·kW</strong>；工质决定冲洗/检测/排气难度；故障维护强调预防与检测。</td><td>OEM Table 27 为 0.39–1.18 L/min·kW，禁止用 1.0–1.5 反代。本项目过滤取严 25 μm。</td></tr>
+<tr><td>p.11 SuperPOD</td><td>7 MW；6×1.2 MW Blackwell SuperPOD。每 POD 1152 kW：液冷 832 kW（<strong>72%</strong>）+ 风 320 kW（<strong>28%</strong>）。48 台 130 kW 算力柜 + 48 台 14 kW 配套柜。CDU <strong>XDU1350</strong>；风侧 CW205；冷机 FH3135。冷却 UPS 240 kVA 2N。</td><td>72/28 是这个参考设计。宣传“1350 带 8×GB300”须按 OEM 同时热与 N+1 重算。</td></tr>
+<tr><td>p.12–13 预制交付</td><td>结构模块 2400×2000 → 单元 3500×2000 → 48 英尺预制 Run（管/母线/光纤一次装完）。Smart Run 一列：两端 CDU + 8 GPU 柜 + 网络柜。50 MW / 20 POD 宣称 <strong>80–120 天</strong>，对比行业平均 6 个月。</td><td>评价维谛，交付速度与预制深度是产品族之外的第二竞争力。</td></tr>
+<tr><td>p.14 FAT</td><td>1:1 复制现场厂验：预制 SFN、XDU1350B、缓冲罐、膨胀罐、冲洗/减振套件。能力叙事：50 MW IT / 35 MW 液冷、1.6 MW SuperPOD FAT、5 个月出货闭环、全球服务。</td><td>方案册彩页不画这些附件，底座原图画了。SAT 必须按图补。</td></tr>
+<tr><td>p.16 失冷窗口</td><td>传统机房中断恢复标准 = 30 分钟。GPU 对液冷中断容忍 ≈ <strong>90 秒</strong>：泵停/断流 30–60 s；气阻 30–90 s；供液超温 60–120 s；滤芯瞬时堵塞 30–60 s；漏液联锁<strong>立即停机</strong>。</td><td>90 秒出处即本页维谛原图，不是二手博客；仍不是 NVIDIA 官方秒级值。</td></tr>
+</table>
+<h3>2.3 原图摘录（已去厂家铭牌 / Logo）</h3>
+<div class="note">图内页眉页脚品牌、柜门圆形标与产品名牌已遮盖。技术曲线、架构树、铭牌参数表保留。芯片代际名称（H100 / GB200 等）是工况坐标，不是设备铭牌。</div>
+<div class="grid" style="grid-template-columns:1fr 1fr">
+  <div>
+    <img src="assets/src_pdf_pages/scrub/ai_ready/ai_ready_p01.png" alt="芯片与单柜功率代际" style="width:100%;border:1px solid var(--line);border-radius:8px">
+    <p class="figcap"><strong>图 2-1</strong> 底座 p.2：芯片 TDP 与单柜 kW 代际（已去页脚品牌）</p>
+  </div>
+  <div>
+    <img src="assets/src_pdf_pages/scrub/ai_ready/ai_ready_p02.png" alt="制冷链路 70/30" style="width:100%;border:1px solid var(--line);border-radius:8px">
+    <p class="figcap"><strong>图 2-2</strong> 底座 p.3：通用制冷链路 70/30，XDU 60–1350 kW</p>
+  </div>
+  <div>
+    <img src="assets/src_pdf_pages/scrub/ai_ready/ai_ready_p09.png" alt="五项设计输入" style="width:100%;border:1px solid var(--line);border-radius:8px">
+    <p class="figcap"><strong>图 2-3</strong> 底座 p.10：过滤 &lt;50 μm、25–45℃、1.0–1.5 L/min·kW</p>
+  </div>
+  <div>
+    <img src="assets/src_pdf_pages/scrub/ai_ready/ai_ready_p15.png" alt="90秒失冷" style="width:100%;border:1px solid var(--line);border-radius:8px">
+    <p class="figcap"><strong>图 2-4</strong> 底座 p.16：传统 30 分钟 vs GPU 液冷约 90 秒</p>
+  </div>
+  <div>
+    <img src="assets/src_pdf_pages/scrub/coolchip/coolchip_p03.png" alt="风液共存与全链路" style="width:100%;border:1px solid var(--line);border-radius:8px">
+    <p class="figcap"><strong>图 2-5</strong> 方案册：风液共存机房 + CDU/环管/机柜实物（已去铭牌）</p>
+  </div>
+  <div>
+    <img src="assets/src_pdf_pages/scrub/coolchip/coolchip_p05.png" alt="L2A L2L 产品与铭牌表" style="width:100%;border:1px solid var(--line);border-radius:8px">
+    <p class="figcap"><strong>图 2-6</strong> 方案册：L2A 70 与 L2L 30–1350 参数表（柜门标已遮）</p>
+  </div>
+</div>
+</section>
+
+<section id="factory">
+<h2>3. AI 算力工厂的液冷底座（应具备什么）</h2>
+<p>把两份材料与设施参考架构叠在一起，底座可以收成六层。缺任何一层，CDU 彩页再完整也无法交付工厂。</p>
+<table>
+<tr><th>层</th><th>内容</th><th>Vertiv 产品包对应</th><th>行业通行要求</th></tr>
+<tr><td>L0 芯片/托盘</td><td>冷板、盲插、Tray/Rack 漏液</td><td>不生产 GPU；机柜侧手插/盲插整柜</td><td>NVIDIA：Tray+Rack 漏液；热量约 90% 进水</td></tr>
+<tr><td>L1 机柜歧管</td><td>Manifold、UQD、顶/底进水</td><td>CoolChip Fluid Network In-Rack；UQD04/08/B04</td><td>Lenovo 公开 UQDB04、QD 静压 30 psi</td></tr>
+<tr><td>L2 CDU（TCS/FWS 隔离）</td><td>板换、泵、过滤、补液、温控</td><td>CoolChip L2A/L2L 全系列</td><td>双泵、水质、±0.5～1℃ 控制、群控</td></tr>
+<tr><td>L3 二次侧网络</td><td>列间环管、均流、隔离、漏检</td><td>In-Row SFN；单机柜故障半径</td><td>GB/T 48023 支路均流≤10%</td></tr>
+<tr><td>L4 一次冷源 + 补冷</td><td>塔/干冷/冷机；CRAH/RDHx/混动</td><td>CoolLoop + CoolPhase / 动态双冷源</td><td>RD110：N+1、暖水 37/47、冷却 UPS</td></tr>
+<tr><td>L5 交付与流体服务</td><td>冲洗、注液、换液、化验、备件</td><td>移动换液装置；全球 310+ 服务中心</td><td>ASHRAE/华为：FWS/TCS 分表，季度化验</td></tr>
+</table>
+<div class="diagram">
+<svg viewBox="0 0 1100 280" xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei,Arial" font-size="12">
+  <rect width="1100" height="280" fill="#f7fafc"/>
+  <rect x="20" y="24" width="160" height="88" rx="8" fill="#0b2748"/><text x="100" y="58" text-anchor="middle" fill="#fff" font-weight="700">芯片 / Tray</text><text x="100" y="82" text-anchor="middle" fill="#d7e6f5">冷板 · 漏液</text>
+  <rect x="210" y="24" width="160" height="88" rx="8" fill="#174f83"/><text x="290" y="58" text-anchor="middle" fill="#fff" font-weight="700">Manifold</text><text x="290" y="82" text-anchor="middle" fill="#d7e6f5">UQD · 顶/底进</text>
+  <rect x="400" y="24" width="160" height="88" rx="8" fill="#1769e0"/><text x="480" y="58" text-anchor="middle" fill="#fff" font-weight="700">CDU L2L</text><text x="480" y="82" text-anchor="middle" fill="#d7e6f5">TCS 隔离 FWS</text>
+  <rect x="590" y="24" width="160" height="88" rx="8" fill="#008b7a"/><text x="670" y="58" text-anchor="middle" fill="#fff" font-weight="700">FWS 冷源</text><text x="670" y="82" text-anchor="middle" fill="#e8fff8">塔 / 冷机 / 干冷</text>
+  <rect x="780" y="24" width="140" height="88" rx="8" fill="#5b3d1a"/><text x="850" y="58" text-anchor="middle" fill="#fff" font-weight="700">残余风侧</text><text x="850" y="82" text-anchor="middle" fill="#f6e8c8">CRAH / RDHx</text>
+  <rect x="950" y="24" width="130" height="88" rx="8" fill="#607086"/><text x="1015" y="58" text-anchor="middle" fill="#fff" font-weight="700">监控</text><text x="1015" y="82" text-anchor="middle" fill="#e8eef5">BMS / 群控</text>
+  <path d="M180 68h30M370 68h30M560 68h30M750 68h30M920 68h30" stroke="#1769e0" stroke-width="3" fill="none"/>
+  <rect x="20" y="140" width="1060" height="116" rx="8" fill="#fff" stroke="#d7e0ec"/>
+  <text x="40" y="168" font-weight="700" fill="#0b2748">底座三条冷源拓扑（CoolChip 方案册）</text>
+  <text x="40" y="196">① 同源冷塔：CDU 与补冷共用冷却塔，自然冷优先，节水差、要冷机时再叠加。</text>
+  <text x="40" y="220">② 同源冷机：CDU + 冷冻水空调共冷机，水温适配好、初投资高。</text>
+  <text x="40" y="244">③ 不同源：液冷走塔/冷机，风侧走混动双擎或动态双冷源，分期与缺水地区更灵活。</text>
+</svg>
+</div>
+<p class="figcap"><strong>图 3-1</strong> 液冷底座分层与 Vertiv 三种冷源拓扑。L2A 把“FWS 冷源”缩成机房空气，只适合改造/试点。</p>
+</section>
+
+<section id="coolchip">
+<h2>4. Vertiv CoolChip 产品族拆解</h2>
+<h3>4.1 中国方案册铭牌（E-X6216519-0825）</h3>
+<p>工况随端温差、工质、一次水温度变化。下表是册内印刷值，不是 GB300 保证点。</p>
+<table>
+<tr><th>型号</th><th>型式</th><th>制冷量</th><th>外形 W×D×H (mm)</th><th>干重</th><th>接口 一次/二次</th><th>供电 / FLA</th><th>泵</th></tr>
+<tr><td>CDU 70</td><td>L2A 列间</td><td>70 kW（进风 25℃；二次供液 42℃）</td><td>600×1200×2300</td><td>408 kg</td><td>— / 1.5″ 卫生卡盘</td><td>220 V / 9.0 A</td><td>双泵</td></tr>
+<tr><td>CDU 30</td><td>L2L 机架</td><td>30 kW</td><td>534×840×173</td><td>50 kg</td><td>1″ / 1″</td><td>220 V / 2.5 A</td><td>双泵</td></tr>
+<tr><td>CDU 121</td><td>L2L 机架</td><td>121 kW</td><td>445×850×175</td><td>54 kg</td><td>1.5″ / 1.5″</td><td>220 V / 4.0 A</td><td>双泵</td></tr>
+<tr><td>CDU 450</td><td>L2L 列间</td><td>453 kW</td><td>600×1043×1900（单电源）/ 2060（双电源）</td><td>400 kg</td><td>2″ / 2.5″</td><td>400 V / 15 A</td><td>双泵</td></tr>
+<tr><td>CDU 600</td><td>L2L 列间</td><td>600 kW</td><td>600×1200×2000</td><td>480 kg</td><td>2.5″ / 2.5″</td><td>400 V / 17 A</td><td>双泵</td></tr>
+<tr><td>CDU 1350</td><td>L2L 列间/周边</td><td>1368 kW</td><td>900×1243×2122</td><td>875 kg</td><td>4″ / 4″</td><td>400 V / 39 A</td><td><strong>三泵</strong></td></tr>
+</table>
+<p class="small">全系列印刷：一次侧供液 5–40℃，二次侧供液 10–45℃；二次侧工质去离子水、25% 丙二醇及其他兼容液；自动补液。L2L 大机 400 V 50/60 Hz。</p>
+
+<h3>4.2 全球产品页增量（2026-09 检索）</h3>
+<table>
+<tr><th>条目</th><th>全球页 / 手册</th><th>与中国册差异</th><th>取舍</th></tr>
+<tr><td>CDU 2300</td><td>SL-80005（05/26）：2300 kW @ 4℃ ATD；<strong>2400×1200×1200</strong> mm；湿重 1793 kg；一次/二次 6″ 卫生法兰；标称功耗 47.8 kW；一次过滤厂配 500 μm，二次 25 或 50 μm；±1℃；Modbus RTU/TCP。EMEA 2026-05-26 与 CoolChip Fluid Network Row Manifolds 同期上市。</td><td>中国 2025-08 册未列；全球页已成系列顶档</td><td>超大规模工厂选项；单 GB300 柜用不上。列间歧管与方案册 SFN 同族。</td></tr>
+<tr><td>标称端温差</td><td>L2L 121/600/1350/2300 写 4℃ ATD；L2A 70 写 11℃ ATD（另有手册：出液 42℃ / 回风 27℃）</td><td>中国册 70 写进风 25℃</td><td>比较冷量必须绑 ATD，禁止裸 kW 横比</td></tr>
+<tr><td>CDU 100</td><td>Datacloud 2025 EMEA：4U 机架 L2L 100 kW</td><td>中国册是 30 与 121，无 100</td><td>区域 SKU 不同，询价对料号</td></tr>
+<tr><td>过滤</td><td>集成 50 μm，部分型号 25 μm；可热插拔</td><td>册内只写“过滤器”</td><td>冷板项目按 25 μm 取严</td></tr>
+<tr><td>控制</td><td>二次侧 ±1℃；压差或流量模式；7 寸彩屏；漏液；W45</td><td>册内写智能流量/温度，未给 ±1℃</td><td>±1℃ 是产品族能力；FAT 仍可按 ±0.5℃ 谈</td></tr>
+<tr><td>族谱</td><td>CoolChip = 下一代 Liebert XDU</td><td>国内旧材料仍见 XDU 70–1.4 MW</td><td>招标勿 XDU/CoolChip 混写同一保证</td></tr>
+</table>
+
+<h3>4.3 机柜与二次侧网络（方案册 p.6）</h3>
+<table>
+<tr><th>部件</th><th>公开规格</th><th>注意</th></tr>
+<tr><td>手插型液冷机柜</td><td>600×1200/1400×2000 mm（深度按服务器定制）；预装 manifold；PDU 供电；背板空调可选</td><td>高度 2000 与 Lenovo 2294 / 国标典型 2200 都不同，布置按订单柜</td></tr>
+<tr><td>盲插型液冷整机柜</td><td>600×1200×2200（含背板空调深 1350）；预装电源模块 + 直流母排</td><td>更接近 NVL72 盲插/母排形态</td></tr>
+<tr><td>In-Rack Manifold</td><td>方管 40×40 / 50×50，304；6/12/18 口；UQD08 或 UQD04 手插，UQDB04 盲插；下接管；42/48/52U</td><td>GB300 常用盲插 UQDB04，口数不是 18 就等于 18+9 Tray</td></tr>
+<tr><td>In-Row SFN</td><td>不锈钢预制环管；均流；定位漏检；单机柜故障半径</td><td>可用性关键在阀门与环网，不在 CDU 铭牌</td></tr>
+</table>
+</section>
+
+<section id="ladder">
+<h2>5. 能力阶梯：谁覆盖哪一段</h2>
+<div class="diagram">
+<svg viewBox="0 0 1100 340" xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei,Arial" font-size="12">
+  <rect width="1100" height="340" fill="#f7fafc"/>
+  <text x="40" y="28" font-size="15" font-weight="700" fill="#0b2748">公开 CDU 冷量阶梯（铭牌，未统一 ATD）</text>
+  <g fill="#1769e0">
+    <rect x="40" y="260" width="36" height="18"/><text x="58" y="248" text-anchor="middle" fill="#0b2748" font-size="11">30</text>
+    <rect x="86" y="248" width="36" height="30"/><text x="104" y="236" text-anchor="middle" fill="#0b2748" font-size="11">70</text>
+    <rect x="132" y="232" width="36" height="46"/><text x="150" y="220" text-anchor="middle" fill="#0b2748" font-size="11">121</text>
+    <rect x="200" y="206" width="44" height="72" fill="#b42318"/><text x="222" y="194" text-anchor="middle" fill="#b42318" font-size="11" font-weight="700">200</text>
+    <rect x="260" y="188" width="40" height="90" fill="#008b7a"/><text x="280" y="176" text-anchor="middle" fill="#008b7a" font-size="11">250</text>
+    <rect x="320" y="150" width="48" height="128"/><text x="344" y="138" text-anchor="middle" fill="#0b2748" font-size="11">450</text>
+    <rect x="380" y="122" width="48" height="156"/><text x="404" y="110" text-anchor="middle" fill="#0b2748" font-size="11">600</text>
+    <rect x="440" y="86" width="52" height="192" fill="#174f83"/><text x="466" y="74" text-anchor="middle" fill="#174f83" font-size="11">800</text>
+    <rect x="510" y="50" width="56" height="228"/><text x="538" y="38" text-anchor="middle" fill="#0b2748" font-size="11">1350</text>
+    <rect x="580" y="36" width="56" height="242" fill="#5b3d1a"/><text x="608" y="24" text-anchor="middle" fill="#5b3d1a" font-size="11">1.8M</text>
+    <rect x="650" y="20" width="60" height="258"/><text x="680" y="14" text-anchor="middle" fill="#0b2748" font-size="11">2.3M</text>
+    <rect x="724" y="8" width="60" height="270" fill="#a65b00"/><text x="754" y="8" text-anchor="middle" fill="#a65b00" font-size="11">2.5M</text>
+  </g>
+  <line x1="40" y1="278" x2="800" y2="278" stroke="#d7e0ec"/>
+  <text x="40" y="300" fill="#607086">蓝=Vertiv 册/全球页 · 红=单柜级空档(CoolIT CHx200/本项目) · 绿=Supermicro 柜内 250 · 青=nVent 800 · 棕=Super 行级 1.8MW · 橙=Schneider MCDU-70 2.5MW</text>
+  <text x="40" y="322" fill="#607086">柱高仅示意数量级，比较须回到各厂 ATD/工质/一次水温。</text>
+</svg>
+</div>
+<p class="figcap"><strong>图 5-1</strong> 公开 CDU 冷量阶梯。GB300 单柜液冷选型约 150 kW，峰值包络 155 kW，落在 121 与 450 之间。</p>
+</section>
+
+<section id="peers">
+<h2>6. 行业竞品对标矩阵</h2>
+<p class="lead">冷量数字来自各厂公开页或方案册，<strong>测试工况不统一</strong>。表内“适配 GB300”是工程判断，不是认证清单。NVIDIA 认证/RVL 以厂商当时商务材料为准，本表不代发证书。</p>
+<table>
+<tr><th>厂商 / 系列</th><th>代表型号与公开冷量</th><th>型式</th><th>工质 / 水温</th><th>冗余与控制</th><th>相对 Vertiv 的位置</th><th>GB300 单柜</th></tr>
+<tr><td>Vertiv CoolChip</td><td>L2A 70；L2L 30/100*/121/450/600/1350/2300 kW（*区域 SKU）</td><td>机架 + 列间 + 周边</td><td>DI / PG25；二次 10–45℃；W45；4℃ ATD（大 L2L）</td><td>双泵（1350 三泵）；双电源可选；±1℃；Modbus；漏液；50/25 μm</td><td>基准：链路最全（柜/管/换液/冷机/补冷）</td><td>121 偏紧；450 浪费；70 不能作生产基线</td></tr>
+<tr><td>CoolIT CHx</td><td>CHx200：200 kW / 4U；CHx1500：1364 kW @ 5℃ ATD；CHx2000 产品页写 2000 kW @ 5℃ ATD、2125 LPM @ 35 psi、750×1200，宣称单台带 12×GB300 NVL72（12×155=1860 kW 有账）。新闻稿曾写 2269 kW / 53 psi，须对同一份数据表。</td><td>机架 + 高密行级</td><td>W17–W+</td><td>N+1 热插拔；25 μm；群控 20 台；Redfish/SNMP/Modbus；6 MW FAT（厂商）</td><td>单柜 200 kW 补 121–450 空档；行级密度厂商自比“1350”</td><td><strong>CHx200 与 150 kW 选型同档</strong>；12 柜口径仍须 N+1</td></tr>
+<tr><td>Schneider + Motivair</td><td>RD110（142 kW/柜，TCS 40/50、FWS 37/47）。2026-06 发布 MCDU-70：单台 2.5 MW，六台可按 4+2 撑 10 MW；产品线 105 kW–2.5 MW。4 月还有 MCDU-45/55（走廊/灰区安装）。</td><td>设施级 + 超大 CDU</td><td>RD110 暖水；CDU 随型号</td><td>CDU N+1；冷却 UPS 2N 5 min（RD110）；EcoStruxure</td><td>强在工厂参考设计与超大颗粒，不补单柜 200 kW 空档</td><td>RD110 对齐 142 kW；MCDU 用于 SU/工厂</td></tr>
+<tr><td>华为 FusionCol600-L / Atlas</td><td>L450MA：450/360 kW；二次 40/50、一次 37/45；二次流量 650/520 L/min；扬程 250/180 kPa；一次过滤 50 目、二次 <strong>270 目</strong>（官网 2026）。Atlas 巡检 Tso&lt;40℃、建议 30/35℃</td><td>列间 CDU + 超节点液冷门</td><td>DI / 乙二醇 / 丙二醇（公开）</td><td>双泵轮巡/加减载/同开同停；iCooling 不直控物理设备</td><td>暖水点接近 RD110；二次侧常用 EG，与 PG25/DI <strong>不是一张表</strong></td><td>可作国内 CDU 对照，不可改 GB300 进水表</td></tr>
+<tr><td>nVent RackChiller</td><td>CDU100：<strong>100 kW @ 6K</strong>（一次 100 LPM；经销页，不是早先转写的 125 kW）；CDU800：800 kW @ 4K，800×1200，二次至 950 LPM / 46 psi（厂商发布）</td><td>机架 + 列间</td><td>二次约 10–70℃；W17–W45</td><td>N+1 泵电；SNMPv3/Modbus</td><td>800 kW 填 600–1350；100 kW 比 121 更紧</td><td>CDU100 不够单柜 150；800 走多柜</td></tr>
+<tr><td>Supermicro</td><td>柜内 CDU 至 250 kW N+1 泵；行级至 1.8 MW（最多 8 柜）；L2A Sidecar 200 kW</td><td>柜内 / 行级 / 侧车</td><td>跟其 GB300 整柜（运行 132–140 kW）</td><td>柜内泵 N+1</td><td>柜内 250 是另一技术路线，不是 Vertiv 450 的缩小版</td><td>若订单是 Super 整柜，优先其 CDU 选项</td></tr>
+<tr><td>LITEON Sidecar</td><td>约 140 kW In-Row 侧车（GB200 NVL72 展会实拍）</td><td>L2A 贴柜</td><td>—</td><td>—</td><td>与 Vertiv 70 同类但冷量对 GB200 一代</td><td>GB300 155 kW 峰值不够，除非只作余热/试点</td></tr>
+<tr><td>英维克</td><td>插框式 CDU 最大 80 kW / 4U；304 管；二次 50 μm；双电源；Modbus/SNMP</td><td>柜内插框</td><td>—</td><td>冗余泵、漏液、自动补液、防凝露</td><td>对标 Vertiv 30/70/121 的柜内段，不是 450+</td><td>80 kW 不够 GB300</td></tr>
+<tr><td>申菱</td><td>CDU 200–1800 kW；宣称支持柜功率 ≤140 kW；PUE≤1.15（产品页）</td><td>行级/机房级</td><td>冷板/浸没/喷淋兼容（宣传）</td><td>全变频泵</td><td>颗粒覆盖 Vertiv 450–1350 段；柜功率 140 已低于 GB300 峰值</td><td>冷量段可用，须核 ATD 与 OEM 表</td></tr>
+</table>
+<div class="note"><strong>横比纪律：</strong>同一 600 kW，4℃ ATD 与 8℃ ATD 不是同一台机器。Vertiv 大 L2L 全球页按 4℃；nVent 800 按 6 K；CoolIT 用 1.2 L/min·kW 与二次扬程做卖点。招标应锁：工质、四温、两侧流量、压降、过滤精度、泵冗余、群控台数。</div>
+
+<h3>6.1 功能清单对标（行级 L2L）</h3>
+<table>
+<tr><th>功能</th><th>Vertiv CoolChip 册/全球页</th><th>CoolIT 行级</th><th>华为 L450 / Atlas</th><th>nVent 800</th><th>工厂底座是否必需</th></tr>
+<tr><td>TCS/FWS 隔离</td><td>是</td><td>是</td><td>是</td><td>是</td><td>是</td></tr>
+<tr><td>泵冗余</td><td>双泵；1350 三泵</td><td>N+1 热插拔</td><td>双泵</td><td>冗余无泄漏泵</td><td>是</td></tr>
+<tr><td>双电源</td><td>可选（450 分单/双电源高度）</td><td>N+1 电源</td><td>公开未逐项强调</td><td>工业三相</td><td>A 级 / Tier 3 建议</td></tr>
+<tr><td>自动补液 + 水质监测</td><td>智能补液；族页写流体取样选项</td><td>流体完整性设计</td><td>Atlas 工质巡检很严</td><td>未在摘要强调</td><td>是</td></tr>
+<tr><td>漏液</td><td>机柜+CDU+环管</td><td>智能漏检</td><td>CDU/柜/门巡检</td><td>本机漏检</td><td>是（须接到 Tray/Rack）</td></tr>
+<tr><td>群控</td><td>机组通信</td><td>最多 20 台</td><td>iCooling / NetEco 生态</td><td>Gateway</td><td>多柜工厂必需</td></tr>
+<tr><td>二次侧预制环管</td><td>In-Row SFN 明确产品化</td><td>方案级</td><td>超节点有标准管网</td><td>方案级</td><td>是（故障半径）</td></tr>
+<tr><td>在线换液工装</td><td>移动换液车</td><td>服务产品</td><td>注液/气密程序</td><td>—</td><td>运维加分</td></tr>
+<tr><td>补冷空调同族</td><td>CoolPhase / 动态双冷源</td><td>弱（专注 DTC）</td><td>FusionCol 风侧很强</td><td>RDHx 同族</td><td>混合冷却必需</td></tr>
+<tr><td>公开协议</td><td>Modbus RTU/TCP</td><td>Redfish + SNMP + Modbus</td><td>液冷 CDU 点表公开不全</td><td>SNMPv3 + Modbus</td><td>Mission Control 场景偏 Redfish 网关</td></tr>
+</table>
+</section>
+
+<section id="gb300">
+<h2>7. 对 NVIDIA GB300 NVL72 的适配校核</h2>
+<table>
+<tr><th>GB300 约束（本项目已冻结口径）</th><th>Vertiv 方案册</th><th>适配结论</th></tr>
+<tr><td>功率：NVIDIA 142 / Lenovo 135–155 / 液冷选型 150，三口径不相加</td><td>L2L“支持 100 kW+”；1350 被宣传带 8 柜</td><td>单柜不要 70/30；121 kW <strong>低于</strong> 150 kW 选型；单柜用 200–250 或 450 降额；8 柜必须 N+1 重算</td></tr>
+<tr><td>液/气约 90/10，禁止取消 CRAH</td><td>冷板 50–95% + 补冷三种组合</td><td>方向一致。保证点用 90/10，不用 50–95</td></tr>
+<tr><td>入口 25–45℃ 与流量成对查表（45℃→177 L/min）</td><td>二次侧 10–45℃ 产品窗</td><td>窗能罩住，但 10℃ 不是 GB300 运行点；流量按 OEM 表不是按 10 K 反算</td></tr>
+<tr><td>工质 DI 或 PG25</td><td>DI、25% 丙二醇及其他兼容液</td><td>对齐。华为 EG 表不得混用</td></tr>
+<tr><td>Tray + Rack 漏液</td><td>机柜+CDU+环管监测</td><td>能力等价；须硬接线到 OEM 触点，不能只靠 CDU 本机</td></tr>
+<tr><td>UQD / 盲插</td><td>UQDB04 盲插选项</td><td>接头族可对；Cv、数量、顶底进水待 ICD</td></tr>
+<tr><td>可用性 Tier 3 / 国内 A 级</td><td>双泵双电源、环管单柜故障半径</td><td>单机功能够，工厂级仍要 2N 或 N+1 CDU 列 + 冷源 N+1</td></tr>
+</table>
+<div class="grid3">
+  <div class="card"><b>不推荐</b>CoolChip 70 L2A 作 GB300 生产柜。冷量、传热对象（空气）和 90/10 余热同时不成立。</div>
+  <div class="card"><b>单柜首选</b>200 kW 级 L2L（CoolIT CHx200 或同等）或 Vertiv 450 降额 + N+1。121 kW 只够部分 OEM 持续点。</div>
+  <div class="card"><b>SU / 工厂</b>8 柜 SuperPOD 量级用 1350/2300 或 CoolIT 1500/2000 或 Motivair 2.5 MW，按 N+1 配台数。</div>
+</div>
+</section>
+
+<section id="select">
+<h2>8. 选型建议与竞争态势</h2>
+<h3>8.1 按场景选底座，不按品牌口号</h3>
+<table>
+<tr><th>场景</th><th>推荐形态</th><th>公开产品例</th><th>不要做的事</th></tr>
+<tr><td>实验室 / 风改液 / 无一次水</td><td>L2A 列间或侧车</td><td>Vertiv 70；Super / LITEON sidecar</td><td>用 L2A 承诺 GB300 满配训练</td></tr>
+<tr><td>单柜或 1+1 生产柜</td><td>200–250 kW L2L，机架或矮列间</td><td>CoolIT CHx200；Super 柜内 250；Vertiv 无此 SKU</td><td>用 121 kW 硬扛 155 kW 峰值</td></tr>
+<tr><td>单列 2–4 柜</td><td>450–800 kW 列间 N+1</td><td>Vertiv 450/600；nVent 800；华为 450</td><td>一台 450 带 4×155 且无备机</td></tr>
+<tr><td>SuperPOD SU（约 8 柜）</td><td>1.3–2.5 MW 行级/周边 + 群控</td><td>Vertiv 1350/2300；CoolIT 1500/2000；Motivair 2.5 MW；Super 1.8 MW</td><td>用宣传“1 台带 8 柜”替代 N+1 计算</td></tr>
+<tr><td>国内设计院出图</td><td>上述硬件 + GB 50174 A + YD/T 6358 + 均流/95% 换热</td><td>见总体报告 v2.2</td><td>只贴 NVIDIA/ASHRAE 英文页</td></tr>
+</table>
+
+<h3>8.2 Vertiv 相对竞品的强弱</h3>
+<table>
+<tr><th>强</th><th>弱 / 空档</th></tr>
+<tr><td>冷板链路产品化最完整：CDU+歧管+环管+换液+冷机+补冷+全球服务（310+ 中心、~4000 一线）。</td><td>中国册在 121 与 450 kW 之间没有行级 SKU，而 GB300 单柜正好落在空档。</td></tr>
+<tr><td>L2A/L2L 分型清楚，改造与新建两套故事完整；NVIDIA 认证/RVL 叙事连续。</td><td>控制协议公开以 Modbus 为主，对 Mission Control / Redfish 要靠网关；CoolIT 把 Redfish 写到产品页。</td></tr>
+<tr><td>二次侧不锈钢卫生卡盘、W45、4℃ ATD 大机、1350 三泵，规格可核。</td><td>50–95% 热量区间过宽；与 OEM 90/10 混用会误导风侧采购。</td></tr>
+<tr><td>360AI 把电链和冷链捆在一起，适合“工厂级”业主。</td><td>800 VDC、无水氟液仍是路线，不能当 2026 GB300 标配。</td></tr>
+</table>
+
+<h3>8.3 对本项目（2×200 kW L2L）的含义</h3>
+<p>200 kW 不是 Vertiv 型号，是对着 CoolChip 阶梯算出来的<strong>单柜生产空档</strong>。对标成立的条件：L2L、DI/PG25、双泵、自动补液、漏液分区、过滤 ≤25 μm、二次侧覆盖 OEM 25–45℃ 查表流量（约 3.5–10.6 m³/h），并且把附件（定压、旁流、PSV、换液口、Redfish 网关）写进 P&amp;ID——这些正是方案册彩页通常不画、却决定能否通过 SAT 的部分。</p>
+</section>
+
+<section id="refs">
+<h2>9. 数据来源、置信度与待补</h2>
+<table>
+<tr><th>来源</th><th>用到什么</th><th>日期</th><th>置信度</th></tr>
+<tr><td>Vertiv CoolChip 方案册 E-X6216519-0825</td><td>L2A/L2L 分型、70/30/121/450/600/1350 铭牌、10–45℃、DI/PG25、三冷源、补冷星级、UQD、SFN、换液</td><td>2025-08；摘录已入库</td><td>高（产品族）</td></tr>
+<tr><td>《How to get AI ready 液冷底座》PDF</td><td>p.2 功率代际；p.3 70/30 与 XDU 60–1350；p.6 同源/氟液树；p.8 无水 37.5 kW；p.10 五项输入；p.11 7 MW / 72/28 / XDU1350；p.13 Smart Run 80–120 天；p.14 1:1 FAT；p.16 90 秒失冷</td><td>2025-08-08；原图已入库</td><td>高（按页渲染抄录）</td></tr>
+<tr><td>Vertiv 360AI 中文彩页</td><td>电链/冷链、部署十问、70 / 40–100 / 132 kW 旅程、风液融合、预制约 50%</td><td>2024-08-20</td><td>中（旅程功率已旧）</td></tr>
+<tr><td>CoolChip CDU 600/1350/2300 DS SL-80005</td><td>2300 kW@4℃ ATD、2400×1200×1200、湿重 1793 kg、6″、47.8 kW、25/50 μm</td><td>2026-05（05/26）</td><td>高（数据表）</td></tr>
+<tr><td>Vertiv EMEA 新闻稿</td><td>CDU 2300 + Fluid Network Row Manifolds 上市</td><td>2026-05-26</td><td>高（官方新闻）</td></tr>
+<tr><td>vertiv.com CoolChip 产品页</td><td>族谱、±1℃、XDU 换代</td><td>2026-09-05</td><td>高</td></tr>
+<tr><td>CoolIT CHx200 / CHx2000 产品页</td><td>200 kW 4U；2000 kW@5℃ ATD、12×GB300 口径、Redfish、20 台群控</td><td>2026-09 复核</td><td>高（厂商页；12 柜是宣传）</td></tr>
+<tr><td>工商时报 / 优分析 · Motivair</td><td>MCDU-70 2.5 MW，105 kW–2.5 MW，六台 10 MW 4+2</td><td>2026-06-23</td><td>中高（媒体转官方）</td></tr>
+<tr><td>CoolChip CDU 70 / 600 手册</td><td>L2A 出液 42℃、回风 27℃、W4/A2；600 双泵、10 L 罐、压差控制</td><td>公开 PDF</td><td>高</td></tr>
+<tr><td>WAIC 2026 / 钛媒体 / 凤凰网转述</td><td>1350 带 8×GB300、电冷耦合、800 VDC、无水氟液</td><td>2026</td><td>中（媒体，非数据表）</td></tr>
+<tr><td>Schneider RD110；Motivair MCDU-70</td><td>142 kW 柜、40/50↔37/47、5 min；2.5 MW</td><td>2025–2026</td><td>高 / 中</td></tr>
+<tr><td>华为 FusionCol600-L450MA；Atlas 巡检</td><td>450/360 kW、40/50↔37/45；Tso&lt;40℃</td><td>2026-09 复核</td><td>高 / 中高</td></tr>
+<tr><td>nVent / 英维克 / 申菱 / Supermicro / LITEON</td><td>见第 6 章</td><td>2026-09</td><td>中–高（产品页）</td></tr>
+<tr><td>NVIDIA RA / Lenovo LP2357</td><td>142 kW、155 kW、90/10、Table 27、UQDB04</td><td>既有基线</td><td>高</td></tr>
+</table>
+<ul>
+<li>已补：材料 B 原图按页渲染，第 2.2 节改为原文摘录；PPT v1.1 嵌入原图。</li>
+<li>待补：Vertiv / CoolIT / 华为 授权数据表中的二次扬程、精确过滤目数、群控点数。</li>
+<li>待补：各厂美元或人民币 /kW（公开基本不报，本文件不编造）。</li>
+</ul>
+<h3>9.1 版本</h3>
+<table>
+<tr><th>版本</th><th>日期</th><th>说明</th></tr>
+<tr><td>v1.0</td><td>2026-09-05</td><td>首版。整理 CoolChip 方案册；披露 AI ready PDF 不可读并还原工厂底座框架；交叉 Vertiv 全球页与主要竞品；给出 GB300 适配与 121–450 kW 空档结论。</td></tr>
+<tr><td>v1.1</td><td>2026-09-05</td><td>按页渲染两份 PDF 原图。材料 B 改为原文摘录（70/30、72/28、90 秒、7 MW SuperPOD、五项输入）。PPT 改为图优先，嵌入架构树、产品照片、歧管/环管与 FAT 原图。</td></tr>
+<tr><td>v1.2</td><td>2026-09-05</td><td>图内厂家铭牌/Logo 已遮盖。交叉 2026-09 公开页：CoolChip 2300 DS、CHx2000 12×GB300 口径、MCDU-70 2.5 MW、华为 270 目、nVent CDU100=100 kW@6K。HTML 嵌入去铭牌原图。</td></tr>
+</table>
+</section>
+</main>
+<footer>文档编号 AIDC-LC-BENCH-001 · 行业液冷产品对标分析 v1.2 · 概念/市场对标，不替代厂家选型单与 OEM ICD。图内厂家铭牌已去除，正文仍标注来源以便复核。宣传冷量须绑定端温差与工质。</footer>
+</div></body></html>

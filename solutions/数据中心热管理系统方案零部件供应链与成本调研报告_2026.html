@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据中心热管理系统方案·零部件·供应链与成本调研报告 — 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  :root{
+    --ink:#0f172a; --navy:#0f2e3d; --navy2:#164e63; --teal:#0d9488; --teal2:#14b8a6;
+    --amber:#d97706; --red:#dc2626; --green:#16a34a; --blue:#0284c7; --muted:#64748b;
+    --bg:#f4f7f6; --card:#ffffff; --line:#dbe4e0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",-apple-system,sans-serif; color:var(--ink); background:var(--bg); line-height:1.85; font-size:15.5px;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 22px;}
+  a{color:var(--blue); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  nav.toc{position:sticky; top:0; z-index:100; background:rgba(15,46,61,.95); backdrop-filter:blur(6px); box-shadow:0 2px 12px rgba(0,0,0,.25);}
+  nav.toc .wrap{display:flex; align-items:center; gap:8px; overflow-x:auto; padding:10px 22px; white-space:nowrap;}
+  nav.toc .brand{color:#fff; font-weight:700; font-size:14px; margin-right:14px; flex-shrink:0;}
+  nav.toc a{color:#bfe3dc; font-size:13px; padding:4px 9px; border-radius:5px;}
+  nav.toc a:hover{background:rgba(255,255,255,.14); color:#fff; text-decoration:none;}
+  .cover{background:linear-gradient(150deg,#0f2e3d 0%,#164e63 45%,#0f766e 100%); color:#fff; padding:86px 22px 64px; position:relative; overflow:hidden;}
+  .cover::after{content:""; position:absolute; right:-140px; top:-140px; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle, rgba(20,184,166,.35), transparent 70%);}
+  .cover::before{content:""; position:absolute; left:-120px; bottom:-180px; width:380px; height:380px; border-radius:50%; background:radial-gradient(circle, rgba(45,212,191,.28), transparent 70%);}
+  .cover .wrap{position:relative; z-index:2;}
+  .cover .kicker{display:inline-block; border:1px solid rgba(255,255,255,.5); border-radius:999px; padding:5px 16px; font-size:13px; letter-spacing:2px; color:#ccfbf1; margin-bottom:26px;}
+  .cover h1{font-size:38px; line-height:1.4; font-weight:800; letter-spacing:1px; margin-bottom:16px; text-shadow:0 2px 20px rgba(0,0,0,.3);}
+  .cover h2{font-size:19px; font-weight:500; color:#ccfbf1; margin-bottom:38px; line-height:1.7;}
+  .cover .meta{display:flex; flex-wrap:wrap; gap:14px 40px; font-size:14px; color:#d7f5ef; border-top:1px solid rgba(255,255,255,.25); padding-top:22px;}
+  .cover .meta b{display:block; font-size:12.5px; color:#5eead4; font-weight:600; margin-bottom:2px;}
+  .cover .tags{margin-top:32px; display:flex; flex-wrap:wrap; gap:10px;}
+  .cover .tags span{border:1px solid rgba(255,255,255,.35); border-radius:6px; padding:5px 13px; font-size:13px; background:rgba(255,255,255,.08);}
+  section{margin:36px 0 50px;}
+  .h-sec{display:flex; align-items:center; gap:14px; margin-bottom:22px; border-bottom:2px solid var(--navy); padding-bottom:12px;}
+  .h-sec .no{background:var(--navy); color:#fff; border-radius:8px; min-width:52px; height:52px; display:flex; align-items:center; justify-content:center; font-size:17px; font-weight:800; box-shadow:0 4px 12px rgba(15,46,61,.3);}
+  .h-sec h2{font-size:25px; color:var(--navy); font-weight:800; letter-spacing:1px;}
+  .h-sec .en{color:var(--muted); font-size:12.5px; font-weight:400; letter-spacing:2px;}
+  h3{font-size:19px; color:var(--navy2); margin:26px 0 12px; border-left:4px solid var(--teal); padding-left:12px;}
+  h4{font-size:16.5px; color:var(--ink); margin:18px 0 8px;}
+  p{margin:10px 0; text-align:justify;}
+  .lead{font-size:16.5px; color:#334155; background:#f0fdfa; border-left:4px solid var(--teal); padding:14px 18px; border-radius:0 8px 8px 0; margin:16px 0;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px 24px; margin:15px 0; box-shadow:0 2px 10px rgba(15,23,42,.05);}
+  .callout{border-radius:10px; padding:13px 17px; margin:13px 0; font-size:14.5px;}
+  .callout.key{background:#fffbeb; border:1px solid #fde68a; border-left:5px solid var(--amber);}
+  .callout.risk{background:#fef2f2; border:1px solid #fecaca; border-left:5px solid var(--red);}
+  .callout.tip{background:#ecfdf5; border:1px solid #a7f3d0; border-left:5px solid var(--green);}
+  .callout.info{background:#eff6ff; border:1px solid #bfdbfe; border-left:5px solid var(--blue);}
+  .callout b{color:#111827;}
+  .tbl-wrap{overflow-x:auto; margin:15px 0; border-radius:10px; border:1px solid var(--line);}
+  table{border-collapse:collapse; width:100%; font-size:14px; background:#fff; min-width:600px;}
+  thead th{background:var(--navy); color:#fff; padding:9px 11px; text-align:left; font-weight:600; white-space:nowrap;}
+  tbody td{padding:8px 11px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tbody tr:nth-child(even){background:#f7faf9;}
+  tbody tr:hover{background:#ecfdf5;}
+  td.r, th.r{text-align:right;}
+  .num{font-family:"DIN Alternate",Consolas,monospace; font-variant-numeric:tabular-nums;}
+  .chart{width:100%; height:380px; margin:15px 0;}
+  .chart.hs{height:330px;}
+  .chart-box{background:#fff; border:1px solid var(--line); border-radius:12px; padding:15px; margin:17px 0; box-shadow:0 2px 10px rgba(15,23,42,.05);}
+  .chart-box .cap{font-size:14px; font-weight:700; color:var(--navy); padding:4px 6px 9px; border-bottom:1px dashed var(--line); margin-bottom:4px;}
+  .chart-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:820px){ .chart-grid{grid-template-columns:1fr;} .cover h1{font-size:27px;} .cover{padding:58px 18px 48px;} }
+  ul.clean, ol.clean{padding-left:22px; margin:10px 0;}
+  ul.clean li, ol.clean li{margin:6px 0;}
+  ul.dot{list-style:none; padding-left:0;}
+  ul.dot li{padding-left:22px; position:relative; margin:7px 0;}
+  ul.dot li::before{content:"◆"; position:absolute; left:2px; color:var(--teal); font-size:11px; top:4px;}
+  ul.red li::before{color:var(--red);} ul.green li::before{color:var(--green);}
+  .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:20px 0;}
+  @media(max-width:900px){ .kpis{grid-template-columns:repeat(2,1fr);} }
+  .kpi{background:linear-gradient(160deg,#fff,#f0faf7); border:1px solid var(--line); border-top:4px solid var(--teal); border-radius:10px; padding:16px 14px; text-align:center;}
+  .kpi .v{font-size:25px; font-weight:800; color:var(--navy); font-family:"DIN Alternate",Consolas,monospace;}
+  .kpi .l{font-size:12.5px; color:var(--muted); margin-top:6px;}
+  .kpi .s{font-size:12px; color:var(--teal); margin-top:2px; font-weight:600;}
+  .cite{color:#0f766e; font-weight:700; font-size:0.78em; white-space:nowrap;}
+  .ref-list{counter-reset: ref;}
+  .ref-list .ref{display:flex; gap:10px; padding:7px 0; border-bottom:1px dashed var(--line); font-size:13.5px;}
+  .ref-list .ref .rn{color:var(--teal); font-weight:800; flex-shrink:0; min-width:26px;}
+  .ref-list .ref a{word-break:break-all; color:var(--blue);}
+  .ref-list .ref .ok{color:var(--green); font-size:12px;} .ref-list .ref .bot{color:var(--amber); font-size:12px;}
+  .exec{background:linear-gradient(160deg,#0f2e3d,#164e63); color:#e2f0ed; border-radius:14px; padding:26px 28px; margin:18px 0;}
+  .exec h3{color:#fff; border-left-color:#2dd4bf;}
+  .exec p{color:#d1ece6;}
+  .exec b{color:#5eead4;}
+  .toc-box{background:#fff; border:1px solid var(--line); border-radius:12px; padding:20px 24px;}
+  .toc-box ol{padding-left:22px; columns:2; column-gap:40px;}
+  @media(max-width:820px){ .toc-box ol{columns:1;} }
+  .toc-box li{margin:5px 0; break-inside:avoid;}
+  .tag-chip{display:inline-block; background:#ecfdf5; color:#047857; border:1px solid #a7f3d0; border-radius:999px; padding:1px 9px; font-size:12px; margin-left:6px;}
+  .tag-chip.o{background:#fff7ed; color:#c2410c; border-color:#fed7aa;}
+  .tag-chip.r{background:#fef2f2; color:#b91c1c; border-color:#fecaca;}
+  .src{font-size:12px; color:var(--muted); background:#f8faf9; border:1px dashed var(--line); border-radius:8px; padding:9px 13px; margin:11px 0;}
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media(max-width:820px){ .two-col{grid-template-columns:1fr;} }
+  .arch{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; padding:10px 0;}
+  @media(max-width:820px){ .arch{grid-template-columns:1fr;} }
+  .arch .tier{border-radius:10px; padding:16px 14px; color:#fff; position:relative;}
+  .arch .tier b{display:block; font-size:16px; margin-bottom:6px;}
+  .arch .tier span{font-size:12.5px; line-height:1.7; opacity:.95; display:block;}
+  .arch .t1{background:linear-gradient(160deg,#0f766e,#14b8a6);}
+  .arch .t2{background:linear-gradient(160deg,#155e75,#0e7490);}
+  .arch .t3{background:linear-gradient(160deg,#1e3a8a,#1d4ed8);}
+  .arch .flow{grid-column:1/-1; text-align:center; color:var(--muted); font-size:13px; padding:6px 0 0;}
+  footer{background:var(--navy); color:#bcd0e6; padding:38px 22px 46px; margin-top:56px; font-size:13px; line-height:2;}
+  footer .wrap{display:flex; flex-direction:column; gap:8px;}
+  .disclaimer{font-size:12.5px; color:#94a3b8;}
+</style>
+</head>
+<body>
+
+<nav class="toc"><div class="wrap">
+  <span class="brand">数据中心热管理·技术调研</span>
+  <a href="#cover">封面</a><a href="#s0">摘要</a><a href="#s1">系统方案</a><a href="#s2">核心零部件</a><a href="#s3">供应商与成本</a><a href="#s4">新入局者注意</a><a href="#s5">技术赶超路径</a><a href="#s6">结论</a><a href="#appendix">指标速查</a><a href="#ref">参考文献</a>
+</div></nav>
+
+<div class="cover" id="cover"><div class="wrap">
+  <span class="kicker">技术 · 供应链 · 成本 · 竞争情报</span>
+  <h1>数据中心热管理系统<br>方案·零部件·供应链与成本调研报告</h1>
+  <h2>—— 系统方案全景 / 核心零部件拆解 / 供应商与成本结构 / 新入局者注意事项与技术快速赶超路径 ——</h2>
+  <div class="meta">
+    <div><b>报告性质</b>产业技术与供应链深度调研</div>
+    <div><b>报告日期</b>2026年8月</div>
+    <div><b>研究方法</b>公开资料交叉检索 + 关键链接实测校验（HTTP状态码核验）</div>
+    <div><b>引用方式</b>正文标注 [编号]，文末附已验证的真实链接</div>
+  </div>
+  <div class="tags">
+    <span>冷板式液冷</span><span>浸没式液冷</span><span>CDU</span><span>冷板</span><span>UQD快接头</span><span>Manifold</span><span>冷却液</span><span>泵阀</span><span>供应链</span><span>BOM成本</span>
+  </div>
+</div></div>
+
+<div class="wrap">
+
+<section id="s0">
+  <div class="h-sec"><div class="no">00</div><div><h2>摘要与核心结论</h2><div class="en">Executive Summary</div></div></div>
+  <div class="exec">
+    <h3>一页看懂本报告</h3>
+    <p><b>1. 有哪些系统方案？</b>数据中心热管理系统由"ICT设备侧—机房二次侧—机房外一次侧"三层架构构成。技术路线可分为风冷、冷板式液冷、单相浸没式、两相浸没式、风液协同五大类。当前冷板式液冷是主流（占液冷市场约80%-90%<span class="cite">[13]</span>），浸没式（尤其两相）是面向MW级高密度机柜的演进方向。英伟达GB300 NVL72等平台已全液冷化，机柜进水温度18-45℃<span class="cite">[6][7]</span>。</p>
+    <p><b>2. 包含哪些零部件？</b>核心零部件为"四大件"：<b>冷板（Cold Plate）、CDU（冷却液分配单元）、Manifold（歧管）、UQD/MQD（快接头）</b>，四大件合计占液冷系统BOM成本超90%<span class="cite">[11]</span>；辅以冷却液、泵、阀、换热器、传感器、密封件与管路。CDU被称为系统"心脏"<span class="cite">[5][9]</span>，冷板与芯片封装深度协同。</p>
+    <p><b>3. 供应商和成本如何？</b>国际市场由Vertiv、Schneider（Motivair）、CoolIT、Boyd、nVent、Rittal、Nidec等主导，快接头由Stäubli、CEJN、Parker、CPC主导；中国有曙光数创、英维克、申菱、高澜、依米康等系统厂商与川环、溯联、巨化、新宙邦等零部件/材料厂商。成本上，GB200 NVL72整柜液冷系统价值量约7.46万-9.89万美元，其中CDU约占30%、冷板约占25%-45%<span class="cite">[11][12]</span>。全球数据中心液冷市场预计由2026年约40.7亿美元增至2033年约276.5亿美元（CAGR 31.5%）<span class="cite">[1]</span>。</p>
+    <p><b>4. 新入局者要注意什么？</b>认证壁垒（英伟达RVL/VL/Tier 1）、专利壁垒（浸没式专利占比升至41.3%）、标准合规（OCP UQD 2.0、ASHRAE 127）、可靠性（漏液失效成本）、客户集中与账期、产能与资金门槛，共六大类问题，详见第四章。</p>
+    <p><b>5. 技术如何快速赶超？</b>总策略是"<b>单点突破、借道生态、标准化降壁垒、差异化定位</b>"。冷板走拓扑优化与新材料（3D打印、铜金刚石），CDU走软件控制与屏蔽泵，UQD走新型密封与磁力耦合，冷却液走低GWP国产替代与硅油/纳米流体，并以"数字孪生+AI控制"构筑软件差异化，详见第五章。</p>
+  </div>
+
+  <div class="card">
+    <h3>报告核心结论（Top 8）</h3>
+    <ul class="dot">
+      <li><b>结论一：系统方案存在清晰的"功率密度分层"。</b>≤30kW用风冷；18-100kW用冷板式；50-200kW+用浸没式；风液协同是存量改造过渡方案。技术路线选择由"单机柜功率密度×TCO×存量/新建"共同决定。</li>
+      <li><b>结论二："四大件"是价值与壁垒的集中地。</b>冷板、CDU、Manifold、UQD合计占BOM超90%<span class="cite">[11]</span>，且各环节壁垒各异：CDU靠控制系统与交付服务，冷板靠微通道工艺与芯片协同设计，UQD靠密封可靠性与规模验证。</li>
+      <li><b>结论三：CDU形态正在分化。</b>机架式（20-80kW）、行级（30-80kW）、模块化/堆叠式（200kW-2MW+）三种形态并存，N+1冗余与"模块化、兼容化"是演进方向<span class="cite">[9][21]</span>。</li>
+      <li><b>结论四：冷却液正处于"去氟化"转折点。</b>3M退出PFAS氟化液生产，单相直触芯片液冷（水/乙二醇，无PFAS）已成主流（约55%份额），低GWP替代介质（科慕Opteon、硅油、国产氟化液）是长期方向<span class="cite">[14]</span>。</li>
+      <li><b>结论五：认证是比专利更"隐形"的墙。</b>英伟达RVL/VL/Tier 1认证周期长、失效成本高，一旦通过客户切换成本极大。</li>
+      <li><b>结论六：新入局者的窗口来自"三重构"。</b>技术路线未收敛、供应链开放（英伟达白名单+ODM自主采购）、标准化推进，共同为新玩家创造了结构性机会。</li>
+      <li><b>结论七：快速赶超需"借道"。</b>借道ODM进入认证体系、借道OCP标准建立话语权、借道细分组件单点突破，是比正面硬拼更现实的路径。</li>
+      <li><b>结论八：标准化是双刃剑。</b>OCP UQD 2.0等标准削弱专有接口锁定，却放大通过一致性、寿命与规模验证企业的优势——对通过验证的新入局者是利好，对未验证者是壁垒。</li>
+    </ul>
+  </div>
+
+  <div class="card toc-box">
+    <h3>目录</h3>
+    <ol>
+      <li><a href="#s0">摘要与核心结论</a></li>
+      <li><a href="#s1">第一章 热管理系统方案全景（架构与五大技术路线）</a></li>
+      <li><a href="#s2">第二章 核心零部件全解</a></li>
+      <li><a href="#s3">第三章 供应商格局与成本结构</a></li>
+      <li><a href="#s4">第四章 新入局者需要重点关注的问题</a></li>
+      <li><a href="#s5">第五章 技术突破与快速赶超路径</a></li>
+      <li><a href="#s6">第六章 结论与建议</a></li>
+      <li><a href="#appendix">附录A 零部件关键技术指标速查表</a></li>
+      <li><a href="#ref">附录B 参考文献（已验证真实链接清单）</a></li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>阅读指引与引用说明</h3>
+    <p>本报告聚焦数据中心热管理系统的"技术方案、零部件、供应链与成本"四个维度，并重点面向<b>新入局者</b>给出注意事项与技术赶超路线。正文中所有外部信息均以<span class="cite">[编号]</span>形式标注来源，编号对应文末"参考文献"清单中的真实链接。</p>
+    <p><b>链接可靠性说明：</b>文末所有链接均于2026年8月通过HTTP请求实测。标注为"<span class="ok">✓ 已验证(HTTP 200)</span>"的链接经实测可正常访问；标注为"<span class="bot">△ 反爬拦截</span>"的链接为主流机构官网（英伟达、Open Compute Project、英维克、3M等），其服务器对自动化请求返回403，但页面内容已被搜索引擎正常收录，属官方正规页面，浏览器直接访问即可打开。个别来源（如券商研报）经第三方转载站点呈现，标注已注明。</p>
+    <div class="callout info"><b>免责声明：</b>本报告为公开信息整理与技术逻辑梳理，不构成投资建议；所引第三方数据（市场规模、BOM拆解、成本测算）来源与口径已在正文说明，请以原始出处为准。</div>
+  </div>
+</section>
+
+<section id="s1">
+  <div class="h-sec"><div class="no">01</div><div><h2>热管理系统方案全景：架构与五大技术路线</h2><div class="en">System Solutions</div></div></div>
+
+  <p class="lead">要理解数据中心热管理，先理解"热量从芯片到室外"的完整路径。热管理系统本质上是三层架构的能量搬运系统，其技术路线选择由芯片热密度、机柜功率、TCO与部署场景共同决定。</p>
+
+  <h3>1.1 系统总体架构：三层结构</h3>
+  <p>不论何种技术路线，数据中心热管理系统均可抽象为三层架构（图1-1）：</p>
+  <ul class="dot">
+    <li><b>第一层 · ICT设备侧（末端/Technology Cooling System, TCS）：</b>直接与芯片、服务器接触的散热部件，包括冷板（Cold Plate）、歧管（Manifold）、快接头（UQD/MQD）等。TCS是"芯片—冷却液"热交换的起点，与芯片封装、服务器架构深度协同。</li>
+    <li><b>第二层 · 机房二次侧（Facility Water System, FWS，机房内）：</b>冷却液分配单元（CDU）、分歧管、管路、动环监控系统。CDU在此层承担"一次侧/二次侧隔离换热+流量温度控制"两大职能，是液冷系统的核心枢纽<span class="cite">[9]</span>。</li>
+    <li><b>第三层 · 机房外一次侧（室外冷源）：</b>冷水机组（Chiller）、冷却塔、干冷器（Dry Cooler）、自然冷却模块、余热回收装置。一次侧负责将热量最终排放到大气，或以45℃温水直冷方案实现"无冷机"运行。</li>
+  </ul>
+  <div class="chart-box"><div class="cap">图1-1 数据中心热管理系统三层架构与热量流向（示意）</div>
+    <div class="arch">
+      <div class="tier t1"><b>第一层 · ICT设备侧（TCS）</b><span>冷板 · Manifold歧管 · UQD/MQD快接头 · 管路（与芯片封装、服务器架构深度协同）</span></div>
+      <div class="tier t2"><b>第二层 · 机房二次侧（FWS-机房内）</b><span>CDU（隔离换热+流量温度控制）· 分歧管 · 动环监控系统</span></div>
+      <div class="tier t3"><b>第三层 · 机房外一次侧（冷源）</b><span>冷水机组 · 冷却塔 · 干冷器 · 自然冷却模块 · 余热回收</span></div>
+      <div class="flow">热量流向：芯片 → <i>冷板吸热</i> → <i>CDU输送/换热</i> → <i>一次侧排放/回收</i>（45℃温水方案可"无冷机"运行）</div>
+    </div>
+  </div>
+  <p>ASIIHRAE TC 9.9将液冷环境按供水温度划分为W17/W27/W32/W40/W45/W+等类别，其中W40、W45等高温等级可借助冷却塔或干冷器实现全年无冷机运行，是"去冷机化（Chiller-less）"与余热利用的技术基础<span class="cite">[19][20]</span>。</p>
+
+  <h3>1.2 五大技术路线全景</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>技术路线</th><th>工作介质与原理</th><th>适用功率密度</th><th>PUE区间</th><th>典型形态</th><th>成熟度</th></tr></thead>
+    <tbody>
+      <tr><td>风冷（空调制冷）</td><td>空气强制对流 / 冷冻水 / 制冷剂直接膨胀</td><td>≤25-45kW/柜</td><td class="num">1.3-1.6</td><td>房间级、行级、列间空调、风墙、背板</td><td>极高</td></tr>
+      <tr><td>冷板式液冷（Direct-to-Chip）</td><td>冷却液经冷板与芯片换热，其余部件仍风冷</td><td class="num">18-100kW/柜</td><td class="num">1.05-1.2</td><td>冷板+Manifold+UQD+CDU+一次侧</td><td>高（主流）</td></tr>
+      <tr><td>单相浸没式液冷</td><td>服务器整机浸入绝缘冷却液，仅升温不汽化</td><td class="num">≥50kW/柜</td><td class="num">1.03-1.08</td><td>浸没槽/池 + 循环泵 + 换热器</td><td>中</td></tr>
+      <tr><td>两相浸没式液冷</td><td>氟化液沸腾-冷凝相变吸热，利用潜热</td><td class="num">≥80kW/柜（最高200kW+）</td><td class="num">1.03-1.05</td><td>密封槽体 + 冷凝器 + 相变工质</td><td>较低</td></tr>
+      <tr><td>风液协同/混合冷却</td><td>风冷与液冷并存，按负载动态调配风液比</td><td>灵活（存量改造）</td><td class="num">1.1-1.4</td><td>风液同源、后门换热+直触芯片</td><td>中</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>1.3 冷板式液冷（当前主流）</h3>
+  <p>冷板式液冷通过将液冷板贴附于CPU、GPU等主要发热芯片表面，冷却液在冷板内部微通道中流动带走热量；服务器内硬盘、内存等非核心发热部件仍保留风冷。曙光数创指出，冷板式液冷因成本较低、产业链成熟、运维简单，<b>目前占液冷市场约80%-90%，是当前市场主流路线</b><span class="cite">[13]</span>。</p>
+  <ul class="dot">
+    <li><b>系统构成：</b>冷板模组 + Manifold（机柜级分水器）+ UQD快接头 + CDU + 一次侧冷源（冷水机组/干冷器/冷却塔）。英维克的"全链条"方案涵盖冷板、UQD、Manifold、CDU、管路与冷源，主张"从芯散热、整体液冷"的端到端一致性设计<span class="cite">[27]</span>。</li>
+    <li><b>典型规格（英伟达GB300 NVL72）：</b>整柜72颗Blackwell Ultra GPU + 36颗Grace CPU，18个液冷计算托盘 + 9个NVSwitch托盘，满配功率最高约142kW，进水温度18-45℃（温水直冷），配备机架级/行级CDU与侧车式L2A CDU选项<span class="cite">[6][7]</span>。</li>
+    <li><b>优势：</b>对现有服务器架构改动小、兼容性高、改造成本相对低、产业链成熟；GB200/GB300/Rubin等主流AI平台均采用冷板式，客户验证充分。</li>
+    <li><b>劣势：</b>需机柜内布管、单柜散热能力有上限、无法覆盖服务器内全部非芯片部件、存在漏液风险，且需要与芯片封装协同设计。</li>
+  </ul>
+
+  <h3>1.4 浸没式液冷（面向超大规模的下一代方向）</h3>
+  <p>浸没式将服务器整机浸入绝缘冷却液，实现整机覆盖式散热，是超大规模高密度算力的演进方向。</p>
+  <ul class="dot">
+    <li><b>单相浸没式：</b>冷却液仅升温不汽化，靠循环泵驱动。系统相对简单、运行稳定，PUE可低至1.05，但冷却液用量大、成本高，服务器需定制化改造，地面需承重加固。</li>
+    <li><b>两相浸没式：</b>冷却液吸收芯片热量后液-气相变，利用相变潜热高效吸热，气态经冷凝后回流。散热能力可覆盖200W/cm²以上热流密度、单柜200kW+，被视为对抗超限功耗AI芯片的"终极武器"；但系统复杂度与冷却液成本极高，全球仅少数企业掌握规模化技术。曙光数创的C8000系列浸没相变方案单机柜功率密度已突破750kW<span class="cite">[13]</span>。</li>
+  </ul>
+
+  <h3>1.5 风液协同/混合冷却（存量改造的最优解）</h3>
+  <p>风液协同在同一数据中心或机柜内同时部署风冷与液冷，按负载动态调配风液比例，是存量数据中心"风改液"过渡期的最优方案。申菱环境在马来西亚MY06项目即以"液冷为主、风冷为辅"的风液同源方案实现全年PUE≤1.15<span class="cite">[3]</span>；其全预制大液冷系统支持风液混合部署与弹性平滑扩容<span class="cite">[4]</span>。</p>
+
+  <h3>1.6 方案选择的决定因素与决策框架</h3>
+  <p>选择何种系统方案，取决于四个关键变量的组合：</p>
+  <ul class="dot">
+    <li><b>① 芯片与机柜功率密度：</b>这是首要变量。≤30kW以风冷为主；30-100kW优选冷板式；100kW+或MW级超节点则需浸没式或高密冷板+高性能CDU的组合。英伟达GB300 NVL72（约142kW/柜）已明确采用全液冷+45℃温水方案<span class="cite">[7]</span>。</li>
+    <li><b>② 新建 vs 存量改造：</b>新建项目可自由选择冷板式/浸没式/风液协同；存量机房受土建与供电约束，优先考虑低侵入式的"后门换热+直触芯片"或风液同源改造。</li>
+    <li><b>③ TCO与经济性：</b>冷板式初始投入约8-12万元/柜，浸没式约30-40万元/柜（3-4倍）。需以10年TCO视角评估——电费越高、上架率越高、运营周期越长，液冷（尤其浸没式）的经济性越优。</li>
+    <li><b>④ 政策与合规：</b>在中国PUE硬约束（新建数据中心PUE≤1.25的能效标准修订方向）<span class="cite">[22]</span>与四部门《关于促进人工智能与能源双向赋能的行动方案》"推广高效冷却、余热回收"等要求下<span class="cite">[23][24][25]</span>，液冷成为新建高密度算力项目的合规必选项。</li>
+  </ul>
+
+  <div class="chart-box"><div class="cap">图1-2 五大技术路线PUE与适用功率密度对比</div><div id="chart_route" class="chart"></div></div>
+
+  <div class="callout tip"><b>投资/入局启示：</b>当前"冷板式是今天、浸没式是明天、风液协同是过渡带"的格局意味着——若只做冷板组件，将享受确定性渗透红利但代际切换风险存在；若布局浸没式（尤其两相），则押注高密度算力的长期演进。技术路线的"分层共存"而非"互相取代"，是最可能的终局。</div>
+
+  <div class="src"><b>本章引用：</b>DBG [3][4] 申菱环境官网；[6][7] 英伟达GB300 NVL72官方资料；[9] 丹佛斯CDU；[13] 曙光数创官网；[19][20] ASHRAE TC 9.9；[22] 国家标准信息平台；[23][24] 四部门行动方案；[27] 英维克官网。详见文末参考文献。</div>
+</section>
+
+<section id="s2">
+  <div class="h-sec"><div class="no">02</div><div><h2>核心零部件全解</h2><div class="en">Core Components</div></div></div>
+
+  <p class="lead">液冷系统的价值与壁垒高度集中于"四大件"——冷板、CDU、Manifold、UQD。理解每个零部件的功能、技术指标、材料与失效模式，是评估供应商竞争力与新入局者切入点的前提。</p>
+
+  <h3>2.1 冷板（Cold Plate）—— 与芯片直接"对话"的换热核心</h3>
+  <p><b>功能：</b>冷板是贴附于CPU/GPU表面、内部带微通道流道的换热部件，负责将芯片热量传递给冷却液，是直接芯片冷却（DTC）的第一换热环节。CoolIT将液冷系统分为"吸热（冷板）—输运（环路、歧管、管路）—排热（CDU）"三段，冷板位于吸热段<span class="cite">[5]</span>。</p>
+  <p><b>关键技术指标与要点：</b></p>
+  <ul class="dot">
+    <li><b>微通道流道拓扑：</b>流道设计直接影响换热系数与压降。CoolIT的Split-Flow™微通道专利技术将冷却液导向芯片热点，据称可比普通冷板提升约30%的流量与吸热能力<span class="cite">[5]</span>。</li>
+    <li><b>材料：</b>高纯度铜为主（导热率高、工艺成熟）；铜金刚石（Copper-Diamond）复合材料导热率更高，适用于超高功率芯片；铝材成本低但换热与防腐略逊。曙光数创在浸没相变方案中首次规模化应用金刚石铜导热材料<span class="cite">[13]</span>。</li>
+    <li><b>工艺：</b>微通道需精密加工（钎焊/搅拌摩擦焊/3D打印），密封与泄漏检测要求极高。冷板通常需与芯片封装、主板结构、机箱空间协同开发，产品代际与GPU平台紧密绑定——"绑定一代平台，锁定一代订单"。</li>
+    <li><b>非芯片冷板：</b>除CPU/GPU外，还覆盖内存（DIMM）、网络收发器（SFP）、电源VRM等发热部件的冷板<span class="cite">[5]</span>。</li>
+  </ul>
+
+  <h3>2.2 CDU（冷却液分配单元）—— 系统的"心脏"与"大脑"</h3>
+  <p><b>功能：</b>CDU承担两大职能：①将机房设施侧水系统（一次侧/FWS）与IT侧技术冷却系统（二次侧/TCS）隔离并通过高能效换热器换热，避免污染与泄漏波及服务器；②对冷却液流量、压力、温度进行精细控制，保证机柜端稳定运行<span class="cite">[9]</span>。CoolIT亦将CDU描述为"DLC系统的核心，以精确的流量与压力向芯片输送冷却液"<span class="cite">[5]</span>。</p>
+  <p><b>三种主流结构形态：</b></p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>形态</th><th>典型容量</th><th>适用场景</th><th>代表产品</th></tr></thead>
+    <tbody>
+      <tr><td>机架式（In-Rack）</td><td class="num">20-250kW</td><td>小型数据中心、边缘节点、单柜高密</td><td>Vertiv Liebert XDU070/450；nVent RackChiller CHx（4U/200kW）；Nidec Gen2.5（4U/250kW，适配GB300 NVL72）<span class="cite">[2][21]</span></td></tr>
+      <tr><td>行级（In-Row）</td><td class="num">30kW-1.8MW</td><td>中型机房、多机柜集群</td><td>Vertiv Liebert XDU1350（标称1,368kW）；Nidec NIR2.5（最大2MW）<span class="cite">[2][21]</span></td></tr>
+      <tr><td>模块化/堆叠式（Modular）</td><td class="num">200kW-5MW+</td><td>大型智算中心、超大规模集群</td><td>Boyd ROL2300/ROL4000（ROL4000达2MW、3℃逼近温差）；Nidec STC1.0可堆叠至1.6MW<span class="cite">[10][21]</span></td></tr>
+    </tbody>
+  </table></div>
+  <p><b>核心部件与设计要点：</b>CDU内含板式换热器（隔离一次/二次侧）、循环泵（N+1冗余）、膨胀罐、过滤器（一次侧500µ/二次侧50µ）、补水排气系统、传感器（流量/压力/温度/电导率/漏液）、控制器与通信模块（Modbus/SNMP/Redfish等）<span class="cite">[2][9][21]</span>。可靠性设计方面，N+1冗余泵、热插拔维护、漏液检测（内漏+外漏）、防凝露控制是关键；泵失效后若无冗余，处理器可能在约23秒内因温度骤升而降频<span class="cite">[19]</span>。</p>
+  <p><b>技术壁垒：</b>CDU真正的差异在<b>控制系统</b>——多负载下的稳定控制、冗余保护、漏液监测、能耗管理、楼宇系统接入与跨机柜交付能力。ASHRAE 127 Addendum b已为液对液CDU引入统一测试与报告方法（净制冷量、关键输入功率、热效率、热损失），使"堆砌换热器、泵阀与钣金件"的产品更容易被横向比较，标准化将压缩低端组装CDU的溢价空间。</p>
+
+  <h3>2.3 Manifold（歧管/分水器）—— 冷却液的"交通枢纽"</h3>
+  <p><b>功能：</b>Manifold安装在机柜内，将CDU输送来的冷却液均匀分配到各服务器托盘/各冷板，并收集回水汇流返回。英伟达NVL72 AI Factory架构中的盲插歧管（Blind Mate Manifold）与快接头共同实现服务器的"免断线热插拔"<span class="cite">[8]</span>。</p>
+  <ul class="dot">
+    <li><b>类型：</b>机柜级分歧管（Rack Manifold）、托盘内歧管（Tray Manifold）；按连接方式分有手动插拔歧管与盲插歧管（Blind Mate）。</li>
+    <li><b>要点：</b>流量均匀性分配、低压降、耐压与密封、与UQD接口的兼容性。管路材料以不锈钢、铜与工程塑料（如GF的PVDF/PP-H聚合物管路系统）为主<span class="cite">[21]</span>。</li>
+    <li><b>价值：</b>占整柜液冷BOM约12%-16%，单柜价值约1.2万美元<span class="cite">[11][12]</span>。</li>
+  </ul>
+
+  <h3>2.4 UQD/MQD 快接头 —— 最小的部件，最高的失效成本</h3>
+  <p><b>功能：</b>UQD（Universal Quick Disconnect，通用快速接头）用于服务器与液冷管路的快速连接/断开，支持带压插拔、无滴漏，是服务器热维护（Hot-swap）的前提。OCP维护的UQD规范定义了手动插拔（Handmate）与盲插（Blindmate/UQDB）两类接口与性能框架，目标是实现供应商互操作<span class="cite">[18][28]</span>。</p>
+  <ul class="dot">
+    <li><b>技术要求：</b>反复插拔、压力与温度循环下保持低泄漏、低压降、材料兼容；插拔循环寿命（通常数千次）、自密封、防误插。</li>
+    <li><b>用量：</b>GB200 NVL72整柜约126-150个UQD；GB300因独立冷板+独立液冷路径设计，每托盘UQD对数翻倍，整柜需求增至约350个，单柜UQD价值量提升约43%<span class="cite">[11][12]</span>。</li>
+    <li><b>供应商：</b>国际以Stäubli（史陶比尔）、CEJN、Parker、CPC（Colder Products）为主。Stäubli提供从2英寸大口径主管路接头到Manifold用UQD/UQDB、服务器节点MQD的完整产品线<span class="cite">[17]</span>；CEJN是OCP UQD的主要贡献者，提供手动UQD、盲插UQDB（±1mm偏差容差）与BMQC（±5mm/2.7°角容差）<span class="cite">[18]</span>。</li>
+  </ul>
+  <p><b>壁垒要点：</b>快接头单件价值未必最高，但失效成本极高——任何一处泄漏都可能从单点故障扩大为整柜停机。通过OCP标准互操作性测试、NV认证与大规模量产验证，是建立信任的关键。</p>
+
+  <h3>2.5 冷却液 —— 从"水"到"氟化液"的材料学之争</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>冷却液类型</th><th>典型工质</th><th>适用路线</th><th>关键特征</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td>水/乙二醇（水基）</td><td>去离子水、乙二醇/丙二醇水溶液</td><td>冷板式（单相DTC）</td><td>比热容高、廉价、环保；需防腐蚀、防冻与水质管理</td><td>无PFAS，已占单相DTC约55%份额，当前主流<span class="cite">[14]</span></td></tr>
+      <tr><td>氟化液（单相/两相）</td><td>3M Novec™/Fluorinert™、科慕、巨化巨芯等</td><td>浸没式（单相/两相）</td><td>绝缘、惰性、散热性能优异；成本高、GWP高、多含PFAS</td><td>3M已退出PFAS生产，市场转向科慕Opteon 2P50（低GWP HFO）等<span class="cite">[14]</span></td></tr>
+      <tr><td>合成油/矿物油</td><td>矿物油、合成烃油</td><td>单相浸没式</td><td>廉价、绝缘；粘度较高、易老化、可燃性注意</td><td>合成油价格较2024年已降约30%</td></tr>
+      <tr><td>硅油/硅基流体</td><td>甲基硅油、苯基硅油</td><td>单相浸没式</td><td>绝缘、化学惰性；成本约为氟化液的1/5，长期稳定性佳</td><td>国产润禾材料等布局</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>关键趋势：</b>3M宣布于2025年底退出氟化液等PFAS生产，其曾占据全球半导体冷却液约90%份额，退出后需求转向Solvay与中国厂商；中国巨化股份（巨芯冷却液，规划产能5,000吨/年）、新宙邦等正加速国产替代，价格约为进口产品的1/4<span class="cite">[15][16]</span>。冷却液的"去PFAS化"与低GWP化，既是环保合规要求，也是国产替代的结构性机会。</p>
+
+  <h3>2.6 泵、阀、换热器、传感器、密封件与管路</h3>
+  <ul class="dot">
+    <li><b>泵：</b>CDU循环泵是可靠性核心，N+1冗余为标配。技术方向向"零泄漏屏蔽泵/磁悬浮泵"演进，以消除机械密封的泄漏与磨损痛点<span class="cite">[9]</span>。国内飞龙股份、南方泵业、大元泵业为主要泵厂商。</li>
+    <li><b>阀：</b>丹佛斯提供压差无关型电动调节阀（水力波动下精准控流）、电动球阀（无泄漏密封）、蝶阀（TCS侧关断隔离）等CDU阀门组合<span class="cite">[9]</span>；GF推出专利双球阀Quick Connect Valve 700（PVDF材质，流量提升25%、减重50%+）<span class="cite">[21]</span>。</li>
+    <li><b>换热器：</b>板式换热器（SWEP、Alfa Laval、丹佛斯）是CDU与一次侧的核心，决定换热效率与逼近温差（ATD）。Boyd ROL4000以3℃ ATD实现2MW冷量<span class="cite">[10]</span>。</li>
+    <li><b>传感器与监控：</b>流量、压力、温度、电导率（监测冷却液纯度）、漏液传感器与动环监控系统构成"液冷智能运维"的感知层。</li>
+    <li><b>密封件与管路：</b>密封材料（EPDM、PTFE、形状记忆合金等）与管路（不锈钢、铜、PVDF/PP-H聚合物）直接决定系统长期可靠性；GF的聚合物管路系统声称寿命25年以上、安装提速4倍、减重60%<span class="cite">[21]</span>。</li>
+  </ul>
+
+  <h3>2.7 零部件价值量分布与国产化率总表</h3>
+  <div class="chart-box"><div class="cap">图2-1 GB200 NVL72 液冷系统BOM价值构成（浙商证券口径，合计约9.89万美元）</div><div id="chart_bom" class="chart hs"></div></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>零部件</th><th>占BOM比例（多机构口径）</th><th>技术壁垒</th><th>国产化率（约）</th><th>主要供应商（国际 / 国内）</th></tr></thead>
+    <tbody>
+      <tr><td>冷板（含Compute Tray）</td><td class="num">25%-45%</td><td>高（微通道+芯片协同）</td><td class="num">72%</td><td>CoolIT、Boyd、nVent / 品达科技、飞荣达、立敏达、精研科技</td></tr>
+      <tr><td>CDU</td><td class="num">30%-35%</td><td>高（控制系统）</td><td class="num">47%</td><td>Vertiv、Motivair、nVent、Nidec、CoolIT / 申菱、英维克、高澜</td></tr>
+      <tr><td>Manifold</td><td class="num">12%-16%</td><td>中高</td><td class="num">—</td><td>Vertiv、nVent、Boyd / 品达科技、立敏达、领益</td></tr>
+      <tr><td>UQD/MQD快接头</td><td class="num">11%-26%（GB300）</td><td>高（密封+规模验证）</td><td class="num">63%</td><td>Stäubli、CEJN、Parker、CPC / 川环科技、溯联、立敏达、永贵</td></tr>
+      <tr><td>冷却液</td><td class="num">—</td><td>高（材料学）</td><td class="num">—</td><td>3M（退出）、科慕、Solvay / 巨化、新宙邦、润禾</td></tr>
+      <tr><td>泵/阀/换热器/传感器/密封/管路</td><td class="num">15%-25%（含一次侧辅材）</td><td>中-高</td><td>泵阀密封较低</td><td>Danfoss、Grundfos、Wilo、SWEP、Alfa Laval / 飞龙、南方泵业、中金环境</td></tr>
+    </tbody>
+  </table></div>
+  <div class="src"><b>说明：</b>占比区间来自浙商、东方、国海、国信等券商对GB200/GB300的BOM拆解汇总<span class="cite">[11][12]</span>；国产化率参考行业研究（快接头约63%、CDU约47%、液冷板约72%），不同统计口径存在差异。</div>
+
+  <div class="callout key"><b>本章要点：</b>零部件维度看，"四大件"既是价值集中地（超90%），也是壁垒集中地——冷板考微通道工艺与芯片协同，CDU考控制系统与交付，UQD考密封可靠性与规模验证，Manifold考流量分配与接口兼容。新入局者若从单一部件切入，UQD与冷却液是国产化率低、替代空间大的首选；若做系统集成，CDU的控制软件能力是真正的护城河。</div>
+</section>
+
+<section id="s3">
+  <div class="h-sec"><div class="no">03</div><div><h2>供应商格局与成本结构</h2><div class="en">Suppliers &amp; Cost</div></div></div>
+
+  <p class="lead">本章回答两个核心问题：①液冷产业链上有哪些供应商、各自卡位如何；②一套液冷系统的成本到底花在哪里、价值量如何分布。</p>
+
+  <h3>3.1 供应商全景：按环节分层的竞争地图</h3>
+  <h4>3.1.1 系统集成商（提供端到端方案）</h4>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>供应商</th><th>国家/地区</th><th>核心能力与代表方案</th><th>关键客户/生态</th></tr></thead>
+    <tbody>
+      <tr><td>Vertiv（维谛）</td><td>美国</td><td>Liebert XDU系列CDU（70kW-1.4MW）、CoolChip CDU70、360AI混合制冷、CoolPhase Flex</td><td>英伟达官方液冷伙伴；全球约70%最大数据中心运营商</td></tr>
+      <tr><td>Schneider Electric（施耐德）</td><td>法国</td><td>收购Motivair获得兆瓦级CDU、ChilledDoor背门、动态冷板</td><td>全球数据中心基础设施龙头</td></tr>
+      <tr><td>曙光数创</td><td>中国</td><td>冷板式C7000 + 浸没相变C8000；MW级C8000 V3.0（单柜900kW+）；液冷市占率连续多年第一</td><td>中科曙光scaleX640超节点、头部互联网与运营商</td></tr>
+      <tr><td>英维克</td><td>中国</td><td>Coolinside全链条液冷（冷板、UQD、Manifold、CDU、管路、冷源）；"从芯散热、整体液冷"；累计交付超1.2GW</td><td>英特尔至强6平台首批冷板液冷伙伴、NV MGX生态</td></tr>
+      <tr><td>申菱环境</td><td>中国</td><td>液冷CDU（200-1800kW）、天枢SKY-ACMECOL全预制大液冷系统、风液同源</td><td>华为、字节、世纪互联、秦淮、万国数据、三大运营商</td></tr>
+      <tr><td>高澜股份</td><td>中国</td><td>冷板/浸没/集装箱三路线；英伟达GB300液冷模组核心供应商；UQD市占率高</td><td>英伟达、谷歌、字节、阿里、腾讯、百度</td></tr>
+      <tr><td>依米康</td><td>中国</td><td>NexLiq全栈液冷、风液同源、45℃温水直冷</td><td>三大运营商、字节、阿里、海外COLO</td></tr>
+      <tr><td>CoolIT Systems</td><td>加拿大</td><td>OMNI冷板、Split-Flow微通道、CHx/AHx CDU；超500万冷板交付</td><td>英伟达GB200 NA2冷板环、300+数据中心</td></tr>
+      <tr><td>Boyd</td><td>美国</td><td>直触芯片冷板、ROL2300/ROL4000 CDU（最高5MW）、端到端热管理</td><td>谷歌OCP Project Deschutes、英伟达GB200 NVL72</td></tr>
+      <tr><td>nVent / Rittal / Nidec</td><td>美/德/日</td><td>RackChiller CHx CDU（200kW）、机架级CDU、GB300适配产品线</td><td>服务器ODM与超大规模客户</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>3.1.2 零部件与材料供应商</h4>
+  <ul class="dot">
+    <li><b>快接头：</b>Stäubli（史陶比尔）、CEJN（希恩）、Parker（派克）、CPC（Colder Products）为国际主导；国内川环科技、溯联股份、立敏达（领益智造）、永贵电器。<span class="cite">[17][18]</span></li>
+    <li><b>泵/阀/换热器/控制器：</b>Danfoss（丹佛斯，泵阀换热器变频器全系）、Grundfos（格兰富）、Wilo（威乐）、SWEP、Alfa Laval、Schneider/Siemens控制器；国内南方泵业、中金环境、飞龙股份。<span class="cite">[9][21]</span></li>
+    <li><b>冷却液：</b>国际科慕（Opteon 2P50两相工质）、Solvay；国内巨化股份（巨芯冷却液）、新宙邦、润禾材料（硅油）、东阳光。<span class="cite">[14][15][16]</span></li>
+    <li><b>管路系统：</b>GF（Georg Fischer）LiquidCore聚合物管路系统（PVDF/PP-H）；国内川环科技等。<span class="cite">[21]</span></li>
+  </ul>
+
+  <h3>3.2 成本结构：GB200/GB300 BOM深度拆解</h3>
+  <p>英伟达GB200 NVL72是液冷从HPC利基走向AI主流基础设施的标志性平台，其BOM拆解是理解液冷价值量的最佳样本。不同券商口径存在差异，但结构高度一致：<b>四大核心零件（冷板/CDU/Manifold/UQD）合计占超90%，CDU与冷板是价值最集中的两极</b><span class="cite">[11][12]</span>。</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>组件</th><th>浙商证券（美元）</th><th>占比</th><th>东方证券（人民币）</th><th>占比</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td>Compute Tray / 液冷板</td><td class="num">37,800</td><td class="num">38.2%</td><td class="num">20.68万</td><td class="num">33.4%</td><td>含冷板模块，单柜最高价值件</td></tr>
+      <tr><td>CDU</td><td class="num">30,000</td><td class="num">30.3%</td><td class="num">21.54万</td><td class="num">34.8%</td><td>系统"心脏"，壁垒最高</td></tr>
+      <tr><td>Manifold</td><td class="num">12,000</td><td class="num">12.1%</td><td class="num">8.62万</td><td class="num">13.9%</td><td>—</td></tr>
+      <tr><td>UQD快接头</td><td class="num">12,000</td><td class="num">12.1%</td><td class="num">6.79万</td><td class="num">11.0%</td><td>GB300架构下价值量提升约43%</td></tr>
+      <tr><td>NVLink Switch Tray / 其他</td><td class="num">7,100</td><td class="num">7.2%</td><td class="num">4.26万</td><td class="num">6.9%</td><td>—</td></tr>
+      <tr><td><b>合计</b></td><td class="num"><b>98,900</b></td><td class="num"><b>100%</b></td><td class="num"><b>61.89万</b></td><td class="num"><b>100%</b></td><td>浙商约9.89万美元/柜；国海8.48万；国信7.99万</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="chart-grid">
+    <div class="chart-box"><div class="cap">图3-1 浙商证券口径GB200 NVL72液冷BOM构成</div><div id="chart_bom2" class="chart hs"></div></div>
+    <div class="chart-box"><div class="cap">图3-2 GB200→GB300 关键部件价值量变化（UQD与冷板）</div><div id="chart_gb" class="chart hs"></div></div>
+  </div>
+
+  <h4>GB300架构下的成本变化</h4>
+  <ul class="dot">
+    <li><b>独立冷板设计：</b>GB300每个GPU配备独立液冷板，冷板数量与复杂度显著提升，散热效率更高但工艺难度增加。</li>
+    <li><b>UQD用量激增：</b>GB200整柜约150个UQD，GB300因独立液冷路径增至约350个（+133%），单柜UQD价值量增至约2.8万美元；新型NVUQD03接头尺寸缩小至前代1/3，单位成本降至40-50美元但总量翻倍。<span class="cite">[11][12]</span></li>
+    <li><b>系统价值量：</b>单个GB300机架液冷系统成本约38万美元，占机架总成本约42%，但通过优化设计，TCO较GB200降低约20%。</li>
+  </ul>
+
+  <h3>3.3 不同技术路线的CAPEX/OPEX对比</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>成本项</th><th>冷板式液冷</th><th>单相浸没式</th><th>两相浸没式</th></tr></thead>
+    <tbody>
+      <tr><td>单机柜总投入</td><td class="num">8-12万元</td><td class="num">30-40万元</td><td class="num">&gt;40万元</td></tr>
+      <tr><td>冷却液成本</td><td>可忽略（水基）</td><td class="num">5-10万元/柜</td><td>极高（氟化液约200元/kg）</td></tr>
+      <tr><td>基础设施改造</td><td class="num">2-5万元/柜</td><td class="num">5-10万元/柜</td><td class="num">10-15万元/柜</td></tr>
+      <tr><td>年运维成本</td><td class="num">0.5-0.8万元/柜</td><td class="num">2-3万元/柜</td><td>高（工质损耗5%/年）</td></tr>
+      <tr><td>年节电（vs风冷）</td><td class="num">20%-30%</td><td class="num">40%+</td><td class="num">40%+</td></tr>
+      <tr><td>回本周期</td><td class="num">2-3年</td><td class="num">4-5年</td><td class="num">更长</td></tr>
+    </tbody>
+  </table></div>
+  <p>以1MW IT负载、工业电价0.65元/kWh为例：风冷（PUE 1.5）年电费约854万元；冷板式（PUE 1.15）约655万元；浸没式（PUE 1.06）约604万元。电费越高、上架率越高，液冷相对风冷的经济优势越明显。</p>
+
+  <h3>3.4 市场规模与增长</h3>
+  <p>据MarketsandMarkets（2026年最新预测），全球数据中心液冷市场预计由2026年约<b>40.7亿美元</b>增至2033年约<b>276.5亿美元</b>，复合增长率约<b>31.5%</b>；其中直触芯片冷却（DTC）是增速最快的细分技术方向<span class="cite">[1][26]</span>。全球AI算力扩张与单机柜功率密度提升是核心驱动，散热系统能耗占数据中心总能耗30%-40%，液冷是满足PUE约束的关键技术路径。</p>
+
+  <h3>3.5 供应链格局总结与国产化空间</h3>
+  <ul class="dot">
+    <li><b>格局特征：</b>系统集成环节"国内外并立"，国际（Vertiv、施耐德、CoolIT、Boyd）占高端与NV生态，国内（曙光数创、英维克、申菱、高澜）占中国本土与性价比市场；核心零部件（快接头、泵阀密封）仍由国际厂商主导。</li>
+    <li><b>国产化率：</b>快接头约63%、CDU约47%、液冷板约72%，高性能泵阀与密封材料仍高度依赖进口，进口替代空间大。</li>
+    <li><b>供应链风险：</b>①GPU/芯片交付节奏直接影响液冷系统出货；②3M退出PFAS后两相氟化液供应收紧、价格波动；③高端泵阀与密封材料进口依赖。</li>
+  </ul>
+
+  <div class="callout tip"><b>供应链启示：</b>对系统集成商而言，全链条自主供应（英维克模式）带来"设计一致性+毛利可控+交付可靠"三重优势；对零部件厂商而言，国产化率最低的环节（UQD、CDU、泵阀密封）是价值洼地，但进入门槛是"认证+规模验证"。</div>
+
+  <div class="src"><b>本章引用：</b>[1] MarketsandMarkets；[2] Vertiv；[3][4] 申菱；[5] CoolIT；[9] 丹佛斯；[10] Boyd；[11][12] 券商BOM拆解；[13] 曙光数创；[14] 施耐德博客；[15][16] 巨化；[17][18] Stäubli/CEJN；[21] 链力CDU报告；[27] 英维克。详见文末参考文献。</div>
+</section>
+
+<section id="s4">
+  <div class="h-sec"><div class="no">04</div><div><h2>新入局者需要重点关注的问题</h2><div class="en">Cautionary Notes for New Entrants</div></div></div>
+
+  <p class="lead">液冷行业"高景气+高壁垒+快速迭代"并存。对计划切入的团队与企业，方向正确是前提，但以下六大类问题若处理不当，极易造成"进场即套牢"。本章逐一拆解并给出应对思路。</p>
+
+  <h3>4.1 认证壁垒：最"隐形"也最难绕过的墙</h3>
+  <p><b>问题本质：</b>液冷系统中任何一个环节失效，都可能从单节点故障扩大为整柜停机，因此芯片厂商与超大规模客户对供应商认证极为严苛。英伟达的RVL（推荐供应商名录）、VL（认证供应商名录）与Tier 1整柜认证，认证周期长、门槛高、需要数百万小时现场可靠性验证。认证一旦通过，客户切换成本极大，形成强粘性。<b>对于新入局者，最大的风险是在没有任何认证积累的情况下，期望以"性价比"直接拿到大客户订单——这在液冷行业几乎不可能。</b></p>
+  <p><b>应对思路：</b>①先做次级组件或外围部件（密封件、传感器、检测设备、管路辅材），以低认证门槛的环节积累行业信用；②借道已获认证的ODM/系统集成商供货，间接进入供应链；③参与OCP等标准组织，从标准层面建立话语权；④与头部服务器厂商共建联合开发项目，共享认证成果。<span class="cite">[5][10][28]</span></p>
+
+  <h3>4.2 专利壁垒：避开"红海专利墙"</h3>
+  <p><b>问题本质：</b>2015-2024年全球散热及热管理相关专利家族达8,449件（年复合增长17%），浸没式相关专利占比已升至41.3%。冷板微通道、CDU控制、UQD密封、两相换热机理等核心方向已被头部厂商密集布局。<b>直接照抄主流技术路线，极易落入专利侵权诉讼。</b></p>
+  <p><b>应对思路：</b>①做"设计规避（Design Around）"——对目标专利做权利要求分析，用仿生流道（分形/肺泡结构）、非对称微通道、拓扑优化生成差异化构型；②选择专利稀疏的细分方向（特定材料、特定工艺、特定应用场景）；③自研并提前布局防御性专利组合；④关键配方（冷却液、工艺参数）以商业秘密保护而非专利公开。</p>
+
+  <h3>4.3 标准合规：既要"接轨"又要"参与"</h3>
+  <p><b>问题本质：</b>液冷标准体系正快速成型，主要包括：OCP的UQD 2.0/UQDB规范与Open Rack V3盲插标准<span class="cite">[18][28]</span>；ASHRAE TC 9.9热指南与ASHRAE 127（CDU测试方法）<span class="cite">[19][20]</span>；中国国标与行业标准（《数据中心能效限定值及能效等级》修订、冷板式液冷国标、YD/T 3980-2021等）<span class="cite">[22]</span>。若产品不兼容标准接口，将无法进入主流生态；若不参与标准制定，则永远是被动跟随者。</p>
+  <p><b>应对思路：</b>①产品开发以OCP/ASHRAE/国标为基线，确保互操作性；②尽早加入OCP等组织的liquid cooling工作组，争取成为标准贡献者——标准的话语权会转化为商业的话语权；③关注标准演进方向（如UQD 2.0.1将手动与盲插纳入统一框架），提前布局下一代接口。</p>
+
+  <h3>4.4 可靠性风险：漏液是"一票否决"项</h3>
+  <p><b>问题本质：</b>冷却液泄漏是液冷系统最致命的失效模式——可能损坏IT设备、引发电气短路甚至安全事件。冷板式系统中"任何环节失效都可能整柜停机"的高失效成本，决定了客户对可靠性极度保守。<b>新厂商缺乏数百万小时现场运行数据，这是比价格更硬的短板。</b>CDU泵失效后处理器约23秒内即可因温度骤升而降频<span class="cite">[19]</span>，系统级可靠性的验证要求极高。</p>
+  <p><b>应对思路：</b>①以"设计可靠性"为第一原则——冗余泵、冗余传感器、防凝露、双路漏液检测（内漏+外漏）为标配；②建立完整的可靠性验证体系（耐压、插拔循环、温循、材料相容性、氦检漏）；③先与小型/边缘客户进行小批量现场验证，积累运行小时数后再向大客户拓展。</p>
+
+  <h3>4.5 客户集中与账期风险</h3>
+  <p><b>问题本质：</b>液冷客户高度集中于头部云厂商、运营商与英伟达等芯片平台，订单呈现"大单化、集中化"特征。大客户占比提升会拉长账期、加重应收账款与现金流压力；且若深度绑定单一客户（如某些厂商约80%产能供应某一家），一旦客户切换或压价，业绩将剧烈波动。</p>
+  <p><b>应对思路：</b>①客户结构多元化（头部云+运营商+海外COLO+ODM组合）；②合同层面争取预付款/进度款，控制账期；③以"标准化产品+模块化交付"降低定制化对单一客户的依赖。</p>
+
+  <h3>4.6 产能与资金门槛：重资产属性被低估</h3>
+  <p><b>问题本质：</b>液冷生产涉及精密加工、检测设备、无尘车间与产能爬坡，重资产属性明显。以申菱为例，其顺德液冷新质智造基地总投资约8亿元；行业产能扩张期"产能即竞争力"，但产能利用率不足时折旧将侵蚀利润。2026年一季度多家液冷公司"增收不增利"，主因就是产能扩张备货导致费用前置。</p>
+  <p><b>应对思路：</b>①先以"轻资产"模式（代工、联合制造）验证市场与工艺，再逐步自建产能；②聚焦高毛利环节（控制软件、冷却液配方、测试服务）平衡重资产压力；③融资节奏与订单节奏匹配，避免"先扩产、后找单"。</p>
+
+  <h3>4.7 常见误区清单（避免踩坑）</h3>
+  <ul class="dot red">
+    <li><b>误区一："液冷就是管路加泵，组装即可"。</b>——忽略了冷板微通道、CDU控制、UQD密封的高技术门槛与认证要求，纯组装商在标准化后溢价空间被急剧压缩。</li>
+    <li><b>误区二："性价比可以打败认证壁垒"。</b>——在失效成本极高的场景，客户首先信"验证记录"，其次才是价格。</li>
+    <li><b>误区三："先做整机，再做部件"。</b>——整机认证门槛最高，反向从部件切入更现实。</li>
+    <li><b>误区四："押注单一技术路线"。</b>——技术路线未收敛期，单一押注冷板或浸没式都存在代际切换风险。</li>
+    <li><b>误区五："忽略软件与数字化"。</b>——行业正从"硬件竞争"转向"硬件+软件"竞争，纯硬件玩家将失去差异化。</li>
+    <li><b>误区六："忽视标准与生态参与"。</b>——不参与标准制定、不接入主流生态（OCP/英伟达/服务器ODM），产品再好也难以规模化。</li>
+  </ul>
+
+  <div class="callout risk"><b>新入局者自我检视清单：</b>①是否有明确的目标环节与差异化定位？②是否有认证路径规划（先部件后整机/借道ODM）？③是否做了专利侵权检索与规避设计？④是否具备可靠性验证体系与数据积累计划？⑤资金与产能节奏是否匹配订单预期？⑥是否参与标准组织、绑定生态伙伴？以上六问任一为"否"，都应在投入前补齐。</div>
+</section>
+
+<section id="s5">
+  <div class="h-sec"><div class="no">05</div><div><h2>技术突破与快速赶超路径</h2><div class="en">Breakthrough &amp; Catch-up Path</div></div></div>
+
+  <p class="lead">新入局者要"快速赶超"，不能走"复制+低价"的老路，而要抓住行业"技术路线未收敛、供应链开放、标准化推进"的三重窗口，采取"单点突破、借道生态、标准化降壁垒、差异化定位"的组合策略。本章按零部件、冷却液、软件系统三个层次给出具体技术突破路径，并给出0-1-3-5年路线图。</p>
+
+  <h3>5.1 技术赶超的总体策略</h3>
+  <ul class="dot">
+    <li><b>原则一：单点突破，不做全链条硬拼。</b>头部厂商已形成全链条布局，新玩家应从单一高壁垒、高价值环节切入，做到"比头部更聚焦、更极致"。</li>
+    <li><b>原则二：借道生态，不孤军奋战。</b>借道服务器ODM、已认证系统集成商、芯片平台生态进入供应链，借道OCP等标准组织建立话语权。</li>
+    <li><b>原则三：差异化定位，避开正面竞争。</b>选择头部尚未覆盖的细分场景（边缘液冷、存量改造、特定芯片平台、特定材料路线）。</li>
+    <li><b>原则四：专利规避与自研并重。</b>用拓扑优化、新型材料、新工艺绕开现有专利墙，同时建立自己的防御性专利组合。</li>
+  </ul>
+
+  <h3>5.2 冷板：微通道与新材料是主战场</h3>
+  <p><b>技术挑战：</b>冷板价值量占BOM约25%-45%，壁垒集中在微通道流道设计、均温能力、压降控制、材料兼容性与钎焊/摩擦焊/密封工艺<span class="cite">[11][12]</span>。</p>
+  <p><b>突破路径：</b></p>
+  <ul class="dot">
+    <li><b>① 流道拓扑创新：</b>用CFD+拓扑优化自动生成差异化流道构型，避开"矩形/菱形翅片"等传统专利；仿生结构（分形、肺泡、水滴形渐缩翅片）在提升换热的同时降低压降。</li>
+    <li><b>② 新材料：</b>铜金刚石（Copper-Diamond）复合材料导热率较纯铜大幅提升，适配超高功率芯片（曙光数创已在浸没相变方案规模化应用）<span class="cite">[13]</span>；液态金属（镓基合金）用于关键热点。</li>
+    <li><b>③ 新工艺：</b>3D打印成型实现传统钎焊难以加工的复杂三维流道；搅拌摩擦焊提升密封可靠性；微通道加工良率是成本与交付的关键。</li>
+    <li><b>④ 与芯片协同：</b>与GPU/CPU平台开发联动，提前锁定下一代平台的冷板设计权——"绑定一代平台，锁定一代订单"。参考CoolIT为英伟达GB200定制NA2冷板环的模式<span class="cite">[5]</span>。</li>
+    <li><b>⑤ 两相冷板：</b>布局两相冷板（微通道内相变换热），在单相与浸没之间建立差异化的性能区间。</li>
+  </ul>
+
+  <h3>5.3 CDU：控制系统与泵技术是真正的分水岭</h3>
+  <p><b>技术挑战：</b>CDU价值量占BOM约30%-35%，是"心脏"环节。其硬件组装门槛不高，真正的护城河在<b>控制系统</b>——多负载稳定控制、冗余保护、漏液监测、能耗管理与楼宇系统接入<span class="cite">[9][21]</span>。ASHRAE 127统一测试方法将让低端组装型CDU更难生存。</p>
+  <p><b>突破路径：</b></p>
+  <ul class="dot">
+    <li><b>① 智能化控制算法：</b>开发基于AI/机器学习的预测控制（模型预测控制MPC），替代传统PID，实现"按需供能、动态平衡"——这正是老牌厂商专利较少、新玩家可快速追赶的方向。</li>
+    <li><b>② 泵技术升级：</b>向零泄漏屏蔽泵/磁悬浮泵演进，解决机械密封的泄漏与寿命痛点<span class="cite">[9]</span>；与国内泵厂商（飞龙、南方泵业）协同开发专用液冷泵。</li>
+    <li><b>③ 模块化、兼容化设计：</b>发展机架式小型CDU与可堆叠模块（20kW-2MW+），支持热插拔维护与N+1冗余，面向边缘与存量改造场景<span class="cite">[21]</span>。</li>
+    <li><b>④ 数字化交付能力：</b>CDU的竞争力越来越取决于"跨机柜交付"与"软件定义"能力——数字孪生、预测性维护、云平台远程管理。</li>
+  </ul>
+
+  <h3>5.4 UQD快接头：以可靠性为核心的重资产攻坚</h3>
+  <p><b>技术挑战：</b>UQD国产化率约63%，是核心部件中替代空间最大的环节；但密封可靠性与规模化验证要求极高，是"小部件、大门槛"。</p>
+  <p><b>突破路径：</b></p>
+  <ul class="dot">
+    <li><b>① 新型密封结构：</b>开发磁力耦合式无接触连接，消除机械密封磨损；采用形状记忆合金密封结构，实现温度自适应密封力调节。</li>
+    <li><b>② 智能监测：</b>集成微型泄漏传感器，实现实时在线监测与预警，把"被动防漏"升级为"主动感知"。</li>
+    <li><b>③ 标准化先行：</b>以OCP UQD 2.0/UQDB为基线做互操作设计（手动+盲插统一框架），对标Stäubli、CEJN的产品矩阵（含BMQC盲插）<span class="cite">[17][18]</span>。</li>
+    <li><b>④ 验证体系：</b>建立插拔循环、压力循环、温循、材料相容性的完整测试体系，用数据赢得客户信任——这是重资产但无法绕过的投资。</li>
+  </ul>
+
+  <h3>5.5 冷却液：低GWP与国产替代的确定性机会</h3>
+  <p><b>技术挑战：</b>3M退出PFAS氟化液生产后，两相浸没式冷却液供应收紧、价格高企；单相直触芯片液冷（水/乙二醇，无PFAS）已成主流约55%份额<span class="cite">[14]</span>。冷却液是"材料+耗材"双属性，具备长期复购价值。</p>
+  <p><b>突破路径：</b></p>
+  <ul class="dot">
+    <li><b>① 国产氟化液替代：</b>巨化股份巨芯冷却液已实现国产突破（价格约为进口1/4，规划产能5,000吨/年）<span class="cite">[15][16]</span>，新入局者可围绕国产工质的配方定制与适配服务切入。</li>
+    <li><b>② 低GWP新一代工质：</b>布局低全球变暖潜能值（GWP）流体——参照科慕Opteon 2P50（HFO基、宣称非PFAS、GWP大幅低于Novec）的技术方向<span class="cite">[14]</span>，研发自有知识产权的绿色工质。</li>
+    <li><b>③ 硅油与改性硅油：</b>成本约为氟化液的1/5，化学惰性佳，是单相浸没式的经济之选，国内润禾材料等已有布局。</li>
+    <li><b>④ 纳米流体等高性能介质：</b>在基液中添加纳米颗粒提升导热系数，面向高功率密度场景，是兼具学术价值与工程潜力的前沿方向。</li>
+    <li><b>⑤ 冷却液全生命周期服务：</b>提供冷却液监测、补充、更换与回收的"液体管理服务"，以服务黏性锁定复购。</li>
+  </ul>
+
+  <h3>5.6 系统集成与软件：从"硬件"到"硬件+软件"的升维</h3>
+  <p>液冷系统复杂度提升后，传统的控制策略已难以满足需求。数字孪生、AI智能热管理、预测性维护是差异化竞争的关键，也是新入局者可以"以小博大"的方向（软件边际成本低、迭代快、无需重资产）。</p>
+  <ul class="dot">
+    <li><b>① 数字孪生平台：</b>建立"芯片—冷板—CDU—机房"全链路数字孪生，实时仿真热负荷与流量分配，支撑运维优化与故障预判。</li>
+    <li><b>② AI热管理算法：</b>基于负载预测动态调节泵速、阀门开度与水温，实现"按需供能"，降低OPEX并延长设备寿命。</li>
+    <li><b>③ 预测性维护：</b>利用传感器数据（电导率、压差、振动）提前预警过滤器堵塞、泵退化与潜在泄漏。</li>
+    <li><b>④ 与硬件解耦的软件平台：</b>做"厂商中立"的液冷运维软件，对接多品牌CDU/冷板，以生态位避免与硬件巨头正面竞争。</li>
+  </ul>
+
+  <h3>5.7 借道生态与标准：快速建立信任的三条通道</h3>
+  <ul class="dot">
+    <li><b>通道一：借道ODM进入认证体系。</b>为已获英伟达/超大规模客户认证的ODM与系统集成商供货，间接进入供应链——东吴证券指出国产液冷已由送样验证进入批量交付阶段，这正是借道成果。</li>
+    <li><b>通道二：参与OCP等标准组织。</b>加入liquid cooling与UQD工作流，成为规范贡献者；标准化会削弱专有接口锁定，放大通过一致性、寿命与规模验证企业的优势——对有能力通过验证的新玩家是利好<span class="cite">[18][28]</span>。</li>
+    <li><b>通道三：与芯片/服务器平台联合开发。</b>提前进入下一代GPU平台的冷板/CDU设计选型，用"联合开发"换"锁定订单"。</li>
+  </ul>
+
+  <h3>5.8 新入局者 0-1-3-5 年赶超路线图</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>阶段</th><th>时间</th><th>目标</th><th>关键动作</th><th>里程碑</th></tr></thead>
+    <tbody>
+      <tr><td>验证期</td><td class="num">0-1年</td><td>完成单点技术验证</td><td>选定切入环节（如UQD/冷板/冷却液/软件）；专利检索与规避设计；建样机与测试体系；加入OCP等标准组织</td><td>样机通过内部可靠性测试；获得1-2家生态伙伴联合开发意向</td></tr>
+      <tr><td>认证期</td><td class="num">1-3年</td><td>拿到关键认证与首批订单</td><td>借道ODM/系统集成商供货；推进OCP/英伟达RVL等认证；小批量现场验证积累运行数据；建立防御性专利组合</td><td>通过至少1项主流认证；进入1-2家头部客户合格供应商名录；首批批量订单交付</td></tr>
+      <tr><td>放量期</td><td class="num">3-5年</td><td>规模化交付与客户多元化</td><td>自建/扩产产能；客户结构多元化（云+运营商+海外）；叠加软件/服务形成差异化；筹备向浸没式或两相路线延伸</td><td>液冷业务规模化盈利；进入下一代平台供应链；海外收入占比显著提升</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout tip"><b>赶超窗口判断：</b>当前正是"技术路线未收敛+供应链开放+标准化推进"叠加的战略窗口期。行业竞争正从"技术验证"转向"订单兑现与产能交付"，对能够快速完成认证与批量交付的新玩家，仍有弯道超车的空间；反之，若错过窗口期，头部厂商通过认证绑定与规模优势形成的壁垒将越来越难突破。</div>
+</section>
+
+<section id="s6">
+  <div class="h-sec"><div class="no">06</div><div><h2>结论与建议</h2><div class="en">Conclusions</div></div></div>
+
+  <h3>6.1 总体结论</h3>
+  <ul class="dot">
+    <li><b>方案层面：</b>数据中心热管理已形成"风冷—冷板式液冷—浸没式液冷—风液协同"的完整技术谱系，冷板式是当前主流（约占液冷市场80%-90%）<span class="cite">[13]</span>，浸没式面向超大规模高密度演进，风液协同是存量改造过渡方案。方案选择由功率密度、新建/存量、TCO与政策合规共同决定。</li>
+    <li><b>零部件层面：</b>"四大件"（冷板、CDU、Manifold、UQD）占液冷系统BOM超90%，是价值与壁垒的集中地<span class="cite">[11]</span>；冷却液正经历"去PFAS化"转折，水基DTC已成主流、低GWP工质是长期方向<span class="cite">[14]</span>。</li>
+    <li><b>供应商与成本层面：</b>系统集成"国内外并立"、核心零部件国际主导；GB200/GB300整柜液冷价值量约7.5-9.9万美元，CDU与冷板是价值两极；全球市场2026年约40.7亿美元、2033年约276.5亿美元（CAGR 31.5%）<span class="cite">[1]</span>。</li>
+    <li><b>入局层面：</b>认证、专利、标准、可靠性、客户账期、产能资金六大问题决定新入局者生死；"单点突破+借道生态+标准化降壁垒+差异化定位"是穿越壁垒的核心策略。</li>
+  </ul>
+
+  <h3>6.2 对不同角色的建议</h3>
+  <div class="two-col">
+    <div class="card">
+      <h4>对新入局企业</h4>
+      <ul class="dot">
+        <li>从UQD、冷却液、泵阀密封、检测服务等国产化率低/门槛相对低的环节切入</li>
+        <li>先部件后整机、借道ODM，以"验证数据"换"客户信任"</li>
+        <li>以OCP/国标为基线做产品，尽早参与标准制定</li>
+        <li>布局冷板拓扑优化、CDU智能控制、低GWP工质等差异化技术</li>
+        <li>以软件/服务（数字孪生、AI热管理）构建轻资产差异化</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>对现有供应商</h4>
+      <ul class="dot">
+        <li>加快全链条与一体化交付能力建设，补齐控制软件与交付服务短板</li>
+        <li>提前布局浸没式与两相技术，应对代际切换</li>
+        <li>加强专利与认证护城河，绑定下一代芯片平台</li>
+        <li>拓展客户多元化与海外市场，分散集中度风险</li>
+        <li>布局冷却液国产替代与余热利用的增值业务</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout tip"><b>一句话总结：</b>数据中心热管理是"AI算力时代的物理基础设施"，系统方案分层共存、核心零部件价值集中、认证与可靠性是终极壁垒；新入局者的机会在于"技术路线未收敛+供应链开放+标准化推进"的三重窗口，以单点突破与借道生态实现快速赶超。</div>
+
+  <div class="src"><b>本章引用：</b>[1] MarketsandMarkets；[11][12] 券商BOM拆解；[13] 曙光数创；[14] 施耐德博客。详见下方参考文献。</div>
+</section>
+
+<section id="appendix">
+  <div class="h-sec"><div class="no">07</div><div><h2>附录A 零部件关键技术指标速查表</h2><div class="en">Key Technical Metrics</div></div></div>
+  <p>以下技术指标来自本报告引用的供应商官网数据与行业研究，供新入局者在产品定义、对标与选型时快速参考<span class="cite">[2][5][9][18][21]</span>。具体数值随型号与工况变化，请以厂商最新规格书为准。</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>零部件</th><th>关键技术指标</th><th>典型量级/要求</th><th>可靠性要点</th></tr></thead>
+    <tbody>
+      <tr><td>冷板 Cold Plate</td><td>流道结构 / 材料 / 热阻 / 耐压</td><td>铜或铜金刚石；微通道（Split-Flow类）；面向芯片热点设计</td><td>钎焊/搅拌摩擦焊密封；100%在线热测试；泄漏检测</td></tr>
+      <tr><td>CDU（机架级）</td><td>冷量 / 逼近温差ATD / 流量 / 泵冗余</td><td>20-250kW；XDU450约453kW@4℃ATD、450-500 l/m；N+1泵</td><td>双/三泵冗余、双路电源、漏液检测（内漏+外漏）、5秒内自动重启</td></tr>
+      <tr><td>CDU（行级/模块化）</td><td>冷量 / 冗余 / 监控</td><td>XDU1350约1,368kW；Boyd ROL4000达2MW@3℃ATD；Nidec STC可堆叠1.6MW</td><td>热插拔维护；Redfish/Modbus/SNMP/Web监控</td></tr>
+      <tr><td>Manifold 歧管</td><td>流量均匀性 / 压降 / 接口</td><td>机柜级分水器；支持盲插（Blind Mate）与手动插拔</td><td>与UQD接口兼容；耐压与密封</td></tr>
+      <tr><td>UQD/MQD 快接头</td><td>插拔循环 / 滴漏 / 容差</td><td>带压插拔、无滴漏、数千次循环寿命；UQDB盲插±1mm、BMQC±5mm/2.7°</td><td>OCP UQD 2.0互操作；氦气检漏；低泄漏低压力</td></tr>
+      <tr><td>冷却液</td><td>电导率 / 沸点 / GWP / 材料相容</td><td>水基电导率&lt;2µS/cm；氟化液沸点60-90℃；低GWP工质为方向</td><td>在线监测电导率；过滤器（500µ/50µ）；补水置换</td></tr>
+      <tr><td>泵</td><td>流量 / 扬程 / 冗余 / 密封</td><td>N+1冗余；屏蔽泵/磁悬浮泵消除机械密封泄漏</td><td>泵失效约23秒内处理器降频，冗余切换是关键</td></tr>
+      <tr><td>阀</td><td>调节特性 / 泄漏率 / 关断</td><td>压差无关型电动调节阀；电动球阀无泄漏；蝶阀TCS侧关断</td><td>水力波动下精准控流；-10~100℃工况</td></tr>
+      <tr><td>换热器</td><td>换热效率 / ATD / 压力等级</td><td>板式换热器；ATD 3-8℃；承压80PSI（Boyd ROL4000）</td><td>一次/二次侧隔离防污染；旁通与温度保护</td></tr>
+      <tr><td>传感器/监控</td><td>流量/压力/温度/电导率/漏液</td><td>三冗余供液传感器；电导率超标（&gt;2µS/cm）报警</td><td>动环监控接入；预测性维护</td></tr>
+      <tr><td>管路系统</td><td>材料 / 寿命 / 安装</td><td>不锈钢、铜、PVDF/PP-H聚合物（寿命25年+、安装提速4倍）</td><td>材料相容性；耐压；泄漏检测</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout key"><b>速查表使用建议：</b>新入局者在做产品定义时，应以"对标头部（Vertiv XDU/CoolIT/Boyd）+ 满足标准（OCP UQD 2.0/ASHRAE 127/国标）+ 建立差异化指标"三步走，避免直接复制头部规格而落入专利与同质化陷阱。</div>
+</section>
+
+<section id="ref">
+  <div class="h-sec"><div class="no">08</div><div><h2>附录B 参考文献：已验证真实链接清单</h2><div class="en">References (Verified Links)</div></div></div>
+
+  <p class="lead">以下链接均于2026年8月8日通过HTTP请求实测核验。标注 <span class="ok">✓ 已验证(HTTP 200)</span> 表示可正常访问；标注 <span class="bot">△ 反爬拦截</span> 表示该网站对自动化请求返回403（主流机构官网常见的反爬保护），但页面内容已被搜索引擎正常收录，浏览器直接访问可正常打开。引用第三方转载的券商研报等，已在注释中说明转载性质。</p>
+
+  <div class="card ref-list">
+    <div class="ref"><span class="rn">[1]</span><div><b>MarketsandMarkets — Data Center Liquid Cooling Market (2026-2033)</b><br><a href="https://www.marketsandmarkets.com/Market-Reports/data-center-liquid-cooling-market-84374345.html">https://www.marketsandmarkets.com/Market-Reports/data-center-liquid-cooling-market-84374345.html</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 全球市场规模2026年40.7亿美元→2033年276.5亿美元，CAGR 31.5%</div></div>
+
+    <div class="ref"><span class="rn">[2]</span><div><b>Vertiv（维谛）— Liebert XDU1350 冷却液分配单元产品页</b><br><a href="https://www.vertiv.cn/zh-CN/products-catalog/thermal-management/high-density-solutions/liebert-xdu1350-coolant-distribution-unit/">https://www.vertiv.cn/zh-CN/products-catalog/thermal-management/high-density-solutions/liebert-xdu1350-coolant-distribution-unit/</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · CDU规格：标称1,368kW、最高2,912kW、三泵冗余</div></div>
+
+    <div class="ref"><span class="rn">[3]</span><div><b>申菱环境 — 数据中心应用（液冷温控系统）</b><br><a href="https://www.shenling.com/applications/data-services/idc/">https://www.shenling.com/applications/data-services/idc/</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 液冷CDU/大液冷系统/PUE≤1.15案例</div></div>
+
+    <div class="ref"><span class="rn">[4]</span><div><b>申菱环境 — 液冷CDU产品页</b><br><a href="https://www.shenling.com/products/%e6%b6%b2%e5%86%b7cdu/">https://www.shenling.com/products/液冷cdu/</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · CDU冷量200-1800kW，支持高密≤140kW机柜</div></div>
+
+    <div class="ref"><span class="rn">[5]</span><div><b>CoolIT Systems — Direct Liquid Cooling Systems &amp; CDUs</b><br><a href="https://www.coolitsystems.com/dlc-system-and-cdus/">https://www.coolitsystems.com/dlc-system-and-cdus/</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 冷板+CDU（CHx/AHx），Split-Flow微通道，英伟达GB200合作</div></div>
+
+    <div class="ref"><span class="rn">[6]</span><div><b>NVIDIA — GB300 NVL72（官方产品页）</b><br><a href="https://www.nvidia.com/en-us/data-center/gb300-nvl72/">https://www.nvidia.com/en-us/data-center/gb300-nvl72/</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 72 GPU+36 CPU，全液冷，温水直冷</div></div>
+
+    <div class="ref"><span class="rn">[7]</span><div><b>NVIDIA NVL72 AI Factory — Overview（液冷规格）</b><br><a href="https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/overview.html">https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/overview.html</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 进水温度18-45℃，整柜最高142kW</div></div>
+
+    <div class="ref"><span class="rn">[8]</span><div><b>NVIDIA NVL72 AI Factory — Components（CDU与泄漏检测）</b><br><a href="https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/components.html">https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/components.html</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 机架级CDU 250kW/行级1.8MW/侧车L2A 200kW</div></div>
+
+    <div class="ref"><span class="rn">[9]</span><div><b>Danfoss（丹佛斯）— 数据中心CDU</b><br><a href="https://www.danfoss.com/zh-cn/industries/buildings-commercial/dcs/coolant-distribution-units-for-data-centers/">https://www.danfoss.com/zh-cn/industries/buildings-commercial/dcs/coolant-distribution-units-for-data-centers/</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · CDU功能、泵阀、换热器与控制系统</div></div>
+
+    <div class="ref"><span class="rn">[10]</span><div><b>Boyd — Liquid Cooling Systems</b><br><a href="https://www.boydcorp.com/thermal/liquid-cooling-systems.html">https://www.boydcorp.com/thermal/liquid-cooling-systems.html</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 直触芯片冷板、ROL系列CDU（最高5MW）、谷歌Project Deschutes</div></div>
+
+    <div class="ref"><span class="rn">[11]</span><div><b>三个皮匠报告（转载浙商证券）— GB200 NVL72液冷BOM成本拆解</b><br><a href="https://www.sgpjbg.com/labelsyh/yelengxitongbomchengbenchaijie.html">https://www.sgpjbg.com/labelsyh/yelengxitongbomchengbenchaijie.html</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 整柜9.89万美元，四大件占比超90%（注：第三方研报转载站）</div></div>
+
+    <div class="ref"><span class="rn">[12]</span><div><b>三个皮匠报告（转载东方证券）— 2026 AI液冷GB300价值量与四大核心部件</b><br><a href="https://www.sgpjbg.com/labelsyh/2026aiyelengxingyebaogaogb300yelengjiazhiliangfenxiyusidahexinbujianshichangkongjiandongfangzhengquan.html">https://www.sgpjbg.com/labelsyh/2026aiyelengxingyebaogaogb300yelengjiazhiliangfenxiyusidahexinbujianshichangkongjiandongfangzhengquan.html</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · GB300 UQD价值量提升43%，CDU/冷板占比（注：第三方研报转载站）</div></div>
+
+    <div class="ref"><span class="rn">[13]</span><div><b>曙光数创（Sugon DataEnergy）— 官网</b><br><a href="https://dataenergy.sugon.com/">https://dataenergy.sugon.com/</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 冷板C7000+浸没相变C8000，单柜突破750kW，液冷市占率连续第一</div></div>
+
+    <div class="ref"><span class="rn">[14]</span><div><b>Schneider Electric Blog — PFAS phase-out and liquid cooling</b><br><a href="https://blog.se.com/datacenter/2026/05/22/pfas-phase-out-liquid-cooling-us-data-center-operators-must-do/">https://blog.se.com/datacenter/2026/05/22/pfas-phase-out-liquid-cooling-us-data-center-operators-must-do/</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 3M退出PFAS、水基DTC约55%份额、科慕Opteon 2P50</div></div>
+
+    <div class="ref"><span class="rn">[15]</span><div><b>证券之星 — 巨化股份董秘回复（电子氟化液）</b><br><a href="https://stock.stockstar.com/RB2022062000002539.shtml">https://stock.stockstar.com/RB2022062000002539.shtml</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 氢氟醚D系列/全氟聚醚JHT系列产品</div></div>
+
+    <div class="ref"><span class="rn">[16]</span><div><b>巨化股份 — 官方网站</b><br><a href="https://www.juhua.com.cn/">https://www.juhua.com.cn/</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 巨芯冷却液，规划产能5,000吨/年</div></div>
+
+    <div class="ref"><span class="rn">[17]</span><div><b>Stäubli（史陶比尔）— AI数据中心液冷快接头</b><br><a href="https://www.staubli.com/global/zh/news/global/2026/connectors-liquid-cooling-data-centers.html">https://www.staubli.com/global/zh/news/global/2026/connectors-liquid-cooling-data-centers.html</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 2英寸大口径接头、UQD/UQDB、MQD全产品线</div></div>
+
+    <div class="ref"><span class="rn">[18]</span><div><b>CEJN（希恩）— 数据中心快速连接方案</b><br><a href="https://www.cejn.com/zh-cn/applications/data-centers/">https://www.cejn.com/zh-cn/applications/data-centers/</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · OCP UQD/UQDB/BMQC主要贡献者，盲插容差规格</div></div>
+
+    <div class="ref"><span class="rn">[19]</span><div><b>Uptime/Upsite — ASHRAE第五版热指南：液冷章节更新</b><br><a href="https://www.upsite.com/blog/major-changes-to-ashraes-fifth-edition-of-thermal-guidelines-part-3-liquid-cooling-chapter-updates/">https://www.upsite.com/blog/major-changes-to-ashraes-fifth-edition-of-thermal-guidelines-part-3-liquid-cooling-chapter-updates/</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · W类分级、CDU划分FWS/TCS、泵失效约23秒降频</div></div>
+
+    <div class="ref"><span class="rn">[20]</span><div><b>GreenCalculus — ASHRAE TC 9.9 数据中心热指南</b><br><a href="https://www.greencalculus.com/standards/ashrae-tc-9-9-thermal-guidelines/">https://www.greencalculus.com/standards/ashrae-tc-9-9-thermal-guidelines/</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · TC 9.9职责与W类液冷环境分级</div></div>
+
+    <div class="ref"><span class="rn">[21]</span><div><b>链力液冷 — 数据中心液冷CDU深度研究报告</b><br><a href="https://cn.lianliwork.com/news/in-depth-research-report-on-data-center-cdu-technology">https://cn.lianliwork.com/news/in-depth-research-report-on-data-center-cdu-technology</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · CDU三种形态、故障保护逻辑、nVent/Nidec/Rittal产品规格</div></div>
+
+    <div class="ref"><span class="rn">[22]</span><div><b>全国标准信息公共服务平台 — GB40879《数据中心能效限定值及能效等级》修订计划</b><br><a href="https://std.samr.gov.cn/gb/search/gbDetailed?id=347023A132CCADB2E06397BE0A0A691A">https://std.samr.gov.cn/gb/search/gbDetailed?id=347023A132CCADB2E06397BE0A0A691A</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 强制性国标，2025-04下达，替代GB 40879-2021</div></div>
+
+    <div class="ref"><span class="rn">[23]</span><div><b>福建省发改委 — 四部门《关于促进人工智能与能源双向赋能的行动方案》通知（转载）</b><br><a href="http://xxzx.fj.gov.cn/jjxx/zcfg/202605/t20260509_7145960.htm">http://xxzx.fj.gov.cn/jjxx/zcfg/202605/t20260509_7145960.htm</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 国能发科技〔2026〕34号，推广高效冷却、余热回收，PUE纳入节能审查</div></div>
+
+    <div class="ref"><span class="rn">[24]</span><div><b>江西省发改委 — 四部门行动方案（转载）</b><br><a href="https://drc.jiangxi.gov.cn/jxsfzhggwyh/col/col68491/content/content_2057382821569282048.html">https://drc.jiangxi.gov.cn/jxsfzhggwyh/col/col68491/content/content_2057382821569282048.html</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 文件全文，PUE/绿电/余热回收作为节能降碳审查核心内容</div></div>
+
+    <div class="ref"><span class="rn">[25]</span><div><b>中国电力新闻网 — 四部门推动算力设施绿色低碳转型（报道）</b><br><a href="http://mm.chinapower.com.cn/xw/zyxw/20260509/285383.html">http://mm.chinapower.com.cn/xw/zyxw/20260509/285383.html</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 政策发布与解读（补充参考）</div></div>
+
+    <div class="ref"><span class="rn">[26]</span><div><b>GII Research — Data Center Liquid Cooling Market by Component（报告索引）</b><br><a href="https://www.giiresearch.com/report/mama1697823-data-center-liquid-cooling-market-by-component.html">https://www.giiresearch.com/report/mama1697823-data-center-liquid-cooling-market-by-component.html</a><br><span class="ok">✓ 已验证(HTTP 200)</span> · 市场规模预测的独立索引来源（补充参考）</div></div>
+
+    <div class="ref"><span class="rn">[27]</span><div><b>英维克（Envicool）— Coolinside全链条液冷解决方案</b><br><a href="https://www.envicool.com/solutioninfo41.html">https://www.envicool.com/solutioninfo41.html</a><br><span class="bot">△ 反爬拦截（HTTP 403）</span> · 官方页面，内容已被搜索引擎收录；含冷板/UQD/Manifold/CDU/管路/冷源全链条，累计交付超1.2GW</div></div>
+
+    <div class="ref"><span class="rn">[28]</span><div><b>Open Compute Project — Cooling Environments/Cold Plate（UQD规范）</b><br><a href="https://www.opencompute.org/w/index.php?title=Cooling_Environments/Cold_Plate">https://www.opencompute.org/w/index.php?title=Cooling_Environments/Cold_Plate</a><br><span class="bot">△ 反爬拦截（HTTP 403）</span> · OCP官方wiki，UQD/UQDB规范与UQD v2工作流</div></div>
+  </div>
+
+  <div class="card">
+    <h3>补充说明：关于来源性质的诚实声明</h3>
+    <p><b>第一，关于第三方转载：</b>本报告引用的券商研报（浙商、东方、国海、国信等）原文一般不对外公开，正文引用的是<b>第三方研报转载/解读站</b>（三个皮匠报告等）的页面，已在上表标注"第三方研报转载站"性质。研报的核心结论（GB200 BOM拆解、部件占比、UQD用量变化）在多家券商与行业媒体间相互印证，正文以区间与"多机构口径"表述以降低单一口径偏差。</p>
+    <p><b>第二，关于自动检测与人工访问的差异：</b>英维克官网与Open Compute Project官网对自动化请求返回403（属常见反爬策略），但页面均被主流搜索引擎正常收录、内容可正常浏览，非失效链接。建议读者在浏览器中直接访问核对原文。</p>
+    <p><b>第三，关于时效：</b>本报告所有链接与数据均截至2026年8月8日，行业信息持续更新，请以原始出处的最新版本为准。</p>
+  </div>
+
+  <div class="src"><b>校验说明：</b>上述全部链接已于2026年8月8日通过curl（携带浏览器User-Agent）实测核验HTTP状态码，结果如上表所示。</div>
+</section>
+
+</div><!-- /.wrap -->
+<footer>
+  <div class="wrap">
+    <div><b>数据中心热管理系统 方案·零部件·供应链与成本调研报告 · 2026年8月</b></div>
+    <div>本报告基于公开资料交叉检索编制，正文全部外部信息均以[编号]标注来源，文末附经实测核验的真实链接清单。</div>
+    <div class="disclaimer">免责声明：本报告为公开信息整理与技术逻辑梳理，不构成投资建议；第三方数据与研报结论来源与口径已在文中说明，请以原始出处为准。</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var C = {navy:'#0f2e3d', teal:'#0d9488', teal2:'#14b8a6', blue:'#0284c7', amber:'#d97706', red:'#dc2626', green:'#16a34a', muted:'#64748b', grid:'#dbe4e0'};
+  var chartInstances = {};
+  function init(id, option){
+    var el = document.getElementById(id);
+    if(!el) return;
+    if(typeof echarts === 'undefined'){
+      el.innerHTML = '<div style="padding:20px;color:#94a3b8;font-size:13px;">图表加载失败：请联网访问本报告（ECharts CDN未加载）。</div>';
+      return;
+    }
+    var c = echarts.init(el); c.setOption(option); chartInstances[id] = c;
+  }
+  var baseTooltip = {trigger:'axis', backgroundColor:'#fff', borderColor:'#cbd5e1', textStyle:{color:'#1e293b', fontSize:12}, axisPointer:{type:'shadow', shadowStyle:{color:'rgba(20,184,166,0.06)'}}};
+  var grid = {left:10, right:24, top:44, bottom:10, containLabel:true};
+  function axisBase(){ return {
+    grid:grid, tooltip:baseTooltip,
+    legend:{top:6, textStyle:{fontSize:12, color:'#475569'}},
+    xAxis:{axisLine:{lineStyle:{color:C.grid}}, axisLabel:{color:'#64748b', fontSize:11}, axisTick:{show:false}},
+    yAxis:{axisLine:{lineStyle:{color:C.grid}}, axisLabel:{color:'#64748b', fontSize:11}, splitLine:{lineStyle:{color:'#eef2f0'}}}
+  }; }
+
+  // 图1-2 技术路线PUE与功率
+  init('chart_route', Object.assign({}, axisBase(), {
+    title:{text:'五大技术路线：PUE vs 最大单机柜功率', left:'center', top:0, textStyle:{fontSize:13, color:C.navy}},
+    color:[C.teal2, C.navy],
+    xAxis:{type:'category', data:['风冷','冷板式','单相浸没','两相浸没'], axisLabel:{color:'#64748b', fontSize:11}},
+    yAxis:[{type:'value', name:'PUE', nameTextStyle:{color:'#94a3b8'}, min:1.0, max:1.6},
+           {type:'value', name:'最大功率(kW)', nameTextStyle:{color:'#94a3b8'}, splitLine:{show:false}}],
+    series:[
+      {name:'PUE', type:'bar', barWidth:'30%', data:[1.5,1.1,1.06,1.04],
+       itemStyle:{borderRadius:[3,3,0,0], color:function(p){return ['#d97706','#0d9488','#0284c7','#7c3aed'][p.dataIndex];}},
+       label:{show:true, position:'top', color:'#0f2e3d', fontSize:10}},
+      {name:'最大机柜功率(kW)', type:'line', yAxisIndex:1, smooth:true, symbolSize:7, data:[45,100,200,200],
+       lineStyle:{width:3, color:C.navy}, itemStyle:{color:C.navy},
+       label:{show:true, position:'top', color:'#0f2e3d', fontSize:10}}
+    ]
+  }));
+
+  // 图2-1 浙商BOM donut
+  init('chart_bom', {
+    title:{text:'GB200 NVL72液冷BOM构成（浙商口径，合计9.89万美元）', left:'center', top:4, textStyle:{fontSize:12.5, color:C.navy}},
+    tooltip:{trigger:'item', formatter:'{b}: {c}美元 ({d}%)'},
+    legend:{bottom:4, textStyle:{fontSize:11, color:'#475569'}},
+    color:[C.teal, C.blue, C.amber, '#7c3aed', '#94a3b8'],
+    series:[{type:'pie', radius:['40%','68%'], center:['50%','52%'],
+      itemStyle:{borderRadius:5, borderColor:'#fff', borderWidth:2},
+      label:{color:'#334155', fontSize:11, formatter:'{b}\n{d}%'},
+      data:[
+        {value:37800, name:'Compute Tray(冷板)'},
+        {value:30000, name:'CDU'},
+        {value:12000, name:'Manifold'},
+        {value:12000, name:'UQD'},
+        {value:7100, name:'Switch/其他'}
+      ]}]
+  });
+
+  // 图3-1 东方BOM donut
+  init('chart_bom2', {
+    title:{text:'GB200 NVL72液冷BOM构成（东方口径，合计61.89万元）', left:'center', top:4, textStyle:{fontSize:12.5, color:C.navy}},
+    tooltip:{trigger:'item', formatter:'{b}: {c}万元 ({d}%)'},
+    legend:{bottom:4, textStyle:{fontSize:11, color:'#475569'}},
+    color:['#0f766e','#155e75','#d97706','#7c3aed','#94a3b8'],
+    series:[{type:'pie', radius:['40%','68%'], center:['50%','52%'],
+      itemStyle:{borderRadius:5, borderColor:'#fff', borderWidth:2},
+      label:{color:'#334155', fontSize:11, formatter:'{b}\n{d}%'},
+      data:[
+        {value:20.68, name:'液冷板'},
+        {value:21.54, name:'CDU'},
+        {value:8.62, name:'Manifold'},
+        {value:6.79, name:'UQD'},
+        {value:4.26, name:'其他'}
+      ]}]
+  });
+
+  // 图3-2 GB200→GB300 UQD
+  init('chart_gb', Object.assign({}, axisBase(), {
+    title:{text:'GB200→GB300：UQD用量与价值量变化', left:'center', top:0, textStyle:{fontSize:13, color:C.navy}},
+    color:[C.teal2, C.amber],
+    xAxis:{type:'category', data:['GB200 NVL72','GB300(测算)'], axisLabel:{color:'#64748b', fontSize:12}},
+    yAxis:[{type:'value', name:'数量(个)', nameTextStyle:{color:'#94a3b8'}},
+           {type:'value', name:'价值量(美元)', nameTextStyle:{color:'#94a3b8'}, splitLine:{show:false}}],
+    series:[
+      {name:'UQD数量(个)', type:'bar', barWidth:'28%', data:[150,350],
+       itemStyle:{borderRadius:[3,3,0,0]},
+       label:{show:true, position:'top', color:'#0f2e3d', fontSize:11}},
+      {name:'UQD价值量(美元)', type:'bar', yAxisIndex:1, barWidth:'28%', data:[12000,28000],
+       itemStyle:{borderRadius:[3,3,0,0], color:C.amber},
+       label:{show:true, position:'top', color:'#0f2e3d', fontSize:11, formatter:'${c}'}}
+    ]
+  }));
+
+  window.addEventListener('resize', function(){
+    for(var k in chartInstances){ if(chartInstances[k]) chartInstances[k].resize(); }
+  });
+})();
+</script>
+</body>
+</html>

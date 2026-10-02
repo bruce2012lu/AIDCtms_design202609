@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>算力冷却系统总体设计工具 v1.1</title>
+<style>
+:root{--navy:#0b2748;--blue:#1769e0;--teal:#008b7a;--ink:#172235;--muted:#607086;--line:#d7e0ec;--bg:#eef3f8;--soft:#f7f9fc;--warn:#a65b00;--bad:#b42318}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 "Microsoft YaHei","PingFang SC",Arial,sans-serif}.app{max-width:1480px;margin:auto;background:#fff;min-height:100vh;box-shadow:0 6px 28px #102a4c18}
+header{background:linear-gradient(135deg,#081f39,#124f91 68%,#008b7a);color:#fff;padding:28px 34px}header h1{margin:5px 0 4px;font-size:28px}.sub{opacity:.88}.badge{display:inline-block;padding:3px 9px;border:1px solid #ffffff66;border-radius:15px;font-size:12px;margin-right:6px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;padding:12px 24px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fffffff2;z-index:3}button,.filebtn{border:0;border-radius:6px;padding:9px 14px;background:var(--blue);color:#fff;cursor:pointer;font:inherit;font-weight:700}.secondary{background:#e8eef7!important;color:var(--navy)!important}.teal{background:var(--teal)!important}input[type=file]{display:none}
+.layout{display:grid;grid-template-columns:410px 1fr;gap:18px;padding:18px 24px 34px}.panel{border:1px solid var(--line);border-radius:10px;overflow:hidden}.panel>h2{font-size:17px;margin:0;padding:12px 15px;background:var(--navy);color:#fff}.group{padding:12px 14px;border-bottom:1px solid var(--line)}.group h3{font-size:14px;color:var(--blue);margin:0 0 9px}.formgrid{display:grid;grid-template-columns:1fr 115px;gap:7px 10px;align-items:center}
+input,select{width:100%;padding:7px 8px;border:1px solid #bfcbd9;border-radius:5px;background:#fff}.hint{font-size:11px;color:var(--muted);grid-column:1/-1}.cards{display:grid;grid-template-columns:repeat(4,minmax(145px,1fr));gap:10px;margin-bottom:14px}.card{border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:8px;padding:11px;background:var(--soft)}.card:nth-child(even){border-top-color:var(--teal)}.card .v{font-size:22px;font-weight:800;color:var(--navy)}.card .k{font-size:12px;color:var(--muted)}
+section{border:1px solid var(--line);border-radius:9px;margin-bottom:13px;overflow:hidden}section h3{margin:0;padding:10px 13px;background:#eef4fb;color:var(--navy);font-size:15px}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f7f9fc;color:#405269}tr:last-child td{border-bottom:0}.ok{color:var(--teal);font-weight:700}.warn{color:var(--warn);font-weight:700}.bad{color:var(--bad);font-weight:700}.notes{padding:10px 14px}.foot{padding:13px 24px;background:#f5f7fa;color:var(--muted);font-size:12px}
+@media(max-width:1050px){.layout{grid-template-columns:1fr}.toolbar{position:static}.cards{grid-template-columns:repeat(2,1fr)}}@media print{body{background:#fff}.app{box-shadow:none}.toolbar,.inputs{display:none}.layout{display:block;padding:0 18px}.cards{grid-template-columns:repeat(4,1fr)}section{break-inside:avoid}}
+</style></head>
+<body><div class="app">
+<header><div><span class="badge">Concept / FEED</span><span class="badge">D2C 冷板液冷</span><span class="badge">可传递至 CDU 工具</span><span class="badge">v1.1 溯源校核</span></div><h1>算力冷却系统总体设计工具</h1><div class="sub">AI 机柜热负载 → 液冷架构 → CDU / 冷源 / 水力 / 配电 / PUE 方案级设计。GB300 单柜请先选平台预设；10 K 温升仅初算，正式运行服从 OEM 温度—流量表。</div></header>
+<div class="toolbar"><button onclick="calc()">重新计算</button><button class="teal" onclick="exportProject()">导出项目 JSON</button><label class="filebtn secondary">导入项目 JSON<input id="importFile" type="file" accept=".json"></label><button class="secondary" onclick="print()">打印 / PDF</button><button class="secondary" onclick="resetAll()">恢复默认值</button></div>
+<div class="layout">
+<aside class="panel inputs"><h2>设计输入</h2>
+<div class="group"><h3>A. 项目与 IT 负载</h3><div class="formgrid">
+<label>平台预设</label><select id="preset"><option value="generic">通用集群（默认）</option><option value="gb300">GB300 NVL72 单柜 FEED</option></select>
+<label>项目名称</label><input id="project" value="100 柜 AI 智算中心">
+<label>AI 机柜数量（柜）</label><input id="racks" type="number" min="1" value="100">
+<label>机柜铭牌功率（kW/柜）</label><input id="rackPower" type="number" min="1" value="132">
+<label>同时利用系数（%）</label><input id="utilization" type="number" min="1" max="100" value="85">
+<label>容量裕量（%）</label><input id="growth" type="number" min="0" value="15">
+<label>液冷捕获率（%）</label><input id="capture" type="number" min="1" max="100" value="85">
+<label>机房露点（℃）</label><input id="dewpoint" type="number" step=".1" value="18">
+<div class="hint" id="loadHint">通用默认 132 kW 取自部分 OEM 运行窗下限，不是 GB300 保证点。GB300 公开口径：NVIDIA RA 最高 142 kW；Lenovo 135 kW TDP / 155 kW 峰值；液/气约 90/10。10 K 温升不得替代 OEM 流量表。</div></div></div>
+<div class="group"><h3>B. TCS 二次侧</h3><div class="formgrid">
+<label>工质</label><select id="fluid"><option value="water">去离子水</option><option value="pg25">25% 丙二醇</option><option value="eg30">30% 乙二醇</option></select>
+<label>供液温度（℃）</label><input id="ts2" type="number" value="32"><label>回液温度（℃）</label><input id="tr2" type="number" value="42">
+<label>主管目标流速（m/s）</label><input id="velocity" type="number" step=".1" value="1.8"><label>最不利回路压降（kPa）</label><input id="dp2" type="number" value="180"></div></div>
+<div class="group"><h3>C. CDU 配置</h3><div class="formgrid">
+<label>单台额定容量（kW）</label><input id="cduUnit" type="number" value="450"><label>CDU 可用系数（%）</label><input id="derate" type="number" value="90">
+<label>整机冗余</label><select id="redundancy"><option value="n1">N+1</option><option value="n">N</option><option value="2n">2N</option></select>
+<label>单机泵冗余</label><select id="pumpConfig"><option>2×100%（1用1备）</option><option>3×50%（2用1备）</option></select></div></div>
+<div class="group"><h3>D. FWS 与室外冷源</h3><div class="formgrid">
+<label>FWS 供水（℃）</label><input id="ts1" type="number" value="27"><label>FWS 回水（℃）</label><input id="tr1" type="number" value="37">
+<label>板换接近温差（K）</label><input id="approach" type="number" value="5">
+<label>冷源形式</label><select id="source"><option value="dry">干冷器/蒸发辅助</option><option value="chiller">冷水机组</option><option value="tower">闭式冷却塔</option></select>
+<label>室外设计干球（℃）</label><input id="ambient" type="number" value="35"><label>室外设备可用系数（%）</label><input id="sourceDerate" type="number" value="85"></div></div>
+<div class="group"><h3>E. 能效与配电</h3><div class="formgrid">
+<label>泵综合效率（%）</label><input id="pumpEff" type="number" value="68"><label>残余风冷 COP</label><input id="airCop" type="number" step=".1" value="4.2">
+<label>其他 PUE 损耗（% IT）</label><input id="overhead" type="number" value="6"><label>配电裕量（%）</label><input id="electricMargin" type="number" value="15"></div></div>
+</aside>
+<main>
+<div class="cards"><div class="card"><div class="v" id="kIt">—</div><div class="k">设计 IT 负载</div></div><div class="card"><div class="v" id="kLiquid">—</div><div class="k">液冷负荷</div></div><div class="card"><div class="v" id="kFlow">—</div><div class="k">TCS 总流量</div></div><div class="card"><div class="v" id="kPue">—</div><div class="k">方案级 PUE</div></div></div>
+<section><h3>1. 负荷与总体架构</h3><table><tbody id="loadRows"></tbody></table></section>
+<section><h3>2. CDU 配置</h3><table><thead><tr><th>项目</th><th>计算/建议值</th><th>说明</th></tr></thead><tbody id="cduRows"></tbody></table></section>
+<section><h3>3. 水力系统</h3><table><thead><tr><th>回路</th><th>流量</th><th>主管初选</th><th>泵参数</th></tr></thead><tbody id="hydRows"></tbody></table></section>
+<section><h3>4. 关键设备总体参数及规格</h3><table><thead><tr><th>设备</th><th>数量</th><th>最低规格</th><th>接口/冗余</th></tr></thead><tbody id="bomRows"></tbody></table></section>
+<section><h3>5. 电力与能效</h3><table><tbody id="energyRows"></tbody></table></section>
+<section><h3>6. 校核与风险提示</h3><div class="notes"><ul id="warnings"></ul></div></section>
+</main></div>
+<div class="foot">用于概念设计、方案比选和 FEED 初筛；不能替代逐支路水力平衡、CFD、瞬态分析、厂家选型、结构/电气施工图及认证试验。v1.1 · 2026-08-21。数据来源：NVIDIA NVL72 AI Factory（142 kW）、Lenovo LP2357（135/155 kW、Table 27）、Schneider RD110（FAT-B 40/50↔37/47、N+1、5 min）、ASHRAE TC 9.9 W 类与 TCS/FWS 水质分表。无法核实项不得当作保证值。</div>
+</div>
+<script>
+const $=id=>document.getElementById(id),ids=["project","racks","rackPower","utilization","growth","capture","dewpoint","fluid","ts2","tr2","velocity","dp2","cduUnit","derate","redundancy","pumpConfig","ts1","tr1","approach","source","ambient","sourceDerate","pumpEff","airCop","overhead","electricMargin"],defaults={};
+ids.forEach(id=>defaults[id]=$(id).value);defaults.preset="generic";
+const props={water:{name:"去离子水",rho:995,cp:4.18},pg25:{name:"25%丙二醇",rho:1025,cp:3.78},eg30:{name:"30%乙二醇",rho:1040,cp:3.72}};
+const oemFlow=[{t:25,lpm:59,psi:2.3},{t:30,lpm:71,psi:3.2},{t:35,lpm:89,psi:4.9},{t:40,lpm:119,psi:8.5},{t:45,lpm:177,psi:18.4}];
+const n=id=>Number($(id).value)||0,fmt=(v,d=1)=>Number(v).toLocaleString("zh-CN",{maximumFractionDigits:d,minimumFractionDigits:d});
+const qv=(q,dt,f)=>q*3600/(f.rho*f.cp*dt),dia=(q,v)=>Math.sqrt(4*q/3600/Math.PI/v)*1000,dn=d=>[15,20,25,32,40,50,65,80,100,125,150,200,250,300,350,400,450,500,600,700,800].find(x=>x>=d)||Math.ceil(d/100)*100;
+const row=(a,b,c="")=>`<tr><td>${a}</td><td><strong>${b}</strong></td><td>${c}</td></tr>`;
+function nearestOem(t){return oemFlow.reduce((a,b)=>Math.abs(b.t-t)<Math.abs(a.t-t)?b:a)}
+function applyPreset(){
+ const p=$("preset").value;
+ if(p==="gb300"){
+  $("project").value="GB300 NVL72 单柜 FEED";$("racks").value=1;$("rackPower").value=155;$("utilization").value=100;$("growth").value=0;$("capture").value=90;
+  $("ts2").value=32;$("tr2").value=42;$("ts1").value=27;$("tr1").value=37;$("approach").value=5;$("cduUnit").value=200;$("derate").value=90;$("redundancy").value="n1";
+  $("dp2").value=180;$("dewpoint").value=18;$("source").value="tower";
+  $("loadHint").textContent="GB300 预设：峰值包络 155 kW（Lenovo EDP）、捕获率 90%、2×200 kW 级 CDU（N+1）。NVIDIA RA 公开参考 142 kW；FAT-A 为 32/42↔27/37℃。机柜正式流量必须按 OEM 表，禁止用本工具 10 K 反推值替代。";
+ }else{
+  ["project","racks","rackPower","utilization","growth","capture","cduUnit","dewpoint","source"].forEach(id=>$(id).value=defaults[id]);
+  $("loadHint").textContent="通用默认 132 kW 取自部分 OEM 运行窗下限，不是 GB300 保证点。GB300 公开口径：NVIDIA RA 最高 142 kW；Lenovo 135 kW TDP / 155 kW 峰值；液/气约 90/10。10 K 温升不得替代 OEM 流量表。";
+ }
+ calc();
+}
+function calc(){
+ const f=props[$("fluid").value],connected=n("racks")*n("rackPower"),operating=connected*n("utilization")/100,it=operating*(1+n("growth")/100),liq=it*n("capture")/100,air=it-liq;
+ const dt2=n("tr2")-n("ts2"),dt1=n("tr1")-n("ts1"),flow2=qv(liq,Math.max(.1,dt2),f),flow1=qv(liq,Math.max(.1,dt1),props.water);
+ const useful=n("cduUnit")*n("derate")/100,work=Math.max(1,Math.ceil(liq/Math.max(1,useful))),installed=$("redundancy").value==="2n"?work*2:$("redundancy").value==="n1"?work+1:work;
+ const d2=dia(flow2,n("velocity")),d1=dia(flow1,2),dn2=dn(d2),dn1=dn(d1),head=n("dp2")*1000/f.rho/9.80665,pump2=flow2/3600*n("dp2")*1000/(n("pumpEff")/100)/1000;
+ const dp1=Math.max(120,n("dp2")*.75),head1=dp1*1000/995/9.80665,pump1=flow1/3600*dp1*1000/(n("pumpEff")/100)/1000;
+ const src={dry:"干冷器/蒸发辅助",chiller:"冷水机组",tower:"闭式冷却塔"}[$("source").value],srcCap=liq/(n("sourceDerate")/100),airPower=air/Math.max(1,n("airCop")),srcPower=$("source").value==="chiller"?liq/5.5:liq*.018,aux=pump2+pump1+airPower+srcPower,pue=1+aux/Math.max(1,it)+n("overhead")/100,facility=(it+aux)*(1+n("electricMargin")/100);
+ const oem=nearestOem(n("ts2")),oemM3h=oem.lpm*0.06,gb300=$("preset").value==="gb300"||/GB300/i.test($("project").value);
+ $("kIt").textContent=fmt(it/1000,2)+" MW";$("kLiquid").textContent=fmt(liq/1000,2)+" MW";$("kFlow").textContent=fmt(flow2,0)+" m³/h";$("kPue").textContent=fmt(pue,3);
+ $("loadRows").innerHTML=row("IT 铭牌连接负荷",fmt(connected/1000,2)+" MW","柜数 × 单柜功率")+row("设计 IT 负荷",fmt(it/1000,2)+" MW","计同时系数与容量裕量")+row("液冷 / 空气侧负荷",`${fmt(liq/1000,2)} / ${fmt(air/1000,2)} MW`,`捕获率 ${fmt(n("capture"),0)}%`)+row("总体架构",`FWS → ${installed} 台 CDU → ${n("racks")} 柜 D2C`,`约 ${Math.max(1,Math.floor(useful/(n("rackPower")*n("utilization")/100*n("capture")/100)))} 柜/工作 CDU`)+(gb300?row("OEM 水力对照（Lenovo Table 27）",`${oem.t}℃ → ${oem.lpm} L/min（${fmt(oemM3h,2)} m³/h），压降 ${oem.psi} psi`,"仅对照；10 K 热平衡流量不得替代此表。来源 LP2357，2026-08-21，置信度高"):"");
+ $("cduRows").innerHTML=row("工作 / 安装数量",`${work} / ${installed} 台`,$("redundancy").options[$("redundancy").selectedIndex].text)+row("单台额定/有效容量",`${fmt(n("cduUnit"),0)} / ${fmt(useful,0)} kW`,`可用系数 ${fmt(n("derate"),0)}%`)+row("单台额定 TCS 流量",fmt(qv(n("cduUnit"),Math.max(.1,dt2),f),1)+" m³/h",$("pumpConfig").value)+row("控制与通信","PLC+HMI；Modbus TCP、SNMP v3、MQTT","高等级项目增加双 PLC、OPC UA、Redfish");
+ $("hydRows").innerHTML=`<tr><td>TCS</td><td>${fmt(flow2,1)} m³/h</td><td>计算 ${fmt(d2,0)} mm；<strong>DN${dn2}</strong></td><td>${fmt(head,1)} mH₂O；总轴功率 ${fmt(pump2,1)} kW</td></tr><tr><td>FWS</td><td>${fmt(flow1,1)} m³/h</td><td>计算 ${fmt(d1,0)} mm；<strong>DN${dn1}</strong></td><td>${fmt(head1,1)} mH₂O；总轴功率 ${fmt(pump1,1)} kW</td></tr>`;
+ $("bomRows").innerHTML=`<tr><td>CDU</td><td>${installed}</td><td>${fmt(n("cduUnit"),0)} kW/台；${fmt(qv(n("cduUnit"),Math.max(.1,dt2),f),1)} m³/h；温控 ±0.5℃</td><td>${$("pumpConfig").value}；整机 ${$("redundancy").options[$("redundancy").selectedIndex].text}</td></tr><tr><td>${src}</td><td>模块化</td><td>总名义散热量 ≥${fmt(srcCap/1000,2)} MW</td><td>室外 ${fmt(n("ambient"),0)}℃，已计折减</td></tr><tr><td>空气侧末端</td><td>N+1</td><td>显冷量 ≥${fmt(air/1000,2)} MW</td><td>处理未捕获热量</td></tr><tr><td>TCS/FWS 主管</td><td>各1套</td><td>DN${dn2} / DN${dn1}</td><td>不锈钢；排气、排液、在线过滤</td></tr><tr><td>水质/补液</td><td>1套/回路</td><td>TCS 建议 25 μm（严于行业 &lt;50 μm）；电导率/pH/颗粒监测</td><td>TCS/FWS 分表；OEM 优先于 ASHRAE 2014</td></tr><tr><td>漏液检测</td><td>全路径</td><td>Tray/Rack + CDU 点式/线式</td><td>NVIDIA RA 要求机柜级漏检；联动关阀及 BMS/DCIM</td></tr>`;
+ $("energyRows").innerHTML=row("冷却辅助功率",fmt(aux,0)+" kW","含泵、残余风冷与冷源")+row("估算 PUE",fmt(pue,3),"不替代全年逐时仿真。RD110 参考年化 1.09/1.16 不可直接套用")+row("设施配电容量",fmt(facility/1000,2)+" MW","IT+冷却辅助并计裕量")+row("可回收热量",fmt(liq/1000,2)+" MWth",`TCS 回液 ${fmt(n("tr2"),1)}℃`)+row("WUE","项目实测补水 / IT 电能","FEED 不编造 WUE；开式塔/绝热喷淋须单独计量");
+ const w=[];if(dt2<=0||dt1<=0)w.push(["bad","供回液温差必须为正。"]);if(n("ts1")+n("approach")>n("ts2"))w.push(["bad","FWS 供水温度 + 板换接近温差高于 TCS 供液温度，温度链不成立。"]);else w.push(["ok","板换温度链满足当前接近温差。"]);if($("source").value==="dry"&&n("ambient")>=n("ts1"))w.push(["warn","当前室外干球下纯干冷无法直接获得该 FWS 供水温度，需蒸发辅助、提高水温或机械制冷。"]);w.push([pue<=1.25?"ok":"warn",`估算 PUE ${fmt(pue,3)}${pue<=1.25?"通过":"高于"} 1.25 初筛线。`]);if(dn2>=500)w.push(["warn","总管径较大，建议拆分 2–4 个独立 Pod。"]);
+ const dewM=n("ts2")-n("dewpoint");if(dewM<2)w.push(["bad",`TCS 供液仅高于露点 ${fmt(dewM,1)} K，冷凝风险不可接受（要求 ≥2 K，建议 ≥3 K）。`]);else if(dewM<3)w.push(["warn",`露点裕量 ${fmt(dewM,1)} K，低于建议 3 K。`]);else w.push(["ok",`露点裕量 ${fmt(dewM,1)} K。`]);
+ if(gb300){if(n("rackPower")<132||n("rackPower")>155)w.push(["warn","GB300 公开运行/峰值窗约 132–155 kW，当前铭牌超出，请核对口径（TDP/EDP/RA）。"]);if(n("capture")<88)w.push(["warn","GB300 OEM 公开约 90% 液冷；捕获率偏低时不得取消 CRAH，也不得与 72/28 集群口径混用。"]);if(n("racks")===1&&Math.abs(flow2-oemM3h)/Math.max(oemM3h,.1)>0.25)w.push(["warn",`10 K 热平衡流量 ${fmt(flow2,2)} m³/h 与 OEM 表 ${oem.t}℃ / ${fmt(oemM3h,2)} m³/h 偏差超过 25%，正式运行必须以 OEM 表为准。`]);if(n("cduUnit")<150)w.push(["bad","GB300 液冷选型负荷约 150 kW，单台 CDU 额定偏低。"]);w.push(["ok","已对照 Lenovo Table 27。FAT-A/B 是 CDU 平台点，不是机柜固定运行点。"]);}
+ w.push(["warn","主管 DN 为速度法初选，施工设计须按实际管长及局部阻力复算。"]);
+ w.push(["warn","TCS 与 FWS 水质必须分表；不得把冷板 DI 指标强加给园区一次水。"]);
+ $("warnings").innerHTML=w.map(x=>`<li class="${x[0]}">${x[1]}</li>`).join("");
+ window.last={schema:"aidctms-overall-v1",createdAt:new Date().toISOString(),inputs:Object.fromEntries(ids.map(id=>[id,$(id).value]).concat([["preset",$("preset").value]])),results:{project:$("project").value,designItKw:it,liquidLoadKw:liq,airLoadKw:air,tcsFlowM3h:flow2,fwsFlowM3h:flow1,tcsDn:dn2,fwsDn:dn1,cduUnitKw:n("cduUnit"),cduDutyCount:work,cduInstalledCount:installed,tcsSupplyC:n("ts2"),tcsReturnC:n("tr2"),fwsSupplyC:n("ts1"),fwsReturnC:n("tr1"),tcsDpKpa:n("dp2"),fluid:$("fluid").value,pue,oemRefC:oem.t,oemRefLpm:oem.lpm}};
+}
+function exportProject(){calc();const b=new Blob([JSON.stringify(window.last,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=($("project").value||"总体设计").replace(/[\\/:*?"<>|]/g,"_")+"_overall.json";a.click();URL.revokeObjectURL(a.href)}
+$("importFile").addEventListener("change",e=>{const f=e.target.files[0];if(!f)return,r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(d.schema!=="aidctms-overall-v1")throw Error("文件类型不匹配");Object.entries(d.inputs||{}).forEach(([k,v])=>{if($(k))$(k).value=v});calc()}catch(x){alert("导入失败："+x.message)}};r.readAsText(f);e.target.value=""});
+function resetAll(){ids.forEach(id=>$(id).value=defaults[id]);$("preset").value=defaults.preset;applyPreset()}
+$("preset").addEventListener("change",applyPreset);
+ids.forEach(id=>$(id).addEventListener("input",calc));calc();
+</script></body></html>
